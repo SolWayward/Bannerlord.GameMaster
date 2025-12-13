@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Beta_Debug" />
+    <BuildType Name="Beta_Release" />
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <BuildType Name="Stable_Debug" />
+    <BuildType Name="Stable_Release" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="Bannerlord.GameMaster/Bannerlord.GameMaster.csproj">
+    <Platform Project="x64" />
+  </Project>
+</Solution>

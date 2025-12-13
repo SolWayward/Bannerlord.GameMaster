@@ -1,0 +1,23 @@
+{
+  "profiles": {
+    "Bannerlord": {
+      "commandName": "Executable",
+      "executablePath": "$(BANNERLORD_GAME_DIR)\\bin\\$(GameBinariesFolder)\\Bannerlord.exe",
+      "commandLineArgs": "/singleplayer /continuegame /skipStartupVideos _MODULES_*Bannerlord.Harmony*Bannerlord.ButterLib*Bannerlord.UIExtenderEx*Bannerlord.MBOptionScreen*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*NavalDLC*$(ModuleId)*_MODULES_",
+      "workingDirectory": "$(BANNERLORD_GAME_DIR)\\bin\\Win64_Shipping_Client",
+      "nativeDebugging": false
+    },
+    "BLSE Bannerlord": {
+      "commandName": "Executable",
+      "executablePath": "$(GameFolder)\\bin\\$(GameBinariesFolder)\\Bannerlord.BLSE.Standalone.exe",
+      "commandLineArgs": "/disableautogenexceptions /singleplayer /continuegame /skipStartupVideos _MODULES_*Bannerlord.Harmony*Bannerlord.ButterLib*Bannerlord.UIExtenderEx*Bannerlord.MBOptionScreen*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*$(ModuleId)*_MODULES_",
+      "workingDirectory": "$(GameFolder)\\bin\\$(GameBinariesFolder)"
+    },
+    "BLSE Bannerlord With Crash Reporter": {
+      "commandName": "Executable",
+      "executablePath": "$(GameFolder)\\bin\\$(GameBinariesFolder)\\Bannerlord.BLSE.Standalone.exe",
+      "commandLineArgs": "/enablecrashhandlerwhendebuggerisattached /singleplayer /continuegame /skipStartupVideos _MODULES_*Bannerlord.Harmony*Bannerlord.ButterLib*Bannerlord.UIExtenderEx*Bannerlord.MBOptionScreen*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*$(ModuleId)*_MODULES_",
+      "workingDirectory": "$(GameFolder)\\bin\\$(GameBinariesFolder)"
+    }
+  }
+}
