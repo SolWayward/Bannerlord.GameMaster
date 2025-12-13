@@ -1,4 +1,4 @@
-﻿using Bannerlord.GameMaster.Clans;
+﻿using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Heroes;
 using System;
 using System.Collections.Generic;
@@ -15,64 +15,6 @@ namespace Bannerlord.GameMaster.Console
     [CommandLineFunctionality.CommandLineArgumentFunction("hero", "gm")]
     public static class HeroManagementCommands
     {
-        #region Helper Methods
-
-        /// <summary>
-        /// Helper method to find a single hero from a query
-        /// </summary>
-        private static (Hero hero, string error) FindSingleHero(string query)
-        {
-            List<Hero> matchedHeroes = HeroFinder.GetHeroes(query);
-
-            if (matchedHeroes == null || matchedHeroes.IsEmpty())
-                return (null, $"Error: No hero matching query '{query}' found.\n");
-
-            if (matchedHeroes.Count > 1)
-            {
-                return (null, $"Error: Found {matchedHeroes.Count} heroes matching query '{query}':\n" +
-                             $"{HeroFinder.GetFormattedDetails(matchedHeroes)}" +
-                             $"Please use a more specific name or ID.\n");
-            }
-
-            return (matchedHeroes[0], null);
-        }
-
-        /// <summary>
-        /// Helper method to find a single clan from a query
-        /// </summary>
-        private static (Clan clan, string error) FindSingleClan(string query)
-        {
-            List<Clan> matchedClans = ClanFinder.GetAllClans(query);
-
-            if (matchedClans == null || matchedClans.IsEmpty())
-                return (null, $"Error: No clan matching query '{query}' found.\n");
-
-            if (matchedClans.Count > 1)
-            {
-                return (null, $"Error: Found {matchedClans.Count} clans matching query '{query}':\n" +
-                             $"{ClanFinder.GetFormattedDetails(matchedClans)}" +
-                             $"Please use a more specific name or ID.\n");
-            }
-
-            return (matchedClans[0], null);
-        }
-
-        /// <summary>
-        /// Validates campaign mode
-        /// </summary>
-        private static bool ValidateCampaignMode(out string error)
-        {
-            if (Campaign.Current == null)
-            {
-                error = "Error: Must be in campaign mode.\n";
-                return false;
-            }
-            error = null;
-            return true;
-        }
-
-        #endregion
-
         #region Clan Management
 
         /// <summary>
@@ -82,41 +24,32 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("set_clan", "gm.hero")]
         public static string SetClan(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.hero.set_clan <hero> <clan>\n" +
-                       "Transfers a hero to another clan.\n" +
-                       "Example: gm.hero.set_clan lord_1_1 clan_empire_south_1\n" +
-                       "You can use partial names or IDs for both hero and clan.\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.set_clan", "<hero> <clan>",
+                "Transfers a hero to another clan.",
+                "gm.hero.set_clan lord_1_1 clan_empire_south_1");
 
-            string heroQuery = args[0];
-            string clanQuery = args[1];
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
 
-            // Find the hero
-            var (hero, heroError) = FindSingleHero(heroQuery);
+            var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
             if (heroError != null) return heroError;
 
-            // Find the target clan
-            var (clan, clanError) = FindSingleClan(clanQuery);
+            var (clan, clanError) = CommandBase.FindSingleClan(args[1]);
             if (clanError != null) return clanError;
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 string previousClanName = hero.Clan?.Name?.ToString() ?? "No Clan";
                 hero.Clan = clan;
 
-                return $"Success: {hero.Name} (ID: {hero.StringId}) transferred from '{previousClanName}' to '{clan.Name}'.\n" +
-                       $"Updated details: {hero.FormattedDetails()}\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to transfer hero.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"{hero.Name} (ID: {hero.StringId}) transferred from '{previousClanName}' to '{clan.Name}'.\n" +
+                    $"Updated details: {hero.FormattedDetails()}");
+            }, "Failed to transfer hero");
         }
 
         /// <summary>
@@ -126,34 +59,31 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("remove_clan", "gm.hero")]
         public static string RemoveClan(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 1)
-            {
-                return "Error: Missing argument.\n" +
-                       "Usage: gm.hero.remove_clan <hero>\n" +
-                       "Removes a hero from their current clan.\n" +
-                       "Example: gm.hero.remove_clan lord_1_1\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.remove_clan", "<hero>",
+                "Removes a hero from their current clan.",
+                "gm.hero.remove_clan lord_1_1");
 
-            var (hero, heroError) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                return error;
+
+            var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
             if (heroError != null) return heroError;
 
             if (hero.Clan == null)
-                return $"Error: {hero.Name} is not a member of any clan.\n";
+                return CommandBase.FormatErrorMessage($"{hero.Name} is not a member of any clan.");
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
-                string previousClanName = hero.Clan.Name.ToString();
-                hero.Clan = null;
+          string previousClanName = hero.Clan.Name.ToString();
+        hero.Clan = null;
 
-                return $"Success: {hero.Name} (ID: {hero.StringId}) removed from clan '{previousClanName}'.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to remove hero from clan.\n{ex.Message}\n";
-            }
+            return CommandBase.FormatSuccessMessage(
+      $"{hero.Name} (ID: {hero.StringId}) removed from clan '{previousClanName}'.");
+            }, "Failed to remove hero from clan");
         }
 
         #endregion
@@ -167,35 +97,35 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("kill", "gm.hero")]
         public static string KillHero(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 1)
-            {
-                return "Error: Missing argument.\n" +
-                       "Usage: gm.hero.kill <hero> [show_death_log]\n" +
-                       "Kills the specified hero.\n" +
-                       "Example: gm.hero.kill lord_1_1\n" +
-                       "Example: gm.hero.kill lord_1_1 true (shows death log)\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.kill", "<hero> [show_death_log]",
+                "Kills the specified hero.",
+                "gm.hero.kill lord_1_1 true (shows death log)");
 
-            var (hero, heroError) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                return error;
+
+            var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
             if (heroError != null) return heroError;
 
             if (!hero.IsAlive)
-                return $"Error: {hero.Name} is already dead.\n";
+                return CommandBase.FormatErrorMessage($"{hero.Name} is already dead.");
 
-            bool showDeathLog = args.Count > 1 && bool.TryParse(args[1], out bool show) && show;
+            bool showDeathLog = false;
+            if (args.Count > 1)
+            {
+                if (!CommandValidator.ValidateBoolean(args[1], out showDeathLog, out string boolError))
+                    return CommandBase.FormatErrorMessage(boolError);
+            }
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 KillCharacterAction.ApplyByMurder(hero, null, showDeathLog);
-                return $"Success: {hero.Name} (ID: {hero.StringId}) has been killed.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to kill hero.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{hero.Name} (ID: {hero.StringId}) has been killed.");
+            }, "Failed to kill hero");
         }
 
         /// <summary>
@@ -205,27 +135,27 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("imprison", "gm.hero")]
         public static string ImprisonHero(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.hero.imprison <prisoner> <captor>\n" +
-                       "Imprisons a hero by another hero/party.\n" +
-                       "Example: gm.hero.imprison lord_1_1 lord_2_1\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.imprison", "<prisoner> <captor>",
+                "Imprisons a hero by another hero/party.",
+                "gm.hero.imprison lord_1_1 lord_2_1");
 
-            var (prisoner, prisonerError) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (prisoner, prisonerError) = CommandBase.FindSingleHero(args[0]);
             if (prisonerError != null) return prisonerError;
 
-            var (captor, captorError) = FindSingleHero(args[1]);
+            var (captor, captorError) = CommandBase.FindSingleHero(args[1]);
             if (captorError != null) return captorError;
 
             if (prisoner.IsPrisoner)
-                return $"Error: {prisoner.Name} is already a prisoner.\n";
+                return CommandBase.FormatErrorMessage($"{prisoner.Name} is already a prisoner.");
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 // Get the captor's party base
                 PartyBase captorParty = captor.PartyBelongedTo?.Party
@@ -233,15 +163,11 @@ namespace Bannerlord.GameMaster.Console
                                         ?? Settlement.FindFirst(s => s.OwnerClan == captor.Clan)?.Party;
 
                 if (captorParty == null)
-                    return $"Error: {captor.Name} has no valid party or settlement to hold prisoners.\n";
+                    return CommandBase.FormatErrorMessage($"{captor.Name} has no valid party or settlement to hold prisoners.");
 
                 TakePrisonerAction.Apply(captorParty, prisoner);
-                return $"Success: {prisoner.Name} (ID: {prisoner.StringId}) is now imprisoned by {captor.Name}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to imprison hero.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{prisoner.Name} (ID: {prisoner.StringId}) is now imprisoned by {captor.Name}.");
+            }, "Failed to imprison hero");
         }
 
         /// <summary>
@@ -251,32 +177,28 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("release", "gm.hero")]
         public static string ReleaseHero(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 1)
-            {
-                return "Error: Missing argument.\n" +
-                       "Usage: gm.hero.release <hero>\n" +
-                       "Releases a hero from prison.\n" +
-                       "Example: gm.hero.release lord_1_1\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.release", "<hero>",
+                "Releases a hero from prison.",
+                "gm.hero.release lord_1_1");
 
-            var (hero, heroError) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                return error;
+
+            var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
             if (heroError != null) return heroError;
 
             if (!hero.IsPrisoner)
-                return $"Error: {hero.Name} is not a prisoner.\n";
+                return CommandBase.FormatErrorMessage($"{hero.Name} is not a prisoner.");
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 EndCaptivityAction.ApplyByReleasedAfterBattle(hero);
-                return $"Success: {hero.Name} (ID: {hero.StringId}) has been released from captivity.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to release hero.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{hero.Name} (ID: {hero.StringId}) has been released from captivity.");
+            }, "Failed to release hero");
         }
 
         #endregion
@@ -290,33 +212,29 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("set_age", "gm.hero")]
         public static string SetAge(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.hero.set_age <hero> <age>\n" +
-                       "Sets the hero's age.\n" +
-                       "Example: gm.hero.set_age lord_1_1 30\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.set_age", "<hero> <age>",
+                "Sets the hero's age.",
+                "gm.hero.set_age lord_1_1 30");
 
-            var (hero, heroError) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
             if (heroError != null) return heroError;
 
-            if (!float.TryParse(args[1], out float age) || age < 0 || age > 128)
-                return "Error: Invalid age. Must be between 0 and 128.\n";
+            if (!CommandValidator.ValidateFloatRange(args[1], 0, 128, out float age, out string ageError))
+                return CommandBase.FormatErrorMessage(ageError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 float previousAge = hero.Age;
                 hero.SetBirthDay(CampaignTime.YearsFromNow(-age));
-                return $"Success: {hero.Name}'s age changed from {previousAge:F0} to {hero.Age:F0}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to set age.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{hero.Name}'s age changed from {previousAge:F0} to {hero.Age:F0}.");
+            }, "Failed to set age");
         }
 
         /// <summary>
@@ -326,33 +244,29 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("set_gold", "gm.hero")]
         public static string SetGold(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.hero.set_gold <hero> <amount>\n" +
-                       "Sets the hero's gold amount.\n" +
-                       "Example: gm.hero.set_gold lord_1_1 10000\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.set_gold", "<hero> <amount>",
+                "Sets the hero's gold amount.",
+                "gm.hero.set_gold lord_1_1 10000");
 
-            var (hero, heroError) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
             if (heroError != null) return heroError;
 
-            if (!int.TryParse(args[1], out int amount))
-                return "Error: Invalid gold amount. Must be a number.\n";
+            if (!CommandValidator.ValidateIntegerRange(args[1], int.MinValue, int.MaxValue, out int amount, out string goldError))
+                return CommandBase.FormatErrorMessage(goldError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 int previousGold = hero.Gold;
                 hero.ChangeHeroGold(amount - previousGold);
-                return $"Success: {hero.Name}'s gold changed from {previousGold} to {hero.Gold}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to set gold.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{hero.Name}'s gold changed from {previousGold} to {hero.Gold}.");
+            }, "Failed to set gold");
         }
 
         /// <summary>
@@ -362,33 +276,30 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("add_gold", "gm.hero")]
         public static string AddGold(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.hero.add_gold <hero> <amount>\n" +
-                       "Adds gold to the hero (use negative to subtract).\n" +
-                       "Example: gm.hero.add_gold lord_1_1 5000\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.add_gold", "<hero> <amount>",
+                "Adds gold to the hero (use negative to subtract).",
+                "gm.hero.add_gold lord_1_1 5000");
 
-            var (hero, heroError) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
             if (heroError != null) return heroError;
 
-            if (!int.TryParse(args[1], out int amount))
-                return "Error: Invalid gold amount. Must be a number.\n";
+            if (!CommandValidator.ValidateIntegerRange(args[1], int.MinValue, int.MaxValue, out int amount, out string goldError))
+                return CommandBase.FormatErrorMessage(goldError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 int previousGold = hero.Gold;
                 hero.ChangeHeroGold(amount);
-                return $"Success: {hero.Name}'s gold changed from {previousGold} to {hero.Gold} ({(amount >= 0 ? "+" : "")}{amount}).\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to add gold.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"{hero.Name}'s gold changed from {previousGold} to {hero.Gold} ({(amount >= 0 ? "+" : "")}{amount}).");
+            }, "Failed to add gold");
         }
 
         /// <summary>
@@ -398,32 +309,29 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("heal", "gm.hero")]
         public static string HealHero(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 1)
-            {
-                return "Error: Missing argument.\n" +
-                       "Usage: gm.hero.heal <hero>\n" +
-                       "Heals a hero to full health.\n" +
-                       "Example: gm.hero.heal lord_1_1\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.heal", "<hero>",
+                "Heals a hero to full health.",
+                "gm.hero.heal lord_1_1");
 
-            var (hero, heroError) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                return error;
+
+            var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
             if (heroError != null) return heroError;
 
             if (!hero.IsAlive)
-                return $"Error: Cannot heal {hero.Name} - hero is dead.\n";
+                return CommandBase.FormatErrorMessage($"Cannot heal {hero.Name} - hero is dead.");
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 hero.HitPoints = hero.CharacterObject.MaxHitPoints();
-                return $"Success: {hero.Name} has been healed to full health ({hero.HitPoints}/{hero.CharacterObject.MaxHitPoints()}).\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to heal hero.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"{hero.Name} has been healed to full health ({hero.HitPoints}/{hero.CharacterObject.MaxHitPoints()}).");
+            }, "Failed to heal hero");
         }
 
         #endregion
@@ -437,38 +345,35 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("set_relation", "gm.hero")]
         public static string SetRelation(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 3)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.hero.set_relation <hero1> <hero2> <value>\n" +
-                       "Sets the relationship value between two heroes (-100 to 100).\n" +
-                       "Example: gm.hero.set_relation lord_1_1 lord_2_1 50\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.set_relation", "<hero1> <hero2> <value>",
+                "Sets the relationship value between two heroes (-100 to 100).",
+                "gm.hero.set_relation lord_1_1 lord_2_1 50");
 
-            var (hero1, hero1Error) = FindSingleHero(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 3, usageMessage, out error))
+                return error;
+
+            var (hero1, hero1Error) = CommandBase.FindSingleHero(args[0]);
             if (hero1Error != null) return hero1Error;
 
-            var (hero2, hero2Error) = FindSingleHero(args[1]);
+            var (hero2, hero2Error) = CommandBase.FindSingleHero(args[1]);
             if (hero2Error != null) return hero2Error;
 
-            if (!int.TryParse(args[2], out int value) || value < -100 || value > 100)
-                return "Error: Invalid relation value. Must be between -100 and 100.\n";
+            if (!CommandValidator.ValidateIntegerRange(args[2], -100, 100, out int value, out string relationError))
+                return CommandBase.FormatErrorMessage(relationError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 int previousRelation = hero1.GetRelation(hero2);
                 int change = value - previousRelation;
                 ChangeRelationAction.ApplyRelationChangeBetweenHeroes(hero1, hero2, change, true);
 
-                return $"Success: Relation between {hero1.Name} and {hero2.Name} changed from {previousRelation} to {value}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to set relation.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"Relation between {hero1.Name} and {hero2.Name} changed from {previousRelation} to {value}.");
+            }, "Failed to set relation");
         }
 
         #endregion

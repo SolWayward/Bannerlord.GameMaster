@@ -197,34 +197,5 @@ namespace Bannerlord.GameMaster.Console
 
             return parts.Count > 0 ? string.Join(", ", parts) : "all heroes";
         }
-
-        #region Legacy Commands (for backward compatibility)
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_all", "gm.hero")]
-        public static string ListHeroes(List<string> args) => ListAllHeroes(args);
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_lords", "gm.hero")]
-        public static string ListLords(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("lord");
-            return FindHeroes(args);
-        }
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_wanderers", "gm.hero")]
-        public static string ListWanderers(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("wanderer");
-            return FindHeroes(args);
-        }
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_dead", "gm.hero")]
-        public static string ListDeadHeroes(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("dead");
-            return FindHeroes(args);
-        }
-        #endregion
     }
 }

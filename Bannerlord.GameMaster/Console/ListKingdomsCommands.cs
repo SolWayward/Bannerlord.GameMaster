@@ -189,28 +189,5 @@ namespace Bannerlord.GameMaster.Console
                    $"Is Eliminated: {kingdom.IsEliminated}\n" +
                    $"At War With ({enemies.Count}): {string.Join(", ", enemies.Select(k => k.Name))}\n";
         }
-
-        #region Legacy Commands (for backward compatibility)
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_all", "gm.kingdom")]
-        public static string ListKingdoms(List<string> args) => ListAllKingdoms(args);
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_eliminated", "gm.kingdom")]
-        public static string ListEliminatedKingdoms(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("eliminated");
-            return FindKingdoms(args);
-        }
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_empty", "gm.kingdom")]
-        public static string ListEmptyKingdoms(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("empty");
-            return FindKingdoms(args);
-        }
-
-        #endregion
     }
 }

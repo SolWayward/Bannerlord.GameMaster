@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bannerlord.GameMaster.Console.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
@@ -10,64 +11,6 @@ namespace Bannerlord.GameMaster.Console
     [CommandLineFunctionality.CommandLineArgumentFunction("clan", "gm")]
     public static class ClanManagementCommands
     {
-        #region Helper Methods
-
-        /// <summary>
-        /// Helper method to find a single clan from a query
-        /// </summary>
-        private static (Clan clan, string error) FindSingleClan(string query)
-        {
-            List<Clan> matchedClans = Clans.ClanFinder.FindClans(query);
-
-            if (matchedClans == null || matchedClans.Count == 0)
-                return (null, $"Error: No clan matching query '{query}' found.\n");
-
-            if (matchedClans.Count > 1)
-            {
-                return (null, $"Error: Found {matchedClans.Count} clans matching query '{query}':\n" +
-                             $"{Clans.ClanFinder.GetFormattedDetails(matchedClans)}" +
-                             $"Please use a more specific name or ID.\n");
-            }
-
-            return (matchedClans[0], null);
-        }
-
-        /// <summary>
-        /// Helper method to find a single hero from a query
-        /// </summary>
-        private static (Hero hero, string error) FindSingleHero(string query)
-        {
-            List<Hero> matchedHeroes = Heroes.HeroFinder.GetHeroes(query);
-
-            if (matchedHeroes == null || matchedHeroes.Count == 0)
-                return (null, $"Error: No hero matching query '{query}' found.\n");
-
-            if (matchedHeroes.Count > 1)
-            {
-                return (null, $"Error: Found {matchedHeroes.Count} heroes matching query '{query}':\n" +
-                             $"{Heroes.HeroFinder.GetFormattedDetails(matchedHeroes)}" +
-                             $"Please use a more specific name or ID.\n");
-            }
-
-            return (matchedHeroes[0], null);
-        }
-
-        /// <summary>
-        /// Validates campaign mode
-        /// </summary>
-        private static bool ValidateCampaignMode(out string error)
-        {
-            if (Campaign.Current == null)
-            {
-                error = "Error: Must be in campaign mode.\n";
-                return false;
-            }
-            error = null;
-            return true;
-        }
-
-        #endregion
-
         #region Clan Management
 
         /// <summary>
@@ -77,34 +20,30 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("add_hero", "gm.clan")]
         public static string AddHeroToClan(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.add_hero <clan> <hero>\n" +
-                       "Adds a hero to the specified clan.\n" +
-                       "Example: gm.clan.add_hero empire_south lord_1_1\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.add_hero", "<clan> <hero>",
+                "Adds a hero to the specified clan.",
+                "gm.clan.add_hero empire_south lord_1_1");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
-            var (hero, heroError) = FindSingleHero(args[1]);
+            var (hero, heroError) = CommandBase.FindSingleHero(args[1]);
             if (heroError != null) return heroError;
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 string previousClanName = hero.Clan?.Name?.ToString() ?? "No Clan";
                 hero.Clan = clan;
 
-                return $"Success: {hero.Name} transferred from '{previousClanName}' to '{clan.Name}'.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to add hero to clan.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{hero.Name} transferred from '{previousClanName}' to '{clan.Name}'.");
+            }, "Failed to add hero to clan");
         }
 
 
@@ -115,30 +54,30 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("add_gold", "gm.clan")]
         public static string AddClanGold(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.add_gold <clan> <amount>\n" +
-                       "Adds gold to all members of the clan.\n" +
-                       "Example: gm.clan.add_gold empire_south 50000\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.add_gold", "<clan> <amount>",
+                "Adds gold to all members of the clan.",
+                "gm.clan.add_gold empire_south 50000");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
-            if (!int.TryParse(args[1], out int amount))
-                return "Error: Invalid gold amount. Must be a number.\n";
+            if (!CommandValidator.ValidateIntegerRange(args[1], int.MinValue, int.MaxValue, out int amount, out string goldError))
+                return CommandBase.FormatErrorMessage(goldError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 int previousGold = clan.Gold;
                 int membersCount = clan.Heroes.Count(h => h.IsAlive);
 
                 if (membersCount == 0)
-                    return $"Error: {clan.Name} has no living heroes to receive gold.\n";
+                    return CommandBase.FormatErrorMessage($"{clan.Name} has no living heroes to receive gold.");
 
                 // Distribute gold evenly among all living clan members
                 int goldPerMember = amount / membersCount;
@@ -155,13 +94,10 @@ namespace Bannerlord.GameMaster.Console
                     hero.ChangeHeroGold(goldToAdd);
                 }
 
-                return $"Success: Added {amount} gold to {clan.Name} (distributed among {membersCount} members).\n" +
-                       $"Clan gold changed from {previousGold} to {clan.Gold}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to add gold.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"Added {amount} gold to {clan.Name} (distributed among {membersCount} members).\n" +
+                    $"Clan gold changed from {previousGold} to {clan.Gold}.");
+            }, "Failed to add gold");
         }
 
         /// <summary>
@@ -171,31 +107,30 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("set_gold", "gm.clan")]
         public static string SetClanGold(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.set_gold <clan> <amount>\n" +
-                       "Sets the clan's total gold by distributing to all members.\n" +
-                       "Example: gm.clan.set_gold empire_south 100000\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.set_gold", "<clan> <amount>",
+                "Sets the clan's total gold by distributing to all members.",
+                "gm.clan.set_gold empire_south 100000");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
-            if (!int.TryParse(args[1], out int targetAmount) || targetAmount < 0)
-                return "Error: Invalid gold amount. Must be a non-negative number.\n";
+            if (!CommandValidator.ValidateIntegerRange(args[1], 0, int.MaxValue, out int targetAmount, out string goldError))
+                return CommandBase.FormatErrorMessage(goldError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 int previousGold = clan.Gold;
-                int difference = targetAmount - previousGold;
                 int membersCount = clan.Heroes.Count(h => h.IsAlive);
 
                 if (membersCount == 0)
-                    return $"Error: {clan.Name} has no living heroes to receive gold.\n";
+                    return CommandBase.FormatErrorMessage($"{clan.Name} has no living heroes to receive gold.");
 
                 // First, zero out all member gold
                 foreach (var hero in clan.Heroes.Where(h => h.IsAlive))
@@ -219,13 +154,10 @@ namespace Bannerlord.GameMaster.Console
                     hero.ChangeHeroGold(goldToAdd);
                 }
 
-                return $"Success: Set {clan.Name}'s gold to {targetAmount} (distributed among {membersCount} members).\n" +
-                       $"Previous clan gold: {previousGold}, New clan gold: {clan.Gold}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to set gold.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"Set {clan.Name}'s gold to {targetAmount} (distributed among {membersCount} members).\n" +
+                    $"Previous clan gold: {previousGold}, New clan gold: {clan.Gold}.");
+            }, "Failed to set gold");
         }
 
         /// <summary>
@@ -235,41 +167,38 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("add_gold_leader", "gm.clan")]
         public static string AddGoldToLeader(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.add_gold_leader <clan> <amount>\n" +
-                       "Adds gold to the clan leader only.\n" +
-                       "Example: gm.clan.add_gold_leader empire_south 50000\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.add_gold_leader", "<clan> <amount>",
+                "Adds gold to the clan leader only.",
+                "gm.clan.add_gold_leader empire_south 50000");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
             if (clan.Leader == null)
-                return $"Error: {clan.Name} has no leader.\n";
+                return CommandBase.FormatErrorMessage($"{clan.Name} has no leader.");
 
-            if (!int.TryParse(args[1], out int amount))
-                return "Error: Invalid gold amount. Must be a number.\n";
+            if (!CommandValidator.ValidateIntegerRange(args[1], int.MinValue, int.MaxValue, out int amount, out string goldError))
+                return CommandBase.FormatErrorMessage(goldError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 int previousClanGold = clan.Gold;
                 int previousLeaderGold = clan.Leader.Gold;
 
                 clan.Leader.ChangeHeroGold(amount);
 
-                return $"Success: Added {amount} gold to {clan.Leader.Name} (leader of {clan.Name}).\n" +
-                       $"Leader gold: {previousLeaderGold} → {clan.Leader.Gold}\n" +
-                       $"Clan total gold: {previousClanGold} → {clan.Gold}\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to add gold to leader.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"Added {amount} gold to {clan.Leader.Name} (leader of {clan.Name}).\n" +
+                    $"Leader gold: {previousLeaderGold} → {clan.Leader.Gold}\n" +
+                    $"Clan total gold: {previousClanGold} → {clan.Gold}");
+            }, "Failed to add gold to leader");
         }
 
         /// <summary>
@@ -279,44 +208,41 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("give_gold", "gm.clan")]
         public static string GiveGoldToMember(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 3)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.give_gold <clan> <hero> <amount>\n" +
-                       "Gives gold to a specific clan member.\n" +
-                       "Example: gm.clan.give_gold empire_south lord_1_1 10000\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.give_gold", "<clan> <hero> <amount>",
+                "Gives gold to a specific clan member.",
+                "gm.clan.give_gold empire_south lord_1_1 10000");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 3, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
-            var (hero, heroError) = FindSingleHero(args[1]);
+            var (hero, heroError) = CommandBase.FindSingleHero(args[1]);
             if (heroError != null) return heroError;
 
             if (hero.Clan != clan)
-                return $"Error: {hero.Name} is not a member of {clan.Name}.\n";
+                return CommandBase.FormatErrorMessage($"{hero.Name} is not a member of {clan.Name}.");
 
-            if (!int.TryParse(args[2], out int amount))
-                return "Error: Invalid gold amount. Must be a number.\n";
+            if (!CommandValidator.ValidateIntegerRange(args[2], int.MinValue, int.MaxValue, out int amount, out string goldError))
+                return CommandBase.FormatErrorMessage(goldError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 int previousClanGold = clan.Gold;
                 int previousHeroGold = hero.Gold;
 
                 hero.ChangeHeroGold(amount);
 
-                return $"Success: Added {amount} gold to {hero.Name} (member of {clan.Name}).\n" +
-                       $"Hero gold: {previousHeroGold} → {hero.Gold}\n" +
-                       $"Clan total gold: {previousClanGold} → {clan.Gold}\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to give gold to member.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"Added {amount} gold to {hero.Name} (member of {clan.Name}).\n" +
+                    $"Hero gold: {previousHeroGold} → {hero.Gold}\n" +
+                    $"Clan total gold: {previousClanGold} → {clan.Gold}");
+            }, "Failed to give gold to member");
         }
 
         /// <summary>
@@ -326,33 +252,29 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("set_renown", "gm.clan")]
         public static string SetClanRenown(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.set_renown <clan> <amount>\n" +
-                       "Sets the clan's renown.\n" +
-                       "Example: gm.clan.set_renown empire_south 500\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.set_renown", "<clan> <amount>",
+                "Sets the clan's renown.",
+                "gm.clan.set_renown empire_south 500");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
-            if (!float.TryParse(args[1], out float amount) || amount < 0)
-                return "Error: Invalid renown amount. Must be a positive number.\n";
+            if (!CommandValidator.ValidateFloatRange(args[1], 0, float.MaxValue, out float amount, out string renownError))
+                return CommandBase.FormatErrorMessage(renownError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 float previousRenown = clan.Renown;
                 clan.Renown = amount;
-                return $"Success: {clan.Name}'s renown changed from {previousRenown:F0} to {clan.Renown:F0}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to set renown.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{clan.Name}'s renown changed from {previousRenown:F0} to {clan.Renown:F0}.");
+            }, "Failed to set renown");
         }
 
         /// <summary>
@@ -362,33 +284,30 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("add_renown", "gm.clan")]
         public static string AddClanRenown(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.add_renown <clan> <amount>\n" +
-                       "Adds renown to the clan.\n" +
-                       "Example: gm.clan.add_renown empire_south 100\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.add_renown", "<clan> <amount>",
+                "Adds renown to the clan.",
+                "gm.clan.add_renown empire_south 100");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
-            if (!float.TryParse(args[1], out float amount))
-                return "Error: Invalid renown amount. Must be a number.\n";
+            if (!CommandValidator.ValidateFloatRange(args[1], float.MinValue, float.MaxValue, out float amount, out string renownError))
+                return CommandBase.FormatErrorMessage(renownError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 float previousRenown = clan.Renown;
                 clan.AddRenown(amount, true);
-                return $"Success: {clan.Name}'s renown changed from {previousRenown:F0} to {clan.Renown:F0} ({(amount >= 0 ? "+" : "")}{amount:F0}).\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to add renown.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage(
+                    $"{clan.Name}'s renown changed from {previousRenown:F0} to {clan.Renown:F0} ({(amount >= 0 ? "+" : "")}{amount:F0}).");
+            }, "Failed to add renown");
         }
 
         /// <summary>
@@ -398,24 +317,24 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("set_tier", "gm.clan")]
         public static string SetClanTier(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.set_tier <clan> <tier>\n" +
-                       "Sets the clan's tier (0-6).\n" +
-                       "Example: gm.clan.set_tier empire_south 5\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.set_tier", "<clan> <tier>",
+                "Sets the clan's tier (0-6).",
+                "gm.clan.set_tier empire_south 5");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
-            if (!int.TryParse(args[1], out int tier) || tier < 0 || tier > 6)
-                return "Error: Invalid tier. Must be between 0 and 6.\n";
+            if (!CommandValidator.ValidateIntegerRange(args[1], 0, 6, out int tier, out string tierError))
+                return CommandBase.FormatErrorMessage(tierError);
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 int previousTier = clan.Tier;
 
@@ -423,12 +342,8 @@ namespace Bannerlord.GameMaster.Console
                 float targetRenown = Campaign.Current.Models.ClanTierModel.GetRequiredRenownForTier(tier);
                 clan.Renown = targetRenown;
 
-                return $"Success: {clan.Name}'s tier changed from {previousTier} to {clan.Tier}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to set tier.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{clan.Name}'s tier changed from {previousTier} to {clan.Tier}.");
+            }, "Failed to set tier");
         }
 
         /// <summary>
@@ -438,35 +353,31 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("destroy", "gm.clan")]
         public static string DestroyClan(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 1)
-            {
-                return "Error: Missing argument.\n" +
-                       "Usage: gm.clan.destroy <clan>\n" +
-                       "Destroys/eliminates the specified clan.\n" +
-                       "Example: gm.clan.destroy rebel_clan_1\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.destroy", "<clan>",
+                "Destroys/eliminates the specified clan.",
+                "gm.clan.destroy rebel_clan_1");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
             if (clan.IsEliminated)
-                return $"Error: {clan.Name} is already eliminated.\n";
+                return CommandBase.FormatErrorMessage($"{clan.Name} is already eliminated.");
 
             if (clan == Clan.PlayerClan)
-                return "Error: Cannot destroy the player's clan.\n";
+                return CommandBase.FormatErrorMessage("Cannot destroy the player's clan.");
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 DestroyClanAction.Apply(clan);
-                return $"Success: {clan.Name} has been destroyed/eliminated.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to destroy clan.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{clan.Name} has been destroyed/eliminated.");
+            }, "Failed to destroy clan");
         }
 
         /// <summary>
@@ -476,36 +387,32 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("set_leader", "gm.clan")]
         public static string SetClanLeader(List<string> args)
         {
-            if (!ValidateCampaignMode(out string error))
+            if (!CommandBase.ValidateCampaignMode(out string error))
                 return error;
 
-            if (args == null || args.Count < 2)
-            {
-                return "Error: Missing arguments.\n" +
-                       "Usage: gm.clan.set_leader <clan> <hero>\n" +
-                       "Changes the clan leader to the specified hero.\n" +
-                       "Example: gm.clan.set_leader empire_south lord_1_1\n";
-            }
+            var usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.clan.set_leader", "<clan> <hero>",
+                "Changes the clan leader to the specified hero.",
+                "gm.clan.set_leader empire_south lord_1_1");
 
-            var (clan, clanError) = FindSingleClan(args[0]);
+            if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                return error;
+
+            var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
             if (clanError != null) return clanError;
 
-            var (hero, heroError) = FindSingleHero(args[1]);
+            var (hero, heroError) = CommandBase.FindSingleHero(args[1]);
             if (heroError != null) return heroError;
 
             if (hero.Clan != clan)
-                return $"Error: {hero.Name} is not a member of {clan.Name}.\n";
+                return CommandBase.FormatErrorMessage($"{hero.Name} is not a member of {clan.Name}.");
 
-            try
+            return CommandBase.ExecuteWithErrorHandling(() =>
             {
                 string previousLeader = clan.Leader?.Name?.ToString() ?? "None";
                 clan.SetLeader(hero);
-                return $"Success: {clan.Name}'s leader changed from {previousLeader} to {hero.Name}.\n";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: Failed to set clan leader.\n{ex.Message}\n";
-            }
+                return CommandBase.FormatSuccessMessage($"{clan.Name}'s leader changed from {previousLeader} to {hero.Name}.");
+            }, "Failed to set clan leader");
         }
 
         #endregion

@@ -122,62 +122,13 @@ namespace Bannerlord.GameMaster.Clans
 
         #region Legacy Methods (for backward compatibility)
 
-        public static List<Clan> GetAllClans(string filter = "", bool includeEliminated = false)
+        /// <summary>
+        /// Legacy method for backward compatibility - calls FindClans
+        /// </summary>
+        public static List<Clan> GetAllClans(string searchFilter = "")
         {
-            var types = includeEliminated ? ClanTypes.None : ClanTypes.Active;
-            return FindClans(filter, types);
+            return FindClans(searchFilter);
         }
-
-        public static List<Clan> GetNonBanditClans(string filter = "", bool includeEliminated = false)
-        {
-            var types = ClanTypes.NonBandit | (includeEliminated ? ClanTypes.None : ClanTypes.Active);
-            return FindClans(filter, types);
-        }
-
-        public static List<Clan> GetBanditClans(string filter = "", bool includeEliminated = false)
-        {
-            var types = ClanTypes.Bandit | (includeEliminated ? ClanTypes.None : ClanTypes.Active);
-            return FindClans(filter, types);
-        }
-
-        public static List<Clan> GetNobleClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.Noble | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetMinorClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.MinorFaction | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetRebelClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.Rebel | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetMercenaryTypeClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.Mercenary | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetClansUnderMercenaryService(bool includeEliminated = false)
-            => FindClans("", ClanTypes.UnderMercenaryService | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetMafiaClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.Mafia | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetOutlawClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.Outlaw | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetNomadClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.Nomad | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetSectClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.Sect | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetClansWithoutKingdom(bool includeEliminated = false)
-            => FindClans("", ClanTypes.WithoutKingdom | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> GetEliminatedClans()
-            => FindClans("", ClanTypes.Eliminated);
-
-        public static List<Clan> GetEmptyClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.Empty | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
-
-        public static List<Clan> MapFactionClans(bool includeEliminated = false)
-            => FindClans("", ClanTypes.MapFaction | (includeEliminated ? ClanTypes.None : ClanTypes.Active));
 
         #endregion
     }

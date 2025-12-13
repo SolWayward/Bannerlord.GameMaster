@@ -186,52 +186,5 @@ namespace Bannerlord.GameMaster.Console
                    $"Types: {types}\n" +
                    $"Is Eliminated: {clan.IsEliminated}\n";
         }
-
-        #region Legacy Commands (for backward compatibility)
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_all", "gm.clan")]
-        public static string ListClans(List<string> args) => ListAllClans(args);
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_eliminated", "gm.clan")]
-        public static string ListEliminatedClans(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("eliminated");
-            return FindClans(args);
-        }
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_empty", "gm.clan")]
-        public static string ListEmptyClans(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("empty");
-            return FindClans(args);
-        }
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_bandits", "gm.clan")]
-        public static string ListBanditClans(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("bandit");
-            return FindClans(args);
-        }
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_noble", "gm.clan")]
-        public static string ListNobleClans(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("noble");
-            return FindClans(args);
-        }
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("list_minor", "gm.clan")]
-        public static string ListMinorClans(List<string> args)
-        {
-            args = args ?? new List<string>();
-            args.Add("minor");
-            return FindClans(args);
-        }
-
-        #endregion
     }
 }

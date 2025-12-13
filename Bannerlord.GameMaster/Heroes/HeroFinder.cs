@@ -88,60 +88,15 @@ namespace Bannerlord.GameMaster.Heroes
         }
 
         #region Legacy Methods (for backward compatibility)
-        public static List<Hero> GetHeroes(string filter = "", bool includeChildren = false)
+
+        /// <summary>
+        /// Legacy method for backward compatibility - calls FindHeroes
+        /// </summary>
+        public static List<Hero> GetHeroes(string searchFilter = "")
         {
-            var types = includeChildren ? HeroTypes.None : HeroTypes.Alive;
-            var heroes = FindHeroes(filter, types);
-            return includeChildren ? heroes : heroes.Where(h => !h.IsChild).ToList();
+            return FindHeroes(searchFilter);
         }
 
-        public static List<Hero> GetLords(string filter = "")
-            => FindHeroes(filter, HeroTypes.Lord | HeroTypes.Alive);
-
-        public static List<Hero> GetNotables(string filter = "")
-            => FindHeroes(filter, HeroTypes.Notable | HeroTypes.Alive);
-
-        public static List<Hero> GetWanderers(string filter = "")
-            => FindHeroes(filter, HeroTypes.Wanderer | HeroTypes.Alive);
-
-        public static List<Hero> GetChildren(string filter = "")
-            => FindHeroes(filter, HeroTypes.Children | HeroTypes.Alive);
-
-        public static List<Hero> GetFemaleHeroes(string filter = "")
-            => FindHeroes(filter, HeroTypes.Female | HeroTypes.Alive);
-
-        public static List<Hero> GetFemaleLords(string filter = "")
-            => FindHeroes(filter, HeroTypes.Female | HeroTypes.Lord | HeroTypes.Alive);
-
-        public static List<Hero> GetMaleHeroes(string filter = "")
-            => FindHeroes(filter, HeroTypes.Male | HeroTypes.Alive);
-
-        public static List<Hero> GetMaleLords(string filter = "")
-            => FindHeroes(filter, HeroTypes.Male | HeroTypes.Lord | HeroTypes.Alive);
-
-        public static List<Hero> GetClanLeaders()
-            => FindHeroes("", HeroTypes.ClanLeader | HeroTypes.Alive);
-
-        public static List<Hero> GetKingdomRulers()
-            => FindHeroes("", HeroTypes.KingdomRuler | HeroTypes.Alive);
-
-        public static List<Hero> GetPartyLeaders()
-            => FindHeroes("", HeroTypes.PartyLeader | HeroTypes.Alive);
-
-        public static List<Hero> GetDeadHeroes()
-            => FindHeroes("", HeroTypes.Dead, includeDead: true);
-
-        public static List<Hero> GetHeroesWithoutClan(bool includeWanderers)
-        {
-            var heroes = FindHeroes("", HeroTypes.WithoutClan | HeroTypes.Alive);
-            return includeWanderers ? heroes : heroes.Where(h => !h.IsWanderer).ToList();
-        }
-
-        public static List<Hero> GetHeroesWithoutKingdom(bool includeWanderers)
-        {
-            var heroes = FindHeroes("", HeroTypes.WithoutKingdom | HeroTypes.Alive);
-            return includeWanderers ? heroes : heroes.Where(h => !h.IsWanderer).ToList();
-        }
         #endregion
     }
 }
