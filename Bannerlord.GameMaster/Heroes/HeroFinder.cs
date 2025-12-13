@@ -86,17 +86,5 @@ namespace Bannerlord.GameMaster.Heroes
                 return "";
             return string.Join("\n", heroes.Select(h => h.FormattedDetails())) + "\n";
         }
-
-        #region Legacy Methods (for backward compatibility)
-
-        /// <summary>
-        /// Legacy method for backward compatibility - calls FindHeroes
-        /// </summary>
-        public static List<Hero> GetHeroes(string searchFilter = "")
-        {
-            return FindHeroes(searchFilter);
-        }
-
-        #endregion
     }
 }

@@ -49,7 +49,7 @@ namespace Bannerlord.GameMaster.Console
             }
 
             string searchFilter = string.Join(" ", searchTerms).Trim();
-            HeroTypes types = Heroes.HeroFinder.ParseHeroTypes(typeTerms);
+            HeroTypes types = HeroFinder.ParseHeroTypes(typeTerms);
 
             // Default to Alive if no life status specified and not searching dead
             if (!includeDead && !types.HasFlag(HeroTypes.Dead) && !types.HasFlag(HeroTypes.Alive))
@@ -75,7 +75,7 @@ namespace Bannerlord.GameMaster.Console
 
             var (searchFilter, types, includeDead) = ParseArguments(args);
 
-            List<Hero> matchedHeroes = Heroes.HeroFinder.FindHeroes(searchFilter, types, matchAll: true, includeDead: includeDead);
+            List<Hero> matchedHeroes = HeroFinder.FindHeroes(searchFilter, types, matchAll: true, includeDead: includeDead);
 
             if (matchedHeroes.Count == 0)
             {
@@ -88,7 +88,7 @@ namespace Bannerlord.GameMaster.Console
 
             string criteriaDesc = BuildCriteriaString(searchFilter, types);
             return $"Found {matchedHeroes.Count} hero(es) matching {criteriaDesc}:\n" +
-                   $"{Heroes.HeroFinder.GetFormattedDetails(matchedHeroes)}";
+                   $"{HeroFinder.GetFormattedDetails(matchedHeroes)}";
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Bannerlord.GameMaster.Console
 
             var (searchFilter, types, includeDead) = ParseArguments(args);
 
-            List<Hero> matchedHeroes = Heroes.HeroFinder.FindHeroes(searchFilter, types, matchAll: false, includeDead: includeDead);
+            List<Hero> matchedHeroes = HeroFinder.FindHeroes(searchFilter, types, matchAll: false, includeDead: includeDead);
 
             if (matchedHeroes.Count == 0)
             {
@@ -116,31 +116,7 @@ namespace Bannerlord.GameMaster.Console
 
             string criteriaDesc = BuildCriteriaString(searchFilter, types);
             return $"Found {matchedHeroes.Count} hero(es) matching ANY of {criteriaDesc}:\n" +
-                   $"{Heroes.HeroFinder.GetFormattedDetails(matchedHeroes)}";
-        }
-
-        /// <summary>
-        /// Simple list all heroes with optional search filter
-        /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("list", "gm.hero")]
-        public static string ListAllHeroes(List<string> args)
-        {
-            if (Campaign.Current == null)
-                return "Error: Must be in campaign mode.\n";
-
-            string searchFilter = args != null && args.Count > 0 ? string.Join(" ", args) : "";
-            List<Hero> matchedHeroes = Heroes.HeroFinder.FindHeroes(searchFilter, HeroTypes.Alive);
-
-            if (matchedHeroes.Count == 0)
-            {
-                return string.IsNullOrEmpty(searchFilter)
-                    ? "No heroes found.\n"
-                    : $"No heroes found matching '{searchFilter}'.\n";
-            }
-
-            return $"Found {matchedHeroes.Count} hero(es)" +
-                   (string.IsNullOrEmpty(searchFilter) ? "" : $" matching '{searchFilter}'") + ":\n" +
-                   $"{Heroes.HeroFinder.GetFormattedDetails(matchedHeroes)}";
+                   $"{HeroFinder.GetFormattedDetails(matchedHeroes)}";
         }
 
         /// <summary>
@@ -156,7 +132,7 @@ namespace Bannerlord.GameMaster.Console
                 return "Error: Please provide a hero ID.\nUsage: gm.hero.info <heroId>\n";
 
             string heroId = args[0];
-            Hero hero = Heroes.HeroFinder.GetHeroById(heroId);
+            Hero hero = HeroFinder.GetHeroById(heroId);
 
             if (hero == null)
                 return $"Error: Hero with ID '{heroId}' not found.\n";

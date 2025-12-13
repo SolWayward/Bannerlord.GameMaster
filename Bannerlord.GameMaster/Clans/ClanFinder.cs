@@ -119,17 +119,5 @@ namespace Bannerlord.GameMaster.Clans
                 .Select(p => p.LeaderHero)
                 .ToList();
         }
-
-        #region Legacy Methods (for backward compatibility)
-
-        /// <summary>
-        /// Legacy method for backward compatibility - calls FindClans
-        /// </summary>
-        public static List<Clan> GetAllClans(string searchFilter = "")
-        {
-            return FindClans(searchFilter);
-        }
-
-        #endregion
     }
 }

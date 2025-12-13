@@ -138,24 +138,5 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             return kingdom.Heroes.ToList();
         }
-
-        #region Legacy Methods (for backward compatibility)
-
-        public static List<Kingdom> GetAllKingdoms(string filter = "", bool includeEliminated = false)
-        {
-            var types = includeEliminated ? KingdomTypes.None : KingdomTypes.Active;
-            return FindKingdoms(filter, types);
-        }
-
-        public static List<Kingdom> GetEliminatedKingdoms()
-            => FindKingdoms("", KingdomTypes.Eliminated);
-
-        public static List<Kingdom> GetEmptyKingdoms(bool includeEliminated = false)
-        {
-            var types = KingdomTypes.Empty | (includeEliminated ? KingdomTypes.None : KingdomTypes.Active);
-            return FindKingdoms("", types);
-        }
-
-        #endregion
     }
 }
