@@ -2,11 +2,28 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			"label": "disable-safe-mode",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/.vscode/disable-safe-mode.ps1"
+			],
+			"presentation": {
+				"reveal": "silent",
+				"panel": "shared"
+			},
+			"problemMatcher": []
+		},
+		{
 			"type": "dotnet",
 			"task": "build",
 			"group": "build",
 			"problemMatcher": [],
-			"label": "build bannerlord"
+			"label": "build bannerlord",
+			"dependsOn": ["disable-safe-mode"]
 		}
 	]
 }
