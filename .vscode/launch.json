@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Bannerlord",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build bannerlord",
+            "program": "${env:BANNERLORD_GAME_DIR}/bin/Win64_Shipping_Client/Bannerlord.exe",
+            "args": [
+                "/singleplayer",
+                "/continuegame",
+                "_MODULES_*Bannerlord.Harmony*Bannerlord.ButterLib*Bannerlord.UIExtenderEx*Bannerlord.MBOptionScreen*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*NavalDLC*Bannerlord.GameMaster*_MODULES_"
+            ],
+            "cwd": "${env:BANNERLORD_GAME_DIR}/bin/Win64_Shipping_Client",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        }
+    ]
+}
