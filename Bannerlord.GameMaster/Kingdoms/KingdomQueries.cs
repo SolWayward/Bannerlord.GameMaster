@@ -19,21 +19,21 @@ namespace Bannerlord.GameMaster.Kingdoms
         /// <summary>
         /// Main unified method to find kingdoms by search string and type flags
         /// </summary>
-        /// <param name="searchFilter">Optional case-insensitive substring to filter by name or ID</param>
+        /// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
         /// <param name="requiredTypes">Kingdom type flags to match</param>
         /// <param name="matchAll">If true, kingdom must have ALL flags. If false, kingdom must have ANY flag</param>
         /// <returns>List of kingdoms matching all criteria</returns>
-        public static List<Kingdom> FindKingdoms(
-            string searchFilter = "",
+        public static List<Kingdom> QueryKingdoms(
+            string query = "",
             KingdomTypes requiredTypes = KingdomTypes.None,
             bool matchAll = true)
         {
             IEnumerable<Kingdom> kingdoms = Kingdom.All;
 
             // Filter by name/ID if provided
-            if (!string.IsNullOrEmpty(searchFilter))
+            if (!string.IsNullOrEmpty(query))
             {
-                string lowerFilter = searchFilter.ToLower();
+                string lowerFilter = query.ToLower();
                 kingdoms = kingdoms.Where(k =>
                     k.Name.ToString().ToLower().Contains(lowerFilter) ||
                     k.StringId.ToLower().Contains(lowerFilter));

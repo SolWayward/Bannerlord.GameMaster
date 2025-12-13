@@ -5,15 +5,15 @@ using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 
-namespace Bannerlord.GameMaster.Console
+namespace Bannerlord.GameMaster.Console.Query
 {
-    [CommandLineFunctionality.CommandLineArgumentFunction("clan", "gm")]
-    public static class ListClansCommands
+    [CommandLineFunctionality.CommandLineArgumentFunction("query", "gm")]
+    public static class ClanQueryCommands
     {
         /// <summary>
         /// Parse command arguments into search filter and clan type flags
         /// </summary>
-        private static (string searchFilter, ClanTypes types) ParseArguments(List<string> args)
+        private static (string query, ClanTypes types) ParseArguments(List<string> args)
         {
             if (args == null || args.Count == 0)
                 return ("", ClanTypes.Active);
@@ -36,7 +36,7 @@ namespace Bannerlord.GameMaster.Console
                     searchTerms.Add(arg);
             }
 
-            string searchFilter = string.Join(" ", searchTerms).Trim();
+            string query = string.Join(" ", searchTerms).Trim();
             ClanTypes types = ClanQueries.ParseClanTypes(typeTerms);
 
             // Default to Active if no status specified
@@ -45,18 +45,18 @@ namespace Bannerlord.GameMaster.Console
                 types |= ClanTypes.Active;
             }
 
-            return (searchFilter, types);
+            return (query, types);
         }
 
         /// <summary>
         /// Helper to build a readable criteria string
         /// </summary>
-        private static string BuildCriteriaString(string searchFilter, ClanTypes types)
+        private static string BuildCriteriaString(string query, ClanTypes types)
         {
             List<string> parts = new();
 
-            if (!string.IsNullOrEmpty(searchFilter))
-                parts.Add($"search: '{searchFilter}'");
+            if (!string.IsNullOrEmpty(query))
+                parts.Add($"search: '{query}'");
 
             if (types != ClanTypes.None)
             {
@@ -72,56 +72,56 @@ namespace Bannerlord.GameMaster.Console
 
         /// <summary>
         /// Unified clan finding command
-        /// Usage: gm.clan.find [search terms] [type keywords]
-        /// Example: gm.clan.find empire noble
-        /// Example: gm.clan.find bandit
-        /// Example: gm.clan.find eliminated empty
+        /// Usage: gm.query.clan [search terms] [type keywords]
+        /// Example: gm.query.clan empire noble
+        /// Example: gm.query.clan bandit
+        /// Example: gm.query.clan eliminated empty
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("find", "gm.clan")]
-        public static string FindClans(List<string> args)
+        [CommandLineFunctionality.CommandLineArgumentFunction("clan", "gm.query")]
+        public static string QueryClans(List<string> args)
         {
             if (Campaign.Current == null)
                 return "Error: Must be in campaign mode.\n";
 
-            var (searchFilter, types) = ParseArguments(args);
-            List<Clan> matchedClans = ClanQueries.FindClans(searchFilter, types, matchAll: true);
+            var (query, types) = ParseArguments(args);
+            List<Clan> matchedClans = ClanQueries.QueryClans(query, types, matchAll: true);
 
             if (matchedClans.Count == 0)
             {
-                string criteria = BuildCriteriaString(searchFilter, types);
-                return $"No clans found matching criteria: {criteria}\n" +
-                       "Usage: gm.clan.find [search] [type keywords]\n" +
+                string criteria = BuildCriteriaString(query, types);
+                return $"No clans found matching ALL criteria: {criteria}\n" +
+                       "Usage: gm.query.clan [search] [type keywords]\n" +
                        "Type keywords: noble, minor, bandit, mercenary, eliminated, empty, etc.\n" +
-                       "Example: gm.clan.find empire noble\n";
+                       "Example: gm.query.clan empire noble\n";
             }
 
-            string criteriaDesc = BuildCriteriaString(searchFilter, types);
+            string criteriaDesc = BuildCriteriaString(query, types);
             return $"Found {matchedClans.Count} clan(s) matching {criteriaDesc}:\n" +
                    $"{ClanQueries.GetFormattedDetails(matchedClans)}";
         }
 
         /// <summary>
         /// Find clans matching ANY of the specified types (OR logic)
-        /// Usage: gm.clan.find_any [search terms] [type keywords]
+        /// Usage: gm.query.clan_any [search terms] [type keywords]
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("find_any", "gm.clan")]
-        public static string FindClansAny(List<string> args)
+        [CommandLineFunctionality.CommandLineArgumentFunction("clan_any", "gm.query")]
+        public static string QueryClansAny(List<string> args)
         {
             if (Campaign.Current == null)
                 return "Error: Must be in campaign mode.\n";
 
-            var (searchFilter, types) = ParseArguments(args);
-            List<Clan> matchedClans = ClanQueries.FindClans(searchFilter, types, matchAll: false);
+            var (query, types) = ParseArguments(args);
+            List<Clan> matchedClans = ClanQueries.QueryClans(query, types, matchAll: false);
 
             if (matchedClans.Count == 0)
             {
-                string criteria = BuildCriteriaString(searchFilter, types);
+                string criteria = BuildCriteriaString(query, types);
                 return $"No clans found matching ANY of: {criteria}\n" +
-                       "Usage: gm.clan.find_any [search] [type keywords]\n" +
-                       "Example: gm.clan.find_any bandit outlaw (finds bandits OR outlaws)\n";
+                       "Usage: gm.query.clan_any [search] [type keywords]\n" +
+                       "Example: gm.query.clan_any bandit outlaw (finds bandits OR outlaws)\n";
             }
 
-            string criteriaDesc = BuildCriteriaString(searchFilter, types);
+            string criteriaDesc = BuildCriteriaString(query, types);
             return $"Found {matchedClans.Count} clan(s) matching ANY of {criteriaDesc}:\n" +
                    $"{ClanQueries.GetFormattedDetails(matchedClans)}";
         }
@@ -129,14 +129,14 @@ namespace Bannerlord.GameMaster.Console
         /// <summary>
         /// Get detailed info about a specific clan by ID
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("info", "gm.clan")]
-        public static string GetClanInfo(List<string> args)
+        [CommandLineFunctionality.CommandLineArgumentFunction("clan_info", "gm.query")]
+        public static string QueryClanInfo(List<string> args)
         {
             if (Campaign.Current == null)
                 return "Error: Must be in campaign mode.\n";
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a clan ID.\nUsage: gm.clan.info <clanId>\n";
+                return "Error: Please provide a clan ID.\nUsage: gm.query.clan_info <clanId>\n";
 
             string clanId = args[0];
             Clan clan = ClanQueries.GetClanById(clanId);

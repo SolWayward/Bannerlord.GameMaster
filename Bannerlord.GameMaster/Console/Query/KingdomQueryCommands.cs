@@ -5,15 +5,15 @@ using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 
-namespace Bannerlord.GameMaster.Console
+namespace Bannerlord.GameMaster.Console.Query
 {
-    [CommandLineFunctionality.CommandLineArgumentFunction("kingdom", "gm")]
-    public static class ListKingdomsCommands
+    [CommandLineFunctionality.CommandLineArgumentFunction("query", "gm")]
+    public static class KingdomQueryCommands
     {
         /// <summary>
         /// Parse command arguments into search filter and kingdom type flags
         /// </summary>
-        private static (string searchFilter, KingdomTypes types) ParseArguments(List<string> args)
+        private static (string query, KingdomTypes types) ParseArguments(List<string> args)
         {
             if (args == null || args.Count == 0)
                 return ("", KingdomTypes.Active);
@@ -34,7 +34,7 @@ namespace Bannerlord.GameMaster.Console
                     searchTerms.Add(arg);
             }
 
-            string searchFilter = string.Join(" ", searchTerms).Trim();
+            string query = string.Join(" ", searchTerms).Trim();
             KingdomTypes types = KingdomQueries.ParseKingdomTypes(typeTerms);
 
             // Default to Active if no status specified
@@ -43,18 +43,18 @@ namespace Bannerlord.GameMaster.Console
                 types |= KingdomTypes.Active;
             }
 
-            return (searchFilter, types);
+            return (query, types);
         }
 
         /// <summary>
         /// Helper to build a readable criteria string
         /// </summary>
-        private static string BuildCriteriaString(string searchFilter, KingdomTypes types)
+        private static string BuildCriteriaString(string query, KingdomTypes types)
         {
             List<string> parts = new();
 
-            if (!string.IsNullOrEmpty(searchFilter))
-                parts.Add($"search: '{searchFilter}'");
+            if (!string.IsNullOrEmpty(query))
+                parts.Add($"search: '{query}'");
 
             if (types != KingdomTypes.None)
             {
@@ -70,29 +70,29 @@ namespace Bannerlord.GameMaster.Console
 
         /// <summary>
         /// Unified kingdom finding command
-        /// Usage: gm.kingdom.find [search terms] [type keywords]
-        /// Example: gm.kingdom.find empire atwar
-        /// Example: gm.kingdom.find eliminated
+        /// Usage: gm.query.kingdom [search terms] [type keywords]
+        /// Example: gm.query.kingdom empire atwar
+        /// Example: gm.query.kingdom eliminated
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("find", "gm.kingdom")]
-        public static string FindKingdoms(List<string> args)
+        [CommandLineFunctionality.CommandLineArgumentFunction("kingdom", "gm.query")]
+        public static string QueryKingdoms(List<string> args)
         {
             if (Campaign.Current == null)
                 return "Error: Must be in campaign mode.\n";
 
-            var (searchFilter, types) = ParseArguments(args);
-            List<Kingdom> matchedKingdoms = KingdomQueries.FindKingdoms(searchFilter, types, matchAll: true);
+            var (query, types) = ParseArguments(args);
+            List<Kingdom> matchedKingdoms = KingdomQueries.QueryKingdoms(query, types, matchAll: true);
 
             if (matchedKingdoms.Count == 0)
             {
-                string criteria = BuildCriteriaString(searchFilter, types);
-                return $"No kingdoms found matching criteria: {criteria}\n" +
-                       "Usage: gm.kingdom.find [search] [type keywords]\n" +
+                string criteria = BuildCriteriaString(query, types);
+                return $"No kingdoms found matching ALL criteria: {criteria}\n" +
+                       "Usage: gm.query.kingdom [search] [type keywords]\n" +
                        "Type keywords: active, eliminated, empty, atwar, allies, player, etc.\n" +
-                       "Example: gm.kingdom.find empire atwar\n";
+                       "Example: gm.query.kingdom empire atwar\n";
             }
 
-            string criteriaDesc = BuildCriteriaString(searchFilter, types);
+            string criteriaDesc = BuildCriteriaString(query, types);
             return $"Found {matchedKingdoms.Count} kingdom(s) matching {criteriaDesc}:\n" +
                    $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
         }
@@ -100,23 +100,23 @@ namespace Bannerlord.GameMaster.Console
         /// <summary>
         /// Find kingdoms matching ANY of the specified types (OR logic)
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("find_any", "gm.kingdom")]
-        public static string FindKingdomsAny(List<string> args)
+        [CommandLineFunctionality.CommandLineArgumentFunction("kingdom_any", "gm.query")]
+        public static string QueryKingdomsAny(List<string> args)
         {
             if (Campaign.Current == null)
                 return "Error: Must be in campaign mode.\n";
 
-            var (searchFilter, types) = ParseArguments(args);
-            List<Kingdom> matchedKingdoms = KingdomQueries.FindKingdoms(searchFilter, types, matchAll: false);
+            var (query, types) = ParseArguments(args);
+            List<Kingdom> matchedKingdoms = KingdomQueries.QueryKingdoms(query, types, matchAll: false);
 
             if (matchedKingdoms.Count == 0)
             {
-                string criteria = BuildCriteriaString(searchFilter, types);
+                string criteria = BuildCriteriaString(query, types);
                 return $"No kingdoms found matching ANY of: {criteria}\n" +
-                       "Usage: gm.kingdom.find_any [search] [type keywords]\n";
+                       "Usage: gm.query.kingdom_any [search] [type keywords]\n";
             }
 
-            string criteriaDesc = BuildCriteriaString(searchFilter, types);
+            string criteriaDesc = BuildCriteriaString(query, types);
             return $"Found {matchedKingdoms.Count} kingdom(s) matching ANY of {criteriaDesc}:\n" +
                    $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
         }
@@ -124,8 +124,8 @@ namespace Bannerlord.GameMaster.Console
         /// <summary>
         /// Get detailed info about a specific kingdom by ID
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("info", "gm.kingdom")]
-        public static string GetKingdomInfo(List<string> args)
+        [CommandLineFunctionality.CommandLineArgumentFunction("kingdom_info", "gm.query")]
+        public static string QueryKingdomInfo(List<string> args)
         {
             if (Campaign.Current == null)
                 return "Error: Must be in campaign mode.\n";

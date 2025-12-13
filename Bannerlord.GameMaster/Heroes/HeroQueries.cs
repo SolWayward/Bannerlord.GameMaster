@@ -21,23 +21,37 @@ namespace Bannerlord.GameMaster.Heroes
         /// <summary>
         /// Main unified method to find heroes by search string and type flags
         /// </summary>
-        /// <param name="searchFilter">Optional case-insensitive substring to filter by name or ID</param>
+        /// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
         /// <param name="requiredTypes">Hero type flags that ALL must match (AND logic)</param>
         /// <param name="matchAll">If true, hero must have ALL flags. If false, hero must have ANY flag</param>
         /// <param name="includeDead">If true, searches dead heroes instead of alive ones</param>
         /// <returns>List of heroes matching all criteria</returns>
-        public static List<Hero> FindHeroes(
-            string searchFilter = "",
+        public static List<Hero> QueryHeroes(
+            string query = "",
             HeroTypes requiredTypes = HeroTypes.None,
             bool matchAll = true,
             bool includeDead = false)
         {
-            IEnumerable<Hero> heroes = includeDead ? Hero.DeadOrDisabledHeroes : Hero.AllAliveHeroes;
+            IEnumerable<Hero> heroes;
+            
+            // When using OR logic with life status flags (Alive or Dead), search both collections
+            // to ensure we find all matching heroes regardless of life status
+            if (!matchAll && requiredTypes != HeroTypes.None &&
+                (requiredTypes.HasFlag(HeroTypes.Alive) || requiredTypes.HasFlag(HeroTypes.Dead)))
+            {
+                // Search both alive and dead heroes for OR queries involving life status
+                heroes = Hero.AllAliveHeroes.Concat(Hero.DeadOrDisabledHeroes);
+            }
+            else
+            {
+                // For AND queries or queries without life status flags, use the standard collection
+                heroes = includeDead ? Hero.DeadOrDisabledHeroes : Hero.AllAliveHeroes;
+            }
 
             // Filter by name/ID if provided
-            if (!string.IsNullOrEmpty(searchFilter))
+            if (!string.IsNullOrEmpty(query))
             {
-                string lowerFilter = searchFilter.ToLower();
+                string lowerFilter = query.ToLower();
                 heroes = heroes.Where(h =>
                     h.Name.ToString().ToLower().Contains(lowerFilter) ||
                     h.StringId.ToLower().Contains(lowerFilter));

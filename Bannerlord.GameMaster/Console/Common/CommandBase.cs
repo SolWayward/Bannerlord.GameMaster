@@ -19,7 +19,7 @@ namespace Bannerlord.GameMaster.Console.Common
         /// </summary>
         public static (Hero hero, string error) FindSingleHero(string query)
         {
-    List<Hero> matchedHeroes = HeroQueries.FindHeroes(query);
+    List<Hero> matchedHeroes = HeroQueries.QueryHeroes(query);
 
        if (matchedHeroes == null || matchedHeroes.Count == 0)
                 return (null, $"Error: No hero matching query '{query}' found.\n");
@@ -39,7 +39,7 @@ $"{HeroQueries.GetFormattedDetails(matchedHeroes)}" +
         /// </summary>
         public static (Clan clan, string error) FindSingleClan(string query)
      {
-            List<Clan> matchedClans = ClanQueries.FindClans(query);
+            List<Clan> matchedClans = ClanQueries.QueryClans(query);
 
             if (matchedClans == null || matchedClans.Count == 0)
        return (null, $"Error: No clan matching query '{query}' found.\n");
@@ -59,7 +59,7 @@ $"{HeroQueries.GetFormattedDetails(matchedHeroes)}" +
         /// </summary>
         public static (Kingdom kingdom, string error) FindSingleKingdom(string query)
         {
-            List<Kingdom> matchedKingdoms = KingdomQueries.FindKingdoms(query);
+            List<Kingdom> matchedKingdoms = KingdomQueries.QueryKingdoms(query);
 
    if (matchedKingdoms == null || matchedKingdoms.Count == 0)
       return (null, $"Error: No kingdom matching query '{query}' found.\n");

@@ -19,21 +19,21 @@ namespace Bannerlord.GameMaster.Clans
         /// <summary>
         /// Main unified method to find clans by search string and type flags
         /// </summary>
-        /// <param name="searchFilter">Optional case-insensitive substring to filter by name or ID</param>
+        /// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
         /// <param name="requiredTypes">Clan type flags to match</param>
         /// <param name="matchAll">If true, clan must have ALL flags. If false, clan must have ANY flag</param>
         /// <returns>List of clans matching all criteria</returns>
-        public static List<Clan> FindClans(
-            string searchFilter = "",
+        public static List<Clan> QueryClans(
+            string query = "",
             ClanTypes requiredTypes = ClanTypes.None,
             bool matchAll = true)
         {
             IEnumerable<Clan> clans = Clan.All;
 
             // Filter by name/ID if provided
-            if (!string.IsNullOrEmpty(searchFilter))
+            if (!string.IsNullOrEmpty(query))
             {
-                string lowerFilter = searchFilter.ToLower();
+                string lowerFilter = query.ToLower();
                 clans = clans.Where(c =>
                     c.Name.ToString().ToLower().Contains(lowerFilter) ||
                     c.StringId.ToLower().Contains(lowerFilter));
