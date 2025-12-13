@@ -6,7 +6,7 @@ using TaleWorlds.CampaignSystem.Party;
 
 namespace Bannerlord.GameMaster.Kingdoms
 {
-    public static class KingdomFinder
+    public static class KingdomQueries
     {
         /// <summary>
         /// Finds a kingdom with the specified kingdomId, using a case-insensitive comparison.

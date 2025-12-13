@@ -8,7 +8,7 @@ namespace Bannerlord.GameMaster.Heroes
     /// <summary>
     /// Provides utility methods for working with hero entities.
     /// </summary>
-    public static class HeroFinder
+    public static class HeroQueries
     {
         /// <summary>
         /// Finds a hero with the specified heroId, using a case-insensitive comparison.

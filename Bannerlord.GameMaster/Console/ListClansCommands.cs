@@ -37,7 +37,7 @@ namespace Bannerlord.GameMaster.Console
             }
 
             string searchFilter = string.Join(" ", searchTerms).Trim();
-            ClanTypes types = ClanFinder.ParseClanTypes(typeTerms);
+            ClanTypes types = ClanQueries.ParseClanTypes(typeTerms);
 
             // Default to Active if no status specified
             if (!types.HasFlag(ClanTypes.Active) && !types.HasFlag(ClanTypes.Eliminated))
@@ -84,7 +84,7 @@ namespace Bannerlord.GameMaster.Console
                 return "Error: Must be in campaign mode.\n";
 
             var (searchFilter, types) = ParseArguments(args);
-            List<Clan> matchedClans = ClanFinder.FindClans(searchFilter, types, matchAll: true);
+            List<Clan> matchedClans = ClanQueries.FindClans(searchFilter, types, matchAll: true);
 
             if (matchedClans.Count == 0)
             {
@@ -97,7 +97,7 @@ namespace Bannerlord.GameMaster.Console
 
             string criteriaDesc = BuildCriteriaString(searchFilter, types);
             return $"Found {matchedClans.Count} clan(s) matching {criteriaDesc}:\n" +
-                   $"{ClanFinder.GetFormattedDetails(matchedClans)}";
+                   $"{ClanQueries.GetFormattedDetails(matchedClans)}";
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace Bannerlord.GameMaster.Console
                 return "Error: Must be in campaign mode.\n";
 
             var (searchFilter, types) = ParseArguments(args);
-            List<Clan> matchedClans = ClanFinder.FindClans(searchFilter, types, matchAll: false);
+            List<Clan> matchedClans = ClanQueries.FindClans(searchFilter, types, matchAll: false);
 
             if (matchedClans.Count == 0)
             {
@@ -123,7 +123,7 @@ namespace Bannerlord.GameMaster.Console
 
             string criteriaDesc = BuildCriteriaString(searchFilter, types);
             return $"Found {matchedClans.Count} clan(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{ClanFinder.GetFormattedDetails(matchedClans)}";
+                   $"{ClanQueries.GetFormattedDetails(matchedClans)}";
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Bannerlord.GameMaster.Console
                 return "Error: Please provide a clan ID.\nUsage: gm.clan.info <clanId>\n";
 
             string clanId = args[0];
-            Clan clan = ClanFinder.GetClanById(clanId);
+            Clan clan = ClanQueries.GetClanById(clanId);
 
             if (clan == null)
                 return $"Error: Clan with ID '{clanId}' not found.\n";

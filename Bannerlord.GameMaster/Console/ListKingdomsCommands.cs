@@ -35,7 +35,7 @@ namespace Bannerlord.GameMaster.Console
             }
 
             string searchFilter = string.Join(" ", searchTerms).Trim();
-            KingdomTypes types = KingdomFinder.ParseKingdomTypes(typeTerms);
+            KingdomTypes types = KingdomQueries.ParseKingdomTypes(typeTerms);
 
             // Default to Active if no status specified
             if (!types.HasFlag(KingdomTypes.Active) && !types.HasFlag(KingdomTypes.Eliminated))
@@ -81,7 +81,7 @@ namespace Bannerlord.GameMaster.Console
                 return "Error: Must be in campaign mode.\n";
 
             var (searchFilter, types) = ParseArguments(args);
-            List<Kingdom> matchedKingdoms = KingdomFinder.FindKingdoms(searchFilter, types, matchAll: true);
+            List<Kingdom> matchedKingdoms = KingdomQueries.FindKingdoms(searchFilter, types, matchAll: true);
 
             if (matchedKingdoms.Count == 0)
             {
@@ -94,7 +94,7 @@ namespace Bannerlord.GameMaster.Console
 
             string criteriaDesc = BuildCriteriaString(searchFilter, types);
             return $"Found {matchedKingdoms.Count} kingdom(s) matching {criteriaDesc}:\n" +
-                   $"{KingdomFinder.GetFormattedDetails(matchedKingdoms)}";
+                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Bannerlord.GameMaster.Console
                 return "Error: Must be in campaign mode.\n";
 
             var (searchFilter, types) = ParseArguments(args);
-            List<Kingdom> matchedKingdoms = KingdomFinder.FindKingdoms(searchFilter, types, matchAll: false);
+            List<Kingdom> matchedKingdoms = KingdomQueries.FindKingdoms(searchFilter, types, matchAll: false);
 
             if (matchedKingdoms.Count == 0)
             {
@@ -118,7 +118,7 @@ namespace Bannerlord.GameMaster.Console
 
             string criteriaDesc = BuildCriteriaString(searchFilter, types);
             return $"Found {matchedKingdoms.Count} kingdom(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{KingdomFinder.GetFormattedDetails(matchedKingdoms)}";
+                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Bannerlord.GameMaster.Console
                 return "Error: Please provide a kingdom ID.\nUsage: gm.kingdom.info <kingdomId>\n";
 
             string kingdomId = args[0];
-            Kingdom kingdom = KingdomFinder.GetKingdomById(kingdomId);
+            Kingdom kingdom = KingdomQueries.GetKingdomById(kingdomId);
 
             if (kingdom == null)
                 return $"Error: Kingdom with ID '{kingdomId}' not found.\n";

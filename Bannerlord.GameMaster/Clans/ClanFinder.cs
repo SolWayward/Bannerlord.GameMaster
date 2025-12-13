@@ -6,7 +6,7 @@ using TaleWorlds.CampaignSystem.Party;
 
 namespace Bannerlord.GameMaster.Clans
 {
-    public static class ClanFinder
+    public static class ClanQueries
     {
         /// <summary>
         /// Finds a clan with the specified clanId, using a case-insensitive comparison.

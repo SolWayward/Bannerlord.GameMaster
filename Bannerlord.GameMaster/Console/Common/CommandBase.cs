@@ -19,7 +19,7 @@ namespace Bannerlord.GameMaster.Console.Common
         /// </summary>
         public static (Hero hero, string error) FindSingleHero(string query)
         {
-    List<Hero> matchedHeroes = HeroFinder.FindHeroes(query);
+    List<Hero> matchedHeroes = HeroQueries.FindHeroes(query);
 
        if (matchedHeroes == null || matchedHeroes.Count == 0)
                 return (null, $"Error: No hero matching query '{query}' found.\n");
@@ -27,7 +27,7 @@ namespace Bannerlord.GameMaster.Console.Common
             if (matchedHeroes.Count > 1)
             {
                 return (null, $"Error: Found {matchedHeroes.Count} heroes matching query '{query}':\n" +
-$"{HeroFinder.GetFormattedDetails(matchedHeroes)}" +
+$"{HeroQueries.GetFormattedDetails(matchedHeroes)}" +
         $"Please use a more specific name or ID.\n");
       }
 
@@ -39,7 +39,7 @@ $"{HeroFinder.GetFormattedDetails(matchedHeroes)}" +
         /// </summary>
         public static (Clan clan, string error) FindSingleClan(string query)
      {
-            List<Clan> matchedClans = ClanFinder.FindClans(query);
+            List<Clan> matchedClans = ClanQueries.FindClans(query);
 
             if (matchedClans == null || matchedClans.Count == 0)
        return (null, $"Error: No clan matching query '{query}' found.\n");
@@ -47,7 +47,7 @@ $"{HeroFinder.GetFormattedDetails(matchedHeroes)}" +
          if (matchedClans.Count > 1)
             {
      return (null, $"Error: Found {matchedClans.Count} clans matching query '{query}':\n" +
-          $"{ClanFinder.GetFormattedDetails(matchedClans)}" +
+          $"{ClanQueries.GetFormattedDetails(matchedClans)}" +
         $"Please use a more specific name or ID.\n");
             }
 
@@ -59,7 +59,7 @@ $"{HeroFinder.GetFormattedDetails(matchedHeroes)}" +
         /// </summary>
         public static (Kingdom kingdom, string error) FindSingleKingdom(string query)
         {
-            List<Kingdom> matchedKingdoms = KingdomFinder.FindKingdoms(query);
+            List<Kingdom> matchedKingdoms = KingdomQueries.FindKingdoms(query);
 
    if (matchedKingdoms == null || matchedKingdoms.Count == 0)
       return (null, $"Error: No kingdom matching query '{query}' found.\n");
@@ -67,7 +67,7 @@ $"{HeroFinder.GetFormattedDetails(matchedHeroes)}" +
       if (matchedKingdoms.Count > 1)
       {
  return (null, $"Error: Found {matchedKingdoms.Count} kingdoms matching query '{query}':\n" +
-             $"{KingdomFinder.GetFormattedDetails(matchedKingdoms)}" +
+             $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}" +
    $"Please use a more specific name or ID.\n");
       }
 
