@@ -1,10 +1,12 @@
-# Bannerlord.GameMaster
+# Bannerlord.GameMaster (BLGM)
 
-A powerful console commands mod for Mount & Blade II: Bannerlord that provides comprehensive game management capabilities through an intuitive command-line interface.
+A console commands mod for Mount & Blade II: Bannerlord that provides game management capabilities through an command-line interface.  <br /><br />
+BLGM is intended to be the foundation of other mods I am working on but is also useful for taking control of your playthrough, testing / debugging your mod, or even to quickly add functionality to your mod.  
+This mod is a work in progress will be updated regular with additonal functionality, but is available now as is.
 
 ## Overview
 
-Bannerlord.GameMaster extends Bannerlord's console with a robust set of commands for managing heroes, clans, kingdoms, and game state. Whether you're testing scenarios, creating custom campaigns, or simply want more control over your game, GameMaster provides the tools you need.
+BLGM extends Bannerlord's console with a set of commands for managing heroes, clans, kingdoms, and game state. Whether you're testing scenarios, testing or debugging your mod, or simply want more control over your game, GameMaster provides the tools you need.
 
 **All commands use the `gm.` prefix and are organized into logical categories for easy discovery and use.**
 
