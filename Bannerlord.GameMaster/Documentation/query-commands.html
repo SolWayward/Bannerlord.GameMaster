@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Commands - Bannerlord GameMaster Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🎮 Bannerlord GameMaster</h1>
+            <p class="subtitle">Query Commands Documentation</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hero-commands.html">Hero Commands</a></li>
+                <li><a href="clan-commands.html">Clan Commands</a></li>
+                <li><a href="kingdom-commands.html">Kingdom Commands</a></li>
+                <li><a href="query-commands.html" class="active">Query Commands</a></li>
+                <li><a href="logger-commands.html">Logger Commands</a></li>
+                <li><a href="testing-commands.html">Testing Commands</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumbs">
+        <a href="index.html">Home</a> / Query Commands
+    </div>
+
+    <main>
+        <div class="container">
+            <h2>Query Commands</h2>
+            <p>
+                Advanced search and query commands for finding heroes, clans, and kingdoms with flexible filtering options.
+                These commands support both text search and type-based filtering with AND/OR logic capabilities.
+            </p>
+
+            <div class="note">
+                <strong>Tip:</strong> Use query commands before management commands to find exact IDs and ensure you're
+                targeting the correct entities. Query results display StringIds which can be used in other commands.
+            </div>
+
+            <!-- Hero Query Commands -->
+            <h2 id="hero-queries">Hero Query Commands</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.hero</span>
+                    <span class="command-tag">SEARCH</span>
+                </div>
+                <div class="command-description">
+                    Search for heroes using text search and type filters with AND logic (all criteria must match).
+                    Supports flexible combinations of search terms and type keywords.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">[search terms]</span>
+                            <span class="param-type">string</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Text to search in hero names, IDs, clan names, and kingdom names</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">[type keywords]</span>
+                            <span class="param-type">keywords</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">
+                                Type filters: <code>lord</code>, <code>wanderer</code>, <code>notable</code>, 
+                                <code>merchant</code>, <code>child</code>, <code>female</code>, <code>male</code>, 
+                                <code>clanleader</code>, <code>kingdomruler</code>, <code>partyleader</code>, 
+                                <code>fugitive</code>, <code>alive</code>, <code>dead</code>, <code>prisoner</code>, 
+                                <code>withoutclan</code>, <code>withoutkingdom</code>, <code>married</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Find female lords in Empire</div>
+                        <div class="code-block">
+                            <code>gm.query.hero empire lord female</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Find all wanderers</div>
+                        <div class="code-block">
+                            <code>gm.query.hero wanderer</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Find dead kingdom rulers</div>
+                        <div class="code-block">
+                            <code>gm.query.hero dead kingdomruler</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Search by name</div>
+                        <div class="code-block">
+                            <code>gm.query.hero john</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Found {count} hero(es) matching {criteria}:"
+                        <br>Lists heroes with: Name, StringId, Clan, Kingdom, Age, Status (Alive/Dead/Prisoner)
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> Without type keywords specifying life status, the command defaults to showing
+                    only living heroes. Use <code>dead</code> keyword to search deceased heroes.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.hero_any</span>
+                    <span class="command-tag">SEARCH</span>
+                </div>
+                <div class="command-description">
+                    Search for heroes using OR logic (matches ANY of the specified criteria instead of ALL).
+                    Useful for broader searches across multiple types.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">[search terms]</span>
+                            <span class="param-type">string</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Text to search in hero names and identifiers</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">[type keywords]</span>
+                            <span class="param-type">keywords</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Same type keywords as gm.query.hero, but uses OR logic</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Find anyone who is a lord OR wanderer</div>
+                        <div class="code-block">
+                            <code>gm.query.hero_any lord wanderer</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Find clan leaders OR kingdom rulers</div>
+                        <div class="code-block">
+                            <code>gm.query.hero_any clanleader kingdomruler</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Found {count} hero(es) matching ANY of {criteria}:"
+                        <br>Lists matching heroes with full details
+                    </div>
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.hero_info</span>
+                    <span class="command-tag">INFO</span>
+                </div>
+                <div class="command-description">
+                    Get detailed information about a specific hero by their StringId.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">heroId</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Hero's StringId (exact match required)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Get detailed hero information</div>
+                        <div class="code-block">
+                            <code>gm.query.hero_info lord_1_1</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> Displays comprehensive hero information including:
+                        <br>• ID and Name
+                        <br>• Clan and Kingdom
+                        <br>• Age
+                        <br>• All applicable types (Lord, ClanLeader, etc.)
+                        <br>• Status (Alive/Dead, Prisoner status)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clan Query Commands -->
+            <h2 id="clan-queries">Clan Query Commands</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.clan</span>
+                    <span class="command-tag">SEARCH</span>
+                </div>
+                <div class="command-description">
+                    Search for clans using text search and type filters with AND logic (all criteria must match).
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">[search terms]</span>
+                            <span class="param-type">string</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Text to search in clan names, IDs, and kingdom names</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">[type keywords]</span>
+                            <span class="param-type">keywords</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">
+                                Type filters: <code>active</code>, <code>eliminated</code>, <code>bandit</code>, 
+                                <code>nonbandit</code>, <code>noble</code>, <code>minor</code>, <code>rebel</code>, 
+                                <code>mercenary</code>, <code>mafia</code>, <code>outlaw</code>, <code>nomad</code>, 
+                                <code>sect</code>, <code>withoutkingdom</code>, <code>empty</code>, <code>player</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Find noble clans in Empire</div>
+                        <div class="code-block">
+                            <code>gm.query.clan empire noble</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Find all bandit clans</div>
+                        <div class="code-block">
+                            <code>gm.query.clan bandit</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Find eliminated clans</div>
+                        <div class="code-block">
+                            <code>gm.query.clan eliminated</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Find mercenary clans</div>
+                        <div class="code-block">
+                            <code>gm.query.clan mercenary</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Found {count} clan(s) matching {criteria}:"
+                        <br>Lists clans with: Name, StringId, Leader, Kingdom, Tier, Renown, Gold, Hero Count
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> Without specifying status keywords, the command defaults to showing only
+                    active clans. Use <code>eliminated</code> to search destroyed clans.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.clan_any</span>
+                    <span class="command-tag">SEARCH</span>
+                </div>
+                <div class="command-description">
+                    Search for clans using OR logic (matches ANY of the specified criteria).
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">[search terms]</span>
+                            <span class="param-type">string</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Text to search in clan names and identifiers</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">[type keywords]</span>
+                            <span class="param-type">keywords</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Same type keywords as gm.query.clan, but uses OR logic</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Find clans that are bandits OR outlaws</div>
+                        <div class="code-block">
+                            <code>gm.query.clan_any bandit outlaw</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Find mercenaries OR rebels</div>
+                        <div class="code-block">
+                            <code>gm.query.clan_any mercenary rebel</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Found {count} clan(s) matching ANY of {criteria}:"
+                        <br>Lists matching clans with full details
+                    </div>
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.clan_info</span>
+                    <span class="command-tag">INFO</span>
+                </div>
+                <div class="command-description">
+                    Get detailed information about a specific clan by their StringId.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">clanId</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Clan's StringId (exact match required)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Get detailed clan information</div>
+                        <div class="code-block">
+                            <code>gm.query.clan_info clan_empire_south_1</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> Displays comprehensive clan information including:
+                        <br>• ID and Name
+                        <br>• Leader and Kingdom
+                        <br>• Total Heroes, Lords, and Companions count
+                        <br>• Gold, Tier, and Renown
+                        <br>• All applicable types
+                        <br>• Elimination status
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kingdom Query Commands -->
+            <h2 id="kingdom-queries">Kingdom Query Commands</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.kingdom</span>
+                    <span class="command-tag">SEARCH</span>
+                </div>
+                <div class="command-description">
+                    Search for kingdoms using text search and type filters with AND logic (all criteria must match).
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">[search terms]</span>
+                            <span class="param-type">string</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Text to search in kingdom names and IDs</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">[type keywords]</span>
+                            <span class="param-type">keywords</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">
+                                Type filters: <code>active</code>, <code>eliminated</code>, <code>empty</code>, 
+                                <code>player</code>, <code>atwar</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Find kingdoms at war</div>
+                        <div class="code-block">
+                            <code>gm.query.kingdom atwar</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Search for Empire kingdom</div>
+                        <div class="code-block">
+                            <code>gm.query.kingdom empire</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Find eliminated kingdoms</div>
+                        <div class="code-block">
+                            <code>gm.query.kingdom eliminated</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Found {count} kingdom(s) matching {criteria}:"
+                        <br>Lists kingdoms with: Name, StringId, Culture, Ruler, Ruling Clan, Clans Count, Fiefs Count
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> Without specifying status keywords, the command defaults to showing only
+                    active kingdoms. Use <code>eliminated</code> to search destroyed kingdoms.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.kingdom_any</span>
+                    <span class="command-tag">SEARCH</span>
+                </div>
+                <div class="command-description">
+                    Search for kingdoms using OR logic (matches ANY of the specified criteria).
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">[search terms]</span>
+                            <span class="param-type">string</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Text to search in kingdom names and identifiers</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">[type keywords]</span>
+                            <span class="param-type">keywords</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Same type keywords as gm.query.kingdom, but uses OR logic</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Find kingdoms that are eliminated OR empty</div>
+                        <div class="code-block">
+                            <code>gm.query.kingdom_any eliminated empty</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Found {count} kingdom(s) matching ANY of {criteria}:"
+                        <br>Lists matching kingdoms with full details
+                    </div>
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.query.kingdom_info</span>
+                    <span class="command-tag">INFO</span>
+                </div>
+                <div class="command-description">
+                    Get detailed information about a specific kingdom by their StringId.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">kingdomId</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Kingdom's StringId (exact match required)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Get detailed kingdom information</div>
+                        <div class="code-block">
+                            <code>gm.query.kingdom_info empire</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> Displays comprehensive kingdom information including:
+                        <br>• ID, Name, and Culture
+                        <br>• Ruler and Ruling Clan
+                        <br>• Total Clans, Heroes, and Fiefs
+                        <br>• Total Military Strength
+                        <br>• All applicable types
+                        <br>• Elimination status
+                        <br>• List of kingdoms at war with
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <h2>Quick Reference</h2>
+            <div class="param-list">
+                <div class="param-item">
+                    <strong>Hero Queries:</strong>
+                    <div class="param-desc">
+                        <code>gm.query.hero</code> - Search heroes (AND logic)<br>
+                        <code>gm.query.hero_any</code> - Search heroes (OR logic)<br>
+                        <code>gm.query.hero_info</code> - Get detailed hero info
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Clan Queries:</strong>
+                    <div class="param-desc">
+                        <code>gm.query.clan</code> - Search clans (AND logic)<br>
+                        <code>gm.query.clan_any</code> - Search clans (OR logic)<br>
+                        <code>gm.query.clan_info</code> - Get detailed clan info
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Kingdom Queries:</strong>
+                    <div class="param-desc">
+                        <code>gm.query.kingdom</code> - Search kingdoms (AND logic)<br>
+                        <code>gm.query.kingdom_any</code> - Search kingdoms (OR logic)<br>
+                        <code>gm.query.kingdom_info</code> - Get detailed kingdom info
+                    </div>
+                </div>
+            </div>
+
+            <h2>Search Logic Explained</h2>
+            <div class="note">
+                <strong>AND Logic (Default):</strong> When using standard query commands (<code>gm.query.hero</code>, 
+                <code>gm.query.clan</code>, <code>gm.query.kingdom</code>), ALL specified criteria must match. 
+                For example, <code>gm.query.hero empire lord female</code> finds heroes who are Empire AND lord AND female.
+            </div>
+            <div class="note">
+                <strong>OR Logic:</strong> When using <code>_any</code> variants (<code>gm.query.hero_any</code>, etc.), 
+                results match ANY of the specified type criteria. For example, <code>gm.query.hero_any lord wanderer</code> 
+                finds heroes who are EITHER lords OR wanderers.
+            </div>
+
+            <h2>Pro Tips</h2>
+            <div class="example">
+                <div class="example-title">Finding exact IDs for commands</div>
+                <p class="param-desc">
+                    Query commands are essential before using management commands. They show exact StringIds which
+                    eliminate ambiguity. For example, before killing a hero, query first:
+                </p>
+                <div class="code-block">
+                    <code>gm.query.hero raganvad → get exact ID → gm.hero.kill lord_1_1</code>
+                </div>
+            </div>
+            <div class="example">
+                <div class="example-title">Combining search terms</div>
+                <p class="param-desc">
+                    You can combine text search with type filters. The text search looks in names, IDs, clan names,
+                    and kingdom names. For example: <code>gm.query.hero battania female clanleader</code> finds
+                    female clan leaders associated with Battania.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Bannerlord GameMaster Mod - Console Commands Documentation</p>
+            <p><a href="index.html">Return to Home</a></p>
+        </div>
+    </footer>
+</body>
+</html>

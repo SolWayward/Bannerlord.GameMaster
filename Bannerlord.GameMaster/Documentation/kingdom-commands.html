@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Commands - Bannerlord GameMaster Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🎮 Bannerlord GameMaster</h1>
+            <p class="subtitle">Kingdom Commands Documentation</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hero-commands.html">Hero Commands</a></li>
+                <li><a href="clan-commands.html">Clan Commands</a></li>
+                <li><a href="kingdom-commands.html" class="active">Kingdom Commands</a></li>
+                <li><a href="query-commands.html">Query Commands</a></li>
+                <li><a href="logger-commands.html">Logger Commands</a></li>
+                <li><a href="testing-commands.html">Testing Commands</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumbs">
+        <a href="index.html">Home</a> / Kingdom Commands
+    </div>
+
+    <main>
+        <div class="container">
+            <h2>Kingdom Management Commands</h2>
+            <p>
+                Commands for managing kingdoms in Bannerlord. These commands allow you to add/remove clans from kingdoms,
+                manage diplomatic relations (war and peace), transfer settlements, change rulers, and destroy kingdoms.
+            </p>
+
+            <div class="note">
+                <strong>Note:</strong> All kingdom commands require you to be in campaign mode. Many operations have
+                significant diplomatic and military consequences, so use with caution and back up your save first.
+            </div>
+
+            <!-- Clan Management Section -->
+            <h2 id="clan-management">Clan Management</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.kingdom.add_clan</span>
+                    <span class="command-tag">CLAN</span>
+                </div>
+                <div class="command-description">
+                    Adds a clan to a kingdom, making them a vassal. If the clan is already part of another kingdom,
+                    they will leave that kingdom first.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">clan</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Clan identifier (StringId or partial name match)</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">kingdom</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Target kingdom identifier (StringId or partial name match)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Add a clan to a kingdom</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.add_clan clan_battania_1 empire</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Transfer clan between kingdoms</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.add_clan aserai_clan vlandia</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "{Clan Name} joined {Kingdom Name} from {Previous Kingdom}."
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> If the clan is already part of the target kingdom, the command will return
+                    an error. A clan automatically leaves their previous kingdom when joining a new one.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.kingdom.remove_clan</span>
+                    <span class="command-tag">CLAN</span>
+                </div>
+                <div class="command-description">
+                    Removes a clan from their current kingdom, making them an independent faction.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">clan</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Clan identifier to remove (StringId or partial name match)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Remove a clan from their kingdom</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.remove_clan clan_empire_south_1</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "{Clan Name} removed from {Kingdom Name}."
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <strong>Warning:</strong> Cannot remove the ruling clan from a kingdom. The ruling clan must remain
+                    part of the kingdom. To change the ruling clan, use <code>gm.kingdom.set_ruler</code> first.
+                </div>
+            </div>
+
+            <!-- Diplomacy Section -->
+            <h2 id="diplomacy">Diplomatic Relations</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.kingdom.declare_war</span>
+                    <span class="command-tag">DIPLOMACY</span>
+                </div>
+                <div class="command-description">
+                    Declares war between two kingdoms, setting them as hostile factions. This affects all clans
+                    and heroes within both kingdoms.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">kingdom1</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">First kingdom identifier (StringId or partial name match)</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">kingdom2</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Second kingdom identifier (StringId or partial name match)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Declare war between two kingdoms</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.declare_war empire battania</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Start conflict using full identifiers</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.declare_war vlandia aserai</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "War declared between {Kingdom1 Name} and {Kingdom2 Name}."
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> A kingdom cannot declare war on itself. If the kingdoms are already at war,
+                    the command will return an error. War affects trade, diplomacy, and enables military actions.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.kingdom.make_peace</span>
+                    <span class="command-tag">DIPLOMACY</span>
+                </div>
+                <div class="command-description">
+                    Establishes peace between two kingdoms that are currently at war, ending hostilities.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">kingdom1</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">First kingdom identifier (StringId or partial name match)</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">kingdom2</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Second kingdom identifier (StringId or partial name match)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Make peace between warring kingdoms</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.make_peace empire battania</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">End war using partial names</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.make_peace vland aser</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Peace established between {Kingdom1 Name} and {Kingdom2 Name}."
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> Kingdoms must currently be at war for this command to work. If they are
+                    not at war, the command will return an error. Peace enables trade and diplomatic interactions.
+                </div>
+            </div>
+
+            <!-- Settlement Management Section -->
+            <h2 id="settlement-management">Settlement Management</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.kingdom.give_fief</span>
+                    <span class="command-tag">SETTLEMENT</span>
+                </div>
+                <div class="command-description">
+                    Transfers a settlement (town or castle) to another kingdom. The settlement will be assigned to a
+                    random eligible clan within the target kingdom.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">settlement</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Settlement identifier (StringId, e.g., "town_empire_1")</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">kingdom</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Target kingdom identifier (StringId or partial name match)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Transfer a town to another kingdom</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.give_fief town_empire_1 battania</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Transfer a castle</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.give_fief castle_aserai_2 vlandia</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "{Settlement Name} transferred from {Previous Kingdom} ({Previous Owner Clan}) to {New Kingdom} ({New Owner Clan})."
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> Only towns and castles can be transferred. Villages are tied to their parent
+                    settlement. The settlement will be assigned to a random eligible clan in the target kingdom.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.kingdom.give_fief_to_clan</span>
+                    <span class="command-tag">SETTLEMENT</span>
+                </div>
+                <div class="command-description">
+                    Transfers a settlement directly to a specific clan, giving them ownership of the fief.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">settlement</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Settlement identifier (StringId, e.g., "town_empire_1")</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">clan</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Target clan identifier (StringId or partial name match)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Give a town to a specific clan</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.give_fief_to_clan town_empire_1 clan_battania_1</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Transfer castle to player clan</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.give_fief_to_clan castle_aserai_2 player_clan</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "{Settlement Name} transferred from {Previous Kingdom} ({Previous Owner}) to {Clan Name}."
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> The target clan must have a living leader to receive the settlement. The
+                    settlement's kingdom alignment will match the clan's kingdom.
+                </div>
+            </div>
+
+            <!-- Kingdom Properties Section -->
+            <h2 id="kingdom-properties">Kingdom Properties</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.kingdom.set_ruler</span>
+                    <span class="command-tag">STRUCTURE</span>
+                </div>
+                <div class="command-description">
+                    Changes the ruler of a kingdom by setting a new ruling clan. The specified hero becomes both the
+                    clan leader (if not already) and the kingdom ruler.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">kingdom</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Kingdom identifier (StringId or partial name match)</div>
+                        </div>
+                        <div class="param-item">
+                            <span class="param-name">hero</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">New ruler identifier (must be part of the kingdom)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Change kingdom ruler</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.set_ruler empire lord_1_1</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Make player the ruler</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.set_ruler vlandia player</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "{Kingdom Name}'s ruler changed from {Previous Ruler} to {New Ruler}."
+                        <br>"Ruling clan is now {Clan Name}."
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> The hero must be part of the target kingdom (their clan must be a member).
+                    If the hero is not currently their clan's leader, they will be promoted to clan leader as well.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.kingdom.destroy</span>
+                    <span class="command-tag">STRUCTURE</span>
+                </div>
+                <div class="command-description">
+                    Permanently destroys and eliminates a kingdom from the game. All settlements are transferred and
+                    member clans become independent.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">kingdom</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Kingdom identifier to destroy (StringId or partial name match)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Destroy a kingdom</div>
+                        <div class="code-block">
+                            <code>gm.kingdom.destroy battania</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "{Kingdom Name} has been destroyed/eliminated."
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <strong>Warning:</strong> This action is permanent and cannot be undone. The kingdom will be marked
+                    as eliminated, all settlements will be transferred to other kingdoms, member clans become independent,
+                    and all diplomatic relations are ended. The player's kingdom cannot be destroyed.
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <h2>Quick Reference</h2>
+            <div class="param-list">
+                <div class="param-item">
+                    <strong>Clan Management:</strong>
+                    <div class="param-desc">
+                        <code>gm.kingdom.add_clan</code> - Add clan to kingdom<br>
+                        <code>gm.kingdom.remove_clan</code> - Remove clan from kingdom
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Diplomacy:</strong>
+                    <div class="param-desc">
+                        <code>gm.kingdom.declare_war</code> - Declare war between kingdoms<br>
+                        <code>gm.kingdom.make_peace</code> - Make peace between kingdoms
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Settlement Management:</strong>
+                    <div class="param-desc">
+                        <code>gm.kingdom.give_fief</code> - Transfer settlement to kingdom<br>
+                        <code>gm.kingdom.give_fief_to_clan</code> - Transfer settlement to specific clan
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Kingdom Structure:</strong>
+                    <div class="param-desc">
+                        <code>gm.kingdom.set_ruler</code> - Change kingdom ruler<br>
+                        <code>gm.kingdom.destroy</code> - Destroy/eliminate kingdom
+                    </div>
+                </div>
+            </div>
+
+            <h2>Important Notes</h2>
+            <div class="note">
+                <strong>Diplomatic Consequences:</strong> Declaring war or making peace has far-reaching effects on trade,
+                party behavior, and AI decision-making. Kingdoms at war will actively raid each other's territories and
+                besiege settlements.
+            </div>
+            <div class="note">
+                <strong>Settlement Transfers:</strong> When settlements change ownership, garrison troops, bound villages,
+                and notables remain with the settlement. The new owner clan gains control of all settlement income and
+                management decisions.
+            </div>
+            <div class="warning">
+                <strong>Ruling Clan Protection:</strong> The ruling clan of a kingdom cannot be removed from that kingdom.
+                To remove them, you must first change the ruler to another clan, then remove the former ruling clan.
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Bannerlord GameMaster Mod - Console Commands Documentation</p>
+            <p><a href="index.html">Return to Home</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Commands - Bannerlord GameMaster Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🎮 Bannerlord GameMaster</h1>
+            <p class="subtitle">Testing Commands Documentation</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hero-commands.html">Hero Commands</a></li>
+                <li><a href="clan-commands.html">Clan Commands</a></li>
+                <li><a href="kingdom-commands.html">Kingdom Commands</a></li>
+                <li><a href="query-commands.html">Query Commands</a></li>
+                <li><a href="logger-commands.html">Logger Commands</a></li>
+                <li><a href="testing-commands.html" class="active">Testing Commands</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumbs">
+        <a href="index.html">Home</a> / Testing Commands
+    </div>
+
+    <main>
+        <div class="container">
+            <h2>Automated Testing Commands</h2>
+            <p>
+                The GameMaster mod includes a comprehensive automated testing framework for validating console commands.
+                These commands allow you to register test suites, execute tests, and review results to ensure command
+                reliability across game updates and modifications.
+            </p>
+
+            <div class="note">
+                <strong>Purpose:</strong> The testing system helps validate that all console commands work correctly,
+                handle errors properly, and produce expected results. It's particularly useful for mod developers and
+                testers to ensure reliability after game updates.
+            </div>
+
+            <!-- Test Registration Section -->
+            <h2 id="test-registration">Test Registration</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.register_standard</span>
+                    <span class="command-tag">REGISTER</span>
+                </div>
+                <div class="command-description">
+                    Registers the standard test suite containing basic validation tests for core command functionality.
+                    These tests verify parameter validation, error handling, and basic command execution.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">None</span>
+                            <div class="param-desc">This command takes no parameters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Register standard tests</div>
+                        <div class="code-block">
+                            <code>gm.test.register_standard</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Successfully registered {count} standard tests."
+                        <br>"Use 'gm.test.list' to see them."
+                    </div>
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.register_integration</span>
+                    <span class="command-tag">REGISTER</span>
+                </div>
+                <div class="command-description">
+                    Registers integration test suite that validates game state changes. These tests verify that commands
+                    actually modify the game state as expected (e.g., hero gold changes, clan membership transfers).
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">None</span>
+                            <div class="param-desc">This command takes no parameters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Register integration tests</div>
+                        <div class="code-block">
+                            <code>gm.test.register_integration</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Successfully registered {count} integration tests."
+                        <br>"Use 'gm.test.list' to see them."
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <strong>Warning:</strong> Integration tests modify game state. Run them on a test save or backup
+                    your save before executing, as they will change hero attributes, clan properties, etc.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.register_all</span>
+                    <span class="command-tag">REGISTER</span>
+                </div>
+                <div class="command-description">
+                    Registers all available test suites (both standard and integration tests). This clears any previously
+                    registered tests before registering the complete test suite.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">None</span>
+                            <div class="param-desc">This command takes no parameters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Register all tests</div>
+                        <div class="code-block">
+                            <code>gm.test.register_all</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Successfully registered {count} tests (standard + integration)."
+                        <br>"Use 'gm.test.list' to see them."
+                    </div>
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.register_all_run</span>
+                    <span class="command-tag">QUICK</span>
+                </div>
+                <div class="command-description">
+                    Convenience command that registers all tests and immediately runs them. Ideal for quick validation
+                    of the entire command system.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">None</span>
+                            <div class="param-desc">This command takes no parameters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Quick test run</div>
+                        <div class="code-block">
+                            <code>gm.test.register_all_run</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Successfully registered {count} tests (standard + integration)."
+                        <br>Followed by complete test execution report with pass/fail statistics
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Tip:</strong> This is the fastest way to validate the entire command system. Use it after
+                    game updates or mod modifications to ensure everything still works correctly.
+                </div>
+            </div>
+
+            <!-- Test Execution Section -->
+            <h2 id="test-execution">Test Execution</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.run_all</span>
+                    <span class="command-tag">RUN</span>
+                </div>
+                <div class="command-description">
+                    Executes all currently registered tests and generates a comprehensive report with pass/fail statistics.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">None</span>
+                            <div class="param-desc">This command takes no parameters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Run all registered tests</div>
+                        <div class="code-block">
+                            <code>gm.test.run_all</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> Comprehensive test report including:
+                        <br>• Summary with total tests, passed, failed counts
+                        <br>• Success rate percentage
+                        <br>• Detailed results for each test
+                        <br>• Expected vs actual outcomes for failed tests
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Note:</strong> Tests must be registered first using one of the register commands. If no tests
+                    are registered, the command will inform you to register tests first.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.run_category</span>
+                    <span class="command-tag">RUN</span>
+                </div>
+                <div class="command-description">
+                    Executes all tests in a specific category. Categories group related tests (e.g., HeroQuery, ClanManagement).
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">category</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Category name to run (e.g., "HeroQuery", "ClanManagement")</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Run hero query tests</div>
+                        <div class="code-block">
+                            <code>gm.test.run_category HeroQuery</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Run clan management tests</div>
+                        <div class="code-block">
+                            <code>gm.test.run_category ClanManagement</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> Test report for the specified category with detailed results
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Tip:</strong> Use <code>gm.test.list</code> to see all available categories before running
+                    category-specific tests.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.run_single</span>
+                    <span class="command-tag">RUN</span>
+                </div>
+                <div class="command-description">
+                    Executes a single specific test by its unique test ID. Useful for debugging or re-running failed tests.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">test_id</span>
+                            <span class="param-type">string</span>
+                            <span class="param-required">Required</span>
+                            <div class="param-desc">Unique test identifier (e.g., "test_hero_query_001")</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Run a specific test</div>
+                        <div class="code-block">
+                            <code>gm.test.run_single test_hero_query_001</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> Detailed result for the single test including:
+                        <br>• Test ID and description
+                        <br>• Pass/Fail status
+                        <br>• Expected vs actual outcome
+                        <br>• Execution details
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Management Section -->
+            <h2 id="test-management">Test Management</h2>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.list</span>
+                    <span class="command-tag">INFO</span>
+                </div>
+                <div class="command-description">
+                    Lists all registered tests, organized by category. Optionally filter by a specific category.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">category</span>
+                            <span class="param-type">string</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">Filter results to show only tests in specified category</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">List all registered tests</div>
+                        <div class="code-block">
+                            <code>gm.test.list</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">List tests in specific category</div>
+                        <div class="code-block">
+                            <code>gm.test.list HeroQuery</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "=== REGISTERED TESTS ({count}) ==="
+                        <br>Lists tests organized by category with:
+                        <br>• Test ID
+                        <br>• Description
+                        <br>• Command being tested
+                        <br>• Expected outcome
+                    </div>
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.last_results</span>
+                    <span class="command-tag">INFO</span>
+                </div>
+                <div class="command-description">
+                    Displays results from the most recent test run. Supports both summary and verbose output modes.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">verbose</span>
+                            <span class="param-type">boolean</span>
+                            <span class="param-optional">Optional</span>
+                            <div class="param-desc">If true or "verbose", shows detailed results. Otherwise shows summary.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Show summary of last test run</div>
+                        <div class="code-block">
+                            <code>gm.test.last_results</code>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-title">Show detailed results</div>
+                        <div class="code-block">
+                            <code>gm.test.last_results verbose</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Summary Mode:</strong> Quick statistics (Total, Passed, Failed, Success Rate)
+                        <br><strong>Verbose Mode:</strong> Complete detailed report with all test results
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Tip:</strong> Use summary mode for quick validation, verbose mode for detailed troubleshooting.
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.clear</span>
+                    <span class="command-tag">MANAGEMENT</span>
+                </div>
+                <div class="command-description">
+                    Clears all registered tests from the test runner. Use this to reset before registering a new test suite.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">None</span>
+                            <div class="param-desc">This command takes no parameters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Clear all tests</div>
+                        <div class="code-block">
+                            <code>gm.test.clear</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> "Cleared {count} registered tests."
+                    </div>
+                </div>
+            </div>
+
+            <div class="command">
+                <div class="command-header">
+                    <span class="command-name">gm.test.help</span>
+                    <span class="command-tag">INFO</span>
+                </div>
+                <div class="command-description">
+                    Displays comprehensive help information about testing commands with usage examples and workflows.
+                </div>
+
+                <div class="parameters">
+                    <h4>Parameters</h4>
+                    <div class="param-list">
+                        <div class="param-item">
+                            <span class="param-name">None</span>
+                            <div class="param-desc">This command takes no parameters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4>Examples</h4>
+                    <div class="example">
+                        <div class="example-title">Display testing help</div>
+                        <div class="code-block">
+                            <code>gm.test.help</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="returns">
+                    <h4>Returns</h4>
+                    <div class="output-example">
+                        <strong>Success:</strong> Comprehensive help including:
+                        <br>• Overview of all test commands
+                        <br>• Usage examples and workflows
+                        <br>• Test management commands
+                        <br>• Result viewing options
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testing Workflows Section -->
+            <h2 id="workflows">Common Testing Workflows</h2>
+
+            <div class="example">
+                <div class="example-title">Quick Validation Workflow</div>
+                <p class="param-desc">
+                    Fastest way to validate the entire command system:
+                </p>
+                <div class="code-block">
+                    <code>gm.test.register_all_run</code>
+                </div>
+                <p class="param-desc">
+                    This single command registers all tests and runs them immediately, providing a complete validation
+                    report in one step.
+                </p>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Standard Testing Workflow</div>
+                <p class="param-desc">
+                    Step-by-step testing process:
+                </p>
+                <div class="code-block">
+                    <code>1. gm.test.register_standard
+<br>2. gm.test.list (review what will be tested)
+<br>3. gm.test.run_all
+<br>4. gm.test.last_results verbose (review detailed results)</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Full Integration Testing</div>
+                <p class="param-desc">
+                    Complete testing including state changes:
+                </p>
+                <div class="code-block">
+                    <code>1. gm.test.register_all
+<br>2. gm.test.run_all
+<br>3. gm.test.last_results verbose</code>
+                </div>
+                <p class="param-desc">
+                    <strong>Warning:</strong> Run on a test save as this modifies game state!
+                </p>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Debugging Failed Tests</div>
+                <p class="param-desc">
+                    When tests fail, investigate individual tests:
+                </p>
+                <div class="code-block">
+                    <code>1. gm.test.run_all (identify failures)
+<br>2. gm.test.run_single test_hero_query_001 (re-run specific test)
+<br>3. (examine detailed output and adjust as needed)</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Category-Specific Testing</div>
+                <p class="param-desc">
+                    Test only specific command categories:
+                </p>
+                <div class="code-block">
+                    <code>1. gm.test.register_all
+<br>2. gm.test.list HeroQuery (see tests in category)
+<br>3. gm.test.run_category HeroQuery (run only that category)</code>
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <h2>Quick Reference</h2>
+            <div class="param-list">
+                <div class="param-item">
+                    <strong>Registration:</strong>
+                    <div class="param-desc">
+                        <code>gm.test.register_standard</code> - Register standard tests<br>
+                        <code>gm.test.register_integration</code> - Register integration tests<br>
+                        <code>gm.test.register_all</code> - Register all tests<br>
+                        <code>gm.test.register_all_run</code> - Register and run all tests
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Execution:</strong>
+                    <div class="param-desc">
+                        <code>gm.test.run_all</code> - Run all registered tests<br>
+                        <code>gm.test.run_category &lt;cat&gt;</code> - Run tests in category<br>
+                        <code>gm.test.run_single &lt;id&gt;</code> - Run specific test
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Management:</strong>
+                    <div class="param-desc">
+                        <code>gm.test.list [category]</code> - List registered tests<br>
+                        <code>gm.test.last_results [verbose]</code> - Show last test results<br>
+                        <code>gm.test.clear</code> - Clear registered tests<br>
+                        <code>gm.test.help</code> - Display help
+                    </div>
+                </div>
+            </div>
+
+            <h2>Best Practices</h2>
+            <div class="param-list">
+                <div class="param-item">
+                    <strong>Test on Separate Saves</strong>
+                    <div class="param-desc">
+                        Integration tests modify game state. Always run comprehensive tests on dedicated test saves
+                        or backup your save before running integration tests.
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Regular Validation</strong>
+                    <div class="param-desc">
+                        Run tests after game updates, mod updates, or when troubleshooting command issues to ensure
+                        everything works correctly.
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Use Categories for Focus</strong>
+                    <div class="param-desc">
+                        When troubleshooting specific command types, use category-based testing to focus on relevant
+                        tests rather than running the entire suite.
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Review Verbose Results</strong>
+                    <div class="param-desc">
+                        When tests fail, always review verbose results to understand what went wrong. The detailed
+                        output shows expected vs actual outcomes.
+                    </div>
+                </div>
+                <div class="param-item">
+                    <strong>Enable Logging During Tests</strong>
+                    <div class="param-desc">
+                        Use <code>gm.log.enable</code> before running tests to create a permanent record of all test
+                        command executions for detailed analysis.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Bannerlord GameMaster Mod - Console Commands Documentation</p>
+            <p><a href="index.html">Return to Home</a></p>
+        </div>
+    </footer>
+</body>
+</html>
