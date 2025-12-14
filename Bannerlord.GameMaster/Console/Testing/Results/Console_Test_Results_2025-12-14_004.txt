@@ -1,0 +1,299 @@
+=== Test Results Generated: 2025-12-14 15:54:45 ===
+
+=== TEST RESULTS ===
+Total Tests: 113
+Passed: 113
+Failed: 0
+Success Rate: 100.0%
+Total Time: 738ms
+
+--- HeroQuery ---
+[PASS] hero_query_001: Query heroes without parameters should return all living heroes
+  Execution Time: 105ms
+[PASS] hero_query_002: Query heroes with 'lord' filter
+  Execution Time: 2ms
+[PASS] hero_query_003: Query heroes with specific name
+  Execution Time: 6ms
+[PASS] hero_query_004: Query heroes matching ANY criteria (lord OR wanderer)
+  Execution Time: 13ms
+[PASS] hero_query_005: Hero info without ID should return error
+  Execution Time: 0ms
+[PASS] hero_query_006: Hero info with invalid ID should return error
+  Execution Time: 0ms
+
+--- ClanQuery ---
+[PASS] clan_query_001: Query clans without parameters should return all clans
+  Execution Time: 9ms
+[PASS] clan_query_002: Query clans with specific name
+  Execution Time: 0ms
+[PASS] clan_query_003: Query clans matching ANY criteria
+  Execution Time: 0ms
+[PASS] clan_query_004: Clan info without ID should return error
+  Execution Time: 0ms
+
+--- KingdomQuery ---
+[PASS] kingdom_query_001: Query kingdoms without parameters should return all kingdoms
+  Execution Time: 5ms
+[PASS] kingdom_query_002: Query kingdoms with specific name
+  Execution Time: 0ms
+[PASS] kingdom_query_003: Query kingdoms matching ANY criteria
+  Execution Time: 0ms
+[PASS] kingdom_query_004: Kingdom info without ID should return error
+  Execution Time: 1ms
+
+--- HeroManagement ---
+[PASS] hero_mgmt_001: Set clan without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_002: Set age without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_003: Set gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_004: Kill hero without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_005: Heal hero without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_006: Set relation without arguments should return usage error
+  Execution Time: 0ms
+
+--- ClanManagement ---
+[PASS] clan_mgmt_001: Add hero to clan without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_002: Set clan gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_003: Add clan gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_004: Set clan renown without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_005: Set clan tier without arguments should return usage error
+  Execution Time: 0ms
+
+--- KingdomManagement ---
+[PASS] kingdom_mgmt_001: Add clan to kingdom without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_002: Remove clan from kingdom without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_003: Declare war without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_004: Make peace without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_005: Set kingdom ruler without arguments should return usage error
+  Execution Time: 2ms
+
+--- Integration_HeroManagement ---
+[PASS] integration_hero_move_clan_001: Move a living lord (Derthert) to another clan and verify clan change using name-based query
+  Execution Time: 75ms
+[PASS] integration_hero_move_clan_001b: Move a living lord to another clan using exact hero ID
+  Execution Time: 49ms
+[PASS] integration_hero_move_player_001: Test moving player hero (main_hero) to another clan
+  Execution Time: 12ms
+[PASS] integration_hero_move_dead_001: Attempt to move a dead hero to another clan
+  Execution Time: 5ms
+[PASS] integration_hero_set_gold_001: Set hero gold to specific amount and verify
+  Execution Time: 6ms
+[PASS] integration_hero_add_gold_001: Add gold to hero and verify amount increases correctly
+  Execution Time: 11ms
+[PASS] integration_hero_set_age_001: Set hero age and verify change
+  Execution Time: 5ms
+
+--- Integration_ClanManagement ---
+[PASS] integration_clan_set_gold_001: Set clan gold and verify amount
+  Execution Time: 1ms
+[PASS] integration_clan_set_renown_001: Set clan renown and verify amount
+  Execution Time: 0ms
+[PASS] integration_clan_set_tier_001_increase: Increase clan tier and verify (tier can be increased)
+  Execution Time: 2ms
+[PASS] integration_clan_set_tier_001_decrease: Attempt to decrease clan tier (should fail - game engine limitation)
+  Execution Time: 0ms
+[PASS] integration_clan_player_faction_001: Modify player faction (player_faction) gold
+  Execution Time: 0ms
+
+--- Integration_KingdomManagement ---
+[PASS] integration_kingdom_add_clan_001: Add a clan to a kingdom (Sturgia) and verify membership
+  Execution Time: 46ms
+
+--- EdgeCases ---
+[PASS] edge_case_query_wanderers_001: Query for wanderer heroes
+  Execution Time: 0ms
+[PASS] edge_case_query_notables_001: Query for notable heroes
+  Execution Time: 4ms
+[PASS] edge_case_wanderer_to_clan_001: Attempt to add a wanderer to a clan
+  Execution Time: 11ms
+[PASS] edge_case_bandit_clans_001: Query for bandit clans
+  Execution Time: 1ms
+[PASS] edge_case_clan_leader_001: Query for clan leaders
+  Execution Time: 0ms
+[PASS] edge_case_kingdom_ruler_001: Query for kingdom rulers
+  Execution Time: 0ms
+[PASS] edge_case_invalid_hero_001: Try to operate on non-existent hero
+  Execution Time: 5ms
+[PASS] edge_case_invalid_clan_001: Try to operate on non-existent clan
+  Execution Time: 0ms
+[PASS] edge_case_query_by_kingdom_001: Query heroes in Vlandia
+  Execution Time: 5ms
+[PASS] edge_case_query_derthert_001: Query for King Derthert specifically
+  Execution Time: 5ms
+
+--- SpecialCases_Player ---
+[PASS] player_special_001: Move player (main_hero) to an NPC clan (clan_empire_north_1)
+  Execution Time: 10ms
+[PASS] player_special_002: Move player to a bandit clan (looters) - WARNING: May cause crash on clan page
+  Execution Time: 10ms
+[PASS] player_special_003: Move player to a mercenary clan (ghilman)
+  Execution Time: 10ms
+[PASS] player_special_004: Make player the leader of an NPC clan (clan_empire_south_1)
+  Execution Time: 17ms
+[PASS] player_special_005: Make player the ruler of an NPC kingdom (Sturgia)
+  Execution Time: 16ms
+
+--- SpecialCases_Wanderer ---
+[PASS] wanderer_special_001: Move a wanderer (CharacterObject_1900 'Ruwa the Spicevendor') to an NPC clan
+  Execution Time: 6ms
+[PASS] wanderer_special_002: Make a wanderer the leader of an NPC clan (clan_empire_south_2)
+  Execution Time: 12ms
+[PASS] wanderer_special_003: Make a wanderer the ruler of a kingdom (Northern Empire)
+  Execution Time: 12ms
+
+--- SpecialCases_DeadHero ---
+[PASS] dead_hero_special_001: Make a dead hero (dead_lord_2_1 'Olek the Old') the leader of a clan
+  Execution Time: 5ms
+[PASS] dead_hero_special_002: Make a dead hero (dead_lord_2_1) the ruler of a kingdom
+  Execution Time: 5ms
+[PASS] dead_hero_special_003: Attempt to heal a dead hero (dead_lord_2_1) to full health
+  Execution Time: 5ms
+
+--- SpecialCases_Mercenary ---
+[PASS] merc_hero_special_001: Move a mercenary hero (CharacterObject_1866 'Orunhard of the Brotherhood') to an NPC clan
+  Execution Time: 5ms
+[PASS] merc_hero_special_002: Make a mercenary hero the leader of an NPC clan (clan_vlandia_2)
+  Execution Time: 11ms
+[PASS] merc_hero_special_003: Make a mercenary hero the ruler of a kingdom (Vlandia)
+  Execution Time: 5ms
+
+--- SpecialCases_BanditClan ---
+[PASS] bandit_clan_special_001: Move player to an empty bandit clan (looters) - WARNING: May cause crash on clan page
+  Execution Time: 10ms
+[PASS] bandit_clan_special_002: Move NPC lord (lord_4_1 'Derthert') to an empty bandit clan (deserters)
+  Execution Time: 10ms
+[PASS] bandit_clan_special_003: Make player the leader of a bandit clan (looters)
+  Execution Time: 16ms
+[PASS] bandit_clan_special_004: Query bandit clans to verify they have 0 heroes
+  Execution Time: 0ms
+
+--- SpecialCases_SpecialClan ---
+[PASS] special_clan_001: Move player to a mercenary clan (ghilman)
+  Execution Time: 12ms
+[PASS] special_clan_002: Move NPC lord to a mercenary clan (legion_of_the_betrayed)
+  Execution Time: 7ms
+[PASS] special_clan_003: Query special clans (mercenary, criminal, sect) to verify their structure
+  Execution Time: 0ms
+
+--- IDMatching_ExactMatch ---
+[PASS] id_matching_exact_match_001: Query matches exact ID among partial matches - should return exact match immediately
+  Execution Time: 5ms
+[PASS] id_matching_exact_match_002_case_insensitive: Query with different case should match exact ID (case-insensitive)
+  Execution Time: 5ms
+
+--- IDMatching_ShortestID ---
+[PASS] id_matching_shortest_id_001: Query 'lord_1' matches multiple IDs with same length - should return error
+  Execution Time: 6ms
+[PASS] id_matching_shortest_id_002: Query 'clan_empire' matches multiple IDs with same length - should return error
+  Execution Time: 0ms
+[PASS] id_matching_shortest_id_003: Query 'lord_1_41' should auto-select shortest ID (lord_1_41) over longer match (lord_1_411)
+  Execution Time: 5ms
+[PASS] id_matching_shortest_id_004: Partial query 'clan_vlandia_1' should auto-select shortest ID (clan_vlandia_1) over longer match (clan_vlandia_11)
+  Execution Time: 0ms
+
+--- IDMatching_NameMatches ---
+[PASS] id_matching_name_matches_error_001: Query matching multiple names (not IDs) should return error asking to be more specific
+  Execution Time: 10ms
+[PASS] id_matching_name_query_001: Query by hero name should work correctly
+  Execution Time: 5ms
+[PASS] id_matching_name_query_002: Query by clan name should work correctly
+  Execution Time: 0ms
+
+--- IDMatching_SingleMatch ---
+[PASS] id_matching_single_match_001: Query matching exactly one entity should return success
+  Execution Time: 5ms
+
+--- IDMatching_NoMatch ---
+[PASS] id_matching_no_match_001: Query matching no entities should return 'not found' error
+  Execution Time: 5ms
+
+--- IDMatching_MixedMatches ---
+[PASS] id_matching_mixed_matches_001: Query matching both IDs and names should prioritize ID matches
+  Execution Time: 7ms
+
+--- IDMatching_SameLengthCollision ---
+[PASS] id_matching_same_length_collision_001: Query matching multiple IDs with same length should return error or select first deterministically
+  Execution Time: 5ms
+[PASS] id_matching_same_length_collision_002: Clan query matching IDs with same length should handle gracefully
+  Execution Time: 0ms
+
+--- IDMatching_CaseInsensitivity ---
+[PASS] id_matching_case_insensitive_001: Case-insensitive matching - uppercase query should match lowercase ID
+  Execution Time: 5ms
+[PASS] id_matching_case_insensitive_002: Mixed case query should apply shortest ID logic case-insensitively
+  Execution Time: 0ms
+
+--- IDMatching_BackwardCompatibility ---
+[PASS] id_matching_backward_compat_001: Backward compatibility - simple unique query should work as before
+  Execution Time: 5ms
+[PASS] id_matching_backward_compat_002: Backward compatibility - exact kingdom ID should work as before
+  Execution Time: 15ms
+
+--- IDMatching_AllTypes ---
+[PASS] id_matching_all_types_hero_001: Hero FindSingle - exact ID match among partials
+  Execution Time: 6ms
+[PASS] id_matching_all_types_clan_001: Clan FindSingle - shortest ID selection
+  Execution Time: 0ms
+[PASS] id_matching_all_types_kingdom_001: Kingdom FindSingle - exact ID among name matches
+  Execution Time: 5ms
+
+--- NamePriority_ExactMatch ---
+[PASS] name_priority_exact_001: Exact name match 'Garios' should select 'Garios' over 'Pagarios' (substring match)
+  Execution Time: 6ms
+[PASS] name_priority_exact_002: Exact match should win even with multiple substring competitors
+  Execution Time: 6ms
+[PASS] name_priority_prefix_001_exact: Exact match 'garios' (case-insensitive) should select 'Garios' over others
+  Execution Time: 5ms
+
+--- NamePriority_PrefixMatch ---
+[PASS] name_priority_prefix_001: Prefix match 'Gar' should return multiple matches (expected behavior)
+  Execution Time: 6ms
+[PASS] name_priority_prefix_002: Prefix match 'Der' should return multiple matches (expected behavior)
+  Execution Time: 5ms
+
+--- NamePriority_MultipleMatches ---
+[PASS] name_priority_multi_exact_001: Multiple exact name matches should return clear error
+  Execution Time: 5ms
+[PASS] name_priority_multi_prefix_001: Multiple prefix matches should return error listing options
+  Execution Time: 5ms
+[PASS] name_priority_multi_contains_001: Multiple substring matches (no exact/prefix) should return error
+  Execution Time: 5ms
+
+--- NamePriority_CaseInsensitive ---
+[PASS] name_priority_case_001: Case-insensitive exact match 'GARIOS' should match 'Garios'
+  Execution Time: 6ms
+[PASS] name_priority_case_002: Case-insensitive prefix match 'GAR' should work
+  Execution Time: 6ms
+[PASS] name_priority_case_003: Lowercase 'lucon' should match 'Lucon' (case-insensitive)
+  Execution Time: 6ms
+
+--- NamePriority_ClanEntity ---
+[PASS] name_priority_clan_exact_001: Exact clan name match should work (e.g., 'dey_Clan' or specific clan name)
+  Execution Time: 0ms
+[PASS] name_priority_clan_prefix_001: Prefix match 'Bat' for clan IDs should return multiple matches (expected behavior)
+  Execution Time: 0ms
+[PASS] name_priority_clan_prefix_002: Clan ID 'clan_vlandia_1' should auto-select over 'clan_vlandia_11'
+  Execution Time: 0ms
+[PASS] name_priority_clan_multi_001: Multiple clan substring matches should error appropriately
+  Execution Time: 0ms
+
+--- NamePriority_IDPriority ---
+[PASS] name_priority_id_001: ID match should have priority over name match
+  Execution Time: 6ms
+[PASS] name_priority_id_002: Shortest ID selection should still work correctly
+  Execution Time: 6ms
+[PASS] name_priority_id_003: ID match should work even when names are similar
+  Execution Time: 1ms
+

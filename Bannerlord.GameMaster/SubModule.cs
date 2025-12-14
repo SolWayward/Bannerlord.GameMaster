@@ -17,7 +17,7 @@ namespace Bannerlord.GameMaster
         protected override void OnSubModuleLoad()
         {
             base.OnSubModuleLoad();
-            CreateMainMenuButton();
+            //CreateMainMenuButton(); // For Testing purposes (May use for new game options or configs in the future)
         }
 
         protected override void OnSubModuleUnloaded()
