@@ -2,7 +2,9 @@
 
 A console commands mod for Mount & Blade II: Bannerlord that provides game management capabilities through an command-line interface.  <br /><br />
 BLGM is intended to be the foundation of other mods I am working on but is also useful for taking control of your playthrough, testing / debugging your mod, or even to quickly add functionality to your mod.  
-This mod is a work in progress will be updated regular with additonal functionality, but is available now as is.
+This mod is a work in progress will be updated regular with additonal functionality, but is available now as is. <br /><br />
+
+**Note**: this mod also provides a C# api for use with other mods (undocumented) 
 
 ## Overview
 
