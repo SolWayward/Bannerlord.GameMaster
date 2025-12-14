@@ -1,4 +1,5 @@
 ﻿using Bannerlord.GameMaster.Heroes;
+using Bannerlord.GameMaster.Console.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,25 +71,28 @@ namespace Bannerlord.GameMaster.Console.Query
         [CommandLineFunctionality.CommandLineArgumentFunction("hero", "gm.query")]
         public static string QueryHeroes(List<string> args)
         {
-            if (Campaign.Current == null)
-                return "Error: Must be in campaign mode.\n";
-
-            var (query, types, includeDead) = ParseArguments(args);
-
-            List<Hero> matchedHeroes = HeroQueries.QueryHeroes(query, types, matchAll: true, includeDead: includeDead);
-
-            if (matchedHeroes.Count == 0)
+            return Cmd.Run(args, () =>
             {
-                string criteria = BuildCriteriaString(query, types);
-                return $"No heroes found matching ALL criteria: {criteria}\n" +
-                       "Usage: gm.query.hero [search] [type keywords]\n" +
-                       "Type keywords: lord, wanderer, notable, female, male, clanleader, kingdomruler, dead, etc.\n" +
-                       "Example: gm.query.hero john lord female\n";
-            }
+                if (Campaign.Current == null)
+                    return "Error: Must be in campaign mode.\n";
 
-            string criteriaDesc = BuildCriteriaString(query, types);
-            return $"Found {matchedHeroes.Count} hero(es) matching {criteriaDesc}:\n" +
-                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}";
+                var (query, types, includeDead) = ParseArguments(args);
+
+                List<Hero> matchedHeroes = HeroQueries.QueryHeroes(query, types, matchAll: true, includeDead: includeDead);
+
+                string criteriaDesc = BuildCriteriaString(query, types);
+                
+                if (matchedHeroes.Count == 0)
+                {
+                    return $"Found 0 hero(es) matching {criteriaDesc}\n" +
+                           "Usage: gm.query.hero [search] [type keywords]\n" +
+                           "Type keywords: lord, wanderer, notable, female, male, clanleader, kingdomruler, dead, etc.\n" +
+                           "Example: gm.query.hero john lord female\n";
+                }
+
+                return $"Found {matchedHeroes.Count} hero(es) matching {criteriaDesc}:\n" +
+                       $"{HeroQueries.GetFormattedDetails(matchedHeroes)}";
+            });
         }
 
         /// <summary>
@@ -99,24 +103,27 @@ namespace Bannerlord.GameMaster.Console.Query
         [CommandLineFunctionality.CommandLineArgumentFunction("hero_any", "gm.query")]
         public static string QueryHeroesAny(List<string> args)
         {
-            if (Campaign.Current == null)
-                return "Error: Must be in campaign mode.\n";
-
-            var (query, types, includeDead) = ParseArguments(args);
-
-            List<Hero> matchedHeroes = HeroQueries.QueryHeroes(query, types, matchAll: false, includeDead: includeDead);
-
-            if (matchedHeroes.Count == 0)
+            return Cmd.Run(args, () =>
             {
-                string criteria = BuildCriteriaString(query, types);
-                return $"No heroes found matching ANY of: {criteria}\n" +
-                       "Usage: gm.query.hero_any [search] [type keywords]\n" +
-                       "Example: gm.query.hero_any lord wanderer (finds lords OR wanderers)\n";
-            }
+                if (Campaign.Current == null)
+                    return "Error: Must be in campaign mode.\n";
 
-            string criteriaDesc = BuildCriteriaString(query, types);
-            return $"Found {matchedHeroes.Count} hero(es) matching ANY of {criteriaDesc}:\n" +
-                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}";
+                var (query, types, includeDead) = ParseArguments(args);
+
+                List<Hero> matchedHeroes = HeroQueries.QueryHeroes(query, types, matchAll: false, includeDead: includeDead);
+
+                string criteriaDesc = BuildCriteriaString(query, types);
+                
+                if (matchedHeroes.Count == 0)
+                {
+                    return $"Found 0 hero(es) matching ANY of {criteriaDesc}\n" +
+                           "Usage: gm.query.hero_any [search] [type keywords]\n" +
+                           "Example: gm.query.hero_any lord wanderer (finds lords OR wanderers)\n";
+                }
+
+                return $"Found {matchedHeroes.Count} hero(es) matching ANY of {criteriaDesc}:\n" +
+                       $"{HeroQueries.GetFormattedDetails(matchedHeroes)}";
+            });
         }
 
         /// <summary>
@@ -125,31 +132,34 @@ namespace Bannerlord.GameMaster.Console.Query
         [CommandLineFunctionality.CommandLineArgumentFunction("hero_info", "gm.query")]
         public static string QueryHeroInfo(List<string> args)
         {
-            if (Campaign.Current == null)
-                return "Error: Must be in campaign mode.\n";
+            return Cmd.Run(args, () =>
+            {
+                if (Campaign.Current == null)
+                    return "Error: Must be in campaign mode.\n";
 
-            if (args == null || args.Count == 0)
-                return "Error: Please provide a hero ID.\nUsage: gm.query.hero_info <heroId>\n";
+                if (args == null || args.Count == 0)
+                    return "Error: Please provide a hero ID.\nUsage: gm.query.hero_info <heroId>\n";
 
-            string heroId = args[0];
-            Hero hero = HeroQueries.GetHeroById(heroId);
+                string heroId = args[0];
+                Hero hero = HeroQueries.GetHeroById(heroId);
 
-            if (hero == null)
-                return $"Error: Hero with ID '{heroId}' not found.\n";
+                if (hero == null)
+                    return $"Error: Hero with ID '{heroId}' not found.\n";
 
-            var types = hero.GetHeroTypes();
-            string clanName = hero.Clan?.Name?.ToString() ?? "None";
-            string kingdomName = hero.Clan?.Kingdom?.Name?.ToString() ?? "None";
+                var types = hero.GetHeroTypes();
+                string clanName = hero.Clan?.Name?.ToString() ?? "None";
+                string kingdomName = hero.Clan?.Kingdom?.Name?.ToString() ?? "None";
 
-            return $"Hero Information:\n" +
-                   $"ID: {hero.StringId}\n" +
-                   $"Name: {hero.Name}\n" +
-                   $"Clan: {clanName}\n" +
-                   $"Kingdom: {kingdomName}\n" +
-                   $"Age: {hero.Age:F0}\n" +
-                   $"Types: {types}\n" +
-                   $"Is Alive: {hero.IsAlive}\n" +
-                   $"Is Prisoner: {hero.IsPrisoner}\n";
+                return $"Hero Information:\n" +
+                       $"ID: {hero.StringId}\n" +
+                       $"Name: {hero.Name}\n" +
+                       $"Clan: {clanName}\n" +
+                       $"Kingdom: {kingdomName}\n" +
+                       $"Age: {hero.Age:F0}\n" +
+                       $"Types: {types}\n" +
+                       $"Is Alive: {hero.IsAlive}\n" +
+                       $"Is Prisoner: {hero.IsPrisoner}\n";
+            });
         }
 
         /// <summary>

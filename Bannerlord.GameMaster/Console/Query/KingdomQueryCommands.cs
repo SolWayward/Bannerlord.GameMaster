@@ -1,4 +1,5 @@
 ﻿using Bannerlord.GameMaster.Kingdoms;
+using Bannerlord.GameMaster.Console.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,24 +78,27 @@ namespace Bannerlord.GameMaster.Console.Query
         [CommandLineFunctionality.CommandLineArgumentFunction("kingdom", "gm.query")]
         public static string QueryKingdoms(List<string> args)
         {
-            if (Campaign.Current == null)
-                return "Error: Must be in campaign mode.\n";
-
-            var (query, types) = ParseArguments(args);
-            List<Kingdom> matchedKingdoms = KingdomQueries.QueryKingdoms(query, types, matchAll: true);
-
-            if (matchedKingdoms.Count == 0)
+            return Cmd.Run(args, () =>
             {
-                string criteria = BuildCriteriaString(query, types);
-                return $"No kingdoms found matching ALL criteria: {criteria}\n" +
-                       "Usage: gm.query.kingdom [search] [type keywords]\n" +
-                       "Type keywords: active, eliminated, empty, atwar, allies, player, etc.\n" +
-                       "Example: gm.query.kingdom empire atwar\n";
-            }
+                if (Campaign.Current == null)
+                    return "Error: Must be in campaign mode.\n";
 
-            string criteriaDesc = BuildCriteriaString(query, types);
-            return $"Found {matchedKingdoms.Count} kingdom(s) matching {criteriaDesc}:\n" +
-                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
+                var (query, types) = ParseArguments(args);
+                List<Kingdom> matchedKingdoms = KingdomQueries.QueryKingdoms(query, types, matchAll: true);
+
+                string criteriaDesc = BuildCriteriaString(query, types);
+                
+                if (matchedKingdoms.Count == 0)
+                {
+                    return $"Found 0 kingdom(s) matching {criteriaDesc}\n" +
+                           "Usage: gm.query.kingdom [search] [type keywords]\n" +
+                           "Type keywords: active, eliminated, empty, atwar, allies, player, etc.\n" +
+                           "Example: gm.query.kingdom empire atwar\n";
+                }
+
+                return $"Found {matchedKingdoms.Count} kingdom(s) matching {criteriaDesc}:\n" +
+                       $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
+            });
         }
 
         /// <summary>
@@ -103,22 +107,25 @@ namespace Bannerlord.GameMaster.Console.Query
         [CommandLineFunctionality.CommandLineArgumentFunction("kingdom_any", "gm.query")]
         public static string QueryKingdomsAny(List<string> args)
         {
-            if (Campaign.Current == null)
-                return "Error: Must be in campaign mode.\n";
-
-            var (query, types) = ParseArguments(args);
-            List<Kingdom> matchedKingdoms = KingdomQueries.QueryKingdoms(query, types, matchAll: false);
-
-            if (matchedKingdoms.Count == 0)
+            return Cmd.Run(args, () =>
             {
-                string criteria = BuildCriteriaString(query, types);
-                return $"No kingdoms found matching ANY of: {criteria}\n" +
-                       "Usage: gm.query.kingdom_any [search] [type keywords]\n";
-            }
+                if (Campaign.Current == null)
+                    return "Error: Must be in campaign mode.\n";
 
-            string criteriaDesc = BuildCriteriaString(query, types);
-            return $"Found {matchedKingdoms.Count} kingdom(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
+                var (query, types) = ParseArguments(args);
+                List<Kingdom> matchedKingdoms = KingdomQueries.QueryKingdoms(query, types, matchAll: false);
+
+                string criteriaDesc = BuildCriteriaString(query, types);
+                
+                if (matchedKingdoms.Count == 0)
+                {
+                    return $"Found 0 kingdom(s) matching ANY of {criteriaDesc}\n" +
+                           "Usage: gm.query.kingdom_any [search] [type keywords]\n";
+                }
+
+                return $"Found {matchedKingdoms.Count} kingdom(s) matching ANY of {criteriaDesc}:\n" +
+                       $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
+            });
         }
 
         /// <summary>
@@ -127,43 +134,46 @@ namespace Bannerlord.GameMaster.Console.Query
         [CommandLineFunctionality.CommandLineArgumentFunction("kingdom_info", "gm.query")]
         public static string QueryKingdomInfo(List<string> args)
         {
-            if (Campaign.Current == null)
-                return "Error: Must be in campaign mode.\n";
-
-            if (args == null || args.Count == 0)
-                return "Error: Please provide a kingdom ID.\nUsage: gm.kingdom.info <kingdomId>\n";
-
-            string kingdomId = args[0];
-            Kingdom kingdom = KingdomQueries.GetKingdomById(kingdomId);
-
-            if (kingdom == null)
-                return $"Error: Kingdom with ID '{kingdomId}' not found.\n";
-
-            var types = kingdom.GetKingdomTypes();
-
-            // Get kingdoms at war with this kingdom
-            List<Kingdom> enemies = new List<Kingdom>();
-            foreach (var otherKingdom in Kingdom.All)
+            return Cmd.Run(args, () =>
             {
-                if (otherKingdom != kingdom && FactionManager.IsAtWarAgainstFaction(kingdom, otherKingdom))
-                {
-                    enemies.Add(otherKingdom);
-                }
-            }
+                if (Campaign.Current == null)
+                    return "Error: Must be in campaign mode.\n";
 
-            return $"Kingdom Information:\n" +
-                   $"ID: {kingdom.StringId}\n" +
-                   $"Name: {kingdom.Name}\n" +
-                   $"Culture: {kingdom.Culture?.Name}\n" +
-                   $"Ruler: {kingdom.Leader?.Name}\n" +
-                   $"Ruling Clan: {kingdom.RulingClan?.Name}\n" +
-                   $"Total Clans: {kingdom.Clans.Count}\n" +
-                   $"Total Heroes: {kingdom.Heroes.Count()}\n" +
-                   $"Total Fiefs: {kingdom.Fiefs.Count}\n" +
-                   $"Total Strength: {kingdom.CurrentTotalStrength:F0}\n" +
-                   $"Types: {types}\n" +
-                   $"Is Eliminated: {kingdom.IsEliminated}\n" +
-                   $"At War With ({enemies.Count}): {string.Join(", ", enemies.Select(k => k.Name))}\n";
+                if (args == null || args.Count == 0)
+                    return "Error: Please provide a kingdom ID.\nUsage: gm.kingdom.info <kingdomId>\n";
+
+                string kingdomId = args[0];
+                Kingdom kingdom = KingdomQueries.GetKingdomById(kingdomId);
+
+                if (kingdom == null)
+                    return $"Error: Kingdom with ID '{kingdomId}' not found.\n";
+
+                var types = kingdom.GetKingdomTypes();
+
+                // Get kingdoms at war with this kingdom
+                List<Kingdom> enemies = new List<Kingdom>();
+                foreach (var otherKingdom in Kingdom.All)
+                {
+                    if (otherKingdom != kingdom && FactionManager.IsAtWarAgainstFaction(kingdom, otherKingdom))
+                    {
+                        enemies.Add(otherKingdom);
+                    }
+                }
+
+                return $"Kingdom Information:\n" +
+                       $"ID: {kingdom.StringId}\n" +
+                       $"Name: {kingdom.Name}\n" +
+                       $"Culture: {kingdom.Culture?.Name}\n" +
+                       $"Ruler: {kingdom.Leader?.Name}\n" +
+                       $"Ruling Clan: {kingdom.RulingClan?.Name}\n" +
+                       $"Total Clans: {kingdom.Clans.Count}\n" +
+                       $"Total Heroes: {kingdom.Heroes.Count()}\n" +
+                       $"Total Fiefs: {kingdom.Fiefs.Count}\n" +
+                       $"Total Strength: {kingdom.CurrentTotalStrength:F0}\n" +
+                       $"Types: {types}\n" +
+                       $"Is Eliminated: {kingdom.IsEliminated}\n" +
+                       $"At War With ({enemies.Count}): {string.Join(", ", enemies.Select(k => k.Name))}\n";
+            });
         }
     }
 }
