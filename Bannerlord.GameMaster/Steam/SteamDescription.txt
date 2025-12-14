@@ -1,0 +1,168 @@
+[h1]Bannerlord.GameMaster (BLGM)[/h1]
+Console commands mod for Mount & Blade II: Bannerlord that provides game management capabilities through a command-line interface. 
+Tested using Bannerlord [b]1.3.9[/b], [b]1.3.10[/b], [b]1.3.12 beta[/b], and [b]War Sails[/b].
+
+BLGM is intended to be the foundation of other mods I am working on but is also useful for taking control of your playthrough, testing / debugging your mod, or even to quickly add functionality to your mod.
+This mod is a work in progress and will be updated regularly with additional functionality, but is available now as is.
+
+[b]Note:[/b] This mod also provides a C# API for use with other mods (undocumented).
+
+[h1]Overview[/h1]
+BLGM extends Bannerlord's console with a set of commands for managing heroes, clans, kingdoms, and game state. Whether you're testing scenarios, testing or debugging your mod, or simply want more control over your game, GameMaster provides the tools you need.
+
+[b]All commands use the [code]gm.[/code] prefix and are organized into logical categories for easy discovery and use.[/b]
+
+[h1]Key Features[/h1]
+[list]
+[*] [b]Hero Management[/b] - Complete control over individual heroes including attributes, gold, health, relationships, and life state
+[*] [b]Clan Management[/b] - Comprehensive clan operations including membership, gold distribution, renown, and leadership
+[*] [b]Kingdom Management[/b] - Full kingdom control including diplomacy, settlements, clan membership, and rulers
+[*] [b]Advanced Queries[/b] - Powerful search and filter capabilities with AND/OR logic for finding heroes, clans, and kingdoms
+[*] [b]Command Logging[/b] - Built-in logging system for tracking command usage, debugging, and analysis
+[*] [b]Testing Framework[/b] - Automated test suite for validating commands and ensuring reliability
+[/list]
+
+[h1]Documentation[/h1]
+[b]Complete documentation is available in our [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki]GitHub Wiki[/url][/b]
+
+[b]Quick Links:[/b]
+[list]
+[*] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Home]Home[/url] - Welcome and getting started
+[*] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Hero-Commands]Hero Commands[/url] - Managing individual heroes
+[*] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Clan-Commands]Clan Commands[/url] - Clan operations and management
+[*] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Kingdom-Commands]Kingdom Commands[/url] - Kingdom diplomacy and control
+[*] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands]Query Commands[/url] - Advanced search and filtering
+[*] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands]Logger Commands[/url] - Command logging and tracking
+[*] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands]Testing Commands[/url] - Automated testing framework
+[/list]
+
+[h1]Installation[/h1]
+1. Click the [b]Subscribe[/b] button above.
+2. Enable the mod in the Bannerlord launcher.
+3. Launch the game and press [b]~[/b] or [b]`[/b] to open the console.
+
+[h3]Dependencies[/h3]
+GameMaster requires the following mods (make sure they are installed and enabled):
+[list]
+[*] Harmony
+[*] ButterLib
+[*] UIExtenderEx
+[*] MCM (Mod Configuration Menu)
+[/list]
+
+[h1]Quick Start[/h1]
+[h3]Accessing the Console[/h3]
+Press [b]alt + ~[/b] or (alt + tidle) while in-game to open the console.
+
+[h3]Basic Command Structure[/h3]
+[code]gm.<category>.<command> [parameters][/code]
+Replace [code]<category>[/code] with one of: [code]hero, clan, kingdom, query,  log, or test.[/code]
+Note running tests in gonna greatly change your game state and probably cause problems. Tests are not meant for general use.
+
+[h3]Example Commands[/h3]
+
+[b]Set a hero's gold:[/b]
+[code]gm.hero.set_gold lord_1_1 10000[/code]
+
+[b]Search for heroes:[/b]
+[code]gm.query.hero empire lord female[/code]
+(Finds all female lords in the Empire faction)
+
+[b]Declare war between kingdoms:[/b]
+[code]gm.kingdom.declare_war empire battania[/code]
+
+[b]Enable command logging:[/b]
+[code]gm.log.enable[/code]
+
+[b]Add a hero to a clan:[/b]
+[code]gm.clan.add_hero clan_empire_1 lord_2_5[/code]
+
+[h1]Command Categories[/h1]
+[h2]Hero Commands[/h2]
+Manage individual heroes with commands for:
+[list]
+[*] Life state (kill, imprison, release)
+[*] Attributes (age, health, gold)
+[*] Clan transfers
+[*] Relationships between heroes
+[/list]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Hero-Commands]View All Hero Commands →[/url]
+
+[h2]Clan Commands[/h2]
+Control clans including:
+[list]
+[*] Adding/removing heroes
+[*] Gold management and distribution
+[*] Renown and tier adjustments
+[*] Leadership changes
+[*] Clan destruction
+[/list]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Clan-Commands]View All Clan Commands →[/url]
+
+[h2]Kingdom Commands[/h2]
+Manage kingdoms with:
+[list]
+[*] Clan membership
+[*] War and peace declarations
+[*] Settlement transfers
+[*] Ruler changes
+[*] Kingdom destruction
+[/list]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Kingdom-Commands]View All Kingdom Commands →[/url]
+
+[h2]Query Commands[/h2]
+Advanced search capabilities:
+[list]
+[*] Hero queries by name, type, and status
+[*] Clan filtering with type restrictions
+[*] Kingdom searches
+[*] Flexible AND/OR logic
+[/list]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands]View All Query Commands →[/url]
+
+[h2]Logger Commands[/h2]
+Command logging features:
+[list]
+[*] Enable/disable logging
+[*] View logging status
+[*] Clear log files
+[*] Custom log paths
+[/list]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands]View All Logger Commands →[/url]
+
+[h2]Testing Commands[/h2]
+Automated testing system:
+[list]
+[*] Run test suites
+[*] Execute individual tests
+[*] View test results
+[*] Standard and integration tests
+[/list]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands]View All Testing Commands →[/url]
+
+The system intelligently searches for matches when you provide partial names or IDs.
+
+[h1]Important Notes[/h1]
+[h3]Before You Begin[/h3]
+[list]
+[*] [b]Backup your saves[/b] - Many commands make permanent changes
+[*] [b]Test in a separate save[/b] - Experiment safely
+[*] [b]Enable logging[/b] - Use [code]gm.log.enable[/code] to track your command usage
+[*] [b]Some actions are irreversible[/b] - Killing heroes and destroying clans cannot be undone
+[/list]
+
+[h3]Finding Entity IDs[/h3]
+Use Query commands to find the exact IDs of heroes, clans, and kingdoms. This ensures you're targeting the correct entities before using management commands.
+[code]
+gm.query.hero <search_term>
+gm.query.clan <search_term>
+gm.query.kingdom <search_term>
+[/code]
+
+[h1]Support[/h1]
+[b]Support Links:[/b]
+[list]
+[*] [b]Documentation:[/b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki]GitHub Wiki[/url]
+[*] [b]Issues:[/b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/issues]GitHub Issues[/url]
+[*] [b]Discussions:[/b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/discussions]GitHub Discussions[/url]
+[/list]

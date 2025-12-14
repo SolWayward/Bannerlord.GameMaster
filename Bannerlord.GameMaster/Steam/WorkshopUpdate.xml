@@ -1,24 +1,24 @@
 <Tasks>
     <GetItem>
-        <ItemId Value="YourWorkshopItemIdHere"/>
+        <ItemId Value="3624114786"/>
         <!-- Can be found in the URL of your workshop item -->
     </GetItem>
-    <UpdateItem>
-        <ModuleFolder Value="C:\Mount &amp; Blade II Bannerlord\Modules\MyMod"/>
-        <!-- A direct path of your module -->   
-        <ChangeNotes Value="New cool features" />
-        <!-- Insert patch notes -->
+   <UpdateItem>
+        <ModuleFolder Value="Place Holder Update"/>
+        
         <Tags> 
-            <!-- You can use the following tags: -->
-            <!-- Type: Graphical Enhancement, Map Pack, Partial Conversion, Sound, Total Conversion, Troops, UI, Utility, Weapons and Armour -->
-            <!-- Setting: Native, Antiquity, Dark Ages, Medieval, Musket Era, Modern, Sci-Fi, Fantasy, Oriental, Apocalypse, Other -->
-            <!-- Game Mode: Singleplayer, Multiplayer -->
-            <!-- Compatible Version: e1.9.0, v1.0.0,... The currently available versions can be found at the Steam Workshop "Browse by Tag" section -->
-            <Tag Value="Partial Conversion" />
-            <Tag Value="Dark Ages" />
+            <Tag Value="Utility" />
             <Tag Value="Singleplayer" />
-            <Tag Value="Multiplayer" />
-            <Tag Value="e1.9.0" />
+            <Tag Value="v1.3.4" />
+            <Tag Value="v1.3.5" />
+            <Tag Value="v1.3.6" />
+            <Tag Value="v1.3.7" />
+            <Tag Value="v1.3.8" />
+            <Tag Value="v1.3.9" />
+            <Tag Value="v1.3.10" />
+            <Tag Value="v1.3.12" />
         </Tags>
+        <Image Value="Image.png"/>
+        <Visibility Value="Public"/>
     </UpdateItem>
 </Tasks>
