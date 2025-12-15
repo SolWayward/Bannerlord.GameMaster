@@ -36,6 +36,7 @@ Every Extensions class must implement these four methods:
 
 ## Template Code
 
+{% raw %}
 ```csharp
 using System;
 using TaleWorlds.CampaignSystem; // Or appropriate namespace
@@ -120,6 +121,7 @@ namespace Bannerlord.GameMaster.{EntityType}s
     }
 }
 ```
+{% endraw %}
 
 ---
 
@@ -127,6 +129,7 @@ namespace Bannerlord.GameMaster.{EntityType}s
 
 **Required:** Every Extensions class must include a wrapper class implementing [`IEntityExtensions<TEntity, TTypes>`](../../Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs:5):
 
+{% raw %}
 ```csharp
 /// <summary>
 /// Wrapper class implementing IEntityExtensions interface for {EntityType} entities
@@ -139,6 +142,7 @@ public class {EntityType}ExtensionsWrapper : IEntityExtensions<{EntityType}, {En
     public string FormattedDetails({EntityType} entity) => entity.FormattedDetails();
 }
 ```
+{% endraw %}
 
 Add this wrapper class at the end of your Extensions file, after all extension methods. The wrapper delegates to your extension methods and provides a consistent interface for generic operations.
 
@@ -159,6 +163,7 @@ Add this wrapper class at the end of your Extensions file, after all extension m
 
 Define the logic for determining which type flags apply to an entity:
 
+{% raw %}
 ```csharp
 public static ItemTypes GetItemTypes(this ItemObject item)
 {
@@ -172,17 +177,20 @@ public static ItemTypes GetItemTypes(this ItemObject item)
     return types;
 }
 ```
+{% endraw %}
 
 ### Step 3: Customize FormattedDetails()
 
 Choose which properties to display:
 
+{% raw %}
 ```csharp
 public static string FormattedDetails(this ItemObject item)
 {
     return $"{item.StringId}\t{item.Name}\tValue: {item.Value}";
 }
 ```
+{% endraw %}
 
 ---
 
@@ -231,6 +239,7 @@ public static string FormattedDetails(this ItemObject item)
 
 Create a simple test to verify your implementation:
 
+{% raw %}
 ```csharp
 // In your Tests.cs file
 TestRunner.RegisterTest(new TestCase(
@@ -243,6 +252,7 @@ TestRunner.RegisterTest(new TestCase(
     Category = "{EntityType}Extensions"
 });
 ```
+{% endraw %}
 
 ---
 
