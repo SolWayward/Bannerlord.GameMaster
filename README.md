@@ -1,18 +1,18 @@
 # Bannerlord.GameMaster (BLGM)
 
-[Mod User Guide Docunentation Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki) - Documentation for using mod ingame  <br />
+[Mod User Guide Documentation Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki) - Documentation for using mod ingame  <br />
 [Source Code Documentation](https://solwayward.github.io/Bannerlord.GameMaster/) - Documentation for contributing and implementing features to the project
 
-Console commands mod for Mount & Blade II: Bannerlord that provides game management capabilities through an command-line interface. 
+Console commands mod for Mount & Blade II: Bannerlord that provides game management capabilities through an command-line interface.
 Tested using Bannerlord *1.3.9*, *1.3.10*, *1.3.12 beta*, and *War Sails* <br /><br />
-BLGM is intended to be the foundation of other mods I am working on but is also useful for taking control of your playthrough, testing / debugging your mod, or even to quickly add functionality to your mod.  
+BLGM is intended to be the foundation of other mods I am working on but is also useful for taking control of your playthrough, testing / debugging your mod, or even to quickly add functionality to your mod.
 This mod is a work in progress will be updated regular with additonal functionality, but is available now as is. <br /><br />
 
-**Note**: this mod also provides a C# api for use with other mods (undocumented) 
+**Note**: this mod also provides a C# api for use with other mods (undocumented)
 
 ## Overview
 
-BLGM extends Bannerlord's console with a set of commands for managing heroes, clans, kingdoms, and game state. Whether you're testing scenarios, testing or debugging your mod, or simply want more control over your game, GameMaster provides the tools you need.
+BLGM extends Bannerlord's console with a set of commands for managing heroes, clans, kingdoms, items, and game state. Whether you're testing scenarios, testing or debugging your mod, or simply want more control over your game, GameMaster provides the tools you need.
 
 **All commands use the `gm.` prefix and are organized into logical categories for easy discovery and use.**
 
@@ -21,7 +21,8 @@ BLGM extends Bannerlord's console with a set of commands for managing heroes, cl
 - **Hero Management** - Complete control over individual heroes including attributes, gold, health, relationships, and life state
 - **Clan Management** - Comprehensive clan operations including membership, gold distribution, renown, and leadership
 - **Kingdom Management** - Full kingdom control including diplomacy, settlements, clan membership, and rulers
-- **Advanced Queries** - Powerful search and filter capabilities with AND/OR logic for finding heroes, clans, and kingdoms
+- **Item Management** - Full inventory and equipment control including adding/removing items, managing equipment slots, and item quality modifiers
+- **Advanced Queries** - Powerful search and filter capabilities with AND/OR logic, sorting options for finding heroes, clans, kingdoms, and items
 - **Command Logging** - Built-in logging system for tracking command usage, debugging, and analysis
 - **Testing Framework** - Automated test suite for validating commands and ensuring reliability
 
@@ -35,7 +36,9 @@ BLGM extends Bannerlord's console with a set of commands for managing heroes, cl
 - [Hero Commands](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Hero-Commands) - Managing individual heroes
 - [Clan Commands](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Clan-Commands) - Clan operations and management
 - [Kingdom Commands](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Kingdom-Commands) - Kingdom diplomacy and control
+- [Item Management Commands](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Management-Commands) - Inventory and equipment management
 - [Query Commands](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands) - Advanced search and filtering
+- [Item Query Commands](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Query-Commands) - Item search with sorting
 - [Logger Commands](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands) - Command logging and tracking
 - [Testing Commands](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands) - Automated testing framework
 
@@ -99,6 +102,21 @@ gm.log.enable
 gm.clan.add_hero clan_empire_1 lord_2_5
 ```
 
+**Add items to inventory:**
+```
+gm.item.add imperial_sword 5 player
+```
+
+**Equip items:**
+```
+gm.item.equip chainmail player
+```
+
+**Search for items with sorting:**
+```
+gm.query.item bow tier5 sort:value:desc
+```
+
 ## Command Categories
 
 ### Hero Commands
@@ -133,15 +151,41 @@ Manage kingdoms with:
 
 [View All Kingdom Commands →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Kingdom-Commands)
 
+### Item Management Commands
+
+Comprehensive item and equipment control:
+- Add/remove items from party inventories
+- Transfer items between parties
+- Equip/unequip items to specific slots
+- Manage battle and civilian equipment
+- Apply item quality modifiers (fine, masterwork, legendary)
+- Batch modify equipped or inventory items
+
+[View All Item Management Commands →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Management-Commands)
+
 ### Query Commands
 
 Advanced search capabilities:
 - Hero queries by name, type, and status
 - Clan filtering with type restrictions
 - Kingdom searches
+- Item searches with type and tier filtering
 - Flexible AND/OR logic
+- Advanced sorting options (name, value, tier, type)
 
 [View All Query Commands →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands)
+
+### Item Query Commands
+
+Specialized item search with filtering and sorting:
+- Search by item type (weapons, armor, mounts)
+- Filter by tier level (0-6)
+- Sort by name, value, tier, or type
+- View detailed item information
+- Query item quality modifiers and their effects
+- Support for both AND and OR logic
+
+[View All Item Query Commands →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Query-Commands)
 
 ### Logger Commands
 
