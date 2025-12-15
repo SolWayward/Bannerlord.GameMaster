@@ -57,12 +57,12 @@ GameMaster requires the following mods (make sure they are installed and enabled
 
 [h1]Quick Start[/h1]
 [h3]Accessing the Console[/h3]
-Press [b]alt + ~[/b] or (alt + tidle) while in-game to open the console.
+Press [b]~[/b] or [b]`[/b] (tilde or backtick key) while in-game to open the console.
 
 [h3]Basic Command Structure[/h3]
-[code]gm.<category>.<command> [parameters][/code]
-Replace [code]<category>[/code] with one of: [code]hero, clan, kingdom, query,  log, or test.[/code]
-Note running tests in gonna greatly change your game state and probably cause problems. Tests are not meant for general use.
+[code]gm.CATEGORY.COMMAND [parameters][/code]
+Replace CATEGORY with one of: hero, clan, kingdom, item, query, log, or test.
+Note running tests is gonna greatly change your game state and probably cause problems. Tests are not meant for general use.
 
 [h3]Example Commands[/h3]
 
@@ -100,7 +100,7 @@ Manage individual heroes with commands for:
 [*] Clan transfers
 [*] Relationships between heroes
 [/list]
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Hero-Commands]View All Hero Commands →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Hero-Commands]View All Hero Commands[/url]
 
 [h2]Clan Commands[/h2]
 Control clans including:
@@ -111,7 +111,7 @@ Control clans including:
 [*] Leadership changes
 [*] Clan destruction
 [/list]
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Clan-Commands]View All Clan Commands →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Clan-Commands]View All Clan Commands[/url]
 
 [h2]Kingdom Commands[/h2]
 Manage kingdoms with:
@@ -122,7 +122,7 @@ Manage kingdoms with:
 [*] Ruler changes
 [*] Kingdom destruction
 [/list]
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Kingdom-Commands]View All Kingdom Commands →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Kingdom-Commands]View All Kingdom Commands[/url]
 
 [h2]Item Management Commands[/h2]
 Comprehensive item and equipment control:
@@ -134,7 +134,7 @@ Comprehensive item and equipment control:
 [*] Apply item quality modifiers (fine, masterwork, legendary)
 [*] Batch modify equipped or inventory items
 [/list]
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Management-Commands]View All Item Management Commands →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Management-Commands]View All Item Management Commands[/url]
 
 [h2]Query Commands[/h2]
 Advanced search capabilities:
@@ -146,7 +146,7 @@ Advanced search capabilities:
 [*] Flexible AND/OR logic
 [*] Advanced sorting options (name, value, tier, type)
 [/list]
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands]View All Query Commands →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands]View All Query Commands[/url]
 
 [h2]Item Query Commands[/h2]
 Specialized item search with filtering and sorting:
@@ -158,7 +158,7 @@ Specialized item search with filtering and sorting:
 [*] Query item quality modifiers and their effects
 [*] Support for both AND and OR logic
 [/list]
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Query-Commands]View All Item Query Commands →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Query-Commands]View All Item Query Commands[/url]
 
 [h2]Logger Commands[/h2]
 Command logging features:
@@ -168,7 +168,7 @@ Command logging features:
 [*] Clear log files
 [*] Custom log paths
 [/list]
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands]View All Logger Commands →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands]View All Logger Commands[/url]
 
 [h2]Testing Commands[/h2]
 Automated testing system:
@@ -178,7 +178,7 @@ Automated testing system:
 [*] View test results
 [*] Standard and integration tests
 [/list]
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands]View All Testing Commands →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands]View All Testing Commands[/url]
 
 The system intelligently searches for matches when you provide partial names or IDs.
 
@@ -193,11 +193,10 @@ The system intelligently searches for matches when you provide partial names or 
 
 [h3]Finding Entity IDs[/h3]
 Use Query commands to find the exact IDs of heroes, clans, and kingdoms. This ensures you're targeting the correct entities before using management commands.
-[code]
-gm.query.hero <search_term>
-gm.query.clan <search_term>
-gm.query.kingdom <search_term>
-[/code]
+
+[code]gm.query.hero SEARCH_TERM[/code]
+[code]gm.query.clan SEARCH_TERM[/code]
+[code]gm.query.kingdom SEARCH_TERM[/code]
 
 [h1]Support[/h1]
 [b]Support Links:[/b]

@@ -1,12 +1,11 @@
 Starting...
-Item created. Item ID is 3624152079
 LoadWithFullPath  subModulePath = C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\Bannerlord.GameMaster/SubModule.xml
 Status: k_EItemUpdateStatusPreparingConfig 0 / 0
 Status: k_EItemUpdateStatusPreparingConfig 0 / 0
-Status: k_EItemUpdateStatusPreparingConfig 0 / 0
 Status: k_EItemUpdateStatusPreparingContent 0 / 0
 Status: k_EItemUpdateStatusPreparingContent 0 / 0
-Status: k_EItemUpdateStatusPreparingContent 0 / 810710
+Status: k_EItemUpdateStatusPreparingContent 0 / 0
+Status: k_EItemUpdateStatusPreparingContent 0 / 0
 Status: k_EItemUpdateStatusUploadingContent 0 / 0
 Status: k_EItemUpdateStatusUploadingContent 0 / 0
 Status: k_EItemUpdateStatusUploadingContent 0 / 0
@@ -15,17 +14,19 @@ Status: k_EItemUpdateStatusUploadingContent 0 / 0
 Status: k_EItemUpdateStatusUploadingContent 0 / 0
 Status: k_EItemUpdateStatusUploadingContent 0 / 0
 Status: k_EItemUpdateStatusUploadingContent 0 / 0
-Status: k_EItemUpdateStatusUploadingContent 0 / 0
-Status: k_EItemUpdateStatusUploadingContent 0 / 0
-Status: k_EItemUpdateStatusUploadingContent 0 / 0
-Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
-Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
-Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
-Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
-Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
-Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
-Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
-Status: k_EItemUpdateStatusCommittingChanges 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 0 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 0 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 0 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 2514 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 2514 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 2514 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 2514 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 2514 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 508506 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 1018670 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 1018670 / 1018670
+Status: k_EItemUpdateStatusUploadingContent 1018670 / 1018670
 Status: k_EItemUpdateStatusCommittingChanges 0 / 0
 Status: k_EItemUpdateStatusCommittingChanges 0 / 0
 Status: k_EItemUpdateStatusInvalid 0 / 0

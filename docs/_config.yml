@@ -39,6 +39,7 @@ exclude:
   - .vscode/
   - node_modules/
   - vendor/
+  - Deployment/
 
 # Include files
 include:
