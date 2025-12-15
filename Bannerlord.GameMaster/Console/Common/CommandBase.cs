@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Kingdoms;
+using Bannerlord.GameMaster.Items;
 
 namespace Bannerlord.GameMaster.Console.Common
 {
@@ -82,6 +84,29 @@ namespace Bannerlord.GameMaster.Console.Common
                 getName: k => k.Name?.ToString() ?? "",
                 formatDetails: KingdomQueries.GetFormattedDetails,
                 entityType: "kingdom");
+        }
+
+        /// <summary>
+        /// Helper method to find a single item from a query
+        /// </summary>
+        public static (ItemObject item, string error) FindSingleItem(string query)
+        {
+            List<ItemObject> matchedItems = ItemQueries.QueryItems(query);
+
+            if (matchedItems == null || matchedItems.Count == 0)
+                return (null, $"Error: No item matching query '{query}' found.\n");
+
+            if (matchedItems.Count == 1)
+                return (matchedItems[0], null);
+
+            // Use smart matching for multiple results
+            return ResolveMultipleMatches(
+                matches: matchedItems,
+                query: query,
+                getStringId: i => i.StringId,
+                getName: i => i.Name?.ToString() ?? "",
+                formatDetails: ItemQueries.GetFormattedDetails,
+                entityType: "item");
         }
 
         /// <summary>

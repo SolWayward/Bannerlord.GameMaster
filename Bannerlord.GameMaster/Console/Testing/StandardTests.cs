@@ -21,6 +21,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         	RegisterHeroManagementTests();
         	RegisterClanManagementTests();
         	RegisterKingdomManagementTests();
+        	RegisterItemManagementTests();
         	RegisterSuccessPathTests();
         	RegisterSortingTests();
         }
@@ -727,6 +728,353 @@ namespace Bannerlord.GameMaster.Console.Testing
             });
         }
       
+        /// <summary>
+        /// Register item management command tests
+        /// </summary>
+        private static void RegisterItemManagementTests()
+        {
+            // Test add item without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_001",
+                "Add item without arguments should return usage error",
+                "gm.item.add",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test remove item without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_002",
+                "Remove item without arguments should return usage error",
+                "gm.item.remove",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test remove_all without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_003",
+                "Remove all items without arguments should return usage error",
+                "gm.item.remove_all",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test transfer item without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_004",
+                "Transfer item without arguments should return usage error",
+                "gm.item.transfer",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test unequip_all without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_005",
+                "Unequip all items without arguments should return usage error",
+                "gm.item.unequip_all",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test equip without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_006",
+                "Equip item without arguments should return usage error",
+                "gm.item.equip",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test unequip without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_007",
+                "Unequip item without arguments should return usage error",
+                "gm.item.unequip",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test equip_slot without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_008",
+                "Equip item to slot without arguments should return usage error",
+                "gm.item.equip_slot",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test unequip_slot without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_009",
+                "Unequip slot without arguments should return usage error",
+                "gm.item.unequip_slot",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test list_equipped without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_010",
+                "List equipped items without arguments should return usage error",
+                "gm.item.list_equipped",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test remove_equipped without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_011",
+                "Remove equipped items without arguments should return usage error",
+                "gm.item.remove_equipped",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test list_inventory without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_012",
+                "List inventory without arguments should return usage error",
+                "gm.item.list_inventory",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test add item with invalid item ID
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_013",
+                "Add item with invalid item ID should return error",
+                "gm.item.add invalid_item_xyz 1 player",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "No item matching"
+            });
+
+            // Test add item with invalid hero
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_014",
+                "Add item with invalid hero should return error",
+                "gm.item.add sword 1 invalid_hero_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test add item with invalid count (negative)
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_015",
+                "Add item with negative count should return error",
+                "gm.item.add sword -5 player",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Error"
+            });
+
+            // Test equip_slot with invalid slot name
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_016",
+                "Equip to invalid slot should return error",
+                "gm.item.equip_slot sword player InvalidSlot",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "Invalid equipment slot"
+            });
+
+            // Test list_inventory with invalid hero
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_017",
+                "List inventory with invalid hero should return error",
+                "gm.item.list_inventory invalid_hero_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test remove_equipped with invalid hero
+            TestRunner.RegisterTest(new TestCase(
+                "item_mgmt_018",
+                "Remove equipped with invalid hero should return error",
+                "gm.item.remove_equipped invalid_hero_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemManagement",
+                ExpectedText = "No hero matching"
+            });
+        }
+
+        /// <summary>
+        /// Register item modifier management command tests
+        /// </summary>
+        private static void RegisterItemModifierManagementTests()
+        {
+            // Test set_equipped_modifier without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_001",
+                "Set equipped modifier without arguments should return usage error",
+                "gm.item.set_equipped_modifier",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_inventory_modifier without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_002",
+                "Set inventory modifier without arguments should return usage error",
+                "gm.item.set_inventory_modifier",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test remove_equipped_modifier without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_003",
+                "Remove equipped modifier without arguments should return usage error",
+                "gm.item.remove_equipped_modifier",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_equipped_modifier with invalid hero
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_004",
+                "Set equipped modifier with invalid hero should return error",
+                "gm.item.set_equipped_modifier invalid_hero_xyz masterwork",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test set_equipped_modifier with invalid modifier
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_005",
+                "Set equipped modifier with invalid modifier should return error",
+                "gm.item.set_equipped_modifier player invalid_modifier_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "not found"
+            });
+
+            // Test set_inventory_modifier with invalid hero
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_006",
+                "Set inventory modifier with invalid hero should return error",
+                "gm.item.set_inventory_modifier invalid_hero_xyz fine",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test set_inventory_modifier with invalid modifier
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_007",
+                "Set inventory modifier with invalid modifier should return error",
+                "gm.item.set_inventory_modifier player invalid_modifier_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "not found"
+            });
+
+            // Test remove_equipped_modifier with invalid hero
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_008",
+                "Remove equipped modifier with invalid hero should return error",
+                "gm.item.remove_equipped_modifier invalid_hero_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test add item with modifier
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_009",
+                "Add item with valid modifier should succeed or give appropriate feedback",
+                "gm.item.add sword 1 player fine",
+                TestExpectation.NoException
+            )
+            {
+                Category = "ModifierManagement"
+            });
+
+            // Test add item with invalid modifier
+            TestRunner.RegisterTest(new TestCase(
+                "modifier_mgmt_010",
+                "Add item with invalid modifier should return error",
+                "gm.item.add sword 1 player invalid_modifier_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "ModifierManagement",
+                ExpectedText = "not found"
+            });
+        }
+
         /// <summary>
         /// Register success path tests - validate successful command execution
         /// </summary>
