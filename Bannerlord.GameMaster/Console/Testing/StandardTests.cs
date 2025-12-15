@@ -17,10 +17,12 @@ namespace Bannerlord.GameMaster.Console.Testing
         	RegisterHeroQueryTests();
         	RegisterClanQueryTests();
         	RegisterKingdomQueryTests();
+        	RegisterItemQueryTests();
         	RegisterHeroManagementTests();
         	RegisterClanManagementTests();
         	RegisterKingdomManagementTests();
         	RegisterSuccessPathTests();
+        	RegisterSortingTests();
         }
 
         /// <summary>
@@ -206,6 +208,312 @@ namespace Bannerlord.GameMaster.Console.Testing
             {
                 Category = "KingdomQuery",
                 ExpectedText = "Please provide a kingdom ID"
+            });
+        }
+
+        /// <summary>
+        /// Register item query command tests
+        /// </summary>
+        private static void RegisterItemQueryTests()
+        {
+            // Test basic item query
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_001",
+                "Query items without parameters should return all items",
+                "gm.query.item",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test item query with type filter
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_002",
+                "Query items with 'weapon' filter",
+                "gm.query.item weapon",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test item query with name search
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_003",
+                "Query items with specific name",
+                "gm.query.item sword",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test item_any query
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_004",
+                "Query items matching ANY criteria (weapon OR armor)",
+                "gm.query.item_any weapon armor",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching ANY"
+            });
+
+            // Test item info - should error without ID
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_005",
+                "Item info without ID should return error",
+                "gm.query.item_info",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "Please provide an item ID"
+            });
+
+            // Test invalid item ID
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_006",
+                "Item info with invalid ID should return error",
+                "gm.query.item_info invalid_item_id_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "not found"
+            });
+
+            // Test item query with specific armor type
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_007",
+                "Query items with specific armor type",
+                "gm.query.item armor head",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test item query with weapon subtype
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_008",
+                "Query items for one-handed weapons",
+                "gm.query.item weapon 1h",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test bow filter
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_009",
+                "Query items with 'bow' filter",
+                "gm.query.item bow",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test crossbow filter
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_010",
+                "Query items with 'crossbow' filter",
+                "gm.query.item crossbow",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test civilian filter
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_011",
+                "Query items with 'civilian' filter",
+                "gm.query.item civilian",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test combat filter
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_012",
+                "Query items with 'combat' filter",
+                "gm.query.item combat",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test horsearmor filter
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_013",
+                "Query items with 'horsearmor' filter",
+                "gm.query.item horsearmor",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test tier filtering - tier3
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_014",
+                "Query items with tier3 filter",
+                "gm.query.item tier3",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test tier filtering - tier5
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_015",
+                "Query items with tier5 filter",
+                "gm.query.item tier5",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test sorting by name
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_016",
+                "Query items sorted by name",
+                "gm.query.item sort:name",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test sorting by value descending
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_017",
+                "Query items sorted by value descending",
+                "gm.query.item sort:value:desc",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test sorting by tier ascending
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_018",
+                "Query items sorted by tier ascending",
+                "gm.query.item sort:tier:asc",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test combined: bow + tier5
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_019",
+                "Query tier 5 bows",
+                "gm.query.item bow tier5",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test combined: armor + combat + tier4
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_020",
+                "Query tier 4 combat armor",
+                "gm.query.item armor combat tier4",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test combined: bow + tier5 + sort
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_021",
+                "Query tier 5 bows sorted by value descending",
+                "gm.query.item bow tier5 sort:value:desc",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test item_any with bow and crossbow
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_022",
+                "Query items matching bow OR crossbow",
+                "gm.query.item_any bow crossbow",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching ANY"
+            });
+
+            // Test item_any with tier filtering
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_023",
+                "Query tier 4 items matching 1h OR 2h weapons",
+                "gm.query.item_any 1h 2h tier4",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching ANY"
+            });
+
+            // Test sorting by type
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_024",
+                "Query items sorted by type",
+                "gm.query.item weapon sort:type",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
+            });
+
+            // Test civilian armor
+            TestRunner.RegisterTest(new TestCase(
+                "item_query_025",
+                "Query civilian armor items",
+                "gm.query.item armor civilian",
+                TestExpectation.Contains
+            )
+            {
+                Category = "ItemQuery",
+                ExpectedText = "item(s) matching"
             });
         }
 
@@ -614,6 +922,193 @@ namespace Bannerlord.GameMaster.Console.Testing
         		Category = "SuccessPaths_Query",
         		ExpectedText = "kingdom(s) matching"
         	});
+
+        	// Test: Successfully query items with results
+        	TestRunner.RegisterTest(new TestCase(
+        		"query_success_004",
+        		"Successfully query for weapons",
+        		"gm.query.item weapon",
+        		TestExpectation.Contains
+        	)
+        	{
+        		Category = "SuccessPaths_Query",
+        		ExpectedText = "item(s) matching"
+        	});
+        }
+
+        /// <summary>
+        /// Register sorting tests for hero, clan, and kingdom queries
+        /// </summary>
+        private static void RegisterSortingTests()
+        {
+        	   // Hero sorting tests
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "hero_sort_001",
+        	       "Query heroes sorted by name",
+        	       "gm.query.hero sort:name",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "hero(es) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "hero_sort_002",
+        	       "Query heroes sorted by age descending",
+        	       "gm.query.hero sort:age:desc",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "hero(es) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "hero_sort_003",
+        	       "Query lords sorted by clan",
+        	       "gm.query.hero lord sort:clan",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "hero(es) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "hero_sort_004",
+        	       "Query heroes sorted by wanderer type flag",
+        	       "gm.query.hero sort:wanderer",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "hero(es) matching"
+        	   });
+
+        	   // Clan sorting tests
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "clan_sort_001",
+        	       "Query clans sorted by name",
+        	       "gm.query.clan sort:name",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "clan(s) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "clan_sort_002",
+        	       "Query clans sorted by gold descending",
+        	       "gm.query.clan sort:gold:desc",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "clan(s) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "clan_sort_003",
+        	       "Query noble clans sorted by renown",
+        	       "gm.query.clan noble sort:renown:desc",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "clan(s) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "clan_sort_004",
+        	       "Query clans sorted by mercenary type flag",
+        	       "gm.query.clan sort:mercenary",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "clan(s) matching"
+        	   });
+
+        	   // Kingdom sorting tests
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "kingdom_sort_001",
+        	       "Query kingdoms sorted by name",
+        	       "gm.query.kingdom sort:name",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "kingdom(s) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "kingdom_sort_002",
+        	       "Query kingdoms sorted by strength descending",
+        	       "gm.query.kingdom sort:strength:desc",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "kingdom(s) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "kingdom_sort_003",
+        	       "Query active kingdoms sorted by clans",
+        	       "gm.query.kingdom active sort:clans:desc",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "kingdom(s) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "kingdom_sort_004",
+        	       "Query kingdoms sorted by atwar type flag",
+        	       "gm.query.kingdom sort:atwar",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "kingdom(s) matching"
+        	   });
+
+        	   // Combined filter and sort tests
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "combined_sort_001",
+        	       "Query female lords sorted by age",
+        	       "gm.query.hero female lord sort:age",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "hero(es) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "combined_sort_002",
+        	       "Query empire clans sorted by tier descending",
+        	       "gm.query.clan empire sort:tier:desc",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "clan(s) matching"
+        	   });
+
+        	   TestRunner.RegisterTest(new TestCase(
+        	       "combined_sort_003",
+        	       "Query kingdoms at war sorted by fiefs",
+        	       "gm.query.kingdom atwar sort:fiefs:desc",
+        	       TestExpectation.Contains
+        	   )
+        	   {
+        	       Category = "Sorting",
+        	       ExpectedText = "kingdom(s) matching"
+        	   });
         }
        }
       }

@@ -23,11 +23,15 @@ namespace Bannerlord.GameMaster.Clans
         /// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
         /// <param name="requiredTypes">Clan type flags to match</param>
         /// <param name="matchAll">If true, clan must have ALL flags. If false, clan must have ANY flag</param>
+        /// <param name="sortBy">Sort field (id, name, tier, gold, renown, kingdom, or any ClanType flag)</param>
+        /// <param name="sortDescending">True for descending, false for ascending</param>
         /// <returns>List of clans matching all criteria</returns>
         public static List<Clan> QueryClans(
             string query = "",
             ClanTypes requiredTypes = ClanTypes.None,
-            bool matchAll = true)
+            bool matchAll = true,
+            string sortBy = "id",
+            bool sortDescending = false)
         {
             IEnumerable<Clan> clans = Clan.All;
 
@@ -46,7 +50,58 @@ namespace Bannerlord.GameMaster.Clans
                 clans = clans.Where(c => matchAll ? c.HasAllTypes(requiredTypes) : c.HasAnyType(requiredTypes));
             }
 
+            // Apply sorting
+            clans = ApplySorting(clans, sortBy, sortDescending);
+
             return clans.ToList();
+        }
+
+        /// <summary>
+        /// Apply sorting to clans collection
+        /// </summary>
+        private static IEnumerable<Clan> ApplySorting(
+            IEnumerable<Clan> clans,
+            string sortBy,
+            bool descending)
+        {
+            sortBy = sortBy.ToLower();
+
+            // Check if sortBy matches a ClanType flag
+            if (Enum.TryParse<ClanTypes>(sortBy, true, out var clanType) && clanType != ClanTypes.None)
+            {
+                // Sort by whether clan has this type flag
+                return descending
+                    ? clans.OrderByDescending(c => c.GetClanTypes().HasFlag(clanType))
+                    : clans.OrderBy(c => c.GetClanTypes().HasFlag(clanType));
+            }
+
+            // Sort by standard fields
+            IOrderedEnumerable<Clan> orderedClans = sortBy switch
+            {
+                "name" => descending
+                    ? clans.OrderByDescending(c => c.Name.ToString())
+                    : clans.OrderBy(c => c.Name.ToString()),
+                "tier" => descending
+                    ? clans.OrderByDescending(c => c.Tier)
+                    : clans.OrderBy(c => c.Tier),
+                "gold" => descending
+                    ? clans.OrderByDescending(c => c.Gold)
+                    : clans.OrderBy(c => c.Gold),
+                "renown" => descending
+                    ? clans.OrderByDescending(c => c.Renown)
+                    : clans.OrderBy(c => c.Renown),
+                "kingdom" => descending
+                    ? clans.OrderByDescending(c => c.Kingdom?.Name?.ToString() ?? "")
+                    : clans.OrderBy(c => c.Kingdom?.Name?.ToString() ?? ""),
+                "heroes" => descending
+                    ? clans.OrderByDescending(c => c.Heroes.Count)
+                    : clans.OrderBy(c => c.Heroes.Count),
+                _ => descending  // default to id
+                    ? clans.OrderByDescending(c => c.StringId)
+                    : clans.OrderBy(c => c.StringId)
+            };
+
+            return orderedClans;
         }
 
         /// <summary>

@@ -14,10 +14,10 @@ namespace Bannerlord.GameMaster.Console.Query
         /// <summary>
         /// Parse command arguments into search filter and clan type flags
         /// </summary>
-        private static (string query, ClanTypes types) ParseArguments(List<string> args)
+        private static (string query, ClanTypes types, string sortBy, bool sortDesc) ParseArguments(List<string> args)
         {
             if (args == null || args.Count == 0)
-                return ("", ClanTypes.Active);
+                return ("", ClanTypes.Active, "id", false);
 
             var typeKeywords = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
@@ -26,12 +26,32 @@ namespace Bannerlord.GameMaster.Console.Query
                 "mafia", "outlaw", "nomad", "sect", "withoutkingdom", "empty", "player", "playerclan"
             };
 
-            // Use generic parser to separate search terms from type keywords
-            var (query, types) = QueryArgumentParser<ClanTypes>.Parse(
-                args,
-                typeKeywords,
-                ClanQueries.ParseClanTypes,
-                ClanTypes.None);
+            List<string> searchTerms = new();
+            List<string> typeTerms = new();
+            string sortBy = "id";
+            bool sortDesc = false;
+
+            foreach (var arg in args)
+            {
+                // Check for sort parameters
+                if (arg.StartsWith("sort:", StringComparison.OrdinalIgnoreCase))
+                {
+                    ParseSortParameter(arg, ref sortBy, ref sortDesc);
+                }
+                // Check for type keywords
+                else if (typeKeywords.Contains(arg, StringComparer.OrdinalIgnoreCase))
+                {
+                    typeTerms.Add(arg);
+                }
+                // Otherwise treat as search term
+                else
+                {
+                    searchTerms.Add(arg);
+                }
+            }
+
+            string query = string.Join(" ", searchTerms).Trim();
+            ClanTypes types = ClanQueries.ParseClanTypes(typeTerms);
 
             // Default to Active if no status specified
             if (!types.HasFlag(ClanTypes.Active) && !types.HasFlag(ClanTypes.Eliminated))
@@ -39,13 +59,29 @@ namespace Bannerlord.GameMaster.Console.Query
                 types |= ClanTypes.Active;
             }
 
-            return (query, types);
+            return (query, types, sortBy, sortDesc);
+        }
+
+        /// <summary>
+        /// Parse sort parameter (e.g., "sort:name:desc" or "sort:tier")
+        /// </summary>
+        private static void ParseSortParameter(string sortParam, ref string sortBy, ref bool sortDesc)
+        {
+            var parts = sortParam.Split(':');
+            if (parts.Length >= 2)
+            {
+                sortBy = parts[1].ToLower();
+            }
+            if (parts.Length >= 3)
+            {
+                sortDesc = parts[2].Equals("desc", StringComparison.OrdinalIgnoreCase);
+            }
         }
 
         /// <summary>
         /// Helper to build a readable criteria string
         /// </summary>
-        private static string BuildCriteriaString(string query, ClanTypes types)
+        private static string BuildCriteriaString(string query, ClanTypes types, string sortBy, bool sortDesc)
         {
             List<string> parts = new();
 
@@ -61,15 +97,19 @@ namespace Bannerlord.GameMaster.Console.Query
                 parts.Add($"types: {string.Join(", ", typeList)}");
             }
 
+            if (!string.IsNullOrEmpty(sortBy) && sortBy != "id")
+                parts.Add($"sort: {sortBy}{(sortDesc ? " (desc)" : " (asc)")}");
+
             return parts.Count > 0 ? string.Join(", ", parts) : "all clans";
         }
 
         /// <summary>
         /// Unified clan finding command
-        /// Usage: gm.query.clan [search terms] [type keywords]
+        /// Usage: gm.query.clan [search terms] [type keywords] [sort parameters]
         /// Example: gm.query.clan empire noble
-        /// Example: gm.query.clan bandit
-        /// Example: gm.query.clan eliminated empty
+        /// Example: gm.query.clan bandit sort:name
+        /// Example: gm.query.clan eliminated empty sort:tier:desc
+        /// Example: gm.query.clan sort:mercenary (sorts by mercenary flag)
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("clan", "gm.query")]
         public static string QueryClans(List<string> args)
@@ -79,17 +119,18 @@ namespace Bannerlord.GameMaster.Console.Query
                 if (Campaign.Current == null)
                     return "Error: Must be in campaign mode.\n";
 
-                var (query, types) = ParseArguments(args);
-                List<Clan> matchedClans = ClanQueries.QueryClans(query, types, matchAll: true);
+                var (query, types, sortBy, sortDesc) = ParseArguments(args);
+                List<Clan> matchedClans = ClanQueries.QueryClans(query, types, matchAll: true, sortBy, sortDesc);
 
-                string criteriaDesc = BuildCriteriaString(query, types);
+                string criteriaDesc = BuildCriteriaString(query, types, sortBy, sortDesc);
                 
                 if (matchedClans.Count == 0)
                 {
                     return $"Found 0 clan(s) matching {criteriaDesc}\n" +
-                           "Usage: gm.query.clan [search] [type keywords]\n" +
+                           "Usage: gm.query.clan [search] [type keywords] [sort]\n" +
                            "Type keywords: noble, minor, bandit, mercenary, eliminated, empty, etc.\n" +
-                           "Example: gm.query.clan empire noble\n";
+                           "Sort: sort:name, sort:tier, sort:gold, sort:renown, sort:<type> (add :desc for descending)\n" +
+                           "Example: gm.query.clan empire noble sort:name\n";
                 }
 
                 return $"Found {matchedClans.Count} clan(s) matching {criteriaDesc}:\n" +
@@ -99,7 +140,8 @@ namespace Bannerlord.GameMaster.Console.Query
 
         /// <summary>
         /// Find clans matching ANY of the specified types (OR logic)
-        /// Usage: gm.query.clan_any [search terms] [type keywords]
+        /// Usage: gm.query.clan_any [search terms] [type keywords] [sort parameters]
+        /// Example: gm.query.clan_any bandit outlaw sort:name:desc
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("clan_any", "gm.query")]
         public static string QueryClansAny(List<string> args)
@@ -109,16 +151,16 @@ namespace Bannerlord.GameMaster.Console.Query
                 if (Campaign.Current == null)
                     return "Error: Must be in campaign mode.\n";
 
-                var (query, types) = ParseArguments(args);
-                List<Clan> matchedClans = ClanQueries.QueryClans(query, types, matchAll: false);
+                var (query, types, sortBy, sortDesc) = ParseArguments(args);
+                List<Clan> matchedClans = ClanQueries.QueryClans(query, types, matchAll: false, sortBy, sortDesc);
 
-                string criteriaDesc = BuildCriteriaString(query, types);
+                string criteriaDesc = BuildCriteriaString(query, types, sortBy, sortDesc);
                 
                 if (matchedClans.Count == 0)
                 {
                     return $"Found 0 clan(s) matching ANY of {criteriaDesc}\n" +
-                           "Usage: gm.query.clan_any [search] [type keywords]\n" +
-                           "Example: gm.query.clan_any bandit outlaw (finds bandits OR outlaws)\n";
+                           "Usage: gm.query.clan_any [search] [type keywords] [sort]\n" +
+                           "Example: gm.query.clan_any bandit outlaw sort:name\n";
                 }
 
                 return $"Found {matchedClans.Count} clan(s) matching ANY of {criteriaDesc}:\n" +

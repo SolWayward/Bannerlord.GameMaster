@@ -26,12 +26,16 @@ namespace Bannerlord.GameMaster.Heroes
         /// <param name="requiredTypes">Hero type flags that ALL must match (AND logic)</param>
         /// <param name="matchAll">If true, hero must have ALL flags. If false, hero must have ANY flag</param>
         /// <param name="includeDead">If true, searches dead heroes instead of alive ones</param>
+        /// <param name="sortBy">Sort field (id, name, age, clan, kingdom, or any HeroType flag)</param>
+        /// <param name="sortDescending">True for descending, false for ascending</param>
         /// <returns>List of heroes matching all criteria</returns>
         public static List<Hero> QueryHeroes(
             string query = "",
             HeroTypes requiredTypes = HeroTypes.None,
             bool matchAll = true,
-            bool includeDead = false)
+            bool includeDead = false,
+            string sortBy = "id",
+            bool sortDescending = false)
         {
             IEnumerable<Hero> heroes;
             
@@ -64,7 +68,52 @@ namespace Bannerlord.GameMaster.Heroes
                 heroes = heroes.Where(h => matchAll ? h.HasAllTypes(requiredTypes) : h.HasAnyType(requiredTypes));
             }
 
+            // Apply sorting
+            heroes = ApplySorting(heroes, sortBy, sortDescending);
+
             return heroes.ToList();
+        }
+
+        /// <summary>
+        /// Apply sorting to heroes collection
+        /// </summary>
+        private static IEnumerable<Hero> ApplySorting(
+            IEnumerable<Hero> heroes,
+            string sortBy,
+            bool descending)
+        {
+            sortBy = sortBy.ToLower();
+
+            // Check if sortBy matches a HeroType flag
+            if (Enum.TryParse<HeroTypes>(sortBy, true, out var heroType) && heroType != HeroTypes.None)
+            {
+                // Sort by whether hero has this type flag
+                return descending
+                    ? heroes.OrderByDescending(h => h.GetHeroTypes().HasFlag(heroType))
+                    : heroes.OrderBy(h => h.GetHeroTypes().HasFlag(heroType));
+            }
+
+            // Sort by standard fields
+            IOrderedEnumerable<Hero> orderedHeroes = sortBy switch
+            {
+                "name" => descending
+                    ? heroes.OrderByDescending(h => h.Name.ToString())
+                    : heroes.OrderBy(h => h.Name.ToString()),
+                "age" => descending
+                    ? heroes.OrderByDescending(h => h.Age)
+                    : heroes.OrderBy(h => h.Age),
+                "clan" => descending
+                    ? heroes.OrderByDescending(h => h.Clan?.Name?.ToString() ?? "")
+                    : heroes.OrderBy(h => h.Clan?.Name?.ToString() ?? ""),
+                "kingdom" => descending
+                    ? heroes.OrderByDescending(h => h.Clan?.Kingdom?.Name?.ToString() ?? "")
+                    : heroes.OrderBy(h => h.Clan?.Kingdom?.Name?.ToString() ?? ""),
+                _ => descending  // default to id
+                    ? heroes.OrderByDescending(h => h.StringId)
+                    : heroes.OrderBy(h => h.StringId)
+            };
+
+            return orderedHeroes;
         }
 
         /// <summary>

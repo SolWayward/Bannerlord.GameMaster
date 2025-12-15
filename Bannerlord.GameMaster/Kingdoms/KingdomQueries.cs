@@ -23,11 +23,15 @@ namespace Bannerlord.GameMaster.Kingdoms
         /// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
         /// <param name="requiredTypes">Kingdom type flags to match</param>
         /// <param name="matchAll">If true, kingdom must have ALL flags. If false, kingdom must have ANY flag</param>
+        /// <param name="sortBy">Sort field (id, name, clans, heroes, fiefs, strength, or any KingdomType flag)</param>
+        /// <param name="sortDescending">True for descending, false for ascending</param>
         /// <returns>List of kingdoms matching all criteria</returns>
         public static List<Kingdom> QueryKingdoms(
             string query = "",
             KingdomTypes requiredTypes = KingdomTypes.None,
-            bool matchAll = true)
+            bool matchAll = true,
+            string sortBy = "id",
+            bool sortDescending = false)
         {
             IEnumerable<Kingdom> kingdoms = Kingdom.All;
 
@@ -46,7 +50,58 @@ namespace Bannerlord.GameMaster.Kingdoms
                 kingdoms = kingdoms.Where(k => matchAll ? k.HasAllTypes(requiredTypes) : k.HasAnyType(requiredTypes));
             }
 
+            // Apply sorting
+            kingdoms = ApplySorting(kingdoms, sortBy, sortDescending);
+
             return kingdoms.ToList();
+        }
+
+        /// <summary>
+        /// Apply sorting to kingdoms collection
+        /// </summary>
+        private static IEnumerable<Kingdom> ApplySorting(
+            IEnumerable<Kingdom> kingdoms,
+            string sortBy,
+            bool descending)
+        {
+            sortBy = sortBy.ToLower();
+
+            // Check if sortBy matches a KingdomType flag
+            if (Enum.TryParse<KingdomTypes>(sortBy, true, out var kingdomType) && kingdomType != KingdomTypes.None)
+            {
+                // Sort by whether kingdom has this type flag
+                return descending
+                    ? kingdoms.OrderByDescending(k => k.GetKingdomTypes().HasFlag(kingdomType))
+                    : kingdoms.OrderBy(k => k.GetKingdomTypes().HasFlag(kingdomType));
+            }
+
+            // Sort by standard fields
+            IOrderedEnumerable<Kingdom> orderedKingdoms = sortBy switch
+            {
+                "name" => descending
+                    ? kingdoms.OrderByDescending(k => k.Name.ToString())
+                    : kingdoms.OrderBy(k => k.Name.ToString()),
+                "clans" => descending
+                    ? kingdoms.OrderByDescending(k => k.Clans.Count)
+                    : kingdoms.OrderBy(k => k.Clans.Count),
+                "heroes" => descending
+                    ? kingdoms.OrderByDescending(k => k.Heroes.Count())
+                    : kingdoms.OrderBy(k => k.Heroes.Count()),
+                "fiefs" => descending
+                    ? kingdoms.OrderByDescending(k => k.Fiefs.Count)
+                    : kingdoms.OrderBy(k => k.Fiefs.Count),
+                "strength" => descending
+                    ? kingdoms.OrderByDescending(k => k.CurrentTotalStrength)
+                    : kingdoms.OrderBy(k => k.CurrentTotalStrength),
+                "ruler" => descending
+                    ? kingdoms.OrderByDescending(k => k.Leader?.Name?.ToString() ?? "")
+                    : kingdoms.OrderBy(k => k.Leader?.Name?.ToString() ?? ""),
+                _ => descending  // default to id
+                    ? kingdoms.OrderByDescending(k => k.StringId)
+                    : kingdoms.OrderBy(k => k.StringId)
+            };
+
+            return orderedKingdoms;
         }
 
         /// <summary>
