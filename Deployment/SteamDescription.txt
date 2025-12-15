@@ -1,6 +1,6 @@
 [h1]Bannerlord.GameMaster (BLGM)[/h1]
 
-[b]📚 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki]Complete Documentation on GitHub Wiki[/url][/b]
+[b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki]Complete Documentation on GitHub Wiki[/url][/b]
 
 Console commands mod for Mount & Blade II: Bannerlord providing game management through a command-line interface.
 
@@ -78,15 +78,15 @@ Use powerful queries to search and filter:
 [b]Logger Commands:[/b] enable, disable, status, clear
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands]Full Documentation →[/url]
 
-[b]Testing Commands:[/b] run, run_category, run_integration (⚠️ For developers - modifies game state)
+[b]Testing Commands:[/b] run, run_category, run_integration (For developers - modifies game state)
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands]Full Documentation →[/url]
 
 [h1]Important Notes[/h1]
 [list]
-[*] ⚠️ [b]Backup your saves[/b] - Many commands make permanent changes
-[*] 🧪 [b]Test in separate save[/b] - Experiment safely
-[*] 📝 [b]Enable logging[/b] - Use [code]gm.log.enable[/code] for tracking
-[*] ⛔ [b]Some actions are irreversible[/b] - Killing heroes, destroying clans
+[*]  [b]Backup your saves[/b] - Many commands make permanent changes
+[*]  [b]Test in separate save[/b] - Experiment safely
+[*]  [b]Enable logging[/b] - Use [code]gm.log.enable[/code] for tracking
+[*]  [b]Some actions are irreversible[/b] - Killing heroes, destroying clans
 [/list]
 
 [h1]Support[/h1]
