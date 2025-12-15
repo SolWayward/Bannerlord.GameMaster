@@ -104,7 +104,8 @@ namespace Bannerlord.GameMaster.Console.Common
             Func<List<T>, string> formatDetails,
             string entityType) where T : class
         {
-            // Separate matches into ID matches and name-only matches
+            // Collect all matches for name priority checking
+            var allMatches = new List<T>();
             var idMatches = new List<T>();
             var nameMatches = new List<T>();
 
@@ -116,6 +117,11 @@ namespace Bannerlord.GameMaster.Console.Common
                 bool matchesId = entityId.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool matchesName = entityName.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
 
+                if (matchesId || matchesName)
+                {
+                    allMatches.Add(entity);
+                }
+                
                 if (matchesId)
                 {
                     idMatches.Add(entity);
@@ -126,17 +132,45 @@ namespace Bannerlord.GameMaster.Console.Common
                 }
             }
 
-            // Priority 1: Check for exact ID match
+            // Priority 1: Check for exact name match across ALL matches
+            var exactNameMatches = allMatches.Where(e => getName(e).Equals(query, StringComparison.OrdinalIgnoreCase)).ToList();
+            
+            if (exactNameMatches.Count == 1)
+            {
+                return (exactNameMatches[0], null); // Exact name match wins immediately
+            }
+            else if (exactNameMatches.Count > 1)
+            {
+                return (null, $"Error: Found {exactNameMatches.Count} {entityType}s with names exactly matching '{query}':\n" +
+                    $"{formatDetails(exactNameMatches)}" +
+                    $"Multiple entities have identical names. Please use their IDs.\n");
+            }
+            
+            // Priority 2: Check for prefix matches across ALL matches
+            var prefixMatches = allMatches.Where(e => getName(e).StartsWith(query, StringComparison.OrdinalIgnoreCase)).ToList();
+            
+            if (prefixMatches.Count == 1)
+            {
+                return (prefixMatches[0], null); // Single prefix match wins
+            }
+            else if (prefixMatches.Count > 1)
+            {
+                return (null, $"Error: Found {prefixMatches.Count} {entityType}s with names starting with '{query}':\n" +
+                    $"{formatDetails(prefixMatches)}" +
+                    $"Please use a more specific name or use their IDs.\n");
+            }
+
+            // Priority 3: Check for exact ID match
             foreach (var entity in idMatches)
             {
                 string entityId = getStringId(entity) ?? "";
                 if (entityId.Equals(query, StringComparison.OrdinalIgnoreCase))
                 {
-                    return (entity, null); // Exact match wins immediately
+                    return (entity, null); // Exact ID match wins
                 }
             }
 
-            // Priority 2: Use shortest ID match if available
+            // Priority 4: Use shortest ID match if available
             if (idMatches.Count > 0)
             {
                 // Find the shortest ID
@@ -160,38 +194,10 @@ namespace Bannerlord.GameMaster.Console.Common
                 }
             }
 
-            // Priority 3: Only name matches remain
+            // Priority 5: Only name matches remain
             if (nameMatches.Count > 0)
             {
-                // Tier 1: Check for exact name match
-                var exactNameMatches = nameMatches.Where(e => getName(e).Equals(query, StringComparison.OrdinalIgnoreCase)).ToList();
-                
-                if (exactNameMatches.Count == 1)
-                {
-                    return (exactNameMatches[0], null); // Exact name match wins immediately
-                }
-                else if (exactNameMatches.Count > 1)
-                {
-                    return (null, $"Error: Found {exactNameMatches.Count} {entityType}s with names exactly matching '{query}':\n" +
-                        $"{formatDetails(exactNameMatches)}" +
-                        $"Multiple entities have identical names. Please use their IDs.\n");
-                }
-                
-                // Tier 2: Check for prefix matches
-                var prefixMatches = nameMatches.Where(e => getName(e).StartsWith(query, StringComparison.OrdinalIgnoreCase)).ToList();
-                
-                if (prefixMatches.Count == 1)
-                {
-                    return (prefixMatches[0], null); // Single prefix match wins
-                }
-                else if (prefixMatches.Count > 1)
-                {
-                    return (null, $"Error: Found {prefixMatches.Count} {entityType}s with names starting with '{query}':\n" +
-                        $"{formatDetails(prefixMatches)}" +
-                        $"Please use a more specific name or use their IDs.\n");
-                }
-                
-                // Tier 3: Multiple substring matches (no exact or prefix matches)
+                // Multiple substring matches (no exact or prefix matches)
                 return (null, $"Error: Found {nameMatches.Count} {entityType}s with names containing '{query}':\n" +
                     $"{formatDetails(nameMatches)}" +
                     $"Please use a more specific name or use their IDs.\n");
