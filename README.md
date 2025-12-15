@@ -1,6 +1,6 @@
 # Bannerlord.GameMaster (BLGM)
 
-[Mod User Guide Docunentation Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki) - Documentation for using mod ingame
+[Mod User Guide Docunentation Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki) - Documentation for using mod ingame  
 [Source Code Documentation](https://solwayward.github.io/Bannerlord.GameMaster/) - Documentation for contributing and implementing features to the project
 
 Console commands mod for Mount & Blade II: Bannerlord that provides game management capabilities through an command-line interface. 
