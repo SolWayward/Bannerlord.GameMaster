@@ -362,3 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 Bannerlord.GameMaster/REFACTORING_SUMMARY.md
+
+# Wiki directory (separate GitHub wiki repository)
+wiki/
