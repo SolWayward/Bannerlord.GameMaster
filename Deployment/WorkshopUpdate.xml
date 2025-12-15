@@ -4,7 +4,9 @@
     </GetItem>
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
-        <ChangeNotes Value="Fixed name matching priority regression" /> 
+        <ChangeNotes Value="Added item query system and management commands" />
+        <ChangeNotes Value="added ability to sortby and orderby queries" /> 
+        <ChangeNotes Value="Fixed name selection priority regression" />  
         <Tags> 
             <Tag Value="Utility" />
             <Tag Value="Singleplayer" />
