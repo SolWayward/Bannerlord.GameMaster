@@ -1,11 +1,10 @@
 <Tasks>
     <GetItem>
         <ItemId Value="3624152079"/>
-        <!-- Can be found in the URL of your workshop item -->
     </GetItem>
    <UpdateItem>
-        <ModuleFolder Value="Place Holder Update"/>
-        
+        <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
+        <ChangeNotes Value="Fixed name matching priority regression" /> 
         <Tags> 
             <Tag Value="Utility" />
             <Tag Value="Singleplayer" />
@@ -18,7 +17,6 @@
             <Tag Value="v1.3.10" />
             <Tag Value="v1.3.12" />
         </Tags>
-        <Image Value="Image.png"/>
         <Visibility Value="Public"/>
     </UpdateItem>
 </Tasks>
