@@ -24,19 +24,12 @@ namespace Bannerlord.GameMaster.Console.Query
                 "active", "eliminated", "empty", "player", "playerkingdom", "atwar", "war"
             };
 
-            List<string> searchTerms = new();
-            List<string> typeTerms = new();
-
-            foreach (var arg in args)
-            {
-                if (typeKeywords.Contains(arg.ToLower()))
-                    typeTerms.Add(arg);
-                else
-                    searchTerms.Add(arg);
-            }
-
-            string query = string.Join(" ", searchTerms).Trim();
-            KingdomTypes types = KingdomQueries.ParseKingdomTypes(typeTerms);
+            // Use generic parser to separate search terms from type keywords
+            var (query, types) = QueryArgumentParser<KingdomTypes>.Parse(
+                args,
+                typeKeywords,
+                KingdomQueries.ParseKingdomTypes,
+                KingdomTypes.None);
 
             // Default to Active if no status specified
             if (!types.HasFlag(KingdomTypes.Active) && !types.HasFlag(KingdomTypes.Eliminated))

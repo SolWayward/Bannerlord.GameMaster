@@ -1407,7 +1407,6 @@ namespace Bannerlord.GameMaster.Console.Testing
             )
             {
                 Category = "IDMatching_ShortestID",
-                ExpectedText = "Found 9 heros",
                 CustomValidator = (output) =>
                 {
                     try
@@ -1417,8 +1416,8 @@ namespace Bannerlord.GameMaster.Console.Testing
                             return (false, "Expected error for multiple IDs with same length");
 
                         // Check for the specific error message about same-length IDs
-                        if (!(output.IndexOf("These IDs have the same length", StringComparison.OrdinalIgnoreCase) >= 0))
-                            return (false, "Expected error message about IDs having same length");
+                        if (!(output.IndexOf("Please use a more specific ID", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected error message asking to be more specific");
 
                         return (true, null);
                     }
@@ -1438,7 +1437,6 @@ namespace Bannerlord.GameMaster.Console.Testing
             )
             {
                 Category = "IDMatching_ShortestID",
-                ExpectedText = "Found 9 clans",
                 CustomValidator = (output) =>
                 {
                     try
@@ -1448,8 +1446,8 @@ namespace Bannerlord.GameMaster.Console.Testing
                             return (false, "Expected error for multiple IDs with same length");
 
                         // Check for the specific error message about same-length IDs
-                        if (!(output.IndexOf("These IDs have the same length", StringComparison.OrdinalIgnoreCase) >= 0))
-                            return (false, "Expected error message about IDs having same length");
+                        if (!(output.IndexOf("Please use a more specific ID", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected error message asking to be more specific");
 
                         return (true, null);
                     }

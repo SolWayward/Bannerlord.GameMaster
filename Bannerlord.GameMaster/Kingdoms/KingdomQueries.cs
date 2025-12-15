@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
+using Bannerlord.GameMaster.Common.Interfaces;
 
 namespace Bannerlord.GameMaster.Kingdoms
 {
-    public static class KingdomQueries
+	public static class KingdomQueries
     {
         /// <summary>
         /// Finds a kingdom with the specified kingdomId, using a case-insensitive comparison.
@@ -138,5 +139,17 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             return kingdom.Heroes.ToList();
         }
-    }
+ }
+
+ /// <summary>
+ /// Wrapper class implementing IEntityQueries interface for Kingdom entities
+ /// </summary>
+ public class KingdomQueriesWrapper : IEntityQueries<Kingdom, KingdomTypes>
+ {
+  public Kingdom GetById(string id) => KingdomQueries.GetKingdomById(id);
+  public List<Kingdom> Query(string query, KingdomTypes types, bool matchAll) => KingdomQueries.QueryKingdoms(query, types, matchAll);
+  public KingdomTypes ParseType(string typeString) => KingdomQueries.ParseKingdomType(typeString);
+  public KingdomTypes ParseTypes(IEnumerable<string> typeStrings) => KingdomQueries.ParseKingdomTypes(typeStrings);
+  public string GetFormattedDetails(List<Kingdom> entities) => KingdomQueries.GetFormattedDetails(entities);
+ }
 }

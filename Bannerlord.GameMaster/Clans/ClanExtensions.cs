@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using Bannerlord.GameMaster.Common.Interfaces;
 
 namespace Bannerlord.GameMaster.Clans
 {
-    [Flags]
-    public enum ClanTypes
+	[Flags]
+	public enum ClanTypes
     {
         None = 0,
         Active = 1,
@@ -88,5 +89,21 @@ namespace Bannerlord.GameMaster.Clans
         {
             return $"{clan.StringId}\t{clan.Name}\tHeroes: {clan.Heroes.Count()}\tLeader: {clan.Leader?.Name}\tKingdom: {clan.Kingdom?.Name}";
         }
-    }
+
+        /// <summary>
+        /// Alias for GetClanTypes to match IEntityExtensions interface
+        /// </summary>
+        public static ClanTypes GetTypes(this Clan clan) => clan.GetClanTypes();
+ }
+
+ /// <summary>
+ /// Wrapper class implementing IEntityExtensions interface for Clan entities
+ /// </summary>
+ public class ClanExtensionsWrapper : IEntityExtensions<Clan, ClanTypes>
+ {
+  public ClanTypes GetTypes(Clan entity) => entity.GetClanTypes();
+  public bool HasAllTypes(Clan entity, ClanTypes types) => entity.HasAllTypes(types);
+  public bool HasAnyType(Clan entity, ClanTypes types) => entity.HasAnyType(types);
+  public string FormattedDetails(Clan entity) => entity.FormattedDetails();
+ }
 }

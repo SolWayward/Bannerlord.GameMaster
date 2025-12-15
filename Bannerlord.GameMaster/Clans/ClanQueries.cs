@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
+using Bannerlord.GameMaster.Common.Interfaces;
 
 namespace Bannerlord.GameMaster.Clans
 {
-    public static class ClanQueries
+	public static class ClanQueries
     {
         /// <summary>
         /// Finds a clan with the specified clanId, using a case-insensitive comparison.
@@ -119,5 +120,17 @@ namespace Bannerlord.GameMaster.Clans
                 .Select(p => p.LeaderHero)
                 .ToList();
         }
-    }
+ }
+
+ /// <summary>
+ /// Wrapper class implementing IEntityQueries interface for Clan entities
+ /// </summary>
+ public class ClanQueriesWrapper : IEntityQueries<Clan, ClanTypes>
+ {
+  public Clan GetById(string id) => ClanQueries.GetClanById(id);
+  public List<Clan> Query(string query, ClanTypes types, bool matchAll) => ClanQueries.QueryClans(query, types, matchAll);
+  public ClanTypes ParseType(string typeString) => ClanQueries.ParseClanType(typeString);
+  public ClanTypes ParseTypes(IEnumerable<string> typeStrings) => ClanQueries.ParseClanTypes(typeStrings);
+  public string GetFormattedDetails(List<Clan> entities) => ClanQueries.GetFormattedDetails(entities);
+ }
 }

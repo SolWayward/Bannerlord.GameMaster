@@ -86,7 +86,7 @@ namespace Bannerlord.GameMaster.Console.Common
 
         /// <summary>
         /// Resolves a single entity from multiple matches using smart matching logic.
-        /// Prioritizes: 1) Exact ID match, 2) Shortest ID match, 3) Error on name-only matches
+        /// Prioritizes: 1) Exact name match, 2) Name prefix match, 3) Exact ID match, 4) ID prefix match, 5) Shortest ID match, 6) Error on name-only matches
         /// </summary>
         /// <typeparam name="T">Entity type (Hero, Clan, or Kingdom)</typeparam>
         /// <param name="matches">List of matched entities</param>
@@ -149,14 +149,22 @@ namespace Bannerlord.GameMaster.Console.Common
             // Priority 2: Check for prefix matches across ALL matches
             var prefixMatches = allMatches.Where(e => getName(e).StartsWith(query, StringComparison.OrdinalIgnoreCase)).ToList();
             
-            if (prefixMatches.Count == 1)
+            // Only auto-select if the prefix match is the ONLY match overall
+            if (prefixMatches.Count == 1 && allMatches.Count == 1)
             {
-                return (prefixMatches[0], null); // Single prefix match wins
+                return (prefixMatches[0], null); // Single prefix match AND single overall match wins
             }
             else if (prefixMatches.Count > 1)
             {
                 return (null, $"Error: Found {prefixMatches.Count} {entityType}s with names starting with '{query}':\n" +
                     $"{formatDetails(prefixMatches)}" +
+                    $"Please use a more specific name or use their IDs.\n");
+            }
+            else if (prefixMatches.Count == 1 && allMatches.Count > 1)
+            {
+                // There's a prefix match but also other substring matches - ambiguous
+                return (null, $"Error: Found {allMatches.Count} {entityType}s with names containing '{query}':\n" +
+                    $"{formatDetails(allMatches)}" +
                     $"Please use a more specific name or use their IDs.\n");
             }
 
@@ -170,7 +178,21 @@ namespace Bannerlord.GameMaster.Console.Common
                 }
             }
 
-            // Priority 4: Use shortest ID match if available
+            // Priority 4: Check for ID prefix matches
+            var idPrefixMatches = allMatches.Where(e => getStringId(e).StartsWith(query, StringComparison.OrdinalIgnoreCase)).ToList();
+            
+            if (idPrefixMatches.Count == 1)
+            {
+                return (idPrefixMatches[0], null); // Single ID prefix match wins
+            }
+            else if (idPrefixMatches.Count > 1)
+            {
+                return (null, $"Error: Found {idPrefixMatches.Count} {entityType}s with IDs starting with '{query}':\n" +
+                    $"{formatDetails(idPrefixMatches)}" +
+                    $"Please use a more specific ID.\n");
+            }
+
+            // Priority 5: Use shortest ID match if available
             if (idMatches.Count > 0)
             {
                 // Find the shortest ID
@@ -194,7 +216,7 @@ namespace Bannerlord.GameMaster.Console.Common
                 }
             }
 
-            // Priority 5: Only name matches remain
+            // Priority 6: Only name matches remain
             if (nameMatches.Count > 0)
             {
                 // Multiple substring matches (no exact or prefix matches)

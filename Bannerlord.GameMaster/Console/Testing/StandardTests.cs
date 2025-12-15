@@ -12,14 +12,15 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// </summary>
         public static void RegisterAll()
         {
-            TestRunner.ClearTests();
-            
-            RegisterHeroQueryTests();
-            RegisterClanQueryTests();
-            RegisterKingdomQueryTests();
-            RegisterHeroManagementTests();
-            RegisterClanManagementTests();
-            RegisterKingdomManagementTests();
+        	TestRunner.ClearTests();
+        	
+        	RegisterHeroQueryTests();
+        	RegisterClanQueryTests();
+        	RegisterKingdomQueryTests();
+        	RegisterHeroManagementTests();
+        	RegisterClanManagementTests();
+        	RegisterKingdomManagementTests();
+        	RegisterSuccessPathTests();
         }
 
         /// <summary>
@@ -417,5 +418,202 @@ namespace Bannerlord.GameMaster.Console.Testing
                 ExpectedText = "Missing arguments"
             });
         }
-    }
-}
+      
+        /// <summary>
+        /// Register success path tests - validate successful command execution
+        /// </summary>
+        private static void RegisterSuccessPathTests()
+        {
+        	// Test: Successfully transfer hero to new clan
+        	TestRunner.RegisterTest(new TestCase(
+        		"hero_mgmt_success_001",
+        		"Successfully transfer hero lord_1_1 to clan_empire_south_1",
+        		"gm.hero.set_clan lord_1_1 clan_empire_south_1",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_HeroManagement"
+        	});
+      
+        	// Test: Successfully set hero age
+        	TestRunner.RegisterTest(new TestCase(
+        		"hero_mgmt_success_002",
+        		"Successfully set hero age to 30",
+        		"gm.hero.set_age lord_1_1 30",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_HeroManagement"
+        	});
+      
+        	// Test: Successfully set hero gold
+        	TestRunner.RegisterTest(new TestCase(
+        		"hero_mgmt_success_003",
+        		"Successfully set hero gold to 5000",
+        		"gm.hero.set_gold lord_1_1 5000",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_HeroManagement"
+        	});
+      
+        	// Test: Successfully add gold to hero
+        	TestRunner.RegisterTest(new TestCase(
+        		"hero_mgmt_success_004",
+        		"Successfully add 1000 gold to hero",
+        		"gm.hero.add_gold lord_1_1 1000",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_HeroManagement"
+        	});
+      
+        	// Test: Successfully heal hero
+        	TestRunner.RegisterTest(new TestCase(
+        		"hero_mgmt_success_005",
+        		"Successfully heal hero to full health",
+        		"gm.hero.heal lord_1_1",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_HeroManagement"
+        	});
+      
+        	// Test: Successfully set hero relation
+        	TestRunner.RegisterTest(new TestCase(
+        		"hero_mgmt_success_006",
+        		"Successfully set relation between two heroes to 50",
+        		"gm.hero.set_relation lord_1_1 lord_2_1 50",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_HeroManagement"
+        	});
+      
+        	// Test: Successfully add clan to kingdom
+        	TestRunner.RegisterTest(new TestCase(
+        		"kingdom_mgmt_success_001",
+        		"Successfully add clan to kingdom",
+        		"gm.kingdom.add_clan clan_sturgia_2 vlandia",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_KingdomManagement",
+        		CleanupCommands = new System.Collections.Generic.List<string>
+        		{
+        			"gm.kingdom.remove_clan clan_sturgia_2"
+        		}
+        	});
+      
+        	// Test: Successfully remove clan from kingdom
+        	TestRunner.RegisterTest(new TestCase(
+        		"kingdom_mgmt_success_002",
+        		"Successfully remove clan from kingdom",
+        		"gm.kingdom.remove_clan clan_vlandia_2",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_KingdomManagement",
+        		CleanupCommands = new System.Collections.Generic.List<string>
+        		{
+        			"gm.kingdom.add_clan clan_vlandia_2 vlandia"
+        		}
+        	});
+      
+        	// Test: Successfully set kingdom ruler
+        	TestRunner.RegisterTest(new TestCase(
+        		"kingdom_mgmt_success_003",
+        		"Successfully set kingdom ruler",
+        		"gm.kingdom.set_ruler vlandia lord_4_2",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_KingdomManagement",
+        		CleanupCommands = new System.Collections.Generic.List<string>
+        		{
+        			"gm.kingdom.set_ruler vlandia lord_4_1"
+        		}
+        	});
+      
+        	// Test: Successfully set clan gold
+        	TestRunner.RegisterTest(new TestCase(
+        		"clan_mgmt_success_001",
+        		"Successfully set clan gold to 10000",
+        		"gm.clan.set_gold clan_empire_south_1 10000",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_ClanManagement"
+        	});
+      
+        	// Test: Successfully add gold to clan
+        	TestRunner.RegisterTest(new TestCase(
+        		"clan_mgmt_success_002",
+        		"Successfully add 5000 gold to clan",
+        		"gm.clan.add_gold clan_empire_south_1 5000",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_ClanManagement"
+        	});
+      
+        	// Test: Successfully set clan renown
+        	TestRunner.RegisterTest(new TestCase(
+        		"clan_mgmt_success_003",
+        		"Successfully set clan renown to 500",
+        		"gm.clan.set_renown clan_empire_south_1 500",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_ClanManagement"
+        	});
+      
+        	// Test: Successfully increase clan tier
+        	TestRunner.RegisterTest(new TestCase(
+        		"clan_mgmt_success_004",
+        		"Successfully increase clan tier to 5",
+        		"gm.clan.set_tier clan_vlandia_2 5",
+        		TestExpectation.Success
+        	)
+        	{
+        		Category = "SuccessPaths_ClanManagement"
+        	});
+      
+        	// Test: Successfully query heroes with results
+        	TestRunner.RegisterTest(new TestCase(
+        		"query_success_001",
+        		"Successfully query for living lords",
+        		"gm.query.hero lord alive",
+        		TestExpectation.Contains
+        	)
+        	{
+        		Category = "SuccessPaths_Query",
+        		ExpectedText = "hero(es) matching"
+        	});
+      
+        	// Test: Successfully query clans with results
+        	TestRunner.RegisterTest(new TestCase(
+        		"query_success_002",
+        		"Successfully query for empire clans",
+        		"gm.query.clan empire",
+        		TestExpectation.Contains
+        	)
+        	{
+        		Category = "SuccessPaths_Query",
+        		ExpectedText = "clan(s) matching"
+        	});
+      
+        	// Test: Successfully query kingdoms with results
+        	TestRunner.RegisterTest(new TestCase(
+        		"query_success_003",
+        		"Successfully query for active kingdoms",
+        		"gm.query.kingdom active",
+        		TestExpectation.Contains
+        	)
+        	{
+        		Category = "SuccessPaths_Query",
+        		ExpectedText = "kingdom(s) matching"
+        	});
+        }
+       }
+      }

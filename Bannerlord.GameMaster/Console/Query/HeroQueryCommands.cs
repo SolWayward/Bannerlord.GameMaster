@@ -26,31 +26,15 @@ namespace Bannerlord.GameMaster.Console.Query
                 "fugitive", "alive", "dead", "prisoner", "withoutclan", "withoutkingdom", "married"
             };
 
-            List<string> searchTerms = new();
-            List<string> typeTerms = new();
-            bool includeDead = false;
+            // Check if "dead" keyword is present
+            bool includeDead = args.Any(arg => arg.Equals("dead", StringComparison.OrdinalIgnoreCase));
 
-            foreach (var arg in args)
-            {
-                var lower = arg.ToLower();
-
-                if (lower == "dead")
-                {
-                    includeDead = true;
-                    typeTerms.Add(arg);
-                }
-                else if (typeKeywords.Contains(lower))
-                {
-                    typeTerms.Add(arg);
-                }
-                else
-                {
-                    searchTerms.Add(arg);
-                }
-            }
-
-            string query = string.Join(" ", searchTerms).Trim();
-            HeroTypes types = HeroQueries.ParseHeroTypes(typeTerms);
+            // Use generic parser to separate search terms from type keywords
+            var (query, types) = QueryArgumentParser<HeroTypes>.Parse(
+                args,
+                typeKeywords,
+                HeroQueries.ParseHeroTypes,
+                HeroTypes.None);
 
             // Default to Alive if no life status specified and not searching dead
             if (!includeDead && !types.HasFlag(HeroTypes.Dead) && !types.HasFlag(HeroTypes.Alive))

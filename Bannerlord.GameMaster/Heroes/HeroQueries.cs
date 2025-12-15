@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using Bannerlord.GameMaster.Common.Interfaces;
 
 namespace Bannerlord.GameMaster.Heroes
 {
-    /// <summary>
-    /// Provides utility methods for working with hero entities.
-    /// </summary>
-    public static class HeroQueries
+	/// <summary>
+	/// Provides utility methods for working with hero entities.
+	/// </summary>
+	public static class HeroQueries
     {
         /// <summary>
         /// Finds a hero with the specified heroId, using a case-insensitive comparison.
@@ -100,5 +101,17 @@ namespace Bannerlord.GameMaster.Heroes
                 return "";
             return string.Join("\n", heroes.Select(h => h.FormattedDetails())) + "\n";
         }
-    }
+ }
+
+ /// <summary>
+ /// Wrapper class implementing IEntityQueries interface for Hero entities
+ /// </summary>
+ public class HeroQueriesWrapper : IEntityQueries<Hero, HeroTypes>
+ {
+  public Hero GetById(string id) => HeroQueries.GetHeroById(id);
+  public List<Hero> Query(string query, HeroTypes types, bool matchAll) => HeroQueries.QueryHeroes(query, types, matchAll);
+  public HeroTypes ParseType(string typeString) => HeroQueries.ParseHeroType(typeString);
+  public HeroTypes ParseTypes(IEnumerable<string> typeStrings) => HeroQueries.ParseHeroTypes(typeStrings);
+  public string GetFormattedDetails(List<Hero> entities) => HeroQueries.GetFormattedDetails(entities);
+ }
 }

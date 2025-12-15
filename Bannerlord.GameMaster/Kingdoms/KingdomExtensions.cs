@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using Bannerlord.GameMaster.Common.Interfaces;
 
 namespace Bannerlord.GameMaster.Kingdoms
 {
-    [Flags]
-    public enum KingdomTypes
+	[Flags]
+	public enum KingdomTypes
     {
         None = 0,
         Active = 1,
@@ -82,5 +83,21 @@ namespace Bannerlord.GameMaster.Kingdoms
             return $"{kingdom.StringId}\t{kingdom.Name}\tClans: {kingdom.Clans.Count}\tHeroes: {heroCount}\t" +
                    $"RulingClan: {kingdom.RulingClan?.Name}\tRuler: {kingdom.Leader?.Name}";
         }
-    }
+
+        /// <summary>
+        /// Alias for GetKingdomTypes to match IEntityExtensions interface
+        /// </summary>
+        public static KingdomTypes GetTypes(this Kingdom kingdom) => kingdom.GetKingdomTypes();
+ }
+
+ /// <summary>
+ /// Wrapper class implementing IEntityExtensions interface for Kingdom entities
+ /// </summary>
+ public class KingdomExtensionsWrapper : IEntityExtensions<Kingdom, KingdomTypes>
+ {
+  public KingdomTypes GetTypes(Kingdom entity) => entity.GetKingdomTypes();
+  public bool HasAllTypes(Kingdom entity, KingdomTypes types) => entity.HasAllTypes(types);
+  public bool HasAnyType(Kingdom entity, KingdomTypes types) => entity.HasAnyType(types);
+  public string FormattedDetails(Kingdom entity) => entity.FormattedDetails();
+ }
 }

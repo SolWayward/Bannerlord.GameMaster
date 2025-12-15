@@ -26,19 +26,12 @@ namespace Bannerlord.GameMaster.Console.Query
                 "mafia", "outlaw", "nomad", "sect", "withoutkingdom", "empty", "player", "playerclan"
             };
 
-            List<string> searchTerms = new();
-            List<string> typeTerms = new();
-
-            foreach (var arg in args)
-            {
-                if (typeKeywords.Contains(arg.ToLower()))
-                    typeTerms.Add(arg);
-                else
-                    searchTerms.Add(arg);
-            }
-
-            string query = string.Join(" ", searchTerms).Trim();
-            ClanTypes types = ClanQueries.ParseClanTypes(typeTerms);
+            // Use generic parser to separate search terms from type keywords
+            var (query, types) = QueryArgumentParser<ClanTypes>.Parse(
+                args,
+                typeKeywords,
+                ClanQueries.ParseClanTypes,
+                ClanTypes.None);
 
             // Default to Active if no status specified
             if (!types.HasFlag(ClanTypes.Active) && !types.HasFlag(ClanTypes.Eliminated))

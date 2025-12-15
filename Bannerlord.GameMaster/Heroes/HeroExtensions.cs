@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using Bannerlord.GameMaster.Common.Interfaces;
 
 namespace Bannerlord.GameMaster.Heroes
 {
@@ -87,5 +88,21 @@ namespace Bannerlord.GameMaster.Heroes
         {
             return $"{hero.StringId}\t{hero.Name}\tClan: {hero.Clan?.Name}\tKingdom: {hero.Clan?.Kingdom?.Name}";
         }
-    }
+
+        /// <summary>
+        /// Alias for GetHeroTypes to match IEntityExtensions interface
+        /// </summary>
+        public static HeroTypes GetTypes(this Hero hero) => hero.GetHeroTypes();
+ }
+
+ /// <summary>
+ /// Wrapper class implementing IEntityExtensions interface for Hero entities
+ /// </summary>
+ public class HeroExtensionsWrapper : IEntityExtensions<Hero, HeroTypes>
+ {
+  public HeroTypes GetTypes(Hero entity) => entity.GetHeroTypes();
+  public bool HasAllTypes(Hero entity, HeroTypes types) => entity.HasAllTypes(types);
+  public bool HasAnyType(Hero entity, HeroTypes types) => entity.HasAnyType(types);
+  public string FormattedDetails(Hero entity) => entity.FormattedDetails();
+ }
 }

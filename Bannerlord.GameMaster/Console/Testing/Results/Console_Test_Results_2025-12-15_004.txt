@@ -1,0 +1,539 @@
+=== Test Results Generated: 2025-12-15 01:40:19 ===
+
+=== TEST RESULTS ===
+Total Tests: 139
+Passed: 137
+Failed: 2
+Success Rate: 98.6%
+Total Time: 726ms
+
+--- HeroQuery ---
+[PASS] hero_query_001: Query heroes without parameters should return all living heroes
+  Execution Time: 79ms
+[PASS] hero_query_002: Query heroes with 'lord' filter
+  Execution Time: 3ms
+[PASS] hero_query_003: Query heroes with specific name
+  Execution Time: 6ms
+[PASS] hero_query_004: Query heroes matching ANY criteria (lord OR wanderer)
+  Execution Time: 9ms
+[PASS] hero_query_005: Hero info without ID should return error
+  Execution Time: 0ms
+[PASS] hero_query_006: Hero info with invalid ID should return error
+  Execution Time: 0ms
+
+--- ClanQuery ---
+[PASS] clan_query_001: Query clans without parameters should return all clans
+  Execution Time: 6ms
+[PASS] clan_query_002: Query clans with specific name
+  Execution Time: 0ms
+[PASS] clan_query_003: Query clans matching ANY criteria
+  Execution Time: 0ms
+[PASS] clan_query_004: Clan info without ID should return error
+  Execution Time: 0ms
+
+--- KingdomQuery ---
+[PASS] kingdom_query_001: Query kingdoms without parameters should return all kingdoms
+  Execution Time: 5ms
+[PASS] kingdom_query_002: Query kingdoms with specific name
+  Execution Time: 0ms
+[PASS] kingdom_query_003: Query kingdoms matching ANY criteria
+  Execution Time: 0ms
+[PASS] kingdom_query_004: Kingdom info without ID should return error
+  Execution Time: 1ms
+
+--- HeroManagement ---
+[PASS] hero_mgmt_001: Set clan without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_002: Set age without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_003: Set gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_004: Kill hero without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_005: Heal hero without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_006: Set relation without arguments should return usage error
+  Execution Time: 0ms
+
+--- ClanManagement ---
+[PASS] clan_mgmt_001: Add hero to clan without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_002: Set clan gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_003: Add clan gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_004: Set clan renown without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_005: Set clan tier without arguments should return usage error
+  Execution Time: 0ms
+
+--- KingdomManagement ---
+[PASS] kingdom_mgmt_001: Add clan to kingdom without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_002: Remove clan from kingdom without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_003: Declare war without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_004: Make peace without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_005: Set kingdom ruler without arguments should return usage error
+  Execution Time: 0ms
+
+--- SuccessPaths_HeroManagement ---
+[PASS] hero_mgmt_success_001: Successfully transfer hero lord_1_1 to clan_empire_south_1
+  Execution Time: 48ms
+[PASS] hero_mgmt_success_002: Successfully set hero age to 30
+  Execution Time: 6ms
+[PASS] hero_mgmt_success_003: Successfully set hero gold to 5000
+  Execution Time: 6ms
+[PASS] hero_mgmt_success_004: Successfully add 1000 gold to hero
+  Execution Time: 5ms
+[PASS] hero_mgmt_success_005: Successfully heal hero to full health
+  Execution Time: 5ms
+[PASS] hero_mgmt_success_006: Successfully set relation between two heroes to 50
+  Execution Time: 19ms
+
+--- SuccessPaths_KingdomManagement ---
+[PASS] kingdom_mgmt_success_001: Successfully add clan to kingdom
+  Execution Time: 50ms
+[PASS] kingdom_mgmt_success_002: Successfully remove clan from kingdom
+  Execution Time: 4ms
+[PASS] kingdom_mgmt_success_003: Successfully set kingdom ruler
+  Execution Time: 12ms
+
+--- SuccessPaths_ClanManagement ---
+[PASS] clan_mgmt_success_001: Successfully set clan gold to 10000
+  Execution Time: 1ms
+[PASS] clan_mgmt_success_002: Successfully add 5000 gold to clan
+  Execution Time: 0ms
+[PASS] clan_mgmt_success_003: Successfully set clan renown to 500
+  Execution Time: 0ms
+[PASS] clan_mgmt_success_004: Successfully increase clan tier to 5
+  Execution Time: 1ms
+
+--- SuccessPaths_Query ---
+[PASS] query_success_001: Successfully query for living lords
+  Execution Time: 1ms
+[PASS] query_success_002: Successfully query for empire clans
+  Execution Time: 0ms
+[PASS] query_success_003: Successfully query for active kingdoms
+  Execution Time: 0ms
+
+--- Integration_HeroManagement ---
+[PASS] integration_hero_move_clan_001: Move a living lord (Derthert) to another clan and verify clan change using name-based query
+  Execution Time: 13ms
+[PASS] integration_hero_move_clan_001b: Move a living lord to another clan using exact hero ID
+  Execution Time: 11ms
+[PASS] integration_hero_move_player_001: Test moving player hero (main_hero) to another clan
+  Execution Time: 11ms
+[PASS] integration_hero_move_dead_001: Attempt to move a dead hero to another clan
+  Execution Time: 5ms
+[PASS] integration_hero_set_gold_001: Set hero gold to specific amount and verify
+  Execution Time: 5ms
+[PASS] integration_hero_add_gold_001: Add gold to hero and verify amount increases correctly
+  Execution Time: 10ms
+[PASS] integration_hero_set_age_001: Set hero age and verify change
+  Execution Time: 5ms
+
+--- Integration_ClanManagement ---
+[PASS] integration_clan_set_gold_001: Set clan gold and verify amount
+  Execution Time: 1ms
+[PASS] integration_clan_set_renown_001: Set clan renown and verify amount
+  Execution Time: 0ms
+[PASS] integration_clan_set_tier_001_increase: Increase clan tier and verify (tier can be increased)
+  Execution Time: 0ms
+[PASS] integration_clan_set_tier_001_decrease: Attempt to decrease clan tier (should fail - game engine limitation)
+  Execution Time: 0ms
+[PASS] integration_clan_player_faction_001: Modify player faction (player_faction) gold
+  Execution Time: 0ms
+
+--- Integration_KingdomManagement ---
+[PASS] integration_kingdom_add_clan_001: Add a clan to a kingdom (Sturgia) and verify membership
+  Execution Time: 8ms
+
+--- EdgeCases ---
+[PASS] edge_case_query_wanderers_001: Query for wanderer heroes
+  Execution Time: 0ms
+[PASS] edge_case_query_notables_001: Query for notable heroes
+  Execution Time: 5ms
+[PASS] edge_case_wanderer_to_clan_001: Attempt to add a wanderer to a clan
+  Execution Time: 5ms
+[PASS] edge_case_bandit_clans_001: Query for bandit clans
+  Execution Time: 1ms
+[PASS] edge_case_clan_leader_001: Query for clan leaders
+  Execution Time: 0ms
+[PASS] edge_case_kingdom_ruler_001: Query for kingdom rulers
+  Execution Time: 0ms
+[PASS] edge_case_invalid_hero_001: Try to operate on non-existent hero
+  Execution Time: 5ms
+[PASS] edge_case_invalid_clan_001: Try to operate on non-existent clan
+  Execution Time: 0ms
+[PASS] edge_case_query_by_kingdom_001: Query heroes in Vlandia
+  Execution Time: 5ms
+[PASS] edge_case_query_derthert_001: Query for King Derthert specifically
+  Execution Time: 5ms
+
+--- SpecialCases_Player ---
+[PASS] player_special_001: Move player (main_hero) to an NPC clan (clan_empire_north_1)
+  Execution Time: 10ms
+[PASS] player_special_002: Move player to a bandit clan (looters) - WARNING: May cause crash on clan page
+  Execution Time: 11ms
+[PASS] player_special_003: Move player to a mercenary clan (ghilman)
+  Execution Time: 10ms
+[PASS] player_special_004: Make player the leader of an NPC clan (clan_empire_south_1)
+  Execution Time: 17ms
+[PASS] player_special_005: Make player the ruler of an NPC kingdom (Sturgia)
+  Execution Time: 17ms
+
+--- SpecialCases_Wanderer ---
+[PASS] wanderer_special_001: Move a wanderer (CharacterObject_1900 'Ruwa the Spicevendor') to an NPC clan
+  Execution Time: 5ms
+[PASS] wanderer_special_002: Make a wanderer the leader of an NPC clan (clan_empire_south_2)
+  Execution Time: 10ms
+[PASS] wanderer_special_003: Make a wanderer the ruler of a kingdom (Northern Empire)
+  Execution Time: 11ms
+
+--- SpecialCases_DeadHero ---
+[PASS] dead_hero_special_001: Make a dead hero (dead_lord_2_1 'Olek the Old') the leader of a clan
+  Execution Time: 5ms
+[PASS] dead_hero_special_002: Make a dead hero (dead_lord_2_1) the ruler of a kingdom
+  Execution Time: 5ms
+[PASS] dead_hero_special_003: Attempt to heal a dead hero (dead_lord_2_1) to full health
+  Execution Time: 5ms
+
+--- SpecialCases_Mercenary ---
+[PASS] merc_hero_special_001: Move a mercenary hero (CharacterObject_1866 'Orunhard of the Brotherhood') to an NPC clan
+  Execution Time: 5ms
+[PASS] merc_hero_special_002: Make a mercenary hero the leader of an NPC clan (clan_vlandia_2)
+  Execution Time: 10ms
+[PASS] merc_hero_special_003: Make a mercenary hero the ruler of a kingdom (Vlandia)
+  Execution Time: 5ms
+
+--- SpecialCases_BanditClan ---
+[PASS] bandit_clan_special_001: Move player to an empty bandit clan (looters) - WARNING: May cause crash on clan page
+  Execution Time: 11ms
+[PASS] bandit_clan_special_002: Move NPC lord (lord_4_1 'Derthert') to an empty bandit clan (deserters)
+  Execution Time: 11ms
+[PASS] bandit_clan_special_003: Make player the leader of a bandit clan (looters)
+  Execution Time: 16ms
+[PASS] bandit_clan_special_004: Query bandit clans to verify they have 0 heroes
+  Execution Time: 0ms
+
+--- SpecialCases_SpecialClan ---
+[PASS] special_clan_001: Move player to a mercenary clan (ghilman)
+  Execution Time: 11ms
+[PASS] special_clan_002: Move NPC lord to a mercenary clan (legion_of_the_betrayed)
+  Execution Time: 6ms
+[PASS] special_clan_003: Query special clans (mercenary, criminal, sect) to verify their structure
+  Execution Time: 0ms
+
+--- IDMatching_ExactMatch ---
+[PASS] id_matching_exact_match_001: Query matches exact ID among partial matches - should return exact match immediately
+  Execution Time: 5ms
+[PASS] id_matching_exact_match_002_case_insensitive: Query with different case should match exact ID (case-insensitive)
+  Execution Time: 5ms
+
+--- IDMatching_ShortestID ---
+[FAIL] id_matching_shortest_id_001: Query 'lord_1' matches multiple IDs with same length - should return error
+  Error: Expected error message about IDs having same length
+  Execution Time: 6ms
+[FAIL] id_matching_shortest_id_002: Query 'clan_empire' matches multiple IDs with same length - should return error
+  Error: Expected error message about IDs having same length
+  Execution Time: 0ms
+[PASS] id_matching_shortest_id_003: Query 'lord_1_41' should auto-select shortest ID (lord_1_41) over longer match (lord_1_411)
+  Execution Time: 5ms
+[PASS] id_matching_shortest_id_004: Partial query 'clan_vlandia_1' should auto-select shortest ID (clan_vlandia_1) over longer match (clan_vlandia_11)
+  Execution Time: 0ms
+
+--- IDMatching_NameMatches ---
+[PASS] id_matching_name_matches_error_001: Query matching multiple names (not IDs) should return error asking to be more specific
+  Execution Time: 10ms
+[PASS] id_matching_name_query_001: Query by hero name should work correctly
+  Execution Time: 5ms
+[PASS] id_matching_name_query_002: Query by clan name should work correctly
+  Execution Time: 0ms
+
+--- IDMatching_SingleMatch ---
+[PASS] id_matching_single_match_001: Query matching exactly one entity should return success
+  Execution Time: 5ms
+
+--- IDMatching_NoMatch ---
+[PASS] id_matching_no_match_001: Query matching no entities should return 'not found' error
+  Execution Time: 5ms
+
+--- IDMatching_MixedMatches ---
+[PASS] id_matching_mixed_matches_001: Query matching both IDs and names should prioritize ID matches
+  Execution Time: 7ms
+
+--- IDMatching_SameLengthCollision ---
+[PASS] id_matching_same_length_collision_001: Query matching multiple IDs with same length should return error or select first deterministically
+  Execution Time: 6ms
+[PASS] id_matching_same_length_collision_002: Clan query matching IDs with same length should handle gracefully
+  Execution Time: 0ms
+
+--- IDMatching_CaseInsensitivity ---
+[PASS] id_matching_case_insensitive_001: Case-insensitive matching - uppercase query should match lowercase ID
+  Execution Time: 5ms
+[PASS] id_matching_case_insensitive_002: Mixed case query should apply shortest ID logic case-insensitively
+  Execution Time: 0ms
+
+--- IDMatching_BackwardCompatibility ---
+[PASS] id_matching_backward_compat_001: Backward compatibility - simple unique query should work as before
+  Execution Time: 5ms
+[PASS] id_matching_backward_compat_002: Backward compatibility - exact kingdom ID should work as before
+  Execution Time: 4ms
+
+--- IDMatching_AllTypes ---
+[PASS] id_matching_all_types_hero_001: Hero FindSingle - exact ID match among partials
+  Execution Time: 5ms
+[PASS] id_matching_all_types_clan_001: Clan FindSingle - shortest ID selection
+  Execution Time: 0ms
+[PASS] id_matching_all_types_kingdom_001: Kingdom FindSingle - exact ID among name matches
+  Execution Time: 5ms
+
+--- NamePriority_ExactMatch ---
+[PASS] name_priority_exact_001: Exact name match 'Garios' should select 'Garios' over 'Pagarios' (substring match)
+  Execution Time: 5ms
+[PASS] name_priority_exact_002: Exact match should win even with multiple substring competitors
+  Execution Time: 5ms
+[PASS] name_priority_prefix_001_exact: Exact match 'garios' (case-insensitive) should select 'Garios' over others
+  Execution Time: 5ms
+
+--- NamePriority_PrefixMatch ---
+[PASS] name_priority_prefix_001: Prefix match 'Gar' should return multiple matches (expected behavior)
+  Execution Time: 5ms
+[PASS] name_priority_prefix_002: Prefix match 'Der' should return multiple matches (expected behavior)
+  Execution Time: 5ms
+
+--- NamePriority_MultipleMatches ---
+[PASS] name_priority_multi_exact_001: Multiple exact name matches should return clear error
+  Execution Time: 5ms
+[PASS] name_priority_multi_prefix_001: Multiple prefix matches should return error listing options
+  Execution Time: 6ms
+[PASS] name_priority_multi_contains_001: Multiple substring matches (no exact/prefix) should return error
+  Execution Time: 5ms
+
+--- NamePriority_CaseInsensitive ---
+[PASS] name_priority_case_001: Case-insensitive exact match 'GARIOS' should match 'Garios'
+  Execution Time: 5ms
+[PASS] name_priority_case_002: Case-insensitive prefix match 'GAR' should work
+  Execution Time: 5ms
+[PASS] name_priority_case_003: Lowercase 'lucon' should match 'Lucon' (case-insensitive)
+  Execution Time: 5ms
+
+--- NamePriority_ClanEntity ---
+[PASS] name_priority_clan_exact_001: Exact clan name match should work (e.g., 'dey_Clan' or specific clan name)
+  Execution Time: 1ms
+[PASS] name_priority_clan_prefix_001: Prefix match 'Bat' for clan IDs should return multiple matches (expected behavior)
+  Execution Time: 0ms
+[PASS] name_priority_clan_prefix_002: Clan ID 'clan_vlandia_1' should auto-select over 'clan_vlandia_11'
+  Execution Time: 0ms
+[PASS] name_priority_clan_multi_001: Multiple clan substring matches should error appropriately
+  Execution Time: 0ms
+
+--- NamePriority_IDPriority ---
+[PASS] name_priority_id_001: ID match should have priority over name match
+  Execution Time: 5ms
+[PASS] name_priority_id_002: Shortest ID selection should still work correctly
+  Execution Time: 5ms
+[PASS] name_priority_id_003: ID match should work even when names are similar
+  Execution Time: 0ms
+
+--- NamePriority_SubstringMatch ---
+[PASS] name_priority_substring_001: Substring match 'ucon' should match 'Lucon' when no exact/prefix matches
+  Execution Time: 5ms
+[PASS] name_priority_substring_002: Multiple substring matches should return error with 'containing' message
+  Execution Time: 5ms
+
+--- NamePriority_KingdomEntity ---
+[PASS] name_priority_kingdom_exact_001: Exact kingdom name 'Vlandia' should match correctly
+  Execution Time: 4ms
+[PASS] name_priority_kingdom_prefix_001: Kingdom ID prefix 'emp' should match multiple empire kingdoms
+  Execution Time: 0ms
+[PASS] name_priority_kingdom_id_001: Exact kingdom ID 'sturgia' should auto-select
+  Execution Time: 4ms
+
+--- NamePriority_Ambiguous ---
+[PASS] name_priority_ambiguous_001: Ambiguous query should provide clear error with options
+  Execution Time: 5ms
+[PASS] name_priority_ambiguous_002: Ambiguous clan query should list matching options
+  Execution Time: 0ms
+[PASS] name_priority_ambiguous_003: When both exact and prefix matches exist, exact should win
+  Execution Time: 5ms
+[PASS] name_priority_ambiguous_004: Prefix match should beat substring match
+  Execution Time: 5ms
+[PASS] name_priority_ambiguous_005: Exact ID match should beat any name match type
+  Execution Time: 0ms
+
+=== FAILED TESTS DETAILS ===
+[FAIL] id_matching_shortest_id_001: Query 'lord_1' matches multiple IDs with same length - should return error
+  Error: Expected error message about IDs having same length
+  Execution Time: 6ms
+  Command: gm.hero.set_gold lord_1 6000
+  Expected: Error
+  Actual Output: Error: Found 128 heros with IDs starting with 'lord_1':
+lord_1_1	Lucon	Clan: Legion of the Betrayed	Kingdom: 
+lord_1_2	Zerosica	Clan: Osticos	Kingdom: Northern Empire
+lord_1_41	Arcor	Clan: Osticos	Kingdom: Northern Empire
+lord_1_1_1	Susada	Clan: Osticos	Kingdom: Northern Empire
+lord_1_411	Arion	Clan: Osticos	Kingdom: Northern Empire
+lord_1_31	Zoana	Clan: Osticos	Kingdom: Northern Empire
+lord_1_1_2	Decantia	Clan: Osticos	Kingdom: Northern Empire
+lord_1_21	Ascyron	Clan: Osticos	Kingdom: Northern Empire
+lord_1_3	Manteos	Clan: Argoros	Kingdom: Northern Empire
+lord_1_4	Phenoria	Clan: Argoros	Kingdom: Northern Empire
+lord_1_22	Andros	Clan: Argoros	Kingdom: Northern Empire
+lord_1_42	Belithor	Clan: Argoros	Kingdom: Northern Empire
+lord_1_32	Sora	Clan: Argoros	Kingdom: Northern Empire
+lord_1_422	Maurentios	Clan: Argoros	Kingdom: Northern Empire
+lord_1_1_3	Veneranda	Clan: Argoros	Kingdom: Northern Empire
+lord_1_1_4	Phalarisa	Clan: Argoros	Kingdom: Northern Empire
+lord_1_1_5	Presciana	Clan: Argoros	Kingdom: Northern Empire
+lord_1_1_6	Adrichea	Clan: Argoros	Kingdom: Northern Empire
+lord_1_5	Penton	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_1_7	Hylasiana	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_1_8	Apolytea	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_6	Phadon	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_33	Chalia	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_43	Chason	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_1_9	Eodisia	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_1_10	Rhoda	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_1_11	Amaliana	Clan: Neretzes	Kingdom: Northern Empire
+lord_1_1_12	Epipheria	Clan: Impestores	Kingdom: Northern Empire
+lord_1_1_13	Agnathea	Clan: Impestores	Kingdom: Northern Empire
+lord_1_64	Miron	Clan: Impestores	Kingdom: Northern Empire
+lord_1_20	Encurion	Clan: Impestores	Kingdom: Northern Empire
+lord_1_1_14	Tyliana	Clan: Dolentos	Kingdom: Northern Empire
+lord_1_50	Gyphor	Clan: Dolentos	Kingdom: Northern Empire
+lord_1_1_17	Variasis	Clan: Dolentos	Kingdom: Northern Empire
+lord_1_66	Lantanor	Clan: Dolentos	Kingdom: Northern Empire
+lord_1_1_15	Justina	Clan: Chonis	Kingdom: Northern Empire
+lord_1_67	Olypos	Clan: Chonis	Kingdom: Northern Empire
+lord_1_1_16	Leontia	Clan: Chonis	Kingdom: Northern Empire
+lord_1_51	Nicasor	Clan: Chonis	Kingdom: Northern Empire
+lord_1_58	Tasynor	Clan: Phalentes	Kingdom: Northern Empire
+lord_1_70	Panalea	Clan: Phalentes	Kingdom: Northern Empire
+lord_1_56	Seranor	Clan: Vatatzes	Kingdom: Northern Empire
+lord_1_56_1	Germana	Clan: Vatatzes	Kingdom: Northern Empire
+lord_1_7	Garios	Clan: Comnos	Kingdom: Western Empire
+lord_1_8	Vendelia	Clan: Comnos	Kingdom: Western Empire
+lord_1_75	Thephilos	Clan: Comnos	Kingdom: Western Empire
+lord_1_34	Nadea	Clan: Comnos	Kingdom: Western Empire
+lord_1_24	Tadeos	Clan: Comnos	Kingdom: Western Empire
+lord_1_44	Nemos	Clan: Comnos	Kingdom: Western Empire
+lord_1_9	Apys	Clan: Varros	Kingdom: Western Empire
+lord_1_10	Melkea	Clan: Varros	Kingdom: Western Empire
+lord_1_35	Amenon	Clan: Varros	Kingdom: Western Empire
+lord_1_25	Eronyx	Clan: Varros	Kingdom: Western Empire
+lord_1_23	Jastion	Clan: Varros	Kingdom: Western Empire
+lord_1_11	Crotor	Clan: Osticos	Kingdom: Northern Empire
+lord_1_12	Lysica	Clan: Dionicos	Kingdom: Western Empire
+lord_1_111	Casinon	Clan: Dionicos	Kingdom: Western Empire
+lord_1_36	Phaea	Clan: Dionicos	Kingdom: Western Empire
+lord_1_26	Meritor	Clan: Dionicos	Kingdom: Western Empire
+lord_1_40	Tynops	Clan: Elaches	Kingdom: Western Empire
+lord_1_40_1	Catella	Clan: Elaches	Kingdom: Western Empire
+lord_1_46	Milos	Clan: Elaches	Kingdom: Western Empire
+lord_1_46_1	Seorgys	Clan: Elaches	Kingdom: Western Empire
+lord_1_45	Desporion	Clan: Lonalion	Kingdom: Western Empire
+lord_1_45_1	Agnala	Clan: Lonalion	Kingdom: Western Empire
+lord_1_45_2	Phostor	Clan: Lonalion	Kingdom: Western Empire
+lord_1_45_3	Nereida	Clan: Lonalion	Kingdom: Western Empire
+lord_1_57	Altenos	Clan: Lonalion	Kingdom: Western Empire
+lord_1_57_1	Sophalia	Clan: Lonalion	Kingdom: Western Empire
+lord_1_57_2	Jephalia	Clan: Lonalion	Kingdom: Western Empire
+lord_1_52	Saratis	Clan: Sorados	Kingdom: Western Empire
+lord_1_52_1	Minarvina	Clan: Sorados	Kingdom: Western Empire
+lord_1_52_2	Megarita	Clan: Sorados	Kingdom: Western Empire
+lord_1_62	Sejaron	Clan: Sorados	Kingdom: Western Empire
+lord_1_62_1	Arytha	Clan: Sorados	Kingdom: Western Empire
+lord_1_53	Achios	Clan: Corenios	Kingdom: Western Empire
+lord_1_73	Ovagos	Clan: Corenios	Kingdom: Western Empire
+lord_1_73_1	Popilia	Clan: Corenios	Kingdom: Western Empire
+lord_1_71	Vipon	Clan: Maneolis	Kingdom: Western Empire
+lord_1_14	Rhagaea	Clan: Pethros	Kingdom: 
+lord_1_27	Patyr	Clan: Pethros	Kingdom: 
+lord_1_27_1	Verina	Clan: Pethros	Kingdom: 
+lord_1_27_2	Eutropios	Clan: Pethros	Kingdom: 
+lord_1_27_3	Vasilia	Clan: Pethros	Kingdom: 
+lord_1_37	Ira	Clan: Pethros	Kingdom: 
+lord_1_47	Ulbos	Clan: Pethros	Kingdom: 
+lord_1_47_1	Mina	Clan: Pethros	Kingdom: 
+lord_1_47_2	Casyrea	Clan: Pethros	Kingdom: 
+lord_1_47_3	Colambea	Clan: Pethros	Kingdom: 
+lord_1_15	Pharon	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_16	Martira	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_155	Zeno	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_28	Temion	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_38	Helea	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_48	Joron	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_48_1	Alympia	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_48_2	Anea	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_48_3	Nonesos	Clan: Leonipardes	Kingdom: Southern Empire
+lord_1_177	Honoratus	Clan: Mestricaros	Kingdom: Southern Empire
+lord_1_17	Oros	Clan: Mestricaros	Kingdom: Southern Empire
+lord_1_18	Jathea	Clan: Mestricaros	Kingdom: Southern Empire
+lord_1_29	Sanion	Clan: Mestricaros	Kingdom: Southern Empire
+lord_1_39	Debana	Clan: Mestricaros	Kingdom: Southern Empire
+lord_1_30	Turiados	Clan: Hongeros	Kingdom: Southern Empire
+lord_1_30_1	Justina	Clan: Hongeros	Kingdom: Southern Empire
+lord_1_49	Obron	Clan: Hongeros	Kingdom: Southern Empire
+lord_1_49_1	Tristania	Clan: Hongeros	Kingdom: Southern Empire
+lord_1_49_2	Gordiana	Clan: Hongeros	Kingdom: Southern Empire
+lord_1_30_2	Callinia	Clan: Hongeros	Kingdom: Southern Empire
+lord_1_30_3	Synesios	Clan: Hongeros	Kingdom: Southern Empire
+lord_1_56_2	Rustica	Clan: Hongeros	Kingdom: Southern Empire
+lord_1_63_2	Comatasa	Clan: Julios	Kingdom: Southern Empire
+lord_1_63	Baranor	Clan: Julios	Kingdom: Southern Empire
+lord_1_63_1	Valaria	Clan: Julios	Kingdom: Southern Empire
+lord_1_63_3	Elidilea	Clan: Julios	Kingdom: Southern Empire
+lord_1_74	Zachanis	Clan: Julios	Kingdom: Southern Empire
+lord_1_74_1	Zena	Clan: Julios	Kingdom: Southern Empire
+lord_1_54	Sichanis	Clan: Vizartos	Kingdom: Southern Empire
+lord_1_54_1	Constalia	Clan: Vizartos	Kingdom: Southern Empire
+lord_1_68	Tharos	Clan: Vizartos	Kingdom: Southern Empire
+lord_1_68_1	Silvina	Clan: Vizartos	Kingdom: Southern Empire
+lord_1_69_2	Dorathila	Clan: Avlonos	Kingdom: Southern Empire
+lord_1_69	Niphon	Clan: Avlonos	Kingdom: Southern Empire
+lord_1_69_1	Areliana	Clan: Avlonos	Kingdom: Southern Empire
+lord_1_55	Serandon	Clan: Avlonos	Kingdom: Southern Empire
+lord_1_55_1	Megethia	Clan: Avlonos	Kingdom: Southern Empire
+lord_1_72	Abalytos	Clan: Prienicos	Kingdom: Southern Empire
+lord_1_72_1	Viviana	Clan: Prienicos	Kingdom: Southern Empire
+Please use a more specific ID.
+
+[FAIL] id_matching_shortest_id_002: Query 'clan_empire' matches multiple IDs with same length - should return error
+  Error: Expected error message about IDs having same length
+  Execution Time: 0ms
+  Command: gm.clan.set_gold clan_empire 50000
+  Expected: Error
+  Actual Output: Error: Found 27 clans with IDs starting with 'clan_empire':
+clan_empire_north_1	Osticos	Heroes: 13	Leader: Ruwa the Spicevendor	Kingdom: Northern Empire
+clan_empire_north_2	Argoros	Heroes: 14	Leader: Manteos	Kingdom: Northern Empire
+clan_empire_north_3	Neretzes	Heroes: 14	Leader: Penton	Kingdom: Northern Empire
+clan_empire_north_4	Impestores	Heroes: 6	Leader: Encurion	Kingdom: Northern Empire
+clan_empire_north_5	Dolentos	Heroes: 6	Leader: Gyphor	Kingdom: Northern Empire
+clan_empire_north_6	Chonis	Heroes: 6	Leader: Nicasor	Kingdom: Northern Empire
+clan_empire_north_7	Phalentes	Heroes: 5	Leader: Tasynor	Kingdom: Northern Empire
+clan_empire_north_8	Vatatzes	Heroes: 8	Leader: Maritzios	Kingdom: Northern Empire
+clan_empire_north_9	Serapides	Heroes: 5	Leader: Porphalios	Kingdom: Northern Empire
+clan_empire_west_1	Comnos	Heroes: 9	Leader: Garios	Kingdom: Western Empire
+clan_empire_west_2	Varros	Heroes: 8	Leader: Apys	Kingdom: Western Empire
+clan_empire_west_3	Dionicos	Heroes: 7	Leader: Meritor	Kingdom: Western Empire
+clan_empire_west_4	Elaches	Heroes: 6	Leader: Tynops	Kingdom: Western Empire
+clan_empire_west_5	Lonalion	Heroes: 9	Leader: Desporion	Kingdom: Western Empire
+clan_empire_west_6	Sorados	Heroes: 6	Leader: Saratis	Kingdom: Western Empire
+clan_empire_west_7	Corenios	Heroes: 5	Leader: Achios	Kingdom: Western Empire
+clan_empire_west_8	Maneolis	Heroes: 5	Leader: Vipon	Kingdom: Western Empire
+clan_empire_west_9	Palladios	Heroes: 5	Leader: Vincantios	Kingdom: Western Empire
+clan_empire_south_1	Pethros	Heroes: 12	Leader: Ulbos	Kingdom: 
+clan_empire_south_2	Leonipardes	Heroes: 9	Leader: Pharon	Kingdom: Southern Empire
+clan_empire_south_3	Mestricaros	Heroes: 8	Leader: Oros	Kingdom: Southern Empire
+clan_empire_south_4	Hongeros	Heroes: 8	Leader: Turiados	Kingdom: Southern Empire
+clan_empire_south_5	Julios	Heroes: 6	Leader: Baranor	Kingdom: Southern Empire
+clan_empire_south_6	Vizartos	Heroes: 6	Leader: Sichanis	Kingdom: Southern Empire
+clan_empire_south_7	Avlonos	Heroes: 6	Leader: Serandon	Kingdom: Southern Empire
+clan_empire_south_8	Prienicos	Heroes: 5	Leader: Abalytos	Kingdom: Southern Empire
+clan_empire_south_9	Vetranis	Heroes: 6	Leader: Satros	Kingdom: Southern Empire
+Please use a more specific ID.
+
