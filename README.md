@@ -1,5 +1,8 @@
 # Bannerlord.GameMaster (BLGM)
 
+[Mod User Guide Docunentation Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki) - Documentation for using mod ingame
+[Source Code Documentation](https://solwayward.github.io/Bannerlord.GameMaster/) - Documentation for contributing and implementing features to the project
+
 Console commands mod for Mount & Blade II: Bannerlord that provides game management capabilities through an command-line interface. 
 Tested using Bannerlord *1.3.9*, *1.3.10*, *1.3.12 beta*, and *War Sails* <br /><br />
 BLGM is intended to be the foundation of other mods I am working on but is also useful for taking control of your playthrough, testing / debugging your mod, or even to quickly add functionality to your mod.  
