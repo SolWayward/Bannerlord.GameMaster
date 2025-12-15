@@ -229,5 +229,27 @@ namespace Bannerlord.GameMaster.Console.Common
                 Debug.Print($"[CommandLogger] Failed to write session header: {ex.Message}");
             }
         }
+
+        /// <summary>
+        /// Log a debug message directly (for debugging purposes)
+        /// </summary>
+        /// <param name="message">The message to log</param>
+        public static void Log(string message)
+        {
+            if (!_isEnabled || string.IsNullOrEmpty(_logFilePath))
+                return;
+
+            try
+            {
+                lock (_lockObject)
+                {
+                    File.AppendAllText(_logFilePath, message + Environment.NewLine);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Print($"[CommandLogger] Failed to write debug log: {ex.Message}");
+            }
+        }
     }
 }

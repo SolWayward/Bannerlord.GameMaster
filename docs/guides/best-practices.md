@@ -257,6 +257,175 @@ return CommandBase.ExecuteWithErrorHandling(() =>
 
 ---
 
+## File I/O Operations
+
+When implementing features that read or write files, follow these best practices for cross-platform compatibility and reliability:
+
+### Cross-Platform Paths
+
+**Always use `Environment.GetFolderPath()` for user directories:**
+
+```csharp
+// ✅ Correct - Cross-platform compatible
+string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+string basePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster");
+
+// ❌ Wrong - Windows-specific
+string basePath = "C:\\Users\\Username\\Documents\\Mount and Blade II Bannerlord";
+```
+
+**Use `Path.Combine()` for all path construction:**
+
+```csharp
+// ✅ Correct - Handles path separators automatically
+string filepath = Path.Combine(basePath, "HeroSets", filename);
+
+// ❌ Wrong - Hard-coded separators
+string filepath = basePath + "\\HeroSets\\" + filename;
+```
+
+### Directory Creation
+
+**Create directories before file operations:**
+
+```csharp
+// ✅ Correct - Ensures directory exists
+string directoryPath = Path.Combine(basePath, "HeroSets");
+if (!Directory.Exists(directoryPath))
+{
+    Directory.CreateDirectory(directoryPath);
+}
+
+// CreateDirectory is safe to call on existing directories
+Directory.CreateDirectory(directoryPath); // This is also valid
+```
+
+### JSON Serialization
+
+**Use Newtonsoft.Json with proper formatting:**
+
+```csharp
+// ✅ Correct - Pretty-printed JSON for readability
+using Newtonsoft.Json;
+
+string jsonString = JsonConvert.SerializeObject(data, Formatting.Indented);
+File.WriteAllText(filepath, jsonString);
+
+// For deserialization
+var data = JsonConvert.DeserializeObject<DataType>(jsonString);
+```
+
+**Use `[JsonProperty]` attributes for clean property names:**
+
+```csharp
+private class EquipmentSetData
+{
+    [JsonProperty("HeroName")]
+    public string HeroName { get; set; }
+    
+    [JsonProperty("HeroId")]
+    public string HeroId { get; set; }
+    
+    [JsonProperty("SavedDate")]
+    public string SavedDate { get; set; }
+}
+```
+
+### File Existence Checks
+
+**Always check file existence before reading:**
+
+```csharp
+// ✅ Correct - Check before reading
+if (!File.Exists(filepath))
+    return CommandBase.FormatErrorMessage($"File not found: {Path.GetFileName(filepath)}");
+
+string content = File.ReadAllText(filepath);
+```
+
+### File Extension Handling
+
+**Automatically add extensions if missing:**
+
+```csharp
+// ✅ Correct - Ensures consistent file extensions
+if (!filename.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+{
+    filename += ".json";
+}
+```
+
+### Error Handling for File Operations
+
+**Wrap file operations in try-catch within `ExecuteWithErrorHandling()`:**
+
+```csharp
+return CommandBase.ExecuteWithErrorHandling(() =>
+{
+    try
+    {
+        string jsonString = File.ReadAllText(filepath);
+        var data = JsonConvert.DeserializeObject<DataType>(jsonString);
+        
+        if (data == null)
+            throw new Exception("Invalid file format.");
+            
+        // Process data...
+        return CommandBase.FormatSuccessMessage("Operation completed.");
+    }
+    catch (FileNotFoundException)
+    {
+        return CommandBase.FormatErrorMessage($"File not found: {Path.GetFileName(filepath)}");
+    }
+    catch (JsonException ex)
+    {
+        return CommandBase.FormatErrorMessage($"Invalid JSON format: {ex.Message}");
+    }
+}, "Failed to load data");
+```
+
+### Graceful Degradation
+
+**Handle missing or invalid data gracefully:**
+
+```csharp
+// ✅ Correct - Continue operation, report skipped items
+int loadedCount = 0;
+int skippedCount = 0;
+List<string> skippedItems = new List<string>();
+
+foreach (var item in dataList)
+{
+    if (!IsItemValid(item))
+    {
+        skippedCount++;
+        skippedItems.Add(item.Id);
+        continue; // Skip invalid items but continue processing
+    }
+    
+    ProcessItem(item);
+    loadedCount++;
+}
+
+// Report both successes and failures
+StringBuilder result = new StringBuilder();
+result.AppendLine($"Loaded: {loadedCount}, Skipped: {skippedCount}");
+if (skippedCount > 0)
+{
+    result.AppendLine("Skipped items:");
+    foreach (var item in skippedItems)
+    {
+        result.AppendLine($"  - {item}");
+    }
+}
+```
+
+### Example Implementation
+
+See [`ItemManagementCommands.cs`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1278-1436) for a complete example of file I/O best practices in the equipment save/load system.
+
+---
+
 ## Next Steps
 
 1. **Review** [Testing Guide](testing.md) for test procedures

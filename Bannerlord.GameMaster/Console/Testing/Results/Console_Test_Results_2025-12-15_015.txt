@@ -1,0 +1,674 @@
+=== Test Results Generated: 2025-12-15 16:44:49 ===
+
+=== TEST RESULTS ===
+Total Tests: 226
+Passed: 219
+Failed: 7
+Success Rate: 96.9%
+Total Time: 1086ms
+
+--- HeroQuery ---
+[PASS] hero_query_001: Query heroes without parameters should return all living heroes
+  Execution Time: 79ms
+[PASS] hero_query_002: Query heroes with 'lord' filter
+  Execution Time: 5ms
+[PASS] hero_query_003: Query heroes with specific name
+  Execution Time: 9ms
+[PASS] hero_query_004: Query heroes matching ANY criteria (lord OR wanderer)
+  Execution Time: 9ms
+[PASS] hero_query_005: Hero info without ID should return error
+  Execution Time: 0ms
+[PASS] hero_query_006: Hero info with invalid ID should return error
+  Execution Time: 0ms
+
+--- ClanQuery ---
+[PASS] clan_query_001: Query clans without parameters should return all clans
+  Execution Time: 8ms
+[PASS] clan_query_002: Query clans with specific name
+  Execution Time: 0ms
+[PASS] clan_query_003: Query clans matching ANY criteria
+  Execution Time: 0ms
+[PASS] clan_query_004: Clan info without ID should return error
+  Execution Time: 0ms
+
+--- KingdomQuery ---
+[PASS] kingdom_query_001: Query kingdoms without parameters should return all kingdoms
+  Execution Time: 7ms
+[PASS] kingdom_query_002: Query kingdoms with specific name
+  Execution Time: 0ms
+[PASS] kingdom_query_003: Query kingdoms matching ANY criteria
+  Execution Time: 0ms
+[PASS] kingdom_query_004: Kingdom info without ID should return error
+  Execution Time: 1ms
+
+--- ItemQuery ---
+[PASS] item_query_001: Query items without parameters should return all items
+  Execution Time: 11ms
+[PASS] item_query_002: Query items with 'weapon' filter
+  Execution Time: 5ms
+[PASS] item_query_003: Query items with specific name
+  Execution Time: 5ms
+[PASS] item_query_004: Query items matching ANY criteria (weapon OR armor)
+  Execution Time: 3ms
+[PASS] item_query_005: Item info without ID should return error
+  Execution Time: 1ms
+[PASS] item_query_006: Item info with invalid ID should return error
+  Execution Time: 0ms
+[PASS] item_query_007: Query items with specific armor type
+  Execution Time: 0ms
+[PASS] item_query_008: Query items for one-handed weapons
+  Execution Time: 0ms
+[PASS] item_query_009: Query items with 'bow' filter
+  Execution Time: 0ms
+[PASS] item_query_010: Query items with 'crossbow' filter
+  Execution Time: 0ms
+[PASS] item_query_011: Query items with 'civilian' filter
+  Execution Time: 0ms
+[PASS] item_query_012: Query items with 'combat' filter
+  Execution Time: 3ms
+[PASS] item_query_013: Query items with 'horsearmor' filter
+  Execution Time: 0ms
+[PASS] item_query_014: Query items with tier3 filter
+  Execution Time: 1ms
+[PASS] item_query_015: Query items with tier5 filter
+  Execution Time: 1ms
+[PASS] item_query_016: Query items sorted by name
+  Execution Time: 5ms
+[PASS] item_query_017: Query items sorted by value descending
+  Execution Time: 3ms
+[PASS] item_query_018: Query items sorted by tier ascending
+  Execution Time: 8ms
+[PASS] item_query_019: Query tier 5 bows
+  Execution Time: 0ms
+[PASS] item_query_020: Query tier 4 combat armor
+  Execution Time: 0ms
+[PASS] item_query_021: Query tier 5 bows sorted by value descending
+  Execution Time: 0ms
+[PASS] item_query_022: Query items matching bow OR crossbow
+  Execution Time: 0ms
+[PASS] item_query_023: Query tier 4 items matching 1h OR 2h weapons
+  Execution Time: 0ms
+[PASS] item_query_024: Query items sorted by type
+  Execution Time: 2ms
+[PASS] item_query_025: Query civilian armor items
+  Execution Time: 0ms
+
+--- HeroManagement ---
+[PASS] hero_mgmt_001: Set clan without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_002: Set age without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_003: Set gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_004: Kill hero without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_005: Heal hero without arguments should return usage error
+  Execution Time: 0ms
+[PASS] hero_mgmt_006: Set relation without arguments should return usage error
+  Execution Time: 0ms
+
+--- ClanManagement ---
+[PASS] clan_mgmt_001: Add hero to clan without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_002: Set clan gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_003: Add clan gold without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_004: Set clan renown without arguments should return usage error
+  Execution Time: 0ms
+[PASS] clan_mgmt_005: Set clan tier without arguments should return usage error
+  Execution Time: 0ms
+
+--- KingdomManagement ---
+[PASS] kingdom_mgmt_001: Add clan to kingdom without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_002: Remove clan from kingdom without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_003: Declare war without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_004: Make peace without arguments should return usage error
+  Execution Time: 0ms
+[PASS] kingdom_mgmt_005: Set kingdom ruler without arguments should return usage error
+  Execution Time: 0ms
+
+--- ItemManagement ---
+[PASS] item_mgmt_001: Add item without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_002: Remove item without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_003: Remove all items without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_004: Transfer item without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_005: Unequip all items without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_006: Equip item without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_007: Unequip item without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_008: Equip item to slot without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_009: Unequip slot without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_010: List equipped items without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_011: Remove equipped items without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_012: List inventory without arguments should return usage error
+  Execution Time: 0ms
+[PASS] item_mgmt_013: Add item with invalid item ID should return error
+  Execution Time: 4ms
+[PASS] item_mgmt_014: Add item with invalid hero should return error
+  Execution Time: 6ms
+[PASS] item_mgmt_015: Add item with negative count should return error
+  Execution Time: 2ms
+[PASS] item_mgmt_016: Equip to invalid slot should return error
+  Execution Time: 2ms
+[PASS] item_mgmt_017: List inventory with invalid hero should return error
+  Execution Time: 0ms
+[PASS] item_mgmt_018: Remove equipped with invalid hero should return error
+  Execution Time: 6ms
+
+--- ItemEquipmentSave ---
+[PASS] equipment_save_001: Save equipment without arguments should return usage error
+  Execution Time: 0ms
+[PASS] equipment_save_002: Save equipment with only hero argument should return usage error
+  Execution Time: 0ms
+[PASS] equipment_save_003: Save equipment with invalid hero should return error
+  Execution Time: 6ms
+[PASS] equipment_save_004: Save civilian equipment without arguments should return usage error
+  Execution Time: 0ms
+[PASS] equipment_save_005: Save civilian equipment with only hero argument should return usage error
+  Execution Time: 0ms
+[PASS] equipment_save_006: Save civilian equipment with invalid hero should return error
+  Execution Time: 5ms
+[PASS] equipment_save_007: Save both equipment sets without arguments should return usage error
+  Execution Time: 0ms
+[PASS] equipment_save_008: Save both equipment sets with only hero argument should return usage error
+  Execution Time: 0ms
+[PASS] equipment_save_009: Save both equipment sets with invalid hero should return error
+  Execution Time: 6ms
+
+--- ItemEquipmentLoad ---
+[PASS] equipment_load_001: Load equipment without arguments should return usage error
+  Execution Time: 0ms
+[PASS] equipment_load_002: Load equipment with only hero argument should return usage error
+  Execution Time: 0ms
+[PASS] equipment_load_003: Load equipment with invalid hero should return error
+  Execution Time: 5ms
+[PASS] equipment_load_004: Load equipment with non-existent file should return error
+  Execution Time: 6ms
+[PASS] equipment_load_005: Load civilian equipment without arguments should return usage error
+  Execution Time: 1ms
+[PASS] equipment_load_006: Load civilian equipment with only hero argument should return usage error
+  Execution Time: 0ms
+[PASS] equipment_load_007: Load civilian equipment with invalid hero should return error
+  Execution Time: 8ms
+[PASS] equipment_load_008: Load civilian equipment with non-existent file should return error
+  Execution Time: 6ms
+[PASS] equipment_load_009: Load both equipment sets without arguments should return usage error
+  Execution Time: 0ms
+[PASS] equipment_load_010: Load both equipment sets with only hero argument should return usage error
+  Execution Time: 0ms
+[PASS] equipment_load_011: Load both equipment sets with invalid hero should return error
+  Execution Time: 5ms
+[PASS] equipment_load_012: Load both equipment sets with non-existent files should report appropriately
+  Execution Time: 5ms
+
+--- SuccessPaths_HeroManagement ---
+[PASS] hero_mgmt_success_001: Successfully transfer hero lord_1_1 to clan_empire_south_1
+  Execution Time: 21ms
+[PASS] hero_mgmt_success_002: Successfully set hero age to 30
+  Execution Time: 6ms
+[PASS] hero_mgmt_success_003: Successfully set hero gold to 5000
+  Execution Time: 5ms
+[PASS] hero_mgmt_success_004: Successfully add 1000 gold to hero
+  Execution Time: 5ms
+[PASS] hero_mgmt_success_005: Successfully heal hero to full health
+  Execution Time: 5ms
+[PASS] hero_mgmt_success_006: Successfully set relation between two heroes to 50
+  Execution Time: 18ms
+
+--- SuccessPaths_KingdomManagement ---
+[PASS] kingdom_mgmt_success_001: Successfully add clan to kingdom
+  Execution Time: 54ms
+[PASS] kingdom_mgmt_success_002: Successfully remove clan from kingdom
+  Execution Time: 5ms
+[PASS] kingdom_mgmt_success_003: Successfully set kingdom ruler
+  Execution Time: 12ms
+
+--- SuccessPaths_ClanManagement ---
+[PASS] clan_mgmt_success_001: Successfully set clan gold to 10000
+  Execution Time: 1ms
+[PASS] clan_mgmt_success_002: Successfully add 5000 gold to clan
+  Execution Time: 0ms
+[PASS] clan_mgmt_success_003: Successfully set clan renown to 500
+  Execution Time: 0ms
+[PASS] clan_mgmt_success_004: Successfully increase clan tier to 5
+  Execution Time: 1ms
+
+--- SuccessPaths_Query ---
+[PASS] query_success_001: Successfully query for living lords
+  Execution Time: 2ms
+[PASS] query_success_002: Successfully query for empire clans
+  Execution Time: 0ms
+[PASS] query_success_003: Successfully query for active kingdoms
+  Execution Time: 0ms
+[PASS] query_success_004: Successfully query for weapons
+  Execution Time: 2ms
+
+--- Sorting ---
+[PASS] hero_sort_001: Query heroes sorted by name
+  Execution Time: 12ms
+[PASS] hero_sort_002: Query heroes sorted by age descending
+  Execution Time: 6ms
+[PASS] hero_sort_003: Query lords sorted by clan
+  Execution Time: 2ms
+[PASS] hero_sort_004: Query heroes sorted by wanderer type flag
+  Execution Time: 6ms
+[PASS] clan_sort_001: Query clans sorted by name
+  Execution Time: 0ms
+[PASS] clan_sort_002: Query clans sorted by gold descending
+  Execution Time: 0ms
+[PASS] clan_sort_003: Query noble clans sorted by renown
+  Execution Time: 0ms
+[PASS] clan_sort_004: Query clans sorted by mercenary type flag
+  Execution Time: 0ms
+[PASS] kingdom_sort_001: Query kingdoms sorted by name
+  Execution Time: 0ms
+[PASS] kingdom_sort_002: Query kingdoms sorted by strength descending
+  Execution Time: 0ms
+[PASS] kingdom_sort_003: Query active kingdoms sorted by clans
+  Execution Time: 0ms
+[PASS] kingdom_sort_004: Query kingdoms sorted by atwar type flag
+  Execution Time: 0ms
+[PASS] combined_sort_001: Query female lords sorted by age
+  Execution Time: 1ms
+[PASS] combined_sort_002: Query empire clans sorted by tier descending
+  Execution Time: 0ms
+[PASS] combined_sort_003: Query kingdoms at war sorted by fiefs
+  Execution Time: 0ms
+
+--- Integration_HeroManagement ---
+[PASS] integration_hero_move_clan_001: Move a living lord (Derthert) to another clan and verify clan change using name-based query
+  Execution Time: 29ms
+[PASS] integration_hero_move_clan_001b: Move a living lord to another clan using exact hero ID
+  Execution Time: 11ms
+[PASS] integration_hero_move_player_001: Test moving player hero (main_hero) to another clan
+  Execution Time: 11ms
+[PASS] integration_hero_move_dead_001: Attempt to move a dead hero to another clan
+  Execution Time: 5ms
+[PASS] integration_hero_set_gold_001: Set hero gold to specific amount and verify
+  Execution Time: 5ms
+[PASS] integration_hero_add_gold_001: Add gold to hero and verify amount increases correctly
+  Execution Time: 10ms
+[PASS] integration_hero_set_age_001: Set hero age and verify change
+  Execution Time: 5ms
+
+--- Integration_ClanManagement ---
+[PASS] integration_clan_set_gold_001: Set clan gold and verify amount
+  Execution Time: 1ms
+[PASS] integration_clan_set_renown_001: Set clan renown and verify amount
+  Execution Time: 0ms
+[PASS] integration_clan_set_tier_001_increase: Increase clan tier and verify (tier can be increased)
+  Execution Time: 0ms
+[PASS] integration_clan_set_tier_001_decrease: Attempt to decrease clan tier (should fail - game engine limitation)
+  Execution Time: 0ms
+[PASS] integration_clan_player_faction_001: Modify player faction (player_faction) gold
+  Execution Time: 0ms
+
+--- Integration_KingdomManagement ---
+[PASS] integration_kingdom_add_clan_001: Add a clan to a kingdom (Sturgia) and verify membership
+  Execution Time: 8ms
+
+--- Integration_EquipmentSaveLoad ---
+[FAIL] integration_equipment_save_001: Save player equipment to file and verify file exists
+  Error: Expected success but got: Saved Sol's battle equipment to: test_equipment_save.json
+Items saved (9):
+  WeaponItemBeginSlot N
+  Execution Time: 48ms
+[FAIL] integration_equipment_save_002: Save player civilian equipment to file and verify file exists
+  Error: Expected success but got: Saved Sol's civilian equipment to: test_equipment_save_civilian.json
+Items saved (4):
+  WeaponItem
+  Execution Time: 15ms
+[FAIL] integration_equipment_save_003: Save both battle and civilian equipment sets and verify both files exist
+  Error: Expected success but got: Saved Sol's equipment sets:
+
+Battle equipment -> test_equipment_both.json (9 items):
+  WeaponItemB
+  Execution Time: 15ms
+[FAIL] integration_equipment_load_001: Save then load player equipment and verify it was loaded
+  Error: Expected success but got: Loaded Sol's battle equipment from: test_equipment_load.json
+Items loaded (9):
+  WeaponItemBeginSl
+  Execution Time: 53ms
+[FAIL] integration_equipment_load_002: Save then load player civilian equipment and verify it was loaded
+  Error: Player should have civilian equipment after loading
+  Execution Time: 23ms
+[FAIL] integration_equipment_load_003: Save both sets, clear equipment, then load both and verify
+  Error: Player should have battle equipment after loading both sets
+  Execution Time: 19ms
+[FAIL] integration_equipment_cleanup_001: Cleanup all test equipment files
+  Error: Command produced no output
+  Execution Time: 0ms
+
+--- EdgeCases ---
+[PASS] edge_case_query_wanderers_001: Query for wanderer heroes
+  Execution Time: 0ms
+[PASS] edge_case_query_notables_001: Query for notable heroes
+  Execution Time: 5ms
+[PASS] edge_case_wanderer_to_clan_001: Attempt to add a wanderer to a clan
+  Execution Time: 5ms
+[PASS] edge_case_bandit_clans_001: Query for bandit clans
+  Execution Time: 0ms
+[PASS] edge_case_clan_leader_001: Query for clan leaders
+  Execution Time: 0ms
+[PASS] edge_case_kingdom_ruler_001: Query for kingdom rulers
+  Execution Time: 0ms
+[PASS] edge_case_invalid_hero_001: Try to operate on non-existent hero
+  Execution Time: 5ms
+[PASS] edge_case_invalid_clan_001: Try to operate on non-existent clan
+  Execution Time: 0ms
+[PASS] edge_case_query_by_kingdom_001: Query heroes in Vlandia
+  Execution Time: 5ms
+[PASS] edge_case_query_derthert_001: Query for King Derthert specifically
+  Execution Time: 6ms
+
+--- SpecialCases_Player ---
+[PASS] player_special_001: Move player (main_hero) to an NPC clan (clan_empire_north_1)
+  Execution Time: 12ms
+[PASS] player_special_002: Move player to a bandit clan (looters) - WARNING: May cause crash on clan page
+  Execution Time: 13ms
+[PASS] player_special_003: Move player to a mercenary clan (ghilman)
+  Execution Time: 12ms
+[PASS] player_special_004: Make player the leader of an NPC clan (clan_empire_south_1)
+  Execution Time: 20ms
+[PASS] player_special_005: Make player the ruler of an NPC kingdom (Sturgia)
+  Execution Time: 18ms
+
+--- SpecialCases_Wanderer ---
+[PASS] wanderer_special_001: Move a wanderer (CharacterObject_1900 'Ruwa the Spicevendor') to an NPC clan
+  Execution Time: 6ms
+[PASS] wanderer_special_002: Make a wanderer the leader of an NPC clan (clan_empire_south_2)
+  Execution Time: 11ms
+[PASS] wanderer_special_003: Make a wanderer the ruler of a kingdom (Northern Empire)
+  Execution Time: 13ms
+
+--- SpecialCases_DeadHero ---
+[PASS] dead_hero_special_001: Make a dead hero (dead_lord_2_1 'Olek the Old') the leader of a clan
+  Execution Time: 5ms
+[PASS] dead_hero_special_002: Make a dead hero (dead_lord_2_1) the ruler of a kingdom
+  Execution Time: 6ms
+[PASS] dead_hero_special_003: Attempt to heal a dead hero (dead_lord_2_1) to full health
+  Execution Time: 6ms
+
+--- SpecialCases_Mercenary ---
+[PASS] merc_hero_special_001: Move a mercenary hero (CharacterObject_1866 'Orunhard of the Brotherhood') to an NPC clan
+  Execution Time: 6ms
+[PASS] merc_hero_special_002: Make a mercenary hero the leader of an NPC clan (clan_vlandia_2)
+  Execution Time: 12ms
+[PASS] merc_hero_special_003: Make a mercenary hero the ruler of a kingdom (Vlandia)
+  Execution Time: 5ms
+
+--- SpecialCases_BanditClan ---
+[PASS] bandit_clan_special_001: Move player to an empty bandit clan (looters) - WARNING: May cause crash on clan page
+  Execution Time: 10ms
+[PASS] bandit_clan_special_002: Move NPC lord (lord_4_1 'Derthert') to an empty bandit clan (deserters)
+  Execution Time: 10ms
+[PASS] bandit_clan_special_003: Make player the leader of a bandit clan (looters)
+  Execution Time: 15ms
+[PASS] bandit_clan_special_004: Query bandit clans to verify they have 0 heroes
+  Execution Time: 0ms
+
+--- SpecialCases_SpecialClan ---
+[PASS] special_clan_001: Move player to a mercenary clan (ghilman)
+  Execution Time: 10ms
+[PASS] special_clan_002: Move NPC lord to a mercenary clan (legion_of_the_betrayed)
+  Execution Time: 5ms
+[PASS] special_clan_003: Query special clans (mercenary, criminal, sect) to verify their structure
+  Execution Time: 0ms
+
+--- IDMatching_ExactMatch ---
+[PASS] id_matching_exact_match_001: Query matches exact ID among partial matches - should return exact match immediately
+  Execution Time: 5ms
+[PASS] id_matching_exact_match_002_case_insensitive: Query with different case should match exact ID (case-insensitive)
+  Execution Time: 5ms
+
+--- IDMatching_ShortestID ---
+[PASS] id_matching_shortest_id_001: Query 'lord_1' matches multiple IDs with same length - should return error
+  Execution Time: 6ms
+[PASS] id_matching_shortest_id_002: Query 'clan_empire' matches multiple IDs with same length - should return error
+  Execution Time: 0ms
+[PASS] id_matching_shortest_id_003: Query 'lord_1_41' should auto-select shortest ID (lord_1_41) over longer match (lord_1_411)
+  Execution Time: 6ms
+[PASS] id_matching_shortest_id_004: Partial query 'clan_vlandia_1' should auto-select shortest ID (clan_vlandia_1) over longer match (clan_vlandia_11)
+  Execution Time: 0ms
+
+--- IDMatching_NameMatches ---
+[PASS] id_matching_name_matches_error_001: Query matching multiple names (not IDs) should return error asking to be more specific
+  Execution Time: 10ms
+[PASS] id_matching_name_query_001: Query by hero name should work correctly
+  Execution Time: 5ms
+[PASS] id_matching_name_query_002: Query by clan name should work correctly
+  Execution Time: 0ms
+
+--- IDMatching_SingleMatch ---
+[PASS] id_matching_single_match_001: Query matching exactly one entity should return success
+  Execution Time: 5ms
+
+--- IDMatching_NoMatch ---
+[PASS] id_matching_no_match_001: Query matching no entities should return 'not found' error
+  Execution Time: 5ms
+
+--- IDMatching_MixedMatches ---
+[PASS] id_matching_mixed_matches_001: Query matching both IDs and names should prioritize ID matches
+  Execution Time: 7ms
+
+--- IDMatching_SameLengthCollision ---
+[PASS] id_matching_same_length_collision_001: Query matching multiple IDs with same length should return error or select first deterministically
+  Execution Time: 6ms
+[PASS] id_matching_same_length_collision_002: Clan query matching IDs with same length should handle gracefully
+  Execution Time: 0ms
+
+--- IDMatching_CaseInsensitivity ---
+[PASS] id_matching_case_insensitive_001: Case-insensitive matching - uppercase query should match lowercase ID
+  Execution Time: 5ms
+[PASS] id_matching_case_insensitive_002: Mixed case query should apply shortest ID logic case-insensitively
+  Execution Time: 0ms
+
+--- IDMatching_BackwardCompatibility ---
+[PASS] id_matching_backward_compat_001: Backward compatibility - simple unique query should work as before
+  Execution Time: 5ms
+[PASS] id_matching_backward_compat_002: Backward compatibility - exact kingdom ID should work as before
+  Execution Time: 5ms
+
+--- IDMatching_AllTypes ---
+[PASS] id_matching_all_types_hero_001: Hero FindSingle - exact ID match among partials
+  Execution Time: 5ms
+[PASS] id_matching_all_types_clan_001: Clan FindSingle - shortest ID selection
+  Execution Time: 0ms
+[PASS] id_matching_all_types_kingdom_001: Kingdom FindSingle - exact ID among name matches
+  Execution Time: 5ms
+
+--- NamePriority_ExactMatch ---
+[PASS] name_priority_exact_001: Exact name match 'Garios' should select 'Garios' over 'Pagarios' (substring match)
+  Execution Time: 5ms
+[PASS] name_priority_exact_002: Exact match should win even with multiple substring competitors
+  Execution Time: 5ms
+[PASS] name_priority_prefix_001_exact: Exact match 'garios' (case-insensitive) should select 'Garios' over others
+  Execution Time: 7ms
+
+--- NamePriority_PrefixMatch ---
+[PASS] name_priority_prefix_001: Prefix match 'Gar' should return multiple matches (expected behavior)
+  Execution Time: 5ms
+[PASS] name_priority_prefix_002: Prefix match 'Der' should return multiple matches (expected behavior)
+  Execution Time: 6ms
+
+--- NamePriority_MultipleMatches ---
+[PASS] name_priority_multi_exact_001: Multiple exact name matches should return clear error
+  Execution Time: 6ms
+[PASS] name_priority_multi_prefix_001: Multiple prefix matches should return error listing options
+  Execution Time: 8ms
+[PASS] name_priority_multi_contains_001: Multiple substring matches (no exact/prefix) should return error
+  Execution Time: 6ms
+
+--- NamePriority_CaseInsensitive ---
+[PASS] name_priority_case_001: Case-insensitive exact match 'GARIOS' should match 'Garios'
+  Execution Time: 6ms
+[PASS] name_priority_case_002: Case-insensitive prefix match 'GAR' should work
+  Execution Time: 7ms
+[PASS] name_priority_case_003: Lowercase 'lucon' should match 'Lucon' (case-insensitive)
+  Execution Time: 6ms
+
+--- NamePriority_ClanEntity ---
+[PASS] name_priority_clan_exact_001: Exact clan name match should work (e.g., 'dey_Clan' or specific clan name)
+  Execution Time: 1ms
+[PASS] name_priority_clan_prefix_001: Prefix match 'Bat' for clan IDs should return multiple matches (expected behavior)
+  Execution Time: 0ms
+[PASS] name_priority_clan_prefix_002: Clan ID 'clan_vlandia_1' should auto-select over 'clan_vlandia_11'
+  Execution Time: 0ms
+[PASS] name_priority_clan_multi_001: Multiple clan substring matches should error appropriately
+  Execution Time: 0ms
+
+--- NamePriority_IDPriority ---
+[PASS] name_priority_id_001: ID match should have priority over name match
+  Execution Time: 7ms
+[PASS] name_priority_id_002: Shortest ID selection should still work correctly
+  Execution Time: 7ms
+[PASS] name_priority_id_003: ID match should work even when names are similar
+  Execution Time: 0ms
+
+--- NamePriority_SubstringMatch ---
+[PASS] name_priority_substring_001: Substring match 'ucon' should match 'Lucon' when no exact/prefix matches
+  Execution Time: 6ms
+[PASS] name_priority_substring_002: Multiple substring matches should return error with 'containing' message
+  Execution Time: 6ms
+
+--- NamePriority_KingdomEntity ---
+[PASS] name_priority_kingdom_exact_001: Exact kingdom name 'Vlandia' should match correctly
+  Execution Time: 4ms
+[PASS] name_priority_kingdom_prefix_001: Kingdom ID prefix 'emp' should match multiple empire kingdoms
+  Execution Time: 0ms
+[PASS] name_priority_kingdom_id_001: Exact kingdom ID 'sturgia' should auto-select
+  Execution Time: 4ms
+
+--- NamePriority_Ambiguous ---
+[PASS] name_priority_ambiguous_001: Ambiguous query should provide clear error with options
+  Execution Time: 6ms
+[PASS] name_priority_ambiguous_002: Ambiguous clan query should list matching options
+  Execution Time: 0ms
+[PASS] name_priority_ambiguous_003: When both exact and prefix matches exist, exact should win
+  Execution Time: 5ms
+[PASS] name_priority_ambiguous_004: Prefix match should beat substring match
+  Execution Time: 6ms
+[PASS] name_priority_ambiguous_005: Exact ID match should beat any name match type
+  Execution Time: 0ms
+
+=== FAILED TESTS DETAILS ===
+[FAIL] integration_equipment_save_001: Save player equipment to file and verify file exists
+  Error: Expected success but got: Saved Sol's battle equipment to: test_equipment_save.json
+Items saved (9):
+  WeaponItemBeginSlot N
+  Execution Time: 48ms
+  Command: gm.item.save_equipment main_hero test_equipment_save
+  Expected: Success
+  Actual Output: Saved Sol's battle equipment to: test_equipment_save.json
+Items saved (9):
+  WeaponItemBeginSlot Norse Hatchet
+  Weapon1         Small Flat Heater Shield
+  Weapon2         Mountain Hunting Bow
+  Weapon3         Arrows
+  Body            Woodland Cloth Armor
+  Leg             Forester Boots
+  Cape            Shoulder Harness
+  ArmorItemEndSlot Sumpter Horse
+  HorseHarness    Rugged Fur Saddle
+
+[FAIL] integration_equipment_save_002: Save player civilian equipment to file and verify file exists
+  Error: Expected success but got: Saved Sol's civilian equipment to: test_equipment_save_civilian.json
+Items saved (4):
+  WeaponItem
+  Execution Time: 15ms
+  Command: gm.item.save_equipment_civilian main_hero test_equipment_save_civilian
+  Expected: Success
+  Actual Output: Saved Sol's civilian equipment to: test_equipment_save_civilian.json
+Items saved (4):
+  WeaponItemBeginSlot Ridged Iron Broadsword
+  Body            Villager Leather Tunic
+  Leg             Forester Boots
+  Cape            Scarf
+
+[FAIL] integration_equipment_save_003: Save both battle and civilian equipment sets and verify both files exist
+  Error: Expected success but got: Saved Sol's equipment sets:
+
+Battle equipment -> test_equipment_both.json (9 items):
+  WeaponItemB
+  Execution Time: 15ms
+  Command: gm.item.save_equipment_both main_hero test_equipment_both
+  Expected: Success
+  Actual Output: Saved Sol's equipment sets:
+
+Battle equipment -> test_equipment_both.json (9 items):
+  WeaponItemBeginSlot Norse Hatchet
+  Weapon1         Small Flat Heater Shield
+  Weapon2         Mountain Hunting Bow
+  Weapon3         Arrows
+  Body            Woodland Cloth Armor
+  Leg             Forester Boots
+  Cape            Shoulder Harness
+  ArmorItemEndSlot Sumpter Horse
+  HorseHarness    Rugged Fur Saddle
+
+Civilian equipment -> test_equipment_both.json (4 items):
+  WeaponItemBeginSlot Ridged Iron Broadsword
+  Body            Villager Leather Tunic
+  Leg             Forester Boots
+  Cape            Scarf
+
+[FAIL] integration_equipment_load_001: Save then load player equipment and verify it was loaded
+  Error: Expected success but got: Loaded Sol's battle equipment from: test_equipment_load.json
+Items loaded (9):
+  WeaponItemBeginSl
+  Execution Time: 53ms
+  Command: gm.item.load_equipment main_hero test_equipment_load
+  Expected: Success
+  Actual Output: Loaded Sol's battle equipment from: test_equipment_load.json
+Items loaded (9):
+  WeaponItemBeginSlot Norse Hatchet
+  Weapon1         Small Flat Heater Shield
+  Weapon2         Mountain Hunting Bow
+  Weapon3         Arrows
+  Body            Woodland Cloth Armor
+  Leg             Forester Boots
+  Cape            Shoulder Harness
+  ArmorItemEndSlot Sumpter Horse
+  HorseHarness    Rugged Fur Saddle
+
+[FAIL] integration_equipment_load_002: Save then load player civilian equipment and verify it was loaded
+  Error: Player should have civilian equipment after loading
+  Execution Time: 23ms
+  Command: gm.item.load_equipment_civilian main_hero test_equipment_load_civilian
+  Expected: Success
+  Actual Output: Loaded Sol's civilian equipment from: test_equipment_load_civilian.json
+Items loaded (0):
+
+[FAIL] integration_equipment_load_003: Save both sets, clear equipment, then load both and verify
+  Error: Player should have battle equipment after loading both sets
+  Execution Time: 19ms
+  Command: gm.item.load_equipment_both main_hero test_equipment_load_both
+  Expected: Success
+  Actual Output: Loading equipment sets for Sol:
+
+Battle equipment loaded from: test_equipment_load_both.json
+Items loaded (0):
+
+Civilian equipment loaded from: test_equipment_load_both.json
+Items loaded (0):
+
+[FAIL] integration_equipment_cleanup_001: Cleanup all test equipment files
+  Error: Command produced no output
+  Execution Time: 0ms
+  Command: 
+  Expected: NoException
+

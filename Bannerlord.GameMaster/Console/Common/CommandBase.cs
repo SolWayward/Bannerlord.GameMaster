@@ -24,6 +24,18 @@ namespace Bannerlord.GameMaster.Console.Common
         {
             List<Hero> matchedHeroes = HeroQueries.QueryHeroes(query);
 
+            // DEBUG: Log all matched heroes
+            if (CommandLogger.IsEnabled && matchedHeroes != null && matchedHeroes.Count > 0)
+            {
+                System.Text.StringBuilder debugInfo = new System.Text.StringBuilder();
+                debugInfo.AppendLine($"[DEBUG] FindSingleHero query '{query}' found {matchedHeroes.Count} matches:");
+                foreach (var hero in matchedHeroes)
+                {
+                    debugInfo.AppendLine($"  - Name: '{hero.Name}' | ID: '{hero.StringId}' | Culture: {hero.Culture?.Name}");
+                }
+                CommandLogger.Log(debugInfo.ToString());
+            }
+
             if (matchedHeroes == null || matchedHeroes.Count == 0)
                 return (null, $"Error: No hero matching query '{query}' found.\n");
 
@@ -134,6 +146,12 @@ namespace Bannerlord.GameMaster.Console.Common
             var idMatches = new List<T>();
             var nameMatches = new List<T>();
 
+            // DEBUG: Log resolution process
+            if (CommandLogger.IsEnabled)
+            {
+                CommandLogger.Log($"[DEBUG] ResolveMultipleMatches for query '{query}' with {matches.Count} matches");
+            }
+
             foreach (var entity in matches)
             {
                 string entityId = getStringId(entity) ?? "";
@@ -141,6 +159,12 @@ namespace Bannerlord.GameMaster.Console.Common
 
                 bool matchesId = entityId.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool matchesName = entityName.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
+
+                // DEBUG: Log match details
+                if (CommandLogger.IsEnabled)
+                {
+                    CommandLogger.Log($"[DEBUG]   Entity: Name='{entityName}' ID='{entityId}' | MatchesName={matchesName} MatchesID={matchesId}");
+                }
 
                 if (matchesId || matchesName)
                 {
@@ -157,11 +181,26 @@ namespace Bannerlord.GameMaster.Console.Common
                 }
             }
 
+            // DEBUG: Log categorization
+            if (CommandLogger.IsEnabled)
+            {
+                CommandLogger.Log($"[DEBUG] Categorization: allMatches={allMatches.Count}, idMatches={idMatches.Count}, nameMatches={nameMatches.Count}");
+            }
+
             // Priority 1: Check for exact name match across ALL matches
             var exactNameMatches = allMatches.Where(e => getName(e).Equals(query, StringComparison.OrdinalIgnoreCase)).ToList();
             
+            if (CommandLogger.IsEnabled)
+            {
+                CommandLogger.Log($"[DEBUG] Priority 1 - Exact name matches: {exactNameMatches.Count}");
+            }
+            
             if (exactNameMatches.Count == 1)
             {
+                if (CommandLogger.IsEnabled)
+                {
+                    CommandLogger.Log($"[DEBUG] SELECTED by Priority 1: Name='{getName(exactNameMatches[0])}' ID='{getStringId(exactNameMatches[0])}'");
+                }
                 return (exactNameMatches[0], null); // Exact name match wins immediately
             }
             else if (exactNameMatches.Count > 1)
@@ -174,9 +213,18 @@ namespace Bannerlord.GameMaster.Console.Common
             // Priority 2: Check for prefix matches across ALL matches
             var prefixMatches = allMatches.Where(e => getName(e).StartsWith(query, StringComparison.OrdinalIgnoreCase)).ToList();
             
+            if (CommandLogger.IsEnabled)
+            {
+                CommandLogger.Log($"[DEBUG] Priority 2 - Prefix name matches: {prefixMatches.Count}, Total matches: {allMatches.Count}");
+            }
+            
             // Only auto-select if the prefix match is the ONLY match overall
             if (prefixMatches.Count == 1 && allMatches.Count == 1)
             {
+                if (CommandLogger.IsEnabled)
+                {
+                    CommandLogger.Log($"[DEBUG] SELECTED by Priority 2: Name='{getName(prefixMatches[0])}' ID='{getStringId(prefixMatches[0])}'");
+                }
                 return (prefixMatches[0], null); // Single prefix match AND single overall match wins
             }
             else if (prefixMatches.Count > 1)

@@ -22,6 +22,8 @@ namespace Bannerlord.GameMaster.Console.Testing
         	RegisterClanManagementTests();
         	RegisterKingdomManagementTests();
         	RegisterItemManagementTests();
+        	RegisterItemEquipmentSaveTests();
+        	RegisterItemEquipmentLoadTests();
         	RegisterSuccessPathTests();
         	RegisterSortingTests();
         }
@@ -1073,6 +1075,298 @@ namespace Bannerlord.GameMaster.Console.Testing
                 Category = "ModifierManagement",
                 ExpectedText = "not found"
             });
+        }
+
+        /// <summary>
+        /// Register equipment save command tests
+        /// Tests for: save_equipment, save_equipment_civilian, save_equipment_both
+        /// </summary>
+        private static void RegisterItemEquipmentSaveTests()
+        {
+            // ===== SAVE_EQUIPMENT TESTS =====
+            
+            // Test save_equipment without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_001",
+                "Save equipment without arguments should return usage error",
+                "gm.item.save_equipment",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test save_equipment with only hero (missing filename) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_002",
+                "Save equipment with only hero argument should return usage error",
+                "gm.item.save_equipment player",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test save_equipment with invalid hero - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_003",
+                "Save equipment with invalid hero should return error",
+                "gm.item.save_equipment invalid_hero_xyz my_loadout",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "No hero matching"
+            });
+
+            // ===== SAVE_EQUIPMENT_CIVILIAN TESTS =====
+            
+            // Test save_equipment_civilian without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_004",
+                "Save civilian equipment without arguments should return usage error",
+                "gm.item.save_equipment_civilian",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test save_equipment_civilian with only hero (missing filename) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_005",
+                "Save civilian equipment with only hero argument should return usage error",
+                "gm.item.save_equipment_civilian player",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test save_equipment_civilian with invalid hero - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_006",
+                "Save civilian equipment with invalid hero should return error",
+                "gm.item.save_equipment_civilian invalid_hero_xyz my_civilian",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "No hero matching"
+            });
+
+            // ===== SAVE_EQUIPMENT_BOTH TESTS =====
+            
+            // Test save_equipment_both without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_007",
+                "Save both equipment sets without arguments should return usage error",
+                "gm.item.save_equipment_both",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test save_equipment_both with only hero (missing filename) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_008",
+                "Save both equipment sets with only hero argument should return usage error",
+                "gm.item.save_equipment_both player",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test save_equipment_both with invalid hero - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_save_009",
+                "Save both equipment sets with invalid hero should return error",
+                "gm.item.save_equipment_both invalid_hero_xyz my_complete",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentSave",
+                ExpectedText = "No hero matching"
+            });
+
+            // Note: Success path tests for save commands are difficult to validate without campaign mode
+            // Expected success messages would be:
+            // - save_equipment: "Saved {hero}'s battle equipment to: {filename}"
+            // - save_equipment_civilian: "Saved {hero}'s civilian equipment to: {filename}"
+            // - save_equipment_both: "Saved {hero}'s equipment sets:"
+        }
+
+        /// <summary>
+        /// Register equipment load command tests
+        /// Tests for: load_equipment, load_equipment_civilian, load_equipment_both
+        /// </summary>
+        private static void RegisterItemEquipmentLoadTests()
+        {
+            // ===== LOAD_EQUIPMENT TESTS =====
+            
+            // Test load_equipment without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_001",
+                "Load equipment without arguments should return usage error",
+                "gm.item.load_equipment",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test load_equipment with only hero (missing filename) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_002",
+                "Load equipment with only hero argument should return usage error",
+                "gm.item.load_equipment player",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test load_equipment with invalid hero - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_003",
+                "Load equipment with invalid hero should return error",
+                "gm.item.load_equipment invalid_hero_xyz my_loadout",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test load_equipment with non-existent file - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_004",
+                "Load equipment with non-existent file should return error",
+                "gm.item.load_equipment player nonexistent_file_xyz_12345",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "not found"
+            });
+
+            // ===== LOAD_EQUIPMENT_CIVILIAN TESTS =====
+            
+            // Test load_equipment_civilian without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_005",
+                "Load civilian equipment without arguments should return usage error",
+                "gm.item.load_equipment_civilian",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test load_equipment_civilian with only hero (missing filename) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_006",
+                "Load civilian equipment with only hero argument should return usage error",
+                "gm.item.load_equipment_civilian player",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test load_equipment_civilian with invalid hero - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_007",
+                "Load civilian equipment with invalid hero should return error",
+                "gm.item.load_equipment_civilian invalid_hero_xyz my_civilian",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test load_equipment_civilian with non-existent file - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_008",
+                "Load civilian equipment with non-existent file should return error",
+                "gm.item.load_equipment_civilian player nonexistent_civilian_xyz_12345",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "not found"
+            });
+
+            // ===== LOAD_EQUIPMENT_BOTH TESTS =====
+            
+            // Test load_equipment_both without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_009",
+                "Load both equipment sets without arguments should return usage error",
+                "gm.item.load_equipment_both",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test load_equipment_both with only hero (missing filename) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_010",
+                "Load both equipment sets with only hero argument should return usage error",
+                "gm.item.load_equipment_both player",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test load_equipment_both with invalid hero - should error
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_011",
+                "Load both equipment sets with invalid hero should return error",
+                "gm.item.load_equipment_both invalid_hero_xyz my_complete",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test load_equipment_both with non-existent files
+            // Note: This command handles missing files gracefully and reports which were found/not found
+            TestRunner.RegisterTest(new TestCase(
+                "equipment_load_012",
+                "Load both equipment sets with non-existent files should report appropriately",
+                "gm.item.load_equipment_both player nonexistent_both_xyz_12345",
+                TestExpectation.Error
+            )
+            {
+                Category = "ItemEquipmentLoad",
+                ExpectedText = "not found"
+            });
+
+            // Note: Success path tests for load commands are difficult to validate without pre-existing save files
+            // Expected success messages would be:
+            // - load_equipment: "Loaded {hero}'s battle equipment from: {filename}"
+            // - load_equipment_civilian: "Loaded {hero}'s civilian equipment from: {filename}"
+            // - load_equipment_both: "Loading equipment sets for {hero}:"
+            //   (gracefully handles missing files by reporting which were found/loaded)
         }
 
         /// <summary>

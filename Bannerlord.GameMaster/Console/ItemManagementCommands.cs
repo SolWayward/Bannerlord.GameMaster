@@ -1,7 +1,9 @@
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Items;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using TaleWorlds.CampaignSystem;
@@ -854,6 +856,611 @@ namespace Bannerlord.GameMaster.Console
                         $"Removed modifiers from {itemsChanged} equipped items for {hero.Name}.");
                 }, "Failed to remove equipped modifiers");
             });
+        }
+
+        #endregion
+
+        #region Equipment Save/Load
+
+        /// <summary>
+        /// Save hero's main/battle equipment set to a JSON file
+        /// Usage: gm.item.save_equipment [hero_query] [filename]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("save_equipment", "gm.item")]
+        public static string SaveEquipment(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.item.save_equipment", "<hero_query> <filename>",
+                    "Saves the hero's main/battle equipment set to a JSON file.",
+                    "gm.item.save_equipment player my_loadout");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                string filename = args[1];
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    string filepath = GetEquipmentFilePath(filename, false);
+                    SaveEquipmentToFile(hero, hero.BattleEquipment, filepath, false);
+
+                    var savedItems = GetEquipmentList(hero.BattleEquipment);
+                    StringBuilder result = new StringBuilder();
+                    result.AppendLine($"Saved {hero.Name}'s battle equipment to: {Path.GetFileName(filepath)}");
+                    result.AppendLine($"Items saved ({savedItems.Count}):");
+                    foreach (var item in savedItems)
+                    {
+                        result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
+                    }
+
+                    return result.ToString();
+                }, "Failed to save equipment");
+            });
+        }
+
+        /// <summary>
+        /// Save hero's civilian equipment set to a JSON file
+        /// Usage: gm.item.save_equipment_civilian [hero_query] [filename]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("save_equipment_civilian", "gm.item")]
+        public static string SaveEquipmentCivilian(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.item.save_equipment_civilian", "<hero_query> <filename>",
+                    "Saves the hero's civilian equipment set to a JSON file.",
+                    "gm.item.save_equipment_civilian player my_civilian_loadout");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                string filename = args[1];
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    string filepath = GetEquipmentFilePath(filename, true);
+                    SaveEquipmentToFile(hero, hero.CivilianEquipment, filepath, true);
+
+                    var savedItems = GetEquipmentList(hero.CivilianEquipment);
+                    StringBuilder result = new StringBuilder();
+                    result.AppendLine($"Saved {hero.Name}'s civilian equipment to: {Path.GetFileName(filepath)}");
+                    result.AppendLine($"Items saved ({savedItems.Count}):");
+                    foreach (var item in savedItems)
+                    {
+                        result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
+                    }
+
+                    return result.ToString();
+                }, "Failed to save civilian equipment");
+            });
+        }
+
+        /// <summary>
+        /// Save both battle and civilian equipment sets to JSON files
+        /// Usage: gm.item.save_equipment_both [hero_query] [filename]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("save_equipment_both", "gm.item")]
+        public static string SaveEquipmentBoth(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.item.save_equipment_both", "<hero_query> <filename>",
+                    "Saves both battle and civilian equipment sets to JSON files.",
+                    "gm.item.save_equipment_both player my_complete_loadout");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                string filename = args[1];
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    // Save battle equipment
+                    string battlePath = GetEquipmentFilePath(filename, false);
+                    SaveEquipmentToFile(hero, hero.BattleEquipment, battlePath, false);
+                    var battleItems = GetEquipmentList(hero.BattleEquipment);
+
+                    // Save civilian equipment
+                    string civilianPath = GetEquipmentFilePath(filename, true);
+                    SaveEquipmentToFile(hero, hero.CivilianEquipment, civilianPath, true);
+                    var civilianItems = GetEquipmentList(hero.CivilianEquipment);
+
+                    StringBuilder result = new StringBuilder();
+                    result.AppendLine($"Saved {hero.Name}'s equipment sets:");
+                    result.AppendLine($"\nBattle equipment -> {Path.GetFileName(battlePath)} ({battleItems.Count} items):");
+                    foreach (var item in battleItems)
+                    {
+                        result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
+                    }
+                    result.AppendLine($"\nCivilian equipment -> {Path.GetFileName(civilianPath)} ({civilianItems.Count} items):");
+                    foreach (var item in civilianItems)
+                    {
+                        result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
+                    }
+
+                    return result.ToString();
+                }, "Failed to save equipment sets");
+            });
+        }
+
+        /// <summary>
+        /// Load hero's main/battle equipment set from a JSON file
+        /// Usage: gm.item.load_equipment [hero_query] [filename]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("load_equipment", "gm.item")]
+        public static string LoadEquipment(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.item.load_equipment", "<hero_query> <filename>",
+                    "Loads the hero's main/battle equipment set from a JSON file.",
+                    "gm.item.load_equipment player my_loadout");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                string filename = args[1];
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    string filepath = GetEquipmentFilePath(filename, false);
+                    
+                    if (!File.Exists(filepath))
+                        return CommandBase.FormatErrorMessage($"Equipment file not found: {Path.GetFileName(filepath)}");
+
+                    var (loadedCount, skippedCount, skippedItems) = LoadEquipmentFromFile(hero, filepath, false);
+
+                    StringBuilder result = new StringBuilder();
+                    result.AppendLine($"Loaded {hero.Name}'s battle equipment from: {Path.GetFileName(filepath)}");
+                    result.AppendLine($"Items loaded ({loadedCount}):");
+                    
+                    // List the loaded items
+                    var loadedItems = GetEquipmentList(hero.BattleEquipment);
+                    foreach (var item in loadedItems)
+                    {
+                        result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
+                    }
+                    
+                    if (skippedCount > 0)
+                    {
+                        result.AppendLine($"\nItems skipped (not found in game): {skippedCount}");
+                        foreach (var item in skippedItems)
+                        {
+                            result.AppendLine($"  {item.Slot,-15} {item.ItemId} {item.ModifierInfo}");
+                        }
+                    }
+
+                    return result.ToString();
+                }, "Failed to load equipment");
+            });
+        }
+
+        /// <summary>
+        /// Load hero's civilian equipment set from a JSON file
+        /// Usage: gm.item.load_equipment_civilian [hero_query] [filename]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("load_equipment_civilian", "gm.item")]
+        public static string LoadEquipmentCivilian(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.item.load_equipment_civilian", "<hero_query> <filename>",
+                    "Loads the hero's civilian equipment set from a JSON file.",
+                    "gm.item.load_equipment_civilian player my_civilian_loadout");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                string filename = args[1];
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    string filepath = GetEquipmentFilePath(filename, true);
+                    
+                    if (!File.Exists(filepath))
+                        return CommandBase.FormatErrorMessage($"Civilian equipment file not found: {Path.GetFileName(filepath)}");
+
+                    var (loadedCount, skippedCount, skippedItems) = LoadEquipmentFromFile(hero, filepath, true);
+
+                    StringBuilder result = new StringBuilder();
+                    result.AppendLine($"Loaded {hero.Name}'s civilian equipment from: {Path.GetFileName(filepath)}");
+                    result.AppendLine($"Items loaded ({loadedCount}):");
+                    
+                    // List the loaded items
+                    var loadedItems = GetEquipmentList(hero.CivilianEquipment);
+                    foreach (var item in loadedItems)
+                    {
+                        result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
+                    }
+                    
+                    if (skippedCount > 0)
+                    {
+                        result.AppendLine($"\nItems skipped (not found in game): {skippedCount}");
+                        foreach (var item in skippedItems)
+                        {
+                            result.AppendLine($"  {item.Slot,-15} {item.ItemId} {item.ModifierInfo}");
+                        }
+                    }
+
+                    return result.ToString();
+                }, "Failed to load civilian equipment");
+            });
+        }
+
+        /// <summary>
+        /// Load both battle and civilian equipment sets from JSON files
+        /// Usage: gm.item.load_equipment_both [hero_query] [filename]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("load_equipment_both", "gm.item")]
+        public static string LoadEquipmentBoth(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.item.load_equipment_both", "<hero_query> <filename>",
+                    "Loads both battle and civilian equipment sets from JSON files (handles missing files gracefully).",
+                    "gm.item.load_equipment_both player my_complete_loadout");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                string filename = args[1];
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    StringBuilder result = new StringBuilder();
+                    result.AppendLine($"Loading equipment sets for {hero.Name}:");
+
+                    // Try to load battle equipment
+                    string battlePath = GetEquipmentFilePath(filename, false);
+                    bool battleLoaded = false;
+                    int battleLoadedCount = 0;
+                    int battleSkippedCount = 0;
+                    List<SkippedItemInfo> battleSkippedItems = new List<SkippedItemInfo>();
+
+                    if (File.Exists(battlePath))
+                    {
+                        var battleResult = LoadEquipmentFromFile(hero, battlePath, false);
+                        battleLoadedCount = battleResult.Item1;
+                        battleSkippedCount = battleResult.Item2;
+                        battleSkippedItems = battleResult.Item3;
+                        battleLoaded = true;
+                        result.AppendLine($"\nBattle equipment loaded from: {Path.GetFileName(battlePath)}");
+                        result.AppendLine($"Items loaded ({battleLoadedCount}):");
+                        
+                        // List the loaded items
+                        var battleItems = GetEquipmentList(hero.BattleEquipment);
+                        foreach (var item in battleItems)
+                        {
+                            result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
+                        }
+                        
+                        if (battleSkippedCount > 0)
+                        {
+                            result.AppendLine($"Items skipped: {battleSkippedCount}");
+                        }
+                    }
+                    else
+                    {
+                        result.AppendLine($"\nBattle equipment file not found: {Path.GetFileName(battlePath)}");
+                    }
+
+                    // Try to load civilian equipment
+                    string civilianPath = GetEquipmentFilePath(filename, true);
+                    bool civilianLoaded = false;
+                    int civilianLoadedCount = 0;
+                    int civilianSkippedCount = 0;
+                    List<SkippedItemInfo> civilianSkippedItems = new List<SkippedItemInfo>();
+
+                    if (File.Exists(civilianPath))
+                    {
+                        var civilianResult = LoadEquipmentFromFile(hero, civilianPath, true);
+                        civilianLoadedCount = civilianResult.Item1;
+                        civilianSkippedCount = civilianResult.Item2;
+                        civilianSkippedItems = civilianResult.Item3;
+                        civilianLoaded = true;
+                        result.AppendLine($"\nCivilian equipment loaded from: {Path.GetFileName(civilianPath)}");
+                        result.AppendLine($"Items loaded ({civilianLoadedCount}):");
+                        
+                        // List the loaded items
+                        var civilianItems = GetEquipmentList(hero.CivilianEquipment);
+                        foreach (var item in civilianItems)
+                        {
+                            result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
+                        }
+                        
+                        if (civilianSkippedCount > 0)
+                        {
+                            result.AppendLine($"Items skipped: {civilianSkippedCount}");
+                        }
+                    }
+                    else
+                    {
+                        result.AppendLine($"\nCivilian equipment file not found: {Path.GetFileName(civilianPath)}");
+                    }
+
+                    // Show skipped items if any
+                    if (battleSkippedCount > 0 || civilianSkippedCount > 0)
+                    {
+                        result.AppendLine("\nSkipped items (not found in current game):");
+                        foreach (var item in battleSkippedItems)
+                        {
+                            result.AppendLine($"  [Battle] {item.Slot,-15} {item.ItemId} {item.ModifierInfo}");
+                        }
+                        foreach (var item in civilianSkippedItems)
+                        {
+                            result.AppendLine($"  [Civilian] {item.Slot,-15} {item.ItemId} {item.ModifierInfo}");
+                        }
+                    }
+
+                    if (!battleLoaded && !civilianLoaded)
+                    {
+                        return CommandBase.FormatErrorMessage("Neither battle nor civilian equipment files were found.");
+                    }
+
+                    return result.ToString();
+                }, "Failed to load equipment sets");
+            });
+        }
+
+        #endregion
+
+        #region Equipment Save/Load Helper Methods
+
+        /// <summary>
+        /// Data class for equipment set serialization
+        /// </summary>
+        private class EquipmentSetData
+        {
+            [JsonProperty("HeroName")]
+            public string HeroName { get; set; }
+
+            [JsonProperty("HeroId")]
+            public string HeroId { get; set; }
+
+            [JsonProperty("SavedDate")]
+            public string SavedDate { get; set; }
+
+            [JsonProperty("Equipment")]
+            public List<EquipmentSlotData> Equipment { get; set; }
+        }
+
+        /// <summary>
+        /// Data class for individual equipment slot serialization
+        /// </summary>
+        private class EquipmentSlotData
+        {
+            [JsonProperty("Slot")]
+            public string Slot { get; set; }
+
+            [JsonProperty("ItemId")]
+            public string ItemId { get; set; }
+
+            [JsonProperty("ModifierId")]
+            public string ModifierId { get; set; }
+        }
+
+        /// <summary>
+        /// Helper class for displaying equipment items
+        /// </summary>
+        private class EquipmentItemInfo
+        {
+            public string Slot { get; set; }
+            public string ItemName { get; set; }
+            public string ModifierText { get; set; }
+        }
+
+        /// <summary>
+        /// Helper class for skipped items during load
+        /// </summary>
+        private class SkippedItemInfo
+        {
+            public string Slot { get; set; }
+            public string ItemId { get; set; }
+            public string ModifierInfo { get; set; }
+        }
+
+        /// <summary>
+        /// Gets the full file path for equipment files
+        /// </summary>
+        private static string GetEquipmentFilePath(string filename, bool isCivilian)
+        {
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string basePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets");
+            
+            if (isCivilian)
+            {
+                basePath = Path.Combine(basePath, "civilian");
+            }
+
+            // Ensure directory exists
+            if (!Directory.Exists(basePath))
+            {
+                Directory.CreateDirectory(basePath);
+            }
+
+            // Add .json extension if not present
+            if (!filename.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+            {
+                filename += ".json";
+            }
+
+            return Path.Combine(basePath, filename);
+        }
+
+        /// <summary>
+        /// Saves equipment to a JSON file
+        /// </summary>
+        private static void SaveEquipmentToFile(Hero hero, Equipment equipment, string filepath, bool isCivilian)
+        {
+            var equipmentData = new EquipmentSetData
+            {
+                HeroName = hero.Name?.ToString() ?? "",
+                HeroId = hero.StringId,
+                SavedDate = DateTime.UtcNow.ToString("o"),
+                Equipment = new List<EquipmentSlotData>()
+            };
+
+            // Save each equipment slot (only non-empty slots)
+            for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+            {
+                EquipmentIndex slot = (EquipmentIndex)i;
+                var element = equipment[slot];
+                
+                if (!element.IsEmpty)
+                {
+                    equipmentData.Equipment.Add(new EquipmentSlotData
+                    {
+                        Slot = slot.ToString(),
+                        ItemId = element.Item.StringId,
+                        ModifierId = element.ItemModifier?.StringId
+                    });
+                }
+            }
+
+            // Serialize to JSON with indentation
+            string jsonString = JsonConvert.SerializeObject(equipmentData, Formatting.Indented);
+            
+            // Write to file
+            File.WriteAllText(filepath, jsonString);
+        }
+
+        /// <summary>
+        /// Loads equipment from a JSON file
+        /// </summary>
+        private static (int loadedCount, int skippedCount, List<SkippedItemInfo> skippedItems) LoadEquipmentFromFile(Hero hero, string filepath, bool isCivilian)
+        {
+            string jsonString = File.ReadAllText(filepath);
+            var equipmentData = JsonConvert.DeserializeObject<EquipmentSetData>(jsonString);
+
+            if (equipmentData == null || equipmentData.Equipment == null)
+            {
+                throw new Exception("Invalid equipment file format.");
+            }
+
+            Equipment equipment = isCivilian ? hero.CivilianEquipment : hero.BattleEquipment;
+            
+            int loadedCount = 0;
+            int skippedCount = 0;
+            List<SkippedItemInfo> skippedItems = new List<SkippedItemInfo>();
+
+            // Clear existing equipment
+            for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+            {
+                equipment[(EquipmentIndex)i] = EquipmentElement.Invalid;
+            }
+
+            // Load each equipment slot
+            foreach (var slotData in equipmentData.Equipment)
+            {
+                if (!Enum.TryParse<EquipmentIndex>(slotData.Slot, out EquipmentIndex slot))
+                {
+                    continue; // Skip invalid slot
+                }
+
+                // Find the item
+                ItemObject item = ItemQueries.QueryItems(slotData.ItemId).FirstOrDefault(i => i.StringId == slotData.ItemId);
+                
+                if (item == null)
+                {
+                    skippedCount++;
+                    string modifierInfo = !string.IsNullOrEmpty(slotData.ModifierId) ? $"(modifier: {slotData.ModifierId})" : "";
+                    skippedItems.Add(new SkippedItemInfo
+                    {
+                        Slot = slot.ToString(),
+                        ItemId = slotData.ItemId,
+                        ModifierInfo = modifierInfo
+                    });
+                    continue; // Skip if item not found
+                }
+
+                // Try to find modifier if specified
+                ItemModifier modifier = null;
+                if (!string.IsNullOrEmpty(slotData.ModifierId))
+                {
+                    var modifierResult = ItemModifierHelper.ParseModifier(slotData.ModifierId);
+                    if (modifierResult.Item1 != null)
+                    {
+                        modifier = modifierResult.Item1;
+                    }
+                    // If modifier not found, we still load the item without modifier
+                }
+
+                // Equip the item
+                equipment[slot] = new EquipmentElement(item, modifier);
+                loadedCount++;
+            }
+
+            return (loadedCount, skippedCount, skippedItems);
+        }
+
+        /// <summary>
+        /// Gets a list of equipment items for display purposes
+        /// </summary>
+        private static List<EquipmentItemInfo> GetEquipmentList(Equipment equipment)
+        {
+            var items = new List<EquipmentItemInfo>();
+            
+            for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+            {
+                EquipmentIndex slot = (EquipmentIndex)i;
+                var element = equipment[slot];
+                
+                if (!element.IsEmpty)
+                {
+                    string modifierText = element.ItemModifier != null ? $" ({element.ItemModifier.Name})" : "";
+                    items.Add(new EquipmentItemInfo
+                    {
+                        Slot = slot.ToString(),
+                        ItemName = element.Item.Name?.ToString() ?? "",
+                        ModifierText = modifierText
+                    });
+                }
+            }
+
+            return items;
         }
 
         #endregion

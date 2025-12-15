@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
 
 namespace Bannerlord.GameMaster.Console.Testing
 {
@@ -17,6 +19,7 @@ namespace Bannerlord.GameMaster.Console.Testing
             RegisterHeroManagementIntegrationTests();
             RegisterClanManagementIntegrationTests();
             RegisterKingdomManagementIntegrationTests();
+            RegisterItemEquipmentSaveLoadIntegrationTests();
             RegisterEdgeCaseTests();
             RegisterSpecialCasesTests();
             RegisterIDMatchingCollisionFixTests();
@@ -251,6 +254,544 @@ namespace Bannerlord.GameMaster.Console.Testing
                     catch (Exception ex)
                     {
                         return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+        }
+
+        /// <summary>
+        /// Register item equipment save/load integration tests
+        /// </summary>
+        private static void RegisterItemEquipmentSaveLoadIntegrationTests()
+        {
+            // Test: Save player equipment to file and verify file exists
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_save_001",
+                "Save player equipment to file and verify file exists",
+                "gm.item.save_equipment main_hero test_equipment_save",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "Saved",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify save message
+                        if (!(output.IndexOf("Saved", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Saved' message for save operation");
+                        
+                        // Verify file was created
+                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string filePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets", "test_equipment_save.json");
+                        
+                        if (!File.Exists(filePath))
+                            return (false, $"Equipment file was not created at: {filePath}");
+                        
+                        // Verify file has content
+                        string fileContent = File.ReadAllText(filePath);
+                        if (string.IsNullOrWhiteSpace(fileContent))
+                            return (false, "Equipment file exists but is empty");
+                        
+                        // Verify it's valid JSON with expected structure
+                        if (!fileContent.Contains("HeroName") || !fileContent.Contains("Equipment"))
+                            return (false, "Equipment file does not contain expected JSON structure");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+
+            // Test: Save civilian equipment to file and verify file exists
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_save_002",
+                "Save player civilian equipment to file and verify file exists",
+                "gm.item.save_equipment_civilian main_hero test_equipment_save_civilian",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "Saved",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify save message
+                        if (!(output.IndexOf("Saved", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Saved' message for save operation");
+                        
+                        // Verify file was created in civilian subfolder
+                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string filePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets", "civilian", "test_equipment_save_civilian.json");
+                        
+                        if (!File.Exists(filePath))
+                            return (false, $"Civilian equipment file was not created at: {filePath}");
+                        
+                        // Verify file has content
+                        string fileContent = File.ReadAllText(filePath);
+                        if (string.IsNullOrWhiteSpace(fileContent))
+                            return (false, "Civilian equipment file exists but is empty");
+                        
+                        // Verify it's valid JSON with expected structure
+                        if (!fileContent.Contains("HeroName") || !fileContent.Contains("Equipment"))
+                            return (false, "Civilian equipment file does not contain expected JSON structure");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+
+            // Test: Save both equipment sets and verify both files exist
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_save_003",
+                "Save both battle and civilian equipment sets and verify both files exist",
+                "gm.item.save_equipment_both main_hero test_equipment_both",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "Saved",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify save message
+                        if (!(output.IndexOf("Saved", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Saved' message for save operation");
+                        
+                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        
+                        // Verify battle equipment file
+                        string battleFilePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets", "test_equipment_both.json");
+                        if (!File.Exists(battleFilePath))
+                            return (false, $"Battle equipment file was not created at: {battleFilePath}");
+                        
+                        // Verify civilian equipment file
+                        string civilianFilePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets", "civilian", "test_equipment_both.json");
+                        if (!File.Exists(civilianFilePath))
+                            return (false, $"Civilian equipment file was not created at: {civilianFilePath}");
+                        
+                        // Verify both files have content
+                        string battleContent = File.ReadAllText(battleFilePath);
+                        string civilianContent = File.ReadAllText(civilianFilePath);
+                        
+                        if (string.IsNullOrWhiteSpace(battleContent))
+                            return (false, "Battle equipment file exists but is empty");
+                        
+                        if (string.IsNullOrWhiteSpace(civilianContent))
+                            return (false, "Civilian equipment file exists but is empty");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+
+            // Test: Save equipment from lord_1_1 and load onto lord_4_1
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_load_001",
+                "Save equipment from lord_1_1 and load onto lord_4_1 (different hero)",
+                "gm.item.load_equipment lord_4_1 test_equipment_load",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "Loaded",
+                SetupCommands = new System.Collections.Generic.List<string>
+                {
+                    // Save lord_1_1's equipment (source hero)
+                    "gm.item.save_equipment lord_1_1 test_equipment_load",
+                    // Clear lord_4_1's equipment (target hero)
+                    "gm.item.remove_equipped lord_4_1"
+                },
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify load message
+                        if (!(output.IndexOf("Loaded", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Loaded' message for load operation");
+                        
+                        // Verify file was read
+                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string filePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets", "test_equipment_load.json");
+                        
+                        if (!File.Exists(filePath))
+                            return (false, "Equipment file should exist from setup command");
+                        
+                        // Verify lord_4_1 now has equipment (loaded from lord_1_1)
+                        var targetHero = Hero.FindFirst(h => h.StringId == "lord_4_1");
+                        if (targetHero == null) return (false, "Target hero lord_4_1 not found");
+                        
+                        // Check if any equipment slots are filled
+                        bool hasEquipment = false;
+                        for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+                        {
+                            if (!targetHero.BattleEquipment[(EquipmentIndex)i].IsEmpty)
+                            {
+                                hasEquipment = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!hasEquipment)
+                            return (false, "Target hero lord_4_1 should have equipment after loading from lord_1_1");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+
+            // Test: Save civilian equipment from lord_1_1 and load onto lord_4_1
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_load_002",
+                "Save civilian equipment from lord_1_1 and load onto lord_4_1 (different hero)",
+                "gm.item.load_equipment_civilian lord_4_1 test_equipment_load_civilian",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "Loaded",
+                SetupCommands = new System.Collections.Generic.List<string>
+                {
+                    // Save lord_1_1's civilian equipment (source hero)
+                    "gm.item.save_equipment_civilian lord_1_1 test_equipment_load_civilian",
+                    // Clear lord_4_1's equipment (target hero)
+                    "gm.item.remove_equipped lord_4_1"
+                },
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify load message
+                        if (!(output.IndexOf("Loaded", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Loaded' message for load operation");
+                        
+                        // Verify file was read
+                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string filePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets", "civilian", "test_equipment_load_civilian.json");
+                        
+                        if (!File.Exists(filePath))
+                            return (false, "Civilian equipment file should exist from setup command");
+                        
+                        // Verify lord_4_1 now has civilian equipment (loaded from lord_1_1)
+                        var targetHero = Hero.FindFirst(h => h.StringId == "lord_4_1");
+                        if (targetHero == null) return (false, "Target hero lord_4_1 not found");
+                        
+                        // Check if any civilian equipment slots are filled
+                        bool hasEquipment = false;
+                        for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+                        {
+                            if (!targetHero.CivilianEquipment[(EquipmentIndex)i].IsEmpty)
+                            {
+                                hasEquipment = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!hasEquipment)
+                            return (false, "Target hero lord_4_1 should have civilian equipment after loading from lord_1_1");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+
+            // Test: Save both equipment sets from lord_1_1 and load onto lord_4_1
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_load_003",
+                "Save both equipment sets from lord_1_1 and load onto lord_4_1 (different hero)",
+                "gm.item.load_equipment_both lord_4_1 test_equipment_load_both",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "loaded",
+                SetupCommands = new System.Collections.Generic.List<string>
+                {
+                    // Save both equipment sets from lord_1_1 (source hero)
+                    "gm.item.save_equipment_both lord_1_1 test_equipment_load_both",
+                    // Clear lord_4_1's equipment (target hero)
+                    "gm.item.remove_equipped lord_4_1"
+                },
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify load message
+                        if (!(output.IndexOf("Loaded", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Loaded' message for load operation");
+                        
+                        var targetHero = Hero.FindFirst(h => h.StringId == "lord_4_1");
+                        if (targetHero == null) return (false, "Target hero lord_4_1 not found");
+                        
+                        // Check if battle equipment was restored
+                        bool hasBattleEquipment = false;
+                        for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+                        {
+                            if (!targetHero.BattleEquipment[(EquipmentIndex)i].IsEmpty)
+                            {
+                                hasBattleEquipment = true;
+                                break;
+                            }
+                        }
+                        
+                        // Check if civilian equipment was restored
+                        bool hasCivilianEquipment = false;
+                        for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+                        {
+                            if (!targetHero.CivilianEquipment[(EquipmentIndex)i].IsEmpty)
+                            {
+                                hasCivilianEquipment = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!hasBattleEquipment)
+                            return (false, "Target hero lord_4_1 should have battle equipment after loading both sets from lord_1_1");
+                        
+                        if (!hasCivilianEquipment)
+                            return (false, "Target hero lord_4_1 should have civilian equipment after loading both sets from lord_1_1");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+
+            // COMMENTED OUT: These tests were based on incorrect Priority 6 assumptions
+            // Test: Save equipment using name query "derthert" - verifies Priority 6 fix
+            /*
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_save_name_query_001",
+                "Save equipment using name query 'derthert' - should select Derthert (lord_4_1), not an Empire hero",
+                "gm.item.save_equipment_both derthert test_derthert_save",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "Saved",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify save message
+                        if (!(output.IndexOf("Saved", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Saved' message for save operation");
+                        
+                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string filePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets", "test_derthert_save.json");
+                        
+                        if (!File.Exists(filePath))
+                            return (false, $"Equipment file was not created at: {filePath}");
+                        
+                        // Verify file content has correct hero ID (lord_4_1 is Derthert, Vlandian)
+                        string fileContent = File.ReadAllText(filePath);
+                        if (!fileContent.Contains("\"HeroId\": \"lord_4_1\""))
+                            return (false, "Equipment file should contain HeroId: lord_4_1 (Derthert - Vlandian)");
+                        
+                        if (!fileContent.Contains("Derthert"))
+                            return (false, "Equipment file should contain hero name 'Derthert'");
+                        
+                        // Verify it's NOT an Empire hero
+                        if (fileContent.Contains("lord_1_") && !fileContent.Contains("lord_4_1"))
+                            return (false, "Wrong hero selected - appears to be an Empire hero (lord_1_x) instead of Derthert (lord_4_1)");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+
+            // Test: Load equipment using name query "derthert" - verifies Priority 6 fix
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_load_name_query_001",
+                "Load equipment using name query 'derthert' - should load onto Derthert (lord_4_1), not an Empire hero",
+                "gm.item.load_equipment_both derthert test_derthert_load",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "Loaded",
+                SetupCommands = new System.Collections.Generic.List<string>
+                {
+                    // Save lord_1_1's equipment (Empire hero)
+                    "gm.item.save_equipment_both lord_1_1 test_derthert_load",
+                    // Clear Derthert's equipment first to verify load
+                    "gm.item.remove_equipped lord_4_1"
+                },
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify load message
+                        if (!(output.IndexOf("Loaded", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Loaded' message for load operation");
+                        
+                        // Verify Derthert (lord_4_1) now has equipment
+                        var derthert = Hero.FindFirst(h => h.StringId == "lord_4_1");
+                        if (derthert == null) return (false, "Derthert (lord_4_1) not found");
+                        
+                        // Verify Derthert is the correct hero (Vlandian, not Empire)
+                        if (derthert.Name == null || !derthert.Name.ToString().Contains("Derthert"))
+                            return (false, "Hero lord_4_1 is not Derthert - wrong hero may have been selected");
+                        
+                        // Check if Derthert now has equipment (loaded from lord_1_1)
+                        bool hasEquipment = false;
+                        for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+                        {
+                            if (!derthert.BattleEquipment[(EquipmentIndex)i].IsEmpty)
+                            {
+                                hasEquipment = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!hasEquipment)
+                            return (false, "Derthert (lord_4_1) should have equipment after loading");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+
+            // Test: Single name-only match auto-selection - verifies Priority 6 fix
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_single_name_match_001",
+                "Single name-only match auto-selection - unique name query should succeed without ambiguity error",
+                "gm.item.save_equipment_both Garios test_garios_save",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                ExpectedText = "Saved",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify save succeeded without ambiguity error
+                        if (!(output.IndexOf("Saved", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Saved' message - should auto-select single name match");
+                        
+                        // Verify no ambiguity error was shown
+                        if (output.IndexOf("multiple", StringComparison.OrdinalIgnoreCase) >= 0)
+                            return (false, "Should not show ambiguity error for single name match");
+                        
+                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string filePath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets", "test_garios_save.json");
+                        
+                        if (!File.Exists(filePath))
+                            return (false, $"Equipment file was not created at: {filePath}");
+                        
+                        // Verify file content has correct hero name
+                        string fileContent = File.ReadAllText(filePath);
+                        if (!fileContent.Contains("Garios"))
+                            return (false, "Equipment file should contain hero name 'Garios'");
+                        
+                        // Find the actual Garios hero to verify correct hero was selected
+                        var garios = Hero.AllAliveHeroes.FirstOrDefault(h =>
+                            h.Name != null &&
+                            h.Name.ToString().Equals("Garios", StringComparison.OrdinalIgnoreCase)
+                        );
+                        
+                        if (garios != null)
+                        {
+                            // Verify the saved file has the correct hero ID
+                            if (!fileContent.Contains($"\"HeroId\": \"{garios.StringId}\""))
+                                return (false, $"Equipment file should contain HeroId: {garios.StringId} for Garios");
+                        }
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                },
+                CleanupCommands = new System.Collections.Generic.List<string>()
+            });
+            */
+
+            // Test: Cleanup all test equipment files
+            TestRunner.RegisterTest(new TestCase(
+                "integration_equipment_cleanup_001",
+                "Cleanup all test equipment files",
+                "",
+                TestExpectation.NoException
+            )
+            {
+                Category = "Integration_EquipmentSaveLoad",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string heroSetsPath = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster", "HeroSets");
+                        
+                        // Delete all test_equipment_* files
+                        if (Directory.Exists(heroSetsPath))
+                        {
+                            var testFiles = Directory.GetFiles(heroSetsPath, "test_equipment_*.json");
+                            foreach (var file in testFiles)
+                            {
+                                File.Delete(file);
+                            }
+                            
+                            // Also clean civilian subfolder
+                            string civilianPath = Path.Combine(heroSetsPath, "civilian");
+                            if (Directory.Exists(civilianPath))
+                            {
+                                var civilianTestFiles = Directory.GetFiles(civilianPath, "test_equipment_*.json");
+                                foreach (var file in civilianTestFiles)
+                                {
+                                    File.Delete(file);
+                                }
+                            }
+                        }
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Cleanup exception: {ex.Message}");
                     }
                 }
             });

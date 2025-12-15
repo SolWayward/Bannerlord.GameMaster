@@ -259,7 +259,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         {
             errorMessage = null;
 
-            if (string.IsNullOrEmpty(actualOutput))
+            // Allow empty output if test has CustomValidator and expects NoException
+            // (e.g., cleanup tests that only run in CustomValidator)
+            bool allowEmptyOutput = test.CustomValidator != null && test.Expectation == TestExpectation.NoException;
+
+            if (string.IsNullOrEmpty(actualOutput) && !allowEmptyOutput)
             {
                 errorMessage = "Command produced no output";
                 return false;

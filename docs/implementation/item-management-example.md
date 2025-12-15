@@ -484,6 +484,172 @@ This example demonstrates:
 
 ---
 
+## Equipment Save/Load System
+
+The equipment save/load feature enables saving and loading hero equipment configurations to/from JSON files. This is a complete implementation example demonstrating file I/O, JSON serialization, and graceful error handling.
+
+### Overview
+
+The system provides six commands:
+- [`gm.item.save_equipment`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:869) - Save battle equipment
+- [`gm.item.save_equipment_civilian`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:913) - Save civilian equipment
+- [`gm.item.save_equipment_both`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:957) - Save both equipment sets
+- [`gm.item.load_equipment`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1012) - Load battle equipment
+- [`gm.item.load_equipment_civilian`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1064) - Load civilian equipment
+- [`gm.item.load_equipment_both`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1116) - Load both equipment sets
+
+### File Structure
+
+Equipment files are stored in the user's documents folder:
+
+**Battle Equipment:**
+```
+Documents\Mount and Blade II Bannerlord\Configs\GameMaster\HeroSets\{filename}.json
+```
+
+**Civilian Equipment:**
+```
+Documents\Mount and Blade II Bannerlord\Configs\GameMaster\HeroSets\civilian\{filename}.json
+```
+
+### JSON Format
+
+Equipment sets use a clean, human-readable JSON structure:
+
+```json
+{
+  "HeroName": "Battanian",
+  "HeroId": "lord_1_1",
+  "SavedDate": "2025-12-15T19:30:00.0000000Z",
+  "Equipment": [
+    {
+      "Slot": "Head",
+      "ItemId": "northern_fur_hood",
+      "ModifierId": null
+    },
+    {
+      "Slot": "Body",
+      "ItemId": "highland_scale_armor",
+      "ModifierId": "ironarm_fine"
+    },
+    {
+      "Slot": "Weapon0",
+      "ItemId": "highland_axe",
+      "ModifierId": "ironarm_masterwork"
+    }
+  ]
+}
+```
+
+### Key Helper Methods
+
+The implementation uses four key helper methods:
+
+**[`GetEquipmentFilePath()`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1278)** - Constructs file paths with proper directory structure:
+- Uses `Environment.GetFolderPath(SpecialFolder.MyDocuments)` for cross-platform compatibility
+- Uses `Path.Combine()` for proper path separators
+- Creates directories automatically if they don't exist
+- Adds `.json` extension if not provided
+
+**[`SaveEquipmentToFile()`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1306)** - Serializes equipment to JSON:
+- Creates [`EquipmentSetData`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1225) with hero metadata
+- Iterates through equipment slots, saving only non-empty slots
+- Preserves item modifiers (quality bonuses)
+- Uses `JsonConvert.SerializeObject()` with `Formatting.Indented`
+
+**[`LoadEquipmentFromFile()`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1343)** - Deserializes and applies equipment:
+- Reads and parses JSON file
+- Validates items and modifiers exist in current game
+- Clears existing equipment before loading
+- Returns counts of loaded and skipped items for reporting
+- Handles missing items/modifiers gracefully
+
+**[`GetEquipmentList()`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1412)** - Extracts equipment info for display:
+- Used by save commands to show what was saved
+- Returns list of [`EquipmentItemInfo`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1258) objects
+
+### Data Model Classes
+
+**[`EquipmentSetData`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1225)** - Top-level container:
+```csharp
+private class EquipmentSetData
+{
+    [JsonProperty("HeroName")]
+    public string HeroName { get; set; }
+    
+    [JsonProperty("HeroId")]
+    public string HeroId { get; set; }
+    
+    [JsonProperty("SavedDate")]
+    public string SavedDate { get; set; }
+    
+    [JsonProperty("Equipment")]
+    public List<EquipmentSlotData> Equipment { get; set; }
+}
+```
+
+**[`EquipmentSlotData`](../../Bannerlord.GameMaster/Console/ItemManagementCommands.cs:1243)** - Individual slot data:
+```csharp
+private class EquipmentSlotData
+{
+    [JsonProperty("Slot")]
+    public string Slot { get; set; }
+    
+    [JsonProperty("ItemId")]
+    public string ItemId { get; set; }
+    
+    [JsonProperty("ModifierId")]
+    public string ModifierId { get; set; }
+}
+```
+
+### Error Handling Approach
+
+The system implements robust error handling:
+
+1. **Missing Files** - Clear error messages with filename
+2. **Invalid Items** - Skip and report items not found in game
+3. **Missing Modifiers** - Load item without modifier if modifier not found
+4. **Invalid JSON** - Descriptive error messages
+5. **Partial Success** - `load_equipment_both` continues even if one file is missing
+
+Example error reporting:
+```
+Items skipped (not found in game): 2
+  Weapon2         mod_custom_sword (modifier: legendary)
+  Cape            dlc_cape_item
+```
+
+### Testing Considerations
+
+The feature includes 21 comprehensive tests in [`StandardTests.cs`](../../Bannerlord.GameMaster/Console/Testing/StandardTests.cs:1084):
+- Save command validation (9 tests)
+- Load command validation (12 tests)
+- Error scenarios (missing arguments, invalid heroes, non-existent files)
+
+**Manual Testing Example:**
+```bash
+# Save equipment with modifiers
+gm.item.equip imperial_sword player
+gm.item.set_equipped_modifier player masterwork
+gm.item.save_equipment player my_loadout
+
+# Clear equipment
+gm.item.unequip_all player
+
+# Load equipment back
+gm.item.load_equipment player my_loadout
+gm.item.list_equipped player
+```
+
+### Related Documentation
+
+For complete implementation details, see:
+- [Equipment Save/Load Feature Documentation](../../ChangeDocs/Features/EQUIPMENT_SAVELOAD_FEATURE_2025-12-15.md)
+- [File I/O Best Practices](../guides/best-practices.md#file-io-operations)
+
+---
+
 ## Next Steps
 
 Now that you've seen a complete example:
