@@ -6,7 +6,7 @@ baseurl: "/Bannerlord.GameMaster"
 url: "https://solwayward.github.io"
 
 # Theme
-theme: jekyll-theme-cayman
+remote_theme: pages-themes/midnight@v0.2.0
 markdown: kramdown
 
 # Plugins
