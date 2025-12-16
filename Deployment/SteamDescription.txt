@@ -3,14 +3,7 @@
 
 Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.
 
-[b]Tested[/b] With: Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
-
-[b]BLGM[/b] extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game. 
-
-The purpose of this mod is mainly for my own use as a foundation for another mod I am working on it but it can also be useful to modders for testing, debugging, or to quickly implement functionality in their mods as well, an API is also provided. The mod will regular be updated with additional features and more powerful functionality.
-
-All commands use the `gm.` prefix for easy organization.  
-All commands can be used by targeting entity names or entity Ids. A query system is also included for quickly searching for entities.
+[i]Press Alt + ~ (tilde key) ingame to open console.[/i]
 
 [h1]Key Features[/h1]
 [list]
@@ -24,15 +17,18 @@ All commands can be used by targeting entity names or entity Ids. A query system
 [*] [b]Testing Framework[/b] - Automated validation system
 [/list]
 
-[h1]Installation[/h1]
-1. Click [b]Subscribe[/b] above
-2. Enable in Bannerlord launcher
-3. Press [b]~[/b] or [b]`[/b] in-game to open console
+[b]Tested[/b] With: Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
+[b]Note:[/b] Some commands may not execute if certain menus are open
 
-[b]No external dependencies required[/b] - This mod uses only native Bannerlord APIs
+[b]BLGM[/b] extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game. 
+
+The purpose of this mod is mainly for my own use as a foundation for another mod I am working on it but it can also be useful to modders for testing, debugging, or to quickly implement functionality in their mods as well, an API is also provided. The mod will regular be updated with additional features and more powerful functionality.
+
+All commands use the `gm.` prefix for easy organization.  
+All commands can be used by targeting entity names or entity Ids. A query system is also included for quickly searching for entities.
+
 
 [h1]Quick Start[/h1]
-
 [b]Command Structure:[/b]
 [code]gm.<category>.<command> [parameters][/code]
 
@@ -49,7 +45,6 @@ gm.log.enable
 [/code]
 
 [h1]Query System[/h1]
-
 Use powerful queries to search and filter:
 [list]
 [*] [b]Basic:[/b] [code]gm.query.hero <terms>[/code], [code]gm.query.item <terms>[/code]
@@ -62,7 +57,6 @@ Use powerful queries to search and filter:
 [b]Sort Options:[/b] name, value, tier, type (add :asc or :desc)
 
 [h1]Available Commands[/h1]
-
 [b]Hero Commands:[/b] set_gold, set_health, set_age, kill, imprison, release, teleport, set_clan, set_relation
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Hero-Commands]Full Documentation →[/url]
 

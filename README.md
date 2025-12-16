@@ -2,9 +2,13 @@
 - **[Complete Documentation for Users](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
 - [Source Code Documentation and Implementation for Developers](https://solwayward.github.io/Bannerlord.GameMaster/)
 
-Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.
+Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.  
+  
+*Press Alt + ~ (tilde key) in-game to open console*
 
-**Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
+**Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.  
+  
+**Note**: Some console commands may not execute if certain menus are open
 
 **BLGM** extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game. 
   
@@ -30,7 +34,7 @@ The purpose of this mod is mainly for my own use as a foundation for another mod
 1. Download from [Releases](https://github.com/SolWayward/Bannerlord.GameMaster/releases)
 2. Extract to: `...\Mount & Blade II Bannerlord\Modules\`
 3. Enable in Bannerlord launcher
-4. Press `~` or `` ` `` in-game to open console
+4. Press Alt + ~ (tilde key) in-game to open console
 
 **No external dependencies required** - This mod uses only native Bannerlord APIs
 

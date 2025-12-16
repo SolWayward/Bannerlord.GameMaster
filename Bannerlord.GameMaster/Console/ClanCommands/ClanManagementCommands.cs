@@ -6,7 +6,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.Library;
 
-namespace Bannerlord.GameMaster.Console
+namespace Bannerlord.GameMaster.Console.ClanCommands
 {
     [CommandLineFunctionality.CommandLineArgumentFunction("clan", "gm")]
     public static class ClanManagementCommands

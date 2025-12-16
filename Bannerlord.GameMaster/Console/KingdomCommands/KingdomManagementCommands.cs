@@ -8,7 +8,7 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 
-namespace Bannerlord.GameMaster.Console
+namespace Bannerlord.GameMaster.Console.KingdomCommands
 {
 	[CommandLineFunctionality.CommandLineArgumentFunction("kingdom", "gm")]
 	public static class KingdomManagementCommands

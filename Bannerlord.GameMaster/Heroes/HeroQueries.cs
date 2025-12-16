@@ -37,6 +37,12 @@ namespace Bannerlord.GameMaster.Heroes
             string sortBy = "id",
             bool sortDescending = false)
         {
+            // Handle player alias - "player" is an alias for "main_hero"
+            if (!string.IsNullOrEmpty(query) && query.Equals("player", StringComparison.OrdinalIgnoreCase))
+            {
+                query = "main_hero";
+            }
+
             IEnumerable<Hero> heroes;
             
             // When using OR logic with life status flags (Alive or Dead), search both collections

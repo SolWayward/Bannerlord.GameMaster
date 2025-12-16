@@ -12,7 +12,7 @@ using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 
-namespace Bannerlord.GameMaster.Console
+namespace Bannerlord.GameMaster.Console.ItemCommands
 {
     [CommandLineFunctionality.CommandLineArgumentFunction("item", "gm")]
     public static class ItemManagementCommands

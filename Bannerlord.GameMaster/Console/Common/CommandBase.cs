@@ -7,6 +7,7 @@ using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Kingdoms;
 using Bannerlord.GameMaster.Items;
+using Bannerlord.GameMaster.Troops;
 
 namespace Bannerlord.GameMaster.Console.Common
 {
@@ -119,6 +120,53 @@ namespace Bannerlord.GameMaster.Console.Common
                 getName: i => i.Name?.ToString() ?? "",
                 formatDetails: ItemQueries.GetFormattedDetails,
                 entityType: "item");
+        }
+
+        /// <summary>
+        /// Helper method to find a single troop from a query (filtered combat troops only)
+        /// </summary>
+        public static (CharacterObject troop, string error) FindSingleTroop(string query)
+        {
+            List<CharacterObject> matchedTroops = TroopQueries.QueryTroops(query);
+
+            if (matchedTroops == null || matchedTroops.Count == 0)
+                return (null, $"Error: No troop matching query '{query}' found.\n");
+
+            if (matchedTroops.Count == 1)
+                return (matchedTroops[0], null);
+
+            // Use smart matching for multiple results
+            return ResolveMultipleMatches(
+                matches: matchedTroops,
+                query: query,
+                getStringId: t => t.StringId,
+                getName: t => t.Name?.ToString() ?? "",
+                formatDetails: TroopQueries.GetFormattedDetails,
+                entityType: "troop");
+        }
+
+        /// <summary>
+        /// Helper method to find a single CharacterObject from a query (unfiltered - includes all non-hero CharacterObjects)
+        /// Use this when you need to accept any CharacterObject including dancers, refugees, etc.
+        /// </summary>
+        public static (CharacterObject character, string error) FindSingleCharacterObject(string query)
+        {
+            List<CharacterObject> matchedCharacters = TroopQueries.QueryCharacterObjects(query);
+
+            if (matchedCharacters == null || matchedCharacters.Count == 0)
+                return (null, $"Error: No character matching query '{query}' found.\n");
+
+            if (matchedCharacters.Count == 1)
+                return (matchedCharacters[0], null);
+
+            // Use smart matching for multiple results
+            return ResolveMultipleMatches(
+                matches: matchedCharacters,
+                query: query,
+                getStringId: c => c.StringId,
+                getName: c => c.Name?.ToString() ?? "",
+                formatDetails: TroopQueries.GetFormattedDetails,
+                entityType: "character");
         }
 
         /// <summary>
@@ -456,7 +504,7 @@ namespace Bannerlord.GameMaster.Console.Common
                 
                 if (callingMethod != null)
                 {
-                    // Get the CommandLineArgumentFunction attribute  
+                    // Get the CommandLineArgumentFunction attribute
                     var attributes = callingMethod.GetCustomAttributes(false);
                     foreach (var attr in attributes)
                     {
@@ -487,9 +535,16 @@ namespace Bannerlord.GameMaster.Console.Common
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // If reflection fails, fall back to generic name
+                // If reflection fails, log the error for debugging
+                System.Diagnostics.Debug.WriteLine($"[CommandLogger] Failed to get calling command name: {ex.Message}");
+            }
+            
+            // Fallback: Use generic name with arguments if available
+            if (args != null && args.Count > 0)
+            {
+                return "gm.command " + string.Join(" ", args);
             }
             
             return "gm.command";

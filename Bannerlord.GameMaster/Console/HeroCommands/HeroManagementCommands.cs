@@ -10,7 +10,7 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 
-namespace Bannerlord.GameMaster.Console
+namespace Bannerlord.GameMaster.Console.HeroCommands
 {
     [CommandLineFunctionality.CommandLineArgumentFunction("hero", "gm")]
     public static class HeroManagementCommands

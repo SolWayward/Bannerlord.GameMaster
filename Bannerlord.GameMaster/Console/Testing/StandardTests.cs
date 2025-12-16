@@ -18,10 +18,12 @@ namespace Bannerlord.GameMaster.Console.Testing
         	RegisterClanQueryTests();
         	RegisterKingdomQueryTests();
         	RegisterItemQueryTests();
+        	RegisterTroopQueryTests();
         	RegisterHeroManagementTests();
         	RegisterClanManagementTests();
         	RegisterKingdomManagementTests();
         	RegisterItemManagementTests();
+        	RegisterTroopManagementTests();
         	RegisterItemEquipmentSaveTests();
         	RegisterItemEquipmentLoadTests();
         	RegisterSuccessPathTests();
@@ -521,6 +523,953 @@ namespace Bannerlord.GameMaster.Console.Testing
         }
 
         /// <summary>
+        /// Register troop query command tests
+        /// </summary>
+        private static void RegisterTroopQueryTests()
+        {
+            // ===== BASIC QUERY TESTS =====
+            
+            // Test basic troop query without parameters
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_001",
+                "Query troops without parameters should return all troops (excluding heroes)",
+                "gm.query.troop",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // ===== FILTERING TESTS - EXCLUSIONS =====
+            
+            // Test that templates are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_001",
+                "Templates should be excluded from troop queries",
+                "gm.query.troop template",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "0 troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Verify no troops with "template" in ID are returned
+                    if (output.Contains("template") && !output.Contains("0 troop(s)"))
+                        return (false, "Templates should be excluded from results");
+                    return (true, null);
+                }
+            });
+
+            // Test that equipment sets are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_002",
+                "Equipment sets should be excluded from troop queries",
+                "gm.query.troop _equipment",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "0 troop(s) matching"
+            });
+
+            // Test that town NPCs are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_003",
+                "Town NPCs (armorer, blacksmith, etc) should be excluded",
+                "gm.query.troop armorer",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "0 troop(s) matching"
+            });
+
+            // Test that wanderers are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_004",
+                "Wanderers/companions should be excluded from troop queries",
+                "gm.query.troop wanderer",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "0 troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Should not find NPCs starting with spc_wanderer or npc_wanderer
+                    if (output.Contains("spc_wanderer") || output.Contains("npc_wanderer"))
+                        return (false, "Wanderers should be excluded from results");
+                    return (true, null);
+                }
+            });
+
+            // Test that children are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_005",
+                "Children/teens/infants should be excluded from troop queries",
+                "gm.query.troop child",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "0 troop(s) matching"
+            });
+
+            // Test that practice dummies are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_006",
+                "Practice dummies should be excluded from troop queries",
+                "gm.query.troop dummy",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "0 troop(s) matching"
+            });
+
+            // Test that special characters are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_007",
+                "Special characters (cutscene, tutorial) should be excluded",
+                "gm.query.troop cutscene",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "0 troop(s) matching"
+            });
+
+            // Test that non-combat peasants are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_008",
+                "Non-combat peasants (Tier 0, Level 1) should be excluded",
+                "gm.query.troop villager tier0",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test that caravan leaders are excluded
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_009",
+                "Caravan leaders should be excluded from troop queries",
+                "gm.query.troop caravan_leader",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "0 troop(s) matching"
+            });
+
+            // ===== FILTERING TESTS - INCLUSIONS =====
+            
+            // Test that regular troops are included
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_010",
+                "Regular military troops (tier 1+) should be included",
+                "gm.query.troop tier1",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Should find at least some tier 1 troops
+                    if (output.Contains("0 troop(s) matching"))
+                        return (false, "Should find tier 1 troops");
+                    return (true, null);
+                }
+            });
+
+            // Test that militia are included
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_011",
+                "Militia troops should be included in queries",
+                "gm.query.troop militia",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Should find militia troops
+                    if (output.Contains("0 troop(s) matching"))
+                        return (false, "Should find militia troops");
+                    return (true, null);
+                }
+            });
+
+            // Test that mercenaries are included (but not leaders)
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_012",
+                "Mercenary troops should be included (not leaders)",
+                "gm.query.troop mercenary",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Should find mercenary troops
+                    if (output.Contains("mercenary_leader"))
+                        return (false, "Mercenary leaders should be excluded");
+                    if (output.Contains("0 troop(s) matching"))
+                        return (false, "Should find mercenary troops");
+                    return (true, null);
+                }
+            });
+
+            // Test that caravan guards are included
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_013",
+                "Caravan guards/masters should be included",
+                "gm.query.troop caravan",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Should find caravan guards/masters but not leaders
+                    if (output.Contains("caravan_leader"))
+                        return (false, "Caravan leaders should be excluded");
+                    return (true, null);
+                }
+            });
+
+            // Test that bandits are included
+            TestRunner.RegisterTest(new TestCase(
+                "troop_filter_014",
+                "Bandit troops should be included in queries",
+                "gm.query.troop bandit",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopFiltering",
+                ExpectedText = "troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Should find bandit troops
+                    if (output.Contains("0 troop(s) matching"))
+                        return (false, "Should find bandit troops");
+                    return (true, null);
+                }
+            });
+
+            // ===== CATEGORY TESTS =====
+            
+            // Test bandit category identification
+            TestRunner.RegisterTest(new TestCase(
+                "troop_category_001",
+                "Bandit troops should show [Bandit] category",
+                "gm.query.troop bandit",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopCategory",
+                ExpectedText = "[Bandit]"
+            });
+
+            // Test militia category identification
+            TestRunner.RegisterTest(new TestCase(
+                "troop_category_002",
+                "Militia troops should show [Militia] category",
+                "gm.query.troop militia",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopCategory",
+                ExpectedText = "[Militia]"
+            });
+
+            // Test mercenary category identification
+            TestRunner.RegisterTest(new TestCase(
+                "troop_category_003",
+                "Mercenary troops should show [Mercenary] category",
+                "gm.query.troop mercenary",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopCategory",
+                ExpectedText = "[Mercenary]"
+            });
+
+            // Test noble category identification
+            TestRunner.RegisterTest(new TestCase(
+                "troop_category_004",
+                "Noble troops should show [Noble/Elite] category",
+                "gm.query.troop noble",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopCategory",
+                ExpectedText = "[Noble/Elite]"
+            });
+
+            // Test regular category identification
+            TestRunner.RegisterTest(new TestCase(
+                "troop_category_005",
+                "Regular troops should show [Regular] category",
+                "gm.query.troop regular",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopCategory",
+                ExpectedText = "[Regular]"
+            });
+
+            // Test caravan category identification
+            TestRunner.RegisterTest(new TestCase(
+                "troop_category_006",
+                "Caravan troops should show [Caravan] category",
+                "gm.query.troop caravan",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopCategory",
+                ExpectedText = "[Caravan]"
+            });
+
+            // ===== INTEGRATION TESTS =====
+            
+            // Test default query excludes non-troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_integration_001",
+                "Default query should only return actual troops",
+                "gm.query.troop",
+                TestExpectation.NoException
+            )
+            {
+                Category = "TroopIntegration",
+                CustomValidator = (output) =>
+                {
+                    // Should not contain excluded categories
+                    var excludedTerms = new[] { "template", "_equipment", "wanderer", "child", "dummy", "cutscene" };
+                    foreach (var term in excludedTerms)
+                    {
+                        if (output.ToLower().Contains(term))
+                            return (false, $"Output should not contain excluded term: {term}");
+                    }
+                    
+                    // Should contain category tags
+                    if (!output.Contains("["))
+                        return (false, "Output should include category tags");
+                        
+                    return (true, null);
+                }
+            });
+
+            // Test combined type filters
+            TestRunner.RegisterTest(new TestCase(
+                "troop_integration_002",
+                "Query empire infantry should return only actual troops",
+                "gm.query.troop empire infantry",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopIntegration",
+                ExpectedText = "troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Should show categories for all results
+                    if (output.Contains("troop(s) matching") && !output.Contains("0 troop(s)"))
+                    {
+                        if (!output.Contains("["))
+                            return (false, "Results should include category tags");
+                    }
+                    return (true, null);
+                }
+            });
+
+            // Test tier filtering with categories
+            TestRunner.RegisterTest(new TestCase(
+                "troop_integration_003",
+                "Query tier 3+ troops should show appropriate categories",
+                "gm.query.troop tier3",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopIntegration",
+                ExpectedText = "troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Tier 3 troops should not be peasants
+                    if (output.Contains("[Peasant]"))
+                        return (false, "Tier 3 troops should not be categorized as Peasant");
+                    return (true, null);
+                }
+            });
+
+            // Test output format includes all expected fields
+            TestRunner.RegisterTest(new TestCase(
+                "troop_integration_004",
+                "Troop query output should include category, tier, level, culture, formation",
+                "gm.query.troop empire tier2",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopIntegration",
+                ExpectedText = "troop(s) matching",
+                CustomValidator = (output) =>
+                {
+                    // Check for expected field labels
+                    var expectedFields = new[] { "Tier:", "Level:", "Culture:", "Formation:" };
+                    foreach (var field in expectedFields)
+                    {
+                        if (!output.Contains(field))
+                            return (false, $"Output should contain field: {field}");
+                    }
+                    
+                    // Check for category tags
+                    if (!output.Contains("[") || !output.Contains("]"))
+                        return (false, "Output should contain category tags [CategoryName]");
+                        
+                    return (true, null);
+                }
+            });
+
+            // Test troop_any with filtering
+            TestRunner.RegisterTest(new TestCase(
+                "troop_integration_005",
+                "Query troop_any should only return actual troops",
+                "gm.query.troop_any cavalry ranged",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopIntegration",
+                ExpectedText = "troop(s) matching ANY",
+                CustomValidator = (output) =>
+                {
+                    // Should not contain excluded categories
+                    var excludedTerms = new[] { "template", "wanderer", "child", "dummy" };
+                    foreach (var term in excludedTerms)
+                    {
+                        if (output.ToLower().Contains(term))
+                            return (false, $"Output should not contain excluded term: {term}");
+                    }
+                    return (true, null);
+                }
+            });
+
+
+            // Test troop query with formation type filter
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_002",
+                "Query troops with formation type filter",
+                "gm.query.troop infantry",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test troop query with equipment type filter
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_003",
+                "Query troops with equipment type filter (shield)",
+                "gm.query.troop shield",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test troop_any query (OR logic)
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_004",
+                "Query troops matching ANY criteria (cavalry OR ranged)",
+                "gm.query.troop_any cavalry ranged",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching ANY"
+            });
+
+            // Test troop_info without ID - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_005",
+                "Troop info without ID should return error",
+                "gm.query.troop_info",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "Please provide a troop ID"
+            });
+
+            // Test troop_info with invalid ID
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_006",
+                "Troop info with invalid ID should return error",
+                "gm.query.troop_info invalid_troop_id_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "not found"
+            });
+
+            // ===== FORMATION TYPE TESTS =====
+            
+            // Test query infantry troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_007",
+                "Query infantry troops",
+                "gm.query.troop infantry",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query ranged troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_008",
+                "Query ranged troops",
+                "gm.query.troop ranged",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query cavalry troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_009",
+                "Query cavalry troops",
+                "gm.query.troop cavalry",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query horsearcher troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_010",
+                "Query horsearcher troops",
+                "gm.query.troop horsearcher",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // ===== EQUIPMENT TYPE TESTS =====
+            
+            // Test query shield troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_011",
+                "Query shield troops",
+                "gm.query.troop shield",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query bow troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_012",
+                "Query bow troops",
+                "gm.query.troop bow",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query crossbow troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_013",
+                "Query crossbow troops",
+                "gm.query.troop crossbow",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query twohanded weapon troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_014",
+                "Query twohanded weapon troops",
+                "gm.query.troop twohanded",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query polearm troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_015",
+                "Query polearm troops",
+                "gm.query.troop polearm",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query throwing weapon troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_016",
+                "Query throwing weapon troops",
+                "gm.query.troop throwing",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // ===== TIER FILTERING TESTS =====
+            
+            // Test query tier1 troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_017",
+                "Query tier1 troops",
+                "gm.query.troop tier1",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query tier3 troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_018",
+                "Query tier3 troops",
+                "gm.query.troop tier3",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query tier5 troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_019",
+                "Query tier5 troops",
+                "gm.query.troop tier5",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query tier6plus troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_020",
+                "Query tier6plus troops",
+                "gm.query.troop tier6plus",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // ===== CULTURE TESTS =====
+            
+            // Test query empire troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_021",
+                "Query empire troops",
+                "gm.query.troop empire",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query vlandia troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_022",
+                "Query vlandia troops",
+                "gm.query.troop vlandia",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query sturgia troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_023",
+                "Query sturgia troops",
+                "gm.query.troop sturgia",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query aserai troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_024",
+                "Query aserai troops",
+                "gm.query.troop aserai",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query khuzait troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_025",
+                "Query khuzait troops",
+                "gm.query.troop khuzait",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query battania troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_026",
+                "Query battania troops",
+                "gm.query.troop battania",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query bandit troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_027",
+                "Query bandit troops",
+                "gm.query.troop bandit",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // ===== TROOP LINE TESTS =====
+            
+            // Test query regular troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_028",
+                "Query regular troops",
+                "gm.query.troop regular",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query noble troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_029",
+                "Query noble troops",
+                "gm.query.troop noble",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query militia troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_030",
+                "Query militia troops",
+                "gm.query.troop militia",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query mercenary troops
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_031",
+                "Query mercenary troops",
+                "gm.query.troop mercenary",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // ===== COMBINED FILTER TESTS =====
+            
+            // Test query empire infantry
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_032",
+                "Query empire infantry",
+                "gm.query.troop empire infantry",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query aserai cavalry tier3
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_033",
+                "Query aserai cavalry tier3",
+                "gm.query.troop aserai cavalry tier3",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query shield infantry with sorting
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_034",
+                "Query shield infantry sorted by tier",
+                "gm.query.troop shield infantry sort:tier",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test query battania ranged bow
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_035",
+                "Query battania ranged bow",
+                "gm.query.troop battania ranged bow",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // ===== SORTING TESTS =====
+            
+            // Test sort by name
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_036",
+                "Query troops sorted by name",
+                "gm.query.troop sort:name",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test sort by tier descending
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_037",
+                "Query troops sorted by tier descending",
+                "gm.query.troop sort:tier:desc",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test sort by level
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_038",
+                "Query troops sorted by level",
+                "gm.query.troop sort:level",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // Test sort by culture
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_039",
+                "Query troops sorted by culture",
+                "gm.query.troop sort:culture",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching"
+            });
+
+            // ===== OR LOGIC TESTS =====
+            
+            // Test query cavalry OR ranged
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_040",
+                "Query troops that are cavalry OR ranged",
+                "gm.query.troop_any cavalry ranged",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching ANY"
+            });
+
+            // Test query bow OR crossbow
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_041",
+                "Query troops with bow OR crossbow",
+                "gm.query.troop_any bow crossbow",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching ANY"
+            });
+
+            // Test query empire OR vlandia infantry
+            TestRunner.RegisterTest(new TestCase(
+                "troop_query_042",
+                "Query empire OR vlandia infantry",
+                "gm.query.troop_any empire vlandia infantry",
+                TestExpectation.Contains
+            )
+            {
+                Category = "TroopQuery",
+                ExpectedText = "troop(s) matching ANY"
+            });
+        }
+
+        /// <summary>
         /// Register hero management command tests
         /// </summary>
         private static void RegisterHeroManagementTests()
@@ -949,6 +1898,156 @@ namespace Bannerlord.GameMaster.Console.Testing
             {
                 Category = "ItemManagement",
                 ExpectedText = "No hero matching"
+            });
+        }
+
+        /// <summary>
+        /// Register troop management command tests
+        /// </summary>
+        private static void RegisterTroopManagementTests()
+        {
+            // === Troop Management Command Tests ===
+            
+            // Test give_hero_troops without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_001",
+                "Give hero troops without arguments should return usage error",
+                "gm.troops.give_hero_troops",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test give_hero_troops with only troop query (missing count and hero) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_002",
+                "Give hero troops with only troop query should return usage error",
+                "gm.troops.give_hero_troops imperial_recruit",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test give_hero_troops with only troop and count (missing hero) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_003",
+                "Give hero troops with missing hero query should return usage error",
+                "gm.troops.give_hero_troops imperial_recruit 10",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test give_hero_troops with invalid troop query - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_004",
+                "Give hero troops with invalid troop query should return error",
+                "gm.troops.give_hero_troops nonexistent_troop_xyz_12345 10 player",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "No troop matching"
+            });
+
+            // Test give_hero_troops with invalid hero query - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_005",
+                "Give hero troops with invalid hero query should return error",
+                "gm.troops.give_hero_troops imperial_recruit 10 nonexistent_hero_xyz_12345",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test give_hero_troops with invalid count (negative) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_006",
+                "Give hero troops with negative count should return error",
+                "gm.troops.give_hero_troops imperial_recruit -5 player",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "Error"
+            });
+
+            // Test give_hero_troops with invalid count (zero) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_007",
+                "Give hero troops with zero count should return error",
+                "gm.troops.give_hero_troops imperial_recruit 0 player",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "Error"
+            });
+
+            // Test give_hero_troops with count too large - should error
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_008",
+                "Give hero troops with count exceeding maximum (>10000) should return error",
+                "gm.troops.give_hero_troops imperial_recruit 100000 player",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "Error"
+            });
+
+            // Test give_hero_troops with valid empire recruit - should succeed
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_009",
+                "Give imperial recruits to player should succeed",
+                "gm.troops.give_hero_troops player imperial_recruit 10",
+                TestExpectation.Success
+            )
+            {
+                Category = "TroopManagement"
+            });
+
+            // Test give_hero_troops with valid battanian troops - should succeed
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_010",
+                "Give battanian highborn warriors to player should succeed",
+                "gm.troops.give_hero_troops player battanian_highborn_warrior 5",
+                TestExpectation.Success
+            )
+            {
+                Category = "TroopManagement"
+            });
+
+            // Test give_hero_troops with different culture troops - should succeed
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_011",
+                "Give vlandian troops to player should succeed",
+                "gm.troops.give_hero_troops player vlandia 3",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "multiple"
+            });
+
+            // Test give_hero_troops to different hero - should succeed
+            TestRunner.RegisterTest(new TestCase(
+                "troop_mgmt_012",
+                "Give troops to specific lord should succeed",
+                "gm.troops.give_hero_troops lord_1_1 sturgia 15",
+                TestExpectation.Error
+            )
+            {
+                Category = "TroopManagement",
+                ExpectedText = "multiple"
             });
         }
 

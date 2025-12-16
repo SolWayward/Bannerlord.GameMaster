@@ -20,6 +20,8 @@ namespace Bannerlord.GameMaster.Console.Testing
             RegisterClanManagementIntegrationTests();
             RegisterKingdomManagementIntegrationTests();
             RegisterItemEquipmentSaveLoadIntegrationTests();
+            RegisterTroopQueryIntegrationTests();
+            RegisterTroopManagementIntegrationTests();
             RegisterEdgeCaseTests();
             RegisterSpecialCasesTests();
             RegisterIDMatchingCollisionFixTests();
@@ -992,6 +994,461 @@ namespace Bannerlord.GameMaster.Console.Testing
                 CleanupCommands = new System.Collections.Generic.List<string>
                 {
                     "gm.kingdom.remove_clan clan_empire_south_1"
+                }
+            });
+        }
+
+        /// <summary>
+        /// Register troop query integration tests
+        /// </summary>
+        private static void RegisterTroopQueryIntegrationTests()
+        {
+            // Test: Query all troops and verify categories
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_query_basic_001",
+                "Query all troops and verify output contains troop categories",
+                "gm.query.troop",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_TroopQuery",
+                ExpectedText = "troop",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify output contains major troop categories
+                        bool hasRegular = output.IndexOf("[Regular]", StringComparison.OrdinalIgnoreCase) >= 0;
+                        bool hasMilitia = output.IndexOf("[Militia]", StringComparison.OrdinalIgnoreCase) >= 0;
+                        bool hasMercenary = output.IndexOf("[Mercenary]", StringComparison.OrdinalIgnoreCase) >= 0;
+                        bool hasBandit = output.IndexOf("[Bandit]", StringComparison.OrdinalIgnoreCase) >= 0;
+                        
+                        if (!hasRegular)
+                            return (false, "Expected [Regular] category in troop output");
+                        if (!hasMilitia)
+                            return (false, "Expected [Militia] category in troop output");
+                        if (!hasMercenary)
+                            return (false, "Expected [Mercenary] category in troop output");
+                        if (!hasBandit)
+                            return (false, "Expected [Bandit] category in troop output");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Query infantry troops
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_query_filter_001",
+                "Query infantry troops and verify Formation: Infantry in output",
+                "gm.query.troop infantry",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_TroopQuery",
+                ExpectedText = "Formation: Infantry",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify output contains Formation: Infantry
+                        if (!(output.IndexOf("Formation: Infantry", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Formation: Infantry' in output");
+                        
+                        // Verify it doesn't contain other formations
+                        if (output.IndexOf("Formation: Cavalry", StringComparison.OrdinalIgnoreCase) >= 0)
+                            return (false, "Should not contain 'Formation: Cavalry' when filtering for infantry");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Query empire troops
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_query_culture_001",
+                "Query empire troops and verify Culture: Empire in results",
+                "gm.query.troop empire",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_TroopQuery",
+                ExpectedText = "Culture: Empire",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify output contains Culture: Empire
+                        if (!(output.IndexOf("Culture: Empire", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Culture: Empire' in output");
+                        
+                        // Verify it doesn't contain other cultures
+                        if (output.IndexOf("Culture: Vlandia", StringComparison.OrdinalIgnoreCase) >= 0)
+                            return (false, "Should not contain 'Culture: Vlandia' when filtering for empire");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Query tier 5+ troops
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_query_tier_001",
+                "Query tier 5+ troops and verify Tier: 5 or Tier: 6 in results",
+                "gm.query.troop tier5",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_TroopQuery",
+                ExpectedText = "Tier:",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify output contains Tier: 5 or Tier: 6
+                        bool hasTier5 = output.IndexOf("Tier: 5", StringComparison.OrdinalIgnoreCase) >= 0;
+                        bool hasTier6 = output.IndexOf("Tier: 6", StringComparison.OrdinalIgnoreCase) >= 0;
+                        
+                        if (!hasTier5 && !hasTier6)
+                            return (false, "Expected 'Tier: 5' or 'Tier: 6' in output");
+                        
+                        // Verify it doesn't contain lower tiers
+                        if (output.IndexOf("Tier: 1", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            output.IndexOf("Tier: 2", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            output.IndexOf("Tier: 3", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            output.IndexOf("Tier: 4", StringComparison.OrdinalIgnoreCase) >= 0)
+                            return (false, "Should not contain Tier: 1-4 when filtering for tier 5+");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Query vlandian cavalry (combined filters)
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_query_combined_001",
+                "Query vlandian cavalry and verify both Culture: Vlandia and Formation: Cavalry",
+                "gm.query.troop vlandia cavalry",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_TroopQuery",
+                ExpectedText = "Culture: Vlandia",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify output contains both Culture: Vlandia and Formation: Cavalry
+                        bool hasVlandia = output.IndexOf("Culture: Vlandia", StringComparison.OrdinalIgnoreCase) >= 0;
+                        bool hasCavalry = output.IndexOf("Formation: Cavalry", StringComparison.OrdinalIgnoreCase) >= 0;
+                        
+                        if (!hasVlandia)
+                            return (false, "Expected 'Culture: Vlandia' in output");
+                        if (!hasCavalry)
+                            return (false, "Expected 'Formation: Cavalry' in output");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Query troops sorted by tier
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_query_sorting_001",
+                "Query troops sorted by tier and verify ascending tier order in output",
+                "gm.query.troop sort:tier",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_TroopQuery",
+                ExpectedText = "Tier:",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify output contains tier information
+                        if (!(output.IndexOf("Tier:", StringComparison.OrdinalIgnoreCase) >= 0))
+                            return (false, "Expected 'Tier:' in output");
+                        
+                        // Extract tier numbers to verify sorting order (ascending)
+                        var lines = output.Split('\n');
+                        int previousTier = -1;
+                        
+                        foreach (var line in lines)
+                        {
+                            if (line.IndexOf("Tier:", StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                // Extract tier number from line
+                                var tierIndex = line.IndexOf("Tier:", StringComparison.OrdinalIgnoreCase);
+                                if (tierIndex >= 0 && tierIndex + 6 < line.Length)
+                                {
+                                    var tierChar = line[tierIndex + 6];
+                                    if (char.IsDigit(tierChar))
+                                    {
+                                        int currentTier = tierChar - '0';
+                                        if (previousTier != -1 && currentTier < previousTier)
+                                            return (false, $"Tiers not in ascending order: found {currentTier} after {previousTier}");
+                                        previousTier = currentTier;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Query all troops and verify exclusions
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_query_exclusions_001",
+                "Query all troops and verify NO templates, NPCs, children, or special characters appear",
+                "gm.query.troop",
+                TestExpectation.Contains
+            )
+            {
+                Category = "Integration_TroopQuery",
+                ExpectedText = "troop",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Verify output does not contain template indicators
+                        if (output.IndexOf("template", StringComparison.OrdinalIgnoreCase) >= 0)
+                            return (false, "Output should not contain templates");
+                        
+                        // Verify output does not contain child indicators
+                        if (output.IndexOf("child", StringComparison.OrdinalIgnoreCase) >= 0)
+                            return (false, "Output should not contain children");
+                        
+                        // Verify output does not contain NPC indicators
+                        if (output.IndexOf("Notable", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            output.IndexOf("Wanderer", StringComparison.OrdinalIgnoreCase) >= 0)
+                            return (false, "Output should not contain NPCs/Notables/Wanderers");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+        }
+
+        /// <summary>
+        /// Register troop management integration tests
+        /// </summary>
+        private static void RegisterTroopManagementIntegrationTests()
+        {
+            // Test: Give 10 imperial recruits to player
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_give_001",
+                "Give 10 imperial recruits to player and validate party roster count increased",
+                "gm.troops.give_hero_troops main_hero imperial_recruit 10",
+                TestExpectation.Success
+            )
+            {
+                Category = "Integration_TroopManagement",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        var player = Hero.MainHero;
+                        if (player == null) return (false, "Main hero not found");
+                        if (player.PartyBelongedTo == null) return (false, "Player has no party");
+                        
+                        // Check if imperial recruit was added to roster
+                        var imperialRecruit = Game.Current.ObjectManager.GetObject<CharacterObject>("imperial_recruit");
+                        if (imperialRecruit == null) return (false, "Imperial recruit character not found");
+                        
+                        int count = player.PartyBelongedTo.MemberRoster.GetTroopCount(imperialRecruit);
+                        if (count < 10)
+                            return (false, $"Expected at least 10 imperial recruits in roster, found {count}");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Give 5 battanian troops to a lord
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_give_002",
+                "Give 5 battanian troops to a lord (Garios) and validate his party roster",
+                "gm.troops.give_hero_troops Garios battanian_trained_warrior 5",
+                TestExpectation.Success
+            )
+            {
+                Category = "Integration_TroopManagement",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        // Find Garios
+                        var garios = Hero.AllAliveHeroes.FirstOrDefault(h =>
+                            h.Name != null &&
+                            h.Name.ToString().Equals("Garios", StringComparison.OrdinalIgnoreCase)
+                        );
+                        
+                        if (garios == null) return (false, "Garios not found");
+                        if (garios.PartyBelongedTo == null) return (false, "Garios has no party");
+                        
+                        // Check if battanian warrior was added to roster
+                        var battanianWarrior = Game.Current.ObjectManager.GetObject<CharacterObject>("battanian_trained_warrior");
+                        if (battanianWarrior == null) return (false, "Battanian trained warrior character not found");
+                        
+                        int count = garios.PartyBelongedTo.MemberRoster.GetTroopCount(battanianWarrior);
+                        if (count < 5)
+                            return (false, $"Expected at least 5 battanian warriors in Garios' roster, found {count}");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Give troops and verify exact troop type
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_give_verify_001",
+                "Give troops and verify exact troop type in roster using CharacterObject lookup",
+                "gm.troops.give_hero_troops main_hero vlandian_knight 3",
+                TestExpectation.Success
+            )
+            {
+                Category = "Integration_TroopManagement",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        var player = Hero.MainHero;
+                        if (player == null) return (false, "Main hero not found");
+                        if (player.PartyBelongedTo == null) return (false, "Player has no party");
+                        
+                        // Verify exact troop type was added
+                        var vlandianKnight = Game.Current.ObjectManager.GetObject<CharacterObject>("vlandian_knight");
+                        if (vlandianKnight == null) return (false, "Vlandian knight character not found");
+                        
+                        int count = player.PartyBelongedTo.MemberRoster.GetTroopCount(vlandianKnight);
+                        if (count < 3)
+                            return (false, $"Expected at least 3 vlandian knights in roster, found {count}");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Give 100 troops and verify quantity
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_give_quantity_001",
+                "Give 100 troops and verify exact quantity added to roster",
+                "",
+                TestExpectation.Success
+            )
+            {
+                Category = "Integration_TroopManagement",
+                SetupCommands = new System.Collections.Generic.List<string>
+                {
+                    // Clear existing imperial recruits first for accurate count
+                    "gm.troops.give_hero_troops main_hero imperial_recruit -1000"
+                },
+                Command = "gm.troops.give_hero_troops main_hero imperial_recruit 100",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        var player = Hero.MainHero;
+                        if (player == null) return (false, "Main hero not found");
+                        if (player.PartyBelongedTo == null) return (false, "Player has no party");
+                        
+                        var imperialRecruit = Game.Current.ObjectManager.GetObject<CharacterObject>("imperial_recruit");
+                        if (imperialRecruit == null) return (false, "Imperial recruit character not found");
+                        
+                        int count = player.PartyBelongedTo.MemberRoster.GetTroopCount(imperialRecruit);
+                        if (count < 100)
+                            return (false, $"Expected at least 100 imperial recruits, found {count}");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
+                }
+            });
+
+            // Test: Give troops twice to same hero and verify cumulative
+            TestRunner.RegisterTest(new TestCase(
+                "integration_troop_give_multiple_001",
+                "Give troops twice to same hero and verify cumulative total",
+                "",
+                TestExpectation.Success
+            )
+            {
+                Category = "Integration_TroopManagement",
+                SetupCommands = new System.Collections.Generic.List<string>
+                {
+                    // Clear existing sturgian warriors first
+                    "gm.troops.give_hero_troops main_hero sturgian_warrior -1000",
+                    // Give 25 sturgian warriors
+                    "gm.troops.give_hero_troops main_hero sturgian_warrior 25"
+                },
+                Command = "gm.troops.give_hero_troops main_hero sturgian_warrior 25",
+                CustomValidator = (output) =>
+                {
+                    try
+                    {
+                        var player = Hero.MainHero;
+                        if (player == null) return (false, "Main hero not found");
+                        if (player.PartyBelongedTo == null) return (false, "Player has no party");
+                        
+                        var sturgianWarrior = Game.Current.ObjectManager.GetObject<CharacterObject>("sturgian_warrior");
+                        if (sturgianWarrior == null) return (false, "Sturgian warrior character not found");
+                        
+                        int count = player.PartyBelongedTo.MemberRoster.GetTroopCount(sturgianWarrior);
+                        if (count < 50)
+                            return (false, $"Expected at least 50 sturgian warriors (25+25), found {count}");
+                        
+                        return (true, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Validation exception: {ex.Message}");
+                    }
                 }
             });
         }
