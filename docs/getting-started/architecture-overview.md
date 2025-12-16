@@ -1,6 +1,6 @@
 # Architecture Overview
 
-**Navigation:** [← Back: Prerequisites](prerequisites.md) | [Back to Index](../README.md) | [Next: Implementation Workflow →](../implementation/workflow.md)
+**Navigation:** [Back to Index](../README.md) | [Next: Implementation Workflow →](../implementation/workflow.md)
 
 ---
 
@@ -205,4 +205,4 @@ Now that you understand the architecture:
 
 ---
 
-**Navigation:** [← Back: Prerequisites](prerequisites.md) | [Back to Index](../README.md) | [Next: Implementation Workflow →](../implementation/workflow.md)
+**Navigation:** [Back to Index](../README.md) | [Next: Implementation Workflow →](../implementation/workflow.md)

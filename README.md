@@ -1,5 +1,6 @@
 # Bannerlord.GameMaster (BLGM)
-**📚 [Complete Documentation on GitHub Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**
+**[Complete Documentation for users on GitHub Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**
+[Source code and implementation Documention for developers](https://solwayward.github.io/Bannerlord.GameMaster/)
 
 Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.
 

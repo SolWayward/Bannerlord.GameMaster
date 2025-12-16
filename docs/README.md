@@ -9,7 +9,6 @@
 ## 📚 Quick Navigation
 
 ### Getting Started
-- **[Prerequisites](getting-started/prerequisites.md)** - Required knowledge, tools, and environment setup
 - **[Architecture Overview](getting-started/architecture-overview.md)** - System design, layers, and component interaction
 
 ### Implementation
@@ -84,16 +83,14 @@ Best practices, conventions, and procedures for maintaining code quality. Use th
 
 ### For Contributors
 
-1. **Read** [Prerequisites](getting-started/prerequisites.md) to set up your environment
-2. **Review** [Architecture Overview](getting-started/architecture-overview.md) to understand the system
-3. **Follow** [Implementation Workflow](implementation/workflow.md) for the step-by-step process
-4. **Utilize** [Best Practices](guides/best-practices.md) for consistency
-5. **Study** [Item Management Example](implementation/item-management-example.md) for a complete implementation
-6. **Use** [Templates](templates/extensions.md) as starting points for your code
-7. **Run** [Tests](guides/testing.md) to validate changes
-8. **Check** [Code Quality Checklist](implementation/
-code-quality-checklist.md) before committing
-9. **Do** [Troubleshooting](guides/troubleshooting.md) if issues arise
+1. **Review** [Architecture Overview](getting-started/architecture-overview.md) to understand the system
+2. **Follow** [Implementation Workflow](implementation/workflow.md) for the step-by-step process
+3. **Utilize** [Best Practices](guides/best-practices.md) for consistency
+4. **Study** [Item Management Example](implementation/item-management-example.md) for a complete implementation
+5. **Use** [Templates](templates/extensions.md) as starting points for your code
+6. **Run** [Tests](guides/testing.md) to validate changes
+7. **Check** [Code Quality Checklist](implementation/code-quality-checklist.md) before committing
+8. **Do** [Troubleshooting](guides/troubleshooting.md) if issues arise
 
 ---
 
