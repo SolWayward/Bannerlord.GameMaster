@@ -4,6 +4,7 @@ using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Settlements;
 using Bannerlord.GameMaster.Common.Interfaces;
+using Bannerlord.GameMaster.Console.Common;
 
 namespace Bannerlord.GameMaster.Settlements
 {
@@ -174,13 +175,36 @@ namespace Bannerlord.GameMaster.Settlements
         }
 
         /// <summary>
-        /// Returns a formatted string listing settlement details
+        /// Returns a formatted string listing settlement details with aligned columns
         /// </summary>
         public static string GetFormattedDetails(List<Settlement> settlements)
         {
             if (settlements.Count == 0)
                 return "";
-            return string.Join("\n", settlements.Select(s => s.FormattedDetails())) + "\n";
+
+            return ColumnFormatter<Settlement>.FormatList(
+                settlements,
+                s => s.StringId,
+                s => s.Name.ToString(),
+                s => {
+                    string type = s.IsTown ? "City"
+                        : s.IsCastle ? "Castle"
+                        : s.IsVillage ? "Village"
+                        : s.IsHideout ? "Hideout"
+                        : "Unknown";
+                    return $"[{type}]";
+                },
+                s => $"Owner: {s.OwnerClan?.Name?.ToString() ?? "None"}",
+                s => $"Kingdom: {s.MapFaction?.Name?.ToString() ?? "None"}",
+                s => $"Culture: {s.Culture?.Name?.ToString() ?? "None"}",
+                s => {
+                    if ((s.IsTown | s.IsCastle) && s.Town != null)
+                        return $"Prosperity: {s.Town.Prosperity:F0}";
+                    else if (s.IsVillage && s.Village != null)
+                        return $"Hearth: {s.Village.Hearth:F0}";
+                    return "";
+                }
+            );
         }
     }
 

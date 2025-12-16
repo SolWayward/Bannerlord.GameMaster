@@ -5,6 +5,7 @@ using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.ObjectSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
+using Bannerlord.GameMaster.Console.Common;
 
 namespace Bannerlord.GameMaster.Troops
 {
@@ -210,13 +211,23 @@ namespace Bannerlord.GameMaster.Troops
         }
 
         /// <summary>
-        /// Returns a formatted string listing troop details
+        /// Returns a formatted string listing troop details with aligned columns
         /// </summary>
         public static string GetFormattedDetails(List<CharacterObject> troops)
         {
             if (troops.Count == 0)
                 return "";
-            return string.Join("\n", troops.Select(t => t.FormattedDetails())) + "\n";
+
+            return ColumnFormatter<CharacterObject>.FormatList(
+                troops,
+                t => t.StringId,
+                t => t.Name.ToString(),
+                t => $"[{t.GetTroopCategory()}]",
+                t => $"Tier: {t.GetBattleTier()}",
+                t => $"Level: {t.Level}",
+                t => $"Culture: {t.Culture?.Name?.ToString() ?? "None"}",
+                t => $"Formation: {t.DefaultFormationClass}"
+            );
         }
     }
 

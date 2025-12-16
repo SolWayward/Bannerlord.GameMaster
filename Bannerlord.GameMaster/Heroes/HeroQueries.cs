@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
+using Bannerlord.GameMaster.Console.Common;
 
 namespace Bannerlord.GameMaster.Heroes
 {
@@ -148,13 +149,20 @@ namespace Bannerlord.GameMaster.Heroes
         }
 
         /// <summary>
-        /// Returns a formatted string listing hero details
+        /// Returns a formatted string listing hero details with aligned columns
         /// </summary>
         public static string GetFormattedDetails(List<Hero> heroes)
         {
             if (heroes.Count == 0)
                 return "";
-            return string.Join("\n", heroes.Select(h => h.FormattedDetails())) + "\n";
+
+            return ColumnFormatter<Hero>.FormatList(
+                heroes,
+                h => h.StringId,
+                h => h.Name.ToString(),
+                h => $"Clan: {h.Clan?.Name?.ToString() ?? "None"}",
+                h => $"Kingdom: {h.Clan?.Kingdom?.Name?.ToString() ?? "None"}"
+            );
         }
  }
 

@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
 using Bannerlord.GameMaster.Common.Interfaces;
+using Bannerlord.GameMaster.Console.Common;
 
 namespace Bannerlord.GameMaster.Kingdoms
 {
@@ -147,13 +148,22 @@ namespace Bannerlord.GameMaster.Kingdoms
         }
 
         /// <summary>
-        /// Returns a formatted string listing kingdom details
+        /// Returns a formatted string listing kingdom details with aligned columns
         /// </summary>
         public static string GetFormattedDetails(List<Kingdom> kingdoms)
         {
             if (kingdoms.Count == 0)
                 return "";
-            return string.Join("\n", kingdoms.Select(k => k.FormattedDetails())) + "\n";
+
+            return ColumnFormatter<Kingdom>.FormatList(
+                kingdoms,
+                k => k.StringId,
+                k => k.Name.ToString(),
+                k => $"Clans: {k.Clans.Count}",
+                k => $"Heroes: {k.Heroes.Count()}",
+                k => $"RulingClan: {k.RulingClan?.Name?.ToString() ?? "None"}",
+                k => $"Ruler: {k.Leader?.Name?.ToString() ?? "None"}"
+            );
         }
 
         /// <summary>

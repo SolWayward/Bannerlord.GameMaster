@@ -4,6 +4,7 @@ using System.Linq;
 using TaleWorlds.Core;
 using TaleWorlds.ObjectSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
+using Bannerlord.GameMaster.Console.Common;
 
 namespace Bannerlord.GameMaster.Items
 {
@@ -140,13 +141,25 @@ namespace Bannerlord.GameMaster.Items
         }
 
         /// <summary>
-        /// Returns a formatted string listing item details
+        /// Returns a formatted string listing item details with aligned columns
         /// </summary>
         public static string GetFormattedDetails(List<ItemObject> items)
         {
             if (items.Count == 0)
                 return "";
-            return string.Join("\n", items.Select(i => i.FormattedDetails())) + "\n";
+
+            return ColumnFormatter<ItemObject>.FormatList(
+                items,
+                i => i.StringId,
+                i => i.Name.ToString(),
+                i => $"Type: {i.ItemType}",
+                i => $"Value: {i.Value}",
+                i => {
+                    // Note: ItemTiers enum values are offset by 1
+                    string tier = (int)i.Tier >= -1 ? $"Tier: {(int)i.Tier + 1}" : "Tier: N/A";
+                    return tier;
+                }
+            );
         }
     }
 
