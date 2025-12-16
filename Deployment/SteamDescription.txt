@@ -29,7 +29,7 @@ All commands can be used by targeting entity names or entity Ids. A query system
 2. Enable in Bannerlord launcher
 3. Press [b]~[/b] or [b]`[/b] in-game to open console
 
-[b]Dependencies:[/b] Harmony, ButterLib, UIExtenderEx, MCM (auto-managed)
+[b]No external dependencies required[/b] - This mod uses only native Bannerlord APIs
 
 [h1]Quick Start[/h1]
 

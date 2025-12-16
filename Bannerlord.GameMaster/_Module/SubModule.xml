@@ -9,10 +9,6 @@
   <ModuleType value="Community" />
   <Url value="https://github.com/SolWayward/Bannerlord.GameMaster/" />
   <DependedModules>
-    <DependedModule Id="Bannerlord.Harmony" DependentVersion="v$harmonyversion$" />
-    <DependedModule Id="Bannerlord.ButterLib" DependentVersion="v$butterlibversion$" />
-    <DependedModule Id="Bannerlord.UIExtenderEx" DependentVersion="v$uiextenderexversion$" />
-    <DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v$mcmversion$" />
     <DependedModule Id="Native" DependentVersion="$gameversion$" />
     <DependedModule Id="SandBoxCore" DependentVersion="$gameversion$" />
     <DependedModule Id="Sandbox" DependentVersion="$gameversion$" />
@@ -22,10 +18,6 @@
   <!-- Community Dependency Metadata -->
   <!-- https://github.com/BUTR/Bannerlord.BLSE#community-dependency-metadata -->
   <DependedModuleMetadatas>
-    <DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis" version="v$harmonyversion$" />
-    <DependedModuleMetadata id="Bannerlord.ButterLib" order="LoadBeforeThis" version="v$butterlibversion$" />
-    <DependedModuleMetadata id="Bannerlord.UIExtenderEx" order="LoadBeforeThis" version="v$uiextenderexversion$" />
-    <DependedModuleMetadata id="Bannerlord.MBOptionScreen" order="LoadBeforeThis" version="v$mcmversion$" />
     <DependedModuleMetadata id="Native" order="LoadBeforeThis" version="$gameversion$.*" />
     <DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis" version="$gameversion$.*" />
     <DependedModuleMetadata id="Sandbox" order="LoadBeforeThis" version="$gameversion$.*" />

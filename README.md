@@ -32,7 +32,7 @@ The purpose of this mod is mainly for my own use as a foundation for another mod
 3. Enable in Bannerlord launcher
 4. Press `~` or `` ` `` in-game to open console
 
-**Dependencies:** Harmony, ButterLib, UIExtenderEx, MCM (auto-managed by game)
+**No external dependencies required** - This mod uses only native Bannerlord APIs
 
 ## Quick Start
 

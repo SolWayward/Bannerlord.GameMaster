@@ -31,11 +31,6 @@
 
   <!-- Development Variables -->
   <PropertyGroup>
-    <HarmonyVersion>2.2.2</HarmonyVersion>
-    <UIExtenderExVersion>2.8.0</UIExtenderExVersion>
-    <ButterLibVersion>2.8.11</ButterLibVersion>
-    <MCMVersion>5.9.1</MCMVersion>
-    <HarmonyExtensionsVersion>3.2.0.77</HarmonyExtensionsVersion>
     <!--
     <BUTRSharedVersion>3.0.0.135</BUTRSharedVersion>
     <BUTRModuleManagerVersion>5.0.198</BUTRModuleManagerVersion>
