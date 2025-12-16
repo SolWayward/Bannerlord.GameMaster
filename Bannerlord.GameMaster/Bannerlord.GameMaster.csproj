@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Bannerlord.BUTRModule.Sdk/1.1.0.124">
 
   <PropertyGroup>
-    <Version>1.3.10.5</Version>
+    <Version>1.3.11.1</Version>
     <TargetFrameworks>net472;net6</TargetFrameworks>
     <Platforms>x64</Platforms>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -16,7 +16,7 @@
     <ModuleUrl>$(MSBuildModuleURL)</ModuleUrl>
     <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
     <!-- Module manually override GameVersion -->
-	<OverrideGameVersion>v1.3.10</OverrideGameVersion>
+	<OverrideGameVersion>v1.3.11</OverrideGameVersion>
   </PropertyGroup>
 
 	<PropertyGroup Condition="$(TargetFramework) == 'net472'">

@@ -1,4 +1,11 @@
-﻿v1.3.9
+﻿v1.3.4
+v1.3.5
+v1.3.6
+v1.3.7
+v1.3.8
+v1.3.9
 v1.3.10
+v1.3.11
 v.13.12 beta
-War Sails
+War Sails - Optional
+NavalDLC - Optional

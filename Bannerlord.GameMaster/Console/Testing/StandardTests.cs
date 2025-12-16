@@ -19,6 +19,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         	RegisterKingdomQueryTests();
         	RegisterItemQueryTests();
         	RegisterTroopQueryTests();
+        	RegisterSettlementQueryTests();
         	RegisterHeroManagementTests();
         	RegisterClanManagementTests();
         	RegisterKingdomManagementTests();
@@ -213,6 +214,312 @@ namespace Bannerlord.GameMaster.Console.Testing
             {
                 Category = "KingdomQuery",
                 ExpectedText = "Please provide a kingdom ID"
+            });
+        }
+
+        /// <summary>
+        /// Register settlement query command tests
+        /// </summary>
+        private static void RegisterSettlementQueryTests()
+        {
+            // Test basic settlement query
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_001",
+                "Query settlements without parameters should return all settlements",
+                "gm.query.settlement",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with name search
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_002",
+                "Query settlements with specific name",
+                "gm.query.settlement pen",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with type filter - castle
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_003",
+                "Query settlements with 'castle' filter",
+                "gm.query.settlement castle",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with type filter - city
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_004",
+                "Query settlements with 'city' filter",
+                "gm.query.settlement city",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with type filter - village
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_005",
+                "Query settlements with 'village' filter",
+                "gm.query.settlement village",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with culture filter
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_006",
+                "Query settlements with 'empire' culture filter",
+                "gm.query.settlement empire",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with combined filters
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_007",
+                "Query settlements with combined filters (castle empire)",
+                "gm.query.settlement castle empire",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement_any query (OR logic)
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_008",
+                "Query settlements matching ANY criteria (castle OR city)",
+                "gm.query.settlement_any castle city",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching ANY"
+            });
+
+            // Test settlement_info without ID - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_009",
+                "Settlement info without ID should return error",
+                "gm.query.settlement_info",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "Please provide a settlement ID"
+            });
+
+            // Test settlement_info with invalid ID
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_010",
+                "Settlement info with invalid ID should return error",
+                "gm.query.settlement_info invalid_settlement_id_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "not found"
+            });
+
+            // Test settlement query with player filter
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_011",
+                "Query player-owned settlements",
+                "gm.query.settlement player",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with besieged filter
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_012",
+                "Query besieged settlements",
+                "gm.query.settlement besieged",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with prosperity filters
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_013",
+                "Query high prosperity settlements",
+                "gm.query.settlement high",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with multiple cultures (OR logic)
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_014",
+                "Query settlements from multiple cultures",
+                "gm.query.settlement_any empire vlandia",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching ANY"
+            });
+
+            // Test settlement query with sorting by name
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_015",
+                "Query settlements sorted by name",
+                "gm.query.settlement sort:name",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with sorting by prosperity descending
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_016",
+                "Query settlements sorted by prosperity descending",
+                "gm.query.settlement sort:prosperity:desc",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with combined filters and sorting
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_017",
+                "Query empire cities sorted by prosperity",
+                "gm.query.settlement empire city sort:prosperity:desc",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with Vlandia culture
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_018",
+                "Query vlandia settlements",
+                "gm.query.settlement vlandia",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with Sturgia culture
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_019",
+                "Query sturgia settlements",
+                "gm.query.settlement sturgia",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with Aserai culture
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_020",
+                "Query aserai settlements",
+                "gm.query.settlement aserai",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with Khuzait culture
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_021",
+                "Query khuzait settlements",
+                "gm.query.settlement khuzait",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test settlement query with Battania culture
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_022",
+                "Query battania settlements",
+                "gm.query.settlement battania",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test sorting by owner
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_023",
+                "Query settlements sorted by owner",
+                "gm.query.settlement sort:owner",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test sorting by kingdom
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_024",
+                "Query settlements sorted by kingdom",
+                "gm.query.settlement sort:kingdom",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
+            });
+
+            // Test sorting by culture
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_query_025",
+                "Query settlements sorted by culture",
+                "gm.query.settlement sort:culture",
+                TestExpectation.Contains
+            )
+            {
+                Category = "SettlementQuery",
+                ExpectedText = "settlement(s) matching"
             });
         }
 
