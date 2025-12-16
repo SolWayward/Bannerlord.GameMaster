@@ -4,16 +4,6 @@
 
 Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.
 
-**Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
-
-**BLGM** extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game. 
-  
-The purpose of this mod is mainly for my own use as a foundation for another mod I am working on it but it can also be useful to modders for testing, debugging, or to quickly implement functionality in their mods as well, an API is also provided. The mod will regular be updated with additional features and more powerful functionality.
-
-- All commands use the `gm.` prefix for easy organization.  
-- Commands can be used by targeting entity names or entity Ids.
-- Query system is also included for quickly searching for entities.  
-
 ## Key Features
 
 - **Hero Management** - Modify attributes, gold, health, relationships, life state
@@ -25,12 +15,22 @@ The purpose of this mod is mainly for my own use as a foundation for another mod
 - **Command Logging** - Track all command usage for debugging
 - **Testing Framework** - Automated validation system
 
+**Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
+
+**BLGM** extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game. 
+  
+The purpose of this mod is mainly for my own use as a foundation for another mod I am working on it but it can also be useful to modders for testing, debugging, or to quickly implement functionality in their mods as well, an API is also provided. The mod will regular be updated with additional features and more powerful functionality.
+
+- All commands use the `gm.` prefix for easy organization.  
+- Commands can be used by targeting entity names or entity Ids.
+- Query system is also included for quickly searching for entities.  
+
 ## Installation
 
 1. Download from [Releases](https://github.com/SolWayward/Bannerlord.GameMaster/releases)
 2. Extract to: `...\Mount & Blade II Bannerlord\Modules\`
 3. Enable in Bannerlord launcher
-4. Press `~` or `` ` `` in-game to open console
+4. Press Alt + `~` (tilde key) in-game to open console
 
 **No external dependencies required** - This mod uses only native Bannerlord APIs
 
