@@ -1,5 +1,4 @@
 # Bannerlord.GameMaster (BLGM)
-
 **📚 [Complete Documentation on GitHub Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**
 
 Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.
@@ -10,8 +9,9 @@ Console commands and power tools mod for Mount & Blade II: Bannerlord providing 
   
 The purpose of this mod is mainly for my own use as a foundation for another mod I am working on it but it can also be useful to modders for testing, debugging, or to quickly implement functionality in their mods as well, an API is also provided. The mod will regular be updated with additional features and more powerful functionality.
 
-All commands use the `gm.` prefix for easy organization.  
-All commands can be used by targeting entity names or entity Ids. A query system is also included for quickly searching for entities.  
+- All commands use the `gm.` prefix for easy organization.  
+- Commands can be used by targeting entity names or entity Ids.
+- Query system is also included for quickly searching for entities.  
 
 ## Key Features
 
