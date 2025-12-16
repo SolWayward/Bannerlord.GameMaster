@@ -5,7 +5,7 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-            "Removed dependencies on BUTR stack."
+            "Added command to give troops to a hero's party."
         />
         <Tags>
             <Tag Value="Utility" />
@@ -17,6 +17,7 @@
             <Tag Value="v1.3.8" />
             <Tag Value="v1.3.9" />
             <Tag Value="v1.3.10" />
+            <Tag Value="v1.3.11" />
             <Tag Value="v1.3.12" />
         </Tags>
         <Visibility Value="Public"/>
