@@ -2,13 +2,16 @@
 
 **📚 [Complete Documentation on GitHub Wiki](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**
 
-Console commands mod for Mount & Blade II: Bannerlord providing game management through a command-line interface.
+Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.
 
-**Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and War Sails
+**Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
 
-## What It Does
+**BLGM** extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game. 
+  
+The purpose of this mod is mainly for my own use as a foundation for another mod I am working on it but it can also be useful to modders for testing, debugging, or to quickly implement functionality in their mods as well, an API is also provided. The mod will regular be updated with additional features and more powerful functionality.
 
-BLGM extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. All commands use the `gm.` prefix for easy organization.
+All commands use the `gm.` prefix for easy organization.  
+All commands can be used by targeting entity names or entity Ids. A query system is also included for quickly searching for entities.  
 
 ## Key Features
 
