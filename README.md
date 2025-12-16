@@ -124,16 +124,16 @@ Use powerful queries to search and filter:
 [Full Logger Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands)
 
 ### Testing Commands
-`run`, `run_category`, `run_integration` (⚠️ For developers only - modifies game state)
+`run`, `run_category`, `run_integration` (For developers only - modifies game state)
 
 [Full Testing Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands)
 
 ## Important Notes
 
-- ⚠️ **Backup your saves** - Many commands make permanent changes
-- 🧪 **Test in separate save** - Experiment safely
-- 📝 **Enable logging** - Use `gm.log.enable` for tracking
-- ⛔ **Some actions are irreversible** - Killing heroes, destroying clans
+- **Backup your saves** - Many commands make permanent changes
+- **Test in separate save** - Experiment safely
+- **Enable logging** - Use `gm.log.enable` for tracking
+- **Some actions are irreversible** - Killing heroes, destroying clans
 
 ## Support
 
