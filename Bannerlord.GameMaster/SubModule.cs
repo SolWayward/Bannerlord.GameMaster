@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection.Metadata;
 using Bannerlord.GameMaster.Console.Testing;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
