@@ -5,7 +5,7 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-            "Added commands to save and load equipment sets from specified heroes"
+            "Removed dependencies on BUTR stack."
         />
         <Tags>
             <Tag Value="Utility" />
