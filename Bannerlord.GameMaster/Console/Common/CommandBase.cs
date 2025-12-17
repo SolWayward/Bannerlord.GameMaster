@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Kingdoms;
 using Bannerlord.GameMaster.Items;
 using Bannerlord.GameMaster.Troops;
+using Bannerlord.GameMaster.Settlements;
 
 namespace Bannerlord.GameMaster.Console.Common
 {
@@ -167,6 +169,29 @@ namespace Bannerlord.GameMaster.Console.Common
                 getName: c => c.Name?.ToString() ?? "",
                 formatDetails: TroopQueries.GetFormattedDetails,
                 entityType: "character");
+        }
+
+        /// <summary>
+        /// Helper method to find a single settlement from a query
+        /// </summary>
+        public static (Settlement settlement, string error) FindSingleSettlement(string query)
+        {
+            List<Settlement> matchedSettlements = SettlementQueries.QuerySettlements(query);
+
+            if (matchedSettlements == null || matchedSettlements.Count == 0)
+                return (null, $"Error: No settlement matching query '{query}' found.\n");
+
+            if (matchedSettlements.Count == 1)
+                return (matchedSettlements[0], null);
+
+            // Use smart matching for multiple results
+            return ResolveMultipleMatches(
+                matches: matchedSettlements,
+                query: query,
+                getStringId: s => s.StringId,
+                getName: s => s.Name?.ToString() ?? "",
+                formatDetails: SettlementQueries.GetFormattedDetails,
+                entityType: "settlement");
         }
 
         /// <summary>

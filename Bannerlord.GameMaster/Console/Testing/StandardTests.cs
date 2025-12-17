@@ -27,6 +27,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         	RegisterTroopManagementTests();
         	RegisterItemEquipmentSaveTests();
         	RegisterItemEquipmentLoadTests();
+        	RegisterSettlementManagementTests();
         	RegisterSuccessPathTests();
         	RegisterSortingTests();
         }
@@ -2480,6 +2481,540 @@ namespace Bannerlord.GameMaster.Console.Testing
             {
                 Category = "ModifierManagement",
                 ExpectedText = "not found"
+            });
+        }
+
+        /// <summary>
+        /// Register settlement management command tests
+        /// </summary>
+        private static void RegisterSettlementManagementTests()
+        {
+            // Test set_owner without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_001",
+                "Set settlement owner without arguments should return usage error",
+                "gm.settlement.set_owner",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_owner with only settlement (missing hero) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_002",
+                "Set settlement owner with only settlement argument should return usage error",
+                "gm.settlement.set_owner pen",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_owner with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_003",
+                "Set settlement owner with invalid settlement should return error",
+                "gm.settlement.set_owner invalid_settlement_xyz lord_1_1",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test set_owner with invalid hero - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_004",
+                "Set settlement owner with invalid hero should return error",
+                "gm.settlement.set_owner pen invalid_hero_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test set_owner_clan without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_005",
+                "Set settlement owner clan without arguments should return usage error",
+                "gm.settlement.set_owner_clan",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_owner_clan with only settlement (missing clan) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_006",
+                "Set settlement owner clan with only settlement argument should return usage error",
+                "gm.settlement.set_owner_clan pen",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_owner_clan with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_007",
+                "Set settlement owner clan with invalid settlement should return error",
+                "gm.settlement.set_owner_clan invalid_settlement_xyz empire_south",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test set_owner_clan with invalid clan - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_008",
+                "Set settlement owner clan with invalid clan should return error",
+                "gm.settlement.set_owner_clan pen invalid_clan_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No clan matching"
+            });
+
+            // Test set_owner_kingdom without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_009",
+                "Set settlement owner kingdom without arguments should return usage error",
+                "gm.settlement.set_owner_kingdom",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_owner_kingdom with only settlement (missing kingdom) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_010",
+                "Set settlement owner kingdom with only settlement argument should return usage error",
+                "gm.settlement.set_owner_kingdom pen",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_owner_kingdom with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_011",
+                "Set settlement owner kingdom with invalid settlement should return error",
+                "gm.settlement.set_owner_kingdom invalid_settlement_xyz empire",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test set_owner_kingdom with invalid kingdom - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_012",
+                "Set settlement owner kingdom with invalid kingdom should return error",
+                "gm.settlement.set_owner_kingdom pen invalid_kingdom_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No kingdom matching"
+            });
+
+            // Test set_prosperity without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_013",
+                "Set settlement prosperity without arguments should return usage error",
+                "gm.settlement.set_prosperity",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_prosperity with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_014",
+                "Set settlement prosperity with invalid settlement should return error",
+                "gm.settlement.set_prosperity invalid_settlement_xyz 5000",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test set_prosperity with invalid value (negative) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_015",
+                "Set settlement prosperity with negative value should return error",
+                "gm.settlement.set_prosperity pen -1000",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Error"
+            });
+
+            // Test set_hearths without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_016",
+                "Set village hearths without arguments should return usage error",
+                "gm.settlement.set_hearths",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_hearths with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_017",
+                "Set village hearths with invalid settlement should return error",
+                "gm.settlement.set_hearths invalid_village_xyz 500",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test rename without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_018",
+                "Rename settlement without arguments should return usage error",
+                "gm.settlement.rename",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test rename with only settlement (missing name) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_019",
+                "Rename settlement with only settlement argument should return usage error",
+                "gm.settlement.rename pen",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test rename with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_020",
+                "Rename settlement with invalid settlement should return error",
+                "gm.settlement.rename invalid_settlement_xyz NewName",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test set_loyalty without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_021",
+                "Set settlement loyalty without arguments should return usage error",
+                "gm.settlement.set_loyalty",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_loyalty with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_022",
+                "Set settlement loyalty with invalid settlement should return error",
+                "gm.settlement.set_loyalty invalid_settlement_xyz 100",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test set_security without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_023",
+                "Set settlement security without arguments should return usage error",
+                "gm.settlement.set_security",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test set_security with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_024",
+                "Set settlement security with invalid settlement should return error",
+                "gm.settlement.set_security invalid_settlement_xyz 100",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test add_construction without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_025",
+                "Add settlement construction without arguments should return usage error",
+                "gm.settlement.add_construction",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test add_construction with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_026",
+                "Add settlement construction with invalid settlement should return error",
+                "gm.settlement.add_construction invalid_settlement_xyz 500",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test give_food without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_027",
+                "Give settlement food without arguments should return usage error",
+                "gm.settlement.give_food",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test give_food with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_028",
+                "Give settlement food with invalid settlement should return error",
+                "gm.settlement.give_food invalid_settlement_xyz 1000",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test give_gold without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_029",
+                "Give settlement gold without arguments should return usage error",
+                "gm.settlement.give_gold",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test give_gold with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_030",
+                "Give settlement gold with invalid settlement should return error",
+                "gm.settlement.give_gold invalid_settlement_xyz 10000",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test add_militia without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_031",
+                "Add settlement militia without arguments should return usage error",
+                "gm.settlement.add_militia",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test add_militia with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_032",
+                "Add settlement militia with invalid settlement should return error",
+                "gm.settlement.add_militia invalid_settlement_xyz 100",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test fill_garrison without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_033",
+                "Fill settlement garrison without arguments should return usage error",
+                "gm.settlement.fill_garrison",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test fill_garrison with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_034",
+                "Fill settlement garrison with invalid settlement should return error",
+                "gm.settlement.fill_garrison invalid_settlement_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test upgrade_buildings without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_035",
+                "Upgrade buildings without arguments should return usage error",
+                "gm.settlement.upgrade_buildings",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test upgrade_buildings with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_036",
+                "Upgrade buildings with invalid settlement should return error",
+                "gm.settlement.upgrade_buildings invalid_settlement_xyz 3",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test own_workshops without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_037",
+                "Own workshops without arguments should return usage error",
+                "gm.settlement.own_workshops",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test own_workshops with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_038",
+                "Own workshops with invalid settlement should return error",
+                "gm.settlement.own_workshops invalid_settlement_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test add_workshop without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_039",
+                "Add workshop without arguments should return usage error",
+                "gm.settlement.add_workshop",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test add_workshop with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_040",
+                "Add workshop with invalid settlement should return error",
+                "gm.settlement.add_workshop invalid_settlement_xyz 2",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test create_caravan without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_041",
+                "Create caravan without arguments should return usage error",
+                "gm.settlement.create_caravan",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test create_caravan with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_042",
+                "Create caravan with invalid settlement should return error",
+                "gm.settlement.create_caravan invalid_settlement_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test spawn_wanderer without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_043",
+                "Spawn wanderer without arguments should return usage error",
+                "gm.settlement.spawn_wanderer",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test spawn_wanderer with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_044",
+                "Spawn wanderer with invalid settlement should return error",
+                "gm.settlement.spawn_wanderer invalid_settlement_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
             });
         }
 
