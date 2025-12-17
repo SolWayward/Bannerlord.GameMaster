@@ -9,6 +9,7 @@ using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.ObjectSystem;
 
 namespace Bannerlord.GameMaster.Console.HeroCommands
 {
@@ -403,6 +404,365 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                     return CommandBase.FormatSuccessMessage(
                         $"Relation between {hero1.Name} and {hero2.Name} changed from {previousRelation} to {value}.");
                 }, "Failed to set relation");
+            });
+        }
+
+        #endregion
+
+        #region Hero Generation
+
+        /// <summary>
+        /// Generate new lords with random templates and good equipment
+        /// Usage: gm.hero.generate_lords [count] [clan]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("generate_lords", "gm.hero")]
+        public static string GenerateLords(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.hero.generate_lords", "[count=1] [clan=random]",
+                    "Creates lords from random templates with good gear and decent stats. Age 30-40. If clan not specified, each lord goes to a different random clan.",
+                    "gm.hero.generate_lords 3\ngm.hero.generate_lords 5 empire_south");
+
+                // Parse count (optional, default 1)
+                int count = 1;
+                if (args.Count > 0)
+                {
+                    if (!CommandValidator.ValidateIntegerRange(args[0], 1, 20, out count, out string countError))
+                        return CommandBase.FormatErrorMessage(countError);
+                }
+
+                // Parse clan (optional)
+                Clan targetClan = null;
+                if (args.Count > 1)
+                {
+                    var (clan, clanError) = CommandBase.FindSingleClan(args[1]);
+                    if (clanError != null) return clanError;
+                    targetClan = clan;
+                }
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    // Get available noble/warrior templates
+                    var lordTemplates = CharacterObject.All
+                        .Where(c => !c.IsHero && c.Occupation == Occupation.Lord && c.Culture != null)
+                        .ToList();
+
+                    if (lordTemplates.Count == 0)
+                        return CommandBase.FormatErrorMessage("No lord templates found in game data.");
+
+                    // Get available clans for random assignment
+                    var availableClans = Clan.All
+                        .Where(c => !c.IsEliminated && !c.IsBanditFaction && c.Leader != null)
+                        .ToList();
+
+                    if (availableClans.Count == 0)
+                        return CommandBase.FormatErrorMessage("No available clans found.");
+
+                    var random = new Random();
+                    var createdLords = new List<(Hero hero, Clan clan)>();
+                    var usedClans = new HashSet<Clan>();
+
+                    for (int i = 0; i < count; i++)
+                    {
+                        // Select random template with random gender
+                       var genderFilteredTemplates = lordTemplates
+                           .Where(t => t.IsFemale == (random.Next(2) == 0))
+                           .ToList();
+                       
+                       // Fall back to all templates if no matching gender found
+                       if (genderFilteredTemplates.Count == 0)
+                           genderFilteredTemplates = lordTemplates;
+                           
+                       var template = genderFilteredTemplates[random.Next(genderFilteredTemplates.Count)];
+
+                        // Determine clan for this lord
+                        Clan assignedClan;
+                        if (targetClan != null)
+                        {
+                            assignedClan = targetClan;
+                        }
+                        else
+                        {
+                            // Find a clan not yet used
+                            var unusedClans = availableClans.Where(c => !usedClans.Contains(c)).ToList();
+                            if (unusedClans.Count == 0)
+                            {
+                                // All clans used, reset
+                                usedClans.Clear();
+                                unusedClans = availableClans.ToList();
+                            }
+                            assignedClan = unusedClans[random.Next(unusedClans.Count)];
+                            usedClans.Add(assignedClan);
+                        }
+
+                        // Generate unique ID
+                        int randomId = random.Next(10000, 99999);
+                        string lordId = $"gm_lord_{assignedClan.StringId}_{CampaignTime.Now.GetYear}_{randomId}";
+
+                        // Create hero with age 30-40
+                        int age = random.Next(30, 41);
+                        Hero newLord = HeroCreator.CreateSpecialHero(
+                            template,
+                            assignedClan.Leader?.CurrentSettlement ?? Settlement.All.FirstOrDefault(s => s.OwnerClan == assignedClan),
+                            assignedClan,
+                            null,
+                            age
+                        );
+
+                        if (newLord == null)
+                            continue;
+
+                        // Set as active lord
+                        newLord.ChangeState(Hero.CharacterStates.Active);
+                        newLord.SetNewOccupation(Occupation.Lord);
+
+                        // Give decent stats (level 15-25)
+                        int targetLevel = random.Next(15, 26);
+                        for (int level = 1; level < targetLevel; level++)
+                        {
+                            newLord.HeroDeveloper.AddFocus(
+                                DefaultSkills.OneHanded,
+                                1,
+                                false
+                            );
+                        }
+
+                        // Give good equipment
+                        var equipment = newLord.BattleEquipment;
+                        
+                        // Find and equip armor based on culture
+                        var armorItems = MBObjectManager.Instance.GetObjectTypeList<ItemObject>()
+                            .Where(item => item.Culture == template.Culture &&
+                                         (item.Type == ItemObject.ItemTypeEnum.BodyArmor ||
+                                          item.Type == ItemObject.ItemTypeEnum.HeadArmor ||
+                                          item.Type == ItemObject.ItemTypeEnum.LegArmor ||
+                                          item.Type == ItemObject.ItemTypeEnum.HandArmor ||
+                                          item.Type == ItemObject.ItemTypeEnum.Cape) &&
+                                         item.Tier >= ItemObject.ItemTiers.Tier4)
+                            .ToList();
+
+                        if (armorItems.Count > 0)
+                        {
+                            foreach (var armorPiece in armorItems.Take(5))
+                            {
+                                EquipmentIndex slot = EquipmentIndex.None;
+                                if (armorPiece.Type == ItemObject.ItemTypeEnum.BodyArmor)
+                                    slot = EquipmentIndex.Body;
+                                else if (armorPiece.Type == ItemObject.ItemTypeEnum.HeadArmor)
+                                    slot = EquipmentIndex.Head;
+                                else if (armorPiece.Type == ItemObject.ItemTypeEnum.LegArmor)
+                                    slot = EquipmentIndex.Leg;
+                                else if (armorPiece.Type == ItemObject.ItemTypeEnum.HandArmor)
+                                    slot = EquipmentIndex.Gloves;
+                                else if (armorPiece.Type == ItemObject.ItemTypeEnum.Cape)
+                                    slot = EquipmentIndex.Cape;
+
+                                if (slot != EquipmentIndex.None && equipment[slot].IsEmpty)
+                                {
+                                    equipment[slot] = new EquipmentElement(armorPiece);
+                                }
+                            }
+                        }
+
+                        // Find and equip weapon
+                        var weapons = MBObjectManager.Instance.GetObjectTypeList<ItemObject>()
+                            .Where(item => item.Culture == template.Culture &&
+                                         item.Type == ItemObject.ItemTypeEnum.OneHandedWeapon &&
+                                         item.Tier >= ItemObject.ItemTiers.Tier3)
+                            .ToList();
+
+                        if (weapons.Count > 0)
+                        {
+                            var weapon = weapons[random.Next(weapons.Count)];
+                            if (equipment[EquipmentIndex.Weapon0].IsEmpty)
+                            {
+                                equipment[EquipmentIndex.Weapon0] = new EquipmentElement(weapon);
+                            }
+                        }
+
+                        createdLords.Add((newLord, assignedClan));
+                    }
+
+                    if (createdLords.Count == 0)
+                        return CommandBase.FormatErrorMessage("Failed to create any lords.");
+
+                    var result = new System.Text.StringBuilder();
+                    result.AppendLine($"Successfully created {createdLords.Count} lord(s):");
+                    foreach (var (lord, clan) in createdLords)
+                    {
+                        result.AppendLine($"  - {lord.Name} (ID: {lord.StringId}, Age: {(int)lord.Age}, Clan: {clan.Name})");
+                    }
+
+                    return CommandBase.FormatSuccessMessage(result.ToString());
+                }, "Failed to generate lords");
+            });
+        }
+
+        /// <summary>
+        /// Create a fresh lord with minimal stats and equipment
+        /// Usage: gm.hero.create_lord [gender] [name] [clan]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("create_lord", "gm.hero")]
+        public static string CreateLord(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.hero.create_lord", "<gender> <name> <clan>",
+                    "Creates a fresh lord age 20-24 with minimal stats and only clothes. Gender must be 'male' or 'female'.",
+                    "gm.hero.create_lord male NewLord empire_south");
+
+                if (!CommandBase.ValidateArgumentCount(args, 3, usageMessage, out error))
+                    return error;
+
+                // Parse gender
+                bool isFemale;
+                string genderArg = args[0].ToLower();
+                if (genderArg == "male" || genderArg == "m")
+                    isFemale = false;
+                else if (genderArg == "female" || genderArg == "f")
+                    isFemale = true;
+                else
+                    return CommandBase.FormatErrorMessage("Gender must be 'male' or 'female'.");
+
+                string name = args[1];
+                if (string.IsNullOrWhiteSpace(name))
+                    return CommandBase.FormatErrorMessage("Name cannot be empty.");
+
+                var (clan, clanError) = CommandBase.FindSingleClan(args[2]);
+                if (clanError != null) return clanError;
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    var random = new Random();
+                    
+                    // Get all cultures for random selection
+                    var allCultures = MBObjectManager.Instance.GetObjectTypeList<TaleWorlds.Core.BasicCultureObject>()
+                        .Where(c => c != null)
+                        .ToList();
+                    
+                    if (allCultures.Count == 0)
+                        return CommandBase.FormatErrorMessage("No cultures found in game data.");
+                    
+                    // Select random culture
+                    var randomCulture = allCultures[random.Next(allCultures.Count)];
+                    
+                    // Get lord templates matching gender and the random culture
+                    var lordTemplates = CharacterObject.All
+                        .Where(c => !c.IsHero &&
+                                  c.Occupation == Occupation.Lord &&
+                                  c.IsFemale == isFemale &&
+                                  c.Culture == randomCulture)
+                        .ToList();
+
+                    // If no templates for this culture, try any culture
+                    if (lordTemplates.Count == 0)
+                    {
+                        lordTemplates = CharacterObject.All
+                            .Where(c => !c.IsHero &&
+                                      c.Occupation == Occupation.Lord &&
+                                      c.IsFemale == isFemale &&
+                                      c.Culture != null)
+                            .ToList();
+                    }
+
+                    if (lordTemplates.Count == 0)
+                        return CommandBase.FormatErrorMessage($"No {(isFemale ? "female" : "male")} lord templates found.");
+
+                    var template = lordTemplates[random.Next(lordTemplates.Count)];
+
+                    // Generate unique ID
+                    int randomId = random.Next(10000, 99999);
+                    string lordId = $"gm_lord_{clan.StringId}_{name.ToLower()}_{randomId}";
+
+                    // Create hero age 20-24
+                    int age = random.Next(20, 25);
+                    Hero newLord = HeroCreator.CreateSpecialHero(
+                        template,
+                        clan.Leader?.CurrentSettlement ?? Settlement.All.FirstOrDefault(s => s.OwnerClan == clan),
+                        clan,
+                        null,
+                        age
+                    );
+
+                    if (newLord == null)
+                        return CommandBase.FormatErrorMessage("Failed to create hero.");
+
+                    // Set name
+                    newLord.SetName(new TaleWorlds.Localization.TextObject(name), new TaleWorlds.Localization.TextObject(name));
+
+                    // Set as active lord
+                    newLord.ChangeState(Hero.CharacterStates.Active);
+                    newLord.SetNewOccupation(Occupation.Lord);
+                    
+                    // Randomize body properties for unique appearance (face and hair)
+                    var bodyPropertiesMin = newLord.CharacterObject.GetBodyPropertiesMin();
+                    var bodyPropertiesMax = newLord.CharacterObject.GetBodyPropertiesMax();
+                    
+                    // Generate random body properties within the character's min/max range
+                    var randomBodyProperties = BodyProperties.GetRandomBodyProperties(
+                        newLord.CharacterObject.Race,
+                        isFemale,
+                        bodyPropertiesMin,
+                        bodyPropertiesMax,
+                        (int)newLord.Age,
+                        random.Next(),
+                        null,  // Hair tags - use template defaults
+                        null,  // Beard tags - automatic for males
+                        null   // Tattoo tags - no tattoos
+                    );
+                    
+                    // Apply randomized appearance using reflection - convert to StaticBodyProperties
+                    var staticBodyProp = typeof(Hero).GetProperty("StaticBodyProperties");
+                    if (staticBodyProp != null)
+                    {
+                        // Create StaticBodyProperties from BodyProperties using key parts
+                        var staticBody = new StaticBodyProperties(
+                            randomBodyProperties.KeyPart1,
+                            randomBodyProperties.KeyPart2,
+                            randomBodyProperties.KeyPart3,
+                            randomBodyProperties.KeyPart4,
+                            randomBodyProperties.KeyPart5,
+                            randomBodyProperties.KeyPart6,
+                            randomBodyProperties.KeyPart7,
+                            randomBodyProperties.KeyPart8
+                        );
+                        staticBodyProp.SetValue(newLord, staticBody);
+                    }
+
+                    // Clear all equipment except civilian clothes
+                    var equipment = newLord.BattleEquipment;
+                    for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+                    {
+                        equipment[(EquipmentIndex)i] = new EquipmentElement();
+                    }
+
+                    // Add basic civilian clothes
+                    var civilianClothes = MBObjectManager.Instance.GetObjectTypeList<ItemObject>()
+                        .Where(item => item.Culture == template.Culture &&
+                                     item.Type == ItemObject.ItemTypeEnum.BodyArmor &&
+                                     item.Tier == ItemObject.ItemTiers.Tier1 &&
+                                     item.IsCivilian)
+                        .FirstOrDefault();
+
+                    if (civilianClothes != null)
+                    {
+                        equipment[EquipmentIndex.Body] = new EquipmentElement(civilianClothes);
+                    }
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"Created fresh lord '{newLord.Name}' (ID: {newLord.StringId}):\n" +
+                        $"Age: {(int)newLord.Age} | Gender: {(isFemale ? "Female" : "Male")} | Clan: {clan.Name}\n" +
+                        $"Level: 1 | Equipment: Minimal");
+                }, "Failed to create lord");
             });
         }
 

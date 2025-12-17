@@ -8,7 +8,6 @@ using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.CampaignSystem.Settlements;
-using TaleWorlds.CampaignSystem.Settlements.Workshops;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 

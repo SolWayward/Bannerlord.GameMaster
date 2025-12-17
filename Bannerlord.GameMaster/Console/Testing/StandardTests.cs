@@ -1853,6 +1853,90 @@ namespace Bannerlord.GameMaster.Console.Testing
                 Category = "HeroManagement",
                 ExpectedText = "Missing arguments"
             });
+
+            // Test generate_lords with invalid count - should error
+            TestRunner.RegisterTest(new TestCase(
+                "hero_mgmt_007",
+                "Generate lords with invalid count (negative) should return error",
+                "gm.hero.generate_lords -1",
+                TestExpectation.Error
+            )
+            {
+                Category = "HeroManagement",
+                ExpectedText = "Error"
+            });
+
+            // Test generate_lords with invalid count (too high) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "hero_mgmt_008",
+                "Generate lords with invalid count (>20) should return error",
+                "gm.hero.generate_lords 50",
+                TestExpectation.Error
+            )
+            {
+                Category = "HeroManagement",
+                ExpectedText = "Error"
+            });
+
+            // Test generate_lords with invalid clan - should error
+            TestRunner.RegisterTest(new TestCase(
+                "hero_mgmt_009",
+                "Generate lords with invalid clan should return error",
+                "gm.hero.generate_lords 1 invalid_clan_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "HeroManagement",
+                ExpectedText = "No clan matching"
+            });
+
+            // Test create_lord without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "hero_mgmt_010",
+                "Create lord without arguments should return usage error",
+                "gm.hero.create_lord",
+                TestExpectation.Error
+            )
+            {
+                Category = "HeroManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test create_lord with only gender (missing name and clan) - should error
+            TestRunner.RegisterTest(new TestCase(
+                "hero_mgmt_011",
+                "Create lord with only gender should return usage error",
+                "gm.hero.create_lord male",
+                TestExpectation.Error
+            )
+            {
+                Category = "HeroManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test create_lord with invalid gender - should error
+            TestRunner.RegisterTest(new TestCase(
+                "hero_mgmt_012",
+                "Create lord with invalid gender should return error",
+                "gm.hero.create_lord invalid NewLord empire_south",
+                TestExpectation.Error
+            )
+            {
+                Category = "HeroManagement",
+                ExpectedText = "Gender must be"
+            });
+
+            // Test create_lord with invalid clan - should error
+            TestRunner.RegisterTest(new TestCase(
+                "hero_mgmt_013",
+                "Create lord with invalid clan should return error",
+                "gm.hero.create_lord male NewLord invalid_clan_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "HeroManagement",
+                ExpectedText = "No clan matching"
+            });
         }
 
         /// <summary>
