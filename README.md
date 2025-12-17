@@ -144,7 +144,7 @@ Use powerful queries to search and filter:
 ### Settlement Management Commands
 `add_militia`, `fill_garrison`, `give_food`, `give_gold`, `rename`, `set_hearths`, `set_loyalty`, `set_prosperity`, `set_security`, `spawn_wanderer`, `create_notable_caravan`, `create_player_caravan`
 
-[Full Item Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
+[Full Settlement Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
 
 ### Query Commands
 `hero`, `clan`, `kingdom`, `item`, `modifiers` - All support AND/OR logic, sorting, and filtering
