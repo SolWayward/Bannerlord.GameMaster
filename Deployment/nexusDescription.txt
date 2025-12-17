@@ -10,26 +10,26 @@ Console commands and power tools mod for Mount & Blade II: Bannerlord providing 
 Improved query output column alignment
 
 Added Hero Commands:
-﻿﻿﻿	- Create Lord
-﻿﻿	- Generate Lords
+﻿﻿﻿   - Create Lord
+﻿﻿   - Generate Lords
 
 Added Settlement Query System
 
 Added Settlement Commands:
-﻿﻿	- Change owner
-﻿﻿	- spawn wanderer
-﻿﻿	- create player caravan
-﻿﻿	- create notable caravan
-﻿﻿	- upgrade all buildings to desired level
-﻿﻿	- add settlement food
-﻿﻿	- add settlement gold
-﻿﻿	- set settlement security
-﻿﻿	- set settlement loyalty
-﻿﻿	- add settlement militia
-﻿﻿	- set settlement prosperity
-﻿﻿	- fill settlement garrison
-﻿﻿	- set village hearths
-﻿﻿	- change name
+﻿﻿   - Change owner
+﻿﻿   - spawn wanderer
+﻿﻿   - create player caravan
+﻿﻿   - create notable caravan
+﻿﻿   - upgrade all buildings to desired level
+﻿﻿   - add settlement food
+﻿﻿   - add settlement gold
+﻿﻿   - set settlement security
+﻿﻿   - set settlement loyalty
+﻿﻿   - add settlement militia
+﻿﻿   - set settlement prosperity
+﻿﻿   - fill settlement garrison
+﻿﻿   - set village hearths
+﻿﻿   - change name
 [/code]
    
 [size=5][b]Key Features[/b][/size]
@@ -77,36 +77,30 @@ Use powerful queries to search and filter:
 [/list]
 [b]Sort Options:[/b] name, value, tier, type (add :asc or :desc)
 [size=5][b]
-Available Commands[/b][/size]
-[size=3][b]
+Available Commands[/b][/size][size=3][b]
 Hero Commands:[/b][/size]
-set_gold, set_health, set_age, kill, imprison, release, teleport, set_clan, set_relation
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Hero-Commands]Full Documentation →[/url]
+set_gold, set_health, set_age, kill, imprison, release, teleport, set_clan, set_relation, create_lord, generate_lords
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Hero-Overview]Full Documentation →[/url]
 [size=3][b]
 Clan Commands:[/b][/size]
 add_hero, remove_hero, set_gold, add_gold, distribute_gold, set_renown, set_tier, set_leader, destroy
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Clan-Commands]Full Documentation →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Clan-Overview]Full Documentation →[/url]
 [size=3][b]
 Kingdom Commands:[/b][/size]
 add_clan, remove_clan, declare_war, make_peace, add_settlement, remove_settlement, set_ruler, destroy
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Kingdom-Commands]Full Documentation →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Kingdom-Overview]Full Documentation →[/url]
 [size=3][b]
 Item Management:[/b][/size]
 add, remove, transfer, equip, unequip, list_equipped, list_inventory, set_equipped_modifier, save_equipment, save_equipment_civilian, save_equipment_both, load_equipment, load_equipment_civilian, load_equipment_both
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Management-Commands]Full Documentation →[/url]
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Item-Overview]Full Documentation →[/url]
+Settlement Management:[/b][/size]
+add_militia, fill_garrison, give_food, give_gold, rename, set_hearths, set_loyalty, set_prosperity, set_security, spawn_wanderer, create_notable_caravan, create_player_caravan
+[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview]Full Documentation →[/url]
 [size=3][b]
 Query Commands:[/b][/size]
 hero, clan, kingdom, item, modifiers (all support AND/OR logic, sorting, filtering)
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands]Full Documentation →[/url]
-[size=3][b]
-Logger Commands:[/b][/size]
-enable, disable, status, clear
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands]Full Documentation →[/url]
-[size=3][b]
-Testing Commands:[/b][/size]
-run, run_category, run_integration (For developers - modifies game state)
-[url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands]Full Documentation →[/url]
-[size=5][b]
+[size=3][b][size=5][b]
 Important Notes[/b][/size]
 [list]
 [*][b]Backup your saves[/b] - Many commands make permanent changes
@@ -114,7 +108,7 @@ Important Notes[/b][/size]
 [*][b]Enable logging[/b] - Use [font=Courier New]gm.log.enable[/font] for tracking
 [*][b]Some actions are irreversible[/b] - Killing heroes, destroying clans
 [/list]
-[size=5][b]Support[/b][/size]
+[size=5][b]Support[/b][/b][/size][b]
 [list]
 [*][b]Documentation:[/b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki]GitHub Wiki[/url]
 [*][b]Issues:[/b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/issues]GitHub Issues[/url]

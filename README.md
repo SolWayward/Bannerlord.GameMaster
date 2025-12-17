@@ -122,37 +122,32 @@ Use powerful queries to search and filter:
 ### Hero Commands
 `set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`
 
-[Full Hero Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Hero-Commands)
+[Full Hero Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Hero-Overview)
 
 ### Clan Commands
 `add_hero`, `remove_hero`, `set_gold`, `add_gold`, `distribute_gold`, `set_renown`, `set_tier`, `set_leader`, `destroy`
 
-[Full Clan Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Clan-Commands)
+[Full Clan Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Clan-Overview)
 
 ### Kingdom Commands
 `add_clan`, `remove_clan`, `declare_war`, `make_peace`, `add_settlement`, `remove_settlement`, `set_ruler`, `destroy`
 
-[Full Kingdom Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Kingdom-Commands)
+[Full Kingdom Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Kingdom-Overview)
 
 ### Item Management Commands
 `add`, `remove`, `remove_all`, `transfer`, `equip`, `unequip`, `equip_slot`, `unequip_slot`, `list_equipped`, `list_inventory`, `set_equipped_modifier`, `set_inventory_modifier`, `save_equipment`, `save_equipment_civilian`, `save_equipment_both`, `load_equipment`, `load_equipment_civilian`, `load_equipment_both`
 
-[Full Item Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Item-Management-Commands)
+[Full Item Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Item-Overview)
+
+### Settlement Management Commands
+`add_militia`, `fill_garrison`, `give_food`, `give_gold`, `rename`, `set_hearths`, `set_loyalty`, `set_prosperity`, `set_security`, `spawn_wanderer`, `create_notable_caravan`, `create_player_caravan`
+
+[Full Item Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
 
 ### Query Commands
 `hero`, `clan`, `kingdom`, `item`, `modifiers` - All support AND/OR logic, sorting, and filtering
 
 [Full Query Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands)
-
-### Logger Commands
-`enable`, `disable`, `status`, `clear`
-
-[Full Logger Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Logger-Commands)
-
-### Testing Commands
-`run`, `run_category`, `run_integration` (For developers only - modifies game state)
-
-[Full Testing Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Testing-Commands)
 
 ## Important Notes
 
