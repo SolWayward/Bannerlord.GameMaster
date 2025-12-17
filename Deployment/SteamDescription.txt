@@ -106,8 +106,6 @@ Use powerful queries to search and filter:
 [h1]Important Notes[/h1]
 [list]
 [*]  [b]Backup your saves[/b] - Many commands make permanent changes
-[*]  [b]Test in separate save[/b] - Experiment safely
-[*]  [b]Enable logging[/b] - Use [code]gm.log.enable[/code] for tracking
 [*]  [b]Some actions are irreversible[/b] - Killing heroes, destroying clans
 [/list]
 

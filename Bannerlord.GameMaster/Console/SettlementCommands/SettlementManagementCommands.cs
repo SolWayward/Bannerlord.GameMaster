@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Console.Common;
+using Bannerlord.GameMaster.Heroes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -807,49 +808,28 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
                 if (settlementError != null) return settlementError;
 
-                if (!settlement.IsTown && !settlement.IsCastle)
-                    return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' must be a city or castle to spawn wanderers.");
-
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
-                    // Get all wanderer templates and select a random one
-                    var wandererTemplates = CharacterObject.All
-                        .Where(c => c.Occupation == Occupation.Wanderer && !c.IsHero)
-                        .ToList();
+                    // Create configuration for wanderer spawning
+                    var config = new HeroGenerator.WandererSpawnConfig
+                    {
+                        TargetSettlement = settlement,
+                        MinAge = 25,
+                        MaxAge = 35
+                    };
 
-                    if (wandererTemplates.Count == 0)
-                        return CommandBase.FormatErrorMessage("No wanderer templates found in game data.");
+                    // Spawn wanderer using HeroGenerator
+                    var generator = new HeroGenerator();
+                    var result = generator.SpawnWanderer(config);
 
-                    // Select a random wanderer template
-                    var random = new Random();
-                    var wandererTemplate = wandererTemplates[random.Next(wandererTemplates.Count)];
-                    
-                    // Create unique ID for the wanderer
-                    int randomId = random.Next(10000, 99999);
-                    string wandererId = $"gm_wanderer_{settlement.StringId}_{CampaignTime.Now.GetYear}_{randomId}";
-                    
-                    // Create the hero using the proper creation method
-                    Hero wanderer = HeroCreator.CreateSpecialHero(
-                        wandererTemplate,
-                        settlement,
-                        null,  // clan
-                        null,  // supporterOf
-                        random.Next(25, 35)  // age
-                    );
-                    
-                    if (wanderer == null)
-                        return CommandBase.FormatErrorMessage("Failed to create wanderer hero.");
+                    if (!result.Success)
+                        return CommandBase.FormatErrorMessage(result.ErrorMessage);
 
-                    // Ensure wanderer has proper initialization
-                    wanderer.ChangeState(Hero.CharacterStates.Active);
-                    wanderer.SetNewOccupation(Occupation.Wanderer);
+                    var (wanderer, _) = result.CreatedLords[0];
                     
-                    // Make sure wanderer stays in settlement
-                    EnterSettlementAction.ApplyForCharacterOnly(wanderer, settlement);
-
                     return CommandBase.FormatSuccessMessage(
                         $"Spawned wanderer '{wanderer.Name}' (ID: {wanderer.StringId}) in '{settlement.Name}'.\n" +
-                        $"Template: {wandererTemplate.Name} | Age: {(int)wanderer.Age} | Occupation: {wanderer.Occupation}");
+                        $"Template: {wanderer.CharacterObject.Name} | Age: {(int)wanderer.Age} | Occupation: {wanderer.Occupation}");
                 }, "Failed to spawn wanderer");
             });
         }

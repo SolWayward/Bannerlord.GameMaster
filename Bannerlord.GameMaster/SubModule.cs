@@ -1,5 +1,7 @@
-﻿using System;
+using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using Bannerlord.GameMaster.Console.Testing;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
@@ -11,7 +13,7 @@ namespace Bannerlord.GameMaster
 {
     public class SubModule : MBSubModuleBase
     {
-        public static string ModuleVersion => "1.3.9.1";
+        public static string ModuleVersion => "1.3.11.2";
 
         protected override void OnSubModuleLoad()
         {
@@ -27,6 +29,16 @@ namespace Bannerlord.GameMaster
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
+        }
+
+        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+        {
+            base.OnGameStart(game, gameStarterObject);
+            
+            if (game.GameType is Campaign)
+            {
+                //Execute at start of new game or on game loaded
+            }
         }
 
         /// <summary>
@@ -47,7 +59,7 @@ namespace Bannerlord.GameMaster
             );
 
             // Adds the button option to the main menu
-            Module.CurrentModule.AddInitialStateOption(showMessageOption);      
+            TaleWorlds.MountAndBlade.Module.CurrentModule.AddInitialStateOption(showMessageOption);
         }
 
         /// <summary>
@@ -70,7 +82,7 @@ namespace Bannerlord.GameMaster
         private (bool isDisabled, TextObject reasonTextObj) EvaluateShowMessageOptionCondition()
         {
             return (false, TextObject.GetEmpty());
-        }
+        }    
         
         /// <summary>
         /// Run automated tests on startup

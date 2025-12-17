@@ -5,8 +5,8 @@ Console commands and power tools mod for Mount & Blade II: Bannerlord providing 
 
 [code]Press Alt + [b]~[/b] (tilde key) in-game to open console[/code]
 
-[size=5][b][u]Latest Update 1.3.11.1[/u][/b][/size]
-[code]
+[size=3][b][u]Latest Update 1.3.11.1[/u][/b][/size]
+[size=1][code]
 Improved query output column alignment
 
 Added Hero Commands:
@@ -31,7 +31,7 @@ Added Settlement Commands:
 ﻿﻿   - set village hearths
 ﻿﻿   - change name
 [/code]
-   
+ [/size]  
 [size=5][b]Key Features[/b][/size]
 [list]
 [*][b]Hero Management[/b] - Modify attributes, gold, health, relationships, life state
@@ -93,6 +93,7 @@ add_clan, remove_clan, declare_war, make_peace, add_settlement, remove_settlemen
 Item Management:[/b][/size]
 add, remove, transfer, equip, unequip, list_equipped, list_inventory, set_equipped_modifier, save_equipment, save_equipment_civilian, save_equipment_both, load_equipment, load_equipment_civilian, load_equipment_both
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Item-Overview]Full Documentation →[/url]
+[size=3][b]
 Settlement Management:[/b][/size]
 upgrade_buildings, add_militia, fill_garrison, give_food, give_gold, rename, set_hearths, set_loyalty, set_prosperity, set_security, spawn_wanderer, create_notable_caravan, create_player_caravan
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview]Full Documentation →[/url]
@@ -100,18 +101,16 @@ upgrade_buildings, add_militia, fill_garrison, give_food, give_gold, rename, set
 Query Commands:[/b][/size]
 hero, clan, kingdom, item, modifiers (all support AND/OR logic, sorting, filtering)
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands]Full Documentation →[/url]
-[size=3][b][size=5][b]
-Important Notes[/b][/size]
+[b][size=5][b]
+Important Notes[/b][/size][/b]
 [list]
-[*][b]Backup your saves[/b] - Many commands make permanent changes
-[*][b]Test in separate save[/b] - Experiment safely
-[*][b]Enable logging[/b] - Use [font=Courier New]gm.log.enable[/font] for tracking
-[*][b]Some actions are irreversible[/b] - Killing heroes, destroying clans
-[/list]
-[size=5][b]Support[/b][/b][/size][b]
+[*][size=2][b]Backup your saves[/b] - Many commands make permanent changes[/size]
+[*][size=2][b]Some actions are irreversible[/b] - Killing heroes, destroying clans[/size]
+[/list][b]
+[size=5]Support[/size][/b][b]
 [list]
 [*][b]Documentation:[/b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki]GitHub Wiki[/url]
 [*][b]Issues:[/b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/issues]GitHub Issues[/url]
 [*][b]Discussions:[/b] [url=https://github.com/SolWayward/Bannerlord.GameMaster/discussions]GitHub Discussions[/url]
 [/list]
-[b]For complete command documentation with all parameters and examples, visit the [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki]GitHub Wiki[/url].[/b]
+For complete command documentation with all parameters and examples, visit the [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki]GitHub Wiki[/url].[/b]
