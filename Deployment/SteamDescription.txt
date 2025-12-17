@@ -3,7 +3,34 @@
 
 Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.
 
-[i]Press Alt + ~ (tilde key) ingame to open console.[/i]
+[code]Press Alt + ~ (tilde key) in-game to open console.[/code]
+
+[h1] Latest Update 1.3.11.1[/h1]
+[code]
+Improved query output column alignment
+
+Added Hero Commands:
+﻿﻿﻿	- Create Lord
+﻿﻿	- Generate Lords
+
+Added Settlement Query System
+
+Added Settlement Commands:
+﻿﻿	- Change owner
+﻿﻿	- spawn wanderer
+﻿﻿	- create player caravan
+﻿﻿	- create notable caravan
+﻿﻿	- upgrade all buildings to desired level
+﻿﻿	- add settlement food
+﻿﻿	- add settlement gold
+﻿﻿	- set settlement security
+﻿﻿	- set settlement loyalty
+﻿﻿	- add settlement militia
+﻿﻿	- set settlement prosperity
+﻿﻿	- fill settlement garrison
+﻿﻿	- set village hearths
+﻿﻿	- change name
+[/code]
 
 [h1]Key Features[/h1]
 [list]
@@ -16,6 +43,7 @@ Console commands and power tools mod for Mount & Blade II: Bannerlord providing 
 [*] [b]Command Logging[/b] - Track all command usage for debugging
 [*] [b]Testing Framework[/b] - Automated validation system
 [/list]
+
 
 [b]Tested[/b] With: Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
 [b]Note:[/b] Some commands may not execute if certain menus are open
