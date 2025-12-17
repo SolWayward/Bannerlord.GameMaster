@@ -122,7 +122,7 @@ Use powerful queries to search and filter:
 ## Available Commands
 
 ### Hero Commands
-`set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`
+`set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`, `create_lord`, `generate_lords`
 
 [Full Hero Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Hero-Overview)
 
