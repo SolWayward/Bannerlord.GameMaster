@@ -6,6 +6,30 @@ Console commands and power tools mod for Mount & Blade II: Bannerlord providing 
   
 *Press Alt + ~ (tilde key) in-game to open console*
 
+## Latest Update 1.3.11.1
+
+- Improved query output column alignment
+- Added Settlment Query System
+- Added Hero Commands:
+	 - Create Lord
+	 - Generate Lords
+    
+- Added Settlement Commands:
+	 - Change owner
+	 - spawn wanderer
+	- create player caravan
+	- create notable caravan
+	- upgrade all buildings to desired level
+	- add settlement food
+	- add settlement gold
+	- set settlement prosperity
+	- set settlement security
+	- set settlement loyality
+	- add settlement militia
+	- fill settlement garrison
+	- set village hearths
+	- change name
+
 ## Key Features
 
 - **Hero Management** - Modify attributes, gold, health, relationships, life state
