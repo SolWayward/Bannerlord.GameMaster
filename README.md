@@ -142,7 +142,7 @@ Use powerful queries to search and filter:
 [Full Item Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Item-Overview)
 
 ### Settlement Management Commands
-`add_militia`, `fill_garrison`, `give_food`, `give_gold`, `rename`, `set_hearths`, `set_loyalty`, `set_prosperity`, `set_security`, `spawn_wanderer`, `create_notable_caravan`, `create_player_caravan`
+`upgrade_buildings`, `add_militia`, `fill_garrison`, `give_food`, `give_gold`, `rename`, `set_hearths`, `set_loyalty`, `set_prosperity`, `set_security`, `spawn_wanderer`, `create_notable_caravan`, `create_player_caravan`
 
 [Full Settlement Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
 

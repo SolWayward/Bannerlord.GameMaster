@@ -97,7 +97,7 @@ Use powerful queries to search and filter:
 [b]Item Management:[/b] add, remove, transfer, equip, unequip, list_equipped, list_inventory, set_equipped_modifier, save_equipment, save_equipment_civilian, save_equipment_both, load_equipment, load_equipment_civilian, load_equipment_both
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Item-Overview]Full Documentation →[/url]
 
-[b]Settlement Management:[/b] add_militia, fill_garrison, give_food, give_gold, rename, set_hearths, set_loyalty, set_prosperity, set_security, spawn_wanderer, create_notable_caravan, create_player_caravan
+[b]Settlement Management:[/b] upgrade_buildings, add_militia, fill_garrison, give_food, give_gold, rename, set_hearths, set_loyalty, set_prosperity, set_security, spawn_wanderer, create_notable_caravan, create_player_caravan
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview]Full Documentation →[/url]
 
 [b]Query Commands:[/b] hero, clan, kingdom, item, modifiers, settlement (all support AND/OR logic, sorting, filtering)

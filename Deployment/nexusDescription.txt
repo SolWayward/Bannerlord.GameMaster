@@ -94,7 +94,7 @@ Item Management:[/b][/size]
 add, remove, transfer, equip, unequip, list_equipped, list_inventory, set_equipped_modifier, save_equipment, save_equipment_civilian, save_equipment_both, load_equipment, load_equipment_civilian, load_equipment_both
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Item-Overview]Full Documentation →[/url]
 Settlement Management:[/b][/size]
-add_militia, fill_garrison, give_food, give_gold, rename, set_hearths, set_loyalty, set_prosperity, set_security, spawn_wanderer, create_notable_caravan, create_player_caravan
+upgrade_buildings, add_militia, fill_garrison, give_food, give_gold, rename, set_hearths, set_loyalty, set_prosperity, set_security, spawn_wanderer, create_notable_caravan, create_player_caravan
 [url=https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview]Full Documentation →[/url]
 [size=3][b]
 Query Commands:[/b][/size]
