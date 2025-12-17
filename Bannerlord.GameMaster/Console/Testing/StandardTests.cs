@@ -3016,6 +3016,90 @@ namespace Bannerlord.GameMaster.Console.Testing
                 Category = "SettlementManagement",
                 ExpectedText = "No settlement matching"
             });
+
+            // Test add_workshop is deprecated - should error with helpful message
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_045",
+                "Add workshop should return deprecation error",
+                "gm.settlement.add_workshop pen 2",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "deprecated"
+            });
+
+            // Test create_notable_caravan without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_046",
+                "Create notable caravan without arguments should return usage error",
+                "gm.settlement.create_notable_caravan",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test create_notable_caravan with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_047",
+                "Create notable caravan with invalid settlement should return error",
+                "gm.settlement.create_notable_caravan invalid_settlement_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test create_player_caravan without arguments - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_048",
+                "Create player caravan without arguments should return usage error",
+                "gm.settlement.create_player_caravan",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
+
+            // Test create_player_caravan with invalid settlement - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_049",
+                "Create player caravan with invalid settlement should return error",
+                "gm.settlement.create_player_caravan invalid_settlement_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No settlement matching"
+            });
+
+            // Test create_player_caravan with invalid leader hero - should error
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_050",
+                "Create player caravan with invalid leader hero should return error",
+                "gm.settlement.create_player_caravan pen invalid_hero_xyz",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "No hero matching"
+            });
+
+            // Test old create_caravan command no longer exists
+            TestRunner.RegisterTest(new TestCase(
+                "settlement_mgmt_051",
+                "Old create_caravan command should not exist",
+                "gm.settlement.create_caravan",
+                TestExpectation.Error
+            )
+            {
+                Category = "SettlementManagement",
+                ExpectedText = "Missing arguments"
+            });
         }
 
         /// <summary>

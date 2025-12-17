@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.Settlements.Workshops;
+using TaleWorlds.Core;
 using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Console.SettlementCommands
@@ -640,133 +642,17 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
-
         #endregion
 
-        #region Settlement Workshops
-
-        /// <summary>
-        /// Take ownership of all workshops in a city
-        /// Usage: gm.settlement.own_workshops [settlement]
-        /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("own_workshops", "gm.settlement")]
-        public static string OwnWorkshops(List<string> args)
-        {
-            return Cmd.Run(args, () =>
-            {
-                if (!CommandBase.ValidateCampaignMode(out string error))
-                    return error;
-
-                var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.settlement.own_workshops", "<settlement>",
-                    "Takes ownership of all workshops in a city for the player.",
-                    "gm.settlement.own_workshops pen");
-
-                if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
-                    return error;
-
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
-                if (settlementError != null) return settlementError;
-
-                if (!settlement.IsTown)
-                    return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Only cities have workshops.");
-
-                if (settlement.Town == null)
-                    return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' has no town data.");
-
-                return CommandBase.ExecuteWithErrorHandling(() =>
-                {
-                    int transferredCount = 0;
-                    foreach (var workshop in settlement.Town.Workshops)
-                    {
-                        if (workshop.Owner != Hero.MainHero)
-                        {
-                            // Change ownership to main hero
-                            var workshopType = workshop.WorkshopType;
-                            workshop.ChangeOwnerOfWorkshop(Hero.MainHero, workshopType, 20000);
-                            transferredCount++;
-                        }
-                    }
-
-                    if (transferredCount == 0)
-                        return CommandBase.FormatSuccessMessage($"Player already owns all workshops in '{settlement.Name}'.");
-
-                    return CommandBase.FormatSuccessMessage(
-                        $"Player now owns {transferredCount} workshop(s) in '{settlement.Name}' (ID: {settlement.StringId}).");
-                }, "Failed to transfer workshop ownership");
-            });
-        }
-
-        /// <summary>
-        /// Add a new workshop to a settlement
-        /// Usage: gm.settlement.add_workshop [settlement] [count]
-        /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("add_workshop", "gm.settlement")]
-        public static string AddWorkshop(List<string> args)
-        {
-            return Cmd.Run(args, () =>
-            {
-                if (!CommandBase.ValidateCampaignMode(out string error))
-                    return error;
-
-                var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.settlement.add_workshop", "<settlement> <count>",
-                    "Adds new workshops to a settlement, assigned to notables who don't have workshops yet.",
-                    "gm.settlement.add_workshop pen 2");
-
-                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
-                    return error;
-
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
-                if (settlementError != null) return settlementError;
-
-                if (!settlement.IsTown)
-                    return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Only cities can have workshops.");
-
-                if (settlement.Town == null)
-                    return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' has no town data.");
-
-                if (!CommandValidator.ValidateIntegerRange(args[1], 1, 10, out int count, out string countError))
-                    return CommandBase.FormatErrorMessage(countError);
-
-                return CommandBase.ExecuteWithErrorHandling(() =>
-                {
-                    int addedCount = 0;
-                    
-                    // Get notables without workshops or with fewest workshops
-                    var notablesWithWorkshops = settlement.Notables
-                        .Select(n => new { Notable = n, WorkshopCount = n.OwnedWorkshops.Count })
-                        .OrderBy(x => x.WorkshopCount)
-                        .ToList();
-
-                    if (notablesWithWorkshops.Count == 0)
-                        return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' has no notables to own workshops.");
-
-                    // Add workshops up to requested count
-                    for (int i = 0; i < count && i < notablesWithWorkshops.Count; i++)
-                    {
-                        var notable = notablesWithWorkshops[i].Notable;
-                        var workshop = new Workshop(settlement, $"workshop_added_{settlement.StringId}_{addedCount}");
-                        notable.AddOwnedWorkshop(workshop);
-                        addedCount++;
-                    }
-
-                    return CommandBase.FormatSuccessMessage(
-                        $"Added {addedCount} workshop(s) to settlement '{settlement.Name}' (ID: {settlement.StringId}).");
-                }, "Failed to add workshops");
-            });
-        }
-
-        #endregion
 
         #region Settlement Caravans and NPCs
 
         /// <summary>
-        /// Create a caravan in a settlement
-        /// Usage: gm.settlement.create_caravan [settlement]
+        /// Create a caravan in a settlement for notables
+        /// Usage: gm.settlement.create_notable_caravan [settlement]
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("create_caravan", "gm.settlement")]
-        public static string CreateCaravan(List<string> args)
+        [CommandLineFunctionality.CommandLineArgumentFunction("create_notable_caravan", "gm.settlement")]
+        public static string CreateNotableCaravan(List<string> args)
         {
             return Cmd.Run(args, () =>
             {
@@ -774,9 +660,9 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.settlement.create_caravan", "<settlement>",
-                    "Creates a new caravan in the specified settlement owned by a notable or player.",
-                    "gm.settlement.create_caravan pen");
+                    "gm.settlement.create_notable_caravan", "<settlement>",
+                    "Creates a new caravan in the specified settlement owned by a notable who doesn't have one yet.",
+                    "gm.settlement.create_notable_caravan pen");
 
                 if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
                     return error;
@@ -789,12 +675,11 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
-                    // Try to find a notable without a caravan
+                    // Find a notable without a caravan
                     Hero caravanOwner = settlement.Notables.FirstOrDefault(n => n.OwnedCaravans.Count == 0);
                     
-                    // If no notable found, use player
                     if (caravanOwner == null)
-                        caravanOwner = Hero.MainHero;
+                        return CommandBase.FormatErrorMessage($"All notables in '{settlement.Name}' already own caravans. Use 'gm.settlement.create_player_caravan' to create a caravan for the player.");
 
                     // Get a party template for caravans
                     var partyTemplate = Campaign.Current.ObjectManager.GetObjectTypeList<PartyTemplateObject>()
@@ -803,7 +688,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     if (partyTemplate == null)
                         return CommandBase.FormatErrorMessage("No caravan party template found in game data.");
 
-                    // Create the caravan using the simplified API
+                    // Create the caravan using the game's API
                     var caravan = CaravanPartyComponent.CreateCaravanParty(
                         caravanOwner,
                         settlement,
@@ -814,8 +699,89 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                         return CommandBase.FormatErrorMessage("Failed to create caravan party.");
 
                     return CommandBase.FormatSuccessMessage(
-                        $"Created caravan in '{settlement.Name}' (ID: {settlement.StringId}) owned by {caravanOwner.Name}.");
-                }, "Failed to create caravan");
+                        $"Created caravan in '{settlement.Name}' (ID: {settlement.StringId}) owned by notable {caravanOwner.Name}.");
+                }, "Failed to create notable caravan");
+            });
+        }
+
+        /// <summary>
+        /// Create a caravan in a settlement for the player
+        /// Usage: gm.settlement.create_player_caravan [settlement] [optional: leader_hero]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("create_player_caravan", "gm.settlement")]
+        public static string CreatePlayerCaravan(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.settlement.create_player_caravan", "<settlement> [leader_hero]",
+                    "Creates a new caravan for the player's clan. Optionally specify a companion hero to lead it.",
+                    "gm.settlement.create_player_caravan pen\ngm.settlement.create_player_caravan pen companion_hero");
+
+                if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                    return error;
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                if (settlementError != null) return settlementError;
+
+                if (!settlement.IsTown)
+                    return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Caravans can only be created in cities.");
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    Hero caravanLeader = null;
+                    
+                    // Check if a specific leader was requested
+                    if (args.Count > 1)
+                    {
+                        var (hero, heroError) = CommandBase.FindSingleHero(args[1]);
+                        if (heroError != null) return heroError;
+                        
+                        if (hero.Clan != Clan.PlayerClan)
+                            return CommandBase.FormatErrorMessage($"{hero.Name} is not a member of the player's clan.");
+                        
+                        if (hero.PartyBelongedTo != null)
+                            return CommandBase.FormatErrorMessage($"{hero.Name} is already in a party.");
+                        
+                        caravanLeader = hero;
+                    }
+                    else
+                    {
+                        // Try to find an available companion
+                        caravanLeader = Clan.PlayerClan.Companions.FirstOrDefault(c =>
+                            c.PartyBelongedTo == null &&
+                            !c.IsPrisoner &&
+                            c.IsActive);
+                    }
+
+                    // Get a party template for caravans
+                    var partyTemplate = Campaign.Current.ObjectManager.GetObjectTypeList<PartyTemplateObject>()
+                        .FirstOrDefault(pt => pt.StringId.Contains("caravan") && pt.StringId.Contains("template"));
+                    
+                    if (partyTemplate == null)
+                        return CommandBase.FormatErrorMessage("No caravan party template found in game data.");
+
+                    // Create caravan for player clan using proper owner
+                    var caravan = CaravanPartyComponent.CreateCaravanParty(
+                        Hero.MainHero,  // Owner is always the clan leader for player caravans
+                        settlement,
+                        partyTemplate,
+                        false,  // isInitialSpawn
+                        caravanLeader  // Optional leader companion
+                    );
+
+                    if (caravan == null)
+                        return CommandBase.FormatErrorMessage("Failed to create caravan party.");
+
+                    string leaderInfo = caravanLeader != null ? $" led by {caravanLeader.Name}" : " (no leader assigned)";
+                    
+                    return CommandBase.FormatSuccessMessage(
+                        $"Created player caravan in '{settlement.Name}' (ID: {settlement.StringId}){leaderInfo}.\n" +
+                        $"The caravan will generate trade profits for your clan.");
+                }, "Failed to create player caravan");
             });
         }
 
@@ -833,7 +799,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.spawn_wanderer", "<settlement>",
-                    "Spawns a random wanderer hero in the specified settlement.",
+                    "Spawns a random wanderer hero with proper name, portrait, and stats in the specified settlement.",
                     "gm.settlement.spawn_wanderer pen");
 
                 if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
@@ -847,29 +813,44 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
-                    // Find a wanderer template
-                    var wandererTemplate = CharacterObject.All
-                        .FirstOrDefault(c => c.Occupation == Occupation.Wanderer);
+                    // Get all wanderer templates and select a random one
+                    var wandererTemplates = CharacterObject.All
+                        .Where(c => c.Occupation == Occupation.Wanderer && !c.IsHero)
+                        .ToList();
 
-                    if (wandererTemplate == null)
-                        return CommandBase.FormatErrorMessage("No wanderer template found in game data.");
+                    if (wandererTemplates.Count == 0)
+                        return CommandBase.FormatErrorMessage("No wanderer templates found in game data.");
 
-                    // Create a character from the template
-                    CharacterObject character = CharacterObject.CreateFrom(wandererTemplate);
+                    // Select a random wanderer template
+                    var random = new Random();
+                    var wandererTemplate = wandererTemplates[random.Next(wandererTemplates.Count)];
                     
-                    // Create the hero
-                    Hero wanderer;
-                    string wandererId = $"wanderer_spawned_{settlement.StringId}_{CampaignTime.Now.GetDayOfYear}_{CampaignTime.Now.GetYear}";
-                    HeroCreator.CreateBasicHero(wandererId, character, out wanderer);
+                    // Create unique ID for the wanderer
+                    int randomId = random.Next(10000, 99999);
+                    string wandererId = $"gm_wanderer_{settlement.StringId}_{CampaignTime.Now.GetYear}_{randomId}";
+                    
+                    // Create the hero using the proper creation method
+                    Hero wanderer = HeroCreator.CreateSpecialHero(
+                        wandererTemplate,
+                        settlement,
+                        null,  // clan
+                        null,  // supporterOf
+                        random.Next(25, 35)  // age
+                    );
                     
                     if (wanderer == null)
                         return CommandBase.FormatErrorMessage("Failed to create wanderer hero.");
 
-                    // Place wanderer in settlement
-                    wanderer.StayingInSettlement = settlement;
+                    // Ensure wanderer has proper initialization
+                    wanderer.ChangeState(Hero.CharacterStates.Active);
+                    wanderer.SetNewOccupation(Occupation.Wanderer);
+                    
+                    // Make sure wanderer stays in settlement
+                    EnterSettlementAction.ApplyForCharacterOnly(wanderer, settlement);
 
                     return CommandBase.FormatSuccessMessage(
-                        $"Spawned wanderer '{wanderer.Name}' in settlement '{settlement.Name}' (ID: {settlement.StringId}).");
+                        $"Spawned wanderer '{wanderer.Name}' (ID: {wanderer.StringId}) in '{settlement.Name}'.\n" +
+                        $"Template: {wandererTemplate.Name} | Age: {(int)wanderer.Age} | Occupation: {wanderer.Occupation}");
                 }, "Failed to spawn wanderer");
             });
         }
