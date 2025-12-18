@@ -1,6 +1,5 @@
 # Bannerlord.GameMaster (BLGM)
 - **[Complete Documentation for Users](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
-- [Source Code Documentation and Implementation for Developers](https://solwayward.github.io/Bannerlord.GameMaster/)
 
 Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.  
   
@@ -138,6 +137,11 @@ Use powerful queries to search and filter:
 `set_culture`, `set_owner`, `set_owner_clan`, `set_owner_kingdom`, `upgrade_buildings`, `add_militia`, `fill_garrison`, `give_food`, `give_gold`, `rename`, `reset_name`, `reset_name_all`, `set_hearths`, `set_loyalty`, `set_prosperity`, `set_security`, `spawn_wanderer`, `create_notable_caravan`, `create_player_caravan`
 
 [Full Settlement Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
+
+### Troop Commands
+`give_hero_troops`
+
+[Full Troop Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Troop-Overview)
 
 ### Query Commands
 `hero`, `clan`, `kingdom`, `item`, `modifiers` - All support AND/OR logic, sorting, and filtering
