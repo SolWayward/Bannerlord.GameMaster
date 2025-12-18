@@ -2,6 +2,8 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Bannerlord.GameMaster.Clans;
+using Bannerlord.GameMaster.Console.ClanCommands;
 using Bannerlord.GameMaster.Console.Testing;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;

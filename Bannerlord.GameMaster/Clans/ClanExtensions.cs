@@ -94,6 +94,30 @@ namespace Bannerlord.GameMaster.Clans
         /// Alias for GetClanTypes to match IEntityExtensions interface
         /// </summary>
         public static ClanTypes GetTypes(this Clan clan) => clan.GetClanTypes();
+
+        
+        /// <summary>
+        /// Set clan tier to a specified tier between 0 and 6
+        /// </summary>
+        public static bool SetClanTier(this Clan clan, int targetTier)
+        {   
+            // Clan already at target tier
+            if (clan.Tier == targetTier)
+                return false;
+
+            // Invalid Tier
+            if(targetTier < 0 || targetTier > 6)
+                return false;
+
+            // Allows clan tier to be lowered
+            if (clan.Tier > targetTier)    
+                clan.ResetClanRenown();
+
+            float requiredRenownForTargetTier = Campaign.Current.Models.ClanTierModel.GetRequiredRenownForTier(targetTier) - clan.Renown;
+            clan.AddRenown(requiredRenownForTargetTier);
+            
+            return true;
+        }
  }
 
  /// <summary>

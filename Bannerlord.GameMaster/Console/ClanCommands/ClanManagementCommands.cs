@@ -12,6 +12,7 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.Settlements.Workshops;
 using TaleWorlds.Core;
 using TaleWorlds.ObjectSystem;
+using Bannerlord.GameMaster.Clans;
 
 namespace Bannerlord.GameMaster.Console.ClanCommands
 {
@@ -50,6 +51,10 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
                 {
                     string previousClanName = hero.Clan?.Name?.ToString() ?? "No Clan";
                     hero.Clan = clan;
+
+                    // Prevents crash if hero is moved to a clan and is not the leader, the game will crash when player choses to be released from his oath in conversation
+                    if (hero == Hero.MainHero)
+                        clan.SetLeader(Hero.MainHero);
 
                     return CommandBase.FormatSuccessMessage($"{hero.Name} transferred from '{previousClanName}' to '{clan.Name}'.");
                 }, "Failed to add hero to clan");
@@ -364,48 +369,15 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
                 if (!CommandValidator.ValidateIntegerRange(args[1], 0, 6, out int tier, out string tierError))
                     return CommandBase.FormatErrorMessage(tierError);
 
+                if (clan.Tier == tier)
+                    return CommandBase.FormatErrorMessage($"Clan is already {clan.Tier}");
+
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     int previousTier = clan.Tier;
-                    float previousRenown = clan.Renown;
+                    clan.SetClanTier(tier);
 
-                    // Game engine limitation: Bannerlord's clan tier system only allows tiers to increase, never decrease
-                    // Attempting to lower a tier by reducing renown will not work as the tier property is read-only downward
-                    if (tier < previousTier)
-                    {
-                        return CommandBase.FormatErrorMessage(
-                            $"Cannot lower clan tier. Bannerlord's clan tier system only allows increasing tiers, not decreasing them. " +
-                            $"Current tier: {previousTier}, Attempted tier: {tier}");
-                    }
-
-                    // To set a specific tier, we need to set renown to a value that's:
-                    // 1. At or above the minimum for the target tier
-                    // 2. Below the minimum for the next tier (so we don't jump to a higher tier)
-                    
-                    float minRenownForTargetTier = Campaign.Current.Models.ClanTierModel.GetRequiredRenownForTier(tier);
-                    float minRenownForNextTier = tier < 6
-                        ? Campaign.Current.Models.ClanTierModel.GetRequiredRenownForTier(tier + 1)
-                        : float.MaxValue;
-                    
-                    // Set renown to the midpoint between the target tier minimum and next tier minimum
-                    // This ensures we're solidly in the target tier without accidentally jumping to the next one
-                    float targetRenown;
-                    if (tier < 6)
-                    {
-                        targetRenown = (minRenownForTargetTier + minRenownForNextTier) / 2.0f;
-                    }
-                    else
-                    {
-                        // For max tier (6), just use the minimum required
-                        targetRenown = minRenownForTargetTier + 1.0f;
-                    }
-                    
-                    float renownDelta = targetRenown - clan.Renown;
-                    clan.AddRenown(renownDelta, true);
-                    
-                    int newTier = clan.Tier;
-
-                    return CommandBase.FormatSuccessMessage($"{clan.Name}'s tier changed from {previousTier} to {newTier}.");
+                    return CommandBase.FormatSuccessMessage($"{clan.Name}'s tier changed from {previousTier} to {clan.Tier}.");
                 }, "Failed to set tier");
             });
         }

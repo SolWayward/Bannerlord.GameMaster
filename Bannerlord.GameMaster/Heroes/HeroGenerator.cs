@@ -219,7 +219,7 @@ namespace Bannerlord.GameMaster.Heroes
                 result.ErrorMessage = $"No {(config.IsFemale ? "female" : "male")} lord templates found.";
                 return result;
             }
-
+            
             var template = lordTemplates[_random.Next(lordTemplates.Count)];
 
             // Create hero
