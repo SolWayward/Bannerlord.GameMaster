@@ -1,7 +1,7 @@
 # Bannerlord.GameMaster (BLGM)
 - **[Complete Documentation for Users](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
 
-Console commands and framework, providing Settlement, Hero, Clan, Item, troop, and Kingdom management.
+Console commands and framework, providing Settlement, Hero, Clan, Item, troop, and Kingdom management. All commands provide the ability to use object names, or object ids as arguments as well as a query system to search and find objects.
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
