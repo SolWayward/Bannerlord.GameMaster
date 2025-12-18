@@ -108,22 +108,24 @@ Use powerful queries to search and filter:
 - **Tier filtering**: `gm.query.item armor tier5` (tier 5 armor only)
 - **Type filtering**: `gm.query.item weapon OneHandedWeapon` (specific type)
 
-**Sort Options:** `name`, `value`, `tier`, `type` (add `:asc` or `:desc`)
+**Sort Options:** `name`, `value`, `tier`, `type` (add `:asc` or `:desc`)  
+
+**Multi-word Parameters:** Use single quotes to use arguments with spaces ex: `'Multi word argument'`
 
 ## Available Commands
 
 ### Hero Commands
-`set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`, `create_lord`, `generate_lords`
+`create_lord`, `generate_lords`, `set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`
 
 [Full Hero Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Hero-Overview)
 
 ### Clan Commands
-`add_hero`, `remove_hero`, `set_gold`, `add_gold`, `distribute_gold`, `set_renown`, `set_tier`, `set_leader`, `destroy`
+`create_clan`, `add_hero`, `remove_hero`, `set_gold`, `add_gold`, `distribute_gold`, `set_renown`, `set_tier`, `set_leader`, `destroy`
 
 [Full Clan Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Clan-Overview)
 
 ### Kingdom Commands
-`add_clan`, `remove_clan`, `declare_war`, `make_peace`, `add_settlement`, `remove_settlement`, `set_ruler`, `destroy`
+`add_clan`, `remove_clan`, `declare_war`, `make_peace`, `set_ruler`, `destroy`
 
 [Full Kingdom Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Kingdom-Overview)
 
@@ -133,7 +135,7 @@ Use powerful queries to search and filter:
 [Full Item Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Item-Overview)
 
 ### Settlement Management Commands
-`upgrade_buildings`, `add_militia`, `fill_garrison`, `give_food`, `give_gold`, `rename`, `set_hearths`, `set_loyalty`, `set_prosperity`, `set_security`, `spawn_wanderer`, `create_notable_caravan`, `create_player_caravan`
+`set_culture`, `set_owner`, `set_owner_clan`, `set_owner_kingdom`, `upgrade_buildings`, `add_militia`, `fill_garrison`, `give_food`, `give_gold`, `rename`, `reset_name`, `reset_name_all`, `set_hearths`, `set_loyalty`, `set_prosperity`, `set_security`, `spawn_wanderer`, `create_notable_caravan`, `create_player_caravan`
 
 [Full Settlement Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
 
@@ -145,9 +147,11 @@ Use powerful queries to search and filter:
 ## Important Notes
 
 - **Backup your saves** - Many commands make permanent changes
-- **Test in separate save** - Experiment safely
+- **Test in separate save** - Running tests greatly effect game state
 - **Enable logging** - Use `gm.log.enable` for tracking
 - **Some actions are irreversible** - Killing heroes, destroying clans
+- **Multi-word Parameters** - Use single quotes to use arguments with spaces ex: `'Multi word argument'`
+- **Renaming Settlements** - Name may not update right away. Open trade menu in settlement or load save to force update.
 
 ## Support
 
