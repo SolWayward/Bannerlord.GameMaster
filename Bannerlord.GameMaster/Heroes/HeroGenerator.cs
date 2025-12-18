@@ -107,12 +107,24 @@ namespace Bannerlord.GameMaster.Heroes
 
             for (int i = 0; i < config.Count; i++)
             {
-                // Select random template with random gender
+                // Select random gender with even distribution
+                bool isFemale = _random.Next(2) == 0;
+                
+                // Get templates matching the selected gender
                 var genderFilteredTemplates = lordTemplates
-                    .Where(t => t.IsFemale == (_random.Next(2) == 0))
+                    .Where(t => t.IsFemale == isFemale)
                     .ToList();
 
-                // Fall back to all templates if no matching gender found
+                // If no templates found for selected gender, try the opposite gender
+                if (genderFilteredTemplates.Count == 0)
+                {
+                    isFemale = !isFemale;
+                    genderFilteredTemplates = lordTemplates
+                        .Where(t => t.IsFemale == isFemale)
+                        .ToList();
+                }
+
+                // Final fallback to all templates
                 if (genderFilteredTemplates.Count == 0)
                     genderFilteredTemplates = lordTemplates;
 
@@ -142,6 +154,9 @@ namespace Bannerlord.GameMaster.Heroes
                 var hero = CreateHero(template, assignedClan, config.MinAge, config.MaxAge);
                 if (hero == null)
                     continue;
+
+                // Randomize appearance for variety
+                RandomizeHeroAppearance(hero, template.IsFemale);
 
                 // Give decent stats
                 ApplyLevelAndStats(hero, config.MinLevel, config.MaxLevel);
@@ -424,43 +439,71 @@ namespace Bannerlord.GameMaster.Heroes
         }
 
         /// <summary>
-        /// Randomize hero appearance
+        /// Randomize hero appearance - creates fully randomized body properties
+        /// including face structure, skin color, hair color, build, etc.
         /// </summary>
         private void RandomizeHeroAppearance(Hero hero, bool isFemale)
         {
-            var bodyPropertiesMin = hero.CharacterObject.GetBodyPropertiesMin();
-            var bodyPropertiesMax = hero.CharacterObject.GetBodyPropertiesMax();
-
-            // Generate random body properties within the character's min/max range
-            var randomBodyProperties = BodyProperties.GetRandomBodyProperties(
-                hero.CharacterObject.Race,
-                isFemale,
-                bodyPropertiesMin,
-                bodyPropertiesMax,
-                (int)hero.Age,
-                _random.Next(),
-                null,  // Hair tags - use template defaults
-                null,  // Beard tags - automatic for males
-                null   // Tattoo tags - no tattoos
+            // Create a default body properties to work from
+            var defaultBodyProperties = BodyProperties.Default;
+            
+            // Generate completely random key parts for maximum variation
+            // This ensures each hero looks unique regardless of template constraints
+            ulong randomKeyPart1 = GenerateRandomKeyPart(); // Face structure
+            ulong randomKeyPart2 = GenerateRandomKeyPart(); // Additional face features
+            ulong randomKeyPart3 = GenerateRandomKeyPart(); // Hair and facial hair
+            ulong randomKeyPart4 = GenerateRandomKeyPart(); // Skin tone and colors
+            ulong randomKeyPart5 = GenerateRandomKeyPart(); // Body build
+            ulong randomKeyPart6 = GenerateRandomKeyPart(); // Additional features
+            ulong randomKeyPart7 = GenerateRandomKeyPart(); // Age-related features
+            ulong randomKeyPart8 = GenerateRandomKeyPart(); // Extra variation
+            
+            // Create new body properties with randomized values
+            var randomBodyProperties = new BodyProperties(
+                new DynamicBodyProperties((int)hero.Age, 0.5f, 0.5f),
+                new StaticBodyProperties(
+                    randomKeyPart1,
+                    randomKeyPart2,
+                    randomKeyPart3,
+                    randomKeyPart4,
+                    randomKeyPart5,
+                    randomKeyPart6,
+                    randomKeyPart7,
+                    randomKeyPart8
+                )
             );
 
-            // Apply randomized appearance using reflection - convert to StaticBodyProperties
+            // Apply the randomized appearance to the hero
             var staticBodyProp = typeof(Hero).GetProperty("StaticBodyProperties");
             if (staticBodyProp != null)
             {
-                // Create StaticBodyProperties from BodyProperties using key parts
                 var staticBody = new StaticBodyProperties(
-                    randomBodyProperties.KeyPart1,
-                    randomBodyProperties.KeyPart2,
-                    randomBodyProperties.KeyPart3,
-                    randomBodyProperties.KeyPart4,
-                    randomBodyProperties.KeyPart5,
-                    randomBodyProperties.KeyPart6,
-                    randomBodyProperties.KeyPart7,
-                    randomBodyProperties.KeyPart8
+                    randomKeyPart1,
+                    randomKeyPart2,
+                    randomKeyPart3,
+                    randomKeyPart4,
+                    randomKeyPart5,
+                    randomKeyPart6,
+                    randomKeyPart7,
+                    randomKeyPart8
                 );
                 staticBodyProp.SetValue(hero, staticBody);
             }
+        }
+
+        /// <summary>
+        /// Generate a random key part for body properties
+        /// This creates variation in facial features, body build, colors, etc.
+        /// </summary>
+        private ulong GenerateRandomKeyPart()
+        {
+            // Generate random bytes for the key part
+            byte[] bytes = new byte[8];
+            for (int i = 0; i < 8; i++)
+            {
+                bytes[i] = (byte)_random.Next(256);
+            }
+            return BitConverter.ToUInt64(bytes, 0);
         }
 
         /// <summary>
