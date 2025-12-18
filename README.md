@@ -9,7 +9,8 @@ Console commands and power tools mod for Mount & Blade II: Bannerlord providing 
 ## Latest Update 1.3.11.2
 ```
 Added ability to handle arguments with spaces by using single quotes ex: 'multi word argument' (Tale Worlds removes double quotes from the console)
-settlement name changes now persist when saving and loading. Changing a settlement name may be delayed and can be forced to update by visiting the settlement and entering the trade menu, or by loading the save.
+settlement name changes now persist when saving and loading.
+Changing a settlement name may be delayed and can be forced to update by visiting the settlement and entering the trade menu, or by loading the save.
 
 Settlement_Commands:
 - added gm.settlement.set_culture <settlement> <culture>
