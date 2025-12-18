@@ -6,31 +6,18 @@ Console commands and power tools mod for Mount & Blade II: Bannerlord providing 
   
 ~Press Alt + ~ (tilde key) in-game to open console~
 
-## Latest Update 1.3.11.1
+## Latest Update 1.3.11.2
 ```
-Improved query output column alignment
+Added ability to handle arguments with spaces by using single quotes ex: 'multi word argument' (Tale Worlds removes double quotes from the console)
+settlement name changes now persist when saving and loading. Changing a settlement name may be delayed and can be forced to update by visiting the settlement and entering the trade menu, or by loading the save.
 
-Added Hero Commands:
-﻿﻿﻿	- Create Lord
-﻿﻿	- Generate Lords
+Settlement_Commands:
+- added gm.settlement.set_culture <settlement> <culture>
+- added gm.settlement.reset_names
+- Settlement name changes now persist with save / loading
 
-Added Settlement Query System
-
-Added Settlement Commands:
-﻿﻿	- Change owner
-﻿﻿	- spawn wanderer
-﻿﻿	- create player caravan
-﻿﻿	- create notable caravan
-﻿﻿	- upgrade all buildings to desired level
-﻿﻿	- add settlement food
-﻿﻿	- add settlement gold
-﻿﻿	- set settlement security
-﻿﻿	- set settlement loyalty
-﻿﻿	- add settlement militia
-﻿﻿	- set settlement prosperity
-﻿﻿	- fill settlement garrison
-﻿﻿	- set village hearths
-﻿﻿	- change name
+Clan Commands:
+- added gm.clan.create_clan
 ```
 ## Key Features
 
