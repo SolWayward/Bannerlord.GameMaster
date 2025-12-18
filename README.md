@@ -1,7 +1,7 @@
 # Bannerlord.GameMaster (BLGM)
 - **[Complete Documentation for Users](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
 
-Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.  
+Console commands and framework, providing Settlement, Hero, Clan, Item, troop, and Kingdom management.
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
