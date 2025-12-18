@@ -1,0 +1,107 @@
+beni_zilal                                       Beni Zilal                  Heroes: 4   Leader: Wahan of the Beni Zilal      Kingdom: None
+brotherhood_of_woods                             Brotherhood of the Woods    Heroes: 4   Leader: Tunric of the Brotherhood    Kingdom: None
+clan_aserai_1                                    Banu Hulyan                 Heroes: 9   Leader: Unqid                        Kingdom: Aserai
+clan_aserai_2                                    Banu Sarran                 Heroes: 9   Leader: Adram                        Kingdom: Aserai
+clan_aserai_3                                    Banu Qild                   Heroes: 11  Leader: Tais                         Kingdom: Aserai
+clan_aserai_4                                    Banu Qaraz                  Heroes: 9   Leader: Suruq                        Kingdom: Aserai
+clan_aserai_5                                    Banu Arbas                  Heroes: 6   Leader: Iyalas                       Kingdom: Aserai
+clan_aserai_6                                    Banu Atij                   Heroes: 6   Leader: Talas                        Kingdom: Aserai
+clan_aserai_7                                    Banu Sarmal                 Heroes: 9   Leader: Awdhan                       Kingdom: Aserai
+clan_aserai_8                                    Banu Habbab                 Heroes: 5   Leader: Hashan                       Kingdom: Aserai
+clan_aserai_9                                    Banu Ruwaid                 Heroes: 6   Leader: Aqar                         Kingdom: Aserai
+clan_battania_1                                  fen Gruffendoc              Heroes: 8   Leader: Caladog                      Kingdom: Battania
+clan_battania_2                                  fen Derngil                 Heroes: 9   Leader: Ergeon                       Kingdom: Battania
+clan_battania_3                                  fen Uvain                   Heroes: 9   Leader: Melidir                      Kingdom: Battania
+clan_battania_4                                  fen Penraic                 Heroes: 6   Leader: Luichan                      Kingdom: Battania
+clan_battania_5                                  fen Giall                   Heroes: 5   Leader: Aeron                        Kingdom: Battania
+clan_battania_6                                  fen Eingal                  Heroes: 8   Leader: Aradwyr                      Kingdom: Battania
+clan_battania_7                                  fen Morcar                  Heroes: 8   Leader: Pryndor                      Kingdom: Battania
+clan_battania_8                                  fen Caernacht               Heroes: 5   Leader: Maireas                      Kingdom: Battania
+clan_empire_north_1                              Osticos                     Heroes: 12  Leader: Lucon                        Kingdom: Northern Empire
+clan_empire_north_2                              Argoros                     Heroes: 14  Leader: Manteos                      Kingdom: Northern Empire
+clan_empire_north_3                              Neretzes                    Heroes: 14  Leader: Penton                       Kingdom: Northern Empire
+clan_empire_north_4                              Impestores                  Heroes: 6   Leader: Encurion                     Kingdom: Northern Empire
+clan_empire_north_5                              Dolentos                    Heroes: 6   Leader: Gyphor                       Kingdom: Northern Empire
+clan_empire_north_6                              Chonis                      Heroes: 6   Leader: Nicasor                      Kingdom: Northern Empire
+clan_empire_north_7                              Phalentes                   Heroes: 5   Leader: Tasynor                      Kingdom: Northern Empire
+clan_empire_north_8                              Vatatzes                    Heroes: 8   Leader: Maritzios                    Kingdom: Northern Empire
+clan_empire_north_9                              Serapides                   Heroes: 5   Leader: Porphalios                   Kingdom: Northern Empire
+clan_empire_south_1                              Pethros                     Heroes: 12  Leader: Rhagaea                      Kingdom: Southern Empire
+clan_empire_south_2                              Leonipardes                 Heroes: 9   Leader: Pharon                       Kingdom: Southern Empire
+clan_empire_south_3                              Mestricaros                 Heroes: 8   Leader: Oros                         Kingdom: Southern Empire
+clan_empire_south_4                              Hongeros                    Heroes: 8   Leader: Turiados                     Kingdom: Southern Empire
+clan_empire_south_5                              Julios                      Heroes: 6   Leader: Baranor                      Kingdom: Southern Empire
+clan_empire_south_6                              Vizartos                    Heroes: 6   Leader: Sichanis                     Kingdom: Southern Empire
+clan_empire_south_7                              Avlonos                     Heroes: 6   Leader: Serandon                     Kingdom: Southern Empire
+clan_empire_south_8                              Prienicos                   Heroes: 5   Leader: Abalytos                     Kingdom: Southern Empire
+clan_empire_south_9                              Vetranis                    Heroes: 6   Leader: Satros                       Kingdom: Southern Empire
+clan_empire_west_1                               Comnos                      Heroes: 9   Leader: Garios                       Kingdom: Western Empire
+clan_empire_west_2                               Varros                      Heroes: 8   Leader: Apys                         Kingdom: Western Empire
+clan_empire_west_3                               Dionicos                    Heroes: 8   Leader: Crotor                       Kingdom: Western Empire
+clan_empire_west_4                               Elaches                     Heroes: 6   Leader: Tynops                       Kingdom: Western Empire
+clan_empire_west_5                               Lonalion                    Heroes: 9   Leader: Desporion                    Kingdom: Western Empire
+clan_empire_west_6                               Sorados                     Heroes: 6   Leader: Saratis                      Kingdom: Western Empire
+clan_empire_west_7                               Corenios                    Heroes: 5   Leader: Achios                       Kingdom: Western Empire
+clan_empire_west_8                               Maneolis                    Heroes: 5   Leader: Vipon                        Kingdom: Western Empire
+clan_empire_west_9                               Palladios                   Heroes: 5   Leader: Vincantios                   Kingdom: Western Empire
+clan_khuzait_1                                   Urkhunait                   Heroes: 10  Leader: Monchug                      Kingdom: Khuzait
+clan_khuzait_2                                   Khergit                     Heroes: 9   Leader: Mesui                        Kingdom: Khuzait
+clan_khuzait_3                                   Arkit                       Heroes: 13  Leader: Tulag                        Kingdom: Khuzait
+clan_khuzait_4                                   Tigrit                      Heroes: 8   Leader: Hurunag                      Kingdom: Khuzait
+clan_khuzait_5                                   Harfit                      Heroes: 6   Leader: Akrum                        Kingdom: Khuzait
+clan_khuzait_6                                   Baltait                     Heroes: 8   Leader: Ilatar                       Kingdom: Khuzait
+clan_khuzait_7                                   Koltit                      Heroes: 6   Leader: Kanujan                      Kingdom: Khuzait
+clan_khuzait_8                                   Yanserit                    Heroes: 5   Leader: Taslur                       Kingdom: Khuzait
+clan_khuzait_9                                   Oburit                      Heroes: 6   Leader: Gusukan                      Kingdom: Khuzait
+clan_nord_1                                      Throsniring                 Heroes: 16  Leader: Halthdar                     Kingdom: Nord
+clan_nord_2                                      Kjolding                    Heroes: 9   Leader: Grykka                       Kingdom: Nord
+clan_nord_3                                      Orthling                    Heroes: 8   Leader: Asgotha                      Kingdom: Nord
+clan_nord_4                                      Skylfing                    Heroes: 11  Leader: Gornlautir                   Kingdom: Nord
+clan_nord_5                                      Gauting                     Heroes: 9   Leader: Horgar                       Kingdom: Nord
+clan_nord_6                                      Rungniring                  Heroes: 8   Leader: Gafnir                       Kingdom: Nord
+clan_nord_7                                      Huldring                    Heroes: 9   Leader: Murin                        Kingdom: Nord
+clan_nord_8                                      Dvarroving                  Heroes: 3   Leader: Toverik                      Kingdom: Nord
+clan_nord_9                                      Visduring                   Heroes: 8   Leader: Dagvi                        Kingdom: Nord
+clan_novus_6e46fcbf_61eb_4302_bdd7_a65e83f9fbd4  Novus                       Heroes: 1   Leader: Luna                         Kingdom: None
+clan_sturgia_1                                   Gundaroving                 Heroes: 11  Leader: Raganvad                     Kingdom: Sturgia
+clan_sturgia_2                                   Kuloving                    Heroes: 11  Leader: Olek                         Kingdom: Sturgia
+clan_sturgia_3                                   Vagiroving                  Heroes: 8   Leader: Godun                        Kingdom: Sturgia
+clan_sturgia_4                                   Ormidoving                  Heroes: 11  Leader: Yorig                        Kingdom: Sturgia
+clan_sturgia_5                                   Togaroving                  Heroes: 9   Leader: Vyldur                       Kingdom: Sturgia
+clan_sturgia_6                                   Isyaroving                  Heroes: 6   Leader: Fafen                        Kingdom: Sturgia
+clan_sturgia_7                                   Vezhoving                   Heroes: 9   Leader: Vashorki                     Kingdom: Sturgia
+clan_sturgia_8                                   Ubroving                    Heroes: 5   Leader: Tovir                        Kingdom: Sturgia
+clan_sturgia_9                                   Kostoroving                 Heroes: 6   Leader: Rolan                        Kingdom: Sturgia
+clan_vlandia_1                                   dey Meroc                   Heroes: 12  Leader: Derthert                     Kingdom: Vlandia
+clan_vlandia_10                                  dey Folcun                  Heroes: 5   Leader: Ecarand                      Kingdom: Vlandia
+clan_vlandia_11                                  dey Rothad                  Heroes: 6   Leader: Berican                      Kingdom: Vlandia
+clan_vlandia_2                                   dey Tihr                    Heroes: 8   Leader: Aldric                       Kingdom: Vlandia
+clan_vlandia_3                                   dey Arromanc                Heroes: 9   Leader: Calatild                     Kingdom: Vlandia
+clan_vlandia_4                                   dey Cortain                 Heroes: 9   Leader: Ingalther                    Kingdom: Vlandia
+clan_vlandia_5                                   dey Gunric                  Heroes: 5   Leader: Ospir                        Kingdom: Vlandia
+clan_vlandia_6                                   dey Valant                  Heroes: 6   Leader: Servic                       Kingdom: Vlandia
+clan_vlandia_7                                   dey Fortes                  Heroes: 6   Leader: Belgir                       Kingdom: Vlandia
+clan_vlandia_8                                   dey Molarn                  Heroes: 9   Leader: Hecard                       Kingdom: Vlandia
+clan_vlandia_9                                   dey Jelind                  Heroes: 5   Leader: Vartin                       Kingdom: Vlandia
+company_of_the_boar                              Company of the Golden Boar  Heroes: 4   Leader: Anbard                       Kingdom: None
+desert_bandits                                   Desert Bandits              Heroes: 0   Leader: None                         Kingdom: None
+deserters                                        Deserters                   Heroes: 0   Leader: None                         Kingdom: None
+eleftheroi                                       Eleftheroi                  Heroes: 4   Leader: Calytos of the Eleftheroi    Kingdom: None
+embers_of_flame                                  Embers of the Flame         Heroes: 4   Leader: Emarys of the Embers         Kingdom: None
+forest_bandits                                   Forest Bandits              Heroes: 0   Leader: None                         Kingdom: None
+forest_people                                    Forest People               Heroes: 4   Leader: Vaton of the Forest People   Kingdom: None
+ghilman                                          Ghilman                     Heroes: 4   Leader: Shumsan                      Kingdom: None
+hidden_hand                                      Hidden Hand                 Heroes: 4   Leader: Cadomenos of the Hand        Kingdom: None
+jawwal                                           Jawwal                      Heroes: 4   Leader: Saidh of the Jawwal          Kingdom: None
+karakhuzaits                                     Karakhergit                 Heroes: 4   Leader: Jolugkhu of the Karakhergit  Kingdom: None
+lakepike                                         Lake Rats                   Heroes: 4   Leader: Tanir of the Lake Rats       Kingdom: None
+legion_of_the_betrayed                           Legion of the Betrayed      Heroes: 4   Leader: Eupitor                      Kingdom: None
+looters                                          Looters                     Heroes: 0   Leader: None                         Kingdom: None
+mountain_bandits                                 Mountain Bandits            Heroes: 0   Leader: None                         Kingdom: None
+northern_pirates                                 Sea Raiders                 Heroes: 0   Leader: None                         Kingdom: None
+player_faction                                   Solus                       Heroes: 6   Leader: Sol                          Kingdom: None
+sea_raiders                                      Sea Raiders                 Heroes: 0   Leader: None                         Kingdom: None
+skolderbrotva                                    Skolderbroda                Heroes: 4   Leader: Svalnar                      Kingdom: None
+southern_pirates                                 Corsairs                    Heroes: 0   Leader: None                         Kingdom: None
+steppe_bandits                                   Steppe Bandits              Heroes: 0   Leader: None                         Kingdom: None
+wolfskins                                        Wolfskins                   Heroes: 4   Leader: Dermot of the Wolfskins      Kingdom: None

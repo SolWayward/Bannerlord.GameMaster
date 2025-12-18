@@ -1,0 +1,9 @@
+aserai    Aserai           Clans: 9   Heroes: 70  RulingClan: Banu Hulyan     Ruler: Unqid
+battania  Battania         Clans: 8   Heroes: 58  RulingClan: fen Gruffendoc  Ruler: Caladog
+empire    Northern Empire  Clans: 9   Heroes: 76  RulingClan: Osticos         Ruler: Lucon
+empire_s  Southern Empire  Clans: 9   Heroes: 66  RulingClan: Pethros         Ruler: Rhagaea
+empire_w  Western Empire   Clans: 9   Heroes: 61  RulingClan: Comnos          Ruler: Garios
+khuzait   Khuzait          Clans: 9   Heroes: 71  RulingClan: Urkhunait       Ruler: Monchug
+nord      Nord             Clans: 9   Heroes: 81  RulingClan: Throsniring     Ruler: Halthdar
+sturgia   Sturgia          Clans: 9   Heroes: 76  RulingClan: Gundaroving     Ruler: Raganvad
+vlandia   Vlandia          Clans: 11  Heroes: 80  RulingClan: dey Meroc       Ruler: Derthert

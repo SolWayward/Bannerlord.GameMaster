@@ -20,7 +20,7 @@ namespace Bannerlord.GameMaster.Heroes
             string stringId = ObjectManager.Instance.GetUniqueStringId(name, typeof(Hero));
             TextObject nameObject = new(name);
             
-            CharacterObject templateCharacter = CharacterObject.Find("neutral_lord_1 ");
+            CharacterObject templateCharacter = CharacterObject.Find("neutral_lord_1");
 
             Hero hero = HeroCreator.CreateSpecialHero(templateCharacter, age: 25);
             hero.StringId = stringId;

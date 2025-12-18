@@ -1,0 +1,543 @@
+town_A1                  Quyaz               [City]     Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Prosperity: 4000
+castle_A7                Uqba Castle         [Castle]   Owner: Banu Sarmal       Kingdom: Aserai            Culture: Aserai            Prosperity: 550
+village_A3_1             Abba                [Village]  Owner: Banu Qaraz        Kingdom: Aserai            Culture: Aserai            Hearth: 282
+town_A2                  Husn Fulq           [City]     Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Prosperity: 4200
+town_A4                  Razih               [City]     Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Prosperity: 4500
+town_A5                  Hubyar              [City]     Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Prosperity: 3200
+town_A3                  Iyakis              [City]     Owner: Banu Qaraz        Kingdom: Aserai            Culture: Aserai            Prosperity: 1802
+town_A7                  Askar               [City]     Owner: Banu Arbas        Kingdom: Aserai            Culture: Aserai            Prosperity: 2100
+town_A8                  Qasira              [City]     Owner: Banu Atij         Kingdom: Aserai            Culture: Aserai            Prosperity: 3501
+castle_A3                Ain Baliq Castle    [Castle]   Owner: Banu Sarmal       Kingdom: Aserai            Culture: Aserai            Prosperity: 980
+castle_A8                Tamnuh Castle       [Castle]   Owner: Banu Habbab       Kingdom: Aserai            Culture: Aserai            Prosperity: 590
+castle_A9                Barihal Castle      [Castle]   Owner: Banu Ruwaid       Kingdom: Aserai            Culture: Aserai            Prosperity: 610
+castle_A1                Tubilis Castle      [Castle]   Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Prosperity: 461
+castle_village_A1_1      Tubilis             [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 139
+castle_A2                Sahel Castle        [Castle]   Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Prosperity: 892
+castle_village_A2_1      Sahel               [Village]  Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Hearth: 402
+castle_village_A2_2      Asmait              [Village]  Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Hearth: 402
+castle_village_A3_1      Ain Baliq           [Village]  Owner: Banu Sarmal       Kingdom: Aserai            Culture: Aserai            Hearth: 376
+castle_village_A3_2      Deir Hawa           [Village]  Owner: Banu Sarmal       Kingdom: Aserai            Culture: Aserai            Hearth: 376
+castle_A4                Medeni Castle       [Castle]   Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Prosperity: 752
+castle_village_A4_1      Medeni              [Village]  Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Hearth: 541
+castle_village_A4_2      Qidnar              [Village]  Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Hearth: 541
+castle_A5                Jamayeh Castle      [Castle]   Owner: Banu Qaraz        Kingdom: Aserai            Culture: Aserai            Prosperity: 612
+castle_village_A5_1      Jamayeh             [Village]  Owner: Banu Qaraz        Kingdom: Aserai            Culture: Aserai            Hearth: 594
+castle_A6                Shibal Zumr Castle  [Castle]   Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Prosperity: 571
+castle_village_A6_1      Shibal Zumr         [Village]  Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Hearth: 124
+castle_village_A7_1      Uqba                [Village]  Owner: Banu Sarmal       Kingdom: Aserai            Culture: Aserai            Hearth: 478
+castle_village_A7_2      Bunqaz              [Village]  Owner: Banu Sarmal       Kingdom: Aserai            Culture: Aserai            Hearth: 478
+castle_village_A8_1      Tamnuh              [Village]  Owner: Banu Habbab       Kingdom: Aserai            Culture: Aserai            Hearth: 353
+castle_village_A9_1      Barihal             [Village]  Owner: Banu Ruwaid       Kingdom: Aserai            Culture: Aserai            Hearth: 193
+village_A1_1             Tasheba             [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 301
+village_A1_2             Baq                 [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 239
+castle_village_A1_2      Fanab               [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 131
+village_A1_4             Hiblet              [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 175
+castle_village_A6_2      Lamesa              [Village]  Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Hearth: 328
+village_A2_2             Abu Khih            [Village]  Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Hearth: 301
+village_A2_3             Hoqqa               [Village]  Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Hearth: 247
+castle_village_A5_2      Hunab               [Village]  Owner: Banu Qaraz        Kingdom: Aserai            Culture: Aserai            Hearth: 362
+village_A3_3             Bir Seif            [Village]  Owner: Banu Qaraz        Kingdom: Aserai            Culture: Aserai            Hearth: 121
+village_A4_1             Qablab              [Village]  Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Hearth: 503
+village_A4_2             Mussum              [Village]  Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Hearth: 440
+castle_village_A8_2      Kuqa                [Village]  Owner: Banu Habbab       Kingdom: Aserai            Culture: Aserai            Hearth: 444
+village_A4_4             Doqa                [Village]  Owner: Banu Sarran       Kingdom: Aserai            Culture: Aserai            Hearth: 436
+village_A5_1             Mahloul             [Village]  Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Hearth: 222
+village_A5_2             Liwas               [Village]  Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Hearth: 154
+village_A5_3             Waltas              [Village]  Owner: Banu Qild         Kingdom: Aserai            Culture: Aserai            Hearth: 159
+town_A6                  Sanala              [City]     Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Prosperity: 4303
+village_A6_1             Mijayit             [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 317
+village_A6_2             Hamoshawat          [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 215
+village_A6_3             Jahasim             [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 598
+village_A6_4             Nahlan              [Village]  Owner: Banu Hulyan       Kingdom: Aserai            Culture: Aserai            Hearth: 225
+castle_village_A9_2      Wadar               [Village]  Owner: Banu Ruwaid       Kingdom: Aserai            Culture: Aserai            Hearth: 307
+village_A7_2             Bait Hatif          [Village]  Owner: Banu Arbas        Kingdom: Aserai            Culture: Aserai            Hearth: 223
+village_A7_3             Mabwaz              [Village]  Owner: Banu Arbas        Kingdom: Aserai            Culture: Aserai            Hearth: 239
+village_A7_4             Zalm                [Village]  Owner: Banu Arbas        Kingdom: Aserai            Culture: Aserai            Hearth: 262
+village_A8_1             Ezbet Nahul         [Village]  Owner: Banu Atij         Kingdom: Aserai            Culture: Aserai            Hearth: 327
+village_A8_2             Abghan              [Village]  Owner: Banu Atij         Kingdom: Aserai            Culture: Aserai            Hearth: 225
+town_B1                  Marunath            [City]     Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Prosperity: 5000
+village_B3_2             Geunat Nal          [Village]  Owner: fen Uvain         Kingdom: Battania          Culture: Battania          Hearth: 250
+town_B2                  Dunglanys           [City]     Owner: fen Derngil       Kingdom: Battania          Culture: Battania          Prosperity: 4000
+town_B3                  Car Banseth         [City]     Owner: fen Uvain         Kingdom: Battania          Culture: Battania          Prosperity: 2200
+town_B4                  Seonon              [City]     Owner: fen Penraic       Kingdom: Battania          Culture: Battania          Prosperity: 2403
+town_B5                  Pen Cannoc          [City]     Owner: fen Giall         Kingdom: Battania          Culture: Battania          Prosperity: 3800
+castle_B3                Druimmor Castle     [Castle]   Owner: fen Eingal        Kingdom: Battania          Culture: Battania          Prosperity: 1060
+castle_B2                Llanoc Hen Castle   [Castle]   Owner: fen Morcar        Kingdom: Battania          Culture: Battania          Prosperity: 720
+castle_B1                Ab Comer Castle     [Castle]   Owner: fen Caernacht     Kingdom: Battania          Culture: Battania          Prosperity: 879
+castle_village_B1_1      Ab Comer            [Village]  Owner: fen Caernacht     Kingdom: Battania          Culture: Battania          Hearth: 129
+castle_village_B2_1      Llanoc Hen          [Village]  Owner: fen Morcar        Kingdom: Battania          Culture: Battania          Hearth: 320
+castle_village_B2_2      Cantrec             [Village]  Owner: fen Morcar        Kingdom: Battania          Culture: Battania          Hearth: 348
+castle_village_B3_1      Druimmor            [Village]  Owner: fen Eingal        Kingdom: Battania          Culture: Battania          Hearth: 114
+castle_B4                Pendraic Castle     [Castle]   Owner: fen Uvain         Kingdom: Battania          Culture: Battania          Prosperity: 950
+castle_village_B4_1      Pendraic            [Village]  Owner: fen Uvain         Kingdom: Battania          Culture: Battania          Hearth: 154
+castle_B5                Rhemtoil Castle     [Castle]   Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Prosperity: 861
+castle_village_B5_1      Rhemtoil            [Village]  Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Hearth: 308
+castle_village_B5_2      Claig Ban           [Village]  Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Hearth: 348
+castle_B6                Flintolg Castle     [Castle]   Owner: fen Penraic       Kingdom: Battania          Culture: Battania          Prosperity: 722
+castle_village_B6_1      Flintolg            [Village]  Owner: fen Penraic       Kingdom: Battania          Culture: Battania          Hearth: 375
+castle_village_B6_2      Glintor             [Village]  Owner: fen Penraic       Kingdom: Battania          Culture: Battania          Hearth: 375
+castle_B7                Aster Castle        [Castle]   Owner: fen Derngil       Kingdom: Battania          Culture: Battania          Prosperity: 655
+castle_village_B7_1      Aster               [Village]  Owner: fen Derngil       Kingdom: Battania          Culture: Battania          Hearth: 809
+castle_B8                Uthelaim Castle     [Castle]   Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Prosperity: 961
+castle_village_B8_1      Uthelaim            [Village]  Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Hearth: 697
+village_B1_1             Dalmengus           [Village]  Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Hearth: 122
+village_B1_2             Ebereth             [Village]  Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Hearth: 491
+village_B1_3             Beglomuar           [Village]  Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Hearth: 481
+village_B1_4             Ath Cafal           [Village]  Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Hearth: 362
+village_B2_1             Diantogmail         [Village]  Owner: fen Derngil       Kingdom: Battania          Culture: Battania          Hearth: 279
+village_B2_2             Glenlithrig         [Village]  Owner: fen Derngil       Kingdom: Battania          Culture: Battania          Hearth: 530
+village_B2_3             Morihig             [Village]  Owner: fen Derngil       Kingdom: Battania          Culture: Battania          Hearth: 443
+castle_village_B7_2      Imlagh              [Village]  Owner: fen Derngil       Kingdom: Battania          Culture: Battania          Hearth: 222
+castle_village_B4_2      Lindorn             [Village]  Owner: fen Uvain         Kingdom: Battania          Culture: Battania          Hearth: 122
+village_B3_1             Bog Beth            [Village]  Owner: fen Uvain         Kingdom: Battania          Culture: Battania          Hearth: 551
+village_B3_3             Tor Leiad           [Village]  Owner: fen Uvain         Kingdom: Battania          Culture: Battania          Hearth: 151
+castle_village_B3_2      Tor Melina          [Village]  Owner: fen Eingal        Kingdom: Battania          Culture: Battania          Hearth: 358
+village_B4_1             Bryn Glas           [Village]  Owner: fen Penraic       Kingdom: Battania          Culture: Battania          Hearth: 590
+village_B4_2             Andurn              [Village]  Owner: fen Penraic       Kingdom: Battania          Culture: Battania          Hearth: 149
+village_B4_3             Mag Arba            [Village]  Owner: fen Penraic       Kingdom: Battania          Culture: Battania          Hearth: 318
+village_B4_4             Swenryn             [Village]  Owner: fen Penraic       Kingdom: Battania          Culture: Battania          Hearth: 391
+castle_village_B8_2      Seordas             [Village]  Owner: fen Gruffendoc    Kingdom: Battania          Culture: Battania          Hearth: 329
+village_B5_1             Durn                [Village]  Owner: fen Giall         Kingdom: Battania          Culture: Battania          Hearth: 531
+village_B5_2             Gainseth            [Village]  Owner: fen Giall         Kingdom: Battania          Culture: Battania          Hearth: 474
+village_B5_3             Fenon Etir          [Village]  Owner: fen Giall         Kingdom: Battania          Culture: Battania          Hearth: 469
+castle_village_B1_2      Inveth              [Village]  Owner: fen Caernacht     Kingdom: Battania          Culture: Battania          Hearth: 451
+hideout_desert_12        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_1         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_2         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_3         Hideout             [Hideout]  Owner: Desert Bandits    Kingdom: Desert Bandits    Culture: Desert Bandits    
+hideout_desert_4         Hideout             [Hideout]  Owner: Desert Bandits    Kingdom: Desert Bandits    Culture: Desert Bandits    
+hideout_desert_5         Hideout             [Hideout]  Owner: Desert Bandits    Kingdom: Desert Bandits    Culture: Desert Bandits    
+hideout_desert_6         Hideout             [Hideout]  Owner: Desert Bandits    Kingdom: Desert Bandits    Culture: Desert Bandits    
+hideout_desert_7         Hideout             [Hideout]  Owner: Desert Bandits    Kingdom: Desert Bandits    Culture: Desert Bandits    
+hideout_desert_8         Hideout             [Hideout]  Owner: Desert Bandits    Kingdom: Desert Bandits    Culture: Desert Bandits    
+hideout_desert_9         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_10        Hideout             [Hideout]  Owner: Desert Bandits    Kingdom: Desert Bandits    Culture: Desert Bandits    
+hideout_desert_11        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_13        Hideout             [Hideout]  Owner: Desert Bandits    Kingdom: Desert Bandits    Culture: Desert Bandits    
+hideout_desert_14        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_15        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_16        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_17        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_18        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_19        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+hideout_desert_20        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Desert Bandits    
+town_EN2                 Diathma             [City]     Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Prosperity: 4700
+town_ES3                 Little Rock         [City]     Owner: Leonipardes       Kingdom: Southern Empire   Culture: Empire            Prosperity: 4500
+tutorial_training_field  Training Field      [Unknown]  Owner: None              Kingdom: None              Culture: Empire            
+town_EW2                 Zeonica             [City]     Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Prosperity: 4500
+town_ES4                 Lycaron             [City]     Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Prosperity: 3800
+castle_EN2               Lochana Castle      [Castle]   Owner: Chonis            Kingdom: Northern Empire   Culture: Empire            Prosperity: 500
+castle_village_EW2_2     Bergum              [Village]  Owner: Elaches           Kingdom: Western Empire    Culture: Empire            Hearth: 232
+castle_ES6               Sestadaim Castle    [Castle]   Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Prosperity: 670
+village_EN5_1            Vealos              [Village]  Owner: Dolentos          Kingdom: Northern Empire   Culture: Empire            Hearth: 221
+town_EN1                 Epicrotea           [City]     Owner: Argoros           Kingdom: Northern Empire   Culture: Empire            Prosperity: 5100
+town_EN3                 Saneopa             [City]     Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Prosperity: 4600
+town_EN6                 Amprela             [City]     Owner: Impestores        Kingdom: Northern Empire   Culture: Empire            Prosperity: 2300
+town_EN5                 Myzea               [City]     Owner: Dolentos          Kingdom: Northern Empire   Culture: Empire            Prosperity: 3900
+castle_EN7               Epinosa Castle      [Castle]   Owner: Phalentes         Kingdom: Northern Empire   Culture: Empire            Prosperity: 990
+castle_EN8               Syratos Castle      [Castle]   Owner: Vatatzes          Kingdom: Northern Empire   Culture: Empire            Prosperity: 560
+castle_EN3               Rhesos Castle       [Castle]   Owner: Serapides         Kingdom: Northern Empire   Culture: Empire            Prosperity: 720
+town_EW4                 Ortysia             [City]     Owner: Varros            Kingdom: Western Empire    Culture: Empire            Prosperity: 5600
+town_EW1                 Lageta              [City]     Owner: Dionicos          Kingdom: Western Empire    Culture: Empire            Prosperity: 5200
+town_EW5                 Amitatys            [City]     Owner: Elaches           Kingdom: Western Empire    Culture: Empire            Prosperity: 4400
+town_EW6                 Rhotae              [City]     Owner: Lonalion          Kingdom: Western Empire    Culture: Empire            Prosperity: 4905
+castle_EW8               Gersegos Castle     [Castle]   Owner: Sorados           Kingdom: Western Empire    Culture: Empire            Prosperity: 610
+castle_EW5               Veron Castle        [Castle]   Owner: Corenios          Kingdom: Western Empire    Culture: Empire            Prosperity: 610
+castle_EW6               Hertogea Castle     [Castle]   Owner: Maneolis          Kingdom: Western Empire    Culture: Empire            Prosperity: 640
+castle_EW7               Oristocorys Castle  [Castle]   Owner: Palladios         Kingdom: Western Empire    Culture: Empire            Prosperity: 820
+town_ES1                 Danustica           [City]     Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Prosperity: 4900
+town_ES2                 Vostrum             [City]     Owner: Hongeros          Kingdom: Southern Empire   Culture: Empire            Prosperity: 5100
+town_ES7                 Syronea             [City]     Owner: Julios            Kingdom: Southern Empire   Culture: Empire            Prosperity: 4000
+town_ES6                 Phycaon             [City]     Owner: Vizartos          Kingdom: Southern Empire   Culture: Empire            Prosperity: 2600
+castle_ES3               Melion Castle       [Castle]   Owner: Avlonos           Kingdom: Southern Empire   Culture: Empire            Prosperity: 810
+castle_ES5               Morenia Castle      [Castle]   Owner: Prienicos         Kingdom: Southern Empire   Culture: Empire            Prosperity: 850
+castle_ES7               Jogurys Castle      [Castle]   Owner: Vetranis          Kingdom: Southern Empire   Culture: Empire            Prosperity: 1050
+castle_EN1               Varagos Castle      [Castle]   Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Prosperity: 423
+castle_village_EN1_1     Varagos             [Village]  Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Hearth: 322
+castle_village_EN2_1     Lochana             [Village]  Owner: Chonis            Kingdom: Northern Empire   Culture: Empire            Hearth: 557
+castle_village_EN3_1     Rhesos              [Village]  Owner: Serapides         Kingdom: Northern Empire   Culture: Empire            Hearth: 610
+castle_EN4               Gaos Castle         [Castle]   Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Prosperity: 862
+castle_village_EN4_1     Gaos                [Village]  Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Hearth: 355
+castle_EN5               Atrion Castle       [Castle]   Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Prosperity: 564
+castle_village_EN5_1     Atrion              [Village]  Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Hearth: 607
+castle_EN6               Ataconia Castle     [Castle]   Owner: Argoros           Kingdom: Northern Empire   Culture: Empire            Prosperity: 962
+castle_village_EN6_1     Ataconia            [Village]  Owner: Argoros           Kingdom: Northern Empire   Culture: Empire            Hearth: 682
+castle_village_EN7_1     Epinosa             [Village]  Owner: Phalentes         Kingdom: Northern Empire   Culture: Empire            Hearth: 222
+castle_village_EN7_2     Pons                [Village]  Owner: Phalentes         Kingdom: Northern Empire   Culture: Empire            Hearth: 703
+castle_village_EN8_1     Syratos             [Village]  Owner: Vatatzes          Kingdom: Northern Empire   Culture: Empire            Hearth: 422
+castle_village_EN8_2     Tememos             [Village]  Owner: Vatatzes          Kingdom: Northern Empire   Culture: Empire            Hearth: 422
+castle_EN9               Mecalovea Castle    [Castle]   Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Prosperity: 871
+castle_village_EN9_1     Mecalovea           [Village]  Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Hearth: 389
+castle_village_EN9_2     Agalmon             [Village]  Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Hearth: 589
+village_EN1_1            Marathea            [Village]  Owner: Argoros           Kingdom: Northern Empire   Culture: Empire            Hearth: 322
+village_EN1_2            Stathymos           [Village]  Owner: Argoros           Kingdom: Northern Empire   Culture: Empire            Hearth: 125
+village_EN1_3            Gymos               [Village]  Owner: Argoros           Kingdom: Northern Empire   Culture: Empire            Hearth: 117
+castle_village_EN3_2     Dyopalis            [Village]  Owner: Serapides         Kingdom: Northern Empire   Culture: Empire            Hearth: 125
+village_EN2_1            Alosea              [Village]  Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Hearth: 532
+village_EN2_2            Jeracos             [Village]  Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Hearth: 705
+castle_village_EN5_2     Masangara           [Village]  Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Hearth: 637
+village_EN3_1            Enoisa              [Village]  Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Hearth: 275
+castle_village_EN1_2     Aeoria              [Village]  Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Hearth: 221
+village_EN3_3            Crios               [Village]  Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Hearth: 145
+town_EN4                 Argoron             [City]     Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Prosperity: 2800
+castle_village_EN6_2     Potamis             [Village]  Owner: Argoros           Kingdom: Northern Empire   Culture: Empire            Hearth: 577
+village_EN4_2            Alatys              [Village]  Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Hearth: 646
+castle_village_EN2_2     Nortanisa           [Village]  Owner: Chonis            Kingdom: Northern Empire   Culture: Empire            Hearth: 337
+village_EN4_4            Hetania             [Village]  Owner: Osticos           Kingdom: Northern Empire   Culture: Empire            Hearth: 346
+village_EN5_2            Orthra              [Village]  Owner: Dolentos          Kingdom: Northern Empire   Culture: Empire            Hearth: 305
+castle_village_EN4_2     Themys              [Village]  Owner: Neretzes          Kingdom: Northern Empire   Culture: Empire            Hearth: 670
+village_EN5_4            Samatha             [Village]  Owner: Dolentos          Kingdom: Northern Empire   Culture: Empire            Hearth: 170
+village_EN6_1            Avasinton           [Village]  Owner: Impestores        Kingdom: Northern Empire   Culture: Empire            Hearth: 340
+village_EN6_2            Boreagora           [Village]  Owner: Impestores        Kingdom: Northern Empire   Culture: Empire            Hearth: 411
+castle_EW1               Garontor Castle     [Castle]   Owner: Varros            Kingdom: Western Empire    Culture: Empire            Prosperity: 880
+castle_village_EW1_1     Garontor            [Village]  Owner: Varros            Kingdom: Western Empire    Culture: Empire            Hearth: 166
+castle_EW2               Thorios Castle      [Castle]   Owner: Elaches           Kingdom: Western Empire    Culture: Empire            Prosperity: 763
+castle_village_EW2_1     Thorios             [Village]  Owner: Elaches           Kingdom: Western Empire    Culture: Empire            Hearth: 232
+castle_EW3               Onica Castle        [Castle]   Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Prosperity: 742
+castle_village_EW3_1     Onica               [Village]  Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Hearth: 298
+castle_EW4               Thractorae Castle   [Castle]   Owner: Dionicos          Kingdom: Western Empire    Culture: Empire            Prosperity: 662
+castle_village_EW4_1     Thractorae          [Village]  Owner: Dionicos          Kingdom: Western Empire    Culture: Empire            Hearth: 346
+castle_village_EW5_1     Veron               [Village]  Owner: Corenios          Kingdom: Western Empire    Culture: Empire            Hearth: 421
+castle_village_EW5_2     Goleryn             [Village]  Owner: Corenios          Kingdom: Western Empire    Culture: Empire            Hearth: 421
+castle_village_EW6_1     Hertogea            [Village]  Owner: Maneolis          Kingdom: Western Empire    Culture: Empire            Hearth: 347
+castle_village_EW7_1     Oristocorys         [Village]  Owner: Palladios         Kingdom: Western Empire    Culture: Empire            Hearth: 603
+castle_village_EW7_2     Elvania             [Village]  Owner: Palladios         Kingdom: Western Empire    Culture: Empire            Hearth: 603
+castle_village_EW8_1     Gersegos            [Village]  Owner: Sorados           Kingdom: Western Empire    Culture: Empire            Hearth: 189
+village_EW1_1            Primessos           [Village]  Owner: Dionicos          Kingdom: Western Empire    Culture: Empire            Hearth: 333
+village_EW1_2            Montos              [Village]  Owner: Dionicos          Kingdom: Western Empire    Culture: Empire            Hearth: 132
+castle_village_EW6_2     Nideon              [Village]  Owner: Maneolis          Kingdom: Western Empire    Culture: Empire            Hearth: 165
+castle_village_EW3_2     Tarcutis            [Village]  Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Hearth: 546
+village_EW2_2            Neocorys            [Village]  Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Hearth: 182
+village_EW2_3            Alsasos             [Village]  Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Hearth: 272
+village_EW2_4            Zeocorys            [Village]  Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Hearth: 143
+town_EW3                 Jalmarys            [City]     Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Prosperity: 2701
+castle_village_EW4_2     Gamardan            [Village]  Owner: Dionicos          Kingdom: Western Empire    Culture: Empire            Hearth: 427
+village_EW3_2            Aegosca             [Village]  Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Hearth: 427
+village_EW3_3            Dradios             [Village]  Owner: Comnos            Kingdom: Western Empire    Culture: Empire            Hearth: 501
+village_EW4_1            Arpotis             [Village]  Owner: Varros            Kingdom: Western Empire    Culture: Empire            Hearth: 799
+castle_village_EW1_2     Lysia               [Village]  Owner: Varros            Kingdom: Western Empire    Culture: Empire            Hearth: 155
+village_EW4_3            Vinela              [Village]  Owner: Varros            Kingdom: Western Empire    Culture: Empire            Hearth: 655
+village_EW4_4            Garengolia          [Village]  Owner: Varros            Kingdom: Western Empire    Culture: Empire            Hearth: 395
+village_EW5_1            Elipa               [Village]  Owner: Elaches           Kingdom: Western Empire    Culture: Empire            Hearth: 187
+village_EW5_2            Phasos              [Village]  Owner: Elaches           Kingdom: Western Empire    Culture: Empire            Hearth: 187
+village_EW6_1            Carphenion          [Village]  Owner: Lonalion          Kingdom: Western Empire    Culture: Empire            Hearth: 104
+castle_village_EW8_2     Vathea              [Village]  Owner: Sorados           Kingdom: Western Empire    Culture: Empire            Hearth: 104
+village_EW6_3            Thersenion          [Village]  Owner: Lonalion          Kingdom: Western Empire    Culture: Empire            Hearth: 255
+village_EW6_4            Leblenion           [Village]  Owner: Lonalion          Kingdom: Western Empire    Culture: Empire            Hearth: 339
+castle_ES1               Odrysa Castle       [Castle]   Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Prosperity: 502
+castle_village_ES1_1     Odrysa              [Village]  Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Hearth: 272
+castle_ES2               Corenia Castle      [Castle]   Owner: Julios            Kingdom: Southern Empire   Culture: Empire            Prosperity: 771
+castle_village_ES2_1     Corenia             [Village]  Owner: Julios            Kingdom: Southern Empire   Culture: Empire            Hearth: 258
+castle_village_ES2_2     Metachia            [Village]  Owner: Julios            Kingdom: Southern Empire   Culture: Empire            Hearth: 248
+castle_village_ES3_1     Melion              [Village]  Owner: Avlonos           Kingdom: Southern Empire   Culture: Empire            Hearth: 436
+castle_village_ES3_2     Sagolina            [Village]  Owner: Avlonos           Kingdom: Southern Empire   Culture: Empire            Hearth: 448
+castle_ES4               Lavenia Castle      [Castle]   Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Prosperity: 1100
+castle_village_ES4_1     Lavenia             [Village]  Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Hearth: 370
+castle_village_ES4_2     Ethemisa            [Village]  Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Hearth: 378
+castle_village_ES5_1     Morenia             [Village]  Owner: Prienicos         Kingdom: Southern Empire   Culture: Empire            Hearth: 497
+castle_village_ES6_1     Sestadaim           [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 158
+castle_village_ES7_1     Jogurys             [Village]  Owner: Vetranis          Kingdom: Southern Empire   Culture: Empire            Hearth: 303
+castle_ES8               Chanopsis Castle    [Castle]   Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Prosperity: 483
+castle_village_ES8_1     Chanopsis           [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 582
+castle_village_ES1_2     Caira               [Village]  Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Hearth: 304
+village_ES1_2            Polisia             [Village]  Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Hearth: 218
+village_ES1_3            Tegresos            [Village]  Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Hearth: 231
+village_ES1_4            Erebulos            [Village]  Owner: Mestricaros       Kingdom: Southern Empire   Culture: Empire            Hearth: 231
+castle_village_ES5_2     Atphynia            [Village]  Owner: Prienicos         Kingdom: Southern Empire   Culture: Empire            Hearth: 130
+village_ES2_2            Gorcorys            [Village]  Owner: Hongeros          Kingdom: Southern Empire   Culture: Empire            Hearth: 355
+village_ES2_3            Avalyps             [Village]  Owner: Hongeros          Kingdom: Southern Empire   Culture: Empire            Hearth: 356
+village_ES2_4            Alision             [Village]  Owner: Hongeros          Kingdom: Southern Empire   Culture: Empire            Hearth: 356
+village_ES3_1            Canoros             [Village]  Owner: Leonipardes       Kingdom: Southern Empire   Culture: Empire            Hearth: 205
+village_ES3_2            Tevea               [Village]  Owner: Leonipardes       Kingdom: Southern Empire   Culture: Empire            Hearth: 441
+village_ES3_3            Zestea              [Village]  Owner: Leonipardes       Kingdom: Southern Empire   Culture: Empire            Hearth: 255
+village_ES4_1            Sagora              [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 501
+castle_village_ES8_2     Popsia              [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 206
+village_ES4_3            Canterion           [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 163
+town_ES5                 Onira               [City]     Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Prosperity: 3400
+village_ES5_1            Lanthas             [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 403
+village_ES5_2            Lartusys            [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 292
+village_ES5_3            Parasemnos          [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 286
+village_ES6_1            Saldannis           [Village]  Owner: Vizartos          Kingdom: Southern Empire   Culture: Empire            Hearth: 251
+village_ES6_2            Spotia              [Village]  Owner: Vizartos          Kingdom: Southern Empire   Culture: Empire            Hearth: 166
+castle_village_ES6_2     Amycon              [Village]  Owner: Pethros           Kingdom: Southern Empire   Culture: Empire            Hearth: 136
+village_ES7_1            Psotai              [Village]  Owner: Julios            Kingdom: Southern Empire   Culture: Empire            Hearth: 271
+village_ES7_2            Vargornis           [Village]  Owner: Julios            Kingdom: Southern Empire   Culture: Empire            Hearth: 206
+castle_village_ES7_2     Eunalica            [Village]  Owner: Vetranis          Kingdom: Southern Empire   Culture: Empire            Hearth: 259
+retirement_retreat       The Retreat         [Unknown]  Owner: None              Kingdom: None              Culture: Empire            
+hideout_forest_19        Hideout             [Hideout]  Owner: Forest Bandits    Kingdom: Forest Bandits    Culture: Forest Bandits    
+hideout_forest_4         Hideout             [Hideout]  Owner: Forest Bandits    Kingdom: Forest Bandits    Culture: Forest Bandits    
+hideout_forest_1         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_2         Hideout             [Hideout]  Owner: Forest Bandits    Kingdom: Forest Bandits    Culture: Forest Bandits    
+hideout_forest_3         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_5         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_6         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_7         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_8         Hideout             [Hideout]  Owner: Forest Bandits    Kingdom: Forest Bandits    Culture: Forest Bandits    
+hideout_forest_9         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_10        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_11        Hideout             [Hideout]  Owner: Forest Bandits    Kingdom: Forest Bandits    Culture: Forest Bandits    
+hideout_forest_12        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_13        Hideout             [Hideout]  Owner: Forest Bandits    Kingdom: Forest Bandits    Culture: Forest Bandits    
+hideout_forest_14        Hideout             [Hideout]  Owner: Forest Bandits    Kingdom: Forest Bandits    Culture: Forest Bandits    
+hideout_forest_15        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_16        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+hideout_forest_17        Hideout             [Hideout]  Owner: Forest Bandits    Kingdom: Forest Bandits    Culture: Forest Bandits    
+hideout_forest_18        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Forest Bandits    
+town_K3                  Makeb               [City]     Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Prosperity: 3700
+castle_village_K4_2      Kuruluk             [Village]  Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Hearth: 235
+castle_village_K6_2      Karahalli           [Village]  Owner: Baltait           Kingdom: Khuzait           Culture: Khuzait           Hearth: 415
+town_K1                  Baltakhand          [City]     Owner: Khergit           Kingdom: Khuzait           Culture: Khuzait           Prosperity: 1801
+town_K4                  Ortongard           [City]     Owner: Arkit             Kingdom: Khuzait           Culture: Khuzait           Prosperity: 3200
+town_K2                  Akkalat             [City]     Owner: Tigrit            Kingdom: Khuzait           Culture: Khuzait           Prosperity: 1700
+town_K6                  Odokh               [City]     Owner: Harfit            Kingdom: Khuzait           Culture: Khuzait           Prosperity: 1702
+castle_K6                Dinar Castle        [Castle]   Owner: Baltait           Kingdom: Khuzait           Culture: Khuzait           Prosperity: 621
+castle_K5                Khimli Castle       [Castle]   Owner: Koltit            Kingdom: Khuzait           Culture: Khuzait           Prosperity: 520
+castle_K3                Hakkun Castle       [Castle]   Owner: Yanserit          Kingdom: Khuzait           Culture: Khuzait           Prosperity: 661
+castle_K8                Erzenur Castle      [Castle]   Owner: Oburit            Kingdom: Khuzait           Culture: Khuzait           Prosperity: 432
+castle_K1                Usek Castle         [Castle]   Owner: Arkit             Kingdom: Khuzait           Culture: Khuzait           Prosperity: 422
+castle_village_K1_1      Usek                [Village]  Owner: Arkit             Kingdom: Khuzait           Culture: Khuzait           Hearth: 134
+castle_village_K1_2      Esme                [Village]  Owner: Arkit             Kingdom: Khuzait           Culture: Khuzait           Hearth: 110
+castle_K2                Akiser Castle       [Castle]   Owner: Tigrit            Kingdom: Khuzait           Culture: Khuzait           Prosperity: 480
+castle_village_K2_1      Akiser              [Village]  Owner: Tigrit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 189
+castle_village_K3_1      Hakkun              [Village]  Owner: Yanserit          Kingdom: Khuzait           Culture: Khuzait           Hearth: 136
+castle_K4                Tepes Castle        [Castle]   Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Prosperity: 532
+castle_village_K4_1      Tepes               [Village]  Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Hearth: 457
+castle_village_K5_1      Khimli              [Village]  Owner: Koltit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 353
+castle_village_K6_1      Dinar               [Village]  Owner: Baltait           Kingdom: Khuzait           Culture: Khuzait           Hearth: 244
+castle_K7                Simira Castle       [Castle]   Owner: Koltit            Kingdom: Khuzait           Culture: Khuzait           Prosperity: 421
+castle_village_K7_1      Simira              [Village]  Owner: Koltit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 181
+castle_village_K8_1      Erzenur             [Village]  Owner: Oburit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 371
+castle_K9                Kaysar Castle       [Castle]   Owner: Baltait           Kingdom: Khuzait           Culture: Khuzait           Prosperity: 523
+castle_village_K9_1      Kaysar              [Village]  Owner: Baltait           Kingdom: Khuzait           Culture: Khuzait           Hearth: 340
+castle_village_K9_2      Payam               [Village]  Owner: Baltait           Kingdom: Khuzait           Culture: Khuzait           Hearth: 208
+village_K1_1             Fisnar              [Village]  Owner: Khergit           Kingdom: Khuzait           Culture: Khuzait           Hearth: 156
+village_K1_2             Ulaan               [Village]  Owner: Khergit           Kingdom: Khuzait           Culture: Khuzait           Hearth: 228
+village_K1_4             Asalig              [Village]  Owner: Khergit           Kingdom: Khuzait           Culture: Khuzait           Hearth: 307
+village_K2_1             Karakalat           [Village]  Owner: Tigrit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 220
+village_K2_2             Tismil              [Village]  Owner: Tigrit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 166
+castle_village_K8_2      Gereden             [Village]  Owner: Oburit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 276
+castle_village_K3_2      Kiraz               [Village]  Owner: Yanserit          Kingdom: Khuzait           Culture: Khuzait           Hearth: 257
+village_K3_1             Shapeshte           [Village]  Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Hearth: 206
+village_K3_2             Hanekhy             [Village]  Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Hearth: 143
+village_K3_3             Mazen               [Village]  Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Hearth: 182
+castle_village_K5_2      Omrotok             [Village]  Owner: Koltit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 357
+village_K4_2             Ransam              [Village]  Owner: Arkit             Kingdom: Khuzait           Culture: Khuzait           Hearth: 113
+village_K4_3             Mivanjan            [Village]  Owner: Arkit             Kingdom: Khuzait           Culture: Khuzait           Hearth: 209
+village_K4_4             Urunjan             [Village]  Owner: Arkit             Kingdom: Khuzait           Culture: Khuzait           Hearth: 164
+town_K5                  Chaikand            [City]     Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Prosperity: 3900
+castle_village_K2_2      Kamshar             [Village]  Owner: Tigrit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 144
+village_K5_2             Okhutan             [Village]  Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Hearth: 327
+village_K5_3             Ispantar            [Village]  Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Hearth: 328
+village_K5_4             Pabastan            [Village]  Owner: Urkhunait         Kingdom: Khuzait           Culture: Khuzait           Hearth: 243
+village_K6_1             Karahan             [Village]  Owner: Harfit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 225
+village_K6_2             Nutyuk              [Village]  Owner: Harfit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 159
+village_K6_3             Danara              [Village]  Owner: Harfit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 276
+castle_village_K7_2      Kohi Ajik           [Village]  Owner: Koltit            Kingdom: Khuzait           Culture: Khuzait           Hearth: 234
+hideout_mountain_2       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_15      Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_12      Hideout             [Hideout]  Owner: Mountain Bandits  Kingdom: Mountain Bandits  Culture: Mountain Bandits  
+hideout_mountain_1       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_3       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_4       Hideout             [Hideout]  Owner: Mountain Bandits  Kingdom: Mountain Bandits  Culture: Mountain Bandits  
+hideout_mountain_5       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_6       Hideout             [Hideout]  Owner: Mountain Bandits  Kingdom: Mountain Bandits  Culture: Mountain Bandits  
+hideout_mountain_7       Hideout             [Hideout]  Owner: Mountain Bandits  Kingdom: Mountain Bandits  Culture: Mountain Bandits  
+hideout_mountain_8       Hideout             [Hideout]  Owner: Mountain Bandits  Kingdom: Mountain Bandits  Culture: Mountain Bandits  
+hideout_mountain_9       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_10      Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_11      Hideout             [Hideout]  Owner: Mountain Bandits  Kingdom: Mountain Bandits  Culture: Mountain Bandits  
+hideout_mountain_13      Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_14      Hideout             [Hideout]  Owner: Mountain Bandits  Kingdom: Mountain Bandits  Culture: Mountain Bandits  
+hideout_mountain_16      Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_17      Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_18      Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+hideout_mountain_19      Hideout             [Hideout]  Owner: Mountain Bandits  Kingdom: Mountain Bandits  Culture: Mountain Bandits  
+hideout_mountain_20      Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Mountain Bandits  
+village_N3_2             Ostrif              [Village]  Owner: Throsniring       Kingdom: Nord              Culture: Nord              Hearth: 311
+town_N1                  Hvalvik             [City]     Owner: Orthling          Kingdom: Nord              Culture: Nord              Prosperity: 3101
+town_N2                  Gretysfjord         [City]     Owner: Kjolding          Kingdom: Nord              Culture: Nord              Prosperity: 3100
+town_N3                  Thronderlag         [City]     Owner: Throsniring       Kingdom: Nord              Culture: Nord              Prosperity: 3101
+town_N4                  Hargard             [City]     Owner: Skylfing          Kingdom: Nord              Culture: Nord              Prosperity: 3102
+castle_N1                Agilting Castle     [Castle]   Owner: Gauting           Kingdom: Nord              Culture: Nord              Prosperity: 891
+castle_N3                Ykerslund Castle    [Castle]   Owner: Rungniring        Kingdom: Nord              Culture: Nord              Prosperity: 891
+castle_N9                Ulikshorn Castle    [Castle]   Owner: Huldring          Kingdom: Nord              Culture: Nord              Prosperity: 891
+castle_N4                Brunmark Castle     [Castle]   Owner: Dvarroving        Kingdom: Nord              Culture: Nord              Prosperity: 892
+castle_N7                Hakarshus Castle    [Castle]   Owner: Orthling          Kingdom: Nord              Culture: Nord              Prosperity: 890
+castle_N2                Tharklif Castle     [Castle]   Owner: Kjolding          Kingdom: Nord              Culture: Nord              Prosperity: 891
+castle_N5                Fimbulgard Castle   [Castle]   Owner: Visduring         Kingdom: Nord              Culture: Nord              Prosperity: 891
+castle_N6                Haugr Castle        [Castle]   Owner: Skylfing          Kingdom: Nord              Culture: Nord              Prosperity: 892
+castle_N8                Skarthness Castle   [Castle]   Owner: Throsniring       Kingdom: Nord              Culture: Nord              Prosperity: 891
+castle_village_N1_1      Gauksdal            [Village]  Owner: Gauting           Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N1_2      Agilting            [Village]  Owner: Gauting           Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N2_1      Kjarved             [Village]  Owner: Kjolding          Kingdom: Nord              Culture: Nord              Hearth: 230
+castle_village_N2_2      Tharklif            [Village]  Owner: Kjolding          Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N3_1      Ykerslund           [Village]  Owner: Rungniring        Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N3_2      Hoeksten            [Village]  Owner: Rungniring        Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N4_1      Ruvenbrek           [Village]  Owner: Dvarroving        Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N4_2      Svinstak            [Village]  Owner: Dvarroving        Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N5_1      Fimbulgard          [Village]  Owner: Visduring         Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N5_2      Draugmyr            [Village]  Owner: Visduring         Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N6_1      Haugr               [Village]  Owner: Skylfing          Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N6_2      Nifdal              [Village]  Owner: Skylfing          Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N7_1      Hakarshus           [Village]  Owner: Orthling          Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N7_2      Lagshofn            [Village]  Owner: Orthling          Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N8_1      Skarthness          [Village]  Owner: Throsniring       Kingdom: Nord              Culture: Nord              Hearth: 234
+castle_village_N8_2      Holarsver           [Village]  Owner: Throsniring       Kingdom: Nord              Culture: Nord              Hearth: 236
+castle_village_N9_1      Ulikshorn           [Village]  Owner: Huldring          Kingdom: Nord              Culture: Nord              Hearth: 244
+castle_village_N9_2      Thralathorp         [Village]  Owner: Huldring          Kingdom: Nord              Culture: Nord              Hearth: 244
+village_N1_1             Aalgrun             [Village]  Owner: Orthling          Kingdom: Nord              Culture: Nord              Hearth: 313
+village_N1_2             Bjorenbyr           [Village]  Owner: Orthling          Kingdom: Nord              Culture: Nord              Hearth: 313
+village_N1_3             Ravikayr            [Village]  Owner: Orthling          Kingdom: Nord              Culture: Nord              Hearth: 304
+village_N1_4             Gripsby             [Village]  Owner: Orthling          Kingdom: Nord              Culture: Nord              Hearth: 298
+village_N2_1             Dagby               [Village]  Owner: Kjolding          Kingdom: Nord              Culture: Nord              Hearth: 312
+village_N2_2             Mjallagdal          [Village]  Owner: Kjolding          Kingdom: Nord              Culture: Nord              Hearth: 301
+village_N2_3             Midskag             [Village]  Owner: Kjolding          Kingdom: Nord              Culture: Nord              Hearth: 302
+village_N2_4             Dorstrand           [Village]  Owner: Kjolding          Kingdom: Nord              Culture: Nord              Hearth: 312
+village_N3_1             Jalskveg            [Village]  Owner: Throsniring       Kingdom: Nord              Culture: Nord              Hearth: 312
+village_N3_3             Troverag            [Village]  Owner: Throsniring       Kingdom: Nord              Culture: Nord              Hearth: 289
+village_N3_4             Vagnafit            [Village]  Owner: Throsniring       Kingdom: Nord              Culture: Nord              Hearth: 312
+village_N4_1             Grudhammar          [Village]  Owner: Skylfing          Kingdom: Nord              Culture: Nord              Hearth: 312
+village_N4_2             Vorfjall            [Village]  Owner: Skylfing          Kingdom: Nord              Culture: Nord              Hearth: 312
+village_N4_3             Faergap             [Village]  Owner: Skylfing          Kingdom: Nord              Culture: Nord              Hearth: 312
+village_N4_4             Lovaheit            [Village]  Owner: Skylfing          Kingdom: Nord              Culture: Nord              Hearth: 312
+hideout_seaside_6        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_1        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_2        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_3        Hideout             [Hideout]  Owner: Sea Raiders       Kingdom: Sea Raiders       Culture: Sea Raiders       
+hideout_seaside_4        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_5        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_7        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_8        Hideout             [Hideout]  Owner: Sea Raiders       Kingdom: Sea Raiders       Culture: Sea Raiders       
+hideout_seaside_9        Hideout             [Hideout]  Owner: Sea Raiders       Kingdom: Sea Raiders       Culture: Sea Raiders       
+hideout_seaside_10       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_11       Hideout             [Hideout]  Owner: Sea Raiders       Kingdom: Sea Raiders       Culture: Sea Raiders       
+hideout_seaside_12       Hideout             [Hideout]  Owner: Sea Raiders       Kingdom: Sea Raiders       Culture: Sea Raiders       
+hideout_seaside_13       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_14       Seaside Hideout     [Hideout]  Owner: Sea Raiders       Kingdom: Sea Raiders       Culture: Sea Raiders       
+hideout_seaside_15       Hideout             [Hideout]  Owner: Sea Raiders       Kingdom: Sea Raiders       Culture: Sea Raiders       
+hideout_seaside_16       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_17       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_18       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_seaside_19       Hideout             [Hideout]  Owner: Sea Raiders       Kingdom: Sea Raiders       Culture: Sea Raiders       
+hideout_seaside_20       Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Sea Raiders       
+hideout_steppe_5         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_1         Hideout             [Hideout]  Owner: Steppe Bandits    Kingdom: Steppe Bandits    Culture: Steppe Bandits    
+hideout_steppe_2         Hideout             [Hideout]  Owner: Steppe Bandits    Kingdom: Steppe Bandits    Culture: Steppe Bandits    
+hideout_steppe_3         Hideout             [Hideout]  Owner: Steppe Bandits    Kingdom: Steppe Bandits    Culture: Steppe Bandits    
+hideout_steppe_4         Hideout             [Hideout]  Owner: Steppe Bandits    Kingdom: Steppe Bandits    Culture: Steppe Bandits    
+hideout_steppe_6         Hideout             [Hideout]  Owner: Steppe Bandits    Kingdom: Steppe Bandits    Culture: Steppe Bandits    
+hideout_steppe_7         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_8         Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_9         Hideout             [Hideout]  Owner: Steppe Bandits    Kingdom: Steppe Bandits    Culture: Steppe Bandits    
+hideout_steppe_10        Hideout             [Hideout]  Owner: Steppe Bandits    Kingdom: Steppe Bandits    Culture: Steppe Bandits    
+hideout_steppe_11        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_12        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_13        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_14        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_15        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_16        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_17        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_18        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_19        Hideout             [Hideout]  Owner: Looters           Kingdom: Looters           Culture: Steppe Bandits    
+hideout_steppe_20        Hideout             [Hideout]  Owner: Steppe Bandits    Kingdom: Steppe Bandits    Culture: Steppe Bandits    
+town_S1                  Varcheg             [City]     Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Prosperity: 3100
+village_S4_1             Borchovagorka       [Village]  Owner: Ormidoving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 440
+town_S3                  Omor                [City]     Owner: Kuloving          Kingdom: Sturgia           Culture: Sturgia           Prosperity: 3200
+town_S5                  Tyal                [City]     Owner: Vagiroving        Kingdom: Sturgia           Culture: Sturgia           Prosperity: 1700
+town_S4                  Varnovapol          [City]     Owner: Ormidoving        Kingdom: Sturgia           Culture: Sturgia           Prosperity: 3300
+town_S7                  Revyl               [City]     Owner: Togaroving        Kingdom: Sturgia           Culture: Sturgia           Prosperity: 3100
+town_S6                  Sibir               [City]     Owner: Isyaroving        Kingdom: Sturgia           Culture: Sturgia           Prosperity: 1901
+castle_S5                Ov Castle           [Castle]   Owner: Vezhoving         Kingdom: Sturgia           Culture: Sturgia           Prosperity: 801
+castle_S6                Takor Castle        [Castle]   Owner: Ubroving          Kingdom: Sturgia           Culture: Sturgia           Prosperity: 682
+castle_S4                Kranirog Castle     [Castle]   Owner: Kostoroving       Kingdom: Sturgia           Culture: Sturgia           Prosperity: 1000
+castle_S1                Ustokol Castle      [Castle]   Owner: Togaroving        Kingdom: Sturgia           Culture: Sturgia           Prosperity: 890
+castle_village_S1_1      Ustokol             [Village]  Owner: Togaroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 244
+castle_S2                Mazhadan Castle     [Castle]   Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Prosperity: 831
+castle_village_S2_1      Mazhadan            [Village]  Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 274
+castle_S3                Nevyansk Castle     [Castle]   Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Prosperity: 471
+castle_village_S3_1      Nevyansk            [Village]  Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 110
+castle_village_S3_2      Dnin                [Village]  Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 190
+castle_village_S4_1      Kranirog            [Village]  Owner: Kostoroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 268
+castle_village_S4_2      Ismilkorg           [Village]  Owner: Kostoroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 334
+castle_village_S5_1      Ov                  [Village]  Owner: Vezhoving         Kingdom: Sturgia           Culture: Sturgia           Hearth: 391
+castle_village_S5_2      Ferkh               [Village]  Owner: Vezhoving         Kingdom: Sturgia           Culture: Sturgia           Hearth: 404
+castle_village_S6_1      Takor               [Village]  Owner: Ubroving          Kingdom: Sturgia           Culture: Sturgia           Hearth: 533
+castle_S7                Urikskala Castle    [Castle]   Owner: Vagiroving        Kingdom: Sturgia           Culture: Sturgia           Prosperity: 661
+castle_village_S7_1      Urikskala           [Village]  Owner: Vagiroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 573
+castle_S8                Vladiv Castle       [Castle]   Owner: Ormidoving        Kingdom: Sturgia           Culture: Sturgia           Prosperity: 990
+castle_village_S8_1      Vladiv              [Village]  Owner: Ormidoving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 146
+village_S1_1             Rodobas             [Village]  Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 313
+castle_village_S2_2      Forin               [Village]  Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 286
+village_S1_3             Kargrev             [Village]  Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 186
+town_S2                  Balgard             [City]     Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Prosperity: 2300
+village_S2_1             Safna               [Village]  Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 116
+village_S2_2             Marabrot            [Village]  Owner: Gundaroving       Kingdom: Sturgia           Culture: Sturgia           Hearth: 323
+castle_village_S6_2      Dvorusta            [Village]  Owner: Ubroving          Kingdom: Sturgia           Culture: Sturgia           Hearth: 211
+village_S3_1             Chornobas           [Village]  Owner: Kuloving          Kingdom: Sturgia           Culture: Sturgia           Hearth: 129
+village_S3_2             Skorin              [Village]  Owner: Kuloving          Kingdom: Sturgia           Culture: Sturgia           Hearth: 165
+castle_village_S8_2      Glavstrom           [Village]  Owner: Ormidoving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 276
+village_S4_3             Omkany              [Village]  Owner: Ormidoving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 287
+village_S4_4             Yangutum            [Village]  Owner: Ormidoving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 334
+village_S5_1             Visibrot            [Village]  Owner: Vagiroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 516
+village_S5_2             Bukits              [Village]  Owner: Vagiroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 118
+castle_village_S7_2      Alov                [Village]  Owner: Vagiroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 161
+village_S6_1             Kvol                [Village]  Owner: Isyaroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 490
+village_S6_2             Radakmed            [Village]  Owner: Isyaroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 328
+village_S6_3             Alebat              [Village]  Owner: Isyaroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 194
+village_S7_1             Korsyas             [Village]  Owner: Togaroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 528
+village_S7_2             Karbur              [Village]  Owner: Togaroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 300
+castle_village_S1_2      Zhemyan             [Village]  Owner: Togaroving        Kingdom: Sturgia           Culture: Sturgia           Hearth: 94
+town_V1                  Sargot              [City]     Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Prosperity: 4500
+village_V9_1             Alantas             [Village]  Owner: dey Valant        Kingdom: Vlandia           Culture: Vlandia           Hearth: 489
+castle_village_V7_1      Talivel             [Village]  Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Hearth: 650
+village_V1_1             Calioc              [Village]  Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Hearth: 132
+town_V3                  Pravend             [City]     Owner: dey Tihr          Kingdom: Vlandia           Culture: Vlandia           Prosperity: 3202
+town_V6                  Jaculan             [City]     Owner: dey Arromanc      Kingdom: Vlandia           Culture: Vlandia           Prosperity: 4000
+town_V7                  Charas              [City]     Owner: dey Cortain       Kingdom: Vlandia           Culture: Vlandia           Prosperity: 3000
+castle_V5                Tirby Castle        [Castle]   Owner: dey Gunric        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 630
+town_V9                  Rovalt              [City]     Owner: dey Valant        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 2801
+town_V2                  Ocs Hall            [City]     Owner: dey Fortes        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 4200
+town_V8                  Ostican             [City]     Owner: dey Molarn        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 3900
+castle_V2                Hongard Castle      [Castle]   Owner: dey Jelind        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 1020
+castle_V4                Ormanfard Castle    [Castle]   Owner: dey Folcun        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 650
+castle_V1                Usanc Castle        [Castle]   Owner: dey Rothad        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 537
+castle_village_V1_1      Usanc               [Village]  Owner: dey Rothad        Kingdom: Vlandia           Culture: Vlandia           Hearth: 499
+castle_village_V2_1      Hongard             [Village]  Owner: dey Jelind        Kingdom: Vlandia           Culture: Vlandia           Hearth: 401
+castle_village_V2_2      Ferton              [Village]  Owner: dey Jelind        Kingdom: Vlandia           Culture: Vlandia           Hearth: 401
+castle_V3                Drapand Castle      [Castle]   Owner: dey Tihr          Kingdom: Vlandia           Culture: Vlandia           Prosperity: 831
+castle_village_V3_1      Drapand             [Village]  Owner: dey Tihr          Kingdom: Vlandia           Culture: Vlandia           Hearth: 289
+castle_village_V4_1      Ormanfard           [Village]  Owner: dey Folcun        Kingdom: Vlandia           Culture: Vlandia           Hearth: 174
+castle_village_V5_1      Tirby               [Village]  Owner: dey Gunric        Kingdom: Vlandia           Culture: Vlandia           Hearth: 619
+castle_village_V5_2      Sirindac            [Village]  Owner: dey Gunric        Kingdom: Vlandia           Culture: Vlandia           Hearth: 640
+castle_V6                Caleus Castle       [Castle]   Owner: dey Valant        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 762
+castle_village_V6_1      Caleus              [Village]  Owner: dey Valant        Kingdom: Vlandia           Culture: Vlandia           Hearth: 430
+castle_village_V6_2      Deriat              [Village]  Owner: dey Valant        Kingdom: Vlandia           Culture: Vlandia           Hearth: 430
+castle_V7                Talivel Castle      [Castle]   Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Prosperity: 772
+castle_V8                Verecsand Castle    [Castle]   Owner: dey Fortes        Kingdom: Vlandia           Culture: Vlandia           Prosperity: 781
+castle_village_V8_1      Verecsand           [Village]  Owner: dey Fortes        Kingdom: Vlandia           Culture: Vlandia           Hearth: 234
+village_V1_2             Etirfurd            [Village]  Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Hearth: 105
+castle_village_V7_2      Rodetan             [Village]  Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Hearth: 268
+village_V2_1             Mareiven            [Village]  Owner: dey Fortes        Kingdom: Vlandia           Culture: Vlandia           Hearth: 206
+village_V2_2             Oritan              [Village]  Owner: dey Fortes        Kingdom: Vlandia           Culture: Vlandia           Hearth: 348
+village_V2_3             Fregian             [Village]  Owner: dey Fortes        Kingdom: Vlandia           Culture: Vlandia           Hearth: 348
+castle_village_V8_2      Marin               [Village]  Owner: dey Fortes        Kingdom: Vlandia           Culture: Vlandia           Hearth: 328
+castle_village_V3_2      Valanby             [Village]  Owner: dey Tihr          Kingdom: Vlandia           Culture: Vlandia           Hearth: 284
+village_V3_2             Rulund              [Village]  Owner: dey Tihr          Kingdom: Vlandia           Culture: Vlandia           Hearth: 116
+village_V3_3             Larnac              [Village]  Owner: dey Tihr          Kingdom: Vlandia           Culture: Vlandia           Hearth: 346
+village_V3_4             Palisont            [Village]  Owner: dey Tihr          Kingdom: Vlandia           Culture: Vlandia           Hearth: 361
+town_V5                  Galend              [City]     Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Prosperity: 1901
+village_V5_1             Furbec              [Village]  Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Hearth: 489
+village_V5_2             Meroc               [Village]  Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Hearth: 528
+village_V5_3             Nogrent             [Village]  Owner: dey Meroc         Kingdom: Vlandia           Culture: Vlandia           Hearth: 215
+village_V6_1             Arromanc            [Village]  Owner: dey Arromanc      Kingdom: Vlandia           Culture: Vlandia           Hearth: 124
+village_V6_2             Mot                 [Village]  Owner: dey Arromanc      Kingdom: Vlandia           Culture: Vlandia           Hearth: 615
+village_V6_3             Alorstan            [Village]  Owner: dey Arromanc      Kingdom: Vlandia           Culture: Vlandia           Hearth: 161
+village_V6_4             Chornad             [Village]  Owner: dey Arromanc      Kingdom: Vlandia           Culture: Vlandia           Hearth: 161
+village_V7_1             Savinth             [Village]  Owner: dey Cortain       Kingdom: Vlandia           Culture: Vlandia           Hearth: 680
+village_V7_2             Vesin               [Village]  Owner: dey Cortain       Kingdom: Vlandia           Culture: Vlandia           Hearth: 158
+village_V8_1             Horsger             [Village]  Owner: dey Molarn        Kingdom: Vlandia           Culture: Vlandia           Hearth: 443
+village_V8_2             Cananc              [Village]  Owner: dey Molarn        Kingdom: Vlandia           Culture: Vlandia           Hearth: 330
+village_V8_3             Remental            [Village]  Owner: dey Molarn        Kingdom: Vlandia           Culture: Vlandia           Hearth: 683
+village_V9_2             Halisvust           [Village]  Owner: dey Valant        Kingdom: Vlandia           Culture: Vlandia           Hearth: 286
+
+// Note Poros has been renamed to 'Little Rock' as a test

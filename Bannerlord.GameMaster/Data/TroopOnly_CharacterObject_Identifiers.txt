@@ -1,0 +1,446 @@
+beni_zilal_tier_1                     Beni Zilal Recruit                    Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Aserai            Formation: Cavalry
+jawwal_tier_1                         Jawwal Recruit                        Gender: Male    [Minor Faction]  Tier: 2  Level: 11  Culture: Aserai            Formation: Infantry
+aserai_recruit                        Aserai Recruit                        Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Aserai            Formation: Infantry
+aserai_mameluke_soldier               Aserai Mamluke Soldier                Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Aserai            Formation: Infantry
+aserai_youth                          Aserai Youth                          Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Aserai            Formation: Cavalry
+villager_aserai                       Aserai Peasant                        Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Aserai            Formation: Infantry
+aserai_militia_spearman               Aserai Militia Spearman               Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Aserai            Formation: Infantry
+aserai_militia_archer                 Aserai Militia Archer                 Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Aserai            Formation: Ranged
+aserai_militia_veteran_spearman       Aserai Militia Veteran Spearman       Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+aserai_militia_veteran_archer         Aserai Militia Veteran Archer         Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Aserai            Formation: Ranged
+aserai_tribesman                      Aserai Tribesman                      Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Aserai            Formation: Infantry
+aserai_footman                        Aserai Footman                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+aserai_skirmisher                     Aserai Light Archer                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Ranged
+aserai_tribal_horseman                Aserai Tribal Horseman                Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Cavalry
+aserai_mameluke_regular               Aserai Mamluke Regular                Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Cavalry
+aserai_archer                         Aserai Archer                         Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Aserai            Formation: Ranged
+aserai_master_archer                  Aserai Master Archer                  Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: Ranged
+aserai_mameluke_cavalry               Aserai Mamluke Cavalry                Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Aserai            Formation: HorseArcher
+aserai_veteran_faris                  Aserai Veteran Faris                  Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: Cavalry
+aserai_faris                          Aserai Faris                          Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Aserai            Formation: Cavalry
+aserai_mameluke_heavy_cavalry         Aserai Mamluke Heavy Cavalry          Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: HorseArcher
+beni_zilal_tier_3                     Beni Zilal Royal Guard                Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Aserai            Formation: Cavalry
+beni_zilal_tier_2                     Beni Zilal Soldier                    Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Cavalry
+jawwal_tier_3                         Jawwal Bedouin                        Gender: Male    [Minor Faction]  Tier: 4  Level: 21  Culture: Aserai            Formation: Cavalry
+jawwal_tier_2                         Jawwal Camel Rider                    Gender: Male    [Minor Faction]  Tier: 3  Level: 16  Culture: Aserai            Formation: Cavalry
+caravan_master_aserai                 Aserai Caravan Master                 Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Aserai            Formation: Infantry
+naval_armed_trader_aserai             Aserai Armed Convoy Trader            Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Aserai            Formation: Ranged
+naval_caravan_guard_aserai            Aserai Convoy Guard                   Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Aserai            Formation: Infantry
+naval_veteran_caravan_guard_aserai    Aserai Veteran Convoy Guard           Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Aserai            Formation: Infantry
+armed_trader_aserai                   Aserai Armed Trader                   Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Aserai            Formation: Ranged
+caravan_guard_aserai                  Aserai Caravan Guard                  Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Aserai            Formation: Cavalry
+veteran_caravan_guard_aserai          Aserai Veteran Caravan Guard          Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Aserai            Formation: HorseArcher
+conspiracy_trained_bowman             Conspiracy Trained Bowman             Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Ranged
+aserai_marine_t5                      Aserai Bahriyyah                      Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: Ranged
+aserai_marine_t4                      Aserai Veteran Sailor                 Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Aserai            Formation: Infantry
+prison_guard_aserai                   Prison Guard                          Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Aserai            Formation: Infantry
+guard_aserai                          Guard                                 Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Aserai            Formation: Infantry
+village_woman_aserai                  Aserai Peasant                        Gender: Female  [Peasant]        Tier: 0  Level: 1   Culture: Aserai            Formation: Infantry
+gangleader_bodyguard_aserai           Gang Leader Bodyguard                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+fighter_aserai                        Aserai Fighter                        Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Aserai            Formation: Infantry
+aserai_mameluke_axeman                Aserai Mamluke Axeman                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+aserai_mameluke_guard                 Aserai Mamluke Guard                  Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Aserai            Formation: Infantry
+mamluke_palace_guard                  Aserai Mamluke Palace Guard           Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: Infantry
+aserai_vanguard_faris                 Aserai Vanguard Faris                 Gender: Male    [Regular]        Tier: 6  Level: 31  Culture: Aserai            Formation: Cavalry
+confident_contender_easy              Confident Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+confident_contender_normal            Confident Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+confident_contender_hard              Confident Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+confident_contender_very_hard         Confident Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+confident_contender                   Confident Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+nervous_caravanmaster_1               Nervous Caravanmaster                 Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: Infantry
+nervous_caravanmaster_2               Nervous Caravanmaster                 Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: Infantry
+nervous_caravanmaster_3               Nervous Caravanmaster                 Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: Infantry
+conspiracy_guardsman                  Conspiracy Guardsman                  Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Aserai            Formation: Infantry
+conspiracy_guardian                   Conspiracy Guardian                   Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Aserai            Formation: Infantry
+naval_caravan_master_aserai           Aserai Convoy Master                  Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Aserai            Formation: Infantry
+battanian_volunteer                   Battanian Volunteer                   Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Battania          Formation: Infantry
+wolfskins_tier_1                      Young Wolf                            Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Battania          Formation: Ranged
+battanian_highborn_youth              Battanian Highborn Youth              Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Battania          Formation: Ranged
+battanian_clanwarrior                 Battanian Clan Warrior                Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Battania          Formation: Infantry
+battanian_woodrunner                  Battanian Wood Runner                 Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Battania          Formation: Infantry
+wolfskins_tier_2                      Seasoned Wolf                         Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Ranged
+battanian_militia_spearman            Battanian Militia Spearman            Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Battania          Formation: Infantry
+battanian_militia_archer              Battanian Militia Archer              Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Battania          Formation: Ranged
+battanian_militia_veteran_spearman    Battanian Militia Veteran Spearman    Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Battania          Formation: Infantry
+battanian_militia_veteran_archer      Battanian Militia Veteran Archer      Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Battania          Formation: Ranged
+battanian_trained_warrior             Battanian Trained Warrior             Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Infantry
+battanian_horseman                    Battanian Horseman                    Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Cavalry
+battanian_hero                        Battanian Hero                        Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Battania          Formation: Ranged
+battanian_fian                        Battanian Fian                        Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Ranged
+battanian_highborn_warrior            Battanian Highborn Warrior            Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Ranged
+battanian_falxman                     Battanian Falxman                     Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Battania          Formation: Infantry
+battanian_oathsworn                   Battanian Oathsworn                   Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Infantry
+battanian_picked_warrior              Battanian Picked Warrior              Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Battania          Formation: Infantry
+battanian_scout                       Battanian Scout                       Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Battania          Formation: Cavalry
+battanian_veteran_skirmisher          Battanian Veteran Skirmisher          Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Battania          Formation: Infantry
+battanian_skirmisher                  Battanian Skirmisher                  Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Infantry
+battanian_mounted_skirmisher          Battanian Mounted Skirmisher          Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Cavalry
+wolfskins_tier_3                      Chosen Wolf                           Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Battania          Formation: Ranged
+caravan_master_battania               Battanian Caravan Master              Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Battania          Formation: Infantry
+armed_trader_battania                 Battanian Armed Trader                Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Battania          Formation: Ranged
+caravan_guard_battania                Battanian Caravan Guard               Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Battania          Formation: Cavalry
+veteran_caravan_guard_battania        Battanian Veteran Caravan Guard       Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Battania          Formation: Cavalry
+naval_armed_trader_battania           Battanian Armed Convoy Trader         Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Battania          Formation: Ranged
+naval_caravan_guard_battania          Battanian Convoy Guard                Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Battania          Formation: Infantry
+naval_veteran_caravan_guard_battania  Battanian Veteran Convoy Guard        Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Battania          Formation: Infantry
+villager_battania                     Battania Peasant                      Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Battania          Formation: Infantry
+conspiracy_warmonger                  Conspiracy Warmonger                  Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Infantry
+conspiracy_longbowman                 Conspiracy Longbowman                 Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Ranged
+conspiracy_kern                       Conspiracy Kern                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Infantry
+prison_guard_battania                 Prison Guard                          Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Battania          Formation: Infantry
+guard_battania                        Guard                                 Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Battania          Formation: Infantry
+village_woman_battania                Battania Peasant                      Gender: Female  [Peasant]        Tier: 0  Level: 1   Culture: Battania          Formation: Infantry
+gangleader_bodyguard_battania         Gang Leader Bodyguard                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Infantry
+fighter_battania                      Battanian Fighter                     Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Battania          Formation: Infantry
+battanian_raider                      Battanian Raider                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Infantry
+battanian_marine_t4                   Battanian River Raider                Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Battania          Formation: Infantry
+battanian_wildling                    Battanian Wildling                    Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Infantry
+battanian_veteran_falxman             Battanian Veteran Falxman             Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Infantry
+battanian_marine_t5                   Battanian Skipari                     Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Battania          Formation: Infantry
+battanian_fian_champion               Battanian Fian Champion               Gender: Male    [Regular]        Tier: 6  Level: 31  Culture: Battania          Formation: Ranged
+galloglass_tier_1                     Skene                                 Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Battania          Formation: Infantry
+galloglass_tier_2                     Kern                                  Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Infantry
+galloglass_tier_3                     Redshank                              Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Battania          Formation: Infantry
+conspiracy_raider                     Conspiracy Raider                     Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Battania          Formation: Cavalry
+naval_caravan_master_battania         Battanian Convoy Master               Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Battania          Formation: Infantry
+sword_sisters_sister_t5               Gallant Sword Sister                  Gender: Female  [Regular]        Tier: 5  Level: 26  Culture: Calradian         Formation: HorseArcher
+eastern_mercenary                     Sellsword                             Gender: Male    [Mercenary]      Tier: 3  Level: 16  Culture: Calradian         Formation: Infantry
+eastern_mercenary_t4                  Mercenary Maceman                     Gender: Male    [Mercenary]      Tier: 4  Level: 21  Culture: Calradian         Formation: Infantry
+sword_sisters_sister_t3               Sisterhood Follower                   Gender: Female  [Regular]        Tier: 3  Level: 16  Culture: Calradian         Formation: Ranged
+eastern_mounted_mercenary_t4          Outrider                              Gender: Male    [Mercenary]      Tier: 4  Level: 21  Culture: Calradian         Formation: HorseArcher
+eastern_mercenary_t5                  Elite Mercenary Maceman               Gender: Male    [Mercenary]      Tier: 5  Level: 26  Culture: Calradian         Formation: Infantry
+sword_sisters_sister_t4               Sword Sister                          Gender: Female  [Regular]        Tier: 4  Level: 21  Culture: Calradian         Formation: Ranged
+western_crossbow_t4                   Hired Crossbow                        Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Calradian         Formation: Ranged
+western_mercenary_t4                  Hired Pike                            Gender: Male    [Mercenary]      Tier: 4  Level: 21  Culture: Calradian         Formation: Infantry
+western_mercenary                     Hired Spear                           Gender: Male    [Mercenary]      Tier: 3  Level: 16  Culture: Calradian         Formation: Infantry
+western_crossbow_t5                   Elite Hired Crossbow                  Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Calradian         Formation: Ranged
+western_mercenary_t5                  Hired Elite Pike                      Gender: Male    [Mercenary]      Tier: 5  Level: 26  Culture: Calradian         Formation: Infantry
+eastern_mounted_mercenary_t5          Veteran Outrider                      Gender: Male    [Mercenary]      Tier: 5  Level: 26  Culture: Calradian         Formation: HorseArcher
+gangster_1                            Thug                                  Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Calradian         Formation: Infantry
+gangster_2                            Expert Thug                           Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Calradian         Formation: Infantry
+gangster_3                            Master Thug                           Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Calradian         Formation: Infantry
+mercenary_1                           Watchman                              Gender: Male    [Mercenary]      Tier: 2  Level: 11  Culture: Calradian         Formation: Infantry
+mercenary_2                           Mercenary Guard                       Gender: Male    [Mercenary]      Tier: 3  Level: 16  Culture: Calradian         Formation: Infantry
+mercenary_3                           Mercenary Scout                       Gender: Male    [Mercenary]      Tier: 3  Level: 16  Culture: Calradian         Formation: Cavalry
+mercenary_4                           Mercenary Swordsman                   Gender: Male    [Mercenary]      Tier: 4  Level: 21  Culture: Calradian         Formation: Infantry
+mercenary_5                           Mercenary Crossbowman                 Gender: Male    [Mercenary]      Tier: 4  Level: 21  Culture: Calradian         Formation: Ranged
+mercenary_6                           Mercenary Horseman                    Gender: Male    [Mercenary]      Tier: 4  Level: 21  Culture: Calradian         Formation: Cavalry
+mercenary_7                           Hired Blade                           Gender: Male    [Mercenary]      Tier: 5  Level: 26  Culture: Calradian         Formation: Infantry
+mercenary_8                           Hired Crossbow                        Gender: Male    [Mercenary]      Tier: 5  Level: 26  Culture: Calradian         Formation: Ranged
+mercenary_9                           Mercenary Cavalry                     Gender: Male    [Mercenary]      Tier: 5  Level: 26  Culture: Calradian         Formation: Cavalry
+company_of_trouble_character          Mercenary                             Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Calradian         Formation: Infantry
+captivity_troops                      Rescued Crewman                       Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Calradian         Formation: Infantry
+southern_pirates_bandit               Corsair                               Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Corsairs          Formation: Infantry
+southern_pirates_raider               Corsair Warrior                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Corsairs          Formation: Infantry
+southern_pirates_chief                Corsair Chief                         Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Corsairs          Formation: Infantry
+ghilman_tier_1                        Koleman                               Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Darshi            Formation: Cavalry
+ghilman_tier_3                        Ghulam                                Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Darshi            Formation: Cavalry
+ghilman_tier_2                        Ghilman                               Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Darshi            Formation: Cavalry
+desert_bandits_bandit                 Bedouin Rover                         Gender: Male    [Bandit]         Tier: 2  Level: 11  Culture: Desert Bandits    Formation: Infantry
+desert_bandits_raider                 Nomad Bandit                          Gender: Male    [Bandit]         Tier: 3  Level: 16  Culture: Desert Bandits    Formation: Cavalry
+desert_bandits_chief                  Harami                                Gender: Male    [Bandit]         Tier: 4  Level: 21  Culture: Desert Bandits    Formation: Cavalry
+desert_bandits_boss                   Desert Bandit Boss                    Gender: Male    [Bandit]         Tier: 5  Level: 26  Culture: Desert Bandits    Formation: Cavalry
+legion_of_the_betrayed_tier_1         Hastati                               Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Empire            Formation: Infantry
+hidden_hand_tier_1                    Hidden Pawn                           Gender: Male    [Minor Faction]  Tier: 2  Level: 11  Culture: Empire            Formation: Infantry
+embers_of_flame_tier_1                Spark                                 Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Empire            Formation: Infantry
+eleftheroi_tier_1                     Recruit Eleftheroi                    Gender: Male    [Minor Faction]  Tier: 2  Level: 11  Culture: Empire            Formation: Cavalry
+imperial_recruit                      Imperial Recruit                      Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Empire            Formation: Infantry
+imperial_vigla_recruit                Imperial Vigla Recruit                Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Empire            Formation: Infantry
+imperial_equite                       Imperial Equite                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Cavalry
+imperial_heavy_horseman               Imperial Heavy Horseman               Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Cavalry
+imperial_archer                       Imperial Archer                       Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Empire            Formation: Ranged
+imperial_trained_archer               Imperial Trained Archer               Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Ranged
+imperial_crossbowman                  Imperial Crossbowman                  Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Ranged
+imperial_sergeant_crossbowman         Imperial Sergeant Crossbowman         Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Ranged
+imperial_cataphract                   Imperial Cataphract                   Gender: Male    [Noble/Elite]    Tier: 5  Level: 26  Culture: Empire            Formation: Cavalry
+empire_marine_t3                      Imperial Shipmate                     Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+imperial_veteran_archer               Imperial Veteran Archer               Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Ranged
+embers_of_flame_tier_3                Blaze                                 Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+embers_of_flame_tier_2                Flame                                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+villager_empire                       Empire Peasant                        Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Empire            Formation: Infantry
+imperial_militia_spearman             Imperial Militia Spearman             Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Empire            Formation: Infantry
+imperial_militia_archer               Imperial Militia Archer               Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Empire            Formation: Ranged
+imperial_militia_veteran_spearman     Imperial Militia Veteran Spearman     Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+imperial_militia_veteran_archer       Imperial Militia Veteran Archer       Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Empire            Formation: Ranged
+imperial_legionary                    Imperial Legionary                    Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+empire_marine_t4                      Imperial Coast Guard                  Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+bucellarii                            Imperial Bucellarii                   Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: HorseArcher
+legion_of_the_betrayed_tier_3         Triarii                               Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+legion_of_the_betrayed_tier_2         Principes                             Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+empire_marine_t5                      Imperial Naute                        Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+hidden_hand_tier_2                    Hidden Soldati                        Gender: Male    [Minor Faction]  Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+hidden_hand_tier_3                    Puppeteer                             Gender: Male    [Minor Faction]  Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+eleftheroi_tier_3                     Veteran Eleftheroi                    Gender: Male    [Minor Faction]  Tier: 4  Level: 21  Culture: Empire            Formation: Cavalry
+eleftheroi_tier_2                     Expert Eleftheroi                     Gender: Male    [Minor Faction]  Tier: 3  Level: 16  Culture: Empire            Formation: Cavalry
+caravan_master_empire                 Imperial Caravan Master               Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+naval_armed_trader_empire             Imperial Armed Convoy Trader          Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Empire            Formation: Ranged
+naval_caravan_guard_empire            Imperial Convoy Guard                 Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+naval_veteran_caravan_guard_empire    Imperial Veteran Convoy Guard         Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+armed_trader_empire                   Imperial Armed Trader                 Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Empire            Formation: Ranged
+caravan_guard_empire                  Imperial Caravan Guard                Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Empire            Formation: HorseArcher
+veteran_caravan_guard_empire          Imperial Veteran Caravan Guard        Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Empire            Formation: Cavalry
+guard                                 Guard                                 Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Empire            Formation: Infantry
+guardians_tier_3                      Veteran Guardian                      Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Ranged
+guardians_tier_2                      Expert Guardian                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Ranged
+guardians_tier_1                      Guardian Recruit                      Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Empire            Formation: Ranged
+conspiracy_fighter                    Conspiracy Fighter                    Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+conspiracy_veteran_fighter            Conspiracy Veteran Fighter            Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+conspiracy_trained_huntsman           Conspiracy Trained Huntsman           Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Ranged
+conspiracy_noble_horseman             Conspiracy Noble Horseman             Gender: Male    [Noble/Elite]    Tier: 3  Level: 16  Culture: Empire            Formation: Cavalry
+conspiracy_mounted_fighter            Conspiracy Mounted Fighter            Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Cavalry
+prison_guard_empire                   Prison Guard                          Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+guard_empire                          Guard                                 Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+village_woman_empire                  Empire Peasant                        Gender: Female  [Peasant]        Tier: 0  Level: 1   Culture: Empire            Formation: Infantry
+gangleader_bodyguard_empire           Gang Leader Bodyguard                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+fighter_empire                        Empire Fighter                        Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Empire            Formation: Infantry
+imperial_elite_cataphract             Imperial Elite Cataphract             Gender: Male    [Noble/Elite]    Tier: 6  Level: 31  Culture: Empire            Formation: Cavalry
+imperial_menavliaton                  Imperial Menavliaton                  Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+imperial_palatine_guard               Imperial Palatine Guard               Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Ranged
+imperial_elite_menavliaton            Imperial Elite Menavliaton            Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+kradus                                Kradus                                Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+dranton                               Dranton                               Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+regular_fighter                       Regular Fighter                       Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Empire            Formation: Infantry
+veteran_fighter                       Veteran Fighter                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+champion_fighter                      Champion Fighter                      Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+sword_sister                          Sword Sister                          Gender: Female  [Regular]        Tier: 4  Level: 21  Culture: Empire            Formation: Infantry
+hardy_contender_easy                  Hardy Contender                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+hardy_contender_normal                Hardy Contender                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+hardy_contender_hard                  Hardy Contender                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+hardy_contender_very_hard             Hardy Contender                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+hardy_contender                       Hardy Contender                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+betting_fraud_thug_male               Thug                                  Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+betting_fraud_thug_female             Thug                                  Gender: Female  [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: Infantry
+conspiracy_hunt_leader                Conspiracy Hunt Leader                Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Empire            Formation: Ranged
+conspiracy_mounted_huntsman           Conspiracy Mounted Hunstman           Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: HorseArcher
+conspiracy_packmaster                 Conspiracy Packmaster                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Empire            Formation: HorseArcher
+naval_caravan_master_empire           Imperial Convoy Master                Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Empire            Formation: Infantry
+forest_bandits_bandit                 Bushwacker                            Gender: Male    [Bandit]         Tier: 2  Level: 11  Culture: Forest Bandits    Formation: Ranged
+forest_bandits_raider                 Freebooter                            Gender: Male    [Bandit]         Tier: 3  Level: 16  Culture: Forest Bandits    Formation: Ranged
+forest_bandits_chief                  Forest Bandit                         Gender: Male    [Bandit]         Tier: 4  Level: 21  Culture: Forest Bandits    Formation: Ranged
+forest_bandits_boss                   Forest Bandit Boss                    Gender: Male    [Bandit]         Tier: 5  Level: 26  Culture: Forest Bandits    Formation: Ranged
+karakhuzaits_tier_1                   Karakhergit Nomad                     Gender: Male    [Minor Faction]  Tier: 2  Level: 11  Culture: Khuzait           Formation: HorseArcher
+khuzait_nomad                         Khuzait Nomad                         Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Khuzait           Formation: Infantry
+khuzait_noble_son                     Khuzait Noble's Son                   Gender: Male    [Noble/Elite]    Tier: 2  Level: 11  Culture: Khuzait           Formation: HorseArcher
+khuzait_tribal_warrior                Khuzait Tribal Warrior                Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Khuzait           Formation: HorseArcher
+khuzait_qanqli                        Khuzait Qanqli                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Khuzait           Formation: HorseArcher
+khuzait_footman                       Khuzait Footman                       Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Khuzait           Formation: Infantry
+karakhuzaits_tier_3                   Karakhergit Elder                     Gender: Male    [Minor Faction]  Tier: 4  Level: 21  Culture: Khuzait           Formation: HorseArcher
+karakhuzaits_tier_2                   Karakhergit Rider                     Gender: Male    [Minor Faction]  Tier: 3  Level: 16  Culture: Khuzait           Formation: HorseArcher
+khuzait_spearman                      Khuzait Spearman                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Khuzait           Formation: Infantry
+khuzait_hunter                        Khuzait Hunter                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Khuzait           Formation: Ranged
+khuzait_heavy_lancer                  Khuzait Heavy Lancer                  Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Khuzait           Formation: Cavalry
+khuzait_lancer                        Khuzait Lancer                        Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Khuzait           Formation: Cavalry
+khuzait_raider                        Khuzait Raider                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Khuzait           Formation: HorseArcher
+villager_khuzait                      Khuzait Peasant                       Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Khuzait           Formation: Infantry
+khuzait_militia_spearman              Khuzait Militia Spearman              Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Khuzait           Formation: Infantry
+khuzait_militia_archer                Khuzait Militia Archer                Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Khuzait           Formation: Ranged
+khuzait_archer                        Khuzait Archer                        Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Khuzait           Formation: Ranged
+khuzait_heavy_horse_archer            Khuzait Heavy Horse Archer            Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Khuzait           Formation: HorseArcher
+khuzait_horse_archer                  Khuzait Horse Archer                  Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Khuzait           Formation: HorseArcher
+khuzait_darkhan                       Khuzait Darkhan                       Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Khuzait           Formation: Infantry
+khuzait_marksman                      Khuzait Marksman                      Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Khuzait           Formation: Ranged
+khuzait_militia_veteran_spearman      Khuzait Militia Veteran Spearman      Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Khuzait           Formation: Infantry
+khuzait_militia_veteran_archer        Khuzait Militia Veteran Archer        Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Khuzait           Formation: Ranged
+khuzait_horseman                      Khuzait Horseman                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Khuzait           Formation: Cavalry
+khuzait_torguud                       Khuzait Torguud                       Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Khuzait           Formation: HorseArcher
+caravan_master_khuzait                Khuzait Caravan Master                Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Khuzait           Formation: Infantry
+naval_armed_trader_khuzait            Khuzait Armed Convoy Trader           Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Khuzait           Formation: Ranged
+naval_caravan_guard_khuzait           Khuzait Convoy Guard                  Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Khuzait           Formation: Infantry
+naval_veteran_caravan_guard_khuzait   Khuzait Veteran Convoy Guard          Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Khuzait           Formation: Infantry
+armed_trader_khuzait                  Khuzait Armed Trader                  Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Khuzait           Formation: Ranged
+caravan_guard_khuzait                 Khuzait Caravan Guard                 Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Khuzait           Formation: Cavalry
+veteran_caravan_guard_khuzait         Khuzait Veteran Caravan Guard         Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Khuzait           Formation: HorseArcher
+khuzait_kheshig                       Khuzait Kheshig                       Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Khuzait           Formation: HorseArcher
+conspiracy_horse_archer               Conspiracy Horse Archer               Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Khuzait           Formation: HorseArcher
+prison_guard_khuzait                  Prison Guard                          Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Khuzait           Formation: Infantry
+guard_khuzait                         Guard                                 Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Khuzait           Formation: Infantry
+village_woman_khuzait                 Khuzait Peasant                       Gender: Female  [Peasant]        Tier: 0  Level: 1   Culture: Khuzait           Formation: Infantry
+gangleader_bodyguard_khuzait          Gang Leader Bodyguard                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Khuzait           Formation: Infantry
+fighter_khuzait                       Khuzait Fighter                       Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Khuzait           Formation: Infantry
+khuzait_khans_guard                   Khuzait Khan's Guard                  Gender: Male    [Regular]        Tier: 6  Level: 31  Culture: Khuzait           Formation: HorseArcher
+conspiracy_mounted_master_archer      Conspiracy Mounted Master Archer      Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Khuzait           Formation: HorseArcher
+naval_caravan_master_khuzait          Khuzait Convoy Master                 Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Khuzait           Formation: Infantry
+looter                                Looter                                Gender: Male    [Bandit]         Tier: 1  Level: 6   Culture: Looters           Formation: Infantry
+mounted_ransacker                     Mounted Ransacker                     Gender: Male    [Bandit]         Tier: 3  Level: 16  Culture: Looters           Formation: Cavalry
+mounted_pillager                      Mounted Pillager                      Gender: Male    [Bandit]         Tier: 2  Level: 11  Culture: Looters           Formation: HorseArcher
+lord_looters_1                        Looter Hero                           Gender: Male    [Bandit]         Tier: 0  Level: 1   Culture: Looters           Formation: Ranged
+deserter                              Deserter                              Gender: Male    [Bandit]         Tier: 2  Level: 11  Culture: Looters           Formation: Infantry
+storymode_quest_raider                Radagos's Raider                      Gender: Male    [Bandit]         Tier: 1  Level: 6   Culture: Looters           Formation: Infantry
+mountain_bandits_raider               Brigand                               Gender: Male    [Bandit]         Tier: 3  Level: 16  Culture: Mountain Bandits  Formation: Infantry
+mountain_bandits_bandit               Hillman                               Gender: Male    [Bandit]         Tier: 2  Level: 11  Culture: Mountain Bandits  Formation: Infantry
+mountain_bandits_chief                Highwayman                            Gender: Male    [Bandit]         Tier: 4  Level: 21  Culture: Mountain Bandits  Formation: Cavalry
+mountain_bandits_boss                 Mountain Bandit Boss                  Gender: Male    [Bandit]         Tier: 5  Level: 26  Culture: Mountain Bandits  Formation: Infantry
+skolderbrotva_tier_1                  Skolder Recruit                       Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Nord              Formation: Infantry
+nord_spear_warrior                    Nord Spear Warrior                    Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Nord              Formation: Infantry
+nord_youngling                        Nord Youngling                        Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Nord              Formation: Infantry
+nord_ungmann                          Nord Scion                            Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Nord              Formation: Infantry
+nord_thegn                            Nord War-Proven                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Nord              Formation: Infantry
+nord_drengr                           Nord Warrior                          Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Nord              Formation: Infantry
+nord_huntsman                         Nord Huntsman                         Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Nord              Formation: Ranged
+villager_nord                         Nord Peasant                          Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Nord              Formation: Infantry
+nord_militia_spearman                 Nord Militia Spearman                 Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Nord              Formation: Infantry
+nord_militia_archer                   Nord Militia Archer                   Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Nord              Formation: Ranged
+nord_militia_veteran_spearman         Nord Militia Veteran Spearman         Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Nord              Formation: Infantry
+nord_militia_veteran_archer           Nord Militia Veteran Archer           Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Nord              Formation: Ranged
+nord_skathi                           Nord Sky-Gods Chosen                  Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Nord              Formation: Ranged
+nord_boandi                           Nord Shield Biters                    Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Nord              Formation: Infantry
+nord_freeman_archer                   Nord Freeman Archer                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Nord              Formation: Ranged
+nord_vargr                            Nord Warfang                          Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Nord              Formation: Infantry
+nord_marksman                         Nord Marksman                         Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Nord              Formation: Ranged
+nord_berserkr                         Nord Berserkir                        Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Nord              Formation: Infantry
+nord_ulfhednar                        Nord Ulfhedinn                        Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Nord              Formation: Infantry
+nord_jarlsmann                        Nord Hearthguard                      Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Nord              Formation: Infantry
+nord_axe_warrior                      Nord Axe Warrior                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Nord              Formation: Infantry
+skolderbrotva_tier_3                  Skolder Veteran Broda                 Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Nord              Formation: Infantry
+skolderbrotva_tier_2                  Skolder Warrior Broda                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Nord              Formation: Infantry
+caravan_master_nord                   Nord Caravan Master                   Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Nord              Formation: Infantry
+naval_armed_trader_nord               Nord Armed Convoy Trader              Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Nord              Formation: Ranged
+naval_caravan_guard_nord              Nord Convoy Guard                     Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Nord              Formation: Infantry
+naval_veteran_caravan_guard_nord      Nord Veteran Convoy Guard             Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Nord              Formation: Infantry
+nord_hirdmann                         Nord Shield-Companion                 Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Nord              Formation: Infantry
+armed_trader_nord                     Nord Armed Trader                     Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Nord              Formation: Ranged
+caravan_guard_nord                    Nord Caravan Guard                    Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Nord              Formation: Infantry
+veteran_caravan_guard_nord            Nord Veteran Caravan Guard            Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Nord              Formation: Cavalry
+gangradirs_kin_melee                  Beinlandsk Fyrdman                    Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Nord              Formation: Infantry
+gangradirs_kin_ranged                 Beinlandsk Archer                     Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Nord              Formation: Ranged
+sea_hounds_marksman                   Sea Hound Marksman                    Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Nord              Formation: Ranged
+prison_guard_nord                     Prison Guard                          Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Nord              Formation: Infantry
+guard_nord                            Guard                                 Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Nord              Formation: Infantry
+village_woman_nord                    Nord Peasant                          Gender: Female  [Peasant]        Tier: 0  Level: 1   Culture: Nord              Formation: Infantry
+gangleader_bodyguard_nord             Gang Leader Bodyguard                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Nord              Formation: Infantry
+fighter_nord                          Nord Villager                         Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Nord              Formation: Infantry
+nord_hew-bearer                       Nord Marauder                         Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Nord              Formation: Infantry
+nord_huscarl                          Nord Huscarl                          Gender: Male    [Regular]        Tier: 6  Level: 31  Culture: Nord              Formation: Infantry
+nord_skjaldbrestir                    Nord Skjaldbrestir                    Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Nord              Formation: Infantry
+naval_caravan_master_nord             Nord Convoy Master                    Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Nord              Formation: Infantry
+sea_raiders_chief                     Sea Raider Chief                      Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Sea Raiders       Formation: Infantry
+sea_raiders_bandit                    Sea Raider                            Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Sea Raiders       Formation: Infantry
+sea_raiders_raider                    Sea Raider Warrior                    Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sea Raiders       Formation: Infantry
+sea_raiders_boss                      Sea Raider Boss                       Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sea Raiders       Formation: Infantry
+sea_hounds                            Sea Hound Ruffian                     Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sea Raiders       Formation: Infantry
+sea_hounds_pups                       Sea Nippers                           Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Sea Raiders       Formation: Infantry
+naval_storyline_alley_fight_enemy     Sea Hound Recruit                     Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Sea Raiders       Formation: Infantry
+sea_hound_captivity                   Sea Hound Thug                        Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Sea Raiders       Formation: Infantry
+steppe_bandits_bandit                 Steppe Bandit                         Gender: Male    [Bandit]         Tier: 2  Level: 11  Culture: Steppe Bandits    Formation: Cavalry
+steppe_bandits_raider                 Marauder                              Gender: Male    [Bandit]         Tier: 3  Level: 16  Culture: Steppe Bandits    Formation: HorseArcher
+steppe_bandits_chief                  Raider                                Gender: Male    [Bandit]         Tier: 4  Level: 21  Culture: Steppe Bandits    Formation: HorseArcher
+steppe_bandits_boss                   Steppe Bandit Boss                    Gender: Male    [Bandit]         Tier: 5  Level: 26  Culture: Steppe Bandits    Formation: HorseArcher
+lakepike_tier_1                       Lake Rat Recruit                      Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Sturgia           Formation: Infantry
+sturgian_brigand                      Sturgian Brigand                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+sturgian_hunter                       Sturgian Hunter                       Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Ranged
+sturgian_recruit                      Sturgian Recruit                      Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Sturgia           Formation: Infantry
+sturgian_warrior_son                  Sturgian Otrok                        Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Sturgia           Formation: Infantry
+varyag                                Varyag                                Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+sturgian_warrior                      Sturgian Warrior                      Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Sturgia           Formation: Infantry
+sturgian_shock_troop                  Sturgian Heavy Spearman               Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+sturgian_spearman                     Sturgian Spearman                     Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Infantry
+sturgian_veteran_warrior              Sturgian Heavy Axeman                 Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+sturgian_horse_raider                 Sturgian Horse Raider                 Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Cavalry
+sturgian_archer                       Sturgian Archer                       Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Ranged
+sturgian_veteran_bowman               Sturgian Veteran Bowman               Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Ranged
+sturgian_hardened_brigand             Sturgian Hardened Brigand             Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Cavalry
+sturgia_marine_t3                     Sturgian Crewman                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+lakepike_tier_3                       Lake Rat Wrecker                      Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Infantry
+lakepike_tier_2                       Lake Rat Veteran                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+villager_sturgia                      Sturgia Peasant                       Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Sturgia           Formation: Infantry
+sturgian_woodsman                     Sturgian Woodsman                     Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Sturgia           Formation: Infantry
+sturgian_militia_spearman             Sturgian Militia Spearman             Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Sturgia           Formation: Infantry
+sturgian_militia_archer               Sturgian Militia Archer               Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Sturgia           Formation: Ranged
+sturgian_militia_veteran_spearman     Sturgian Militia Veteran Spearman     Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+sturgian_militia_veteran_archer       Sturgian Militia Veteran Archer       Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Ranged
+sturgian_soldier                      Sturgian Soldier                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+druzhinnik                            Sturgian Druzhinnik                   Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Cavalry
+varyag_veteran                        Varyag Veteran                        Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Cavalry
+sturgia_marine_t4                     Sturgian Veteran Shipman              Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Infantry
+caravan_master_sturgia                Sturgian Caravan Master               Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+armed_trader_sturgia                  Sturgian Armed Trader                 Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Ranged
+caravan_guard_sturgia                 Sturgian Caravan Guard                Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Cavalry
+veteran_caravan_guard_sturgia         Sturgian Veteran Caravan Guard        Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Cavalry
+naval_armed_trader_sturgia            Sturgian Armed Convoy Trader          Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Ranged
+naval_caravan_guard_sturgia           Sturgian Convoy Guard                 Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Infantry
+naval_veteran_caravan_guard_sturgia   Sturgian Veteran Convoy Guard         Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+conspiracy_wilder                     Conspiracy Wilder                     Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+conspiracy_battlerider                Conspiracy Battle Rider               Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Cavalry
+sturgia_marine_t5                     Sturgian Reaver                       Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+prison_guard_sturgia                  Prison Guard                          Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Sturgia           Formation: Infantry
+guard_sturgia                         Guard                                 Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Sturgia           Formation: Infantry
+village_woman_sturgia                 Sturgia Peasant                       Gender: Female  [Peasant]        Tier: 0  Level: 1   Culture: Sturgia           Formation: Infantry
+gangleader_bodyguard_sturgia          Gang Leader Bodyguard                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+fighter_sturgia                       Sturgia Fighter                       Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Sturgia           Formation: Infantry
+sturgian_berzerker                    Sturgian Line Breaker                 Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Sturgia           Formation: Infantry
+druzhinnik_champion                   Sturgian Druzhinnik Champion          Gender: Male    [Regular]        Tier: 6  Level: 31  Culture: Sturgia           Formation: Cavalry
+sturgian_ulfhednar                    Sturgian Heroic Line Breaker          Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+huskarl_swordsman                     Huscarl Swordsman                     Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+bold_contender_easy                   Bold Contender                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+bold_contender_normal                 Bold Contender                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+bold_contender_hard                   Bold Contender                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+bold_contender_very_hard              Bold Contender                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+bold_contender                        Bold Contender                        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+conspiracy_berserker                  Conspiracy Berserker                  Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Sturgia           Formation: Infantry
+conspiracy_hellion                    Conspiracy Hellion                    Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+anti_imperial_conspiracy_boss         Conspiracy Commander                  Gender: Male    [Regular]        Tier: 6  Level: 31  Culture: Sturgia           Formation: Infantry
+naval_caravan_master_sturgia          Sturgian Convoy Master                Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Sturgia           Formation: Infantry
+forest_people_tier_1                  Recruit Forester                      Gender: Male    [Minor Faction]  Tier: 2  Level: 11  Culture: Vakken            Formation: Ranged
+forest_people_tier_3                  Veteran Forester                      Gender: Male    [Minor Faction]  Tier: 4  Level: 21  Culture: Vakken            Formation: Ranged
+forest_people_tier_2                  Expert Forester                       Gender: Male    [Minor Faction]  Tier: 3  Level: 16  Culture: Vakken            Formation: Ranged
+company_of_the_boar_tier_1            Boar Novice                           Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Vlandia           Formation: Ranged
+brotherhood_of_woods_tier_1           Sprout                                Gender: Male    [Minor Faction]  Tier: 2  Level: 11  Culture: Vlandia           Formation: Ranged
+vlandian_recruit                      Vlandian Recruit                      Gender: Male    [Regular]        Tier: 1  Level: 6   Culture: Vlandia           Formation: Infantry
+vlandian_squire                       Vlandian Squire                       Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Vlandia           Formation: Cavalry
+vlandian_footman                      Vlandian Footman                      Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Vlandia           Formation: Infantry
+vlandian_gallant                      Vlandian Gallant                      Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Cavalry
+vlandian_levy_crossbowman             Vlandian Levy Crossbowman             Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Vlandia           Formation: Ranged
+vlandian_militia_spearman             Vlandian Militia Spearman             Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Vlandia           Formation: Infantry
+vlandian_militia_archer               Vlandian Militia Crossbowman          Gender: Male    [Militia]        Tier: 2  Level: 11  Culture: Vlandia           Formation: Ranged
+vlandian_crossbowman                  Vlandian Crossbowman                  Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Ranged
+vlandian_sharpshooter                 Vlandian Sharpshooter                 Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Ranged
+vlandian_light_cavalry                Vlandian Light Cavalry                Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Cavalry
+vlandian_vanguard                     Vlandian Vanguard                     Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Cavalry
+vlandian_champion                     Vlandian Champion                     Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Cavalry
+vlandian_billman                      Vlandian Billman                      Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Vlandia           Formation: Infantry
+vlandian_militia_veteran_spearman     Vlandian Militia Veteran Spearman     Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+vlandian_militia_veteran_archer       Vlandian Militia Veteran Crossbowman  Gender: Male    [Militia]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Ranged
+vlandian_sergeant                     Vlandian Sergeant                     Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Infantry
+vlandian_voulgier                     Vlandian Voulgier                     Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Infantry
+vlandian_spearman                     Vlandian Spearman                     Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+vlandian_cavalry                      Vlandian Cavalry                      Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Vlandia           Formation: Cavalry
+vlandian_knight                       Vlandian Knight                       Gender: Male    [Noble/Elite]    Tier: 4  Level: 21  Culture: Vlandia           Formation: Cavalry
+company_of_the_boar_tier_3            Boar Champion                         Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Vlandia           Formation: Ranged
+company_of_the_boar_tier_2            Boar Veteran                          Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Ranged
+brotherhood_of_woods_tier_3           Arboreal                              Gender: Male    [Minor Faction]  Tier: 4  Level: 21  Culture: Vlandia           Formation: Ranged
+brotherhood_of_woods_tier_2           Sapling                               Gender: Male    [Minor Faction]  Tier: 3  Level: 16  Culture: Vlandia           Formation: Ranged
+caravan_master_vlandia                Vlandian Caravan Master               Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Infantry
+armed_trader_vlandia                  Vlandian Armed Trader                 Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Ranged
+caravan_guard_vlandia                 Vlandian Caravan Guard                Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Vlandia           Formation: Cavalry
+veteran_caravan_guard_vlandia         Vlandian Veteran Caravan Guard        Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Cavalry
+naval_armed_trader_vlandia            Vlandian Armed Convoy Trader          Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Ranged
+naval_caravan_guard_vlandia           Vlandian Convoy Guard                 Gender: Male    [Caravan]        Tier: 4  Level: 21  Culture: Vlandia           Formation: Infantry
+naval_veteran_caravan_guard_vlandia   Vlandian Veteran Convoy Guard         Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Infantry
+villager_vlandia                      Vlandia Peasant                       Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Vlandia           Formation: Infantry
+conspiracy_warworn_crossbowman        Conspiracy Warworn Crossbowman        Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Ranged
+conspiracy_knight                     Conspiracy Knight                     Gender: Male    [Noble/Elite]    Tier: 5  Level: 26  Culture: Vlandia           Formation: Infantry
+vlandian_fortune_seekers              Vlandian Merchant                     Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Vlandia           Formation: Infantry
+naval_caravan_master_vlandia          Vlandian Convoy Master                Gender: Male    [Caravan]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Infantry
+vlandian_marine_t5                    Vlandian Nauta                        Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Ranged
+vlandian_marine_t4                    Vlandian Seasoned Seafarer            Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Vlandia           Formation: Ranged
+vlandian_swordsman                    Vlandian Swordsman                    Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Vlandia           Formation: Infantry
+prison_guard_vlandia                  Prison Guard                          Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Vlandia           Formation: Infantry
+guard_vlandia                         Guard                                 Gender: Male    [Regular]        Tier: 0  Level: 4   Culture: Vlandia           Formation: Infantry
+village_woman_vlandia                 Vlandia Peasant                       Gender: Female  [Peasant]        Tier: 0  Level: 1   Culture: Vlandia           Formation: Infantry
+gangleader_bodyguard_vlandia          Gang Leader Bodyguard                 Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+fighter_vlandia                       Vlandian Fighter                      Gender: Male    [Peasant]        Tier: 0  Level: 1   Culture: Vlandia           Formation: Infantry
+vlandian_pikeman                      Vlandian Pikeman                      Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Infantry
+vlandian_hardened_crossbowman         Vlandian Hardened Crossbowman         Gender: Male    [Regular]        Tier: 4  Level: 21  Culture: Vlandia           Formation: Ranged
+vlandian_banner_knight                Vlandian Banner Knight                Gender: Male    [Noble/Elite]    Tier: 6  Level: 31  Culture: Vlandia           Formation: Cavalry
+poacher                               Poacher                               Gender: Male    [Regular]        Tier: 2  Level: 11  Culture: Vlandia           Formation: Ranged
+dignified_contender_easy              Dignified Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+dignified_contender_normal            Dignified Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+dignified_contender_hard              Dignified Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+dignified_contender_very_hard         Dignified Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+dignified_contender                   Dignified Contender                   Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+conspiracy_trained_spearman           Conspiracy Trained Spearman           Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+conspiracy_spearmaster                Conspiracy Spear Master               Gender: Male    [Regular]        Tier: 5  Level: 26  Culture: Vlandia           Formation: Infantry
+conspiracy_knight_trainee             Conspiracy Knight Trainee             Gender: Male    [Noble/Elite]    Tier: 3  Level: 16  Culture: Vlandia           Formation: Infantry
+conspiracy_trained_crossbowman        Conspiracy Trained Crossbowman        Gender: Male    [Regular]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Ranged
+imperial_conspiracy_boss              Conspiracy Commander                  Gender: Male    [Regular]        Tier: 6  Level: 31  Culture: Vlandia           Formation: Infantry
+vlandian_sea_trader                   Vlandian Sea-Trader                   Gender: Male    [Caravan]        Tier: 3  Level: 16  Culture: Vlandia           Formation: Ranged
