@@ -48,6 +48,8 @@ namespace Bannerlord.GameMaster.Heroes
             public int MaxLevel { get; set; } = 25;
             public ItemObject.ItemTiers MinArmorTier { get; set; } = ItemObject.ItemTiers.Tier4;
             public ItemObject.ItemTiers MinWeaponTier { get; set; } = ItemObject.ItemTiers.Tier3;
+            public bool FullRandomization { get; set; } = false;
+            public BasicCultureObject Culture { get; set; } = null;
         }
 
         /// <summary>
@@ -62,6 +64,9 @@ namespace Bannerlord.GameMaster.Heroes
             public int MaxAge { get; set; } = 24;
             public bool RandomizeAppearance { get; set; } = true;
             public bool AddCivilianClothes { get; set; } = true;
+            public bool FullRandomization { get; set; } = false;
+            public CharacterObject SpecificTemplate { get; set; } = null;
+            public BasicCultureObject Culture { get; set; } = null;
         }
 
         /// <summary>
@@ -85,6 +90,17 @@ namespace Bannerlord.GameMaster.Heroes
             var lordTemplates = CharacterObject.All
                 .Where(c => !c.IsHero && c.Occupation == Occupation.Lord && c.Culture != null)
                 .ToList();
+
+            // Filter by culture if specified
+            if (config.Culture != null)
+            {
+                lordTemplates = lordTemplates.Where(c => c.Culture == config.Culture).ToList();
+                if (lordTemplates.Count == 0)
+                {
+                    result.ErrorMessage = $"No lord templates found for culture '{config.Culture.Name}'.";
+                    return result;
+                }
+            }
 
             if (lordTemplates.Count == 0)
             {
@@ -155,8 +171,12 @@ namespace Bannerlord.GameMaster.Heroes
                 if (hero == null)
                     continue;
 
-                // Randomize appearance for variety
-                RandomizeHeroAppearance(hero, template.IsFemale);
+                // Randomize appearance based on config
+                if (config.FullRandomization)
+                {
+                    RandomizeHeroAppearance(hero, template.IsFemale);
+                }
+                // Otherwise, hero uses template appearance with no additional randomization
 
                 // Give decent stats
                 ApplyLevelAndStats(hero, config.MinLevel, config.MaxLevel);
@@ -196,46 +216,57 @@ namespace Bannerlord.GameMaster.Heroes
                 return result;
             }
 
-            // Get all cultures for random selection
-            var allCultures = MBObjectManager.Instance.GetObjectTypeList<TaleWorlds.Core.BasicCultureObject>()
-                .Where(c => c != null)
-                .ToList();
+            CharacterObject template;
 
-            if (allCultures.Count == 0)
+            // If a specific template is provided, use it
+            if (config.SpecificTemplate != null)
             {
-                result.ErrorMessage = "No cultures found in game data.";
-                return result;
+                template = config.SpecificTemplate;
             }
-
-            // Select random culture
-            var randomCulture = allCultures[_random.Next(allCultures.Count)];
-
-            // Get lord templates matching gender and the random culture
-            var lordTemplates = CharacterObject.All
-                .Where(c => !c.IsHero &&
-                          c.Occupation == Occupation.Lord &&
-                          c.IsFemale == config.IsFemale &&
-                          c.Culture == randomCulture)
-                .ToList();
-
-            // If no templates for this culture, try any culture
-            if (lordTemplates.Count == 0)
+            else
             {
-                lordTemplates = CharacterObject.All
+                // Get all cultures for random selection
+                var allCultures = MBObjectManager.Instance.GetObjectTypeList<TaleWorlds.Core.BasicCultureObject>()
+                    .Where(c => c != null)
+                    .ToList();
+
+                if (allCultures.Count == 0)
+                {
+                    result.ErrorMessage = "No cultures found in game data.";
+                    return result;
+                }
+
+                // Select culture (either specified or random)
+                var selectedCulture = config.Culture ?? allCultures[_random.Next(allCultures.Count)];
+
+                // Get lord templates matching gender and the selected culture
+                var lordTemplates = CharacterObject.All
                     .Where(c => !c.IsHero &&
                               c.Occupation == Occupation.Lord &&
                               c.IsFemale == config.IsFemale &&
-                              c.Culture != null)
+                              c.Culture == selectedCulture)
                     .ToList();
-            }
 
-            if (lordTemplates.Count == 0)
-            {
-                result.ErrorMessage = $"No {(config.IsFemale ? "female" : "male")} lord templates found.";
-                return result;
+                // If no templates for this culture, try any culture (only if culture not explicitly specified)
+                if (lordTemplates.Count == 0 && config.Culture == null)
+                {
+                    lordTemplates = CharacterObject.All
+                        .Where(c => !c.IsHero &&
+                                  c.Occupation == Occupation.Lord &&
+                                  c.IsFemale == config.IsFemale &&
+                                  c.Culture != null)
+                        .ToList();
+                }
+
+                if (lordTemplates.Count == 0)
+                {
+                    string cultureMsg = config.Culture != null ? $" for culture '{config.Culture.Name}'" : "";
+                    result.ErrorMessage = $"No {(config.IsFemale ? "female" : "male")} lord templates found{cultureMsg}.";
+                    return result;
+                }
+                
+                template = lordTemplates[_random.Next(lordTemplates.Count)];
             }
-            
-            var template = lordTemplates[_random.Next(lordTemplates.Count)];
 
             // Create hero
             var hero = CreateHero(template, config.TargetClan, config.MinAge, config.MaxAge);
@@ -248,11 +279,12 @@ namespace Bannerlord.GameMaster.Heroes
             // Set name
             hero.SetName(new TaleWorlds.Localization.TextObject(config.Name), new TaleWorlds.Localization.TextObject(config.Name));
 
-            // Randomize appearance if requested
-            if (config.RandomizeAppearance)
+            // Randomize appearance based on config
+            if (config.RandomizeAppearance && config.FullRandomization)
             {
                 RandomizeHeroAppearance(hero, config.IsFemale);
             }
+            // Otherwise, hero uses template appearance (with or without basic randomization depending on RandomizeAppearance)
 
             // Clear all equipment
             ClearEquipment(hero);

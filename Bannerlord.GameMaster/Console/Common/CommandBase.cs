@@ -411,6 +411,123 @@ namespace Bannerlord.GameMaster.Console.Common
 
         #endregion
 
+        #region Argument Parsing Helpers
+
+        /// <summary>
+        /// Parses arguments to properly handle quoted strings using SINGLE QUOTES.
+        /// TaleWorlds removes double quotes but preserves single quotes.
+        /// Use 'text with spaces' for multi-word arguments.
+        ///
+        /// Examples:
+        ///   Input:  ["'vladiv", "castle'", "'castle", "of", "stone'", "example"]
+        ///   Output: ["vladiv castle", "castle of stone", "example"]
+        ///
+        ///   Input:  ["'Castle", "of", "Rocks'"]
+        ///   Output: ["Castle of Rocks"]
+        /// </summary>
+        public static List<string> ParseQuotedArguments(List<string> args)
+        {
+            if (args == null || args.Count == 0)
+                return args ?? new List<string>();
+
+            var result = new List<string>();
+            int i = 0;
+
+            while (i < args.Count)
+            {
+                string arg = args[i];
+
+                // Check if this argument starts with a single quote
+                if (arg.StartsWith("'"))
+                {
+                    // Start collecting parts of the quoted string
+                    var quotedParts = new List<string>();
+                    
+                    // Remove leading quote from first part
+                    string firstPart = arg.Substring(1);
+                    
+                    // Check if the quote also ends in this same arg (e.g., 'word')
+                    if (firstPart.EndsWith("'"))
+                    {
+                        // Single-word quoted arg, remove trailing quote
+                        result.Add(firstPart.Substring(0, firstPart.Length - 1));
+                        i++;
+                        continue;
+                    }
+                    
+                    // Add first part (without leading quote)
+                    quotedParts.Add(firstPart);
+                    i++;
+                    
+                    // Continue collecting until we find the closing quote
+                    bool foundClosing = false;
+                    while (i < args.Count)
+                    {
+                        string part = args[i];
+                        
+                        if (part.EndsWith("'"))
+                        {
+                            // Found closing quote, remove it and add final part
+                            quotedParts.Add(part.Substring(0, part.Length - 1));
+                            foundClosing = true;
+                            i++;
+                            break;
+                        }
+                        else
+                        {
+                            // Middle part of quoted string
+                            quotedParts.Add(part);
+                            i++;
+                        }
+                    }
+                    
+                    // Combine all parts with spaces
+                    result.Add(string.Join(" ", quotedParts));
+                    
+                    // If no closing quote was found, we've consumed all remaining args
+                    // which is fine - treat as one long quoted string
+                }
+                else
+                {
+                    // Regular unquoted argument
+                    result.Add(arg);
+                    i++;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Joins remaining arguments starting from the specified index into a single string.
+        /// Useful for commands that accept multi-word text as the last parameter.
+        /// Example: JoinRemainingArgs(args, 2) for "gm.cmd arg1 arg2 word1 word2 word3" returns "word1 word2 word3"
+        /// </summary>
+        public static string JoinRemainingArgs(List<string> args, int startIndex)
+        {
+            if (args == null || startIndex >= args.Count)
+                return string.Empty;
+
+            return string.Join(" ", args.Skip(startIndex));
+        }
+
+        /// <summary>
+        /// Gets an argument at the specified index, or returns all remaining arguments joined if consumeRemaining is true.
+        /// This is useful for parameters that should accept multi-word input.
+        /// </summary>
+        public static string GetArgument(List<string> args, int index, bool consumeRemaining = false)
+        {
+            if (args == null || index >= args.Count)
+                return string.Empty;
+
+            if (consumeRemaining)
+                return JoinRemainingArgs(args, index);
+
+            return args[index];
+        }
+
+        #endregion
+
         #region Helper Methods
 
         /// <summary>
@@ -454,12 +571,28 @@ namespace Bannerlord.GameMaster.Console.Common
     public static class Cmd
     {
         /// <summary>
-        /// Execute command with automatic logging
+        /// Execute command with automatic logging and quote parsing.
+        /// Automatically parses quoted arguments before passing to command logic.
         /// </summary>
         public static string Run(List<string> args, Func<string> action)
         {
-            string commandName = GetCallingCommandName(args);
+            // Make a copy of original args for logging
+            var originalArgs = args != null ? new List<string>(args) : new List<string>();
             
+            // Parse quoted arguments BEFORE passing to action
+            // This reconstructs 'multi word' arguments that were split by TaleWorlds
+            var parsedArgs = CommandBase.ParseQuotedArguments(args);
+            
+            // Replace the args list contents with parsed args
+            if (args != null && parsedArgs != null)
+            {
+                args.Clear();
+                args.AddRange(parsedArgs);
+            }
+
+            // Get command name using parsed args for cleaner logging
+            string commandName = GetCallingCommandName(parsedArgs);
+
             try
             {
                 string result = action();
@@ -486,11 +619,27 @@ namespace Bannerlord.GameMaster.Console.Common
         }
 
         /// <summary>
-        /// Execute command with automatic logging using CommandResult
+        /// Execute command with automatic logging and quote parsing using CommandResult.
+        /// Automatically parses quoted arguments before passing to command logic.
         /// </summary>
         public static CommandResult Run(List<string> args, Func<CommandResult> action)
         {
-            string commandName = GetCallingCommandName(args);
+            // Make a copy of original args for logging
+            var originalArgs = args != null ? new List<string>(args) : new List<string>();
+            
+            // Parse quoted arguments BEFORE passing to action
+            // This reconstructs 'multi word' arguments that were split by TaleWorlds
+            var parsedArgs = CommandBase.ParseQuotedArguments(args);
+            
+            // Replace the args list contents with parsed args
+            if (args != null && parsedArgs != null)
+            {
+                args.Clear();
+                args.AddRange(parsedArgs);
+            }
+            
+            // Get command name using parsed args for cleaner logging
+            string commandName = GetCallingCommandName(parsedArgs);
             
             try
             {

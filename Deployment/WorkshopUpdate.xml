@@ -3,28 +3,16 @@
         <ItemId Value="3624152079"/>
     </GetItem>
    <UpdateItem>
-        <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
-        <ChangeNotes Value=
-"Improved query output column alignment
-Added Hero Commands:
-	Create Lord
-	Generate Lords
-Added Settlment Query System
-Added Settlement Commands:
-	Change owner
-	spawn wanderer
-	create player caravan
-	create notable caravan
-	upgrade all buildings to desired level
-	add settlement food
-	add settlement gold
-	set settlement prosperity
-	set settlement security
-	set settlement loyality
-	add settlement militia
-	fill settlement garrison
-	set village hearths
-	change name"
+        <ModuleFolder Value="Add ability to handle arguments with space by using single quotes ex: 'multi word argument' (Tale Worlds removes double quotes from the console)
+settlement name changes now persist when saving and loading. Changing a settlement name may be delayed and can be forced to update by visiting the settlement and entering the trade menu. or loading the save.
+
+Settlement_Commands:
+	- added gm.settlement.set_culture <settlement> <culture>
+	- added gm.settlement.reset_names
+	- Settlement name changes now persist with save / loading
+
+Clan Commands:
+	- added gm.clan.create_clan"
         />
         <Tags>
             <Tag Value="Utility" />

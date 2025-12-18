@@ -1,16 +1,20 @@
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Heroes;
+using Bannerlord.GameMaster.Settlements;
+using Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Extensions;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 
 namespace Bannerlord.GameMaster.Console.SettlementCommands
 {
@@ -252,7 +256,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
         }
 
         /// <summary>
-        /// Rename a settlement using reflection
+        /// Rename a settlement with save persistence
         /// Usage: gm.settlement.rename [settlement] [new_name]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("rename", "gm.settlement")]
@@ -265,8 +269,10 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.rename", "<settlement> <new_name>",
-                    "Changes the name of any settlement type (city, castle, village, hideout).",
-                    "gm.settlement.rename pen NewName");
+                    "Changes the name of any settlement type (city, castle, village, hideout).\n" +
+                    "The new name persists through save/load cycles.\n" +
+                    "Use SINGLE QUOTES for multi-word names (double quotes don't work in TaleWorlds console).",
+                    "gm.settlement.rename pen NewName\ngm.settlement.rename pen 'Castle of Stone'");
 
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
@@ -282,19 +288,149 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 {
                     string previousName = settlement.Name.ToString();
                     
-                    // Use reflection to set the Name property
-                    var nameField = typeof(Settlement).GetField("_name", BindingFlags.NonPublic | BindingFlags.Instance);
-                    if (nameField != null)
-                    {
-                        nameField.SetValue(settlement, new TaleWorlds.Localization.TextObject(newName));
-                        return CommandBase.FormatSuccessMessage(
-                            $"Settlement renamed from '{previousName}' to '{settlement.Name}' (ID: {settlement.StringId}).");
-                    }
-                    else
-                    {
-                        return CommandBase.FormatErrorMessage("Unable to rename settlement. This feature may not be available in your game version.");
-                    }
+                    // Get the settlement name behavior
+                    var behavior = Campaign.Current.GetCampaignBehavior<SettlementNameBehavior>();
+                    if (behavior == null)
+                        return CommandBase.FormatErrorMessage("Settlement name behavior not initialized. Please restart the game.");
+
+                    // Use behavior to rename (handles save persistence)
+                    if (!behavior.RenameSettlement(settlement, newName))
+                        return CommandBase.FormatErrorMessage("Failed to rename settlement. Check the error log for details.");
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"Settlement renamed from '{previousName}' to '{settlement.Name}' (ID: {settlement.StringId}).\n" +
+                        $"The new name will persist through save/load cycles.\n" +
+                        $"Note: Map label may take a moment to update.");
                 }, "Failed to rename settlement");
+            });
+        }
+
+        /// <summary>
+        /// Reset a settlement to its original name
+        /// Usage: gm.settlement.reset_name [settlement]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("reset_name", "gm.settlement")]
+        public static string ResetSettlementName(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.settlement.reset_name", "<settlement>",
+                    "Restores a settlement to its original name.",
+                    "gm.settlement.reset_name pen");
+
+                if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                    return error;
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                if (settlementError != null) return settlementError;
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    var behavior = Campaign.Current.GetCampaignBehavior<SettlementNameBehavior>();
+                    if (behavior == null)
+                        return CommandBase.FormatErrorMessage("Settlement name behavior not initialized. Please restart the game.");
+
+                    if (!behavior.IsRenamed(settlement))
+                        return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' (ID: {settlement.StringId}) has not been renamed.");
+
+                    string originalName = behavior.GetOriginalName(settlement);
+                    string currentName = settlement.Name.ToString();
+
+                    if (!behavior.ResetSettlementName(settlement))
+                        return CommandBase.FormatErrorMessage("Failed to reset settlement name. Check the error log for details.");
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"Settlement name reset from '{currentName}' to '{settlement.Name}' (original: '{originalName}') (ID: {settlement.StringId}).");
+                }, "Failed to reset settlement name");
+            });
+        }
+
+        /// <summary>
+        /// Reset all settlements to their original names
+        /// Usage: gm.settlement.reset_all_names
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("reset_all_names", "gm.settlement")]
+        public static string ResetAllSettlementNames(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.settlement.reset_all_names", "",
+                    "Restores all settlements to their original names.",
+                    "gm.settlement.reset_all_names");
+
+                if (!CommandBase.ValidateArgumentCount(args, 0, usageMessage, out error))
+                    return error;
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    var behavior = Campaign.Current.GetCampaignBehavior<SettlementNameBehavior>();
+                    if (behavior == null)
+                        return CommandBase.FormatErrorMessage("Settlement name behavior not initialized. Please restart the game.");
+
+                    int renamedCount = behavior.GetRenamedSettlementCount();
+                    if (renamedCount == 0)
+                        return CommandBase.FormatSuccessMessage("No settlements have been renamed.");
+
+                    int resetCount = behavior.ResetAllSettlementNames();
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"Reset {resetCount} settlement(s) to their original names.");
+                }, "Failed to reset settlement names");
+            });
+        }
+
+        /// <summary>
+        /// Change settlement culture
+        /// Usage: gm.settlement.set_culture [settlement] [culture]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("set_culture", "gm.settlement")]
+        public static string SetCulture(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.settlement.set_culture", "<settlement> <culture>",
+                    "Changes the culture of a settlement. This affects available troops, architecture style, and names.\n" +
+                    "Valid cultures: empire, sturgia, aserai, vlandia, battania, khuzait",
+                    "gm.settlement.set_culture pen empire\ngm.settlement.set_culture zeonica vlandia");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                if (settlementError != null) return settlementError;
+
+                // Find the culture
+                string cultureQuery = args[1].ToLower();
+                var culture = Campaign.Current.ObjectManager.GetObjectTypeList<CultureObject>()
+                    .FirstOrDefault(c => c.StringId.ToLower().Contains(cultureQuery) ||
+                                        c.Name.ToString().ToLower().Contains(cultureQuery));
+
+                if (culture == null)
+                    return CommandBase.FormatErrorMessage($"Culture not found matching '{args[1]}'. Valid cultures include: empire, sturgia, aserai, vlandia, battania, khuzait.");
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    string previousCulture = settlement.Culture?.Name?.ToString() ?? "None";
+                    
+                    // Set culture (this is a public property with setter, no reflection needed)
+                    settlement.Culture = culture;
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) culture changed from '{previousCulture}' to '{settlement.Culture.Name}'.\n" +
+                        $"This change persists through save/load automatically.");
+                }, "Failed to change settlement culture");
             });
         }
 

@@ -47,7 +47,7 @@ namespace Bannerlord.GameMaster.Troops
         Tier5 = 8388608,           // 2^23 - Tier 5 troops
         Tier6Plus = 16777216,      // 2^24 - Tier 6+ troops (includes tier 7 if modded)
         
-        // Culture-Based Categories (33554432-8589934592)
+        // Culture-Based Categories (33554432-4294967296)
         Empire = 33554432,         // 2^25 - Culture: Empire
         Vlandia = 67108864,        // 2^26 - Culture: Vlandia
         Sturgia = 134217728,       // 2^27 - Culture: Sturgia
@@ -56,6 +56,10 @@ namespace Bannerlord.GameMaster.Troops
         Battania = 1073741824,     // 2^30 - Culture: Battania
         Nord = 2147483648,         // 2^31 - Culture: Nord (Warsails DLC - optional)
         Bandit = 4294967296,       // 2^32 - Culture: Bandit (special culture)
+        
+        // Gender Categories (8589934592-17179869184)
+        Female = 8589934592,       // 2^33 - Female troops
+        Male = 17179869184,        // 2^34 - Male troops
     }
 
     /// <summary>
@@ -191,6 +195,12 @@ namespace Bannerlord.GameMaster.Troops
                 else if (cultureId.Contains("bandit") || cultureId.Contains("looter"))
                     types |= TroopTypes.Bandit;
             }
+
+            // Gender Categories
+            if (character.IsFemale)
+                types |= TroopTypes.Female;
+            else
+                types |= TroopTypes.Male;
 
             return types;
         }
@@ -390,7 +400,8 @@ namespace Bannerlord.GameMaster.Troops
         {
             string cultureName = character.Culture?.Name?.ToString() ?? "None";
             string category = character.GetTroopCategory();
-            return $"{character.StringId}\t{character.Name}\t[{category}]\tTier: {character.GetBattleTier()}\tLevel: {character.Level}\tCulture: {cultureName}\tFormation: {character.DefaultFormationClass}";
+            string gender = character.IsFemale ? "Female" : "Male";
+            return $"{character.StringId}\t{character.Name}\tGender: {gender}\t[{category}]\tTier: {character.GetBattleTier()}\tLevel: {character.Level}\tCulture: {cultureName}\tFormation: {character.DefaultFormationClass}";
         }
 
         /// <summary>

@@ -222,6 +222,7 @@ namespace Bannerlord.GameMaster.Troops
                 troops,
                 t => t.StringId,
                 t => t.Name.ToString(),
+                t => $"Gender: {(t.IsFemale ? "Female" : "Male")}",
                 t => $"[{t.GetTroopCategory()}]",
                 t => $"Tier: {t.GetBattleTier()}",
                 t => $"Level: {t.Level}",

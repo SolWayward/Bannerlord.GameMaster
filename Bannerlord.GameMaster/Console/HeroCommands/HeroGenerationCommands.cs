@@ -1,6 +1,7 @@
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Heroes;
 using System.Collections.Generic;
+using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 
@@ -11,7 +12,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
     {
         /// <summary>
         /// Generate new lords with random templates and good equipment
-        /// Usage: gm.hero.generate_lords [count] [clan]
+        /// Usage: gm.hero.generate_lords <count> [clan] [random|template] [culture]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("generate_lords", "gm.hero")]
         public static string GenerateLords(List<string> args)
@@ -22,25 +23,58 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.hero.generate_lords", "[count=1] [clan=random]",
-                    "Creates lords from random templates with good gear and decent stats. Age 30-40. If clan not specified, each lord goes to a different random clan.",
-                    "gm.hero.generate_lords 3\ngm.hero.generate_lords 5 empire_south");
+                    "gm.hero.generate_lords", "<count> [clan=random] [random|template] [culture]",
+                    "Creates lords from random templates with good gear and decent stats. Age 30-40.\n" +
+                    "- If clan not specified, each lord goes to a different random clan.\n" +
+                    "- Default: Uses template appearance without extra randomization.\n" +
+                    "- 'random': Fully randomizes appearance beyond template constraints.\n" +
+                    "- 'template': Uses random templates (same as default).\n" +
+                    "- 'culture': Optional culture name to filter templates.",
+                    "gm.hero.generate_lords 3\ngm.hero.generate_lords 5 empire_south random\ngm.hero.generate_lords 2 empire culture_empire");
 
-                // Parse count (optional, default 1)
-                int count = 1;
-                if (args.Count > 0)
-                {
-                    if (!CommandValidator.ValidateIntegerRange(args[0], 1, 20, out count, out string countError))
-                        return CommandBase.FormatErrorMessage(countError);
-                }
+                // Count is now required
+                if (args.Count == 0)
+                    return usageMessage;
 
-                // Parse clan (optional)
+                // Parse count (required)
+                if (!CommandValidator.ValidateIntegerRange(args[0], 1, 20, out int count, out string countError))
+                    return CommandBase.FormatErrorMessage(countError);
+
+                // Parse remaining arguments
                 Clan targetClan = null;
-                if (args.Count > 1)
+                bool fullRandomization = false;
+                TaleWorlds.Core.BasicCultureObject culture = null;
+                
+                for (int i = 1; i < args.Count; i++)
                 {
-                    var (clan, clanError) = CommandBase.FindSingleClan(args[1]);
-                    if (clanError != null) return clanError;
-                    targetClan = clan;
+                    string arg = args[i].ToLower();
+                    
+                    if (arg == "random")
+                    {
+                        fullRandomization = true;
+                    }
+                    else if (arg == "template")
+                    {
+                        fullRandomization = false;
+                    }
+                    else if (arg.StartsWith("culture"))
+                    {
+                        // Try to find culture
+                        string cultureName = arg.Contains("_") ? arg : (i + 1 < args.Count ? args[++i] : "");
+                        var foundCulture = TaleWorlds.ObjectSystem.MBObjectManager.Instance
+                            .GetObjectTypeList<TaleWorlds.Core.BasicCultureObject>()
+                            .FirstOrDefault(c => c.StringId.ToLower().Contains(cultureName.ToLower()) ||
+                                                 c.Name.ToString().ToLower().Contains(cultureName.ToLower()));
+                        if (foundCulture != null)
+                            culture = foundCulture;
+                    }
+                    else if (targetClan == null)
+                    {
+                        // Try to parse as clan
+                        var (clan, clanError) = CommandBase.FindSingleClan(args[i]);
+                        if (clan != null)
+                            targetClan = clan;
+                    }
                 }
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
@@ -55,7 +89,9 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                         MinLevel = 15,
                         MaxLevel = 25,
                         MinArmorTier = TaleWorlds.Core.ItemObject.ItemTiers.Tier4,
-                        MinWeaponTier = TaleWorlds.Core.ItemObject.ItemTiers.Tier3
+                        MinWeaponTier = TaleWorlds.Core.ItemObject.ItemTiers.Tier3,
+                        FullRandomization = fullRandomization,
+                        Culture = culture
                     };
 
                     // Generate lords using HeroGenerator
@@ -80,7 +116,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 
         /// <summary>
         /// Create a fresh lord with minimal stats and equipment
-        /// Usage: gm.hero.create_lord [gender] [name] [clan]
+        /// Usage: gm.hero.create_lord <gender> <name> <clan> [random|template|template:ID] [culture]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("create_lord", "gm.hero")]
         public static string CreateLord(List<string> args)
@@ -91,9 +127,16 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.hero.create_lord", "<gender> <name> <clan>",
-                    "Creates a fresh lord age 20-24 with minimal stats and only clothes. Gender must be 'male' or 'female'.",
-                    "gm.hero.create_lord male NewLord empire_south");
+                    "gm.hero.create_lord", "<gender> <name> <clan> [random|template|template:ID] [culture]",
+                    "Creates a fresh lord age 20-24 with minimal stats and only clothes.\n" +
+                    "- Gender must be 'male' or 'female'.\n" +
+                    "- Name: Use SINGLE QUOTES for multi-word names (double quotes don't work).\n" +
+                    "- Default: Uses template appearance without extra randomization.\n" +
+                    "- 'random': Fully randomizes appearance beyond template constraints.\n" +
+                    "- 'template': Uses random template (same as default).\n" +
+                    "- 'template:ID': Uses specific CharacterObject template ID.\n" +
+                    "- 'culture': Optional culture name to filter templates.",
+                    "gm.hero.create_lord male NewLord empire_south\ngm.hero.create_lord female 'Jane Doe' empire random\ngm.hero.create_lord male 'Lord One' empire template:lord_1_1");
 
                 if (!CommandBase.ValidateArgumentCount(args, 3, usageMessage, out error))
                     return error;
@@ -115,6 +158,47 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                 var (clan, clanError) = CommandBase.FindSingleClan(args[2]);
                 if (clanError != null) return clanError;
 
+                // Parse optional arguments
+                bool fullRandomization = false;
+                CharacterObject specificTemplate = null;
+                TaleWorlds.Core.BasicCultureObject culture = null;
+
+                for (int i = 3; i < args.Count; i++)
+                {
+                    string arg = args[i].ToLower();
+                    
+                    if (arg == "random")
+                    {
+                        fullRandomization = true;
+                    }
+                    else if (arg.StartsWith("template:"))
+                    {
+                        // Extract template ID
+                        string templateId = arg.Substring(9);
+                        specificTemplate = CharacterObject.All.FirstOrDefault(c => c.StringId.ToLower() == templateId.ToLower());
+                        if (specificTemplate == null)
+                            return CommandBase.FormatErrorMessage($"Template '{templateId}' not found.");
+                    }
+                    else if (arg == "template")
+                    {
+                        fullRandomization = false;
+                    }
+                    else if (arg.StartsWith("culture"))
+                    {
+                        // Try to find culture
+                        string cultureName = arg.Contains("_") ? arg : (i + 1 < args.Count ? args[++i] : "");
+                        var cultures = TaleWorlds.ObjectSystem.MBObjectManager.Instance.GetObjectTypeList<TaleWorlds.Core.BasicCultureObject>();
+                        foreach (var c in cultures)
+                        {
+                            if (c.StringId.ToLower().Contains(cultureName.ToLower()) || c.Name.ToString().ToLower().Contains(cultureName.ToLower()))
+                            {
+                                culture = c;
+                                break;
+                            }
+                        }
+                    }
+                }
+
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     // Create configuration for lord creation
@@ -126,7 +210,10 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                         MinAge = 20,
                         MaxAge = 24,
                         RandomizeAppearance = true,
-                        AddCivilianClothes = true
+                        AddCivilianClothes = true,
+                        FullRandomization = fullRandomization,
+                        SpecificTemplate = specificTemplate,
+                        Culture = culture
                     };
 
                     // Create lord using HeroGenerator

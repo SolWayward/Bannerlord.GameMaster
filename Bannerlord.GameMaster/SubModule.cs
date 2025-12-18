@@ -5,6 +5,7 @@ using System.Reflection;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Console.ClanCommands;
 using Bannerlord.GameMaster.Console.Testing;
+using Bannerlord.GameMaster.Settlements;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -37,9 +38,10 @@ namespace Bannerlord.GameMaster
         {
             base.OnGameStart(game, gameStarterObject);
             
-            if (game.GameType is Campaign)
+            if (game.GameType is Campaign && gameStarterObject is CampaignGameStarter campaignStarter)
             {
-                //Execute at start of new game or on game loaded
+                // Register settlement name behavior for save/load persistence
+                campaignStarter.AddBehavior(new SettlementNameBehavior());
             }
         }
 

@@ -33,8 +33,9 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.clan.create_clan", "<clanName> <leaderHero>",
-                    "Create a new clan with the specified name and set the specified hero as it's leader",
-                    "gm.clan.create_clan Highlanders derthert");
+                    "Create a new clan with the specified name and set the specified hero as its leader.\n" +
+                    "Use SINGLE QUOTES for multi-word clan names (double quotes don't work).",
+                    "gm.clan.create_clan Highlanders derthert\ngm.clan.create_clan 'The Highland Clan' derthert");
 
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;

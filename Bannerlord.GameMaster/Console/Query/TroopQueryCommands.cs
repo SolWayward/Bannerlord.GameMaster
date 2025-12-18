@@ -31,7 +31,9 @@ namespace Bannerlord.GameMaster.Console.Query
                 // Tier types (also as keywords)
                 "tier0", "tier1", "tier2", "tier3", "tier4", "tier5", "tier6", "tier6plus",
                 // Cultures
-                "empire", "vlandia", "sturgia", "aserai", "khuzait", "battania", "nord", "bandit"
+                "empire", "vlandia", "sturgia", "aserai", "khuzait", "battania", "nord", "bandit",
+                // Gender types
+                "female", "male"
             };
 
             var tierKeywords = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
@@ -172,10 +174,11 @@ namespace Bannerlord.GameMaster.Console.Query
                 {
                     return $"Found 0 troop(s) matching {criteriaDesc}\n" +
                            "Usage: gm.query.troop [search] [type keywords] [tier] [sort]\n" +
-                           "Type keywords: infantry, ranged, cavalry, horsearcher, shield, bow, crossbow, regular, noble, militia, mercenary, caravan, bandit, etc.\n" +
+                           "Type keywords: infantry, ranged, cavalry, horsearcher, shield, bow, crossbow, regular, noble, militia, mercenary, caravan, bandit, female, male, etc.\n" +
                            "Tier keywords: tier0, tier1, tier2, tier3, tier4, tier5, tier6, tier6plus\n" +
                            "Sort: sort:name, sort:tier, sort:level, sort:culture, sort:<type> (add :desc for descending)\n" +
                            "Example: gm.query.troop imperial infantry tier2 sort:name\n" +
+                           "Example: gm.query.troop female cavalry (find female cavalry troops)\n" +
                            "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n";
                 }
 

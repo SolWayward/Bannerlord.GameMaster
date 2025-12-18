@@ -160,6 +160,7 @@ namespace Bannerlord.GameMaster.Heroes
                 heroes,
                 h => h.StringId,
                 h => h.Name.ToString(),
+                h => $"Gender: {(h.IsFemale ? "Female" : "Male")}",
                 h => $"Clan: {h.Clan?.Name?.ToString() ?? "None"}",
                 h => $"Kingdom: {h.Clan?.Kingdom?.Name?.ToString() ?? "None"}"
             );
