@@ -4,7 +4,7 @@
 
 Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.  
   
-~Press Alt + ~ (tilde key) in-game to open console~
+```Press Alt + ~ (tilde key) in-game to open console```
 
 ## Latest Update 1.3.11.2
 ```
