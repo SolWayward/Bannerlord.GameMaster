@@ -1,6 +1,5 @@
 # Bannerlord.GameMaster (BLGM)
 - **[Complete Documentation for Users](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
-- [Source Code Documentation and Implementation for Developers](https://solwayward.github.io/Bannerlord.GameMaster/)
 
 Console commands and power tools mod for Mount & Blade II: Bannerlord providing game management through the game console.  
   
@@ -139,10 +138,15 @@ Use powerful queries to search and filter:
 
 [Full Settlement Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
 
+### Troop Commands
+`give_hero_troops`
+
+[Full Troop Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Troop-Overview)
+
 ### Query Commands
 `hero`, `clan`, `kingdom`, `item`, `modifiers` - All support AND/OR logic, sorting, and filtering
 
-[Full Query Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands)
+[Full Query Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Query-Overview)
 
 ## Important Notes
 
