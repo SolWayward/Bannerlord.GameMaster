@@ -146,7 +146,7 @@ Use powerful queries to search and filter:
 ### Query Commands
 `hero`, `clan`, `kingdom`, `item`, `modifiers` - All support AND/OR logic, sorting, and filtering
 
-[Full Query Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/Query-Commands)
+[Full Query Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Query-Overview)
 
 ## Important Notes
 
