@@ -119,7 +119,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 						"\tuse ; (semi-colon) with no spaces to specify multiple cultures\n" +
 					"- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n" +
 					"- clan: optional, clanID or clanName. If not specified, hero goes to a random clan.\n" +
-					"- randomFactor: optional, float value between 0 and 1. defaults to 1 (1 is recommended)\n" +
+					"- randomFactor: optional, float value between 0 and 1. defaults to 0.5 (1 = more variety and still good looking, 0 = less variety, better looking )\n" +
 						"\tControls how much the template is randomized within its constraints\n" +
 					"gm.hero.create_lord 'Sir Percival'\n" +
 					"gm.hero.create_lord Ragnar vlandia male\n" +

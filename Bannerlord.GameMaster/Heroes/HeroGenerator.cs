@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
@@ -25,7 +26,7 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="randomFactor">0 to 1 how far character properties can be randomized from template (constrained by the template min and max properties. (0 skips randomization)</param>
 		/// <param name="clan">Defaults to null. If null, a random clan is selected (Ignored for wanderers)</param>
 		/// <param name="occupation">Defaults to Lord. Can be used to create Lords, Wanderers, or others</param>
-		public List<Hero> CreateHeroesFromRandomTemplates(int Count, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0, Clan clan = null, Occupation occupation = Occupation.Lord)
+		public List<Hero> CreateHeroesFromRandomTemplates(int Count, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5f, Clan clan = null, Occupation occupation = Occupation.Lord)
 		{			
 			CharacterTemplatePooler templatePooler = new();
 			List<CharacterObject> templatePool = templatePooler.GetTemplatesFromFlags(cultureFlags, genderFlags);
@@ -64,6 +65,7 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		private Hero CreateHero(CharacterObject template, TextObject nameObj, Occupation occupation, Clan clan = null)
 		{
+			InfoMessage.Display($"Creating Hero: {nameObj}");
 			string stringId = ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Hero));
 			int randomAge = RandomNumberGen.Instance.NextRandomInt(20, 31);
 
@@ -84,30 +86,27 @@ namespace Bannerlord.GameMaster.Heroes
 			}
 
 			hero.Clan = clan;
-			hero.IsMinorFactionHero = clan.IsMinorFaction; // Make sure this matches the clan the hero gets assigned to.
+			hero.IsMinorFactionHero = false; // Ensures Lord always show as lord and not minor faction (Player is a minor faction until kingdom) // Should also be fine if hero is in an actual minor faction.
 			
 			// Override for wanderers
 			if (occupation == Occupation.Wanderer)
-			{
-				hero.Clan = null;
-				hero.IsMinorFactionHero = false;
-			}
+				hero.Clan = null;			
 
 			hero.SetNewOccupation(occupation); // Controls if Lord, wanderer, notable, etc
 			hero.UpdateHomeSettlement(); // Has to happen after clan
-			Settlement heroSettlement = hero.GetHomeOrAlternativeSettlement(); // Used incase home settlement is null
-			hero.EquipHeroBasedOnCulture();
+			Settlement heroSettlement = hero.GetHomeOrAlternativeSettlement(); // Used incase home settlement is null		
 
 			// Lords
 			if(hero.Occupation == Occupation.Lord)
 			{
-				hero.Clan.AliveLords.Add(hero);
+				hero.EquipLordBasedOnCulture();
 				hero.CreateParty(heroSettlement);
 			}
 
 			// Wanderers and other
 			else
 			{
+				hero.EquipHeroBasedOnCulture();
 				EnterSettlementAction.ApplyForCharacterOnly(hero, heroSettlement);
 			}			
 
@@ -146,7 +145,7 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="randomFactor">0 to 1 how far character properties can be randomized from template (constrained by the template min and max properties. (0 skips randomization)</param>
 		/// <param name="clan">Defaults to null. If null, a random clan is selected (Ignored for wanderers)</param>
 		/// <param name="occupation">Defaults to Lord. Can be used to create Lords, Wanderers, or others</param>
-		public Hero CreateSingleHeroFromRandomTemplates(string name, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0, Clan clan = null, Occupation occupation = Occupation.Lord)
+		public Hero CreateSingleHeroFromRandomTemplates(string name, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5f, Clan clan = null, Occupation occupation = Occupation.Lord)
 		{
 			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, randomFactor, clan)[0];		
 			hero.SetStringName(name);
@@ -156,7 +155,7 @@ namespace Bannerlord.GameMaster.Heroes
 
 		public Hero CreateRandomWandererAtSettlement(Settlement settlement, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either)
 		{
-			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, 1, occupation: Occupation.Wanderer)[0];
+			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, 0.5f, occupation: Occupation.Wanderer)[0];
 			
 			hero.Clan = null;
 			hero.IsMinorFactionHero = false;

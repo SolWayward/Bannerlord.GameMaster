@@ -110,7 +110,7 @@ namespace Bannerlord.GameMaster.Heroes
 			spawnSettlement: spawnSettlement,
 			partyLeader: hero
 			);
-			
+
 			party.DesiredAiNavigationType = MobileParty.NavigationType.All;
 			party.Aggressiveness = Math.Max(0.3f, RandomNumberGen.Instance.NextRandomFloat());
 			party.PartyTradeGold = 20000;
@@ -164,13 +164,116 @@ namespace Bannerlord.GameMaster.Heroes
 			hero.SetName(nameObj, nameObj);
 		}
 
+		/// <summary>
+		/// Equips hero with random pieces of different elite troop equipment based on hero's culture
+		/// </summary>
 		public static void EquipHeroBasedOnCulture(this Hero hero)
 		{
-			int randomBattleIndex = RandomNumberGen.Instance.NextRandomInt(hero.Culture.DuelPresetEquipmentRoster.AllEquipments.Count);
-			int randomCivilianIndex = RandomNumberGen.Instance.NextRandomInt(hero.Culture.DefaultCivilianEquipmentRoster.AllEquipments.Count);
+			// Get a random high-tier troop from hero's culture for battle equipment
+			var cultureTroops = CharacterObject.All
+				.Where(c => c.Culture == hero.Culture
+							&& c.IsSoldier
+							&& !c.IsHero
+							&& c.Tier >= 4  // Tier 4+ troops (elite)
+							&& c.Equipment != null
+							&& !c.Equipment[EquipmentIndex.Weapon0].IsEmpty)
+				.ToList();
 
-			hero.BattleEquipment.FillFrom(hero.Culture.DuelPresetEquipmentRoster.AllEquipments[randomBattleIndex]);
-			hero.CivilianEquipment.FillFrom(hero.Culture.DefaultCivilianEquipmentRoster.AllEquipments[randomCivilianIndex]);
+			if (cultureTroops.Count > 0)
+			{
+				var randomTroop = cultureTroops[RandomNumberGen.Instance.NextRandomInt(cultureTroops.Count)];
+				hero.BattleEquipment.FillFrom(randomTroop.Equipment);
+			}
+
+			// Civilian equipment from culture roster
+			var civilianRoster = hero.Culture.DefaultCivilianEquipmentRoster;
+			if (civilianRoster != null && civilianRoster.AllEquipments.Count > 0)
+			{
+				int civilianIndex = RandomNumberGen.Instance.NextRandomInt(civilianRoster.AllEquipments.Count);
+				hero.CivilianEquipment.FillFrom(civilianRoster.AllEquipments[civilianIndex]);
+			}
+		}
+
+		/// <summary>
+		/// Equips hero with random different pieces of gear from a pool of existing lords and high tier troops based on gender and culture of hero
+		/// </summary>
+		/// <param name="hero"></param>
+		public static void EquipLordBasedOnCulture(this Hero hero)
+		{
+			// Gather equipment pool from lords and elite troops (same culture AND gender)
+			var equipmentSources = new List<Equipment>();
+
+			// Add equipment from lords (best quality) - same culture AND gender
+			var cultureLords = Hero.AllAliveHeroes
+				.Where(h => h.Culture == hero.Culture
+							&& h.IsFemale == hero.IsFemale  // Same gender
+							&& h.IsLord
+							&& h != hero
+							&& h.BattleEquipment != null)
+				.Take(20);  // Limit to avoid performance issues
+
+			foreach (var lord in cultureLords)
+			{
+				if (!lord.BattleEquipment[EquipmentIndex.Weapon0].IsEmpty)
+					equipmentSources.Add(lord.BattleEquipment);
+			}
+
+			// Add equipment from tier 5 troops (elite quality) - same culture AND gender
+			var eliteTroops = CharacterObject.All
+				.Where(c => c.Culture == hero.Culture
+							&& c.IsFemale == hero.IsFemale  // Same gender
+							&& c.IsSoldier
+							&& !c.IsHero
+							&& c.Tier >= 5
+							&& c.Equipment != null
+							&& !c.Equipment[EquipmentIndex.Weapon0].IsEmpty)
+				.Take(20);
+
+			foreach (var troop in eliteTroops)
+			{
+				equipmentSources.Add(troop.Equipment);
+			}
+
+			// Build randomized battle equipment by mixing pieces
+			if (equipmentSources.Count > 0)
+			{
+				for (int i = 0; i < 12; i++)  // All equipment slots
+				{
+					var randomSource = equipmentSources[RandomNumberGen.Instance.NextRandomInt(equipmentSources.Count)];
+					var equipmentElement = randomSource[i];
+
+					if (!equipmentElement.IsEmpty)
+						hero.BattleEquipment[i] = equipmentElement;
+				}
+			}
+
+			// Civilian equipment - mix from lords' civilian equipment (same gender)
+			var civilianSources = cultureLords
+				.Where(l => l.CivilianEquipment != null && !l.CivilianEquipment[EquipmentIndex.Body].IsEmpty)
+				.Select(l => l.CivilianEquipment)
+				.ToList();
+
+			if (civilianSources.Count > 0)
+			{
+				for (int i = 0; i < 12; i++)
+				{
+					var randomSource = civilianSources[RandomNumberGen.Instance.NextRandomInt(civilianSources.Count)];
+					var equipmentElement = randomSource[i];
+
+					if (!equipmentElement.IsEmpty)
+						hero.CivilianEquipment[i] = equipmentElement;
+				}
+			}
+			else
+			{
+				// Fallback to culture civilian roster
+				var civilianRoster = hero.Culture.DefaultCivilianEquipmentRoster;
+				if (civilianRoster != null && civilianRoster.AllEquipments.Count > 0)
+				{
+					int civilianIndex = RandomNumberGen.Instance.NextRandomInt(civilianRoster.AllEquipments.Count);
+					hero.CivilianEquipment.FillFrom(civilianRoster.AllEquipments[civilianIndex]);
+				}
+			}
 		}
 	}
 
