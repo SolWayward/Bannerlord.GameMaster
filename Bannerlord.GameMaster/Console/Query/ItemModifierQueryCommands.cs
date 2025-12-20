@@ -1,5 +1,6 @@
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.Core;
@@ -47,12 +48,29 @@ namespace Bannerlord.GameMaster.Console.Query
                 // Sort by name for better readability
                 allModifiers = allModifiers.OrderBy(m => m.Name.ToString()).ToList();
 
-                string result = $"Found {allModifiers.Count} modifier(s):\n";
+                // Calculate column widths for proper header alignment
+                int idWidth = Math.Max("StringId".Length, allModifiers.Max(m => m.StringId.Length));
+                int nameWidth = Math.Max("Name".Length, allModifiers.Max(m => m.Name.ToString().Length));
+                int priceWidth = "Price Factor".Length; // Fixed label width
+
+                string result = $"Found {allModifiers.Count} modifier(s):\n\n";
+                
+                // Add headers with proper spacing
+                result += "StringId".PadRight(idWidth + 2);
+                result += "Name".PadRight(nameWidth + 2);
+                result += "Price Factor\n";
+                
+                // Add separator line
+                result += new string('-', idWidth).PadRight(idWidth + 2);
+                result += new string('-', nameWidth).PadRight(nameWidth + 2);
+                result += new string('-', priceWidth) + "\n";
+                
+                // Add formatted data
                 result += ColumnFormatter<ItemModifier>.FormatList(
                     allModifiers,
                     m => m.StringId,
                     m => m.Name.ToString(),
-                    m => $"Price Factor: x{m.PriceMultiplier:F2}"
+                    m => $"x{m.PriceMultiplier:F2}"
                 );
 
                 return result;

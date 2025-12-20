@@ -196,19 +196,15 @@ namespace Bannerlord.GameMaster.Console.Query
         /// </summary>
         private static string GetFormattedCultureList(List<CultureObject> cultures)
         {
-            string result = "\nStringId\t\tName\t\t\tType\n";
-            result += "--------\t\t----\t\t\t----\n";
+            if (cultures.Count == 0)
+                return "";
 
-            foreach (var culture in cultures)
-            {
-                string type = culture.IsMainCulture ? "Main" :
-                             culture.IsBandit ? "Bandit" :
-                             "Minor";
-
-                result += $"{culture.StringId,-20}\t{culture.Name,-20}\t{type}\n";
-            }
-
-            return result;
+            return ColumnFormatter<CultureObject>.FormatList(
+                cultures,
+                c => c.StringId,
+                c => c.Name.ToString(),
+                c => c.IsMainCulture ? "Main" : c.IsBandit ? "Bandit" : "Minor"
+            );
         }
 
         /// <summary>
