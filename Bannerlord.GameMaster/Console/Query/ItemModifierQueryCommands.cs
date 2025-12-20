@@ -47,14 +47,13 @@ namespace Bannerlord.GameMaster.Console.Query
                 // Sort by name for better readability
                 allModifiers = allModifiers.OrderBy(m => m.Name.ToString()).ToList();
 
-                string result = $"Found {allModifiers.Count} modifier(s):\n\n";
-                result += "StringId\t\tName\t\t\tPrice Factor\n";
-                result += "--------\t\t----\t\t\t------------\n";
-
-                foreach (var modifier in allModifiers)
-                {
-                    result += $"{modifier.StringId,-20}\t{modifier.Name,-20}\tx{modifier.PriceMultiplier:F2}\n";
-                }
+                string result = $"Found {allModifiers.Count} modifier(s):\n";
+                result += ColumnFormatter<ItemModifier>.FormatList(
+                    allModifiers,
+                    m => m.StringId,
+                    m => m.Name.ToString(),
+                    m => $"Price Factor: x{m.PriceMultiplier:F2}"
+                );
 
                 return result;
             });

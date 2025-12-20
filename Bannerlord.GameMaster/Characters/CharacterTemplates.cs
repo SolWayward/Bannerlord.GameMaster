@@ -235,11 +235,17 @@ namespace Bannerlord.GameMaster.Characters
 
 			if (cultureFlags.HasFlag(CultureFlags.DarshiSpecial))
 				templates.AddRange(GetCulturalTemplates(CultureLookup.DarshiSpecial));
-
+	
 			if (cultureFlags.HasFlag(CultureFlags.VakkenSpecial))
 				templates.AddRange(GetCulturalTemplates(CultureLookup.VakkenSpecial));
-
-			return templates;
+	
+			// Apply gender filtering to accumulated templates
+			return genderFlags switch
+			{
+				GenderFlags.Female => FilterByGender(templates, true),
+				GenderFlags.Male => FilterByGender(templates, false),
+				_ => templates
+			};
 		}
 
 	}

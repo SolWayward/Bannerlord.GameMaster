@@ -92,7 +92,7 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		public static string FormattedDetails(this Hero hero)
 		{
-			return $"{hero.StringId}\t{hero.Name}\tClan: {hero.Clan?.Name}\tKingdom: {hero.Clan?.Kingdom?.Name}";
+			return $"{hero.StringId}\t{hero.Name}\tCulture: {hero.Culture?.Name}\tClan: {hero.Clan?.Name}\tKingdom: {hero.Clan?.Kingdom?.Name}";
 		}
 
 		/// <summary>

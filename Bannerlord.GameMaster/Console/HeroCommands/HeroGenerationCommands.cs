@@ -49,40 +49,72 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				if (!CommandValidator.ValidateIntegerRange(args[0], 1, 50, out int count, out string countError))
 					return CommandBase.FormatErrorMessage(countError);
 
-				// Parse cultures (optional, defaults to AllMainCultures)
+				// Smart parse remaining arguments - detect gender flags vs cultures
 				CultureFlags cultureFlags = CultureFlags.AllMainCultures;
-				if (args.Count >= 2)
-				{
-					cultureFlags = FlagParser.ParseCultureArgument(args[1]);
-					if (cultureFlags == CultureFlags.None)
-						return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[1]}'. Use culture names (e.g., vlandia;battania) or groups (main_cultures, bandit_cultures, all_cultures)");
-				}
-
-				// Parse gender (optional, defaults to Either)
 				GenderFlags genderFlags = GenderFlags.Either;
-				if (args.Count >= 3)
-				{
-					genderFlags = FlagParser.ParseGenderArgument(args[2]);
-					if (genderFlags == GenderFlags.None)
-						return CommandBase.FormatErrorMessage($"Invalid gender: '{args[2]}'. Use 'both/b', 'female/f', or 'male/m'");
-				}
-
-				// Parse optional clan (args[3])
 				Clan targetClan = null;
-				if (args.Count >= 4)
+				float randomFactor = 1f;
+
+				int currentArgIndex = 1;
+
+				// Parse cultures if provided (args[1] or skip if it's a gender keyword)
+				if (args.Count > currentArgIndex)
 				{
-					var (clan, clanError) = CommandBase.FindSingleClan(args[3]);
-					if (clanError != null)
-						return clanError;
-					targetClan = clan;
+					// Check if this argument is a gender keyword first
+					GenderFlags testGender = FlagParser.ParseGenderArgument(args[currentArgIndex]);
+					if (testGender != GenderFlags.None)
+					{
+						// It's a gender keyword, so no culture was provided
+						genderFlags = testGender;
+						currentArgIndex++;
+					}
+					else
+					{
+						// Try to parse as culture
+						cultureFlags = FlagParser.ParseCultureArgument(args[currentArgIndex]);
+						if (cultureFlags == CultureFlags.None)
+							return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[currentArgIndex]}'. Use culture names (e.g., vlandia;battania) or groups (main_cultures, bandit_cultures, all_cultures)");
+						currentArgIndex++;
+
+						// Now check for gender in the next position
+						if (args.Count > currentArgIndex)
+						{
+							testGender = FlagParser.ParseGenderArgument(args[currentArgIndex]);
+							if (testGender != GenderFlags.None)
+							{
+								genderFlags = testGender;
+								currentArgIndex++;
+							}
+						}
+					}
 				}
 
-				// Parse optional randomFactor (args[4]), default to 1
-				float randomFactor = 1f;
-				if (args.Count >= 5)
+				// Parse optional clan
+				if (args.Count > currentArgIndex)
 				{
-					if (!CommandValidator.ValidateFloatRange(args[4], 0f, 1f, out randomFactor, out string randomError))
-						return CommandBase.FormatErrorMessage(randomError);
+					// Check if this might be a float (randomFactor) instead
+					if (float.TryParse(args[currentArgIndex], out float testFloat))
+					{
+						// It's a number, treat as randomFactor
+						if (!CommandValidator.ValidateFloatRange(args[currentArgIndex], 0f, 1f, out randomFactor, out string randomError))
+							return CommandBase.FormatErrorMessage(randomError);
+					}
+					else
+					{
+						// Try to parse as clan
+						var (clan, clanError) = CommandBase.FindSingleClan(args[currentArgIndex]);
+						if (clanError != null)
+							return clanError;
+						targetClan = clan;
+						currentArgIndex++;
+
+						// Check for randomFactor after clan
+						if (args.Count > currentArgIndex)
+						{
+							if (!CommandValidator.ValidateFloatRange(args[currentArgIndex], 0f, 1f, out randomFactor, out string randomError))
+								return CommandBase.FormatErrorMessage(randomError);
+						}
+					}
 				}
 
 				return CommandBase.ExecuteWithErrorHandling(() =>
@@ -135,40 +167,72 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				if (string.IsNullOrWhiteSpace(name))
 					return CommandBase.FormatErrorMessage("Name cannot be empty.");
 
-				// Parse cultures (optional, defaults to AllMainCultures)
+				// Smart parse remaining arguments - detect gender flags vs cultures
 				CultureFlags cultureFlags = CultureFlags.AllMainCultures;
-				if (args.Count >= 2)
-				{
-					cultureFlags = FlagParser.ParseCultureArgument(args[1]);
-					if (cultureFlags == CultureFlags.None)
-						return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[1]}'. Use culture names (e.g., vlandia;battania) or groups (main_cultures, bandit_cultures, all_cultures)");
-				}
-
-				// Parse gender (optional, defaults to Either)
 				GenderFlags genderFlags = GenderFlags.Either;
-				if (args.Count >= 3)
-				{
-					genderFlags = FlagParser.ParseGenderArgument(args[2]);
-					if (genderFlags == GenderFlags.None)
-						return CommandBase.FormatErrorMessage($"Invalid gender: '{args[2]}'. Use 'both/b', 'female/f', or 'male/m'");
-				}
-
-				// Parse optional clan (args[3])
 				Clan targetClan = null;
-				if (args.Count >= 4)
+				float randomFactor = 1f;
+
+				int currentArgIndex = 1;
+
+				// Parse cultures if provided (args[1] or skip if it's a gender keyword)
+				if (args.Count > currentArgIndex)
 				{
-					var (clan, clanError) = CommandBase.FindSingleClan(args[3]);
-					if (clanError != null)
-						return clanError;
-					targetClan = clan;
+					// Check if this argument is a gender keyword first
+					GenderFlags testGender = FlagParser.ParseGenderArgument(args[currentArgIndex]);
+					if (testGender != GenderFlags.None)
+					{
+						// It's a gender keyword, so no culture was provided
+						genderFlags = testGender;
+						currentArgIndex++;
+					}
+					else
+					{
+						// Try to parse as culture
+						cultureFlags = FlagParser.ParseCultureArgument(args[currentArgIndex]);
+						if (cultureFlags == CultureFlags.None)
+							return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[currentArgIndex]}'. Use culture names (e.g., vlandia;battania) or groups (main_cultures, bandit_cultures, all_cultures)");
+						currentArgIndex++;
+
+						// Now check for gender in the next position
+						if (args.Count > currentArgIndex)
+						{
+							testGender = FlagParser.ParseGenderArgument(args[currentArgIndex]);
+							if (testGender != GenderFlags.None)
+							{
+								genderFlags = testGender;
+								currentArgIndex++;
+							}
+						}
+					}
 				}
 
-				// Parse optional randomFactor (args[4]), default to 1
-				float randomFactor = 1f;
-				if (args.Count >= 5)
+				// Parse optional clan
+				if (args.Count > currentArgIndex)
 				{
-					if (!CommandValidator.ValidateFloatRange(args[4], 0f, 1f, out randomFactor, out string randomError))
-						return CommandBase.FormatErrorMessage(randomError);
+					// Check if this might be a float (randomFactor) instead
+					if (float.TryParse(args[currentArgIndex], out float testFloat))
+					{
+						// It's a number, treat as randomFactor
+						if (!CommandValidator.ValidateFloatRange(args[currentArgIndex], 0f, 1f, out randomFactor, out string randomError))
+							return CommandBase.FormatErrorMessage(randomError);
+					}
+					else
+					{
+						// Try to parse as clan
+						var (clan, clanError) = CommandBase.FindSingleClan(args[currentArgIndex]);
+						if (clanError != null)
+							return clanError;
+						targetClan = clan;
+						currentArgIndex++;
+
+						// Check for randomFactor after clan
+						if (args.Count > currentArgIndex)
+						{
+							if (!CommandValidator.ValidateFloatRange(args[currentArgIndex], 0f, 1f, out randomFactor, out string randomError))
+								return CommandBase.FormatErrorMessage(randomError);
+						}
+					}
 				}
 
 				return CommandBase.ExecuteWithErrorHandling(() =>
