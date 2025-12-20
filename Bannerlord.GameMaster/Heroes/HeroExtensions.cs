@@ -97,6 +97,13 @@ namespace Bannerlord.GameMaster.Heroes
 		#endregion
 		#region Party
 
+		/// <summary>
+		/// Creates a party, and configuring AI to work as a normal party.<br/>
+		/// Party is initalized with 20000 trade gold and 10 basic troops
+		/// </summary>
+		/// <param name="hero"></param>
+		/// <param name="spawnSettlement"></param>
+		/// <returns></returns>
 		public static MobileParty CreateParty(this Hero hero, Settlement spawnSettlement)
 		{
 			MobileParty party = LordPartyComponent.CreateLordParty(

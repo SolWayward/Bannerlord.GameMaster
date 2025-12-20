@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
+using TaleWorlds.Localization;
 
 namespace Bannerlord.GameMaster.Clans
 {
@@ -116,8 +117,18 @@ namespace Bannerlord.GameMaster.Clans
 		}
 
 		#endregion
-		#region Details / Other
 
+		/// MARK: SetStringName
+		/// <summary>
+		/// Renames clan using a string instead of TextObject
+		/// </summary>
+		public static void SetStringName(this Clan clan, string name)
+		{
+			TextObject nameObj = new(name);
+			clan.ChangeClanName(nameObj, nameObj);
+		}
+
+		/// Mark: Details and Wrapper
 		/// <summary>
 		/// Returns a formatted string containing the clan's details
 		/// </summary>
@@ -139,5 +150,5 @@ namespace Bannerlord.GameMaster.Clans
 		public string FormattedDetails(Clan entity) => entity.FormattedDetails();
 	}
 
-		#endregion
+
 }

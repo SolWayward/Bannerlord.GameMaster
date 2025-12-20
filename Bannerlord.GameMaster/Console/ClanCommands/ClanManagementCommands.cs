@@ -19,8 +19,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
     [CommandLineFunctionality.CommandLineArgumentFunction("clan", "gm")]
     public static class ClanManagementCommands
     {
-        #region Clan Management
-
+        //MARK: gm.clan.add_hero
         /// <summary>
         /// Transfer a hero to another clan
         /// Usage: gm.clan.add_hero [clan] [hero]
@@ -61,7 +60,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
-
+        //MARK: add_gold
         /// <summary>
         /// Add gold to all clan members
         /// Usage: gm.clan.add_gold [clan] [amount]
@@ -118,6 +117,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
+        //MARK: set_gold
         /// <summary>
         /// Set total clan gold by distributing to members
         /// Usage: gm.clan.set_gold [clan] [amount]
@@ -181,6 +181,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
+        //MARK: add_gold_leader
         /// <summary>
         /// Add gold to clan leader only
         /// Usage: gm.clan.add_gold_leader [clan] [amount]
@@ -225,6 +226,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
+        //MARK: give_gold
         /// <summary>
         /// Distribute gold to specific clan member
         /// Usage: gm.clan.give_gold [clan] [hero] [amount]
@@ -272,6 +274,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
+        //MARK: set_renown
         /// <summary>
         /// Set clan renown
         /// Usage: gm.clan.set_renown [clan] [amount]
@@ -307,6 +310,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
+        //MARK: add_renown
         /// <summary>
         /// Add renown to clan
         /// Usage: gm.clan.add_renown [clan] [amount]
@@ -343,6 +347,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
+        //MARK: set_tier
         /// <summary>
         /// Change clan tier
         /// Usage: gm.clan.set_tier [clan] [tier]
@@ -382,6 +387,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
+        //MARK: destroy
         /// <summary>
         /// Destroy/Eliminate a clan
         /// Usage: gm.clan.destroy [clan]
@@ -419,6 +425,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
             });
         }
 
+        //MARK: set_leader
         /// <summary>
         /// Change clan leader
         /// Usage: gm.clan.set_leader [clan] [hero]
@@ -456,7 +463,5 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
                 }, "Failed to set clan leader");
             });
         }
-
-        #endregion
     }
 }

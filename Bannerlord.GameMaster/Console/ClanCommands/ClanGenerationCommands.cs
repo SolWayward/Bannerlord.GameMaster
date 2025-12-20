@@ -20,8 +20,8 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
     public static class ClanGenerationCommands
     {
         /// <summary>
-        /// Create a clan and set a hero to be it's leader.
-        /// Usage: gm.clan.add_hero [clan] [hero]
+        /// Create a clan and set a hero to be it's leader. and optional set assign the clan to kingdom. Clan is independent if no kingdom
+        /// Usage: gm.clan.add_hero <clan> <hero> [kingdom]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("create_clan", "gm.clan")]
         public static string CreateClan(List<string> args)
@@ -32,8 +32,9 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
                     return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.clan.create_clan", "<clanName> <leaderHero>",
+                    "gm.clan.create_clan", "<clanName> <leaderHero> [kingdom]",
                     "Create a new clan with the specified name and set the specified hero as its leader.\n" +
+                    "Optionally, specify a kingdom for clan, if no kingdom specified, clan is independent.\n" +
                     "Use SINGLE QUOTES for multi-word clan names (double quotes don't work).",
                     "gm.clan.create_clan Highlanders derthert\ngm.clan.create_clan 'The Highland Clan' derthert");
 
@@ -45,8 +46,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 
                 string clanName = args[0];
 
-                ClanGenerator clanGenerator = new();
-                Clan newClan = clanGenerator.CreateClan(clanName, hero);
+                Clan newClan = ClanGenerator.CreateClan(clanName, hero);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {

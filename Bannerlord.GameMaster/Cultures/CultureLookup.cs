@@ -10,6 +10,7 @@ namespace Bannerlord.GameMaster.Characters
 {
     public static class CultureLookup
     {
+        /// MARK: Culture Lookup
         public static CultureObject Aserai => MBObjectManager.Instance.GetObject<CultureObject>("aserai");
         public static CultureObject Battania => MBObjectManager.Instance.GetObject<CultureObject>("battania");
         public static CultureObject Empire => MBObjectManager.Instance.GetObject<CultureObject>("empire");
@@ -62,28 +63,130 @@ namespace Bannerlord.GameMaster.Characters
             }
         }
 
-        public static TextObject GetRandomName(CultureObject culture, bool isFemale)
+        /// MARK: Hero Name
+		/// <summary>
+		/// Gets a random hero name from the culture's gender-specific name list, if all names are used, a random suffix is appended
+		/// </summary>
+		public static string GetUniqueRandomHeroName(CultureObject culture, bool isFemale)
+		{
+			// Get all existing hero names (convert to strings for comparison)
+			HashSet<string> existingHeroNames = Hero.AllAliveHeroes
+				.Select(h => h.FirstName?.ToString() ?? string.Empty)
+				.Where(name => !string.IsNullOrEmpty(name))
+				.ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+			// Select the appropriate name list based on gender
+			List<TextObject> cultureNameList = isFemale
+				? culture.FemaleNameList.ToList()
+				: culture.MaleNameList.ToList();
+
+			// Filter culture names to get only unused ones
+			List<TextObject> availableNames = cultureNameList
+				.Where(nameObj => !existingHeroNames.Contains(nameObj.ToString()))
+				.ToList();
+
+			// Select a name from available ones, or fallback if all are taken
+			string heroName;
+			if (availableNames.Count > 0)
+			{
+				int randomIndex = RandomNumberGen.Instance.NextRandomInt(availableNames.Count);
+				heroName = availableNames[randomIndex].ToString();
+			}
+			else
+			{
+				// Fallback: use a suffix when all names are exhausted
+				string[] suffixes = { "the Younger",
+							 "the Elder",
+							 "the Brave",
+							 "the Wise",
+							 "the Bold",
+							 "the Just"};
+
+				int randomNameIndex = RandomNumberGen.Instance.NextRandomInt(cultureNameList.Count);
+				int randomSuffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
+
+				string baseName = cultureNameList[randomNameIndex].ToString();
+				heroName = $"{baseName} {suffixes[randomSuffixIndex]}";
+			}
+
+			return heroName;
+		}
+
+        /// MARK: Clan Name
+        /// <summary>
+        /// Gets a random name from the culture clan name list, if all names are used, a random suffix is appended
+        /// </summary>
+        public static string GetUniqueRandomClanName(CultureObject culture)
         {
-            List<TextObject> names;
+            // Get all existing clan names (convert to strings for comparison)
+            HashSet<string> existingClanNames = Clan.All
+                .Select(c => c.Name.ToString())
+                .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-            if (isFemale)
+            // Filter culture names to get only unused ones
+            List<TextObject> availableNames = culture.ClanNameList
+                .Where(nameObj => !existingClanNames.Contains(nameObj.ToString()))
+                .ToList();
+
+            // Select a name from available ones, or fallback if all are taken
+            string clanName;
+            if (availableNames.Count > 0)
             {
-                if (culture == null)
-                    names = CalradianNeutral.FemaleNameList;
-                else
-                    names = culture.FemaleNameList;
+                int randomIndex = RandomNumberGen.Instance.NextRandomInt(availableNames.Count);
+                clanName = availableNames[randomIndex].ToString();
             }
-
             else
             {
-                if (culture == null)
-                    names = CalradianNeutral.MaleNameList;
-                else
-                    names = culture.MaleNameList;              
-            } 
+                // Fallback: use a suffix
+                string[] suffixes = {"of The New World", 
+                                    "Separists",
+                                    "Loyalists",
+                                    "Conservatists",
+                                    "of Caladria",
+                                    "New Order"};
+                
+                int randomNameIndex = RandomNumberGen.Instance.NextRandomInt(culture.ClanNameList.Count);
+                int randomSuffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
 
-            int randomIndex = RandomNumberGen.Instance.NextRandomInt(names.Count);
-            return names[randomIndex];          
+                string baseName = culture.ClanNameList[randomNameIndex].ToString();
+                clanName = $"{baseName} {suffixes[randomSuffixIndex]}";
+            }
+
+            return clanName;
+        }
+        
+        /// MARK: Culture Flags
+        /// <summary>
+        /// Gets the CultureFlag enum value that corresponds to the provided culture object.
+        /// </summary>
+        /// <param name="culture">The culture object to convert.</param>
+        /// <returns>The corresponding CultureFlag value, or CultureFlags.None if not found or null.</returns>
+        public static CultureFlags GetCultureFlag(CultureObject culture)
+        {
+            if (culture == null)
+                return CultureFlags.None;
+
+            return culture.StringId.ToLower() switch
+            {
+                "neutral_culture" => CultureFlags.Calradian,
+                "aserai" => CultureFlags.Aserai,
+                "battania" => CultureFlags.Battania,
+                "empire" => CultureFlags.Empire,
+                "khuzait" => CultureFlags.Khuzait,
+                "nord" => CultureFlags.Nord,
+                "sturgia" => CultureFlags.Sturgia,
+                "vlandia" => CultureFlags.Vlandia,
+                "looters" => CultureFlags.Looters,
+                "desert_bandits" => CultureFlags.DesertBandits,
+                "forest_bandits" => CultureFlags.ForestBandits,
+                "mountain_bandits" => CultureFlags.MountainBandits,
+                "steppe_bandits" => CultureFlags.SteppeBandits,
+                "sea_raiders" => CultureFlags.SeaRaiders,
+                "southern_pirates" => CultureFlags.Corsairs,
+                "darshi" => CultureFlags.DarshiSpecial,
+                "vakken" => CultureFlags.VakkenSpecial,
+                _ => CultureFlags.None
+            };
         }
     }
 }

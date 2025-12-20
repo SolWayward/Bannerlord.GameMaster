@@ -16,8 +16,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
     [CommandLineFunctionality.CommandLineArgumentFunction("hero", "gm")]
     public static class HeroManagementCommands
     {
-        #region Clan Management
-
+        //MARK: set_clan
         /// <summary>
         /// Transfer a hero to another clan
         /// Usage: gm.hero.set_clan [hero] [clan]
@@ -56,6 +55,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
+        /// MARK: remove_clan 
         /// <summary>
         /// Remove a hero from their clan
         /// Usage: gm.hero.remove_clan [hero]
@@ -93,10 +93,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
-        #endregion
-
-        #region Hero State Management
-
+        /// MARK: kill 
         /// <summary>
         /// Kill a hero
         /// Usage: gm.hero.kill [hero] [optional: show_death_log]
@@ -138,6 +135,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
+        /// MARK: imprison 
         /// <summary>
         /// Imprison a hero
         /// Usage: gm.hero.imprison [prisoner] [captor]
@@ -183,6 +181,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
+        /// MARK: release
         /// <summary>
         /// Release a hero from prison
         /// Usage: gm.hero.release [hero]
@@ -217,10 +216,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
-        #endregion
-
-        #region Hero Attributes
-
+        /// MARK: set_age
         /// <summary>
         /// Change hero's age
         /// Usage: gm.hero.set_age [hero] [age]
@@ -256,6 +252,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
+        /// MARK: set_gold
         /// <summary>
         /// Change hero's gold
         /// Usage: gm.hero.set_gold [hero] [amount]
@@ -291,6 +288,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
+        /// MARK: add_gold 
         /// <summary>
         /// Add gold to hero
         /// Usage: gm.hero.add_gold [hero] [amount]
@@ -327,6 +325,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
+        /// MARK: heal
         /// <summary>
         /// Heal a hero to full health
         /// Usage: gm.hero.heal [hero]
@@ -362,10 +361,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
             });
         }
 
-        #endregion
-
-        #region Relationships
-
+        /// MARK: set_relation
         /// <summary>
         /// Set relation between two heroes
         /// Usage: gm.hero.set_relation [hero1] [hero2] [value]
@@ -406,7 +402,5 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                 }, "Failed to set relation");
             });
         }
-
-        #endregion
     }
 }

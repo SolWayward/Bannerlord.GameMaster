@@ -11,6 +11,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 	[CommandLineFunctionality.CommandLineArgumentFunction("hero", "gm")]
 	public static class HeroGenerationCommands
 	{
+		//MARK: generate_lords
 		/// <summary>
 		/// Generate new heroes with random templates
 		/// Usage: gm.hero.generate_lords <count> [cultures] [gender] [clan] [randomFactor]
@@ -120,17 +121,17 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
 					// Generate heroes using HeroGenerator
-					HeroGenerator heroGenerator = new();
-					List<Hero> createdHeroes = heroGenerator.CreateHeroesFromRandomTemplates(count, cultureFlags, genderFlags, randomFactor, targetClan);
+					List<Hero> createdHeroes = HeroGenerator.CreateHeroesFromRandomTemplates(count, cultureFlags, genderFlags, randomFactor, targetClan);
 
 					if (createdHeroes == null || createdHeroes.Count == 0)
 						return CommandBase.FormatErrorMessage("Failed to create lords - no templates found matching criteria");
-					
+
 					return CommandBase.FormatSuccessMessage($"Created {createdHeroes.Count} lord(s):\n{HeroQueries.GetFormattedDetails(createdHeroes)}");
 				}, "Failed to generate lords");
 			});
 		}
 
+		//MARK: create_lord
 		/// <summary>
 		/// Create a new hero with a chosen name from random templates
 		/// Usage: gm.hero.create_lord <name> [cultures] [gender] [clan] [randomFactor]
@@ -238,17 +239,17 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
 					// Generate hero using HeroGenerator
-					HeroGenerator heroGenerator = new();
-					Hero createdHero = heroGenerator.CreateSingleHeroFromRandomTemplates(name, cultureFlags, genderFlags, randomFactor, targetClan);
+					Hero createdHero = HeroGenerator.CreateSingleHeroFromRandomTemplates(name, cultureFlags, genderFlags, randomFactor, targetClan);
 
 					if (createdHero == null)
 						return CommandBase.FormatErrorMessage("Failed to create lord - no templates found matching criteria");
-					
+
 					return CommandBase.FormatSuccessMessage($"Created lord '{createdHero.Name}' (ID: {createdHero.StringId})\n{HeroQueries.GetFormattedDetails(new List<Hero> { createdHero })}");
 				}, "Failed to create lord");
 			});
 		}
 
+		//MARK: rename
 		/// <summary>
 		/// Rename a hero
 		/// Usage: gm.hero.rename <heroQuery> <name>
@@ -287,7 +288,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				{
 					string previousName = hero.Name.ToString();
 					hero.SetStringName(newName);
-					
+
 					return CommandBase.FormatSuccessMessage(
 						$"Hero renamed from '{previousName}' to '{hero.Name}' (ID: {hero.StringId})");
 				}, "Failed to rename hero");
