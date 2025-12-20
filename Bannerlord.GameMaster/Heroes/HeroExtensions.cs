@@ -13,6 +13,8 @@ using TaleWorlds.Core;
 
 namespace Bannerlord.GameMaster.Heroes
 {
+	#region Flags / Types
+
 	[Flags]
 	public enum HeroTypes
 	{
@@ -88,17 +90,12 @@ namespace Bannerlord.GameMaster.Heroes
 		}
 
 		/// <summary>
-		/// Returns a formatted string containing the hero's details
-		/// </summary>
-		public static string FormattedDetails(this Hero hero)
-		{
-			return $"{hero.StringId}\t{hero.Name}\tCulture: {hero.Culture?.Name}\tClan: {hero.Clan?.Name}\tKingdom: {hero.Clan?.Kingdom?.Name}";
-		}
-
-		/// <summary>
 		/// Alias for GetHeroTypes to match IEntityExtensions interface
 		/// </summary>
 		public static HeroTypes GetTypes(this Hero hero) => hero.GetHeroTypes();
+
+		#endregion
+		#region Party
 
 		public static MobileParty CreateParty(this Hero hero, Settlement spawnSettlement)
 		{
@@ -124,45 +121,38 @@ namespace Bannerlord.GameMaster.Heroes
 			return party;
 		}
 
+		#endregion
+		#region Settlement
+
 		/// <summary>
 		/// Returns the Hero's home settlement if not null, otherwise grabs a random settlement in this order: <br/>
 		/// Home Settlement > Random Clan Owned Settlement > Random Kingdom Owned Settlement > Random Settlement
 		/// </summary>
 		public static Settlement GetHomeOrAlternativeSettlement(this Hero hero)
 		{
+			//Prefer actual home settlement
 			if (hero.HomeSettlement != null)
 				return hero.HomeSettlement;
 
 			Settlement alternativeSettlement;
+
+			// Try to get Clan Settlement first
 			if (hero.Clan != null && hero.Clan.Settlements != null && hero.Clan.Settlements[0] != null)
-			{
-				int randomIndex = RandomNumberGen.Instance.NextRandomInt(hero.Clan.Settlements.Count);
-				alternativeSettlement = hero.Clan.Settlements[randomIndex];
-			}
+				alternativeSettlement = hero.Clan.Settlements.FindAll(s => s.IsTown).GetRandomElement();
 
+			// If no Clan Settlments, Try kingdom
 			else if (hero.Clan != null && hero.Clan.Kingdom != null && hero.Clan.Kingdom.Settlements != null && hero.Clan.Kingdom.Settlements[0] != null)
-			{
-				int randomIndex = RandomNumberGen.Instance.NextRandomInt(hero.Clan.Kingdom.Settlements.Count);
-				alternativeSettlement = hero.Clan.Kingdom.Settlements[randomIndex];
-			}
+				alternativeSettlement = hero.Clan.Kingdom.Settlements.FindAll(s => s.IsTown).GetRandomElement();
 
+			// Fallback to any settlement if no clan or kingdom settlements found
 			else
-			{
-				int randomIndex = RandomNumberGen.Instance.NextRandomInt(Settlement.All.Count);
-				alternativeSettlement = Settlement.All[randomIndex];
-			}
+				alternativeSettlement = Settlement.All.FindAll(s => s.IsTown).GetRandomElement();
 
 			return alternativeSettlement;
 		}
 
-		/// <summary>
-		/// Set heroes name using a string instead of TextObject
-		/// </summary>
-		public static void SetStringName(this Hero hero, string name)
-		{
-			TextObject nameObj = new(name);
-			hero.SetName(nameObj, nameObj);
-		}
+		#endregion
+		#region Equipment
 
 		/// <summary>
 		/// Equips hero with random pieces of different elite troop equipment based on hero's culture
@@ -275,6 +265,27 @@ namespace Bannerlord.GameMaster.Heroes
 				}
 			}
 		}
+		#endregion
+		#region Name / Details
+
+		/// <summary>
+		/// Set heroes name using a string instead of TextObject
+		/// </summary>
+		public static void SetStringName(this Hero hero, string name)
+		{
+			TextObject nameObj = new(name);
+			hero.SetName(nameObj, nameObj);
+		}
+
+		/// <summary>
+		/// Returns a formatted string containing the hero's details
+		/// </summary>
+		public static string FormattedDetails(this Hero hero)
+		{
+			return $"{hero.StringId}\t{hero.Name}\tCulture: {hero.Culture?.Name}\tClan: {hero.Clan?.Name}\tKingdom: {hero.Clan?.Kingdom?.Name}";
+		}
+		
+		#endregion
 	}
 
 	/// <summary>

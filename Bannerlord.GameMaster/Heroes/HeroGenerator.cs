@@ -19,6 +19,35 @@ namespace Bannerlord.GameMaster.Heroes
 {
 	public class HeroGenerator
 	{
+		#region Character
+
+		/// <summary>
+		/// Create a Character randomly choosing between any template with optional face and body randomization<br/>
+		/// If randomFactor is greater than 0 (0-1), the template will be randomized based on its min and max values of the template<br/>
+		/// </summary>
+		/// <param name="randomFactor">0 to 1 how far character properties can be randomized from template (constrained by the template min and max properties. (0 skips randomization)</param>
+		/// <param name="clan">Defaults to null. If null, a random clan is selected (Ignored for wanderers)</param>
+		/// <param name="occupation">Defaults to Lord. Can be used to create Lords, Wanderers, or others</param>
+		public Hero CreateSingleHeroFromRandomTemplates(string name, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5f, Clan clan = null, Occupation occupation = Occupation.Lord)
+		{
+			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, randomFactor, clan)[0];		
+			hero.SetStringName(name);
+
+			return hero;
+		}
+
+		public Hero CreateRandomWandererAtSettlement(Settlement settlement, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either)
+		{
+			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, 0.5f, occupation: Occupation.Wanderer)[0];
+			
+			hero.Clan = null;
+			hero.IsMinorFactionHero = false;
+			EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);
+			hero.UpdateLastKnownClosestSettlement(settlement);	
+
+			return hero;
+		}
+
 		/// <summary>
 		/// Create Characters randomly choosing between any template with optional face and body randomization<br/>
 		/// If randomFactor is greater than 0 (0-1), the template will be randomized based on its min and max values of the template<br/>
@@ -58,6 +87,34 @@ namespace Bannerlord.GameMaster.Heroes
 
 			return heroes;
 		}
+
+		#endregion
+		#region Randomize
+
+		public CharacterObject RandomizeCharacterObject(CharacterObject template, float randomFactor, bool useFaceConstraints = true, bool useBuildConstraints = true, bool useHairConstraints = true)
+		{
+			int _seed = RandomNumberGen.Instance.NextRandomInt();
+
+			// Static = Keys: Face, skin, hair, eye color, face porpotions, base body frame
+			// Dynamic = Floats (0f - 1f): Age, Weight, Build
+			//BodyProperties currentBodyProperties = template.GetBodyProperties(template.Equipment, seed: _seed);
+			BodyProperties minBodyProperties = template.GetBodyPropertiesMin();
+			BodyProperties maxBodyProperties = template.GetBodyPropertiesMax();
+
+			int hairCoverType = HairCoveringType.None;
+			string hairTags = HairTags.All;
+			string beardTags = BeardTags.All;
+			string tatooTags = TattooTags.None;
+
+			BodyProperties randomProperties = TaleWorlds.Core.FaceGen.GetRandomBodyProperties(template.Race, template.IsFemale,
+					minBodyProperties, maxBodyProperties, hairCoverType, _seed, hairTags, beardTags, tatooTags, randomFactor);
+
+
+			return template;
+		}
+
+		#endregion
+		#region Hero
 
 		/// <summary>
 		/// Generates a hero from a character (Use CreateCharacter())
@@ -118,53 +175,6 @@ namespace Bannerlord.GameMaster.Heroes
 			return hero;
 		}
 
-		public CharacterObject RandomizeCharacterObject(CharacterObject template, float randomFactor, bool useFaceConstraints = true, bool useBuildConstraints = true, bool useHairConstraints = true)
-		{
-			int _seed = RandomNumberGen.Instance.NextRandomInt();
-
-			// Static = Keys: Face, skin, hair, eye color, face porpotions, base body frame
-			// Dynamic = Floats (0f - 1f): Age, Weight, Build
-			//BodyProperties currentBodyProperties = template.GetBodyProperties(template.Equipment, seed: _seed);
-			BodyProperties minBodyProperties = template.GetBodyPropertiesMin();
-			BodyProperties maxBodyProperties = template.GetBodyPropertiesMax();
-
-			int hairCoverType = HairCoveringType.None;
-			string hairTags = HairTags.All;
-			string beardTags = BeardTags.All;
-			string tatooTags = TattooTags.None;
-
-			BodyProperties randomProperties = TaleWorlds.Core.FaceGen.GetRandomBodyProperties(template.Race, template.IsFemale,
-					minBodyProperties, maxBodyProperties, hairCoverType, _seed, hairTags, beardTags, tatooTags, randomFactor);
-
-
-			return template;
-		}
-
-		/// <summary>
-		/// Create a Character randomly choosing between any template with optional face and body randomization<br/>
-		/// If randomFactor is greater than 0 (0-1), the template will be randomized based on its min and max values of the template<br/>
-		/// </summary>
-		/// <param name="randomFactor">0 to 1 how far character properties can be randomized from template (constrained by the template min and max properties. (0 skips randomization)</param>
-		/// <param name="clan">Defaults to null. If null, a random clan is selected (Ignored for wanderers)</param>
-		/// <param name="occupation">Defaults to Lord. Can be used to create Lords, Wanderers, or others</param>
-		public Hero CreateSingleHeroFromRandomTemplates(string name, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5f, Clan clan = null, Occupation occupation = Occupation.Lord)
-		{
-			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, randomFactor, clan)[0];		
-			hero.SetStringName(name);
-
-			return hero;
-		}
-
-		public Hero CreateRandomWandererAtSettlement(Settlement settlement, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either)
-		{
-			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, 0.5f, occupation: Occupation.Wanderer)[0];
-			
-			hero.Clan = null;
-			hero.IsMinorFactionHero = false;
-			EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);
-			hero.UpdateLastKnownClosestSettlement(settlement);	
-
-			return hero;
-		}
+		#endregion
 	}
 }
