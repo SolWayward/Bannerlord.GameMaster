@@ -1,5 +1,6 @@
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Heroes;
+using Bannerlord.GameMaster.Characters;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
@@ -11,21 +12,8 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 	public static class HeroGenerationCommands
 	{
 		/// <summary>
-		/// Generate new lords with random templates and good equipment
-		/// Usage: gm.hero.generate_lords <count> [clan] [random|template] [culture]
-		/// </summary>
-		[CommandLineFunctionality.CommandLineArgumentFunction("test_hero", "gm.hero")]
-		public static string CreateHeroTest(List<string> args)
-		{
-				HeroGenerator2_DontUse gen2 = new();
-				gen2.CreateHero("test hero", Clan.PlayerClan);
-				
-				return "hero created";		
-		}
-
-		/// <summary>
-		/// Generate new lords with random templates and good equipment
-		/// Usage: gm.hero.generate_lords <count> [clan] [random|template] [culture]
+		/// Generate new heroes with random templates
+		/// Usage: gm.hero.generate_lords <count> [cultures] [gender] [clan] [randomFactor]
 		/// </summary>
 		[CommandLineFunctionality.CommandLineArgumentFunction("generate_lords", "gm.hero")]
 		public static string GenerateLords(List<string> args)
@@ -36,100 +24,84 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 					return error;
 
 				var usageMessage = CommandValidator.CreateUsageMessage(
-					"gm.hero.generate_lords", "<count> [clan=random] [random|template] [culture]",
-					"Creates lords from random templates with good gear and decent stats. Age 30-40.\n" +
-					"- If clan not specified, each lord goes to a different random clan.\n" +
-					"- Default: Uses template appearance without extra randomization.\n" +
-					"- 'random': Fully randomizes appearance beyond template constraints.\n" +
-					"- 'template': Uses random templates (same as default).\n" +
-					"- 'culture': Optional culture name to filter templates.",
-					"gm.hero.generate_lords 3\ngm.hero.generate_lords 5 empire_south random\ngm.hero.generate_lords 2 empire culture_empire");
+					"gm.hero.generate_lords", "<count> [cultures] [gender] [clan] [randomFactor]",
+					"Creates lords from random templates with good gear and decent stats. Age 20-30. Names are selected from their culture\n" +
+					"- cultures: optional, defines the pool of cultures allowed to be chosen from. Defaults to main_cultures. Run command gm.query.culture to see available cultures\n" +
+						"\tuse ; (semi-colon) with no spaces to specify multiple cultures\n" +
+						"\texample: gm.hero.generate_lords 10 vlandia;battania;sturgia both\n" +
+						"\texample: gm.hero.generate_lords 7 main_cultures female\n" +
+					"- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n" +
+					"- clan: optional, clanID or clanName. If clan not specified, each hero goes to a different random clan.\n" +
+					"- randomFactor: optional, float value between 0 and 1. defaults to 1 (1 is recommended)\n" +
+						"\tControls how much the template is randomized within its constraints\n" +
+					"gm.hero.generate_lords 15\n" +
+					"gm.hero.generate_lords 15 vlandia player_faction male\n" +
+					"gm.hero.generate_lords 5 main_cultures player_faction b 0.8\n" +
+					"gm.hero.generate_lords 2 bandit_cultures f 0.9\n" +
+					"gm.hero.generate_lords 30 all_cultures m\n" +
+					"gm.hero.generate_lords 12 aserai;sturgia;khuzait;empire both 'dey Meroc' 0.7");
 
-				// Count is now required
-				if (args.Count == 0)
+				// Minimum 1 required argument: count
+				if (args.Count < 1)
 					return usageMessage;
 
 				// Parse count (required)
-				if (!CommandValidator.ValidateIntegerRange(args[0], 1, 20, out int count, out string countError))
+				if (!CommandValidator.ValidateIntegerRange(args[0], 1, 50, out int count, out string countError))
 					return CommandBase.FormatErrorMessage(countError);
 
-				// Parse remaining arguments
-				Clan targetClan = null;
-				bool fullRandomization = false;
-				TaleWorlds.Core.BasicCultureObject culture = null;
-
-				for (int i = 1; i < args.Count; i++)
+				// Parse cultures (optional, defaults to AllMainCultures)
+				CultureFlags cultureFlags = CultureFlags.AllMainCultures;
+				if (args.Count >= 2)
 				{
-					string arg = args[i].ToLower();
+					cultureFlags = FlagParser.ParseCultureArgument(args[1]);
+					if (cultureFlags == CultureFlags.None)
+						return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[1]}'. Use culture names (e.g., vlandia;battania) or groups (main_cultures, bandit_cultures, all_cultures)");
+				}
 
-					if (arg == "random")
-					{
-						fullRandomization = true;
-					}
-					else if (arg == "template")
-					{
-						fullRandomization = false;
-					}
-					else if (arg.StartsWith("culture"))
-					{
-						// Try to find culture
-						string cultureName = arg.Contains("_") ? arg : (i + 1 < args.Count ? args[++i] : "");
-						var foundCulture = TaleWorlds.ObjectSystem.MBObjectManager.Instance
-							.GetObjectTypeList<TaleWorlds.Core.BasicCultureObject>()
-							.FirstOrDefault(c => c.StringId.ToLower().Contains(cultureName.ToLower()) ||
-												 c.Name.ToString().ToLower().Contains(cultureName.ToLower()));
-						if (foundCulture != null)
-							culture = foundCulture;
-					}
-					else if (targetClan == null)
-					{
-						// Try to parse as clan
-						var (clan, clanError) = CommandBase.FindSingleClan(args[i]);
-						if (clan != null)
-							targetClan = clan;
-					}
+				// Parse gender (optional, defaults to Either)
+				GenderFlags genderFlags = GenderFlags.Either;
+				if (args.Count >= 3)
+				{
+					genderFlags = FlagParser.ParseGenderArgument(args[2]);
+					if (genderFlags == GenderFlags.None)
+						return CommandBase.FormatErrorMessage($"Invalid gender: '{args[2]}'. Use 'both/b', 'female/f', or 'male/m'");
+				}
+
+				// Parse optional clan (args[3])
+				Clan targetClan = null;
+				if (args.Count >= 4)
+				{
+					var (clan, clanError) = CommandBase.FindSingleClan(args[3]);
+					if (clanError != null)
+						return clanError;
+					targetClan = clan;
+				}
+
+				// Parse optional randomFactor (args[4]), default to 1
+				float randomFactor = 1f;
+				if (args.Count >= 5)
+				{
+					if (!CommandValidator.ValidateFloatRange(args[4], 0f, 1f, out randomFactor, out string randomError))
+						return CommandBase.FormatErrorMessage(randomError);
 				}
 
 				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
-					// Create configuration for lord generation
-					var config = new HeroGenerator.HeroGenerationConfig
-					{
-						Count = count,
-						TargetClan = targetClan,
-						MinAge = 30,
-						MaxAge = 40,
-						MinLevel = 15,
-						MaxLevel = 25,
-						MinArmorTier = TaleWorlds.Core.ItemObject.ItemTiers.Tier4,
-						MinWeaponTier = TaleWorlds.Core.ItemObject.ItemTiers.Tier3,
-						FullRandomization = fullRandomization,
-						Culture = culture
-					};
+					// Generate heroes using HeroGenerator
+					HeroGenerator heroGenerator = new();
+					List<Hero> createdHeroes = heroGenerator.CreateHeroesFromRandomTemplates(count, cultureFlags, genderFlags, randomFactor, targetClan);
 
-					// Generate lords using HeroGenerator
-					var generator = new HeroGenerator();
-					var result = generator.GenerateHeroes(config);
-
-					if (!result.Success)
-						return CommandBase.FormatErrorMessage(result.ErrorMessage);
-
-					// Format success message
-					var output = new System.Text.StringBuilder();
-					output.AppendLine($"Successfully created {result.CreatedLords.Count} lord(s):");
-					foreach (var (lord, clan) in result.CreatedLords)
-					{
-						output.AppendLine($"  - {lord.Name} (ID: {lord.StringId}, Age: {(int)lord.Age}, Clan: {clan.Name})");
-					}
-
-					return CommandBase.FormatSuccessMessage(output.ToString());
+					if (createdHeroes == null || createdHeroes.Count == 0)
+						return CommandBase.FormatErrorMessage("Failed to create lords - no templates found matching criteria");
+					
+					return CommandBase.FormatSuccessMessage($"Created {createdHeroes.Count} lord(s):\n{HeroQueries.GetFormattedDetails(createdHeroes)}");
 				}, "Failed to generate lords");
 			});
 		}
 
 		/// <summary>
-		/// Create a fresh lord with minimal stats and equipment
-		/// Usage: gm.hero.create_lord <gender> <name> <clan> [random|template|template:ID] [culture]
+		/// Create a new hero with a chosen name from random templates
+		/// Usage: gm.hero.create_lord <name> [cultures] [gender] [clan] [randomFactor]
 		/// </summary>
 		[CommandLineFunctionality.CommandLineArgumentFunction("create_lord", "gm.hero")]
 		public static string CreateLord(List<string> args)
@@ -140,109 +112,121 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 					return error;
 
 				var usageMessage = CommandValidator.CreateUsageMessage(
-					"gm.hero.create_lord", "<gender> <name> <clan> [random|template|template:ID] [culture]",
-					"Creates a fresh lord age 20-24 with minimal stats and only clothes.\n" +
-					"- Gender must be 'male' or 'female'.\n" +
-					"- Name: Use SINGLE QUOTES for multi-word names (double quotes don't work).\n" +
-					"- Default: Uses template appearance without extra randomization.\n" +
-					"- 'random': Fully randomizes appearance beyond template constraints.\n" +
-					"- 'template': Uses random template (same as default).\n" +
-					"- 'template:ID': Uses specific CharacterObject template ID.\n" +
-					"- 'culture': Optional culture name to filter templates.",
-					"gm.hero.create_lord male NewLord empire_south\ngm.hero.create_lord female 'Jane Doe' empire random\ngm.hero.create_lord male 'Lord One' empire template:lord_1_1");
+					"gm.hero.create_lord", "<name> [cultures] [gender] [clan] [randomFactor]",
+					"Creates a single lord from random templates with good gear and decent stats. Age 20-30. Allows custom naming.\n" +
+					"- name: required, the name for the hero. Use SINGLE QUOTES for multi-word names\n" +
+					"- cultures: optional, defines the pool of cultures allowed to be chosen from. Defaults to main_cultures. Run command gm.query.culture to see available cultures\n" +
+						"\tuse ; (semi-colon) with no spaces to specify multiple cultures\n" +
+					"- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n" +
+					"- clan: optional, clanID or clanName. If not specified, hero goes to a random clan.\n" +
+					"- randomFactor: optional, float value between 0 and 1. defaults to 1 (1 is recommended)\n" +
+						"\tControls how much the template is randomized within its constraints\n" +
+					"gm.hero.create_lord 'Sir Percival'\n" +
+					"gm.hero.create_lord Ragnar vlandia male\n" +
+					"gm.hero.create_lord 'Lady Elara' empire female player_faction\n" +
+					"gm.hero.create_lord Khalid aserai male 'dey Meroc' 0.8");
 
-				if (!CommandBase.ValidateArgumentCount(args, 3, usageMessage, out error))
-					return error;
+				// Minimum 1 required argument: name
+				if (args.Count < 1)
+					return usageMessage;
 
-				// Parse gender
-				bool isFemale;
-				string genderArg = args[0].ToLower();
-				if (genderArg == "male" || genderArg == "m")
-					isFemale = false;
-				else if (genderArg == "female" || genderArg == "f")
-					isFemale = true;
-				else
-					return CommandBase.FormatErrorMessage("Gender must be 'male' or 'female'.");
-
-				string name = args[1];
+				// Parse name (required)
+				string name = args[0];
 				if (string.IsNullOrWhiteSpace(name))
 					return CommandBase.FormatErrorMessage("Name cannot be empty.");
 
-				var (clan, clanError) = CommandBase.FindSingleClan(args[2]);
-				if (clanError != null) return clanError;
-
-				// Parse optional arguments
-				bool fullRandomization = false;
-				CharacterObject specificTemplate = null;
-				TaleWorlds.Core.BasicCultureObject culture = null;
-
-				for (int i = 3; i < args.Count; i++)
+				// Parse cultures (optional, defaults to AllMainCultures)
+				CultureFlags cultureFlags = CultureFlags.AllMainCultures;
+				if (args.Count >= 2)
 				{
-					string arg = args[i].ToLower();
+					cultureFlags = FlagParser.ParseCultureArgument(args[1]);
+					if (cultureFlags == CultureFlags.None)
+						return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[1]}'. Use culture names (e.g., vlandia;battania) or groups (main_cultures, bandit_cultures, all_cultures)");
+				}
 
-					if (arg == "random")
-					{
-						fullRandomization = true;
-					}
-					else if (arg.StartsWith("template:"))
-					{
-						// Extract template ID
-						string templateId = arg.Substring(9);
-						specificTemplate = CharacterObject.All.FirstOrDefault(c => c.StringId.ToLower() == templateId.ToLower());
-						if (specificTemplate == null)
-							return CommandBase.FormatErrorMessage($"Template '{templateId}' not found.");
-					}
-					else if (arg == "template")
-					{
-						fullRandomization = false;
-					}
-					else if (arg.StartsWith("culture"))
-					{
-						// Try to find culture
-						string cultureName = arg.Contains("_") ? arg : (i + 1 < args.Count ? args[++i] : "");
-						var cultures = TaleWorlds.ObjectSystem.MBObjectManager.Instance.GetObjectTypeList<TaleWorlds.Core.BasicCultureObject>();
-						foreach (var c in cultures)
-						{
-							if (c.StringId.ToLower().Contains(cultureName.ToLower()) || c.Name.ToString().ToLower().Contains(cultureName.ToLower()))
-							{
-								culture = c;
-								break;
-							}
-						}
-					}
+				// Parse gender (optional, defaults to Either)
+				GenderFlags genderFlags = GenderFlags.Either;
+				if (args.Count >= 3)
+				{
+					genderFlags = FlagParser.ParseGenderArgument(args[2]);
+					if (genderFlags == GenderFlags.None)
+						return CommandBase.FormatErrorMessage($"Invalid gender: '{args[2]}'. Use 'both/b', 'female/f', or 'male/m'");
+				}
+
+				// Parse optional clan (args[3])
+				Clan targetClan = null;
+				if (args.Count >= 4)
+				{
+					var (clan, clanError) = CommandBase.FindSingleClan(args[3]);
+					if (clanError != null)
+						return clanError;
+					targetClan = clan;
+				}
+
+				// Parse optional randomFactor (args[4]), default to 1
+				float randomFactor = 1f;
+				if (args.Count >= 5)
+				{
+					if (!CommandValidator.ValidateFloatRange(args[4], 0f, 1f, out randomFactor, out string randomError))
+						return CommandBase.FormatErrorMessage(randomError);
 				}
 
 				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
-					// Create configuration for lord creation
-					var config = new HeroGenerator.HeroCreationConfig
-					{
-						IsFemale = isFemale,
-						Name = name,
-						TargetClan = clan,
-						MinAge = 20,
-						MaxAge = 24,
-						RandomizeAppearance = true,
-						AddCivilianClothes = true,
-						FullRandomization = fullRandomization,
-						SpecificTemplate = specificTemplate,
-						Culture = culture
-					};
+					// Generate hero using HeroGenerator
+					HeroGenerator heroGenerator = new();
+					Hero createdHero = heroGenerator.CreateSingleHeroFromRandomTemplates(name, cultureFlags, genderFlags, randomFactor, targetClan);
 
-					// Create lord using HeroGenerator
-					var generator = new HeroGenerator();
-					var result = generator.CreateFreshHero(config);
-
-					if (!result.Success)
-						return CommandBase.FormatErrorMessage(result.ErrorMessage);
-
-					var (newLord, lordClan) = result.CreatedLords[0];
-
-					return CommandBase.FormatSuccessMessage(
-						$"Created fresh lord '{newLord.Name}' (ID: {newLord.StringId}):\n" +
-						$"Age: {(int)newLord.Age} | Gender: {(isFemale ? "Female" : "Male")} | Clan: {lordClan.Name}\n" +
-						$"Level: 1 | Equipment: Minimal");
+					if (createdHero == null)
+						return CommandBase.FormatErrorMessage("Failed to create lord - no templates found matching criteria");
+					
+					return CommandBase.FormatSuccessMessage($"Created lord '{createdHero.Name}' (ID: {createdHero.StringId})\n{HeroQueries.GetFormattedDetails(new List<Hero> { createdHero })}");
 				}, "Failed to create lord");
+			});
+		}
+
+		/// <summary>
+		/// Rename a hero
+		/// Usage: gm.hero.rename <heroQuery> <name>
+		/// </summary>
+		[CommandLineFunctionality.CommandLineArgumentFunction("rename", "gm.hero")]
+		public static string RenameHero(List<string> args)
+		{
+			return Cmd.Run(args, () =>
+			{
+				if (!CommandBase.ValidateCampaignMode(out string error))
+					return error;
+
+				var usageMessage = CommandValidator.CreateUsageMessage(
+					"gm.hero.rename", "<heroQuery> <name>",
+					"Renames the specified hero. Use SINGLE QUOTES for multi-word names.\n" +
+					"- heroQuery: hero ID or name query to find a single hero\n" +
+					"- name: the new name for the hero\n",
+					"gm.hero.rename lord_1_1 'Sir Galahad'\n" +
+					"gm.hero.rename 'old hero name' NewName");
+
+				// Minimum 2 required arguments: heroQuery and name
+				if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+					return error;
+
+				// Parse hero query (required)
+				var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+				if (heroError != null)
+					return heroError;
+
+				// Parse name (required)
+				string newName = args[1];
+				if (string.IsNullOrWhiteSpace(newName))
+					return CommandBase.FormatErrorMessage("New name cannot be empty.");
+
+				return CommandBase.ExecuteWithErrorHandling(() =>
+				{
+					string previousName = hero.Name.ToString();
+					hero.SetStringName(newName);
+					
+					return CommandBase.FormatSuccessMessage(
+						$"Hero renamed from '{previousName}' to '{hero.Name}' (ID: {hero.StringId})");
+				}, "Failed to rename hero");
 			});
 		}
 	}

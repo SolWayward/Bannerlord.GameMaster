@@ -460,7 +460,6 @@ namespace Bannerlord.GameMaster.Console.Common
                     i++;
                     
                     // Continue collecting until we find the closing quote
-                    bool foundClosing = false;
                     while (i < args.Count)
                     {
                         string part = args[i];
@@ -469,7 +468,6 @@ namespace Bannerlord.GameMaster.Console.Common
                         {
                             // Found closing quote, remove it and add final part
                             quotedParts.Add(part.Substring(0, part.Length - 1));
-                            foundClosing = true;
                             i++;
                             break;
                         }

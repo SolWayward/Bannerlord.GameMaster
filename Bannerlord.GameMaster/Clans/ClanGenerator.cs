@@ -35,11 +35,12 @@ namespace Bannerlord.GameMaster.Clans
 
         public Clan CreateClan(string name, Hero hero)
         {
-            string stringId = ObjectManager.Instance.GetUniqueStringId(name, typeof(Clan));
-            Clan clan = Clan.CreateClan(stringId);
-          
             TextObject nameObj = new(name);
-            TextObject informalNameObj = new(name); // What is the difference of informal name vs name?
+
+            string stringId = ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Clan));
+            Clan clan = Clan.CreateClan(stringId);
+
+            TextObject informalNameObj = nameObj; // What is the difference of informal name vs name?
             clan.ChangeClanName(nameObj, informalNameObj); // Doesn't need localization keys if the clan is being created by the user themselves
                
             clan.Culture = hero.Culture;
@@ -62,7 +63,7 @@ namespace Bannerlord.GameMaster.Clans
             clan.Influence += baseInfluence * targetClanTier;
 
             // Ensure Clan info is updated (Is this necesary)
-            clan.SetInitialHomeSettlement(Settlements.SettlementQueries.QuerySettlements("poros")[0]); //Temp
+            //clan.SetInitialHomeSettlement(Settlements.SettlementQueries.QuerySettlements("poros")[0]); //Temp Crashes becuse I changed name of poros.
             clan.UpdateCurrentStrength();
             clan.UpdateFactionsAtWarWith();
             clan.ConsiderAndUpdateHomeSettlement();

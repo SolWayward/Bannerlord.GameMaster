@@ -1,572 +1,169 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Bannerlord.GameMaster.Characters;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ObjectSystem;
 
 namespace Bannerlord.GameMaster.Heroes
 {
-    public class HeroGenerator
-    {
-        private readonly Random _random;
-
-        public HeroGenerator()
-        {
-            int seed = (int)DateTime.UtcNow.Ticks;
-            _random = new Random(seed);
-        }
-
-        public HeroGenerator(int seed)
-        {
-            _random = new Random(seed);
-        }
-
-        /// <summary>
-        /// Result of lord generation operation
-        /// </summary>
-        public class HeroGenerationResult
-        {
-            public bool Success { get; set; }
-            public string ErrorMessage { get; set; }
-            public List<(Hero hero, Clan clan)> CreatedLords { get; set; } = new List<(Hero, Clan)>();
-        }
-
-        /// <summary>
-        /// Configuration for generating lords
-        /// </summary>
-        public class HeroGenerationConfig
-        {
-            public int Count { get; set; } = 1;
-            public Clan TargetClan { get; set; }
-            public int MinAge { get; set; } = 30;
-            public int MaxAge { get; set; } = 40;
-            public int MinLevel { get; set; } = 15;
-            public int MaxLevel { get; set; } = 25;
-            public ItemObject.ItemTiers MinArmorTier { get; set; } = ItemObject.ItemTiers.Tier4;
-            public ItemObject.ItemTiers MinWeaponTier { get; set; } = ItemObject.ItemTiers.Tier3;
-            public bool FullRandomization { get; set; } = false;
-            public BasicCultureObject Culture { get; set; } = null;
-        }
-
-        /// <summary>
-        /// Configuration for creating a fresh lord
-        /// </summary>
-        public class HeroCreationConfig
-        {
-            public bool IsFemale { get; set; }
-            public string Name { get; set; }
-            public Clan TargetClan { get; set; }
-            public int MinAge { get; set; } = 20;
-            public int MaxAge { get; set; } = 24;
-            public bool RandomizeAppearance { get; set; } = true;
-            public bool AddCivilianClothes { get; set; } = true;
-            public bool FullRandomization { get; set; } = false;
-            public CharacterObject SpecificTemplate { get; set; } = null;
-            public BasicCultureObject Culture { get; set; } = null;
-        }
-
-        /// <summary>
-        /// Configuration for spawning a wanderer
-        /// </summary>
-        public class WandererSpawnConfig
-        {
-            public Settlement TargetSettlement { get; set; }
-            public int MinAge { get; set; } = 25;
-            public int MaxAge { get; set; } = 35;
-        }
-
-        /// <summary>
-        /// Generate multiple lords with random templates and good equipment
-        /// </summary>
-        public HeroGenerationResult GenerateHeroes(HeroGenerationConfig config)
-        {
-            var result = new HeroGenerationResult();
-
-            // Get available noble/warrior templates
-            var lordTemplates = CharacterObject.All
-                .Where(c => !c.IsHero && c.Occupation == Occupation.Lord && c.Culture != null)
-                .ToList();
-
-            // Filter by culture if specified
-            if (config.Culture != null)
-            {
-                lordTemplates = lordTemplates.Where(c => c.Culture == config.Culture).ToList();
-                if (lordTemplates.Count == 0)
-                {
-                    result.ErrorMessage = $"No lord templates found for culture '{config.Culture.Name}'.";
-                    return result;
-                }
-            }
-
-            if (lordTemplates.Count == 0)
-            {
-                result.ErrorMessage = "No lord templates found in game data.";
-                return result;
-            }
-
-            // Get available clans for random assignment
-            var availableClans = Clan.All
-                .Where(c => !c.IsEliminated && !c.IsBanditFaction && c.Leader != null)
-                .ToList();
-
-            if (availableClans.Count == 0)
-            {
-                result.ErrorMessage = "No available clans found.";
-                return result;
-            }
-
-            var usedClans = new HashSet<Clan>();
-
-            for (int i = 0; i < config.Count; i++)
-            {
-                // Select random gender with even distribution
-                bool isFemale = _random.Next(2) == 0;
-                
-                // Get templates matching the selected gender
-                var genderFilteredTemplates = lordTemplates
-                    .Where(t => t.IsFemale == isFemale)
-                    .ToList();
-
-                // If no templates found for selected gender, try the opposite gender
-                if (genderFilteredTemplates.Count == 0)
-                {
-                    isFemale = !isFemale;
-                    genderFilteredTemplates = lordTemplates
-                        .Where(t => t.IsFemale == isFemale)
-                        .ToList();
-                }
-
-                // Final fallback to all templates
-                if (genderFilteredTemplates.Count == 0)
-                    genderFilteredTemplates = lordTemplates;
-
-                var template = genderFilteredTemplates[_random.Next(genderFilteredTemplates.Count)];
-
-                // Determine clan for this lord
-                Clan assignedClan;
-                if (config.TargetClan != null)
-                {
-                    assignedClan = config.TargetClan;
-                }
-                else
-                {
-                    // Find a clan not yet used
-                    var unusedClans = availableClans.Where(c => !usedClans.Contains(c)).ToList();
-                    if (unusedClans.Count == 0)
-                    {
-                        // All clans used, reset
-                        usedClans.Clear();
-                        unusedClans = availableClans.ToList();
-                    }
-                    assignedClan = unusedClans[_random.Next(unusedClans.Count)];
-                    usedClans.Add(assignedClan);
-                }
-
-                // Create the hero
-                var hero = CreateHero(template, assignedClan, config.MinAge, config.MaxAge);
-                if (hero == null)
-                    continue;
-
-                // Randomize appearance based on config
-                if (config.FullRandomization)
-                {
-                    RandomizeHeroAppearance(hero, template.IsFemale);
-                }
-                // Otherwise, hero uses template appearance with no additional randomization
-
-                // Give decent stats
-                ApplyLevelAndStats(hero, config.MinLevel, config.MaxLevel);
-
-                // Give good equipment
-                EquipHeroWithGear(hero, template.Culture, config.MinArmorTier, config.MinWeaponTier);
-
-                result.CreatedLords.Add((hero, assignedClan));
-            }
-
-            if (result.CreatedLords.Count == 0)
-            {
-                result.ErrorMessage = "Failed to create any lords.";
-                return result;
-            }
-
-            result.Success = true;
-            return result;
-        }
-
-        /// <summary>
-        /// Create a fresh lord with minimal stats and equipment
-        /// </summary>
-        public HeroGenerationResult CreateFreshHero(HeroCreationConfig config)
-        {
-            var result = new HeroGenerationResult();
-
-            if (string.IsNullOrWhiteSpace(config.Name))
-            {
-                result.ErrorMessage = "Name cannot be empty.";
-                return result;
-            }
-
-            if (config.TargetClan == null)
-            {
-                result.ErrorMessage = "Target clan cannot be null.";
-                return result;
-            }
-
-            CharacterObject template;
-
-            // If a specific template is provided, use it
-            if (config.SpecificTemplate != null)
-            {
-                template = config.SpecificTemplate;
-            }
-            else
-            {
-                // Get all cultures for random selection
-                var allCultures = MBObjectManager.Instance.GetObjectTypeList<TaleWorlds.Core.BasicCultureObject>()
-                    .Where(c => c != null)
-                    .ToList();
-
-                if (allCultures.Count == 0)
-                {
-                    result.ErrorMessage = "No cultures found in game data.";
-                    return result;
-                }
-
-                // Select culture (either specified or random)
-                var selectedCulture = config.Culture ?? allCultures[_random.Next(allCultures.Count)];
-
-                // Get lord templates matching gender and the selected culture
-                var lordTemplates = CharacterObject.All
-                    .Where(c => !c.IsHero &&
-                              c.Occupation == Occupation.Lord &&
-                              c.IsFemale == config.IsFemale &&
-                              c.Culture == selectedCulture)
-                    .ToList();
-
-                // If no templates for this culture, try any culture (only if culture not explicitly specified)
-                if (lordTemplates.Count == 0 && config.Culture == null)
-                {
-                    lordTemplates = CharacterObject.All
-                        .Where(c => !c.IsHero &&
-                                  c.Occupation == Occupation.Lord &&
-                                  c.IsFemale == config.IsFemale &&
-                                  c.Culture != null)
-                        .ToList();
-                }
-
-                if (lordTemplates.Count == 0)
-                {
-                    string cultureMsg = config.Culture != null ? $" for culture '{config.Culture.Name}'" : "";
-                    result.ErrorMessage = $"No {(config.IsFemale ? "female" : "male")} lord templates found{cultureMsg}.";
-                    return result;
-                }
-                
-                template = lordTemplates[_random.Next(lordTemplates.Count)];
-            }
-
-            // Create hero
-            var hero = CreateHero(template, config.TargetClan, config.MinAge, config.MaxAge);
-            if (hero == null)
-            {
-                result.ErrorMessage = "Failed to create hero.";
-                return result;
-            }
-
-            // Set name
-            hero.SetName(new TaleWorlds.Localization.TextObject(config.Name), new TaleWorlds.Localization.TextObject(config.Name));
-
-            // Randomize appearance based on config
-            if (config.RandomizeAppearance && config.FullRandomization)
-            {
-                RandomizeHeroAppearance(hero, config.IsFemale);
-            }
-            // Otherwise, hero uses template appearance (with or without basic randomization depending on RandomizeAppearance)
-
-            // Clear all equipment
-            ClearEquipment(hero);
-
-            // Add basic civilian clothes if requested
-            if (config.AddCivilianClothes)
-            {
-                AddCivilianClothes(hero, template.Culture);
-            }
-
-            result.CreatedLords.Add((hero, config.TargetClan));
-            result.Success = true;
-            return result;
-        }
-
-        /// <summary>
-        /// Spawn a wanderer hero in a settlement
-        /// </summary>
-        public HeroGenerationResult SpawnWanderer(WandererSpawnConfig config)
-        {
-            var result = new HeroGenerationResult();
-
-            if (config.TargetSettlement == null)
-            {
-                result.ErrorMessage = "Target settlement cannot be null.";
-                return result;
-            }
-
-            if (!config.TargetSettlement.IsTown && !config.TargetSettlement.IsCastle)
-            {
-                result.ErrorMessage = $"Settlement '{config.TargetSettlement.Name}' must be a city or castle to spawn wanderers.";
-                return result;
-            }
-
-            // Get all wanderer templates and select a random one
-            var wandererTemplates = CharacterObject.All
-                .Where(c => c.Occupation == Occupation.Wanderer && !c.IsHero)
-                .ToList();
-
-            if (wandererTemplates.Count == 0)
-            {
-                result.ErrorMessage = "No wanderer templates found in game data.";
-                return result;
-            }
-
-            // Select a random wanderer template
-            var wandererTemplate = wandererTemplates[_random.Next(wandererTemplates.Count)];
-
-            // Create unique ID for the wanderer
-            int randomId = _random.Next(10000, 99999);
-            string wandererId = $"gm_wanderer_{config.TargetSettlement.StringId}_{CampaignTime.Now.GetYear}_{randomId}";
-
-            // Determine age
-            int age = _random.Next(config.MinAge, config.MaxAge + 1);
-
-            // Create the hero using the proper creation method
-            Hero wanderer = HeroCreator.CreateSpecialHero(
-                wandererTemplate,
-                config.TargetSettlement,
-                null,  // clan
-                null,  // supporterOf
-                age
-            );
-
-            if (wanderer == null)
-            {
-                result.ErrorMessage = "Failed to create wanderer hero.";
-                return result;
-            }
-
-            // Ensure wanderer has proper initialization
-            wanderer.ChangeState(Hero.CharacterStates.Active);
-            wanderer.SetNewOccupation(Occupation.Wanderer);
-
-            // Make sure wanderer stays in settlement
-            TaleWorlds.CampaignSystem.Actions.EnterSettlementAction.ApplyForCharacterOnly(wanderer, config.TargetSettlement);
-
-            result.CreatedLords.Add((wanderer, null));
-            result.Success = true;
-            return result;
-        }
-
-        /// <summary>
-        /// Create a lord hero with base settings
-        /// </summary>
-        private Hero CreateHero(CharacterObject template, Clan clan, int minAge, int maxAge)
-        {
-            // Generate unique ID
-            int randomId = _random.Next(10000, 99999);
-            string lordId = $"gm_lord_{clan.StringId}_{CampaignTime.Now.GetYear}_{randomId}";
-
-            // Create hero with specified age range
-            int age = _random.Next(minAge, maxAge + 1);
-            Hero newLord = HeroCreator.CreateSpecialHero(
-                template,
-                clan.Leader?.CurrentSettlement ?? Settlement.All.FirstOrDefault(s => s.OwnerClan == clan),
-                clan,
-                null,
-                age
-            );
-
-            if (newLord == null)
-                return null;
-
-            // Set as active lord
-            newLord.ChangeState(Hero.CharacterStates.Active);
-            newLord.SetNewOccupation(Occupation.Lord);
-
-            return newLord;
-        }
-
-        /// <summary>
-        /// Apply levels and stats to a hero
-        /// </summary>
-        private void ApplyLevelAndStats(Hero hero, int minLevel, int maxLevel)
-        {
-            int targetLevel = _random.Next(minLevel, maxLevel + 1);
-            for (int level = 1; level < targetLevel; level++)
-            {
-                hero.HeroDeveloper.AddFocus(
-                    DefaultSkills.OneHanded,
-                    1,
-                    false
-                );
-            }
-        }
-
-        /// <summary>
-        /// Equip a lord with good armor and weapons
-        /// </summary>
-        private void EquipHeroWithGear(Hero hero, BasicCultureObject culture, ItemObject.ItemTiers minArmorTier, ItemObject.ItemTiers minWeaponTier)
-        {
-            var equipment = hero.BattleEquipment;
-
-            // Find and equip armor based on culture
-            var armorItems = MBObjectManager.Instance.GetObjectTypeList<ItemObject>()
-                .Where(item => item.Culture == culture &&
-                             (item.Type == ItemObject.ItemTypeEnum.BodyArmor ||
-                              item.Type == ItemObject.ItemTypeEnum.HeadArmor ||
-                              item.Type == ItemObject.ItemTypeEnum.LegArmor ||
-                              item.Type == ItemObject.ItemTypeEnum.HandArmor ||
-                              item.Type == ItemObject.ItemTypeEnum.Cape) &&
-                             item.Tier >= minArmorTier)
-                .ToList();
-
-            if (armorItems.Count > 0)
-            {
-                foreach (var armorPiece in armorItems.Take(5))
-                {
-                    EquipmentIndex slot = EquipmentIndex.None;
-                    if (armorPiece.Type == ItemObject.ItemTypeEnum.BodyArmor)
-                        slot = EquipmentIndex.Body;
-                    else if (armorPiece.Type == ItemObject.ItemTypeEnum.HeadArmor)
-                        slot = EquipmentIndex.Head;
-                    else if (armorPiece.Type == ItemObject.ItemTypeEnum.LegArmor)
-                        slot = EquipmentIndex.Leg;
-                    else if (armorPiece.Type == ItemObject.ItemTypeEnum.HandArmor)
-                        slot = EquipmentIndex.Gloves;
-                    else if (armorPiece.Type == ItemObject.ItemTypeEnum.Cape)
-                        slot = EquipmentIndex.Cape;
-
-                    if (slot != EquipmentIndex.None && equipment[slot].IsEmpty)
-                    {
-                        equipment[slot] = new EquipmentElement(armorPiece);
-                    }
-                }
-            }
-
-            // Find and equip weapon
-            var weapons = MBObjectManager.Instance.GetObjectTypeList<ItemObject>()
-                .Where(item => item.Culture == culture &&
-                             item.Type == ItemObject.ItemTypeEnum.OneHandedWeapon &&
-                             item.Tier >= minWeaponTier)
-                .ToList();
-
-            if (weapons.Count > 0)
-            {
-                var weapon = weapons[_random.Next(weapons.Count)];
-                if (equipment[EquipmentIndex.Weapon0].IsEmpty)
-                {
-                    equipment[EquipmentIndex.Weapon0] = new EquipmentElement(weapon);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Randomize hero appearance - creates fully randomized body properties
-        /// including face structure, skin color, hair color, build, etc.
-        /// </summary>
-        private void RandomizeHeroAppearance(Hero hero, bool isFemale)
-        {
-            // Create a default body properties to work from
-            var defaultBodyProperties = BodyProperties.Default;
-            
-            // Generate completely random key parts for maximum variation
-            // This ensures each hero looks unique regardless of template constraints
-            ulong randomKeyPart1 = GenerateRandomKeyPart(); // Face structure
-            ulong randomKeyPart2 = GenerateRandomKeyPart(); // Additional face features
-            ulong randomKeyPart3 = GenerateRandomKeyPart(); // Hair and facial hair
-            ulong randomKeyPart4 = GenerateRandomKeyPart(); // Skin tone and colors
-            ulong randomKeyPart5 = GenerateRandomKeyPart(); // Body build
-            ulong randomKeyPart6 = GenerateRandomKeyPart(); // Additional features
-            ulong randomKeyPart7 = GenerateRandomKeyPart(); // Age-related features
-            ulong randomKeyPart8 = GenerateRandomKeyPart(); // Extra variation
-            
-            // Create new body properties with randomized values
-            var randomBodyProperties = new BodyProperties(
-                new DynamicBodyProperties((int)hero.Age, 0.5f, 0.5f),
-                new StaticBodyProperties(
-                    randomKeyPart1,
-                    randomKeyPart2,
-                    randomKeyPart3,
-                    randomKeyPart4,
-                    randomKeyPart5,
-                    randomKeyPart6,
-                    randomKeyPart7,
-                    randomKeyPart8
-                )
-            );
-
-            // Apply the randomized appearance to the hero
-            var staticBodyProp = typeof(Hero).GetProperty("StaticBodyProperties");
-            if (staticBodyProp != null)
-            {
-                var staticBody = new StaticBodyProperties(
-                    randomKeyPart1,
-                    randomKeyPart2,
-                    randomKeyPart3,
-                    randomKeyPart4,
-                    randomKeyPart5,
-                    randomKeyPart6,
-                    randomKeyPart7,
-                    randomKeyPart8
-                );
-                staticBodyProp.SetValue(hero, staticBody);
-            }
-        }
-
-        /// <summary>
-        /// Generate a random key part for body properties
-        /// This creates variation in facial features, body build, colors, etc.
-        /// </summary>
-        private ulong GenerateRandomKeyPart()
-        {
-            // Generate random bytes for the key part
-            byte[] bytes = new byte[8];
-            for (int i = 0; i < 8; i++)
-            {
-                bytes[i] = (byte)_random.Next(256);
-            }
-            return BitConverter.ToUInt64(bytes, 0);
-        }
-
-        /// <summary>
-        /// Clear all equipment from a hero
-        /// </summary>
-        private void ClearEquipment(Hero hero)
-        {
-            var equipment = hero.BattleEquipment;
-            for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
-            {
-                equipment[(EquipmentIndex)i] = new EquipmentElement();
-            }
-        }
-
-        /// <summary>
-        /// Add basic civilian clothes to a hero
-        /// </summary>
-        private void AddCivilianClothes(Hero hero, BasicCultureObject culture)
-        {
-            var equipment = hero.BattleEquipment;
-            var civilianClothes = MBObjectManager.Instance.GetObjectTypeList<ItemObject>()
-                .Where(item => item.Culture == culture &&
-                             item.Type == ItemObject.ItemTypeEnum.BodyArmor &&
-                             item.Tier == ItemObject.ItemTiers.Tier1 &&
-                             item.IsCivilian)
-                .FirstOrDefault();
-
-            if (civilianClothes != null)
-            {
-                equipment[EquipmentIndex.Body] = new EquipmentElement(civilianClothes);
-            }
-        }
-    }
+	public class HeroGenerator
+	{
+		/// <summary>
+		/// Create Characters randomly choosing between any template with optional face and body randomization<br/>
+		/// If randomFactor is greater than 0 (0-1), the template will be randomized based on its min and max values of the template<br/>
+		/// </summary>
+		/// <param name="randomFactor">0 to 1 how far character properties can be randomized from template (constrained by the template min and max properties. (0 skips randomization)</param>
+		/// <param name="clan">Defaults to null. If null, a random clan is selected (Ignored for wanderers)</param>
+		/// <param name="occupation">Defaults to Lord. Can be used to create Lords, Wanderers, or others</param>
+		public List<Hero> CreateHeroesFromRandomTemplates(int Count, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0, Clan clan = null, Occupation occupation = Occupation.Lord)
+		{			
+			CharacterTemplatePooler templatePooler = new();
+			List<CharacterObject> templatePool = templatePooler.GetTemplatesFromFlags(cultureFlags, genderFlags);
+					
+			Clan[] clans = new Clan[0]; //Used if clan is null so clan IEnumerable isnt interated through each time using AtElement()
+			if (clan == null)
+				clans = Clan.NonBanditFactions.ToArray();
+
+			List<Hero> heroes = new();
+			for (int i = 0; i < Count; i++)
+			{
+				//Create character from random template
+				CharacterObject character;
+				int randomTemplateIndex = RandomNumberGen.Instance.NextRandomInt(templatePool.Count);
+				character = CharacterObject.CreateFrom(templatePool[randomTemplateIndex]);
+
+				// Randomize face, hair, beard, tattoos, and body if randomFactor greater than 0
+				if (randomFactor > 0)
+					character = RandomizeCharacterObject(character, randomFactor);
+
+				Clan currentClan = clan; // Makes if hero a different possible clan if clan is null
+				currentClan ??= clans[RandomNumberGen.Instance.NextRandomInt(clans.Length)]; // Get random clan if null
+				
+				TextObject randomNameObj = CultureLookup.GetRandomName(character.Culture, character.IsFemale); // Get random name based on gender and culture
+				Hero hero = CreateHero(character, randomNameObj, occupation, currentClan);
+				
+				heroes.Add(hero);
+			}
+
+			return heroes;
+		}
+
+		/// <summary>
+		/// Generates a hero from a character (Use CreateCharacter())
+		/// <param name="clan">Defaults to null. If null, a random clan is selected</param>
+		/// </summary>
+		private Hero CreateHero(CharacterObject template, TextObject nameObj, Occupation occupation, Clan clan = null)
+		{
+			string stringId = ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Hero));
+			int randomAge = RandomNumberGen.Instance.NextRandomInt(20, 31);
+
+			Hero hero = HeroCreator.CreateSpecialHero(template, age: randomAge);
+			hero.StringId = stringId;
+			hero.SetName(nameObj, nameObj);
+
+			hero.PreferredUpgradeFormation = FormationClass.Cavalry;
+			
+			hero.Gold = 10000;
+			hero.Level = 10;
+
+			// Random clan if null
+			if (clan == null)
+			{
+				int randomIndex = RandomNumberGen.Instance.NextRandomInt(Clan.NonBanditFactions.Count());
+				clan = Clan.NonBanditFactions.ElementAt(randomIndex);
+			}
+
+			hero.Clan = clan;
+			hero.IsMinorFactionHero = clan.IsMinorFaction; // Make sure this matches the clan the hero gets assigned to.
+			
+			// Override for wanderers
+			if (occupation == Occupation.Wanderer)
+			{
+				hero.Clan = null;
+				hero.IsMinorFactionHero = false;
+			}
+
+			hero.SetNewOccupation(occupation); // Controls if Lord, wanderer, notable, etc
+			hero.UpdateHomeSettlement(); // Has to happen after clan
+			Settlement heroSettlement = hero.GetHomeOrAlternativeSettlement(); // Used incase home settlement is null
+			hero.EquipHeroBasedOnCulture();
+
+			// Lords
+			if(hero.Occupation == Occupation.Lord)
+			{
+				hero.Clan.AliveLords.Add(hero);
+				hero.CreateParty(heroSettlement);
+			}
+
+			// Wanderers and other
+			else
+			{
+				EnterSettlementAction.ApplyForCharacterOnly(hero, heroSettlement);
+			}			
+
+			hero.UpdateLastKnownClosestSettlement(heroSettlement);						
+			hero.UpdatePowerModifier();
+			
+			return hero;
+		}
+
+		public CharacterObject RandomizeCharacterObject(CharacterObject template, float randomFactor, bool useFaceConstraints = true, bool useBuildConstraints = true, bool useHairConstraints = true)
+		{
+			int _seed = RandomNumberGen.Instance.NextRandomInt();
+
+			// Static = Keys: Face, skin, hair, eye color, face porpotions, base body frame
+			// Dynamic = Floats (0f - 1f): Age, Weight, Build
+			//BodyProperties currentBodyProperties = template.GetBodyProperties(template.Equipment, seed: _seed);
+			BodyProperties minBodyProperties = template.GetBodyPropertiesMin();
+			BodyProperties maxBodyProperties = template.GetBodyPropertiesMax();
+
+			int hairCoverType = HairCoveringType.None;
+			string hairTags = HairTags.All;
+			string beardTags = BeardTags.All;
+			string tatooTags = TattooTags.None;
+
+			BodyProperties randomProperties = TaleWorlds.Core.FaceGen.GetRandomBodyProperties(template.Race, template.IsFemale,
+					minBodyProperties, maxBodyProperties, hairCoverType, _seed, hairTags, beardTags, tatooTags, randomFactor);
+
+
+			return template;
+		}
+
+		/// <summary>
+		/// Create a Character randomly choosing between any template with optional face and body randomization<br/>
+		/// If randomFactor is greater than 0 (0-1), the template will be randomized based on its min and max values of the template<br/>
+		/// </summary>
+		/// <param name="randomFactor">0 to 1 how far character properties can be randomized from template (constrained by the template min and max properties. (0 skips randomization)</param>
+		/// <param name="clan">Defaults to null. If null, a random clan is selected (Ignored for wanderers)</param>
+		/// <param name="occupation">Defaults to Lord. Can be used to create Lords, Wanderers, or others</param>
+		public Hero CreateSingleHeroFromRandomTemplates(string name, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0, Clan clan = null, Occupation occupation = Occupation.Lord)
+		{
+			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, randomFactor, clan)[0];		
+			hero.SetStringName(name);
+
+			return hero;
+		}
+
+		public Hero CreateRandomWandererAtSettlement(Settlement settlement, CultureFlags cultureFlags = CultureFlags.AllMainCultures, GenderFlags genderFlags = GenderFlags.Either)
+		{
+			Hero hero = CreateHeroesFromRandomTemplates(1, cultureFlags, genderFlags, 1, occupation: Occupation.Wanderer)[0];
+			
+			hero.Clan = null;
+			hero.IsMinorFactionHero = false;
+			EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);
+			hero.UpdateLastKnownClosestSettlement(settlement);	
+
+			return hero;
+		}
+	}
 }

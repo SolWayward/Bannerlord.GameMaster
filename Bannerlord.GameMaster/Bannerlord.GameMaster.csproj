@@ -1,4 +1,4 @@
-﻿<Project Sdk="Bannerlord.BUTRModule.Sdk/1.1.0.124">
+<Project Sdk="Bannerlord.BUTRModule.Sdk/1.1.0.124">
 
   <PropertyGroup>
     <Version>1.3.11.3</Version>
@@ -7,6 +7,9 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <LangVersion>10.0</LangVersion>
     <Nullable>disable</Nullable>
+    
+    <!-- Suppress warnings from template-generated code (EXLauncher) -->
+    <NoWarn>$(NoWarn);CS0168;CS0219</NoWarn>
 
     <BuildForWindows>false</BuildForWindows>
     <BuildForWindowsStore>false</BuildForWindowsStore>
@@ -51,4 +54,5 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
 </Project>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TaleWorlds.Core;
+using TaleWorlds.Localization;
 
 namespace Bannerlord.GameMaster
 {
@@ -9,7 +10,7 @@ namespace Bannerlord.GameMaster
     /// </summary>
     public class ObjectManager
     {
-        private static readonly Lazy<ObjectManager> _instance = new Lazy<ObjectManager>(() => new ObjectManager());
+        private static readonly Lazy<ObjectManager> _instance = new(() => new());
 
         public static ObjectManager Instance => _instance.Value;
         public List<string> ObjectStringIds  { get; private set; }
@@ -22,8 +23,7 @@ namespace Bannerlord.GameMaster
 
         private string CreateUniqueIdentifier()
         {
-            string guid = Guid.NewGuid().ToString();
-            return guid.ToLower().Replace('-', '_');
+            return Guid.NewGuid().ToString("N");
         }
 
         private string CleanString(string stringToClean)
@@ -50,7 +50,8 @@ namespace Bannerlord.GameMaster
         /// </summary>
         public string GetUniqueStringId(Type type)
         {
-            string stringID = $"{CleanString(type.Name)}_{CreateUniqueIdentifier()}";
+            string typeName = CleanString(type.Name);
+            string stringID = $"{typeName}_{CreateUniqueIdentifier()}";
 
             ObjectStringIds.Add(stringID);
             return stringID;
@@ -59,9 +60,10 @@ namespace Bannerlord.GameMaster
         /// <summary>
         /// Return a unique string containing the provided name to use as a stringID for objects
         /// </summary>
-        public string GetUniqueStringId(string name)
+        public string GetUniqueStringId(TextObject nameObj)
         {
-            string stringID = $"object_{CleanString(name)}_{CreateUniqueIdentifier()}";
+            string name = CleanString(nameObj.ToString());
+            string stringID = $"object_{name}_{CreateUniqueIdentifier()}";
 
             ObjectStringIds.Add(stringID);
             return stringID;
@@ -70,9 +72,12 @@ namespace Bannerlord.GameMaster
         /// <summary>
         /// Return a unique string containing the provided name and prefixed with the objects type to use as a stringID for objects
         /// </summary>
-        public string GetUniqueStringId(string name, Type type)
+        public string GetUniqueStringId(TextObject nameObj, Type type)
         {
-            string stringID = $"{CleanString(type.Name)}_{CleanString(name)}_{CreateUniqueIdentifier()}";
+            string typeName = CleanString(type.Name);
+            string name = CleanString(nameObj.ToString());
+
+            string stringID = $"{typeName}_{name}_{CreateUniqueIdentifier()}";
 
             ObjectStringIds.Add(stringID);
             return stringID;

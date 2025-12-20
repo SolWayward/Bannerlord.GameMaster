@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Settlements;
@@ -923,51 +924,64 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
         /// <summary>
         /// Spawn a wanderer hero in a settlement
-        /// Usage: gm.settlement.spawn_wanderer [settlement]
+        /// Usage: gm.settlement.spawn_wanderer [settlement] [cultures] [gender]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("spawn_wanderer", "gm.settlement")]
         public static string SpawnWanderer(List<string> args)
         {
-            return Cmd.Run(args, () =>
-            {
-                if (!CommandBase.ValidateCampaignMode(out string error))
-                    return error;
-
-                var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.settlement.spawn_wanderer", "<settlement>",
-                    "Spawns a random wanderer hero with proper name, portrait, and stats in the specified settlement.",
-                    "gm.settlement.spawn_wanderer pen");
-
-                if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
-                    return error;
-
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
-                if (settlementError != null) return settlementError;
-
-                return CommandBase.ExecuteWithErrorHandling(() =>
-                {
-                    // Create configuration for wanderer spawning
-                    var config = new HeroGenerator.WandererSpawnConfig
-                    {
-                        TargetSettlement = settlement,
-                        MinAge = 25,
-                        MaxAge = 35
-                    };
-
-                    // Spawn wanderer using HeroGenerator
-                    var generator = new HeroGenerator();
-                    var result = generator.SpawnWanderer(config);
-
-                    if (!result.Success)
-                        return CommandBase.FormatErrorMessage(result.ErrorMessage);
-
-                    var (wanderer, _) = result.CreatedLords[0];
-                    
-                    return CommandBase.FormatSuccessMessage(
-                        $"Spawned wanderer '{wanderer.Name}' (ID: {wanderer.StringId}) in '{settlement.Name}'.\n" +
-                        $"Template: {wanderer.CharacterObject.Name} | Age: {(int)wanderer.Age} | Occupation: {wanderer.Occupation}");
-                }, "Failed to spawn wanderer");
-            });
+        	return Cmd.Run(args, () =>
+        	{
+        		if (!CommandBase.ValidateCampaignMode(out string error))
+        			return error;
+      
+        		var usageMessage = CommandValidator.CreateUsageMessage(
+        			"gm.settlement.spawn_wanderer", "<settlement> [cultures] [gender]",
+        			"Spawns a random wanderer hero with proper name, portrait, and stats in the specified settlement.\n" +
+        			"- settlement: required, settlement ID or name where the wanderer will spawn\n" +
+        			"- cultures: optional, defines the pool of cultures allowed. Defaults to main_cultures\n" +
+        			"- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n",
+        			"gm.settlement.spawn_wanderer pen\n" +
+        			"gm.settlement.spawn_wanderer pen vlandia female\n" +
+        			"gm.settlement.spawn_wanderer zeonica empire;aserai male");
+      
+        		if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+        			return error;
+      
+        		var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+        		if (settlementError != null) return settlementError;
+      
+        		// Parse cultures (optional, defaults to AllMainCultures)
+        		CultureFlags cultureFlags = CultureFlags.AllMainCultures;
+        		if (args.Count >= 2)
+        		{
+        			cultureFlags = FlagParser.ParseCultureArgument(args[1]);
+        			if (cultureFlags == CultureFlags.None)
+        				return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[1]}'. Use culture names (e.g., vlandia;battania) or groups (main_cultures, bandit_cultures, all_cultures)");
+        		}
+      
+        		// Parse gender (optional, defaults to Either)
+        		GenderFlags genderFlags = GenderFlags.Either;
+        		if (args.Count >= 3)
+        		{
+        			genderFlags = FlagParser.ParseGenderArgument(args[2]);
+        			if (genderFlags == GenderFlags.None)
+        				return CommandBase.FormatErrorMessage($"Invalid gender: '{args[2]}'. Use 'both/b', 'female/f', or 'male/m'");
+        		}
+      
+        		return CommandBase.ExecuteWithErrorHandling(() =>
+        		{
+        			// Spawn wanderer using HeroGenerator's CreateRandomWandererAtSettlement method
+        			var generator = new HeroGenerator();
+        			Hero wanderer = generator.CreateRandomWandererAtSettlement(settlement, cultureFlags, genderFlags);
+      
+        			if (wanderer == null)
+        				return CommandBase.FormatErrorMessage("Failed to spawn wanderer - no templates found matching criteria");
+        			
+        			return CommandBase.FormatSuccessMessage(
+        				$"Spawned wanderer '{wanderer.Name}' (ID: {wanderer.StringId}) in '{settlement.Name}'.\n" +
+        				$"Culture: {wanderer.Culture?.Name} | Age: {(int)wanderer.Age} | Gender: {(wanderer.IsFemale ? "Female" : "Male")} | Occupation: {wanderer.Occupation}");
+        		}, "Failed to spawn wanderer");
+        	});
         }
 
         #endregion
