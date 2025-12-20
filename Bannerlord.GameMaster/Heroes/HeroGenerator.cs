@@ -65,7 +65,6 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		private Hero CreateHero(CharacterObject template, TextObject nameObj, Occupation occupation, Clan clan = null)
 		{
-			InfoMessage.Display($"Creating Hero: {nameObj}");
 			string stringId = ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Hero));
 			int randomAge = RandomNumberGen.Instance.NextRandomInt(20, 31);
 
@@ -100,7 +99,10 @@ namespace Bannerlord.GameMaster.Heroes
 			if(hero.Occupation == Occupation.Lord)
 			{
 				hero.EquipLordBasedOnCulture();
-				hero.CreateParty(heroSettlement);
+
+				// Dont auto create party if clan already has 6 or more parties
+				if (hero.Clan.WarPartyComponents.Count < 6)
+					hero.CreateParty(heroSettlement);
 			}
 
 			// Wanderers and other

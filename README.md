@@ -5,22 +5,19 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.11.2
+## Latest Update 1.3.11.3
 ```
-Added ability to handle arguments with spaces by using single quotes
-ex: 'multi word argument' (Tale Worlds removes double quotes from the console)
+Revamped hero generation system greatly improving it in every way
+Heroes now have more diversity, while also looking much better and remaining within the constraints of their culture.
+Complete control over what cultures are used for the hero generator.
+Lords will automatically be equipped with different pieces from different lords and elite troops based on culture and gender
 
-settlement name changes now persist when saving and loading.
-Changing a settlement name may be delayed and can be forcedto update
-by visiting the settlement and entering the trade menu, or by loading the save.
+Generated Heroes now create parties, recruit troops and actually function like regular lords.
+Added ability to rename any hero.
+Spawning wanderers in a settlement now spawns a unique wanderer, different from the wanderers the game normally spawns.
 
-Settlement_Commands:
-- added gm.settlement.set_culture <settlement> <culture>
-- added gm.settlement.reset_names
-- Settlement name changes now persist with save / loading
-
-Clan Commands:
-- added gm.clan.create_clan
+Added query for item mods
+added query for cultures
 ```
 ## Key Features
 

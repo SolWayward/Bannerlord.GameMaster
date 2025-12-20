@@ -5,7 +5,6 @@ using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using TaleWorlds.ObjectSystem;
-using TaleWorlds.ObjectSystem;
 
 namespace Bannerlord.GameMaster.Console.Query
 {
