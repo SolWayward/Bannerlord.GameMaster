@@ -463,5 +463,88 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
                 }, "Failed to set clan leader");
             });
         }
+
+        //MARK: rename
+        /// <summary>
+        /// Rename a clan
+        /// Usage: gm.clan.rename [clan] [newName]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("rename", "gm.clan")]
+        public static string RenameClan(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.clan.rename", "<clan> <newName>",
+                    "Renames the specified clan. Use SINGLE QUOTES for multi-word names.",
+                    "gm.clan.rename empire_south 'Southern Empire Lords'\n" +
+                    "gm.clan.rename clan_1 NewClanName");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
+                if (clanError != null) return clanError;
+
+                string newName = args[1];
+                if (string.IsNullOrWhiteSpace(newName))
+                    return CommandBase.FormatErrorMessage("New name cannot be empty.");
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    string previousName = clan.Name.ToString();
+                    clan.SetStringName(newName);
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"Clan renamed from '{previousName}' to '{clan.Name}' (ID: {clan.StringId})");
+                }, "Failed to rename clan");
+            });
+        }
+
+        //MARK: set_culture
+        /// <summary>
+        /// Change a clan's culture
+        /// Usage: gm.clan.set_culture [clan] [culture]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("set_culture", "gm.clan")]
+        public static string SetCulture(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.clan.set_culture", "<clan> <culture>",
+                    "Changes the clan's culture. Also updates the clan's basic troop to match the new culture.",
+                    "gm.clan.set_culture empire_south vlandia\n" +
+                    "gm.clan.set_culture my_clan battania");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (clan, clanError) = CommandBase.FindSingleClan(args[0]);
+                if (clanError != null) return clanError;
+
+                // Parse culture
+                CultureObject newCulture = MBObjectManager.Instance.GetObject<CultureObject>(args[1]);
+                if (newCulture == null)
+                    return CommandBase.FormatErrorMessage($"Culture '{args[1]}' not found. Valid cultures: aserai, battania, empire, khuzait, nord, sturgia, vlandia");
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    string previousCulture = clan.Culture?.Name?.ToString() ?? "None";
+                    clan.Culture = newCulture;
+                    clan.BasicTroop = newCulture.BasicTroop;
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"{clan.Name}'s culture changed from '{previousCulture}' to '{clan.Culture.Name}'.\n" +
+                        $"Basic troop updated to: {clan.BasicTroop?.Name}");
+                }, "Failed to set culture");
+            });
+        }
     }
 }

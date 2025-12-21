@@ -365,3 +365,4 @@ Bannerlord.GameMaster/REFACTORING_SUMMARY.md
 
 # Wiki directory (separate GitHub wiki repository)
 wiki/
+Bannerlord.GameMaster/Heroes/HeroGenerator.cs

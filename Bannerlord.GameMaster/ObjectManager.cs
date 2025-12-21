@@ -29,7 +29,7 @@ namespace Bannerlord.GameMaster
         private string CleanString(string stringToClean)
         {
             if (stringToClean != null && !stringToClean.IsEmpty())
-                stringToClean.Trim().Replace(' ', '_');
+                stringToClean = stringToClean.Trim().Replace(' ', '_');
             
             return stringToClean.ToLower();
         }

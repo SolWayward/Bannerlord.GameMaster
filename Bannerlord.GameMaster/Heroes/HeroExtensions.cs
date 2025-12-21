@@ -144,11 +144,11 @@ namespace Bannerlord.GameMaster.Heroes
 			Settlement alternativeSettlement;
 
 			// Try to get Clan Settlement first
-			if (hero.Clan != null && hero.Clan.Settlements != null && hero.Clan.Settlements[0] != null)
-				alternativeSettlement = hero.Clan.Settlements.FindAll(s => s.IsTown).GetRandomElement();
+				if (hero.Clan != null && hero.Clan.Settlements != null && hero.Clan.Settlements.Count > 0)
+					alternativeSettlement = hero.Clan.Settlements.FindAll(s => s.IsTown).GetRandomElement();
 
 			// If no Clan Settlments, Try kingdom
-			else if (hero.Clan != null && hero.Clan.Kingdom != null && hero.Clan.Kingdom.Settlements != null && hero.Clan.Kingdom.Settlements[0] != null)
+			else if (hero.Clan != null && hero.Clan.Kingdom != null && hero.Clan.Kingdom.Settlements != null && hero.Clan.Kingdom.Settlements.Count > 0)
 				alternativeSettlement = hero.Clan.Kingdom.Settlements.FindAll(s => s.IsTown).GetRandomElement();
 
 			// Fallback to any settlement if no clan or kingdom settlements found
