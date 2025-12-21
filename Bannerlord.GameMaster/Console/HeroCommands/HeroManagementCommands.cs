@@ -1,5 +1,6 @@
-﻿using Bannerlord.GameMaster.Console.Common;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Heroes;
+using Bannerlord.GameMaster.Party;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -400,6 +401,188 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                     return CommandBase.FormatSuccessMessage(
                         $"Relation between {hero1.Name} and {hero2.Name} changed from {previousRelation} to {value}.");
                 }, "Failed to set relation");
+            });
+        }
+
+        /// MARK: add_hero_to_party
+        /// <summary>
+        /// Add a hero to another hero's party as a companion. Hero leaves their current party if already in one.
+        /// Usage: gm.hero.add_hero_to_party [hero] [partyLeader]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("add_hero_to_party", "gm.hero")]
+        public static string AddHeroToParty(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.hero.add_hero_to_party", "<hero> <partyLeader>",
+                    "Adds a hero as a companion to another hero's party. The hero will leave their current party if they are already in one.\n" +
+                    "The hero's clan will be changed to match the party leader's clan.",
+                    "gm.hero.add_hero_to_party companion_1 player\n" +
+                    "gm.hero.add_hero_to_party wanderer_1 derthert");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                var (partyLeader, leaderError) = CommandBase.FindSingleHero(args[1]);
+                if (leaderError != null) return leaderError;
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    // Validate party leader has a party
+                    if (partyLeader.PartyBelongedTo == null)
+                        return CommandBase.FormatErrorMessage($"{partyLeader.Name} does not have a party.");
+
+                    if (partyLeader.PartyBelongedTo.LeaderHero != partyLeader)
+                        return CommandBase.FormatErrorMessage($"{partyLeader.Name} is not a party leader.");
+
+                    // Check if hero is trying to join their own party
+                    if (hero == partyLeader)
+                        return CommandBase.FormatErrorMessage("Cannot add a hero to their own party.");
+
+                    string previousPartyInfo = "None";
+                    
+                    // Remove hero from current party if they are in one
+                    if (hero.PartyBelongedTo != null)
+                    {
+                        previousPartyInfo = hero.PartyBelongedTo.Name?.ToString() ?? "Unknown";
+                        
+                        // If hero is a party leader, we need to disband their party first
+                        if (hero.PartyBelongedTo.LeaderHero == hero)
+                        {
+                            // Disband the party (this is complex, so we'll just prevent it for now)
+                            return CommandBase.FormatErrorMessage(
+                                $"{hero.Name} is currently leading their own party ({hero.PartyBelongedTo.Name}). " +
+                                "Party leaders must disband their party before joining another. This is not yet implemented.");
+                        }
+                        
+                        // Remove hero from their current party roster
+                        hero.PartyBelongedTo.MemberRoster.RemoveTroop(hero.CharacterObject);
+                    }
+
+                    // Add hero to the target party using the extension method
+                    partyLeader.PartyBelongedTo.AddCompanionToParty(hero);
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"{hero.Name} has joined {partyLeader.Name}'s party.\n" +
+                        $"Previous party: {previousPartyInfo}\n" +
+                        $"New party: {partyLeader.PartyBelongedTo.Name}\n" +
+                        $"Clan updated to: {hero.Clan?.Name}");
+                }, "Failed to add hero to party");
+            });
+        }
+
+        /// MARK: create_party
+        /// <summary>
+        /// Create a party for a hero at their last known location or home settlement
+        /// Usage: gm.hero.create_party [hero]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("create_party", "gm.hero")]
+        public static string CreateParty(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.hero.create_party", "<hero>",
+                    "Creates a party for the specified hero. The party will spawn at the hero's last known location if available,\n" +
+                    "otherwise at their home settlement or an alternative settlement.\n" +
+                    "The party is initialized with 10 basic troops and 20000 trade gold.",
+                    "gm.hero.create_party lord_1_1\n" +
+                    "gm.hero.create_party wanderer_1");
+
+                if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    // Check if hero already has a party
+                    if (hero.PartyBelongedTo != null && hero.PartyBelongedTo.LeaderHero == hero)
+                        return CommandBase.FormatErrorMessage($"{hero.Name} already leads a party: {hero.PartyBelongedTo.Name}");
+
+                    // Determine spawn settlement
+                    Settlement spawnSettlement = null;
+                    
+                    // Try to use last seen place if it's a settlement
+                    if (hero.LastKnownClosestSettlement != null)
+                    {
+                        spawnSettlement = hero.LastKnownClosestSettlement;
+                    }
+                    
+                    // Fallback to home or alternative settlement
+                    if (spawnSettlement == null)
+                    {
+                        spawnSettlement = hero.GetHomeOrAlternativeSettlement();
+                    }
+
+                    if (spawnSettlement == null)
+                        return CommandBase.FormatErrorMessage($"Could not find a suitable settlement to spawn {hero.Name}'s party.");
+
+                    // Create the party using the extension method
+                    MobileParty newParty = hero.CreateParty(spawnSettlement);
+
+                    if (newParty == null)
+                        return CommandBase.FormatErrorMessage($"Failed to create party for {hero.Name}.");
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"Created party for {hero.Name}.\n" +
+                        $"Party: {newParty.Name}\n" +
+                        $"Location: {spawnSettlement.Name}\n" +
+                        $"Initial roster: {newParty.MemberRoster.TotalManCount} troops\n" +
+                        $"Trade gold: {newParty.PartyTradeGold}");
+                }, "Failed to create party");
+            });
+        }
+
+        /// MARK: set_culture
+        /// <summary>
+        /// Change a hero's culture
+        /// Usage: gm.hero.set_culture [hero] [culture]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("set_culture", "gm.hero")]
+        public static string SetCulture(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.hero.set_culture", "<hero> <culture>",
+                    "Changes the hero's culture. Note: This does not change the hero's equipment or appearance, only the culture property.",
+                    "gm.hero.set_culture lord_1_1 vlandia\n" +
+                    "gm.hero.set_culture companion_1 battania");
+
+                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
+                    return error;
+
+                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                if (heroError != null) return heroError;
+
+                // Parse culture
+                CultureObject newCulture = MBObjectManager.Instance.GetObject<CultureObject>(args[1]);
+                if (newCulture == null)
+                    return CommandBase.FormatErrorMessage($"Culture '{args[1]}' not found. Valid cultures: aserai, battania, empire, khuzait, nord, sturgia, vlandia");
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    string previousCulture = hero.Culture?.Name?.ToString() ?? "None";
+                    hero.Culture = newCulture;
+
+                    return CommandBase.FormatSuccessMessage(
+                        $"{hero.Name}'s culture changed from '{previousCulture}' to '{hero.Culture.Name}'.");
+                }, "Failed to set culture");
             });
         }
     }

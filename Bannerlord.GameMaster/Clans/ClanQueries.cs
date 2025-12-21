@@ -161,17 +161,18 @@ namespace Bannerlord.GameMaster.Clans
         /// </summary>
         public static string GetFormattedDetails(List<Clan> clans)
         {
-            if (clans.Count == 0)
-                return "";
-
-            return ColumnFormatter<Clan>.FormatList(
-                clans,
-                c => c.StringId,
-                c => c.Name.ToString(),
-                c => $"Heroes: {c.Heroes.Count()}",
-                c => $"Leader: {c.Leader?.Name?.ToString() ?? "None"}",
-                c => $"Kingdom: {c.Kingdom?.Name?.ToString() ?? "None"}"
-            );
+        	if (clans.Count == 0)
+        		return "";
+      
+        	return ColumnFormatter<Clan>.FormatList(
+        		clans,
+        		c => c.StringId,
+        		c => c.Name.ToString(),
+        		c => $"Culture: {c.Culture?.Name?.ToString() ?? "None"}",
+        		c => $"Heroes: {c.Heroes.Count()}",
+        		c => $"Leader: {c.Leader?.Name?.ToString() ?? "None"}",
+        		c => $"Kingdom: {c.Kingdom?.Name?.ToString() ?? "None"}"
+        	);
         }
 
         /// <summary>

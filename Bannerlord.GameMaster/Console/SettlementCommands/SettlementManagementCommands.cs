@@ -924,64 +924,115 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
         /// <summary>
         /// Spawn a wanderer hero in a settlement
-        /// Usage: gm.settlement.spawn_wanderer [settlement] [cultures] [gender]
+        /// Usage: gm.settlement.spawn_wanderer [settlement] [name] [cultures] [gender] [randomFactor]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("spawn_wanderer", "gm.settlement")]
         public static string SpawnWanderer(List<string> args)
         {
-        	return Cmd.Run(args, () =>
-        	{
-        		if (!CommandBase.ValidateCampaignMode(out string error))
-        			return error;
-      
-        		var usageMessage = CommandValidator.CreateUsageMessage(
-        			"gm.settlement.spawn_wanderer", "<settlement> [cultures] [gender]",
-        			"Spawns a random wanderer hero with proper name, portrait, and stats in the specified settlement.\n" +
-        			"- settlement: required, settlement ID or name where the wanderer will spawn\n" +
-        			"- cultures: optional, defines the pool of cultures allowed. Defaults to main_cultures\n" +
-        			"- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n",
-        			"gm.settlement.spawn_wanderer pen\n" +
-        			"gm.settlement.spawn_wanderer pen vlandia female\n" +
-        			"gm.settlement.spawn_wanderer zeonica empire;aserai male");
-      
-        		if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
-        			return error;
-      
-        		var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
-        		if (settlementError != null) return settlementError;
-      
-        		// Parse cultures (optional, defaults to AllMainCultures)
-        		CultureFlags cultureFlags = CultureFlags.AllMainCultures;
-        		if (args.Count >= 2)
-        		{
-        			cultureFlags = FlagParser.ParseCultureArgument(args[1]);
-        			if (cultureFlags == CultureFlags.None)
-        				return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[1]}'. Use culture names (e.g., vlandia;battania) or groups (main_cultures, bandit_cultures, all_cultures)");
-        		}
-      
-        		// Parse gender (optional, defaults to Either)
-        		GenderFlags genderFlags = GenderFlags.Either;
-        		if (args.Count >= 3)
-        		{
-        			genderFlags = FlagParser.ParseGenderArgument(args[2]);
-        			if (genderFlags == GenderFlags.None)
-        				return CommandBase.FormatErrorMessage($"Invalid gender: '{args[2]}'. Use 'both/b', 'female/f', or 'male/m'");
-        		}
-      
-        		return CommandBase.ExecuteWithErrorHandling(() =>
-        		{
-        			// Spawn wanderer using HeroGenerator's CreateRandomWandererAtSettlement method
-        			var generator = new HeroGenerator();
-        			Hero wanderer = generator.CreateRandomWandererAtSettlement(settlement, cultureFlags, genderFlags);
-      
-        			if (wanderer == null)
-        				return CommandBase.FormatErrorMessage("Failed to spawn wanderer - no templates found matching criteria");
-        			
-        			return CommandBase.FormatSuccessMessage(
-        				$"Spawned wanderer '{wanderer.Name}' (ID: {wanderer.StringId}) in '{settlement.Name}'.\n" +
-        				$"Culture: {wanderer.Culture?.Name} | Age: {(int)wanderer.Age} | Gender: {(wanderer.IsFemale ? "Female" : "Male")} | Occupation: {wanderer.Occupation}");
-        		}, "Failed to spawn wanderer");
-        	});
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+          
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.settlement.spawn_wanderer", "<settlement> [name] [cultures] [gender] [randomFactor]",
+                    "Spawns a wanderer hero with proper name, portrait, and stats in the specified settlement.\n" +
+                    "- settlement: required, settlement ID or name where the wanderer will spawn\n" +
+                    "- name: optional, custom name for the wanderer. Use SINGLE QUOTES for multi-word names. If not provided, generates random name\n" +
+                    "- cultures: optional, defines the pool of cultures allowed. Defaults to main_cultures\n" +
+                    "- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n" +
+                    "- randomFactor: optional, float value between 0 and 1. defaults to 0.5\n",
+                    "gm.settlement.spawn_wanderer pen\n" +
+                    "gm.settlement.spawn_wanderer pen 'Wandering Bard'\n" +
+                    "gm.settlement.spawn_wanderer pen null vlandia female\n" +
+                    "gm.settlement.spawn_wanderer zeonica 'Skilled Archer' empire;aserai male 0.8");
+          
+                if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
+                    return error;
+          
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                if (settlementError != null) return settlementError;
+          
+                // Parse optional name
+                string name = null;
+                int currentArgIndex = 1;
+                if (args.Count > currentArgIndex)
+                {
+                    // Check if this is NOT a culture or gender keyword
+                    GenderFlags testGender = FlagParser.ParseGenderArgument(args[currentArgIndex]);
+                    CultureFlags testCulture = FlagParser.ParseCultureArgument(args[currentArgIndex]);
+                    
+                    if (testGender == GenderFlags.None && testCulture == CultureFlags.None && args[currentArgIndex].ToLower() != "null")
+                    {
+                        name = args[currentArgIndex];
+                        currentArgIndex++;
+                    }
+                    else if (args[currentArgIndex].ToLower() == "null")
+                    {
+                        currentArgIndex++;
+                    }
+                }
+          
+                // Parse cultures (optional, defaults to AllMainCultures)
+                CultureFlags cultureFlags = CultureFlags.AllMainCultures;
+                if (args.Count > currentArgIndex)
+                {
+                    GenderFlags testGender = FlagParser.ParseGenderArgument(args[currentArgIndex]);
+                    if (testGender != GenderFlags.None)
+                    {
+                        // Skip cultures, this is gender
+                    }
+                    else
+                    {
+                        cultureFlags = FlagParser.ParseCultureArgument(args[currentArgIndex]);
+                        if (cultureFlags == CultureFlags.None)
+                            return CommandBase.FormatErrorMessage($"Invalid culture(s): '{args[currentArgIndex]}'");
+                        currentArgIndex++;
+                    }
+                }
+          
+                // Parse gender (optional, defaults to Either)
+                GenderFlags genderFlags = GenderFlags.Either;
+                if (args.Count > currentArgIndex)
+                {
+                    genderFlags = FlagParser.ParseGenderArgument(args[currentArgIndex]);
+                    if (genderFlags == GenderFlags.None)
+                        return CommandBase.FormatErrorMessage($"Invalid gender: '{args[currentArgIndex]}'. Use 'both/b', 'female/f', or 'male/m'");
+                    currentArgIndex++;
+                }
+                
+                // Parse randomFactor
+                float randomFactor = 0.5f;
+                if (args.Count > currentArgIndex)
+                {
+                    if (!CommandValidator.ValidateFloatRange(args[currentArgIndex], 0f, 1f, out randomFactor, out string randomError))
+                        return CommandBase.FormatErrorMessage(randomError);
+                }
+          
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    Hero wanderer;
+                    
+                    // Use new architecture - CreateWanderer method
+                    if (string.IsNullOrWhiteSpace(name))
+                    {
+                        // Generate random name from culture
+                        wanderer = HeroGenerator.CreateWanderers(1, cultureFlags, genderFlags, settlement, randomFactor)[0];
+                    }
+                    else
+                    {
+                        wanderer = HeroGenerator.CreateWanderer(name, cultureFlags, genderFlags, settlement, randomFactor);
+                    }
+          
+                    if (wanderer == null)
+                        return CommandBase.FormatErrorMessage("Failed to spawn wanderer - no templates found matching criteria");
+                    
+                    return CommandBase.FormatSuccessMessage(
+                        $"Spawned wanderer '{wanderer.Name}' (ID: {wanderer.StringId}) in '{settlement.Name}'.\n" +
+                        $"Culture: {wanderer.Culture?.Name} | Age: {(int)wanderer.Age} | Gender: {(wanderer.IsFemale ? "Female" : "Male")}\n" +
+                        $"Wanderer can be recruited from the tavern in {settlement.Name}.");
+                }, "Failed to spawn wanderer");
+            });
         }
 
         #endregion

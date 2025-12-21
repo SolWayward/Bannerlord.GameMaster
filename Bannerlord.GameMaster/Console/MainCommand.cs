@@ -21,7 +21,8 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("info", "gm")]
 		public static string GmCommand(List<string> args)
         {
-            return "General Usage info Not Yet Implemented here";                  
+            CharacterTemplatePooler pooler = new();
+            return pooler.Debug_CountTemplates();                  
         }
     }
 }

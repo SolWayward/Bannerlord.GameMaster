@@ -21,6 +21,32 @@ namespace Bannerlord.GameMaster.Characters
 		List<CharacterObject> _banditFemaleTemplates;
 		List<CharacterObject> _banditMaleTemplates;
 
+		public string Debug_CountTemplates()
+		{
+			int all = 0;
+			int female = 0;
+			int heroAll = 0;
+			int heroFemale = 0;
+
+			foreach (CharacterObject character in AllTemplates)
+			{
+				if (character.Occupation == Occupation.Lord)
+				{
+					all++;
+					if (character.IsFemale)
+						female++;
+				}
+				else if (character.IsHero)
+				{
+					heroAll++;
+					if (character.IsFemale)
+						heroFemale++;
+				}
+			}
+
+			return $"Occupation Lord: {all}, Female: {female}\nIsHero: {heroAll}, Female: {heroFemale}";
+		}
+
 		//If backing field is null, get list (Allows list to be cached and reused without relooping eveytime) or not take any memory if that specific list is never used
 		public List<CharacterObject> AllTemplates => _allTemplates ??= GetAllTemplates();
 		public List<CharacterObject> FemaleTemplates => _femaleTemplates ??= FilterByGender(AllTemplates, true);
@@ -108,6 +134,39 @@ namespace Bannerlord.GameMaster.Characters
 		}
 
 		/// <summary>
+		/// Filters character objects to ONLY include Lord and Wanderer occupations.
+		/// Includes both templates and actual characters for maximum variety.
+		/// Excludes notables (RuralNotable, Headman, Artisan, Merchant, etc.) to prevent occupation conflicts.
+		/// Excludes dead heroes to avoid using deceased character appearances.
+		/// </summary>
+		List<CharacterObject> FilterToLordAndWandererCharacters(List<CharacterObject> listToFilter)
+		{
+			List<CharacterObject> heroCharacters = new();
+	
+			if (listToFilter == null)
+				return heroCharacters;
+	
+			foreach (CharacterObject character in listToFilter)
+			{
+				// Check if it's a dead hero - skip if dead
+				if (character.IsHero && character.HeroObject != null && !character.HeroObject.IsAlive)
+				{
+					continue;
+				}
+	
+				// ONLY include Lord and Wanderer occupations
+				// This excludes ALL notable types (RuralNotable, Headman, Artisan, Merchant, GangLeader, Preacher)
+				// and also excludes Soldiers
+				if (character.Occupation == Occupation.Lord || character.Occupation == Occupation.Wanderer)
+				{
+					heroCharacters.Add(character);
+				}
+			}
+	
+			return heroCharacters;
+		}
+
+		/// <summary>
 		/// Gets the character templates of a single specified culture </br>
 		/// Use CultureLookup class to easily retrieve CultureObjects to use.
 		/// </summary>
@@ -122,6 +181,16 @@ namespace Bannerlord.GameMaster.Characters
 			}
 
 			return templates;
+		}
+
+		/// <summary>
+		/// Gets ONLY Lord and Wanderer character objects (both templates and actual characters) for a single specified culture.
+		/// Excludes notables and soldiers to prevent occupation conflicts.
+		/// Safe for use in all hero creation (lords, wanderers, companions).
+		/// </summary>
+		public List<CharacterObject> GetLordAndWandererCharacters(CultureObject culture)
+		{
+			return FilterToLordAndWandererCharacters(GetCulturalTemplates(culture));
 		}
 
 		/// <summary>
@@ -154,97 +223,146 @@ namespace Bannerlord.GameMaster.Characters
 			return templates;
 		}
 
-		public List<CharacterObject> GetTemplatesFromFlags(CultureFlags cultureFlags, GenderFlags genderFlags)
+		/// <summary>
+		/// Gets character objects suitable for ALL hero creation (lords, wanderers, companions).
+		/// Returns ONLY Lord and Wanderer occupations (both templates and actual characters).
+		/// Excludes ALL notable occupations (Headman, RuralNotable, Artisan, Merchant, etc.) to prevent crashes.
+		/// Excludes dead heroes to avoid using deceased character appearances.
+		/// Provides maximum character variety, especially for female characters.
+		/// </summary>
+		public List<CharacterObject> GetAllHeroTemplatesFromFlags(CultureFlags cultureFlags, GenderFlags genderFlags)
 		{
-			// Check group flags first and return if just groups set
+			List<CharacterObject> characters = new();
+	
+			// For group flags, we need to get all characters and filter
 			if (cultureFlags == CultureFlags.AllCultures)
 			{
-				return genderFlags switch
-				{
-					GenderFlags.Female => FemaleTemplates,
-					GenderFlags.Male => MaleTemplates,
-					_ => AllTemplates
-				};
+				// Get all characters (templates and non-templates)
+				var allChars = CharacterObject.All.ToList();
+				characters = FilterToLordAndWandererCharacters(allChars);
 			}
-
-			if (cultureFlags == CultureFlags.AllMainCultures)
+			else if (cultureFlags == CultureFlags.AllMainCultures)
 			{
-				return genderFlags switch
-				{
-					GenderFlags.Female => MainFactionFemaleTemplates,
-					GenderFlags.Male => MainFactionMaleTemplates,
-					_ => MainFactionTemplates
-				};
+				// Get all main culture characters
+				var mainCultureChars = CharacterObject.All
+					.Where(c => c.Culture != null && c.Culture.IsMainCulture)
+					.ToList();
+				characters = FilterToLordAndWandererCharacters(mainCultureChars);
 			}
-
-			if (cultureFlags == CultureFlags.AllBanditCultures)
+			else if (cultureFlags == CultureFlags.AllBanditCultures)
 			{
-				return genderFlags switch
-				{
-					GenderFlags.Female => BanditFemaleTemplates,
-					GenderFlags.Male => BanditMaleTemplates,
-					_ => BanditTemplates
-				};
+				// Get all bandit culture characters
+				var banditChars = CharacterObject.All
+					.Where(c => c.Culture != null && (c.Culture.IsBandit || c.IsPirate()))
+					.ToList();
+				characters = FilterToLordAndWandererCharacters(banditChars);
 			}
-
-			// No group set, or more than just group set, check individual cultures and acumulate.
-			List<CharacterObject> templates = new();
-
-			// Check individual flags - these accumulate
-			if (cultureFlags.HasFlag(CultureFlags.Calradian))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.CalradianNeutral));
-
-			if (cultureFlags.HasFlag(CultureFlags.Aserai))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.Aserai));
-
-			if (cultureFlags.HasFlag(CultureFlags.Battania))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.Battania));
-
-			if (cultureFlags.HasFlag(CultureFlags.Empire))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.Empire));
-
-			if (cultureFlags.HasFlag(CultureFlags.Khuzait))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.Khuzait));
-
-			if (cultureFlags.HasFlag(CultureFlags.Nord))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.Nord));
-
-			if (cultureFlags.HasFlag(CultureFlags.Sturgia))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.Sturgia));
-
-			if (cultureFlags.HasFlag(CultureFlags.Vlandia))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.Vlandia));
-
-			if (cultureFlags.HasFlag(CultureFlags.Corsairs))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.Corsairs));
-
-			if (cultureFlags.HasFlag(CultureFlags.DesertBandits))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.DesertBandits));
-
-			if (cultureFlags.HasFlag(CultureFlags.ForestBandits))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.ForestBandits));
-
-			if (cultureFlags.HasFlag(CultureFlags.MountainBandits))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.MountainBandits));
-
-			if (cultureFlags.HasFlag(CultureFlags.SeaRaiders))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.SeaRaiders));
-
-			if (cultureFlags.HasFlag(CultureFlags.SteppeBandits))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.SteppeBandits));	
-
-			if (cultureFlags.HasFlag(CultureFlags.DarshiSpecial))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.DarshiSpecial));
+			else
+			{
+				// Individual culture flags - accumulate characters from each specified culture
+				if (cultureFlags.HasFlag(CultureFlags.Calradian))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.CalradianNeutral).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
 	
-			if (cultureFlags.HasFlag(CultureFlags.VakkenSpecial))
-				templates.AddRange(GetCulturalTemplates(CultureLookup.VakkenSpecial));
+				if (cultureFlags.HasFlag(CultureFlags.Aserai))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Aserai).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
 	
-			// Apply gender filtering to accumulated templates
+				if (cultureFlags.HasFlag(CultureFlags.Battania))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Battania).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.Empire))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Empire).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.Khuzait))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Khuzait).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.Nord))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Nord).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.Sturgia))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Sturgia).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.Vlandia))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Vlandia).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.Corsairs))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Corsairs).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.DesertBandits))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.DesertBandits).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.ForestBandits))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.ForestBandits).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.MountainBandits))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.MountainBandits).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.SeaRaiders))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.SeaRaiders).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.SteppeBandits))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.SteppeBandits).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.DarshiSpecial))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.DarshiSpecial).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+	
+				if (cultureFlags.HasFlag(CultureFlags.VakkenSpecial))
+				{
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.VakkenSpecial).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+			}
+	
+			// Apply gender filtering to accumulated characters
 			return genderFlags switch
 			{
-				GenderFlags.Female => FilterByGender(templates, true),
-				GenderFlags.Male => FilterByGender(templates, false),
-				_ => templates
+				GenderFlags.Female => FilterByGender(characters, true),
+				GenderFlags.Male => FilterByGender(characters, false),
+				_ => characters
 			};
 		}
 
