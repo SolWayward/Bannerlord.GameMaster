@@ -234,6 +234,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				var usageMessage = CommandValidator.CreateUsageMessage(
 					"gm.hero.create_lord", "<name> [cultures] [gender] [clan] [withParty] [settlement] [randomFactor]",
 					"Creates a single lord from random templates with good gear and decent stats. Age 18-30. Allows custom naming.\n" +
+					"Creates a party for the lord by default if clan is not at max allowed parties. Use create_party to exceed party limit" +
 					"- name: required, the name for the hero. Use SINGLE QUOTES for multi-word names\n" +
 					"- cultures/culture: optional, defines the pool of cultures allowed to be chosen from. Defaults to main_cultures\n" +
 					"- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n" +
@@ -461,7 +462,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				var usageMessage = CommandValidator.CreateUsageMessage(
 					"gm.hero.create_companions", "<count> <heroLeader> [cultures] [gender] [randomFactor]",
 					"Creates companions and adds them directly to the specified hero's party.\n" +
-					"Companions are added as party members (not wanderers in settlements).\n" +
+					"Companions are added as party members. Will not exceed companion limit, use create_lord instead for that.\n" +
 					"- count: required, number of companions to create (1-20)\n" +
 					"- heroLeader/hero: required, hero ID or name of party leader. Use 'player' for your party\n" +
 					"- cultures/culture: optional, culture pool for template selection. Defaults to main_cultures\n" +
