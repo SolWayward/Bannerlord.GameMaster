@@ -1,6 +1,6 @@
 using System;
 
-namespace Bannerlord.GameMaster.Characters
+namespace Bannerlord.GameMaster.Cultures
 {
     [Flags]
     public enum CultureFlags

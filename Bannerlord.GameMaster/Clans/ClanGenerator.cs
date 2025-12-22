@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Transactions;
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
 using Bannerlord.GameMaster.Party;

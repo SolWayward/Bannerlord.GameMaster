@@ -4,6 +4,7 @@ using System.Linq;
 using TaleWorlds.CampaignSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
 using NavalDLC;
+using Bannerlord.GameMaster.Cultures;
 
 namespace Bannerlord.GameMaster.Characters
 {

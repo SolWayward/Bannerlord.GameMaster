@@ -1,6 +1,6 @@
 using TaleWorlds.CampaignSystem;
 
-namespace Bannerlord.GameMaster.Characters
+namespace Bannerlord.GameMaster.Cultures
 {
     public static class CultureExtensions
     {

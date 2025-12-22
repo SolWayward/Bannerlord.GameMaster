@@ -8,6 +8,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Library;
+using Bannerlord.GameMaster.Cultures;
 
 namespace Bannerlord.GameMaster.Console.HeroCommands
 {

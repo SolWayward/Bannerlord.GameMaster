@@ -1,5 +1,6 @@
 using System;
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Cultures;
 
 namespace Bannerlord.GameMaster.Console.Common
 {

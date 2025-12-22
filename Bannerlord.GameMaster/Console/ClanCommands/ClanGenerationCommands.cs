@@ -14,6 +14,7 @@ using TaleWorlds.Core;
 using TaleWorlds.ObjectSystem;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Cultures;
 
 namespace Bannerlord.GameMaster.Console.ClanCommands
 {
