@@ -184,12 +184,19 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 					var clans = Clan.NonBanditFactions.ToArray();
 					List<Hero> createdHeroes = new List<Hero>();
 					
+					// Group by clan to use efficient batch creation that generates proper names
+					var clansToUse = new List<Clan>();
 					for (int i = 0; i < count; i++)
 					{
-						Clan randomClan = clans[RandomNumberGen.Instance.NextRandomInt(clans.Length)];
-						Hero lord = HeroGenerator.CreateLord($"Lord_{i}", cultureFlags, genderFlags, randomClan, withParty: true, randomFactor);
-						if (lord != null)
-							createdHeroes.Add(lord);
+						clansToUse.Add(clans[RandomNumberGen.Instance.NextRandomInt(clans.Length)]);
+					}
+					
+					// Create lords in batches per clan using the batch method that generates culture-appropriate names
+					var groupedClans = clansToUse.GroupBy(c => c);
+					foreach (var clanGroup in groupedClans)
+					{
+						List<Hero> clanLords = HeroGenerator.CreateLords(clanGroup.Count(), cultureFlags, genderFlags, clanGroup.Key, withParties: true, randomFactor);
+						createdHeroes.AddRange(clanLords);
 					}
 					
 					if (createdHeroes.Count == 0)

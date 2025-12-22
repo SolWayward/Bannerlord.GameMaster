@@ -18,7 +18,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Run all registered tests
         /// Usage: gm.test.run_all
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("run_all", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("run_all", "gm.z_deprecated_test")]
         public static string RunAllTests(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -52,7 +52,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Run tests in a specific category
         /// Usage: gm.test.run_category HeroQuery
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("run_category", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("run_category", "gm.z_deprecated_test")]
         public static string RunTestsByCategory(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -86,7 +86,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Run a specific test by ID
         /// Usage: gm.test.run_single test_hero_query_001
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("run_single", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("run_single", "gm.z_deprecated_test")]
         public static string RunSingleTest(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -119,7 +119,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// List all registered tests
         /// Usage: gm.test.list [category]
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("list", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("list", "gm.z_deprecated_test")]
         public static string ListTests(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -185,7 +185,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Show results from last test run
         /// Usage: gm.test.last_results [verbose]
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("last_results", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("last_results", "gm.z_deprecated_test")]
         public static string ShowLastResults(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -228,7 +228,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Clear all registered tests
         /// Usage: gm.test.clear
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("clear", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("clear", "gm.z_deprecated_test")]
         public static string ClearTests(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -249,7 +249,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Register standard tests for validation
         /// Usage: gm.test.register_standard
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("register_standard", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("register_standard", "gm.z_deprecated_test")]
         public static string RegisterStandardTests(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -270,7 +270,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Register integration tests that validate game state changes
         /// Usage: gm.test.register_integration
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("register_integration", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("register_integration", "gm.z_deprecated_test")]
         public static string RegisterIntegrationTests(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -291,7 +291,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Register all available tests (standard + integration)
         /// Usage: gm.test.register_all
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("register_all", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("register_all", "gm.z_deprecated_test")]
         public static string RegisterAllTests(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -314,7 +314,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Register all tests and run them
         /// Usage: gm.test.register_all_run
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("register_all_run", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("register_all_run", "gm.z_deprecated_test")]
         public static string RegisterAllAndRun(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";
@@ -356,7 +356,7 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Show help for test commands
         /// Usage: gm.test.help
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("help", "z_deprecated_test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("help", "gm.z_deprecated_test")]
         public static string ShowHelp(List<string> args)
         {
             return "deprecated: tests need to be updated to use to command system syntax and methods";

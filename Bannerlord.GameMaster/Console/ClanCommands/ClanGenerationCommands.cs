@@ -153,8 +153,8 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 		[CommandLineFunctionality.CommandLineArgumentFunction("generate_clans", "gm.clan")]
 		public static string GenerateClans(List<string> args)
 		{
-			return Cmd.Run(args, () =>
-			{
+			//return Cmd.Run(args, () =>
+			//{
 				if (!CommandBase.ValidateCampaignMode(out string error))
 					return error;
 
@@ -252,8 +252,8 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 				// Display argument header
 				string argumentDisplay = parsedArgs.FormatArgumentDisplay("generate_clans", resolvedValues);
 
-				return CommandBase.ExecuteWithErrorHandling(() =>
-				{
+				//return CommandBase.ExecuteWithErrorHandling(() =>
+				//{
 					List<Clan> clans = ClanGenerator.GenerateClans(count, cultureFlags, kingdom, createParties, companionCount);
 
 					if (clans == null || clans.Count == 0)
@@ -266,8 +266,8 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 					return argumentDisplay + CommandBase.FormatSuccessMessage(
 						$"Generated {clans.Count} clan(s){kingdomInfo}{partyInfo}{companionInfo}:\n" +
 						ClanQueries.GetFormattedDetails(clans));
-				}, "Failed to generate clans");
-			});
+				//}, "Failed to generate clans");
+			//});
 		}
 
 		//MARK: create_minor_clan
