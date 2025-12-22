@@ -8,6 +8,8 @@ namespace Bannerlord.GameMaster.Console.Testing
 {
     /// <summary>
     /// Integration tests that validate actual game state changes
+    /// Tests all use older command syntax and methods and will likely fail.
+    /// Need to update tests, but not likely for a while
     /// </summary>
     public static class IntegrationTests
     {

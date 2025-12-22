@@ -7,6 +7,8 @@ namespace Bannerlord.GameMaster.Console.Testing
     /// <summary>
     /// Unit tests for the 3-tier name-matching priority system in CommandBase.ResolveMultipleMatches()
     /// Tests the priority order: Exact Match > Prefix Match > Substring Match
+    /// Tests all use older command syntax and methods and will likely fail.
+    /// Need to update tests, but not likely for a while
     /// </summary>
     public static class NamePriorityTests
     {

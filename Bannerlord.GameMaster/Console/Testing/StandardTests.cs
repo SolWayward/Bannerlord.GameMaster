@@ -4,6 +4,8 @@ namespace Bannerlord.GameMaster.Console.Testing
 {
     /// <summary>
     /// Contains standard test definitions for validating console commands
+    /// Tests all use older command syntax and methods and will likely fail.
+    /// Need to update tests, but not likely for a while
     /// </summary>
     public static class StandardTests
     {

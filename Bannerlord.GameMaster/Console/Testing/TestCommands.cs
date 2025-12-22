@@ -4,37 +4,41 @@ using System.Linq;
 using Bannerlord.GameMaster.Console.Common;
 using TaleWorlds.Library;
 
+#pragma warning disable CS0162 // Unreachable code detected
+
 namespace Bannerlord.GameMaster.Console.Testing
 {
     /// <summary>
     /// Console commands for running automated tests
     /// </summary>
-    [CommandLineFunctionality.CommandLineArgumentFunction("test", "gm")]
+    [CommandLineFunctionality.CommandLineArgumentFunction("z_deprecated_test", "gm")]
     public static class TestCommands
     {
         /// <summary>
         /// Run all registered tests
         /// Usage: gm.test.run_all
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("run_all", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("run_all", "z_deprecated_test")]
         public static string RunAllTests(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             return Cmd.Run(args, () =>
             {
                 try
                 {
                     var tests = TestRunner.GetRegisteredTests();
-                    
+
                     if (tests.Count == 0)
                     {
                         return "No tests are registered. Use gm.test.list to see available tests.\n";
                     }
 
                     InformationManager.DisplayMessage(new InformationMessage($"Running {tests.Count} tests..."));
-                    
+
                     var results = TestRunner.RunAllTests();
                     string report = TestRunner.GenerateReport(results);
-                    
+
                     return report;
                 }
                 catch (Exception ex)
@@ -48,9 +52,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Run tests in a specific category
         /// Usage: gm.test.run_category HeroQuery
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("run_category", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("run_category", "z_deprecated_test")]
         public static string RunTestsByCategory(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             if (args == null || args.Count == 0)
             {
                 return "Error: Please specify a category.\nUsage: gm.test.run_category <category>\n" +
@@ -61,7 +67,7 @@ namespace Bannerlord.GameMaster.Console.Testing
             {
                 string category = args[0];
                 var results = TestRunner.RunTestsByCategory(category);
-                
+
                 if (results.Count == 0)
                 {
                     return $"No tests found in category '{category}'.\nUse gm.test.list to see available categories.\n";
@@ -80,9 +86,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Run a specific test by ID
         /// Usage: gm.test.run_single test_hero_query_001
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("run_single", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("run_single", "z_deprecated_test")]
         public static string RunSingleTest(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             if (args == null || args.Count == 0)
             {
                 return "Error: Please specify a test ID.\nUsage: gm.test.run_single <test_id>\n" +
@@ -93,7 +101,7 @@ namespace Bannerlord.GameMaster.Console.Testing
             {
                 string testId = args[0];
                 var result = TestRunner.RunTestById(testId);
-                
+
                 if (result == null)
                 {
                     return $"Test '{testId}' not found.\nUse gm.test.list to see available tests.\n";
@@ -111,26 +119,28 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// List all registered tests
         /// Usage: gm.test.list [category]
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("list", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("list", "z_deprecated_test")]
         public static string ListTests(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             return Cmd.Run(args, () =>
             {
                 try
                 {
                     var tests = TestRunner.GetRegisteredTests();
-                    
+
                     if (tests.Count == 0)
                     {
                         return "No tests are registered.\n";
                     }
 
                     string filterCategory = args != null && args.Count > 0 ? args[0] : null;
-                    
+
                     if (!string.IsNullOrEmpty(filterCategory))
                     {
                         tests = tests.Where(t => string.Equals(t.Category, filterCategory, StringComparison.OrdinalIgnoreCase)).ToList();
-                        
+
                         if (tests.Count == 0)
                         {
                             return $"No tests found in category '{filterCategory}'.\n";
@@ -141,23 +151,23 @@ namespace Bannerlord.GameMaster.Console.Testing
 
                     // Group by category
                     var byCategory = tests.GroupBy(t => t.Category ?? "Uncategorized");
-                    
+
                     foreach (var category in byCategory.OrderBy(g => g.Key))
                     {
                         output += $"Category: {category.Key} ({category.Count()} tests)\n";
                         output += new string('-', 50) + "\n";
-                        
+
                         foreach (var test in category.OrderBy(t => t.TestId))
                         {
                             output += $"  [{test.TestId}] {test.Description}\n";
                             output += $"    Command: {test.Command}\n";
                             output += $"    Expects: {test.Expectation}";
-                            
+
                             if (!string.IsNullOrEmpty(test.ExpectedText))
                             {
                                 output += $" (contains: '{test.ExpectedText}')";
                             }
-                            
+
                             output += "\n\n";
                         }
                     }
@@ -175,19 +185,21 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Show results from last test run
         /// Usage: gm.test.last_results [verbose]
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("last_results", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("last_results", "z_deprecated_test")]
         public static string ShowLastResults(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             try
             {
                 var results = TestRunner.GetLastResults();
-                
+
                 if (results.Count == 0)
                 {
                     return "No test results available. Run tests first with gm.test.run_all\n";
                 }
 
-                bool verbose = args != null && args.Count > 0 && 
+                bool verbose = args != null && args.Count > 0 &&
                               (args[0].Equals("verbose", StringComparison.OrdinalIgnoreCase) ||
                                args[0].Equals("true", StringComparison.OrdinalIgnoreCase));
 
@@ -216,9 +228,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Clear all registered tests
         /// Usage: gm.test.clear
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("clear", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("clear", "z_deprecated_test")]
         public static string ClearTests(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             try
             {
                 int count = TestRunner.GetRegisteredTests().Count;
@@ -235,9 +249,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Register standard tests for validation
         /// Usage: gm.test.register_standard
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("register_standard", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("register_standard", "z_deprecated_test")]
         public static string RegisterStandardTests(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             try
             {
                 StandardTests.RegisterAll();
@@ -254,9 +270,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Register integration tests that validate game state changes
         /// Usage: gm.test.register_integration
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("register_integration", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("register_integration", "z_deprecated_test")]
         public static string RegisterIntegrationTests(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             try
             {
                 IntegrationTests.RegisterAll();
@@ -273,9 +291,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Register all available tests (standard + integration)
         /// Usage: gm.test.register_all
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("register_all", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("register_all", "z_deprecated_test")]
         public static string RegisterAllTests(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             try
             {
                 TestRunner.ClearTests();
@@ -294,9 +314,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Register all tests and run them
         /// Usage: gm.test.register_all_run
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("register_all_run", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("register_all_run", "z_deprecated_test")]
         public static string RegisterAllAndRun(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             return Cmd.Run(args, () =>
             {
                 try
@@ -317,10 +339,10 @@ namespace Bannerlord.GameMaster.Console.Testing
                     }
 
                     InformationManager.DisplayMessage(new InformationMessage($"Running {tests.Count} tests..."));
-                    
+
                     var results = TestRunner.RunAllTests();
                     string report = TestRunner.GenerateReport(results);
-                    
+
                     return result + report;
                 }
                 catch (Exception ex)
@@ -334,9 +356,11 @@ namespace Bannerlord.GameMaster.Console.Testing
         /// Show help for test commands
         /// Usage: gm.test.help
         /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("help", "gm.test")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("help", "z_deprecated_test")]
         public static string ShowHelp(List<string> args)
         {
+            return "deprecated: tests need to be updated to use to command system syntax and methods";
+
             return "=== GAME MASTER TEST COMMANDS ===\n\n" +
                    "Test Management:\n" +
                    "  gm.test.register_standard      - Register standard validation tests\n" +
@@ -359,3 +383,5 @@ namespace Bannerlord.GameMaster.Console.Testing
         }
     }
 }
+
+#pragma warning restore CS0162 // Unreachable code detected

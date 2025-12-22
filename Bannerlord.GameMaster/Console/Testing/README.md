@@ -2,6 +2,9 @@
 
 This directory contains the automated testing infrastructure for Game Master console commands.
 
+Tests all use older command syntax and methods and will likely fail.
+Need to update tests, but not likely for a while
+
 ## Overview
 
 The test automation system allows you to:
