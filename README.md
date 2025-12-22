@@ -5,40 +5,10 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.11.4
+## Latest Update 1.3.11.5
 ```
-Revamped Clan Generation
-   Generated clans now act like normal clans, and get recruited by npc kingdoms or by player kingdom or can be specified to join kingdom directly
-   Generated clans also are initialized with the clan leader having a decent party and a couple of companions in his party
-   Added custom names to extend name pool for random names
-
-   Added generate_clans command
-   added rename clan command
-   added command to change clan's culture
-
-Hero Commands
-   Create lord commands now only make the lord a party leader if the clan is not at their max allowed parties for their tier
-   Otherwise the lord is created as a regular family member. (create party command can override this)
-   
-   Added commands to add basic, elite, merc, or mixed troops
-   Added command to move hero to specified party.
-   Added command to create companion in specified party
-   Added command to create party for any hero gm.hero.create_party
-   Added command to change a hero's culture
-   Added custom names to extend name pool for random names
-   fixed issues of heroes not being created properly
-
-Combined Arguments (Culture)
-   Changed combined arguments to use commas (,) instead of semi-colon(;) (Game would treat a semi colon as two commands)
-   gm.clan.generate_clans 10 vlandia,battania,empire
-   
-Named Arguments: 
-   Added option to specify any optional parmeter in any position using colon notation with the arguments with no space between the colon and argName.
-   This makes it so you dont have to specify all optional positional arguments to just specify one optional arguement at the end ie:
-   gm.hero.generate_lords 10 gender:female
-   
-   You can still specify the optional argument without name by using standard argument positioning. Mixed positional and named arguments also work
-   gm.hero.generate_lords 12 main_cultures female
+Fixed create_companions creating heroes as family members instead of companions
+Fixed hero and clan generation not using correct names
 ```
 ## Key Features
 
