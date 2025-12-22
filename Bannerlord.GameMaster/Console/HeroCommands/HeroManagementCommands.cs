@@ -719,7 +719,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 
         /// MARK: add_hero_to_party
         /// <summary>
-        /// Add a hero to another hero's party as a companion. Hero leaves their current party if already in one.
+        /// Add a hero to another hero's party. Hero leaves their current party if already in one.
         /// Usage: gm.hero.add_hero_to_party [hero] [partyLeader]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("add_hero_to_party", "gm.hero")]
@@ -812,8 +812,10 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
                         hero.PartyBelongedTo.MemberRoster.RemoveTroop(hero.CharacterObject);
                     }
 
-                    // Add hero to the target party using the extension method
-                    partyLeader.PartyBelongedTo.AddCompanionToParty(hero);
+                    if (hero.Occupation == Occupation.Wanderer)
+                        partyLeader.PartyBelongedTo.AddCompanionToParty(hero);
+                    else
+                        partyLeader.PartyBelongedTo.AddLordToParty(hero);
 
                     return argumentDisplay + CommandBase.FormatSuccessMessage(
                         $"{hero.Name} has joined {partyLeader.Name}'s party.\n" +

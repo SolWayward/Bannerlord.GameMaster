@@ -593,7 +593,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
 					// Create companions using new architecture
-					List<Hero> companions = HeroGenerator.CreateCompanions(count, cultureFlags, genderFlags, hero.Clan, randomFactor);
+					List<Hero> companions = HeroGenerator.CreateCompanions(count, cultureFlags, genderFlags, randomFactor);
 
 					if (companions == null || companions.Count == 0)
 						return argumentDisplay + CommandBase.FormatErrorMessage("Failed to create companions - no templates found matching criteria");

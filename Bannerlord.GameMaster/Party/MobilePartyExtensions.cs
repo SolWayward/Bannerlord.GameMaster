@@ -1,35 +1,57 @@
 using System;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Party;
 
 namespace Bannerlord.GameMaster.Party
 {
 	public static class MobilePartyExtensions
-	{
-		#region Companions
+	{	
+		/// MARK: Companions
 		/// <summary>
 		/// Adds the specified hero as a companion to the leader's party
 		/// </summary>
 		public static void AddCompanionToParty(this MobileParty mobileParty, Hero hero)
 		{
-			hero.Clan = mobileParty.LeaderHero.Clan;  // Move to clan
+			// Use the game's built-in action which handles CompanionOf properly
+			AddCompanionAction.Apply(mobileParty.LeaderHero.Clan, hero);
 			mobileParty.AddElementToMemberRoster(hero.CharacterObject, 1);
 			hero.ChangeState(Hero.CharacterStates.Active);
 		}
 
 		/// <summary>
-		/// Adds the specified list of heroes as companions to the leader's party
+		/// Adds the specified list of companions to the leader's party
 		/// </summary>
 		public static void AddCompanionsToParty(this MobileParty mobileParty, List<Hero> heroes)
 		{
 			foreach (Hero hero in heroes)
 				mobileParty.AddCompanionToParty(hero);
 		}
+		
+		/// MARK: Lords
+		/// <summary>
+		/// Adds the specified lord to the leader's party
+		/// </summary>
+		public static void AddLordToParty(this MobileParty mobileParty, Hero hero)
+		{
+			hero.Clan = mobileParty.LeaderHero.Clan;  // Move to clan
+			
+			mobileParty.AddElementToMemberRoster(hero.CharacterObject, 1);
+			hero.ChangeState(Hero.CharacterStates.Active);
+		}
 
-		#endregion
-		#region Troops
+		/// <summary>
+		/// Adds the specified list of lords to the leader's party
+		/// </summary>
+		public static void AddLordsToParty(this MobileParty mobileParty, List<Hero> heroes)
+		{
+			foreach (Hero hero in heroes)
+				mobileParty.AddLordToParty(hero);
+		}
 
+
+		/// MARK: Troops
 		/// <summary>
 		/// Adds the specified ammount of elite troops from the party leader's culture
 		/// </summary>
@@ -72,7 +94,5 @@ namespace Bannerlord.GameMaster.Party
 			AddEliteTroops(mobileParty, countOfEach);
 			AddMercenaryTroops(mobileParty, countOfEach);
 		}
-
-		#endregion
 	}
 }

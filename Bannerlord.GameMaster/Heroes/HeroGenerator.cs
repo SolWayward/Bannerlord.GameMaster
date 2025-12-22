@@ -111,7 +111,7 @@ namespace Bannerlord.GameMaster.Heroes
 			public static void InitializeAsWanderer(Hero hero, Settlement settlement)
 			{
 				hero.Clan = null;
-				hero.SetNewOccupation(Occupation.Wanderer);
+				hero.SetNewOccupation(Occupation.Wanderer); // Crashes if not set to wanderer when you talk to them
 				hero.IsMinorFactionHero = false;
 				hero.EquipHeroBasedOnCulture();
 				hero.Gold = 1000;
@@ -134,6 +134,7 @@ namespace Bannerlord.GameMaster.Heroes
 			public static void InitializeAsCompanion(Hero hero)
 			{
 				// Keep clan assignment (should be set by caller)
+				hero.SetNewOccupation(Occupation.Lord); // Ensures character is lord (if wanderer the backstory dialog shows error text. Still functions like a wanderer)
 				hero.IsMinorFactionHero = false;
 				hero.ChangeState(Hero.CharacterStates.Active);
 				hero.EquipHeroBasedOnCulture();
@@ -143,7 +144,7 @@ namespace Bannerlord.GameMaster.Heroes
 				// CRITICAL: Initialize hero to set IsInitialized = true
 				hero.Initialize();
 				
-				// Don't set occupation or place in settlement - hero is ready for party addition
+				// Don't place in settlement - hero is ready for party addition
 			}
 
 			/// MARK: CleanupHeroState
@@ -272,7 +273,7 @@ namespace Bannerlord.GameMaster.Heroes
 			/// Creates heroes ready to be added as party companions (no settlement state). Layer 3: Convenience method, automatically performing layer 1 and 2 operations.
 			/// Use MobilePartyExtensions.AddCompanionsToParty() after calling this method.
 			/// </summary>
-			public static List<Hero> CreateCompanions(int count, CultureFlags cultureFlags, GenderFlags genderFlags = GenderFlags.Either, Clan clan = null, float randomFactor = 0.5f)
+			public static List<Hero> CreateCompanions(int count, CultureFlags cultureFlags, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5f)
 			{
 				List<Hero> companions = new List<Hero>();
 				CharacterTemplatePooler templatePooler = new CharacterTemplatePooler();
@@ -284,7 +285,7 @@ namespace Bannerlord.GameMaster.Heroes
 					string randomName = CultureLookup.GetUniqueRandomHeroName(character.Culture, character.IsFemale);
 					TextObject nameObj = new TextObject(randomName);
 		
-					Hero hero = CreateBasicHero(character, nameObj, -1, clan);
+					Hero hero = CreateBasicHero(character, nameObj, -1);
 					InitializeAsCompanion(hero);
 					
 					companions.Add(hero);

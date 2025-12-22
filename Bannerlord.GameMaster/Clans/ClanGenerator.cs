@@ -123,7 +123,7 @@ namespace Bannerlord.GameMaster.Clans
 			// Add companions to party if party exists and companions requested
 			if (leader.PartyBelongedTo != null && companionCount > 0)
 			{
-				List<Hero> companions = HeroGenerator.CreateCompanions(companionCount, leader.Culture.ToCultureFlag(), clan: clan, randomFactor: 1);
+				List<Hero> companions = HeroGenerator.CreateCompanions(companionCount, leader.Culture.ToCultureFlag(), randomFactor: 1);
 				leader.PartyBelongedTo.AddCompanionsToParty(companions);
 			}
 
