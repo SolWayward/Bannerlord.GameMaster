@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "Bannerlord",
-            "type": "coreclr",
+            "type": "clr",
             "request": "launch",
             "preLaunchTask": "build bannerlord",
             "postDebugTask": "copy-test-results",

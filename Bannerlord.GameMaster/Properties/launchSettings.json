@@ -5,7 +5,8 @@
       "executablePath": "$(BANNERLORD_GAME_DIR)\\bin\\$(GameBinariesFolder)\\Bannerlord.exe",
       "commandLineArgs": "/singleplayer /continuegame_MODULES_*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*NavalDLC*$(ModuleId)*_MODULES_",
       "workingDirectory": "$(BANNERLORD_GAME_DIR)\\bin\\Win64_Shipping_Client",
-      "nativeDebugging": false
+      "nativeDebugging": true,
+      "suppressJITOptimizations":true
     },
     "BLSE Bannerlord": {
       "commandName": "Executable",

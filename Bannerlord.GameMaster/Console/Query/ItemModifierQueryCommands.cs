@@ -79,7 +79,7 @@ namespace Bannerlord.GameMaster.Console.Query
 
         /// <summary>
         /// Get detailed information about a specific modifier
-        /// Usage: gm.query.modifier_info <modifier_name>
+        /// Usage: gm.query.modifier_info &lt;modifier_name&gt;
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("modifier_info", "gm.query")]
         public static string QueryModifierInfo(List<string> args)

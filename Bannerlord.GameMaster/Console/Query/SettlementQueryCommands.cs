@@ -148,7 +148,7 @@ namespace Bannerlord.GameMaster.Console.Query
 
         /// <summary>
         /// Get detailed info about a specific settlement by ID
-        /// Usage: gm.query.settlement_info <settlementId>
+        /// Usage: gm.query.settlement_info &lt;settlementId&gt;
         /// Example: gm.query.settlement_info town_empire_1
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("settlement_info", "gm.query")]

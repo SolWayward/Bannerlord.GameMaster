@@ -29,35 +29,71 @@ namespace Bannerlord.GameMaster.Console.TroopCommands
                 // Create usage message
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.troops.give_hero_troops", "<hero_query> <character_query> <count>",
-                    "Gives characters/troops to a hero's party. Accepts any CharacterObject including dancers, refugees, etc.",
+                    "Gives characters/troops to a hero's party. Accepts any CharacterObject including dancers, refugees, etc.\n" +
+                    "Supports named arguments: hero:player character:imperial_recruit count:10",
                     "gm.troops.give_hero_troops player imperial_recruit 10");
 
-                // Validate argument count (exactly 3)
-                if (!CommandBase.ValidateArgumentCount(args, 3, usageMessage, out error))
-                    return error;
+                // Parse arguments
+                var parsedArgs = CommandBase.ParseArguments(args);
 
-                // Find hero
-                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                // Define valid arguments
+                parsedArgs.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("hero", true),
+                    new CommandBase.ArgumentDefinition("character", true, null, "troop"),
+                    new CommandBase.ArgumentDefinition("count", true)
+                );
+
+                // Validate
+                string validationError = parsedArgs.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
+                if (parsedArgs.TotalCount < 3)
+                    return usageMessage;
+
+                // Parse hero
+                string heroArg = parsedArgs.GetArgument("hero", 0);
+                if (heroArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'hero'.");
+
+                var (hero, heroError) = CommandBase.FindSingleHero(heroArg);
                 if (heroError != null) return heroError;
 
-                // Find character (accepts any CharacterObject including dancers, refugees, etc.)
-                var (character, characterError) = CommandBase.FindSingleCharacterObject(args[1]);
+                // Parse character
+                string characterArg = parsedArgs.GetArgument("character", 1) ?? parsedArgs.GetNamed("troop");
+                if (characterArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'character'.");
+
+                var (character, characterError) = CommandBase.FindSingleCharacterObject(characterArg);
                 if (characterError != null) return characterError;
 
                 // Validate character is not a hero
                 if (character.IsHero)
                     return CommandBase.FormatErrorMessage($"{character.Name} is a hero and cannot be added as a troop.");
 
-                // Validate count (1 to 10000)
-                if (!CommandValidator.ValidateIntegerRange(args[2], 1, 10000, out int count, out string countError))
+                // Parse count
+                string countArg = parsedArgs.GetArgument("count", 2);
+                if (countArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'count'.");
+
+                if (!CommandValidator.ValidateIntegerRange(countArg, 1, 10000, out int count, out string countError))
                     return CommandBase.FormatErrorMessage(countError);
+
+                // Build display
+                var resolvedValues = new Dictionary<string, string>
+                {
+                    { "hero", hero.Name.ToString() },
+                    { "character", character.Name.ToString() },
+                    { "count", count.ToString() }
+                };
+                string argumentDisplay = parsedArgs.FormatArgumentDisplay("give_hero_troops", resolvedValues);
 
                 // Execute the operation with error handling
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     // Check hero has a party
                     if (hero.PartyBelongedTo == null)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
 
                     // Check if hero is the party leader
                     bool isPartyLeader = hero.PartyBelongedTo.LeaderHero == hero;
@@ -79,7 +115,7 @@ namespace Bannerlord.GameMaster.Console.TroopCommands
                         result.AppendLine($"Party: {hero.PartyBelongedTo.Name}");
                     }
 
-                    return CommandBase.FormatSuccessMessage(result.ToString());
+                    return argumentDisplay + CommandBase.FormatSuccessMessage(result.ToString());
                 }, "Failed to give troops");
             });
         }
@@ -99,31 +135,64 @@ namespace Bannerlord.GameMaster.Console.TroopCommands
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.troops.add_basic", "<partyLeader> <count>",
-                    "Adds basic tier troops from the party leader's culture to their party.",
+                    "Adds basic tier troops from the party leader's culture to their party.\n" +
+                    "Supports named arguments: partyLeader:derthert count:50",
                     "gm.troops.add_basic derthert 50\n" +
                     "gm.troops.add_basic player 100");
 
-                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
-                    return error;
+                // Parse arguments
+                var parsedArgs = CommandBase.ParseArguments(args);
 
-                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                // Define valid arguments
+                parsedArgs.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("partyLeader", true, null, "leader"),
+                    new CommandBase.ArgumentDefinition("count", true)
+                );
+
+                // Validate
+                string validationError = parsedArgs.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
+                if (parsedArgs.TotalCount < 2)
+                    return usageMessage;
+
+                // Parse partyLeader
+                string leaderArg = parsedArgs.GetArgument("partyLeader", 0) ?? parsedArgs.GetNamed("leader");
+                if (leaderArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'partyLeader'.");
+
+                var (hero, heroError) = CommandBase.FindSingleHero(leaderArg);
                 if (heroError != null) return heroError;
 
-                if (!CommandValidator.ValidateIntegerRange(args[1], 1, 10000, out int count, out string countError))
+                // Parse count
+                string countArg = parsedArgs.GetArgument("count", 1);
+                if (countArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'count'.");
+
+                if (!CommandValidator.ValidateIntegerRange(countArg, 1, 10000, out int count, out string countError))
                     return CommandBase.FormatErrorMessage(countError);
+
+                // Build display
+                var resolvedValues = new Dictionary<string, string>
+                {
+                    { "partyLeader", hero.Name.ToString() },
+                    { "count", count.ToString() }
+                };
+                string argumentDisplay = parsedArgs.FormatArgumentDisplay("add_basic", resolvedValues);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     if (hero.PartyBelongedTo == null)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
 
                     if (hero.PartyBelongedTo.LeaderHero != hero)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
 
                     hero.PartyBelongedTo.AddBasicTroops(count);
 
                     string troopName = hero.Culture?.BasicTroop?.Name?.ToString() ?? "basic troops";
-                    return CommandBase.FormatSuccessMessage(
+                    return argumentDisplay + CommandBase.FormatSuccessMessage(
                         $"Added {count}x {troopName} to {hero.Name}'s party.\n" +
                         $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
                 }, "Failed to add basic troops");
@@ -145,31 +214,64 @@ namespace Bannerlord.GameMaster.Console.TroopCommands
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.troops.add_elite", "<partyLeader> <count>",
-                    "Adds elite tier troops from the party leader's culture to their party.",
+                    "Adds elite tier troops from the party leader's culture to their party.\n" +
+                    "Supports named arguments: partyLeader:derthert count:30",
                     "gm.troops.add_elite derthert 30\n" +
                     "gm.troops.add_elite player 50");
 
-                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
-                    return error;
+                // Parse arguments
+                var parsedArgs = CommandBase.ParseArguments(args);
 
-                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                // Define valid arguments
+                parsedArgs.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("partyLeader", true, null, "leader"),
+                    new CommandBase.ArgumentDefinition("count", true)
+                );
+
+                // Validate
+                string validationError = parsedArgs.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
+                if (parsedArgs.TotalCount < 2)
+                    return usageMessage;
+
+                // Parse partyLeader
+                string leaderArg = parsedArgs.GetArgument("partyLeader", 0) ?? parsedArgs.GetNamed("leader");
+                if (leaderArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'partyLeader'.");
+
+                var (hero, heroError) = CommandBase.FindSingleHero(leaderArg);
                 if (heroError != null) return heroError;
 
-                if (!CommandValidator.ValidateIntegerRange(args[1], 1, 10000, out int count, out string countError))
+                // Parse count
+                string countArg = parsedArgs.GetArgument("count", 1);
+                if (countArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'count'.");
+
+                if (!CommandValidator.ValidateIntegerRange(countArg, 1, 10000, out int count, out string countError))
                     return CommandBase.FormatErrorMessage(countError);
+
+                // Build display
+                var resolvedValues = new Dictionary<string, string>
+                {
+                    { "partyLeader", hero.Name.ToString() },
+                    { "count", count.ToString() }
+                };
+                string argumentDisplay = parsedArgs.FormatArgumentDisplay("add_elite", resolvedValues);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     if (hero.PartyBelongedTo == null)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
 
                     if (hero.PartyBelongedTo.LeaderHero != hero)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
 
                     hero.PartyBelongedTo.AddEliteTroops(count);
 
                     string troopName = hero.Culture?.EliteBasicTroop?.Name?.ToString() ?? "elite troops";
-                    return CommandBase.FormatSuccessMessage(
+                    return argumentDisplay + CommandBase.FormatSuccessMessage(
                         $"Added {count}x {troopName} to {hero.Name}'s party.\n" +
                         $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
                 }, "Failed to add elite troops");
@@ -191,30 +293,63 @@ namespace Bannerlord.GameMaster.Console.TroopCommands
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.troops.add_mercenary", "<partyLeader> <count>",
-                    "Adds random mercenary troops from the party leader's culture to their party.",
+                    "Adds random mercenary troops from the party leader's culture to their party.\n" +
+                    "Supports named arguments: partyLeader:derthert count:20",
                     "gm.troops.add_mercenary derthert 20\n" +
                     "gm.troops.add_mercenary player 40");
 
-                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
-                    return error;
+                // Parse arguments
+                var parsedArgs = CommandBase.ParseArguments(args);
 
-                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                // Define valid arguments
+                parsedArgs.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("partyLeader", true, null, "leader"),
+                    new CommandBase.ArgumentDefinition("count", true)
+                );
+
+                // Validate
+                string validationError = parsedArgs.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
+                if (parsedArgs.TotalCount < 2)
+                    return usageMessage;
+
+                // Parse partyLeader
+                string leaderArg = parsedArgs.GetArgument("partyLeader", 0) ?? parsedArgs.GetNamed("leader");
+                if (leaderArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'partyLeader'.");
+
+                var (hero, heroError) = CommandBase.FindSingleHero(leaderArg);
                 if (heroError != null) return heroError;
 
-                if (!CommandValidator.ValidateIntegerRange(args[1], 1, 10000, out int count, out string countError))
+                // Parse count
+                string countArg = parsedArgs.GetArgument("count", 1);
+                if (countArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'count'.");
+
+                if (!CommandValidator.ValidateIntegerRange(countArg, 1, 10000, out int count, out string countError))
                     return CommandBase.FormatErrorMessage(countError);
+
+                // Build display
+                var resolvedValues = new Dictionary<string, string>
+                {
+                    { "partyLeader", hero.Name.ToString() },
+                    { "count", count.ToString() }
+                };
+                string argumentDisplay = parsedArgs.FormatArgumentDisplay("add_mercenary", resolvedValues);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     if (hero.PartyBelongedTo == null)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
 
                     if (hero.PartyBelongedTo.LeaderHero != hero)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
 
                     hero.PartyBelongedTo.AddMercenaryTroops(count);
 
-                    return CommandBase.FormatSuccessMessage(
+                    return argumentDisplay + CommandBase.FormatSuccessMessage(
                         $"Added {count}x random mercenary troops from {hero.Culture?.Name} culture to {hero.Name}'s party.\n" +
                         $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
                 }, "Failed to add mercenary troops");
@@ -237,31 +372,64 @@ namespace Bannerlord.GameMaster.Console.TroopCommands
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.troops.add_mixed", "<partyLeader> <countOfEach>",
                     "Adds mixed tier troops to the party. The count specifies how many of EACH type (basic, elite, mercenary) to add.\n" +
-                    "For example, countOfEach=10 will add 30 total troops: 10 basic + 10 elite + 10 mercenary.",
+                    "For example, countOfEach=10 will add 30 total troops: 10 basic + 10 elite + 10 mercenary.\n" +
+                    "Supports named arguments: partyLeader:derthert countOfEach:15",
                     "gm.troops.add_mixed derthert 15\n" +
                     "gm.troops.add_mixed player 20");
 
-                if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
-                    return error;
+                // Parse arguments
+                var parsedArgs = CommandBase.ParseArguments(args);
 
-                var (hero, heroError) = CommandBase.FindSingleHero(args[0]);
+                // Define valid arguments
+                parsedArgs.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("partyLeader", true, null, "leader"),
+                    new CommandBase.ArgumentDefinition("countOfEach", true, null, "count")
+                );
+
+                // Validate
+                string validationError = parsedArgs.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
+                if (parsedArgs.TotalCount < 2)
+                    return usageMessage;
+
+                // Parse partyLeader
+                string leaderArg = parsedArgs.GetArgument("partyLeader", 0) ?? parsedArgs.GetNamed("leader");
+                if (leaderArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'partyLeader'.");
+
+                var (hero, heroError) = CommandBase.FindSingleHero(leaderArg);
                 if (heroError != null) return heroError;
 
-                if (!CommandValidator.ValidateIntegerRange(args[1], 1, 3000, out int countOfEach, out string countError))
+                // Parse countOfEach
+                string countArg = parsedArgs.GetArgument("countOfEach", 1) ?? parsedArgs.GetNamed("count");
+                if (countArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'countOfEach'.");
+
+                if (!CommandValidator.ValidateIntegerRange(countArg, 1, 3000, out int countOfEach, out string countError))
                     return CommandBase.FormatErrorMessage(countError);
+
+                // Build display
+                var resolvedValues = new Dictionary<string, string>
+                {
+                    { "partyLeader", hero.Name.ToString() },
+                    { "countOfEach", countOfEach.ToString() }
+                };
+                string argumentDisplay = parsedArgs.FormatArgumentDisplay("add_mixed", resolvedValues);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     if (hero.PartyBelongedTo == null)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
 
                     if (hero.PartyBelongedTo.LeaderHero != hero)
-                        return CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
 
                     hero.PartyBelongedTo.AddMixedTierTroops(countOfEach);
 
                     int totalAdded = countOfEach * 3;
-                    return CommandBase.FormatSuccessMessage(
+                    return argumentDisplay + CommandBase.FormatSuccessMessage(
                         $"Added {totalAdded} mixed tier troops to {hero.Name}'s party ({countOfEach} of each: basic, elite, mercenary).\n" +
                         $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
                 }, "Failed to add mixed troops");

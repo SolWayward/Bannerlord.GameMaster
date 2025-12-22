@@ -224,7 +224,7 @@ namespace Bannerlord.GameMaster.Console.Query
 
         /// <summary>
         /// Get detailed info about a specific troop by ID
-        /// Usage: gm.query.troop_info <troopId>
+        /// Usage: gm.query.troop_info &lt;troopId&gt;
         /// Example: gm.query.troop_info imperial_legionary
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("troop_info", "gm.query")]

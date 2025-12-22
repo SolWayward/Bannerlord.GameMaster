@@ -9,7 +9,7 @@ namespace Bannerlord.GameMaster.Console.Common
 		/// <summary>
 		/// Parse culture argument into CultureFlags
 		/// Supports groups: main_cultures, bandit_cultures, all_cultures
-		/// Supports individual cultures separated by semicolon: vlandia;battania;empire
+		/// Supports individual cultures separated by comma: vlandia,battania,empire
 		/// </summary>
 		public static CultureFlags ParseCultureArgument(string cultureArg)
 		{
@@ -23,9 +23,9 @@ namespace Bannerlord.GameMaster.Console.Common
 			if (lowerArg == "all_cultures")
 				return CultureFlags.AllCultures;
 
-			// Parse individual cultures separated by semicolon
+			// Parse individual cultures separated by comma
 			CultureFlags flags = CultureFlags.None;
-			string[] cultures = cultureArg.Split(';');
+			string[] cultures = cultureArg.Split(',');
 
 			foreach (string culture in cultures)
 			{

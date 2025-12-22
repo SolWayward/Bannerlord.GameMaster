@@ -135,7 +135,7 @@ namespace Bannerlord.GameMaster.Console.Query
 
         /// <summary>
         /// Get detailed info about a specific culture by ID
-        /// Usage: gm.query.culture_info <cultureId>
+        /// Usage: gm.query.culture_info &lt;cultureId&gt;
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("culture_info", "gm.query")]
         public static string QueryCultureInfo(List<string> args)

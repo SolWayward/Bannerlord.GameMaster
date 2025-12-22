@@ -19,6 +19,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
     {
         #region Inventory Management
 
+        /// MARK: add
         /// <summary>
         /// Add item(s) to a hero's party inventory
         /// Usage: gm.item.add [item_query] [count] [hero_query] [modifier]
@@ -31,6 +32,18 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("item", true),
+                    new CommandBase.ArgumentDefinition("count", true),
+                    new CommandBase.ArgumentDefinition("hero", true),
+                    new CommandBase.ArgumentDefinition("modifier", false, "None")
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.item.add", "<item_query> <count> <hero_query> [modifier]",
                     "Adds item(s) to a hero's party inventory with optional quality modifier.",
@@ -41,20 +54,25 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
                 if (!CommandBase.ValidateArgumentCount(args, 3, usageMessage, out error))
                     return error;
 
+                string itemQuery = parsed.GetArgument("item", 0);
+                string countStr = parsed.GetArgument("count", 1);
+                string heroQuery = parsed.GetArgument("hero", 2);
+
                 // Find item
-                var (item, itemError) = CommandBase.FindSingleItem(args[0]);
+                var (item, itemError) = CommandBase.FindSingleItem(itemQuery);
                 if (itemError != null) return itemError;
 
                 // Validate count
-                if (!CommandValidator.ValidateIntegerRange(args[1], 1, 10000, out int count, out string countError))
+                if (!CommandValidator.ValidateIntegerRange(countStr, 1, 10000, out int count, out string countError))
                     return CommandBase.FormatErrorMessage(countError);
 
                 // Find hero
-                var (hero, heroError) = CommandBase.FindSingleHero(args[2]);
+                var (hero, heroError) = CommandBase.FindSingleHero(heroQuery);
                 if (heroError != null) return heroError;
 
                 // Parse optional modifier
                 ItemModifier modifier = null;
+                string modifierText = "None";
                 if (args.Count > 3)
                 {
                     string modifierName = string.Join(" ", args.Skip(3));
@@ -67,6 +85,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
                         return CommandBase.FormatErrorMessage($"{item.Name} cannot have quality modifiers.");
                     
                     modifier = parsedModifier;
+                    modifierText = modifier?.Name?.ToString() ?? "None";
                 }
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
@@ -77,13 +96,23 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
                     EquipmentElement equipElement = new EquipmentElement(item, modifier);
                     hero.PartyBelongedTo.ItemRoster.AddToCounts(equipElement, count);
 
-                    string modifierText = modifier != null ? $" ({modifier.Name})" : "";
-                    return CommandBase.FormatSuccessMessage(
-                        $"Added {count}x {item.Name}{modifierText} to {hero.Name}'s party inventory.");
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["item"] = item.Name.ToString(),
+                        ["count"] = count.ToString(),
+                        ["hero"] = hero.Name.ToString(),
+                        ["modifier"] = modifierText
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.item.add", resolvedValues);
+                    string modText = modifier != null ? $" ({modifier.Name})" : "";
+                    return display + CommandBase.FormatSuccessMessage(
+                        $"Added {count}x {item.Name}{modText} to {hero.Name}'s party inventory.");
                 }, "Failed to add item");
             });
         }
 
+        /// MARK: remove
         /// <summary>
         /// Remove specific item(s) from a hero's party inventory
         /// Usage: gm.item.remove [item_query] [count] [hero_query]
@@ -96,6 +125,17 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("item", true),
+                    new CommandBase.ArgumentDefinition("count", true),
+                    new CommandBase.ArgumentDefinition("hero", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.item.remove", "<item_query> <count> <hero_query>",
                     "Removes specific item(s) from a hero's party inventory.",
@@ -104,13 +144,17 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
                 if (!CommandBase.ValidateArgumentCount(args, 3, usageMessage, out error))
                     return error;
 
-                var (item, itemError) = CommandBase.FindSingleItem(args[0]);
+                string itemQuery = parsed.GetArgument("item", 0);
+                string countStr = parsed.GetArgument("count", 1);
+                string heroQuery = parsed.GetArgument("hero", 2);
+
+                var (item, itemError) = CommandBase.FindSingleItem(itemQuery);
                 if (itemError != null) return itemError;
 
-                if (!CommandValidator.ValidateIntegerRange(args[1], 1, 10000, out int count, out string countError))
+                if (!CommandValidator.ValidateIntegerRange(countStr, 1, 10000, out int count, out string countError))
                     return CommandBase.FormatErrorMessage(countError);
 
-                var (hero, heroError) = CommandBase.FindSingleHero(args[2]);
+                var (hero, heroError) = CommandBase.FindSingleHero(heroQuery);
                 if (heroError != null) return heroError;
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
@@ -123,12 +167,22 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
                         return CommandBase.FormatErrorMessage($"{hero.Name}'s party only has {currentCount}x {item.Name}, cannot remove {count}.");
 
                     hero.PartyBelongedTo.ItemRoster.AddToCounts(item, -count);
-                    return CommandBase.FormatSuccessMessage(
+
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["item"] = item.Name.ToString(),
+                        ["count"] = count.ToString(),
+                        ["hero"] = hero.Name.ToString()
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.item.remove", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Removed {count}x {item.Name} from {hero.Name}'s party inventory.");
                 }, "Failed to remove item");
             });
         }
 
+        /// MARK: remove_all
         /// <summary>
         /// Remove all items from a hero's party inventory
         /// Usage: gm.item.remove_all [hero_query]
@@ -166,6 +220,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: transfer
         /// <summary>
         /// Transfer item from one hero's party to another
         /// Usage: gm.item.transfer [item_query] [count] [from_hero] [to_hero]
@@ -222,6 +277,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
 
         #region Equipment Management
 
+        /// MARK: unequip_all
         /// <summary>
         /// Unequip all items from a hero and add them back to inventory (both battle and civilian equipment)
         /// Usage: gm.item.unequip_all [hero_query]
@@ -302,6 +358,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: remove_equipped
         /// <summary>
         /// Remove all equipped items from a hero (both battle and civilian equipment) - items are deleted
         /// Usage: gm.item.remove_equipped [hero_query]
@@ -352,6 +409,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: equip 
         /// <summary>
         /// Equip a specific item to a hero (auto-detects appropriate slot)
         /// Usage: gm.item.equip [item_query] [hero_query] [civilian]
@@ -397,6 +455,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: unequip
         /// <summary>
         /// Unequip a specific item if it's currently equipped
         /// Usage: gm.item.unequip [item_query] [hero_query]
@@ -462,6 +521,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: equip_slot
         /// <summary>
         /// Equip item to specific equipment slot
         /// Usage: gm.item.equip_slot [item_query] [hero_query] [slot] [civilian]
@@ -507,6 +567,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: unequip_slot
         /// <summary>
         /// Unequip item from specific equipment slot
         /// Usage: gm.item.unequip_slot [hero_query] [slot] [civilian]
@@ -557,6 +618,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: list_equiped
         /// <summary>
         /// List all equipped items on a hero
         /// Usage: gm.item.list_equipped [hero_query]
@@ -630,6 +692,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
 
         #region Modifier Management
 
+        /// MARK: set_equipped_modifier
         /// <summary>
         /// Change modifier on all equipped items for a hero (battle and civilian)
         /// Usage: gm.item.set_equipped_modifier [hero_query] [modifier]
@@ -709,6 +772,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: set_inventory_modifier
         /// <summary>
         /// Change modifier on all compatible items in a hero's party inventory
         /// Usage: gm.item.set_inventory_modifier [hero_query] [modifier]
@@ -798,6 +862,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: remove_equipped_modifier
         /// <summary>
         /// Remove modifiers from all equipped items for a hero
         /// Usage: gm.item.remove_equipped_modifier [hero_query]
@@ -862,6 +927,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
 
         #region Equipment Save/Load
 
+        /// MARK: save_equipment
         /// <summary>
         /// Save hero's main/battle equipment set to a JSON file
         /// Usage: gm.item.save_equipment [hero_query] [filename]
@@ -906,6 +972,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: save_equipment_civilian
         /// <summary>
         /// Save hero's civilian equipment set to a JSON file
         /// Usage: gm.item.save_equipment_civilian [hero_query] [filename]
@@ -950,6 +1017,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: save_equipment_both
         /// <summary>
         /// Save both battle and civilian equipment sets to JSON files
         /// Usage: gm.item.save_equipment_both [hero_query] [filename]
@@ -1005,6 +1073,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: load_equipment
         /// <summary>
         /// Load hero's main/battle equipment set from a JSON file
         /// Usage: gm.item.load_equipment [hero_query] [filename]
@@ -1064,6 +1133,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: load_equipment_civilian
         /// <summary>
         /// Load hero's civilian equipment set from a JSON file
         /// Usage: gm.item.load_equipment_civilian [hero_query] [filename]
@@ -1123,6 +1193,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands
             });
         }
 
+        /// MARK: load_equipment_both
         /// <summary>
         /// Load both battle and civilian equipment sets from JSON files
         /// Usage: gm.item.load_equipment_both [hero_query] [filename]

@@ -11,14 +11,27 @@ namespace Bannerlord.GameMaster
     public class ObjectManager
     {
         private static readonly Lazy<ObjectManager> _instance = new(() => new());
+        private List<string> objectStringIds;
 
         public static ObjectManager Instance => _instance.Value;
-        public List<string> ObjectStringIds  { get; private set; }
 
         // Private constructor to prevent external instantiation
         private ObjectManager()
         {
-            ObjectStringIds = new();
+            objectStringIds = new();
+        }
+
+        /// <summary>
+        /// Makes objects created with blgm easily identifiable by adding blgm_ prefix and adding to object list
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private string RegisterObject(string input)
+        {
+            input = $"blgm_{input}";
+            objectStringIds.Add(input);
+
+            return input;
         }
 
         private string CreateUniqueIdentifier()
@@ -34,6 +47,11 @@ namespace Bannerlord.GameMaster
             return stringToClean.ToLower();
         }
 
+        public string[] GetObjectIds()
+        {
+            return objectStringIds.ToArray();
+        }
+
         /// <summary>
         /// Return a unique string to use as a stringID for objects
         /// </summary>
@@ -41,8 +59,7 @@ namespace Bannerlord.GameMaster
         {
             string stringID = $"object_{CreateUniqueIdentifier()}";
 
-            ObjectStringIds.Add(stringID);
-            return stringID;
+            return RegisterObject(stringID);
         }
 
         /// <summary>
@@ -53,8 +70,7 @@ namespace Bannerlord.GameMaster
             string typeName = CleanString(type.Name);
             string stringID = $"{typeName}_{CreateUniqueIdentifier()}";
 
-            ObjectStringIds.Add(stringID);
-            return stringID;
+            return RegisterObject(stringID);
         }
 
         /// <summary>
@@ -65,8 +81,7 @@ namespace Bannerlord.GameMaster
             string name = CleanString(nameObj.ToString());
             string stringID = $"object_{name}_{CreateUniqueIdentifier()}";
 
-            ObjectStringIds.Add(stringID);
-            return stringID;
+            return RegisterObject(stringID);
         }
 
         /// <summary>
@@ -79,8 +94,8 @@ namespace Bannerlord.GameMaster
 
             string stringID = $"{typeName}_{name}_{CreateUniqueIdentifier()}";
 
-            ObjectStringIds.Add(stringID);
-            return stringID;
+
+            return RegisterObject(stringID);
         }
     }
 }

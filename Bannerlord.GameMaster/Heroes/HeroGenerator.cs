@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Console.HeroCommands;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
@@ -36,17 +37,18 @@ namespace Bannerlord.GameMaster.Heroes
 			/// </summary>
 			/// <param name="sourceCharacter">Character to create hero from (Lord or Wanderer occupation only)</param>
 			/// <param name="nameObj">Hero's name as TextObject</param>
-			/// <param name="age">Hero's age (defaults to random between 20-30)</param>
+			/// <param name="age">Hero's age (defaults to random between 18-30, and is forced to be atleast 18)</param>
 			/// <param name="clan">Hero's clan (can be null for wanderers)</param>
 			/// <returns">Created hero with occupation to be set by Initialize methods</returns>
 			private static Hero CreateBasicHero(CharacterObject sourceCharacter, TextObject nameObj, int age = -1, Clan clan = null)
 			{
-				if (age < 0)
-					age = RandomNumberGen.Instance.NextRandomInt(20, 31);
-	
+				if (age < 18) //Prevents growing up prompts having to select a attribute
+					age = RandomNumberGen.Instance.NextRandomInt(18, 31);
+				
 				string stringId = ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Hero));
 				
 				Hero hero = HeroCreator.CreateSpecialHero(sourceCharacter, age: age);
+				
 				hero.StringId = stringId;
 				hero.SetName(nameObj, nameObj);
 				hero.PreferredUpgradeFormation = FormationClass.Cavalry;
@@ -71,7 +73,7 @@ namespace Bannerlord.GameMaster.Heroes
 			/// </summary>
 			/// <param name="hero">Hero to initialize as Lord</param>
 			/// <param name="homeSettlement">Settlement for hero's home (used for party spawn if creating party)</param>
-			/// <param name="createParty">If true, creates a party for the lord (default: true)</param>
+			/// <param name="createParty">If true, creates a party for the lord if clan in below commander limit(default: true)</param>
 			public static void InitializeAsLord(Hero hero, Settlement homeSettlement, bool createParty = true)
 			{
 				if (hero.Clan == null)
@@ -84,7 +86,7 @@ namespace Bannerlord.GameMaster.Heroes
 				hero.Gold = 10000;
 				hero.Level = 10;
 		
-				if (createParty && hero.Clan.WarPartyComponents.Count < 6)
+				if (createParty && hero.Clan.WarPartyComponents.Count < hero.Clan.CommanderLimit)
 				{
 					hero.CreateParty(homeSettlement ?? hero.GetHomeOrAlternativeSettlement());
 				}
@@ -176,7 +178,7 @@ namespace Bannerlord.GameMaster.Heroes
 			/// <param name="cultureFlags">Culture pool to select from</param>
 			/// <param name="genderFlags">Gender selection</param>
 			/// <param name="clan">Clan for the lord (required)</param>
-			/// <param name="withParty">If true, creates a party for the lord</param>
+			/// <param name="withParty">If true, creates a party for the lord if clan is below commander limit</param>
 			/// <param name="randomFactor">Appearance randomization factor (0-1)</param>
 			/// <returns>Created and initialized lord</returns>
 			public static Hero CreateLord(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParty = true, float randomFactor = 0.5f)
@@ -197,6 +199,7 @@ namespace Bannerlord.GameMaster.Heroes
 			/// MARK: CreateLords
 			/// <summary>
 			/// Creates multiple lords with random names from culture.
+			/// <param name="withParty">If true, creates a party for each lord if clan is below commander limit</param>
 			/// </summary>
 			public static List<Hero> CreateLords(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParties = true, float randomFactor = 0.5f)
 			{

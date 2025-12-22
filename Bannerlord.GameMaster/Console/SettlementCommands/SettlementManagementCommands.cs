@@ -36,6 +36,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("hero", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.set_owner", "<settlement> <hero>",
                     "Changes the settlement owner to the specified hero. Also updates the owner clan to the hero's clan and map faction to the hero's faction (if any).",
@@ -44,13 +54,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string heroQuery = parsed.GetArgument("hero", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.");
 
-                var (hero, heroError) = CommandBase.FindSingleHero(args[1]);
+                var (hero, heroError) = CommandBase.FindSingleHero(heroQuery);
                 if (heroError != null) return heroError;
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
@@ -62,7 +75,14 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     // Set owner if city or castle
                     settlement.Town.OwnerClan = hero.Clan;
 
-                    return CommandBase.FormatSuccessMessage(
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["hero"] = hero.Name.ToString()
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.set_owner", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) ownership changed:\n" +
                         $"Owner: {previousOwner} -> {settlement.Owner?.Name?.ToString() ?? "None"}\n" +
                         $"Owner Clan: {previousClan} -> {settlement.OwnerClan?.Name?.ToString() ?? "None"}\n" +
@@ -83,6 +103,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("clan", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.set_owner_clan", "<settlement> <clan>",
                     "Changes the settlement owner clan to the specified clan. Also updates the owner to the clan leader and map faction to the clan's kingdom (if any).",
@@ -91,13 +121,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string clanQuery = parsed.GetArgument("clan", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.");
 
-                var (clan, clanError) = CommandBase.FindSingleClan(args[1]);
+                var (clan, clanError) = CommandBase.FindSingleClan(clanQuery);
                 if (clanError != null) return clanError;
 
                 if (clan.Leader == null)
@@ -112,7 +145,14 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     // Set Owner if city or castle
                     settlement.Town.OwnerClan = clan;
 
-                    return CommandBase.FormatSuccessMessage(
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["clan"] = clan.Name.ToString()
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.set_owner_clan", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) ownership changed:\n" +
                         $"Owner: {previousOwner} -> {settlement.Owner?.Name?.ToString() ?? "None"}\n" +
                         $"Owner Clan: {previousClan} -> {settlement.OwnerClan?.Name?.ToString() ?? "None"}\n" +
@@ -133,6 +173,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("kingdom", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.set_owner_kingdom", "<settlement> <kingdom>",
                     "Changes the settlement owner kingdom. Also updates the owner to the kingdom ruler, owner clan to the ruler's clan, and map faction to the kingdom.",
@@ -141,13 +191,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string kingdomQuery = parsed.GetArgument("kingdom", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.");
 
-                var (kingdom, kingdomError) = CommandBase.FindSingleKingdom(args[1]);
+                var (kingdom, kingdomError) = CommandBase.FindSingleKingdom(kingdomQuery);
                 if (kingdomError != null) return kingdomError;
 
                 if (kingdom.Leader == null)
@@ -165,7 +218,14 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     // Set owner if castle or town
                     settlement.Town.OwnerClan = kingdom.RulingClan;
 
-                    return CommandBase.FormatSuccessMessage(
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["kingdom"] = kingdom.Name.ToString()
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.set_owner_kingdom", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) ownership changed:\n" +
                         $"Owner: {previousOwner} -> {settlement.Owner?.Name?.ToString() ?? "None"}\n" +
                         $"Owner Clan: {previousClan} -> {settlement.OwnerClan?.Name?.ToString() ?? "None"}\n" +
@@ -190,6 +250,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("value", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.set_prosperity", "<settlement> <value>",
                     "Sets the prosperity of a city or castle.",
@@ -198,20 +268,31 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string valueStr = parsed.GetArgument("value", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
 
-                if (!CommandValidator.ValidateFloatRange(args[1], 0, 20000, out float value, out string valueError))
+                if (!CommandValidator.ValidateFloatRange(valueStr, 0, 20000, out float value, out string valueError))
                     return CommandBase.FormatErrorMessage(valueError);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     float previousValue = settlement.Town.Prosperity;
                     settlement.Town.Prosperity = value;
-                    return CommandBase.FormatSuccessMessage(
+
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["value"] = value.ToString("F0")
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.set_prosperity", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) prosperity changed from {previousValue:F0} to {settlement.Town.Prosperity:F0}.");
                 }, "Failed to set prosperity");
             });
@@ -229,6 +310,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("value", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.set_hearths", "<settlement> <value>",
                     "Sets the hearth value of a village.",
@@ -237,20 +328,31 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string valueStr = parsed.GetArgument("value", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Village == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a village.");
 
-                if (!CommandValidator.ValidateFloatRange(args[1], 0, 2000, out float value, out string valueError))
+                if (!CommandValidator.ValidateFloatRange(valueStr, 0, 2000, out float value, out string valueError))
                     return CommandBase.FormatErrorMessage(valueError);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     float previousValue = settlement.Village.Hearth;
                     settlement.Village.Hearth = value;
-                    return CommandBase.FormatSuccessMessage(
+
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["value"] = value.ToString("F0")
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.set_hearths", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Village '{settlement.Name}' (ID: {settlement.StringId}) hearth changed from {previousValue:F0} to {settlement.Village.Hearth:F0}.");
                 }, "Failed to set hearths");
             });
@@ -268,6 +370,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("name", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.rename", "<settlement> <new_name>",
                     "Changes the name of any settlement type (city, castle, village, hideout).\n" +
@@ -278,10 +390,12 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string newName = parsed.GetArgument("name", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
-                string newName = args[1];
                 if (string.IsNullOrWhiteSpace(newName))
                     return CommandBase.FormatErrorMessage("New name cannot be empty.");
 
@@ -298,7 +412,14 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     if (!behavior.RenameSettlement(settlement, newName))
                         return CommandBase.FormatErrorMessage("Failed to rename settlement. Check the error log for details.");
 
-                    return CommandBase.FormatSuccessMessage(
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = previousName,
+                        ["name"] = newName
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.rename", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement renamed from '{previousName}' to '{settlement.Name}' (ID: {settlement.StringId}).\n" +
                         $"The new name will persist through save/load cycles.\n" +
                         $"Note: Map label may take a moment to update.");
@@ -318,6 +439,15 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.reset_name", "<settlement>",
                     "Restores a settlement to its original name.",
@@ -326,7 +456,9 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
@@ -344,7 +476,13 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     if (!behavior.ResetSettlementName(settlement))
                         return CommandBase.FormatErrorMessage("Failed to reset settlement name. Check the error log for details.");
 
-                    return CommandBase.FormatSuccessMessage(
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = currentName
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.reset_name", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement name reset from '{currentName}' to '{settlement.Name}' (original: '{originalName}') (ID: {settlement.StringId}).");
                 }, "Failed to reset settlement name");
             });
@@ -400,6 +538,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("culture", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.set_culture", "<settlement> <culture>",
                     "Changes the culture of a settlement. This affects available troops, architecture style, and names.\n" +
@@ -409,17 +557,19 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string cultureQuery = parsed.GetArgument("culture", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 // Find the culture
-                string cultureQuery = args[1].ToLower();
                 var culture = Campaign.Current.ObjectManager.GetObjectTypeList<CultureObject>()
-                    .FirstOrDefault(c => c.StringId.ToLower().Contains(cultureQuery) ||
-                                        c.Name.ToString().ToLower().Contains(cultureQuery));
+                    .FirstOrDefault(c => c.StringId.ToLower().Contains(cultureQuery.ToLower()) ||
+                                        c.Name.ToString().ToLower().Contains(cultureQuery.ToLower()));
 
                 if (culture == null)
-                    return CommandBase.FormatErrorMessage($"Culture not found matching '{args[1]}'. Valid cultures include: empire, sturgia, aserai, vlandia, battania, khuzait.");
+                    return CommandBase.FormatErrorMessage($"Culture not found matching '{cultureQuery}'. Valid cultures include: empire, sturgia, aserai, vlandia, battania, khuzait.");
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
@@ -428,7 +578,14 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     // Set culture (this is a public property with setter, no reflection needed)
                     settlement.Culture = culture;
 
-                    return CommandBase.FormatSuccessMessage(
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["culture"] = culture.Name.ToString()
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.set_culture", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) culture changed from '{previousCulture}' to '{settlement.Culture.Name}'.\n" +
                         $"This change persists through save/load automatically.");
                 }, "Failed to change settlement culture");
@@ -447,6 +604,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("value", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.set_loyalty", "<settlement> <value>",
                     "Sets the loyalty of a city or castle (0-100).",
@@ -455,20 +622,31 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string valueStr = parsed.GetArgument("value", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
 
-                if (!CommandValidator.ValidateFloatRange(args[1], 0, 100, out float value, out string valueError))
+                if (!CommandValidator.ValidateFloatRange(valueStr, 0, 100, out float value, out string valueError))
                     return CommandBase.FormatErrorMessage(valueError);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     float previousValue = settlement.Town.Loyalty;
                     settlement.Town.Loyalty = value;
-                    return CommandBase.FormatSuccessMessage(
+
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["value"] = value.ToString("F1")
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.set_loyalty", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) loyalty changed from {previousValue:F1} to {settlement.Town.Loyalty:F1}.");
                 }, "Failed to set loyalty");
             });
@@ -486,6 +664,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("value", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.set_security", "<settlement> <value>",
                     "Sets the security of a city or castle (0-100).",
@@ -494,20 +682,31 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string valueStr = parsed.GetArgument("value", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
 
-                if (!CommandValidator.ValidateFloatRange(args[1], 0, 100, out float value, out string valueError))
+                if (!CommandValidator.ValidateFloatRange(valueStr, 0, 100, out float value, out string valueError))
                     return CommandBase.FormatErrorMessage(valueError);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     float previousValue = settlement.Town.Security;
                     settlement.Town.Security = value;
-                    return CommandBase.FormatSuccessMessage(
+
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["value"] = value.ToString("F1")
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.set_security", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) security changed from {previousValue:F1} to {settlement.Town.Security:F1}.");
                 }, "Failed to set security");
             });
@@ -529,6 +728,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("level", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.upgrade_buildings", "<settlement> <level>",
                     "Upgrades all buildings in a city or castle to the specified level (0-3). WARNING: Level 4+ will crash the game.",
@@ -537,13 +746,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string levelStr = parsed.GetArgument("level", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
 
-                if (!CommandValidator.ValidateIntegerRange(args[1], 0, 3, out int targetLevel, out string levelError))
+                if (!CommandValidator.ValidateIntegerRange(levelStr, 0, 3, out int targetLevel, out string levelError))
                     return CommandBase.FormatErrorMessage(levelError);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
@@ -564,10 +776,18 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                         }
                     }
 
-                    if (upgradedCount == 0)
-                        return CommandBase.FormatSuccessMessage($"All buildings in '{settlement.Name}' are already at level {targetLevel} or higher.");
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["level"] = targetLevel.ToString()
+                    };
 
-                    return CommandBase.FormatSuccessMessage(
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.upgrade_buildings", resolvedValues);
+
+                    if (upgradedCount == 0)
+                        return display + CommandBase.FormatSuccessMessage($"All buildings in '{settlement.Name}' are already at level {targetLevel} or higher.");
+
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}): upgraded {upgradedCount} building(s) to level {targetLevel}, {skippedCount} already at or above target level.");
                 }, "Failed to upgrade buildings");
             });
@@ -585,6 +805,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("amount", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.give_food", "<settlement> <amount>",
                     "Adds food to a settlement's food stock.",
@@ -593,20 +823,31 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string amountStr = parsed.GetArgument("amount", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
 
-                if (!CommandValidator.ValidateFloatRange(args[1], -100000, 100000, out float amount, out string amountError))
+                if (!CommandValidator.ValidateFloatRange(amountStr, -100000, 100000, out float amount, out string amountError))
                     return CommandBase.FormatErrorMessage(amountError);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     float previousValue = settlement.Town.FoodStocks;
                     settlement.Town.FoodStocks += amount;
-                    return CommandBase.FormatSuccessMessage(
+
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["amount"] = amount.ToString("F0")
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.give_food", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) food stocks changed from {previousValue:F0} to {settlement.Town.FoodStocks:F0} ({(amount >= 0 ? "+" : "")}{amount:F0}).");
                 }, "Failed to give food");
             });
@@ -624,6 +865,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("amount", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.give_gold", "<settlement> <amount>",
                     "Adds gold to a settlement's treasury.",
@@ -632,20 +883,31 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string amountStr = parsed.GetArgument("amount", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
 
-                if (!CommandValidator.ValidateIntegerRange(args[1], int.MinValue, int.MaxValue, out int amount, out string amountError))
+                if (!CommandValidator.ValidateIntegerRange(amountStr, int.MinValue, int.MaxValue, out int amount, out string amountError))
                     return CommandBase.FormatErrorMessage(amountError);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     int previousValue = settlement.Town.Gold;
                     settlement.Town.ChangeGold(amount);
-                    return CommandBase.FormatSuccessMessage(
+
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["amount"] = amount.ToString()
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.give_gold", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) gold changed from {previousValue} to {settlement.Town.Gold} ({(amount >= 0 ? "+" : "")}{amount}).");
                 }, "Failed to give gold");
             });
@@ -667,6 +929,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("amount", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.add_militia", "<settlement> <amount>",
                     "Adds militia troops to a city or castle.",
@@ -675,20 +947,31 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string amountStr = parsed.GetArgument("amount", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
                     return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
 
-                if (!CommandValidator.ValidateFloatRange(args[1], 0, 1000, out float amount, out string amountError))
+                if (!CommandValidator.ValidateFloatRange(amountStr, 0, 1000, out float amount, out string amountError))
                     return CommandBase.FormatErrorMessage(amountError);
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
                     float previousValue = settlement.Militia;
                     settlement.Militia += amount;
-                    return CommandBase.FormatSuccessMessage(
+
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["amount"] = amount.ToString("F0")
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.add_militia", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) militia changed from {previousValue:F0} to {settlement.Militia:F0} (+{amount:F0}).");
                 }, "Failed to add militia");
             });
@@ -706,6 +989,15 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.fill_garrison", "<settlement>",
                     "Fills the garrison to maximum capacity using a mix of troops already present.",
@@ -714,7 +1006,9 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (settlement.Town == null)
@@ -730,8 +1024,15 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     int maxSize = garrison.Party.PartySizeLimit;
                     int spaceAvailable = maxSize - currentSize;
 
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString()
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.fill_garrison", resolvedValues);
+
                     if (spaceAvailable <= 0)
-                        return CommandBase.FormatSuccessMessage($"Settlement '{settlement.Name}' garrison is already at maximum capacity ({currentSize}/{maxSize}).");
+                        return display + CommandBase.FormatSuccessMessage($"Settlement '{settlement.Name}' garrison is already at maximum capacity ({currentSize}/{maxSize}).");
 
                     // Get existing troops and their proportions
                     var troopTypes = new List<(CharacterObject troop, int count)>();
@@ -744,7 +1045,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     }
 
                     if (troopTypes.Count == 0)
-                        return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' has no troops to use as template for filling.");
+                        return display + CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' has no troops to use as template for filling.");
 
                     // Calculate total existing troops for proportions
                     int totalExisting = troopTypes.Sum(t => t.count);
@@ -773,7 +1074,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                         addedCount += remaining;
                     }
 
-                    return CommandBase.FormatSuccessMessage(
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) garrison filled from {currentSize} to {garrison.MemberRoster.TotalManCount} (+{addedCount}).");
                 }, "Failed to fill garrison");
             });
@@ -796,6 +1097,15 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true)
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.create_notable_caravan", "<settlement>",
                     "Creates a new caravan in the specified settlement owned by a notable who doesn't have one yet.",
@@ -804,7 +1114,9 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (!settlement.IsTown)
@@ -835,7 +1147,13 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     if (caravan == null)
                         return CommandBase.FormatErrorMessage("Failed to create caravan party.");
 
-                    return CommandBase.FormatSuccessMessage(
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString()
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.create_notable_caravan", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Created caravan in '{settlement.Name}' (ID: {settlement.StringId}) owned by notable {caravanOwner.Name}.");
                 }, "Failed to create notable caravan");
             });
@@ -853,6 +1171,16 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateCampaignMode(out string error))
                     return error;
 
+                var parsed = CommandBase.ParseArguments(args);
+                parsed.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("settlement", true),
+                    new CommandBase.ArgumentDefinition("leader", false, "Auto-selected")
+                );
+
+                string validationError = parsed.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
                 var usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.settlement.create_player_caravan", "<settlement> [leader_hero]",
                     "Creates a new caravan for the player's clan. Optionally specify a companion hero to lead it.",
@@ -861,7 +1189,10 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
                     return error;
 
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(args[0]);
+                string settlementQuery = parsed.GetArgument("settlement", 0);
+                string leaderQuery = parsed.GetArgument("leader", 1);
+
+                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 if (!settlement.IsTown)
@@ -872,9 +1203,9 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     Hero caravanLeader = null;
                     
                     // Check if a specific leader was requested
-                    if (args.Count > 1)
+                    if (!string.IsNullOrEmpty(leaderQuery))
                     {
-                        var (hero, heroError) = CommandBase.FindSingleHero(args[1]);
+                        var (hero, heroError) = CommandBase.FindSingleHero(leaderQuery);
                         if (heroError != null) return heroError;
                         
                         if (hero.Clan != Clan.PlayerClan)
@@ -915,7 +1246,14 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
                     string leaderInfo = caravanLeader != null ? $" led by {caravanLeader.Name}" : " (no leader assigned)";
                     
-                    return CommandBase.FormatSuccessMessage(
+                    var resolvedValues = new Dictionary<string, string>
+                    {
+                        ["settlement"] = settlement.Name.ToString(),
+                        ["leader"] = caravanLeader?.Name?.ToString() ?? "Auto-selected"
+                    };
+
+                    string display = parsed.FormatArgumentDisplay("gm.settlement.create_player_caravan", resolvedValues);
+                    return display + CommandBase.FormatSuccessMessage(
                         $"Created player caravan in '{settlement.Name}' (ID: {settlement.StringId}){leaderInfo}.\n" +
                         $"The caravan will generate trade profits for your clan.");
                 }, "Failed to create player caravan");
@@ -941,11 +1279,13 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     "- name: optional, custom name for the wanderer. Use SINGLE QUOTES for multi-word names. If not provided, generates random name\n" +
                     "- cultures: optional, defines the pool of cultures allowed. Defaults to main_cultures\n" +
                     "- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n" +
-                    "- randomFactor: optional, float value between 0 and 1. defaults to 0.5\n",
+                    "- randomFactor: optional, float value between 0 and 1. defaults to 0.5\n" +
+                    "Supports named arguments: settlement:pen name:'Wandering Bard' cultures:vlandia,battania gender:female\n",
                     "gm.settlement.spawn_wanderer pen\n" +
                     "gm.settlement.spawn_wanderer pen 'Wandering Bard'\n" +
                     "gm.settlement.spawn_wanderer pen null vlandia female\n" +
-                    "gm.settlement.spawn_wanderer zeonica 'Skilled Archer' empire;aserai male 0.8");
+                    "gm.settlement.spawn_wanderer settlement:zeonica name:'Skilled Archer' cultures:empire,aserai gender:male\n" +
+                    "gm.settlement.spawn_wanderer zeonica 'Skilled Archer' empire,aserai male 0.8");
           
                 if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
                     return error;

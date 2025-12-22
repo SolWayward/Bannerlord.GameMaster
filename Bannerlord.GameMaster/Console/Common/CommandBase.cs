@@ -526,6 +526,243 @@ namespace Bannerlord.GameMaster.Console.Common
 
         #endregion
 
+        #region Named Argument Parser
+
+        /// <summary>
+        /// Represents a command argument definition for validation and display
+        /// </summary>
+        public class ArgumentDefinition
+        {
+            public string Name { get; set; }
+            public bool IsRequired { get; set; }
+            public string DefaultDisplay { get; set; }
+            public List<string> Aliases { get; set; } = new List<string>();
+
+            public ArgumentDefinition(string name, bool isRequired, string defaultDisplay = null, params string[] aliases)
+            {
+                Name = name;
+                IsRequired = isRequired;
+                DefaultDisplay = defaultDisplay;
+                if (aliases != null)
+                    Aliases.AddRange(aliases);
+            }
+        }
+
+        /// <summary>
+        /// Parses command arguments into a structure supporting both positional and named arguments.
+        /// Named arguments use format argName:argContent (no spaces around colon).
+        /// Example: count:5 name:'Sir Galahad' culture:vlandia
+        /// </summary>
+        public class ParsedArguments
+        {
+            private readonly Dictionary<string, string> _namedArgs = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            private readonly List<string> _positionalArgs = new List<string>();
+            private readonly List<string> _allArgs = new List<string>();
+            private readonly List<string> _unknownNamedArgs = new List<string>();
+            private List<ArgumentDefinition> _validArguments;
+
+            public ParsedArguments(List<string> args)
+            {
+                if (args == null || args.Count == 0)
+                    return;
+
+                // Process each argument
+                foreach (string arg in args)
+                {
+                    _allArgs.Add(arg);
+
+                    // Check if this is a named argument (contains : without spaces)
+                    int colonIndex = arg.IndexOf(':');
+                    if (colonIndex > 0 && colonIndex < arg.Length - 1)
+                    {
+                        string name = arg.Substring(0, colonIndex).Trim();
+                        string value = arg.Substring(colonIndex + 1);
+                        
+                        // Only treat as named argument if name doesn't contain spaces
+                        if (!name.Contains(" "))
+                        {
+                            _namedArgs[name] = value;
+                            continue;
+                        }
+                    }
+
+                    // Not a named argument, treat as positional
+                    _positionalArgs.Add(arg);
+                }
+            }
+
+            /// <summary>
+            /// Sets valid argument definitions for this command and validates
+            /// </summary>
+            public void SetValidArguments(params ArgumentDefinition[] definitions)
+            {
+                _validArguments = new List<ArgumentDefinition>(definitions);
+                ValidateNamedArguments();
+            }
+
+            /// <summary>
+            /// Validates that all named arguments match defined argument names (case-insensitive)
+            /// </summary>
+            private void ValidateNamedArguments()
+            {
+                if (_validArguments == null || _validArguments.Count == 0)
+                    return;
+
+                _unknownNamedArgs.Clear();
+
+                foreach (var namedArgKey in _namedArgs.Keys)
+                {
+                    bool found = false;
+                    foreach (var def in _validArguments)
+                    {
+                        if (def.Name.Equals(namedArgKey, StringComparison.OrdinalIgnoreCase))
+                        {
+                            found = true;
+                            break;
+                        }
+                        // Check aliases
+                        foreach (var alias in def.Aliases)
+                        {
+                            if (alias.Equals(namedArgKey, StringComparison.OrdinalIgnoreCase))
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (found) break;
+                    }
+
+                    if (!found)
+                        _unknownNamedArgs.Add(namedArgKey);
+                }
+            }
+
+            /// <summary>
+            /// Gets validation error if unknown named arguments were found
+            /// </summary>
+            public string GetValidationError()
+            {
+                if (_unknownNamedArgs.Count == 0)
+                    return null;
+
+                string validNames = _validArguments != null
+                    ? string.Join(", ", _validArguments.Select(a => a.Name + (a.Aliases.Count > 0 ? "/" + string.Join("/", a.Aliases) : "")))
+                    : "none defined";
+
+                return $"Unknown named argument(s): {string.Join(", ", _unknownNamedArgs)}\nValid argument names: {validNames}";
+            }
+
+            /// <summary>
+            /// Formats the argument display header showing all argument values
+            /// </summary>
+            public string FormatArgumentDisplay(string commandName, Dictionary<string, string> resolvedValues)
+            {
+                if (_validArguments == null || _validArguments.Count == 0)
+                    return string.Empty;
+
+                var parts = new List<string>();
+                
+                foreach (var def in _validArguments)
+                {
+                    string displayValue = resolvedValues.ContainsKey(def.Name)
+                        ? resolvedValues[def.Name]
+                        : def.DefaultDisplay ?? "Not specified";
+
+                    if (def.IsRequired)
+                        parts.Add($"<{def.Name}: {displayValue}>");
+                    else
+                        parts.Add($"[{def.Name}: {displayValue}]");
+                }
+
+                return $"{commandName} {string.Join(" ", parts)}\n";
+            }
+
+            /// <summary>
+            /// Gets argument by name, returns null if not found
+            /// </summary>
+            public string GetNamed(string name)
+            {
+                return _namedArgs.TryGetValue(name, out string value) ? value : null;
+            }
+
+            /// <summary>
+            /// Gets argument by name or falls back to positional index
+            /// </summary>
+            public string GetArgument(string name, int positionalIndex)
+            {
+                // Try named first
+                if (_namedArgs.TryGetValue(name, out string value))
+                    return value;
+
+                // Fall back to positional
+                if (positionalIndex >= 0 && positionalIndex < _positionalArgs.Count)
+                    return _positionalArgs[positionalIndex];
+
+                return null;
+            }
+
+            /// <summary>
+            /// Gets positional argument at index
+            /// </summary>
+            public string GetPositional(int index)
+            {
+                return index >= 0 && index < _positionalArgs.Count ? _positionalArgs[index] : null;
+            }
+
+            /// <summary>
+            /// Checks if a named argument exists
+            /// </summary>
+            public bool HasNamed(string name)
+            {
+                return _namedArgs.ContainsKey(name);
+            }
+
+            /// <summary>
+            /// Gets the count of positional arguments
+            /// </summary>
+            public int PositionalCount => _positionalArgs.Count;
+
+            /// <summary>
+            /// Gets the count of named arguments
+            /// </summary>
+            public int NamedCount => _namedArgs.Count;
+
+            /// <summary>
+            /// Gets the total count of all arguments
+            /// </summary>
+            public int TotalCount => _allArgs.Count;
+
+            /// <summary>
+            /// Gets all positional arguments as a list
+            /// </summary>
+            public List<string> GetAllPositional() => new List<string>(_positionalArgs);
+
+            /// <summary>
+            /// Gets all named argument names
+            /// </summary>
+            public IEnumerable<string> GetNamedArgumentNames() => _namedArgs.Keys;
+
+            /// <summary>
+            /// Gets all valid argument definitions
+            /// </summary>
+            public List<ArgumentDefinition> GetValidArguments() => _validArguments;
+        }
+
+        /// <summary>
+        /// Parses arguments with support for both quoted strings and named arguments.
+        /// First handles quoted arguments, then parses named arguments.
+        /// </summary>
+        public static ParsedArguments ParseArguments(List<string> args)
+        {
+            // First, parse quoted arguments to handle multi-word strings
+            var quotedParsed = ParseQuotedArguments(args);
+            
+            // Then create ParsedArguments which will identify named vs positional
+            return new ParsedArguments(quotedParsed);
+        }
+
+        #endregion
+
         #region Helper Methods
 
         /// <summary>
