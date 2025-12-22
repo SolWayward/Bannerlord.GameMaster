@@ -5,19 +5,40 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.11.3
+## Latest Update 1.3.11.4
 ```
-Revamped hero generation system greatly improving it in every way
-Heroes now have more diversity, while also looking much better and remaining within the constraints of their culture.
-Complete control over what cultures are used for the hero generator.
-Lords will automatically be equipped with different pieces from different lords and elite troops based on culture and gender
+Revamped Clan Generation
+   Generated clans now act like normal clans, and get recruited by npc kingdoms or by player kingdom or can be specified to join kingdom directly
+   Generated clans also are initialized with the clan leader having a decent party and a couple of companions in his party
+   Added custom names to extend name pool for random names
 
-Generated Heroes now create parties, recruit troops and actually function like regular lords.
-Added ability to rename any hero.
-Spawning wanderers in a settlement now spawns a unique wanderer, different from the wanderers the game normally spawns.
+   Added generate_clans command
+   added rename clan command
+   added command to change clan's culture
 
-Added query for item mods
-added query for cultures
+Hero Commands
+   Create lord commands now only make the lord a party leader if the clan is not at their max allowed parties for their tier
+   Otherwise the lord is created as a regular family member. (create party command can override this)
+   
+   Added commands to add basic, elite, merc, or mixed troops
+   Added command to move hero to specified party.
+   Added command to create companion in specified party
+   Added command to create party for any hero gm.hero.create_party
+   Added command to change a hero's culture
+   Added custom names to extend name pool for random names
+   fixed issues of heroes not being created properly
+
+Combined Arguments (Culture)
+   Changed combined arguments to use commas (,) instead of semi-colon(;) (Game would treat a semi colon as two commands)
+   gm.clan.generate_clans 10 vlandia,battania,empire
+   
+Named Arguments: 
+   Added option to specify any optional parmeter in any position using colon notation with the arguments with no space between the colon and argName.
+   This makes it so you dont have to specify all optional positional arguments to just specify one optional arguement at the end ie:
+   gm.hero.generate_lords 10 gender:female
+   
+   You can still specify the optional argument without name by using standard argument positioning. Mixed positional and named arguments also work
+   gm.hero.generate_lords 12 main_cultures female
 ```
 ## Key Features
 
