@@ -35,10 +35,10 @@ namespace Bannerlord.GameMaster.Party
 		/// </summary>
 		public static void AddLordToParty(this MobileParty mobileParty, Hero hero)
 		{
-			hero.Clan = mobileParty.LeaderHero.Clan;  // Move to clan
-			
-			mobileParty.AddElementToMemberRoster(hero.CharacterObject, 1);
-			hero.ChangeState(Hero.CharacterStates.Active);
+			//hero.Clan = mobileParty.LeaderHero.Clan;  AddHeroToParty action should automatically make them a clan member		
+			//mobileParty.AddElementToMemberRoster(hero.CharacterObject, 1);
+			AddHeroToPartyAction.Apply(hero, mobileParty, true);
+			hero.ChangeState(Hero.CharacterStates.Active); // Needed if not manually adding to roster?
 		}
 
 		/// <summary>
