@@ -68,7 +68,7 @@ namespace Bannerlord.GameMaster.Characters
 		public List<CharacterObject> BanditMaleTemplates => _banditMaleTemplates ??= FilterByGender(BanditTemplates, false);
 
 		/// <summary>
-		/// Gets templates all templates
+		/// Gets all templates templates
 		/// </summary>
 		List<CharacterObject> GetAllTemplates()
 		{
