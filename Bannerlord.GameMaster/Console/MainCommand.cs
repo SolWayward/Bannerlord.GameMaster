@@ -22,22 +22,7 @@ namespace Bannerlord.GameMaster.Console
         [CommandLineFunctionality.CommandLineArgumentFunction("info", "gm")]
 		public static string GmCommand(List<string> args)
         {
-            if (args.Count < 2)
-                return "Error: must provide 2 arguments (kingdom and otherKingdom)";
-
-            //needs logic to make sure kingdom exists otherwise crashes. other commands should have this follow that
-            Kingdom kingdom = KingdomQueries.QueryKingdoms(args[0]).First(); //Crashes here if kingdom doesnt exist
-            Kingdom otherKingdom = KingdomQueries.QueryKingdoms(args[1]).First(); 
-
-            if (kingdom == null) // Not sufficient to prevent crash if kingdom wasnt found
-                return $"Error: Unable to find kingdom matching '{args[0]}'";
-
-            if (otherKingdom == null)
-                return $"Error: Unable to find kingdom matching '{args[1]}'";
-
-            kingdom.MakeTradeAgreement(otherKingdom);
-
-            return $"Succesfully started a trade agreement between {kingdom} and {otherKingdom}";  
+            return "Developer Debug Info Disabled";
         }
     }
 }
