@@ -100,7 +100,7 @@ namespace Bannerlord.GameMaster.Characters
 		}
 
 		/// <summary>
-		/// Gets templates of all the main factions
+		/// Gets templates of all the bandit factions
 		/// </summary>
 		List<CharacterObject> GetBanditTemplates()
 		{
