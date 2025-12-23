@@ -5,26 +5,13 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"Improved query output column alignment
-Added Hero Commands:
-	Create Lord
-	Generate Lords
-Added Settlment Query System
-Added Settlement Commands:
-	Change owner
-	spawn wanderer
-	create player caravan
-	create notable caravan
-	upgrade all buildings to desired level
-	add settlement food
-	add settlement gold
-	set settlement prosperity
-	set settlement security
-	set settlement loyality
-	add settlement militia
-	fill settlement garrison
-	set village hearths
-	change name"
+"v1.3.11.6
+Added the following Kingdom diplomacy commands:
+	- gm.kingdom.declare_alliance
+	- gm.kingdom.call_ally_to_war
+	- gm.kingdom.trade_agreement
+	- gm.kingdom.pay_tribute
+	- gm.kingdom.get_tribute_info"
         />
         <Tags>
             <Tag Value="Utility" />
