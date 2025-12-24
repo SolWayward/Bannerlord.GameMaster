@@ -35,5 +35,10 @@ namespace Bannerlord.GameMaster
         
 		/// <summary>Fills the elements of a specified array of bytes with random numbers.</summary>  
         public void NextRandomBytes(byte[] buffer) => random.NextBytes(buffer);
+
+        /// <summary>
+        /// Returns an unsigned integer representing a random color with full opacity
+        /// </summary>
+        public uint NextRandomRGBColor => (uint)(0xFF000000 | (random.Next(0xFFFFFF)));
     }
 }

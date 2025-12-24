@@ -77,7 +77,7 @@ namespace Bannerlord.GameMaster.Cultures
 			 .Where(name => !string.IsNullOrEmpty(name))
 			 .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-			// Step 1: Try native game name list first
+			// Try native game name list first
 			List<TextObject> cultureNameList = isFemale
 			 ? culture.FemaleNameList.ToList()
 			 : culture.MaleNameList.ToList();
@@ -92,7 +92,7 @@ namespace Bannerlord.GameMaster.Cultures
 				return availableNativeNames[randomIndex].ToString();
 			}
 
-			// Step 2: Try custom name list if native names are exhausted
+			// Try custom name list if native names are exhausted
 			string cultureId = culture.StringId.ToLower();
 			Dictionary<string, List<string>> customNameDict = isFemale ? CustomNames.FemaleHeroNames : CustomNames.MaleHeroNames;
 
@@ -109,7 +109,7 @@ namespace Bannerlord.GameMaster.Cultures
 				}
 			}
 
-			// Step 3: All names exhausted - add a suffix to a random name
+			// All names exhausted - add a suffix to a random name
 			string[] suffixes = {
 	"the Younger", "the Elder", "the Brave", "the Wise",
 	"the Bold", "the Just", "the Swift", "the Strong",
@@ -152,7 +152,7 @@ namespace Bannerlord.GameMaster.Cultures
 				.Select(c => c.Name.ToString())
 				.ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-			// Step 1: Try native game clan name list first
+			// Try native game clan name list first
 			List<TextObject> availableNativeNames = culture.ClanNameList
 				.Where(nameObj => !existingClanNames.Contains(nameObj.ToString()))
 				.ToList();
@@ -163,7 +163,7 @@ namespace Bannerlord.GameMaster.Cultures
 				return availableNativeNames[randomIndex].ToString();
 			}
 
-			// Step 2: Try custom clan name list if native names are exhausted
+			// Try custom clan name list if native names are exhausted
 			string cultureId = culture.StringId.ToLower();
 
 			if (CustomNames.ClanNames.TryGetValue(cultureId, out List<string> customNames))
@@ -179,7 +179,7 @@ namespace Bannerlord.GameMaster.Cultures
 				}
 			}
 
-			// Step 3: All names exhausted - add a suffix to a random name
+			// All names exhausted - add a suffix to a random name
 			string[] suffixes = {
 				"of The New World", "Separatists", "Loyalists", "Conservatives",
 				"of Calradia", "New Order", "Exiles", "Wanderers",
@@ -208,6 +208,17 @@ namespace Bannerlord.GameMaster.Cultures
 
 			int randomSuffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
 			return $"{baseName} {suffixes[randomSuffixIndex]}";
+		}
+
+		/// MARK: Kingdom Name  Temp
+		/// <summary>
+		/// Currently returns a temp name until fully implemented<br />
+		/// Gets a random kingdom name appropiate to the specified culture.
+		/// First tries custom names, then adds a suffix if all are exhausted.
+		/// </summary>
+		public static string GetUniqueRandomKingdomName(CultureObject culture)
+		{
+			return $"Temp Kingdom {RandomNumberGen.Instance.NextRandomInt()}";
 		}
 
 		/// MARK: Culture Flags

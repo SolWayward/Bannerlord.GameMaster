@@ -25,6 +25,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
     {
         #region Settlement Ownership
 
+        /// MARK: set_owner
         /// <summary>
         /// Change settlement owner to a hero
         /// Usage: gm.settlement.set_owner [settlement] [hero]
@@ -92,6 +93,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: set_owner_clan
         /// <summary>
         /// Change settlement owner clan
         /// Usage: gm.settlement.set_owner_clan [settlement] [clan]
@@ -162,6 +164,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: set_owner_kingdom
         /// <summary>
         /// Change settlement owner kingdom
         /// Usage: gm.settlement.set_owner_kingdom [settlement] [kingdom]
@@ -239,6 +242,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
         #region Settlement Properties
 
+        /// MARK: set_prosperity
         /// <summary>
         /// Set prosperity for a city or castle
         /// Usage: gm.settlement.set_prosperity [settlement] [value]
@@ -299,6 +303,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: set_hearths
         /// <summary>
         /// Set hearth for a village
         /// Usage: gm.settlement.set_hearths [settlement] [value]
@@ -359,6 +364,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: rename
         /// <summary>
         /// Rename a settlement with save persistence
         /// Usage: gm.settlement.rename [settlement] [new_name]
@@ -428,6 +434,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: reset_name
         /// <summary>
         /// Reset a settlement to its original name
         /// Usage: gm.settlement.reset_name [settlement]
@@ -489,6 +496,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: reset_all_names
         /// <summary>
         /// Reset all settlements to their original names
         /// Usage: gm.settlement.reset_all_names
@@ -527,6 +535,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: set_culture
         /// <summary>
         /// Change settlement culture
         /// Usage: gm.settlement.set_culture [settlement] [culture]
@@ -593,6 +602,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: set_loyalty
         /// <summary>
         /// Set loyalty for a city or castle
         /// Usage: gm.settlement.set_loyalty [settlement] [value]
@@ -653,6 +663,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: set_security
         /// <summary>
         /// Set security for a city or castle
         /// Usage: gm.settlement.set_security [settlement] [value]
@@ -717,6 +728,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
         #region Settlement Resources
 
+        /// MARK: upgrade_buildings
         /// <summary>
         /// Upgrade all buildings in a city or castle to specified level
         /// Usage: gm.settlement.upgrade_buildings [settlement] [level]
@@ -794,6 +806,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: give_food
         /// <summary>
         /// Give food to a settlement
         /// Usage: gm.settlement.give_food [settlement] [amount]
@@ -854,6 +867,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: give_gold
         /// <summary>
         /// Give gold to a settlement
         /// Usage: gm.settlement.give_gold [settlement] [amount]
@@ -918,6 +932,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
         #region Settlement Military
 
+        /// MARK: add_militia
         /// <summary>
         /// Add militia to a city or castle
         /// Usage: gm.settlement.add_militia [settlement] [amount]
@@ -978,6 +993,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: fill_garison
         /// <summary>
         /// Fill garrison to maximum capacity using existing troop types
         /// Usage: gm.settlement.fill_garrison [settlement]
@@ -1086,6 +1102,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
         #region Settlement Caravans and NPCs
 
+        /// MARK: create_notable_caravan
         /// <summary>
         /// Create a caravan in a settlement for notables
         /// Usage: gm.settlement.create_notable_caravan [settlement]
@@ -1160,6 +1177,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: create_player_caravan
         /// <summary>
         /// Create a caravan in a settlement for the player
         /// Usage: gm.settlement.create_player_caravan [settlement] [optional: leader_hero]
@@ -1261,6 +1279,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
             });
         }
 
+        /// MARK: spawn_wanderer
         /// <summary>
         /// Spawn a wanderer hero in a settlement
         /// Usage: gm.settlement.spawn_wanderer [settlement] [name] [cultures] [gender] [randomFactor]
