@@ -106,17 +106,17 @@ Use powerful queries to search and filter:
 ## Available Commands
 
 ### Hero Commands
-`create_lord`, `generate_lords`, `set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`
+`create_lord`, `generate_lords`, `set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`, `create_companions`, `add_hero_to_party`, `rename`, `create_party`
 
 [Full Hero Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Hero-Overview)
 
 ### Clan Commands
-`create_clan`, `add_hero`, `remove_hero`, `set_gold`, `add_gold`, `distribute_gold`, `set_renown`, `set_tier`, `set_leader`, `destroy`
+`create_clan`, `add_hero`, `remove_hero`, `set_gold`, `add_gold`, `distribute_gold`, `set_renown`, `set_tier`, `set_leader`, `destroy`, `rename`, `set_culture`, `generate_clans`, `Create_minor_clan`
 
 [Full Clan Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Clan-Overview)
 
 ### Kingdom Commands
-`add_clan`, `remove_clan`, `declare_war`, `make_peace`, `set_ruler`, `destroy`
+`add_clan`, `remove_clan`, `declare_war`, `make_peace`, `set_ruler`, `destroy`, `declare_alliance`, `trade_agreement`, `pay_tribute`, `get_tribute_info`
 
 [Full Kingdom Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Kingdom-Overview)
 
@@ -131,12 +131,12 @@ Use powerful queries to search and filter:
 [Full Settlement Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
 
 ### Troop Commands
-`give_hero_troops`
+`give_hero_troops`, `add_basic`, `add_elite`, `add_mercenary`, `add_mixed`
 
 [Full Troop Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Troop-Overview)
 
 ### Query Commands
-`hero`, `clan`, `kingdom`, `item`, `modifiers` - All support AND/OR logic, sorting, and filtering
+`hero`, `clan`, `kingdom`, `item`, `modifiers`, `culture`, `character` - All support AND/OR logic, sorting, and filtering
 
 [Full Query Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Query-Overview)
 
