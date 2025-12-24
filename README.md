@@ -23,6 +23,7 @@ Added the following Kingdom diplomacy commands:
 - **Equipment Save/Load** - Save and load hero equipment sets to files
 - **Advanced Queries** - Powerful search with AND/OR logic, sorting, filtering
 - **Command Logging** - Track all command usage for debugging
+- **Testing Framework** - Setup and run automated tests.
 - **Convenience Features** - Use Ids or names, and even partial matches. Positional and named arguments using ArgName:ArgValue
 
 **Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
