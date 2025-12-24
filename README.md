@@ -5,10 +5,14 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.11.5
+## Latest Update 1.3.11.6
 ```
-Fixed create_companions creating heroes as family members instead of companions
-Fixed hero and clan generation not using correct names
+Added the following Kingdom diplomacy commands:
+	- gm.kingdom.declare_alliance
+	- gm.kingdom.call_ally_to_war
+	- gm.kingdom.trade_agreement
+	- gm.kingdom.pay_tribute
+	- gm.kingdom.get_tribute_info
 ```
 ## Key Features
 
