@@ -5,10 +5,14 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.11.5
+## Latest Update 1.3.11.6
 ```
-Fixed create_companions creating heroes as family members instead of companions
-Fixed hero and clan generation not using correct names
+Added the following Kingdom diplomacy commands:
+	- gm.kingdom.declare_alliance
+	- gm.kingdom.call_ally_to_war
+	- gm.kingdom.trade_agreement
+	- gm.kingdom.pay_tribute
+	- gm.kingdom.get_tribute_info
 ```
 ## Key Features
 
@@ -19,7 +23,8 @@ Fixed hero and clan generation not using correct names
 - **Equipment Save/Load** - Save and load hero equipment sets to files
 - **Advanced Queries** - Powerful search with AND/OR logic, sorting, filtering
 - **Command Logging** - Track all command usage for debugging
-- **Testing Framework** - Automated validation system
+- **Testing Framework** - Setup and run automated tests.
+- **Convenience Features** - Use Ids or names, and even partial matches. Positional and named arguments using ArgName:ArgValue
 
 **Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
 
@@ -102,17 +107,17 @@ Use powerful queries to search and filter:
 ## Available Commands
 
 ### Hero Commands
-`create_lord`, `generate_lords`, `set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`
+`create_lord`, `generate_lords`, `set_gold`, `set_health`, `set_age`, `kill`, `imprison`, `release`, `teleport`, `set_clan`, `set_relation`, `create_companions`, `add_hero_to_party`, `rename`, `create_party`
 
 [Full Hero Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Hero-Overview)
 
 ### Clan Commands
-`create_clan`, `add_hero`, `remove_hero`, `set_gold`, `add_gold`, `distribute_gold`, `set_renown`, `set_tier`, `set_leader`, `destroy`
+`create_clan`, `add_hero`, `remove_hero`, `set_gold`, `add_gold`, `distribute_gold`, `set_renown`, `set_tier`, `set_leader`, `destroy`, `rename`, `set_culture`, `generate_clans`, `Create_minor_clan`
 
 [Full Clan Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Clan-Overview)
 
 ### Kingdom Commands
-`add_clan`, `remove_clan`, `declare_war`, `make_peace`, `set_ruler`, `destroy`
+`add_clan`, `remove_clan`, `declare_war`, `make_peace`, `set_ruler`, `destroy`, `declare_alliance`, `trade_agreement`, `pay_tribute`, `get_tribute_info`
 
 [Full Kingdom Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Kingdom-Overview)
 
@@ -127,12 +132,12 @@ Use powerful queries to search and filter:
 [Full Settlement Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
 
 ### Troop Commands
-`give_hero_troops`
+`give_hero_troops`, `add_basic`, `add_elite`, `add_mercenary`, `add_mixed`
 
 [Full Troop Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Troop-Overview)
 
 ### Query Commands
-`hero`, `clan`, `kingdom`, `item`, `modifiers` - All support AND/OR logic, sorting, and filtering
+`hero`, `clan`, `kingdom`, `item`, `modifiers`, `culture`, `character` - All support AND/OR logic, sorting, and filtering
 
 [Full Query Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Query-Overview)
 
