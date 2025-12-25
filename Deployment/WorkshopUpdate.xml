@@ -5,13 +5,23 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.11.6
-Added the following Kingdom diplomacy commands:
-	- gm.kingdom.declare_alliance
-	- gm.kingdom.call_ally_to_war
-	- gm.kingdom.trade_agreement
-	- gm.kingdom.pay_tribute
-	- gm.kingdom.get_tribute_info"
+"v1.3.11.7
+Added gm.kingdom.create_kingdom
+	- Generates a new clan leading a new kingdom
+	- New kingdom ruler takes ownership of the settlement specified
+	- Additional Lords and clans are automatically added to the new kingdom
+	- For player kingdom, use commands to change tier and settlementownership start kingdom regular way
+
+Added gm.kingdom.generate_kingdoms
+	- generates the specified number of kingdoms
+	- Will automatically take ownership of settlements
+	- selects settlements evenly from each kingdom
+	- will not take player settlement or kingdoms last settlement
+
+Improved Clan Generation
+	- Generated clans now use better looking color schemes
+	- Attempts to select the most distinct clan colors
+	- fixed custom clan names not being used for create_clan"
         />
         <Tags>
             <Tag Value="Utility" />
