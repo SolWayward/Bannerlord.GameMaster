@@ -210,15 +210,56 @@ namespace Bannerlord.GameMaster.Cultures
 			return $"{baseName} {suffixes[randomSuffixIndex]}";
 		}
 
-		/// MARK: Kingdom Name  Temp
+		/// MARK: Kingdom Name
 		/// <summary>
-		/// Currently returns a temp name until fully implemented<br />
-		/// Gets a random kingdom name appropiate to the specified culture.
+		/// Gets a random kingdom name appropriate to the specified culture.
 		/// First tries custom names, then adds a suffix if all are exhausted.
 		/// </summary>
 		public static string GetUniqueRandomKingdomName(CultureObject culture)
 		{
-			return $"Temp Kingdom {RandomNumberGen.Instance.NextRandomInt()}";
+			// Get all existing kingdom names (convert to strings for comparison)
+			HashSet<string> existingKingdomNames = Kingdom.All
+				.Select(k => k.Name.ToString())
+				.ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+			// Try custom kingdom name list
+			string cultureId = culture.StringId.ToLower();
+
+			if (CustomNames.KingdomNames.TryGetValue(cultureId, out List<string> customNames))
+			{
+				List<string> availableCustomNames = customNames
+					.Where(name => !existingKingdomNames.Contains(name))
+					.ToList();
+
+				if (availableCustomNames.Count > 0)
+				{
+					int randomIndex = RandomNumberGen.Instance.NextRandomInt(availableCustomNames.Count);
+					return availableCustomNames[randomIndex];
+				}
+			}
+
+			// All names exhausted - add a suffix to a random name
+			string[] suffixes = {
+				"Reborn", "Rising", "Ascendant", "Renewed",
+				"Reformed", "Restored", "United", "Free",
+				"New Order", "Resurgent", "Revived", "Triumphant"
+			};
+
+			// Try to use custom names first for suffix
+			string baseName;
+			if (CustomNames.KingdomNames.TryGetValue(cultureId, out List<string> customNamesForSuffix) && customNamesForSuffix.Count > 0)
+			{
+				int randomNameIndex = RandomNumberGen.Instance.NextRandomInt(customNamesForSuffix.Count);
+				baseName = customNamesForSuffix[randomNameIndex];
+			}
+			else
+			{
+				// Last resort fallback
+				baseName = $"{culture.Name} Kingdom";
+			}
+
+			int randomSuffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
+			return $"{baseName} {suffixes[randomSuffixIndex]}";
 		}
 
 		/// MARK: Culture Flags

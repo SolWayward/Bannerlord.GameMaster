@@ -1,7 +1,7 @@
 <Project Sdk="Bannerlord.BUTRModule.Sdk/1.1.0.124">
 
   <PropertyGroup>
-    <Version>1.3.11.6</Version>
+    <Version>1.3.11.7</Version>
     <TargetFrameworks>net472;net6</TargetFrameworks>
     <Platforms>x64</Platforms>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>

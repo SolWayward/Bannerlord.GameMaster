@@ -43,12 +43,19 @@ namespace Bannerlord.GameMaster.Kingdoms
                 return null;
 
             PrepareClanToRule(rulingClan);
+            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
             
             CultureObject culture = rulingClan.Culture;
 
-            Banner banner = Banner.CreateRandomBanner();
-            uint kingdomColor1 = 0;//GetUniqueKingdomColor();
-            uint kingdomColor2 = 0;//ColorHelpers.GetDarkerShade(kingdomColor1);
+            // banner is null atleast on vanilla clans, so use originalBanner if null
+            Banner banner; 
+            if (rulingClan.Banner != null)
+                banner = rulingClan.Banner;
+            else
+                banner = rulingClan.ClanOriginalBanner;
+
+            uint kingdomColor1 = rulingClan.Color;
+            uint kingdomColor2 = rulingClan.Color2;
         
             // Links seem to not show up in encyclopedia, keeping them anyway as still shows text correctly.
             TextObject encyclopediaText = new($"A new rising kingdom sparked from the upstarts of {rulingClan.EncyclopediaLinkWithName}, Taking {homeSettlement.EncyclopediaLinkWithName} as their capital " +
@@ -69,7 +76,7 @@ namespace Bannerlord.GameMaster.Kingdoms
                 encyclopediaRulerTitle          // encyclopedia ruler title
             );
                    
-            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
+           // ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
            
             kingdom.CalculateMidSettlement();
             rulingClan.CalculateMidSettlement();
@@ -138,6 +145,126 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             // Create extra lords for ruling clan
             HeroGenerator.CreateLords(10, clan.Culture.ToCultureFlag(), GenderFlags.Either, clan);
+        }
+
+        /// MARK: Generate Kingdoms
+        /// <summary>
+        /// Generates multiple kingdoms by taking settlements from existing kingdoms.
+        /// Alternates between kingdoms evenly, ensuring not to take a kingdom's last settlement.
+        /// Does not take settlements from the player's kingdom.
+        /// </summary>
+        /// <param name="count">Number of kingdoms to create</param>
+        /// <param name="vassalClanCount">Number of vassal clans per kingdom</param>
+        /// <param name="cultureFlags">Culture pool for kingdoms</param>
+        /// <returns>List of created kingdoms</returns>
+        public static List<Kingdom> GenerateKingdoms(int count, int vassalClanCount = 4, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+        {
+            List<Kingdom> createdKingdoms = new List<Kingdom>();
+
+            // Get existing kingdoms that have more than 1 town/castle settlement
+            var eligibleKingdoms = Kingdom.All
+                .Where(k => k != Clan.PlayerClan?.Kingdom) // Exclude player kingdom
+                .Where(k => k.Settlements.Count(s => s.IsTown || s.IsCastle) > 1)
+                .ToList();
+
+            if (eligibleKingdoms.Count == 0)
+            {
+                InfoMessage.Warning("No kingdoms with multiple settlements available for taking settlements.");
+                return createdKingdoms;
+            }
+
+            // Build a pool of available settlements from these kingdoms
+            var settlementPool = new List<Settlement>();
+            foreach (var kingdom in eligibleKingdoms)
+            {
+                var kingdomSettlements = kingdom.Settlements
+                    .Where(s => (s.IsTown || s.IsCastle) && s.OwnerClan != Clan.PlayerClan)
+                    .ToList();
+
+                // Only add settlements if the kingdom would still have at least 1 after taking one
+                if (kingdomSettlements.Count > 1)
+                {
+                    // Add all but the last one to the pool (keep at least 1 for the kingdom)
+                    settlementPool.AddRange(kingdomSettlements.Take(kingdomSettlements.Count - 1));
+                }
+            }
+
+            if (settlementPool.Count == 0)
+            {
+                InfoMessage.Warning("No settlements available to create kingdoms without destroying existing ones.");
+                return createdKingdoms;
+            }
+
+            // Organize settlements by their current kingdom to alternate evenly
+            var settlementsByKingdom = settlementPool
+                .GroupBy(s => s.MapFaction as Kingdom)
+                .Where(g => g.Key != null)
+                .ToDictionary(g => g.Key, g => g.ToList());
+
+            // Create kingdoms by alternating between source kingdoms
+            int kingdomsCreated = 0;
+            int currentKingdomIndex = 0;
+            var kingdomList = settlementsByKingdom.Keys.ToList();
+
+            while (kingdomsCreated < count && settlementsByKingdom.Values.Any(list => list.Count > 0))
+            {
+                // Find the next kingdom that still has available settlements
+                Kingdom sourceKingdom = null;
+                int attempts = 0;
+                while (attempts < kingdomList.Count)
+                {
+                    var testKingdom = kingdomList[currentKingdomIndex];
+                    if (settlementsByKingdom[testKingdom].Count > 0)
+                    {
+                        sourceKingdom = testKingdom;
+                        break;
+                    }
+                    currentKingdomIndex = (currentKingdomIndex + 1) % kingdomList.Count;
+                    attempts++;
+                }
+
+                // No more settlements available
+                if (sourceKingdom == null)
+                    break;
+
+                // Take the first available settlement from this kingdom
+                var settlement = settlementsByKingdom[sourceKingdom][0];
+                settlementsByKingdom[sourceKingdom].RemoveAt(0);
+
+                // Verify the source kingdom still has at least one settlement left
+                int remainingSettlements = sourceKingdom.Settlements.Count(s => (s.IsTown || s.IsCastle) && s != settlement);
+                if (remainingSettlements < 1)
+                {
+                    InfoMessage.Warning($"Skipping settlement {settlement.Name} to prevent destroying {sourceKingdom.Name}");
+                    currentKingdomIndex = (currentKingdomIndex + 1) % kingdomList.Count;
+                    continue;
+                }
+
+                // Create kingdom with random names
+                Kingdom newKingdom = CreateKingdom(
+                    homeSettlement: settlement,
+                    vassalClanCount: vassalClanCount,
+                    name: null, // Random name
+                    rulingClanName: null, // Random clan name
+                    cultureFlags: cultureFlags
+                );
+
+                if (newKingdom != null)
+                {
+                    createdKingdoms.Add(newKingdom);
+                    kingdomsCreated++;
+                }
+
+                // Move to next kingdom for alternation
+                currentKingdomIndex = (currentKingdomIndex + 1) % kingdomList.Count;
+            }
+
+            if (kingdomsCreated < count)
+            {
+                InfoMessage.Warning($"Only created {kingdomsCreated} of {count} requested kingdoms. No more settlements available.");
+            }
+
+            return createdKingdoms;
         }
     }
 }

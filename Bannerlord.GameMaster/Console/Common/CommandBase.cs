@@ -437,7 +437,53 @@ namespace Bannerlord.GameMaster.Console.Common
             {
                 string arg = args[i];
 
-                // Check if this argument starts with a single quote
+                // Check if this argument contains a colon with a quote after it (named argument with quoted value)
+                int colonIndex = arg.IndexOf(':');
+                if (colonIndex > 0 && colonIndex < arg.Length - 1)
+                {
+                    string afterColon = arg.Substring(colonIndex + 1);
+                    if (afterColon.StartsWith("'"))
+                    {
+                        // This is a named argument with a quoted value
+                        string name = arg.Substring(0, colonIndex + 1); // Keep the colon
+                        string firstPart = afterColon.Substring(1); // Remove leading quote
+                        
+                        // Check if the quote closes in this same arg
+                        if (firstPart.EndsWith("'"))
+                        {
+                            // Single-word quoted value
+                            result.Add(name + firstPart.Substring(0, firstPart.Length - 1));
+                            i++;
+                            continue;
+                        }
+                        
+                        // Multi-word quoted value - collect remaining parts
+                        var quotedParts = new List<string> { firstPart };
+                        i++;
+                        
+                        while (i < args.Count)
+                        {
+                            string part = args[i];
+                            if (part.EndsWith("'"))
+                            {
+                                // Found closing quote
+                                quotedParts.Add(part.Substring(0, part.Length - 1));
+                                i++;
+                                break;
+                            }
+                            else
+                            {
+                                quotedParts.Add(part);
+                                i++;
+                            }
+                        }
+                        
+                        result.Add(name + string.Join(" ", quotedParts));
+                        continue;
+                    }
+                }
+
+                // Check if this argument starts with a single quote (regular quoted argument)
                 if (arg.StartsWith("'"))
                 {
                     // Start collecting parts of the quoted string

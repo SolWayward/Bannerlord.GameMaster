@@ -25,18 +25,7 @@ namespace Bannerlord.GameMaster.Console
 		[CommandLineFunctionality.CommandLineArgumentFunction("info", "gm")]
 		public static string GmCommand(List<string> args)
 		{
-			if (args.Count < 1)
-				return "Require args: <settlement>";
-
-			Settlement settlement = SettlementQueries.QuerySettlements(args[0]).First();
-
-
-			Kingdom kingdom = KingdomGenerator.CreateKingdom(settlement);
-
-			if (kingdom != null)
-				return kingdom.FormattedDetails();
-			else
-				return "Failed to create kingdom";
+				return "Not implemented";
 		}
 	}
 }
