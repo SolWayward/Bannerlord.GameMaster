@@ -5,20 +5,31 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.11.6
+## Latest Update 1.3.11.7
 ```
-Added the following Kingdom diplomacy commands:
-	- gm.kingdom.declare_alliance
-	- gm.kingdom.call_ally_to_war
-	- gm.kingdom.trade_agreement
-	- gm.kingdom.pay_tribute
-	- gm.kingdom.get_tribute_info
+v1.3.11.7
+Added gm.kingdom.create_kingdom
+	- Generates a new clan leading a new kingdom
+	- New kingdom ruler takes ownership of the settlement specified
+	- Additional Lords and clans are automatically added to the new kingdom
+	- For player kingdom, use commands to change tier and settlementownership start kingdom regular way
+
+Added gm.kingdom.generate_kingdoms
+	- generates the specified number of kingdoms
+	- Will automatically take ownership of settlements
+	- selects settlements evenly from each kingdom
+	- will not take player settlement or kingdoms last settlement
+
+Improved Clan Generation
+	- Generated clans now use better looking color schemes
+	- Attempts to select the most distinct clan colors
+	- fixed custom clan names not being used for create_clan
 ```
 ## Key Features
 
 - **Hero Management** - Modify attributes, gold, health, relationships, life state
 - **Clan Management** - Control membership, finances, renown, leadership
-- **Kingdom Management** - Handle diplomacy, settlements, clan membership
+- **Kingdom Management** - Create NPC Kingdoms, Handle diplomacy, settlements, clan membership
 - **Item Management** - Full inventory/equipment control with quality modifiers
 - **Equipment Save/Load** - Save and load hero equipment sets to files
 - **Advanced Queries** - Powerful search with AND/OR logic, sorting, filtering
@@ -117,7 +128,7 @@ Use powerful queries to search and filter:
 [Full Clan Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Clan-Overview)
 
 ### Kingdom Commands
-`add_clan`, `remove_clan`, `declare_war`, `make_peace`, `set_ruler`, `destroy`, `declare_alliance`, `trade_agreement`, `pay_tribute`, `get_tribute_info`
+`create_kingdom`, `generate_Kingdoms`, `add_clan`, `remove_clan`, `declare_war`, `make_peace`, `set_ruler`, `destroy`, `declare_alliance`, `trade_agreement`, `pay_tribute`, `get_tribute_info`
 
 [Full Kingdom Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Kingdom-Overview)
 
