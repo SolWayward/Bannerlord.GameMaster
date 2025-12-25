@@ -47,7 +47,7 @@ namespace Bannerlord.GameMaster.Clans
 			catch (System.Exception ex)
 			{
 				// Log error but don't crash - the clan can still function without mid settlement
-				InfoMessage.Display($"Warning: Failed to set clan mid settlement: {ex.Message}");
+				InfoMessage.Warning($"Warning: Failed to set clan mid settlement: {ex.Message}");
 			}
 		}
 

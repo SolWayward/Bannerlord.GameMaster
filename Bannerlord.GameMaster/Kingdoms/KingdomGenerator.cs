@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Cultures;
+using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace Bannerlord.GameMaster.Kingdoms
@@ -21,15 +23,11 @@ namespace Bannerlord.GameMaster.Kingdoms
         /// </summary>
         /// <param name="homeSettlement">Capital settlement (auto-resolves if null/invalid)</param>
         /// <param name="name">Kingdom name (generates random if null)</param>
-        /// <param name="rulingClan">Clan to rule the kingdom (generates random if null)</param>
+        /// <param name="rulingClanName">Name of the Clan ruling to rule the kingdom (generates random if null)</param>
         /// <returns>The created kingdom, or null if settlement cannot be resolved</returns>
-        public static Kingdom CreateKingdom(Settlement homeSettlement, string name = null, Clan rulingClan = null)
+        public static Kingdom CreateKingdom(Settlement homeSettlement, int vassalClanCount = 4, string name = null, string rulingClanName = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
         {
-            if (rulingClan == null)
-                rulingClan = ClanGenerator.CreateClan();
-
-            if (rulingClan.IsEliminated)
-                return null;
+            Clan rulingClan = ClanGenerator.CreateClan(rulingClanName, cultureFlags: cultureFlags);
 
             if (name == null || name.IsEmpty())
                 name = CultureLookup.GetUniqueRandomKingdomName(rulingClan.Leader.Culture);
@@ -39,27 +37,16 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             Kingdom kingdom = Kingdom.CreateKingdom(stringID);
 
-            // Validate settlement and attempt to resolve to another settlement if invalid
-            homeSettlement = ValidateAndResolveSettlement(homeSettlement, rulingClan);
-
-            // settlement was invalid and or settlement was unable to automatically be resolved
-            if (homeSettlement == null)
+            // Validate settlement and set clan as owner, else return null kingdom
+            if(ValidateAndResolveSettlement(homeSettlement, rulingClan) == false)
                 return null;
 
             PrepareClanToRule(rulingClan);
-            //rulingClan.Kingdom = kingdom;
-            //kingdom.RulingClan = rulingClan;
-            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
+            
+            uint kingdomColor1 = GetUniqueKingdomColor();
+            uint kingdomColor2 = ColorHelpers.GetDarkerShade(kingdomColor1);
 
             CultureObject culture = rulingClan.Culture;
-
-            // Create a banner with unique kingdom colors keeping original icon
-            // Note: clan.banner becomes null when clan joins the kingdom for some reason even after immediately setting it again.
-            // Note: clan.originalbanner returns grey colors for vanilla clans
-            Banner banner = SetupKingdomBanner(rulingClan);
-            
-            uint kingdomColor1 = banner.GetPrimaryColor();
-            uint kingdomColor2 = banner.GetSecondaryColor();
 
             // Links seem to not show up in encyclopedia, keeping them anyway as still shows text correctly.
             TextObject encyclopediaText = new($"A new rising kingdom sparked from the upstarts of {rulingClan.EncyclopediaLinkWithName}, Taking {homeSettlement.EncyclopediaLinkWithName} as their capital " +
@@ -68,87 +55,63 @@ namespace Bannerlord.GameMaster.Kingdoms
             TextObject encyclopediaRulerTitle = new("{=kingdom_ruler_title}{?RULER.GENDER}Queen{?}King{\\?}");
 
             kingdom.InitializeKingdom(
-                nameObj,                    // name
-                nameObj,                    // informal name
-                culture,                    // culture
-                banner,                     // banner
-                kingdomColor1,              // color 1
-                kingdomColor2,              // color 2
-                homeSettlement,             // home settlement
-                encyclopediaText,           // encyclopedia text
-                encyclopediaTitle,          // encyclopedia title
-                encyclopediaRulerTitle      // encyclopedia ruler title
+                nameObj,                        // name
+                nameObj,                        // informal name
+                culture,                        // culture
+                rulingClan.ClanOriginalBanner,  // banner
+                kingdomColor1,                  // color 1
+                kingdomColor2,                  // color 2
+                homeSettlement,                 // home settlement
+                encyclopediaText,               // encyclopedia text
+                encyclopediaTitle,              // encyclopedia title
+                encyclopediaRulerTitle          // encyclopedia ruler title
             );
-
-            //kingdom.Initialize(); // Does this need to be called if using InitalizeKingdom()? 
+                   
+            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
             
             kingdom.CalculateMidSettlement();
             rulingClan.CalculateMidSettlement();
             kingdom.IsReady = true;
 
-            InfoMessage.Display($"Kingdom '{kingdom.Name}' created with {rulingClan.Name} as ruling clan and {homeSettlement.Name} as the capital");
+            // Generate vassals ensuring vassal count isnt negative
+            if (vassalClanCount > 0)
+            {             
+                List<Clan> clans = ClanGenerator.GenerateClans(vassalClanCount, cultureFlags, kingdom);
+                
+                // Add extra lords to vassals
+                foreach(Clan clan in clans)
+                    HeroGenerator.CreateLords(4, clan.Culture.ToCultureFlag(), GenderFlags.Either, clan);
+            }
+
+            InfoMessage.Success($"Kingdom '{kingdom.Name}' created with {rulingClan.Name} as ruling clan and {homeSettlement.Name} as the capital and {vassalClanCount} vassal clans");
             
             return kingdom;
         }
 
         /// MARK: Validate Settlement
         /// <summary>
-        /// Validates settlement. If settlement was invalid attempts to resolve to another settlement. <br />
-        /// Returns null if settlement invalid and unable to resolve to another settlement.
+        /// Validates settlement and sets clan as settlement owner if not already owner
         /// </summary>
-        static Settlement ValidateAndResolveSettlement(Settlement homeSettlement, Clan rulingClan)
+        static bool ValidateAndResolveSettlement(Settlement settlement, Clan clan)
         {
-            // Attempt to resolve settlement if null or invalid
-            if (homeSettlement == null
-                || (homeSettlement.IsTown == false && homeSettlement.IsCastle == false))
-            {
-                // Use clans home settlement if clan has one, and if clan is the owner and settlement is town or castle 
-                if (rulingClan.HomeSettlement != null && rulingClan.HomeSettlement.OwnerClan == rulingClan
-                    && (rulingClan.HomeSettlement.IsTown || rulingClan.HomeSettlement.IsCastle))
-                {
-                    homeSettlement = rulingClan.HomeSettlement;
-                }
+            // Return false if settlement null or settlement.town null
+            if (settlement == null || settlement.Town == null)
+                return false;
 
-                // Get random settlement owned by clan
-                else if (rulingClan.Settlements != null)
-                {
-                    List<Settlement> eligibleSettlements = rulingClan.Settlements.Where(s => s.IsTown || s.IsCastle).ToList();
-                    if (eligibleSettlements.Count > 0)
-                    {
-                        homeSettlement = eligibleSettlements[RandomNumberGen.Instance.NextRandomInt(eligibleSettlements.Count)];
-                    }
-                }
+            // Above check should fail before this is evaluated but just incase.
+            if (!settlement.IsTown && !settlement.IsCastle)
+                return false;
 
-                // Unable to create kingdom without settlement
-                else
-                {
-                    return null;
-                    // Can a kingdom exist without a settlement?
-                    // Add option to randomly make ruling clan owner of a settlment if its not a kingdoms only settlment?
-                    // Create a completely new settlement? Probably not a good idea
-                }
-            }
+            if (settlement.OwnerClan != clan)
+                settlement.Town.OwnerClan = clan;
 
-            else
-            {
-                // Make ruling clan owner of settlement since it was specified directly
-                if (homeSettlement.OwnerClan != rulingClan)
-                { 
-                    if (homeSettlement.Town != null)        
-                        homeSettlement.Town.OwnerClan = rulingClan;
-                
-                    // Extra safety that should never happen
-                    else
-                        return null;
-                }
-            }
-
-            return homeSettlement;
+            return true;
         }
 
         /// MARK: Prepare Clan for Rule
         /// <summary>
-        /// Make sure clan is ready to be a ruling clan
+        /// Make sure clan is ready to be a ruling clan <br />
+        /// Leaves kingdom if in one, forces correct state, sets tier to 6, add gold and influence, add 10 lords to clan
         /// </summary>
         static void PrepareClanToRule(Clan clan)
         {
@@ -170,41 +133,40 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             if (clan.Tier < 6)
                 clan.SetClanTier(6);
+
+            // Create extra lords for ruling clan
+            HeroGenerator.CreateLords(10, clan.Culture.ToCultureFlag(), GenderFlags.Either, clan);
         }
 
         /// <summary>
-        /// Set clan banners to unique colors except for player clan
-        /// Kingdom colors are set from clan banner so make sure the colors are unique, if player keep their original banner
+        /// Get the most unique color possible compared to existing kingdoms
         /// </summary>
-        static Banner SetupKingdomBanner(Clan clan)
+        static uint GetUniqueKingdomColor()
         {
-            // Keep banner if player
-            if (clan.Leader.IsHumanPlayerCharacter)
-                return clan.ClanOriginalBanner;
+            bool isColorSimilar = false;
 
-            // Save original icon to restore it to new banner
-            //int iconColorId = clan.ClanOriginalBanner.GetIconColorId();
-            //int iconMeshId = clan.ClanOriginalBanner.GetIconMeshId();
-            //Vec2 iconSize = clan.ClanOriginalBanner.GetIconSize();
+            //Decrease threshold each try, until a color is found or threshold is 0
+            for (int similarThreshold = 100; similarThreshold > 0; similarThreshold--)
+            {
+                uint randomColor = RandomNumberGen.Instance.NextRandomRGBColor;
 
-            // create random banner
-            Banner banner = clan.ClanOriginalBanner;
-            
-            // Restore icon
-            //banner.SetIconColorId(iconColorId);
-            //banner.SetIconMeshId(iconMeshId);
-            //banner.SetIconSize((int)iconSize.x); //Stored as a vec2(float, float) by set by a single int?
+                foreach(Kingdom kingdom in Kingdom.All)
+                {
+                    // Color similar, restart with new color
+                    if (ColorHelpers.AreColorsSimilar(randomColor, kingdom.Color, similarThreshold))
+                    {
+                        isColorSimilar = true;
+                        break;
+                    }
+                }
 
-            uint uniqueColor = KingdomColorPicker.GetUniqueKingdomColor(RandomNumberGen.Instance.NextRandomRGBColor);
-            uint uniqueColor2 = KingdomColorPicker.GetDarkerShade(uniqueColor);
-            uint iconColor = KingdomColorPicker.GetLighterShade(uniqueColor);
+                // Color is outside the current threshold similarity
+                if (!isColorSimilar)
+                    return randomColor;
+            }
 
-            banner.ChangePrimaryColor(iconColor);
-            banner.ChangeBackgroundColor(uniqueColor, uniqueColor2);
-            //clan.Banner = banner;
-            //clan.UpdateBannerColor(uniqueColor, iconColor);
-            
-            return banner;
+            // Unique color never found, just return random anyway
+            return RandomNumberGen.Instance.NextRandomRGBColor;
         }
     }
 }

@@ -25,16 +25,12 @@ namespace Bannerlord.GameMaster.Console
 		public static string GmCommand(List<string> args)
 		{
 			if (args.Count < 1)
-				return "Require args: <settlement> [clan]";
+				return "Require args: <settlement>";
 
 			Settlement settlement = SettlementQueries.QuerySettlements(args[0]).First();
 
-			Clan clan = null;
 
-			if (args.Count > 1)
-				clan = ClanQueries.QueryClans(args[1]).First();
-
-			Kingdom kingdom = KingdomGenerator.CreateKingdom(settlement, rulingClan: clan);
+			Kingdom kingdom = KingdomGenerator.CreateKingdom(settlement);
 
 			if (kingdom != null)
 				return kingdom.FormattedDetails();
