@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Transactions;
+using Bannerlord.GameMaster.Banners;
 using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
@@ -76,7 +77,12 @@ namespace Bannerlord.GameMaster.Clans
 			leader ??= HeroGenerator.CreateLords(1, cultureFlags, GenderFlags.Either, clan, withParties: false, randomFactor: 1f)[0];
 
 			// Set actual clan name and Id using the leaders culture after leader was generated
-			TextObject nameObj = new(CultureLookup.GetUniqueRandomClanName(leader.Culture));
+			TextObject nameObj;
+			if (name == null)
+				nameObj = new(CultureLookup.GetUniqueRandomClanName(leader.Culture));
+			else
+				nameObj = new(name);
+			
 			clan.StringId =  ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Clan));
 			clan.ChangeClanName(nameObj, nameObj);
 
@@ -90,7 +96,13 @@ namespace Bannerlord.GameMaster.Clans
 			clan.SetLeader(leader);
 			clan.Culture = leader.Culture;
 			clan.BasicTroop = leader.Culture.BasicTroop;
-			clan.Banner = Banner.CreateRandomClanBanner(RandomNumberGen.Instance.NextRandomInt());
+			
+			// Create banner and apply unique complementary color scheme
+			Banner banner = Banner.CreateRandomClanBanner(RandomNumberGen.Instance.NextRandomInt());
+			banner.ApplyUniqueColorScheme();
+			clan.Banner = banner;
+			clan.Color = banner.GetPrimaryColor();
+			clan.Color2 = banner.GetSecondaryColor();
 
 			clan.IsNoble = true;
 			clan.IsRebelClan = false;

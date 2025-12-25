@@ -7,6 +7,7 @@ using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
+using Helpers;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Settlements;
@@ -43,11 +44,12 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             PrepareClanToRule(rulingClan);
             
-            uint kingdomColor1 = GetUniqueKingdomColor();
-            uint kingdomColor2 = ColorHelpers.GetDarkerShade(kingdomColor1);
-
             CultureObject culture = rulingClan.Culture;
 
+            Banner banner = Banner.CreateRandomBanner();
+            uint kingdomColor1 = 0;//GetUniqueKingdomColor();
+            uint kingdomColor2 = 0;//ColorHelpers.GetDarkerShade(kingdomColor1);
+        
             // Links seem to not show up in encyclopedia, keeping them anyway as still shows text correctly.
             TextObject encyclopediaText = new($"A new rising kingdom sparked from the upstarts of {rulingClan.EncyclopediaLinkWithName}, Taking {homeSettlement.EncyclopediaLinkWithName} as their capital " +
                                             $"and first ruled by {rulingClan.Leader.EncyclopediaLinkWithName}. Will their legitimacy as a sovereign nation be challenged?");
@@ -58,7 +60,7 @@ namespace Bannerlord.GameMaster.Kingdoms
                 nameObj,                        // name
                 nameObj,                        // informal name
                 culture,                        // culture
-                rulingClan.ClanOriginalBanner,  // banner
+                banner,                         // banner
                 kingdomColor1,                  // color 1
                 kingdomColor2,                  // color 2
                 homeSettlement,                 // home settlement
@@ -68,7 +70,7 @@ namespace Bannerlord.GameMaster.Kingdoms
             );
                    
             ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
-            
+           
             kingdom.CalculateMidSettlement();
             rulingClan.CalculateMidSettlement();
             kingdom.IsReady = true;
@@ -136,37 +138,6 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             // Create extra lords for ruling clan
             HeroGenerator.CreateLords(10, clan.Culture.ToCultureFlag(), GenderFlags.Either, clan);
-        }
-
-        /// <summary>
-        /// Get the most unique color possible compared to existing kingdoms
-        /// </summary>
-        static uint GetUniqueKingdomColor()
-        {
-            bool isColorSimilar = false;
-
-            //Decrease threshold each try, until a color is found or threshold is 0
-            for (int similarThreshold = 100; similarThreshold > 0; similarThreshold--)
-            {
-                uint randomColor = RandomNumberGen.Instance.NextRandomRGBColor;
-
-                foreach(Kingdom kingdom in Kingdom.All)
-                {
-                    // Color similar, restart with new color
-                    if (ColorHelpers.AreColorsSimilar(randomColor, kingdom.Color, similarThreshold))
-                    {
-                        isColorSimilar = true;
-                        break;
-                    }
-                }
-
-                // Color is outside the current threshold similarity
-                if (!isColorSimilar)
-                    return randomColor;
-            }
-
-            // Unique color never found, just return random anyway
-            return RandomNumberGen.Instance.NextRandomRGBColor;
         }
     }
 }
