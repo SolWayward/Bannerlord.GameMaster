@@ -435,5 +435,237 @@ namespace Bannerlord.GameMaster.Console.TroopCommands
                 }, "Failed to add mixed troops");
             });
         }
+
+        //MARK: upgrade_troops
+        /// <summary>
+        /// Upgrade all troops in a party leader's party to specified tier
+        /// Usage: gm.troops.upgrade_troops [partyLeader] [tier] [infantryRatio] [rangedRatio] [cavalryRatio]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("upgrade_troops", "gm.troops")]
+        public static string UpgradeTroops(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.troops.upgrade_troops", "<partyLeader> [tier] [infantryRatio] [rangedRatio] [cavalryRatio]",
+                    "Upgrades all troops in the hero's party to specified tier or max tier of the troop if specified tier is higher.\n" +
+                    "Attempts to maintain a ratio of troop types.\n" +
+                    "Optional tier defaults to 7. Optional ratios 0 to 1 (defaults to infantry:0.5, ranged:0.3, cavalry:0.2).\n" +
+                    "All ratios must add up to 1. If only one or two ratios are specified, remaining ratios will default to evenly add up to 1.\n" +
+                    "Supports named arguments: partyLeader:derthert tier:6 infantryRatio:0.5 rangedRatio:0.3 cavalryRatio:0.2",
+                    "gm.troops.upgrade_troops derthert\n" +
+                    "gm.troops.upgrade_troops player 6\n" +
+                    "gm.troops.upgrade_troops derthert 7 0.4 0.4 0.2");
+
+                // Parse arguments
+                var parsedArgs = CommandBase.ParseArguments(args);
+
+                // Define valid arguments
+                parsedArgs.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("partyLeader", true, null, "leader"),
+                    new CommandBase.ArgumentDefinition("tier", false),
+                    new CommandBase.ArgumentDefinition("infantryRatio", false, null, "infantry"),
+                    new CommandBase.ArgumentDefinition("rangedRatio", false, null, "ranged"),
+                    new CommandBase.ArgumentDefinition("cavalryRatio", false, null, "cavalry")
+                );
+
+                // Validate
+                string validationError = parsedArgs.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
+                if (parsedArgs.TotalCount < 1)
+                    return usageMessage;
+
+                // Parse partyLeader
+                string leaderArg = parsedArgs.GetArgument("partyLeader", 0) ?? parsedArgs.GetNamed("leader");
+                if (leaderArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'partyLeader'.");
+
+                var (hero, heroError) = CommandBase.FindSingleHero(leaderArg);
+                if (heroError != null) return heroError;
+
+                // Parse tier (optional, default 7)
+                int tier = 7;
+                string tierArg = parsedArgs.GetArgument("tier", 1);
+                if (tierArg != null)
+                {
+                    if (!CommandValidator.ValidateIntegerRange(tierArg, 1, 10, out tier, out string tierError))
+                        return CommandBase.FormatErrorMessage(tierError);
+                }
+
+                // Parse ratios (optional)
+                float? infantryRatio = null;
+                string infantryArg = parsedArgs.GetArgument("infantryRatio", 2) ?? parsedArgs.GetNamed("infantry");
+                if (infantryArg != null)
+                {
+                    if (!CommandValidator.ValidateFloatRange(infantryArg, 0f, 1f, out float infantry, out string infantryError))
+                        return CommandBase.FormatErrorMessage(infantryError);
+                    infantryRatio = infantry;
+                }
+
+                float? rangedRatio = null;
+                string rangedArg = parsedArgs.GetArgument("rangedRatio", 3) ?? parsedArgs.GetNamed("ranged");
+                if (rangedArg != null)
+                {
+                    if (!CommandValidator.ValidateFloatRange(rangedArg, 0f, 1f, out float ranged, out string rangedError))
+                        return CommandBase.FormatErrorMessage(rangedError);
+                    rangedRatio = ranged;
+                }
+
+                float? cavalryRatio = null;
+                string cavalryArg = parsedArgs.GetArgument("cavalryRatio", 4) ?? parsedArgs.GetNamed("cavalry");
+                if (cavalryArg != null)
+                {
+                    if (!CommandValidator.ValidateFloatRange(cavalryArg, 0f, 1f, out float cavalry, out string cavalryError))
+                        return CommandBase.FormatErrorMessage(cavalryError);
+                    cavalryRatio = cavalry;
+                }
+
+                // Validate ratios sum
+                if (infantryRatio.HasValue && rangedRatio.HasValue && cavalryRatio.HasValue)
+                {
+                    float sum = infantryRatio.Value + rangedRatio.Value + cavalryRatio.Value;
+                    if (Math.Abs(sum - 1.0f) > 0.01f)
+                        return CommandBase.FormatErrorMessage($"Troop ratios must add up to 1.0. Current sum: {sum:F2}");
+                }
+
+                // Calculate actual ratios that will be used (including defaults for unspecified)
+                var (actualRangedRatio, actualCavalryRatio, actualInfantryRatio) =
+                    TroopUpgrader.NormalizeRatios(rangedRatio, cavalryRatio, infantryRatio);
+
+                // Build display
+                var resolvedValues = new Dictionary<string, string>
+                {
+                    { "partyLeader", hero.Name.ToString() },
+                    { "tier", tier.ToString() },
+                    { "infantryRatio", actualInfantryRatio.ToString("F2") },
+                    { "rangedRatio", actualRangedRatio.ToString("F2") },
+                    { "cavalryRatio", actualCavalryRatio.ToString("F2") }
+                };
+
+                string argumentDisplay = parsedArgs.FormatArgumentDisplay("upgrade_troops", resolvedValues);
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    if (hero.PartyBelongedTo == null)
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+
+                    if (hero.PartyBelongedTo.LeaderHero != hero)
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
+
+                    // Call the extension method with proper parameter order (ranged, cavalry, infantry)
+                    hero.PartyBelongedTo.UpgradeTroops(tier, rangedRatio, cavalryRatio, infantryRatio);
+
+                    StringBuilder result = new StringBuilder();
+                    result.AppendLine($"Upgraded troops in {hero.Name}'s party to tier {tier}.");
+                    
+                    if (infantryRatio.HasValue || rangedRatio.HasValue || cavalryRatio.HasValue)
+                    {
+                        result.Append("Target ratios - ");
+                        if (infantryRatio.HasValue)
+                            result.Append($"Infantry: {infantryRatio.Value:P0} ");
+                        if (rangedRatio.HasValue)
+                            result.Append($"Ranged: {rangedRatio.Value:P0} ");
+                        if (cavalryRatio.HasValue)
+                            result.Append($"Cavalry: {cavalryRatio.Value:P0}");
+                        result.AppendLine();
+                    }
+                    
+                    result.AppendLine($"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
+
+                    return argumentDisplay + CommandBase.FormatSuccessMessage(result.ToString());
+                }, "Failed to upgrade troops");
+            });
+        }
+
+        //MARK: give_xp
+        /// <summary>
+        /// Give XP to all troops in a party leader's party
+        /// Usage: gm.troops.give_xp [partyLeader] [xp]
+        /// </summary>
+        [CommandLineFunctionality.CommandLineArgumentFunction("give_xp", "gm.troops")]
+        public static string GiveXp(List<string> args)
+        {
+            return Cmd.Run(args, () =>
+            {
+                if (!CommandBase.ValidateCampaignMode(out string error))
+                    return error;
+
+                var usageMessage = CommandValidator.CreateUsageMessage(
+                    "gm.troops.give_xp", "<partyLeader> <xp>",
+                    "Adds the specified experience to all troops in the hero's party.\n" +
+                    "Supports named arguments: partyLeader:derthert xp:1000",
+                    "gm.troops.give_xp derthert 1000\n" +
+                    "gm.troops.give_xp player 500");
+
+                // Parse arguments
+                var parsedArgs = CommandBase.ParseArguments(args);
+
+                // Define valid arguments
+                parsedArgs.SetValidArguments(
+                    new CommandBase.ArgumentDefinition("partyLeader", true, null, "leader"),
+                    new CommandBase.ArgumentDefinition("xp", true)
+                );
+
+                // Validate
+                string validationError = parsedArgs.GetValidationError();
+                if (validationError != null)
+                    return CommandBase.FormatErrorMessage(validationError);
+
+                if (parsedArgs.TotalCount < 2)
+                    return usageMessage;
+
+                // Parse partyLeader
+                string leaderArg = parsedArgs.GetArgument("partyLeader", 0) ?? parsedArgs.GetNamed("leader");
+                if (leaderArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'partyLeader'.");
+
+                var (hero, heroError) = CommandBase.FindSingleHero(leaderArg);
+                if (heroError != null) return heroError;
+
+                // Parse xp
+                string xpArg = parsedArgs.GetArgument("xp", 1);
+                if (xpArg == null)
+                    return CommandBase.FormatErrorMessage("Missing required argument 'xp'.");
+
+                if (!CommandValidator.ValidateIntegerRange(xpArg, 1, 1000000, out int xp, out string xpError))
+                    return CommandBase.FormatErrorMessage(xpError);
+
+                // Build display
+                var resolvedValues = new Dictionary<string, string>
+                {
+                    { "partyLeader", hero.Name.ToString() },
+                    { "xp", xp.ToString() }
+                };
+                string argumentDisplay = parsedArgs.FormatArgumentDisplay("give_xp", resolvedValues);
+
+                return CommandBase.ExecuteWithErrorHandling(() =>
+                {
+                    if (hero.PartyBelongedTo == null)
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+
+                    if (hero.PartyBelongedTo.LeaderHero != hero)
+                        return argumentDisplay + CommandBase.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
+
+                    // Count non-hero troops before adding XP
+                    int troopCount = 0;
+                    foreach (var troop in hero.PartyBelongedTo.MemberRoster.GetTroopRoster())
+                    {
+                        if (!troop.Character.IsHero)
+                            troopCount++;
+                    }
+
+                    hero.PartyBelongedTo.AddXp(xp);
+
+                    return argumentDisplay + CommandBase.FormatSuccessMessage(
+                        $"Added {xp} XP to {troopCount} troop types in {hero.Name}'s party.\n" +
+                        $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
+                }, "Failed to give XP to troops");
+            });
+        }
     }
 }

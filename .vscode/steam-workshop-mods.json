@@ -1,0 +1,23 @@
+{
+  "steamWorkshopPath": "C:\\Program Files (x86)\\Steam\\steamapps\\workshop\\content\\261550",
+  "mods": [
+    {
+      "workshopId": "2859233432",
+      "modName": "ExampleMod",
+      "enabled": false
+    }
+  ],
+  "instructions": [
+    "Add your Steam workshop mods here to have them automatically linked during debugging.",
+    "Find the workshopId by looking at the folder name in your Steam workshop directory.",
+    "Set 'enabled' to true to include the mod during debugging.",
+    "The 'modName' should match the module's SubModule.xml <Id> value.",
+    "",
+    "Example:",
+    "{",
+    "  \"workshopId\": \"2859233432\",",
+    "  \"modName\": \"MyAwesomeMod\",",
+    "  \"enabled\": true",
+    "}"
+  ]
+}

@@ -16,7 +16,18 @@ namespace Bannerlord.GameMaster
 {
     public class SubModule : MBSubModuleBase
     {
-        public static string ModuleVersion => "1.3.11.2";
+
+        private static string version;
+		public static string Version
+		{
+			get
+			{
+				version ??= Assembly.GetExecutingAssembly()
+						.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
+						.InformationalVersion ?? "Unknown";
+				return version;
+			}
+		}
 
         protected override void OnSubModuleLoad()
         {
@@ -72,7 +83,7 @@ namespace Bannerlord.GameMaster
         private void HandleGameMasterMenuOptionClicked()
         {
             TextObject versionText = new("{=InfoMsg_BLGameMaster_Version}BL Game Master v{BLGAMEMASTER_VERSION}");
-            versionText.SetTextVariable("BLGAMEMASTER_VERSION", ModuleVersion);
+            versionText.SetTextVariable("BLGAMEMASTER_VERSION", Version);
 
             InformationMessage infoMessage = new(versionText.ToString());
             InformationManager.DisplayMessage(infoMessage);

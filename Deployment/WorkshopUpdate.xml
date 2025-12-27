@@ -5,23 +5,19 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.11.7
-Added gm.kingdom.create_kingdom
-	- Generates a new clan leading a new kingdom
-	- New kingdom ruler takes ownership of the settlement specified
-	- Additional Lords and clans are automatically added to the new kingdom
-	- For player kingdom, use commands to change tier and settlementownership start kingdom regular way
+"v1.3.13.1
+Troops
+	- added command to upgrade all troops to specified tier in party
+	- added command to add specified xp to all troops in party
+	- Upgrading troops attempts to maintain specified ratio or by default infantry: 0.5, ranged: 0.3, calvary: 0.2
 
-Added gm.kingdom.generate_kingdoms
-	- generates the specified number of kingdoms
-	- Will automatically take ownership of settlements
-	- selects settlements evenly from each kingdom
-	- will not take player settlement or kingdoms last settlement
-
-Improved Clan Generation
-	- Generated clans now use better looking color schemes
-	- Attempts to select the most distinct clan colors
-	- fixed custom clan names not being used for create_clan"
+Kingdoms
+	- New kingdoms homesettlment culture is now changed to match the kingdom culture
+	- Kingdom rulers now get a bigger party with upgraded troops
+	- Improved random generated kingdom names
+	
+Clans
+	Leaders of new clans now get upgraded troops"
         />
         <Tags>
             <Tag Value="Utility" />
@@ -35,6 +31,7 @@ Improved Clan Generation
             <Tag Value="v1.3.10" />
             <Tag Value="v1.3.11" />
             <Tag Value="v1.3.12" />
+            <Tag Value="v1.3.13" />
         </Tags>
         <Visibility Value="Public"/>
     </UpdateItem>

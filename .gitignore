@@ -366,3 +366,6 @@ Bannerlord.GameMaster/REFACTORING_SUMMARY.md
 # Wiki directory (separate GitHub wiki repository)
 wiki/
 Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+
+# Steam workshop mod symbolic link tracking (auto-generated during debug)
+.vscode/steam-mod-links.txt

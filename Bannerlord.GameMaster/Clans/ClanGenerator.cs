@@ -134,7 +134,8 @@ namespace Bannerlord.GameMaster.Clans
 			if (leader.PartyBelongedTo != null)
 			{
 				// Add 10 basic, 10 elite, and 10 mercenary troops of the leader's culture
-				leader.PartyBelongedTo.AddMixedTierTroops(10);
+				leader.PartyBelongedTo.AddMixedTierTroops(20);
+				leader.PartyBelongedTo.UpgradeTroops();
 			}
 
 			// Join Kingdom if specified

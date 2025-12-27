@@ -7,9 +7,11 @@ using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
+using Bannerlord.GameMaster.Party;
 using Helpers;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
@@ -28,6 +30,14 @@ namespace Bannerlord.GameMaster.Kingdoms
         /// <returns>The created kingdom, or null if settlement cannot be resolved</returns>
         public static Kingdom CreateKingdom(Settlement homeSettlement, int vassalClanCount = 4, string name = null, string rulingClanName = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
         {
+            // Early validation of settlement
+            if (homeSettlement == null || homeSettlement.Town == null)
+                return null;
+
+            if (!homeSettlement.IsTown && !homeSettlement.IsCastle)
+                return null;
+
+            // Create ruling clan
             Clan rulingClan = ClanGenerator.CreateClan(rulingClanName, cultureFlags: cultureFlags);
 
             if (name == null || name.IsEmpty())
@@ -36,19 +46,19 @@ namespace Bannerlord.GameMaster.Kingdoms
             TextObject nameObj = new(name);
             string stringID = ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Kingdom));
 
+            // Prepare clan for ruling BEFORE creating kingdom
+            PrepareClanToRule(rulingClan);
+
+            // Create kingdom
             Kingdom kingdom = Kingdom.CreateKingdom(stringID);
 
-            // Validate settlement and set clan as owner, else return null kingdom
-            if(ValidateAndResolveSettlement(homeSettlement, rulingClan) == false)
-                return null;
-
-            PrepareClanToRule(rulingClan);
+            // Move clan to new kingdom
             ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
             
             CultureObject culture = rulingClan.Culture;
 
             // banner is null atleast on vanilla clans, so use originalBanner if null
-            Banner banner; 
+            Banner banner;
             if (rulingClan.Banner != null)
                 banner = rulingClan.Banner;
             else
@@ -75,16 +85,37 @@ namespace Bannerlord.GameMaster.Kingdoms
                 encyclopediaTitle,              // encyclopedia title
                 encyclopediaRulerTitle          // encyclopedia ruler title
             );
-                   
-           // ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
-           
+
+            // Transfer ownership of settlement
+            ChangeOwnerOfSettlementAction.ApplyByDefault(rulingClan.Leader, homeSettlement);
+            
+            // Change homesettlement and bound villages culture to match to new kingdom
+            homeSettlement.Culture = culture;
+            foreach(Village village in homeSettlement.BoundVillages)
+            {
+                village.Settlement.Culture = culture;
+            }
+
+            // Calculate mid settlements for both kingdom and clan
             kingdom.CalculateMidSettlement();
             rulingClan.CalculateMidSettlement();
-            kingdom.IsReady = true;
+
+            // Initialize kingdom Wallets
+            kingdom.KingdomBudgetWallet += 100000;
+            kingdom.CallToWarWallet += 100000;
+            kingdom.TributeWallet += 100000;
+
+
+            if (rulingClan.Leader.PartyBelongedTo != null)
+            {
+                MobileParty rulerParty = rulingClan.Leader.PartyBelongedTo;              
+                rulerParty.AddMixedTierTroops(30);
+                rulerParty.UpgradeTroops();
+            }
 
             // Generate vassals ensuring vassal count isnt negative
             if (vassalClanCount > 0)
-            {             
+            {
                 List<Clan> clans = ClanGenerator.GenerateClans(vassalClanCount, cultureFlags, kingdom);
                 
                 // Add extra lords to vassals
@@ -92,29 +123,12 @@ namespace Bannerlord.GameMaster.Kingdoms
                     HeroGenerator.CreateLords(4, clan.Culture.ToCultureFlag(), GenderFlags.Either, clan);
             }
 
+            // Set kingdom as ready AFTER all initialization is complete
+            kingdom.IsReady = true;
+
             InfoMessage.Success($"Kingdom '{kingdom.Name}' created with {rulingClan.Name} as ruling clan and {homeSettlement.Name} as the capital and {vassalClanCount} vassal clans");
             
             return kingdom;
-        }
-
-        /// MARK: Validate Settlement
-        /// <summary>
-        /// Validates settlement and sets clan as settlement owner if not already owner
-        /// </summary>
-        static bool ValidateAndResolveSettlement(Settlement settlement, Clan clan)
-        {
-            // Return false if settlement null or settlement.town null
-            if (settlement == null || settlement.Town == null)
-                return false;
-
-            // Above check should fail before this is evaluated but just incase.
-            if (!settlement.IsTown && !settlement.IsCastle)
-                return false;
-
-            if (settlement.OwnerClan != clan)
-                settlement.Town.OwnerClan = clan;
-
-            return true;
         }
 
         /// MARK: Prepare Clan for Rule

@@ -18,12 +18,46 @@
 			"problemMatcher": []
 		},
 		{
+			"label": "link-steam-mods",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/.vscode/link-steam-mods.ps1"
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"focus": false
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "unlink-steam-mods",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/.vscode/unlink-steam-mods.ps1"
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"focus": false
+			},
+			"problemMatcher": []
+		},
+		{
 			"type": "dotnet",
 			"task": "build",
 			"group": "build",
 			"problemMatcher": [],
 			"label": "build bannerlord",
-			"dependsOn": ["disable-safe-mode"]
+			"dependsOn": ["disable-safe-mode", "link-steam-mods"]
 		},
 		{
 			"label": "copy-test-results",
@@ -40,6 +74,11 @@
 				"panel": "shared",
 				"showReuseMessage": false
 			},
+			"problemMatcher": []
+		},
+		{
+			"label": "cleanup-debug",
+			"dependsOn": ["copy-test-results", "unlink-steam-mods"],
 			"problemMatcher": []
 		}
 	]

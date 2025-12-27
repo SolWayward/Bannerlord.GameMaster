@@ -409,100 +409,107 @@ namespace Bannerlord.GameMaster.Cultures
         /// MARK: Aserai - Kingdom
         ["aserai"] = new List<string>
             {
-                "Sultanate of the Golden Sands", "Emirate of the Desert Wind", "Kingdom of the Oasis",
-                "Caliphate of the Dunes", "Sultanate of Al-Qamar", "Empire of the Sunlit Shores",
-                "Dominion of the Caravan Roads", "Realm of the Pearl Cities", "Kingdom of Al-Zahir",
-                "Sultanate of Al-Rashid", "Empire of the Spice Routes", "Dominion of Al-Faisal",
-                "Kingdom of the Southern Sands", "Caliphate of Al-Malik", "Sultanate of Al-Azhar",
-                "Empire of the Desert Jewels", "Realm of Al-Walid", "Kingdom of the Silk Caravans",
-                "Dominion of Al-Nasir", "Sultanate of the Red Desert", "Empire of Al-Tariq",
-                "Kingdom of the Bronze Citadels", "Caliphate of Al-Hakim", "Realm of the Date Palms",
-                "Sultanate of Al-Saif", "Empire of the Eastern Trade", "Dominion of Al-Bashir",
-                "Kingdom of the Sandstorm", "Caliphate of Al-Kamal", "Sultanate of Al-Qadir"
+                "Sultanate of Al-Qamar", "Sultanate of Al-Rashid", "Sultanate of Al-Azhar",
+                "Sultanate of Al-Zahir", "Sultanate of Al-Walid", "Sultanate of Al-Nasir",
+                "Sultanate of Al-Saif", "Sultanate of Al-Qadir", "Sultanate of Al-Basir",
+                "Caliphate of Qahira", "Caliphate of Zafran", "Caliphate of Nurabad",
+                "Caliphate of Saraqand", "Caliphate of Al-Malik", "Caliphate of Al-Kamal",
+                "Emirate of Najirah", "Emirate of Khazara", "Emirate of Zahrat",
+                "Sultanate of Bahar", "Emirate of Rashidun", "Kingdom of Kharasan",
+                "Kingdom of Saharan", "Kingdom of Malukar", "Sultanate of Asadabad",
+                "Emirate of Faridun", "Kingdom of Tarikia", "Sultanate of Ghaziran",
+                "Caliphate of Harithia", "Kingdom of Samarra", "Sultanate of Jazira",
+                "Kingdom of Qasiria", "Emirate of Nasirabad", "Caliphate of Zahirabad"
             },
         /// MARK: Battania - Kingdom
         ["battania"] = new List<string>
             {
-                "Kingdom of the Ancient Forests", "Realm of the Highland Clans", "Dominion of the Oak Grove",
-                "Kingdom of the Misty Hills", "Confederacy of the Sacred Woods", "Realm of the Stone Circles",
-                "Kingdom of the Wild Hunt", "Dominion of the Forest Kings", "Realm of the Ancient Ways",
-                "Kingdom of the Druids", "Confederacy of the Hill Tribes", "Dominion of the Green Valleys",
-                "Realm of the Wolf Lords", "Kingdom of the Sacred Groves", "Dominion of the Mist",
-                "Kingdom of the Highland Warriors", "Realm of the Moss Crown", "Confederacy of the Free Clans",
-                "Kingdom of the Forest Shadows", "Dominion of the Ancient Oaks", "Realm of the Stag Kings",
-                "Kingdom of the Painted Warriors", "Confederacy of the Mountain Clans", "Dominion of the Fern Crown",
-                "Realm of the Stone Kings", "Kingdom of the Wildwood", "Dominion of the Highland Realm",
-                "Kingdom of the Forest Brotherhood", "Realm of the Old Gods", "Confederacy of the Green Hills"
+                "Kingdom of Riata", "Kingdom of Gwyneth", "Kingdom of Connath",
+                "Kingdom of Munstir", "Kingdom of Ulsara", "Kingdom of Leinora",
+                "Kingdom of Strathlyn", "Kingdom of Powyr", "Kingdom of Dyfan",
+                "Kingdom of Albion", "Kingdom of Deharan", "Kingdom of Rhegan",
+                "Kingdom of Elmar", "Kingdom of Gododor", "Kingdom of Pictaran",
+                "Brigantia", "Icenara", "Catuvelara",
+                "Confederacy of Albarn", "Caledor", "Hibernian Kingdom",
+                "United Gaeldom", "Cornovara", "Gwentor",
+                "Morgannor", "Brychanor", "Ceredigarn",
+                "Kingdom of Meathan", "Desmonar", "Thomonar",
+                "High Kingdom of Eriana", "Pictland", "Kingdom of Mannar"
             },
         /// MARK: Empire - Kingdom
         ["empire"] = new List<string>
             {
-                "Empire of the Golden Eagle", "Imperial Dominion of Calradia", "Kingdom of the Marble Throne",
-                "Empire of the Southern Provinces", "Imperial Realm of the Legions", "Kingdom of the Senate",
-                "Empire of the Eastern Territories", "Imperial Dominion of the Phoenix", "Realm of the Caesars",
-                "Empire of the Western Marches", "Kingdom of the Imperial Crown", "Dominion of the Sacred Senate",
-                "Empire of the Unified Provinces", "Imperial Realm of the Consul", "Kingdom of the Bronze Legions",
-                "Empire of the Northern Frontier", "Imperial Dominion of the Praetorians", "Realm of the Emperor",
-                "Empire of the Ancient Glory", "Kingdom of the Imperial Eagles", "Dominion of the Basileus",
-                "Empire of the Mountain Citadels", "Imperial Realm of the Dragon Banner", "Kingdom of the Phalanx",
-                "Empire of the Marble Cities", "Imperial Dominion of the Purple", "Realm of the Strategos",
-                "Empire of the Restored Glory", "Kingdom of the Imperial Senate", "Dominion of the Augustus"
+                "New Empire of Calradia", "United Empire of Nicara", "Empire of Trebizon",
+                "Despotate of Epiron", "Despotate of Morean", "Republic of Dobruna",
+                "Kingdom of Macedoria", "Pontian Kingdom", "Kingdom of Bithara",
+                "New Empire of Komnenora", "United Empire of Palaeon", "Empire of Angeloran",
+                "Thracian Kingdom", "Kingdom of Thessalan", "Republic of Cypron",
+                "Exarchate of Ravenos", "Province of Anatolon", "Province of Thrakeon",
+                "Despotate of Mystron", "Principality of Acharan", "Duchy of Athenora",
+                "Eastern Empire", "Western Empire", "Northern Empire",
+                "Kingdom of Pergamon", "Kingdom of Armenos", "Republic of Iberon",
+                "Praetorian Prefecture", "Senatorial Republic", "Imperial Province",
+                "New Tetrarchy", "United Pentarchy", "Calradian Empire"
             },
         /// MARK: Khuzait - Kingdom
         ["khuzait"] = new List<string>
             {
-                "Khanate of the Golden Horde", "Empire of the Eternal Sky", "Kingdom of the Great Steppe",
-                "Khanate of the Swift Riders", "Dominion of the Horse Lords", "Realm of the Nomad Kings",
-                "Empire of the Eastern Steppes", "Khanate of the Thundering Hooves", "Kingdom of the Windswept Plains",
-                "Dominion of the Great Khan", "Khanate of the Silver Stirrup", "Realm of the Horse Archers",
-                "Empire of the Blue Sky", "Kingdom of the Mounted Warriors", "Khanate of the Desert Winds",
-                "Dominion of the Steppe Clans", "Realm of the Horse Tamers", "Empire of the Endless Grasslands",
-                "Khanate of the Thunder Khan", "Kingdom of the Swift Arrows", "Dominion of the Plains Riders",
-                "Khanate of the Iron Stirrup", "Realm of the Mounted Horde", "Empire of the Galloping Winds",
-                "Kingdom of the Steppe Empire", "Khanate of the Eagle Banner", "Dominion of the Horse Nations",
-                "Realm of the Great Riders", "Empire of the Nomadic Clans", "Khanate of the Sky Warriors"
+                "Khanate of the Golden Horde", "Khanate of the White Horde", "Khanate of the Blue Horde",
+                "Chagataran Khanate", "Ilkhara Khanate", "Great Yuanese Dynasty",
+                "Khanate of Khivara", "Khanate of Bukhar", "Khanate of Kokandan",
+                "Xiongun Empire", "Rouran Empire", "Gokturan Khaganate",
+                "Uyguran Khaganate", "Khazaran Khaganate", "Avaran Khaganate",
+                "Scytharan Empire", "Sarmatian Kingdom", "Hunnic Empire",
+                "Crimean Khanate", "Kazaran Khanate", "Astrakhan Khanate",
+                "Sibiran Khanate", "Nogaran Horde", "Kazakhan Khanate",
+                "Dzungaran Khanate", "Qaran Khanate", "Timuran Empire",
+                "Seljukan Empire", "Sultanate of Rumara", "Cumanian Khanate",
+                "Pechenoran Khanate", "Kipchakan Confederation", "Mongolaran Empire"
             },
         /// MARK: Nord - Kingdom
         ["nord"] = new List<string>
             {
-                "Kingdom of the North", "Realm of the Sea Kings", "Dominion of the Frozen Shores",
-                "Kingdom of the Vikings", "Realm of the Ice Crown", "Dominion of the Northern Jarls",
-                "Kingdom of the Longships", "Realm of the Frost Kings", "Dominion of the Shield Wall",
-                "Kingdom of the Northern Reaches", "Realm of the Bear Kings", "Dominion of the Ice Warriors",
-                "Kingdom of the Sea Raiders", "Realm of the Snow Crown", "Dominion of the Viking Lords",
-                "Kingdom of the Northern Fjords", "Realm of the Thunder God", "Dominion of the Berserkers",
-                "Kingdom of the Frozen North", "Realm of the Wolf Kings", "Dominion of the Ice Throne",
-                "Kingdom of the Northern Winds", "Realm of the Sea Wolves", "Dominion of the Shield Kings",
-                "Kingdom of the Iron Jarls", "Realm of the Frost Warriors", "Dominion of the Northern Crown",
-                "Kingdom of the Dragon Ships", "Realm of the Ice Lords", "Dominion of the Thunder Throne"
+                "Nordland", "Danemark", "Swedenor",
+                "Kingdom of Upsalar", "Kingdom of Vestfaldor", "Hordalor",
+                "Jarldom of Orkenor", "Kingdom of the Islar", "Dublinor",
+                "Jorvikar", "Northumbran Kingdom", "East Angloran Kingdom",
+                "Principality of Novgaror", "Principality of Polotskara", "Gardarikian Kingdom",
+                "Iselandor", "Earldom of Ladaran", "Kingdom of Ringeran",
+                "Agderan Kingdom", "Rogalor", "Trondelar",
+                "Kingdom of Jamtlor", "Gotaland", "Svealor",
+                "Jarldom of Hallaran", "Skaneland", "Bornholmar",
+                "Gotlandor", "Kingdom of the Danskaran", "Kingdom of the Geatar",
+                "Jarldom of Hedmaran", "Vingulmar", "North Sea Kingdom"
             },
         /// MARK: Sturgia - Kingdom
         ["sturgia"] = new List<string>
             {
-                "Principality of the Great Forest", "Kingdom of the Bear Throne", "Realm of the Northern Woods",
-                "Grand Principality of Sturgia", "Kingdom of the Ice Princes", "Dominion of the Forest Lords",
-                "Tsardom of the Northern Realm", "Kingdom of the White Fortress", "Realm of the Bear Crown",
-                "Grand Principality of the Woodlands", "Kingdom of the Snow Princes", "Dominion of the Frozen Rivers",
-                "Tsardom of the Great North", "Realm of the Winter Crown", "Kingdom of the Forest Throne",
-                "Grand Principality of the North", "Dominion of the Ice Citadels", "Kingdom of the Bear Lords",
-                "Tsardom of the Snow Lands", "Realm of the Northern Princes", "Kingdom of the White Bear",
-                "Grand Principality of the Steppes", "Dominion of the Frost Crown", "Realm of the Forest Kings",
-                "Tsardom of the Northern Territories", "Kingdom of the Winter Throne", "Dominion of the Great Woods",
-                "Grand Principality of the Ice", "Realm of the Snow Lords", "Kingdom of the Northern Realm"
+                "Principality of Novgarod", "Principality of Kievan", "Principality of Vladaran",
+                "Grand Principality of Moskovar", "Principality of Suzdalor", "Principality of Ryazaran",
+                "Principality of Chernor", "Principality of Smolenskan", "Principality of Polotskara",
+                "Principality of Turovara", "Principality of Pereyar", "Principality of Halycharan",
+                "Kingdom of Galician", "Tsardom of Bulgaran", "Tsardom of Serbian",
+                "Kingdom of Croatan", "Kingdom of Bosnian", "Serbian Empire",
+                "Despotate of Serban", "Kingdom of Rascian", "Banate of Bosnaran",
+                "Principality of Tverian", "Principality of Yaroslavan", "Principality of Rostovan",
+                "Grand Duchy of Lithoran", "Kingdom of Polaran", "Kievan Dominion",
+                "Principality of Pskovara", "Principality of Muroman", "Principality of Beloran",
+                "Tsardom of Russkar", "United Empire of Russar", "Kingdom of Ruthoran"
             },
         /// MARK: Vlandia - Kingdom
         ["vlandia"] = new List<string>
             {
-                "Kingdom of the Iron Crown", "Realm of the Knights", "Dominion of the Western Marches",
-                "Kingdom of the Silver Lance", "Realm of the Feudal Lords", "Dominion of the Noble Houses",
-                "Kingdom of the Golden Lion", "Realm of the Crusaders", "Dominion of the Western Realm",
-                "Kingdom of the Chivalrous Orders", "Realm of the Banner Lords", "Dominion of the Great Kingdoms",
-                "Kingdom of the Iron Lords", "Realm of the Western Knights", "Dominion of the Feudal Crown",
-                "Kingdom of the Noble Sword", "Realm of the Cavaliers", "Dominion of the Mounted Knights",
-                "Kingdom of the Golden Banner", "Realm of the Western Lords", "Dominion of the Chivalric Orders",
-                "Kingdom of the Silver Crown", "Realm of the Armored Knights", "Dominion of the Western Throne",
-                "Kingdom of the Iron Banner", "Realm of the Feudal Princes", "Dominion of the Noble Realm",
-                "Kingdom of the Golden Spurs", "Realm of the Knight Commanders", "Dominion of the Western Empire"
+                "Kingdom of Francor", "Kingdom of Burgundar", "Kingdom of Lotharor",
+                "Kingdom of Arlesian", "Kingdom of Provencan", "Kingdom of Aquitaran",
+                "Duchy of Normandor", "Duchy of Brittaran", "County of Flanderon",
+                "County of Champaran", "Duchy of Gasconar", "Kingdom of Navarran",
+                "Kingdom of Aragonar", "Kingdom of Castilian", "Kingdom of Leonar",
+                "Kingdom of Germaran", "Kingdom of Italaran", "Kingdom of Bohemaran",
+                "Duchy of Bavaran", "Duchy of Swabar", "Duchy of Saxonor",
+                "County of Hollandar", "County of Hainautar", "Duchy of Brabantor",
+                "Kingdom of Angland", "Kingdom of Scotaran", "Principality of Walesor",
+                "Holy Calradian Empire", "Latinian Empire", "Kingdom of Jerusalemar",
+                "County of Toulousar", "Duchy of Lorranar", "Margraviate of Brandenor"
             }
     };
     }

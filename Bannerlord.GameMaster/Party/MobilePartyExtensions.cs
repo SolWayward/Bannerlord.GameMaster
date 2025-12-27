@@ -1,13 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Bannerlord.GameMaster.Console.TroopCommands;
+using Bannerlord.GameMaster.Troops;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Roster;
+using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Party
 {
 	public static class MobilePartyExtensions
-	{	
+	{
 		/// MARK: Companions
 		/// <summary>
 		/// Adds the specified hero as a companion to the leader's party
@@ -28,7 +34,7 @@ namespace Bannerlord.GameMaster.Party
 			foreach (Hero hero in heroes)
 				mobileParty.AddCompanionToParty(hero);
 		}
-		
+
 		/// MARK: Lords
 		/// <summary>
 		/// Adds the specified lord to the leader's party
@@ -81,7 +87,7 @@ namespace Bannerlord.GameMaster.Party
 			{
 				int randomIndex = RandomNumberGen.Instance.NextRandomInt(mercenaryRoster.Count);
 				mobileParty.AddElementToMemberRoster(mercenaryRoster[randomIndex], 1);
-			}				
+			}
 		}
 
 		/// <summary>
@@ -93,6 +99,39 @@ namespace Bannerlord.GameMaster.Party
 			AddBasicTroops(mobileParty, countOfEach);
 			AddEliteTroops(mobileParty, countOfEach);
 			AddMercenaryTroops(mobileParty, countOfEach);
+		}
+
+		// MARK: UpgradeTroops
+		/// <summary>
+		/// Upgrades all troops in the party to the specified tier while maintaining desired composition ratios.
+		/// When troops have multiple upgrade paths, intelligently splits them to achieve target ratios.
+		/// </summary>
+		/// <param name="targetTier">Maximum tier to upgrade to (default: max tier)</param>
+		/// <param name="targetRangedRatio">Desired ratio of ranged troops (0.0-1.0, null for auto)</param>
+		/// <param name="targetCavalryRatio">Desired ratio of cavalry troops (0.0-1.0, null for auto)</param>
+		/// <param name="targetInfantryRatio">Desired ratio of infantry troops (0.0-1.0, null for auto)</param>
+		public static void UpgradeTroops(this MobileParty mobileParty,
+			int targetTier = 7,
+			float? targetRangedRatio = null,
+			float? targetCavalryRatio = null,
+			float? targetInfantryRatio = null)
+		{
+			TroopUpgrader.UpgradeTroops(mobileParty.MemberRoster, targetTier, targetRangedRatio, targetCavalryRatio, targetInfantryRatio);
+		}
+
+		/// MARK: AddXp
+		/// <summary>
+		/// Add the specified experience to every troop in the party
+		/// </summary>
+		public static void AddXp(this MobileParty mobileParty, int xp)
+		{
+			foreach (TroopRosterElement troop in mobileParty.MemberRoster.GetTroopRoster())
+			{
+				if (troop.Character.IsHero)
+					continue;
+
+				mobileParty.MemberRoster.AddXpToTroop(troop.Character, xp);
+			}
 		}
 	}
 }
