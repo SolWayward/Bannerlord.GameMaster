@@ -5,25 +5,20 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.11.7
+## Latest Update 1.3.13.1
 ```
-v1.3.11.7
-Added gm.kingdom.create_kingdom
-	- Generates a new clan leading a new kingdom
-	- New kingdom ruler takes ownership of the settlement specified
-	- Additional Lords and clans are automatically added to the new kingdom
-	- For player kingdom, use commands to change tier and settlementownership start kingdom regular way
+Troops
+	- added command to upgrade all troops to specified tier in party
+	- added command to add specified xp to all troops in party
+	- Upgrading troops attempts to maintain specified ratio or by default infantry: 0.5, ranged: 0.3, calvary: 0.2
 
-Added gm.kingdom.generate_kingdoms
-	- generates the specified number of kingdoms
-	- Will automatically take ownership of settlements
-	- selects settlements evenly from each kingdom
-	- will not take player settlement or kingdoms last settlement
-
-Improved Clan Generation
-	- Generated clans now use better looking color schemes
-	- Attempts to select the most distinct clan colors
-	- fixed custom clan names not being used for create_clan
+Kingdoms
+	- New kingdoms homesettlment culture is now changed to match the kingdom culture
+	- Kingdom rulers now get a bigger party with upgraded troops
+	- Improved random generated kingdom names
+	
+Clans
+	Leaders of new clans now get upgraded troops
 ```
 ## Key Features
 
@@ -35,9 +30,9 @@ Improved Clan Generation
 - **Advanced Queries** - Powerful search with AND/OR logic, sorting, filtering
 - **Command Logging** - Track all command usage for debugging
 - **Testing Framework** - Setup and run automated tests.
-- **Convenience Features** - Use Ids or names, and even partial matches. Positional and named arguments using ArgName:ArgValue
+- **Convenience Features** - Use Ids or names for objects, and even partial matches. Positional and named arguments using ArgName:ArgValue
 
-**Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
+**Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12, 1.3.13, and works with or without Warsails.
 
 **BLGM** extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game. 
   
@@ -115,6 +110,8 @@ Use powerful queries to search and filter:
 
 **Multi-word Parameters:** Use single quotes to use arguments with spaces ex: `'Multi word argument'`
 
+**Multiple Commands:** Use semicolons to separate multiple commands to run commands one after the other. (useful for copying and pasting commands you use often)
+
 ## Available Commands
 
 ### Hero Commands
@@ -143,7 +140,7 @@ Use powerful queries to search and filter:
 [Full Settlement Management Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Settlement-Overview)
 
 ### Troop Commands
-`give_hero_troops`, `add_basic`, `add_elite`, `add_mercenary`, `add_mixed`
+`give_hero_troops`, `add_basic`, `add_elite`, `add_mercenary`, `add_mixed`, `upgrade_troops`, `add_xp`
 
 [Full Troop Commands Documentation →](https://github.com/SolWayward/Bannerlord.GameMaster/wiki/API-Troop-Overview)
 
