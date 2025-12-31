@@ -19,7 +19,7 @@
     <ModuleUrl>$(MSBuildModuleURL)</ModuleUrl>
     <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
     <!-- Module manually override GameVersion -->
-	<OverrideGameVersion>v1.3.11</OverrideGameVersion>
+	<OverrideGameVersion>v1.3.13</OverrideGameVersion>
   </PropertyGroup>
 
 	<PropertyGroup Condition="$(TargetFramework) == 'net472'">

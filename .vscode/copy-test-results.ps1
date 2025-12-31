@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 try {
     # Define paths
     $sourceFile = Join-Path $env:USERPROFILE "Documents\Mount and Blade II Bannerlord\Configs\GameMaster\test-results.txt"
-    $targetDir = Join-Path $PSScriptRoot "..\Console\Testing\Results"
+    $targetDir = Join-Path $PSScriptRoot "..\Bannerlord.GameMaster\Console\Testing\Results"
     
     # Check if source file exists
     if (-not (Test-Path $sourceFile)) {
