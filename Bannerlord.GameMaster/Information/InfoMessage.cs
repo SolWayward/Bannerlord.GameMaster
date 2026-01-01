@@ -65,7 +65,7 @@ namespace Bannerlord.GameMaster.Information
         /// </summary>
         public static void Write(string message, Color color)
         {
-            InformationManager.DisplayMessage(new InformationMessage(message));
+            InformationManager.DisplayMessage(new InformationMessage(message, color));
         }
     }
 }
