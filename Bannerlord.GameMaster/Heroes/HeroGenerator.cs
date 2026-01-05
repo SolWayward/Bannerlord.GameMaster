@@ -45,13 +45,13 @@ namespace Bannerlord.GameMaster.Heroes
 			{
 				if (age < 18) //Prevents growing up prompts having to select a attribute
 					age = RandomNumberGen.Instance.NextRandomInt(18, 31);
-				
-				string stringId = BLGMObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Hero));
-				
+
 				Hero hero = HeroCreator.CreateSpecialHero(sourceCharacter, age: age);
-				
-				hero.StringId = stringId;
-				hero.SetName(nameObj, nameObj);
+				hero.SetName(nameObj, nameObj); //Set name before registering so stringId will contain name
+
+				// Register hero assigns stringId
+				BLGMObjectManager.Instance.RegisterObject(hero);
+
 				hero.PreferredUpgradeFormation = FormationClass.Cavalry;
 				hero.Gold = 1000;
 				hero.Level = 10;

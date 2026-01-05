@@ -43,14 +43,13 @@ namespace Bannerlord.GameMaster.Kingdoms
             if (name == null || name.IsEmpty())
                 name = CultureLookup.GetUniqueRandomKingdomName(rulingClan.Leader.Culture);
 
+            Kingdom kingdom = new();
             TextObject nameObj = new(name);
-            string stringID = BLGMObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Kingdom));
+            kingdom.ChangeKingdomName(nameObj, nameObj); // Set name here even though InitalizeKingdom sets name too so stringId will contain Name
+            BLGMObjectManager.Instance.RegisterObject(kingdom); // Registers and assigns stringId
 
             // Prepare clan for ruling BEFORE creating kingdom
             PrepareClanToRule(rulingClan);
-
-            // Create kingdom
-            Kingdom kingdom = Kingdom.CreateKingdom(stringID);
 
             // Move clan to new kingdom
             ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);

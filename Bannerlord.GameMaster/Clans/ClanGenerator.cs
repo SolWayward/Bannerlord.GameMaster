@@ -68,10 +68,8 @@ namespace Bannerlord.GameMaster.Clans
 		/// <returns>The created clan</returns>
 		public static Clan CreateClan(string name = null, Hero leader = null, Kingdom kingdom = null, bool createParty = true, int companionCount = 2, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
 		{
-			// Set Temp Id until leader is generated
-			string stringId = BLGMObjectManager.Instance.GetUniqueStringId(new("uninitialized"), typeof(Clan));
-			Clan clan = Clan.CreateClan(stringId);
-			clan.SetStringName(stringId); // Needs a temp name or name lookup crashes
+			Clan clan = new();
+			clan.SetStringName("uninitialized"); // Needs a temp name or name lookup crashes
 
 			// Create leader if not provided - clan now exists so CreateLords can use it
 			leader ??= HeroGenerator.CreateLords(1, cultureFlags, GenderFlags.Either, clan, withParties: false, randomFactor: 1f)[0];
@@ -83,8 +81,8 @@ namespace Bannerlord.GameMaster.Clans
 			else
 				nameObj = new(name);
 			
-			clan.StringId =  BLGMObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Clan));
-			clan.ChangeClanName(nameObj, nameObj);
+			clan.ChangeClanName(nameObj, nameObj); // Set name before registering so stringId will contain Clan Name
+			BLGMObjectManager.Instance.RegisterObject(clan); // Registers with BLGM and MBObjectManager
 
 			// Clean up any existing party and settlement state if leader was created elsewhere
 			HeroGenerator.CleanupHeroState(leader);
@@ -201,10 +199,8 @@ namespace Bannerlord.GameMaster.Clans
 		/// <returns>The created minor clan</returns>
 		public static Clan CreateMinorClan(string name = null, Hero leader = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool createParty = true)
 		{
-			// Use temp Id until leader is generated
-			string stringId = BLGMObjectManager.Instance.GetUniqueStringId(new("uninitialized"), typeof(Clan));
-			Clan clan = Clan.CreateClan(stringId);
-			clan.SetStringName(stringId); // Needs a temp name or name lookup crashes
+			Clan clan = new();
+			clan.SetStringName("uninitialized"); // Needs a temp name or name lookup crashes
 
 			// Create leader if not provided - clan now exists so CreateLords can use it
 			if (leader == null)
@@ -223,9 +219,8 @@ namespace Bannerlord.GameMaster.Clans
 			else
 				nameObj = new(name);
 
-			// Set actual clan name and Id using the leaders culture or user provided name, after leader was generated
-			clan.StringId =  BLGMObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Clan));
-			clan.ChangeClanName(nameObj, nameObj);
+			clan.ChangeClanName(nameObj, nameObj); // Set name before registering so stringId will contain Clan Name
+			BLGMObjectManager.Instance.RegisterObject(clan); // Registers with BLGM and MBObjectManager
 
 			// Update culture from leader in case it changed
 			clan.Culture = leader.Culture;
