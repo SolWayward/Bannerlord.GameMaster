@@ -44,7 +44,7 @@ namespace Bannerlord.GameMaster.Kingdoms
                 name = CultureLookup.GetUniqueRandomKingdomName(rulingClan.Leader.Culture);
 
             TextObject nameObj = new(name);
-            string stringID = ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Kingdom));
+            string stringID = BLGMObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Kingdom));
 
             // Prepare clan for ruling BEFORE creating kingdom
             PrepareClanToRule(rulingClan);

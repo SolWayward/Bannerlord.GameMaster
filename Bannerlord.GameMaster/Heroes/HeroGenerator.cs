@@ -46,7 +46,7 @@ namespace Bannerlord.GameMaster.Heroes
 				if (age < 18) //Prevents growing up prompts having to select a attribute
 					age = RandomNumberGen.Instance.NextRandomInt(18, 31);
 				
-				string stringId = ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Hero));
+				string stringId = BLGMObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Hero));
 				
 				Hero hero = HeroCreator.CreateSpecialHero(sourceCharacter, age: age);
 				

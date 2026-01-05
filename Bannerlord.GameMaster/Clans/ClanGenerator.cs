@@ -69,7 +69,7 @@ namespace Bannerlord.GameMaster.Clans
 		public static Clan CreateClan(string name = null, Hero leader = null, Kingdom kingdom = null, bool createParty = true, int companionCount = 2, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
 		{
 			// Set Temp Id until leader is generated
-			string stringId = ObjectManager.Instance.GetUniqueStringId(new("uninitialized"), typeof(Clan));
+			string stringId = BLGMObjectManager.Instance.GetUniqueStringId(new("uninitialized"), typeof(Clan));
 			Clan clan = Clan.CreateClan(stringId);
 			clan.SetStringName(stringId); // Needs a temp name or name lookup crashes
 
@@ -83,7 +83,7 @@ namespace Bannerlord.GameMaster.Clans
 			else
 				nameObj = new(name);
 			
-			clan.StringId =  ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Clan));
+			clan.StringId =  BLGMObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Clan));
 			clan.ChangeClanName(nameObj, nameObj);
 
 			// Clean up any existing party and settlement state if leader was created elsewhere
@@ -202,7 +202,7 @@ namespace Bannerlord.GameMaster.Clans
 		public static Clan CreateMinorClan(string name = null, Hero leader = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool createParty = true)
 		{
 			// Use temp Id until leader is generated
-			string stringId = ObjectManager.Instance.GetUniqueStringId(new("uninitialized"), typeof(Clan));
+			string stringId = BLGMObjectManager.Instance.GetUniqueStringId(new("uninitialized"), typeof(Clan));
 			Clan clan = Clan.CreateClan(stringId);
 			clan.SetStringName(stringId); // Needs a temp name or name lookup crashes
 
@@ -224,7 +224,7 @@ namespace Bannerlord.GameMaster.Clans
 				nameObj = new(name);
 
 			// Set actual clan name and Id using the leaders culture or user provided name, after leader was generated
-			clan.StringId =  ObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Clan));
+			clan.StringId =  BLGMObjectManager.Instance.GetUniqueStringId(nameObj, typeof(Clan));
 			clan.ChangeClanName(nameObj, nameObj);
 
 			// Update culture from leader in case it changed
