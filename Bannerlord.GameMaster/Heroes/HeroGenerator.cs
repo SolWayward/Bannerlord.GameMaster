@@ -50,7 +50,7 @@ namespace Bannerlord.GameMaster.Heroes
 				hero.SetName(nameObj, nameObj); //Set name before registering so stringId will contain name
 
 				// Register hero assigns stringId
-				BLGMObjectManager.Instance.RegisterObject(hero);
+				BLGMObjectManager.Instance.RegisterHero(hero);
 
 				hero.PreferredUpgradeFormation = FormationClass.Cavalry;
 				hero.Gold = 1000;

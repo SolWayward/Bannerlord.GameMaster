@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using Bannerlord.GameMaster.Information;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
 
@@ -102,11 +103,57 @@ namespace Bannerlord.GameMaster
         }
 
         /// <summary>
-        /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager<br/>
-        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId
+        /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
+        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
         /// </summary>
         /// <returns>stringId of registered Object</returns>
-        public string RegisterObject<T>(T mbObject) where T : MBObjectBase
+        public string RegisterHero(Hero hero)
+        {
+            string stringId = RegisterObject(hero);
+            
+            if (!Campaign.Current.CampaignObjectManager.AliveHeroes.Contains(hero))
+                Campaign.Current.CampaignObjectManager.AliveHeroes.Add(hero);
+            
+            return stringId;
+        }
+
+        /// <summary>
+        /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
+        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
+        /// </summary>
+        /// <returns>stringId of registered Object</returns>
+        public string RegisterClan(Clan clan)
+        {
+            string stringId = RegisterObject(clan);
+            
+            if (!Campaign.Current.CampaignObjectManager.Clans.Contains(clan))
+                Campaign.Current.CampaignObjectManager.Clans.Add(clan);
+            
+            return stringId;
+        }
+
+        /// <summary>
+        /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
+        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
+        /// </summary>
+        /// <returns>stringId of registered Object</returns>
+        public string RegisterKingdom(Kingdom kingdom)
+        {
+            string stringId = RegisterObject(kingdom);
+            
+            if (!Campaign.Current.CampaignObjectManager.Kingdoms.Contains(kingdom))
+                Campaign.Current.CampaignObjectManager.Kingdoms.Add(kingdom);
+            
+            return stringId;
+        }
+
+        /// <summary>
+        /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
+        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
+        /// Dont call directly, Call the specific register methods for the correct types which will call this, so objects get properly added to the games type collection as well
+        /// </summary>
+        /// <returns>stringId of registered Object</returns>
+        private string RegisterObject<T>(T mbObject) where T : MBObjectBase
         {
             if (mbObject == null)
                 return null;
@@ -132,11 +179,11 @@ namespace Bannerlord.GameMaster
             }
 
             string stringID = $"blgm_{prefix}_{Interlocked.Increment(ref nextId)}";
-
+            
             // Change stringId and register
             mbObject.StringId = stringID;
             blgmObjects[mbObject.StringId] = mbObject;
-            MBObjectManager.Instance.RegisterObject(mbObject); // T is correctly inferred
+            MBObjectManager.Instance.RegisterObject(mbObject);
 
             return stringID;
         }
