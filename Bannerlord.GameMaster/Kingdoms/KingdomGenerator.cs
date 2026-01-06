@@ -46,7 +46,7 @@ namespace Bannerlord.GameMaster.Kingdoms
             Kingdom kingdom = new();
             TextObject nameObj = new(name);
             kingdom.ChangeKingdomName(nameObj, nameObj); // Set name here even though InitalizeKingdom sets name too so stringId will contain Name
-            BLGMObjectManager.Instance.RegisterKingdom(kingdom); // Registers and assigns stringId
+            BLGMObjectManager.RegisterKingdom(kingdom); // Registers and assigns stringId
 
             // Prepare clan for ruling BEFORE creating kingdom
             PrepareClanToRule(rulingClan);

@@ -82,7 +82,7 @@ namespace Bannerlord.GameMaster.Clans
 				nameObj = new(name);
 			
 			clan.ChangeClanName(nameObj, nameObj); // Set name before registering so stringId will contain Clan Name
-			BLGMObjectManager.Instance.RegisterClan(clan); // Registers with BLGM and MBObjectManager
+			BLGMObjectManager.RegisterClan(clan); // Registers with BLGM and MBObjectManager
 
 			// Clean up any existing party and settlement state if leader was created elsewhere
 			HeroGenerator.CleanupHeroState(leader);
@@ -220,7 +220,7 @@ namespace Bannerlord.GameMaster.Clans
 				nameObj = new(name);
 
 			clan.ChangeClanName(nameObj, nameObj); // Set name before registering so stringId will contain Clan Name
-			BLGMObjectManager.Instance.RegisterClan(clan); // Registers with BLGM and MBObjectManager
+			BLGMObjectManager.RegisterClan(clan); // Registers with BLGM and MBObjectManager
 
 			// Update culture from leader in case it changed
 			clan.Culture = leader.Culture;

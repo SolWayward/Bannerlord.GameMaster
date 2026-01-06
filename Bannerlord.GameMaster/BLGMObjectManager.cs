@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
@@ -17,31 +16,124 @@ namespace Bannerlord.GameMaster
     /// </summary>
     public class BLGMObjectManager
     {
+        #region Fields
+
         private static readonly Lazy<BLGMObjectManager> _instance = new(() => new());
         private ConcurrentDictionary<string, MBObjectBase> blgmObjects;
         private int nextId = 0;
 
+        // Cache fields for frequently accessed filtered lists
+        private MBList<Hero> _cachedHeroes;
+        private MBList<Clan> _cachedClans;
+        private MBList<Kingdom> _cachedKingdoms;
+        private bool _cacheValid;
+
+        // Cache fields for object counts
+        private int _cachedHeroCount;
+        private int _cachedClanCount;
+        private int _cachedKingdomCount;
+        private bool _heroCountValid;
+        private bool _clanCountValid;
+        private bool _kingdomCountValid;
+
+        #endregion
+
+        #region Properties
+
         public static BLGMObjectManager Instance => _instance.Value;
 
-        public int ObjectCount => blgmObjects.Count;
+        public static MBList<Hero> BlgmHeroes => Instance.GetObjects<Hero>();
+        public static MBList<Clan> BlgmClans => Instance.GetObjects<Clan>();
+        public static MBList<Kingdom> BlgmKingdoms => Instance.GetObjects<Kingdom>();
 
-        // Private constructor to prevent external instantiation
+        public int ObjectCount => blgmObjects?.Count ?? 0;
+
+        public static int BlgmHeroCount
+        {
+            get
+            {
+                if (Instance.blgmObjects == null) return 0;
+                
+                if (Instance._heroCountValid)
+                    return Instance._cachedHeroCount;
+
+                int count = 0;
+                foreach (MBObjectBase obj in Instance.blgmObjects.Values)
+                {
+                    if (obj is Hero) count++;
+                }
+
+                Instance._cachedHeroCount = count;
+                Instance._heroCountValid = true;
+                return count;
+            }
+        }
+
+        public static int BlgmClanCount
+        {
+            get
+            {
+                if (Instance.blgmObjects == null) return 0;
+                
+                if (Instance._clanCountValid)
+                    return Instance._cachedClanCount;
+
+                int count = 0;
+                foreach (MBObjectBase obj in Instance.blgmObjects.Values)
+                {
+                    if (obj is Clan) count++;
+                }
+
+                Instance._cachedClanCount = count;
+                Instance._clanCountValid = true;
+                return count;
+            }
+        }
+
+        public static int BlgmKingdomCount
+        {
+            get
+            {
+                if (Instance.blgmObjects == null) return 0;
+                
+                if (Instance._kingdomCountValid)
+                    return Instance._cachedKingdomCount;
+
+                int count = 0;
+                foreach (MBObjectBase obj in Instance.blgmObjects.Values)
+                {
+                    if (obj is Kingdom) count++;
+                }
+
+                Instance._cachedKingdomCount = count;
+                Instance._kingdomCountValid = true;
+                return count;
+            }
+        }
+
+        #endregion
+
+        #region Constructor
+
         private BLGMObjectManager()
         {
             // Initalize is called from BLGMObjectManagerBehaviour
         }
 
-        // Runs everytime a campaign is started, or a save is loaded initalizing / resetting (Loads prexisitng BLGM created objects)
+        #endregion
+
+        #region Initialization
+
         internal void Initialize()
         {
             blgmObjects = new();
             nextId = 0;
+            InvalidateListCaches();
 
             try
             {
                 LoadObjects();
             }
-
             catch (Exception ex)
             {
                 InfoMessage.Warning($"Failed to load saved BLGM objects during initialization: {ex.Message}\n" +
@@ -49,12 +141,60 @@ namespace Bannerlord.GameMaster
             }
         }
 
+        #endregion
+
+        #region Query Methods
+
+        /// <summary>
+        /// Get all BLGM objects of a specific type with caching for better performance
+        /// </summary>
+        public MBList<T> GetObjects<T>() where T : MBObjectBase
+        {
+            if (blgmObjects == null)
+                return new MBList<T>();
+
+            // Return cached lists if valid
+            if (_cacheValid)
+            {
+                if (typeof(T) == typeof(Hero) && _cachedHeroes != null)
+                    return (MBList<T>)(object)_cachedHeroes;
+                if (typeof(T) == typeof(Clan) && _cachedClans != null)
+                    return (MBList<T>)(object)_cachedClans;
+                if (typeof(T) == typeof(Kingdom) && _cachedKingdoms != null)
+                    return (MBList<T>)(object)_cachedKingdoms;
+            }
+
+            // Build list if cache is invalid or type not cached
+            MBList<T> typedObjects = new();
+            foreach (MBObjectBase obj in blgmObjects.Values)
+            {
+                if (obj is T typedObj)
+                    typedObjects.Add(typedObj);
+            }
+
+            // Cache the result if applicable
+            if (typeof(T) == typeof(Hero))
+                _cachedHeroes = (MBList<T>)(object)typedObjects as MBList<Hero>;
+            else if (typeof(T) == typeof(Clan))
+                _cachedClans = (MBList<T>)(object)typedObjects as MBList<Clan>;
+            else if (typeof(T) == typeof(Kingdom))
+                _cachedKingdoms = (MBList<T>)(object)typedObjects as MBList<Kingdom>;
+
+            _cacheValid = true;
+            return typedObjects;
+        }
+
         /// <summary>
         /// Retrieve all registered BLGM created object stringIds
         /// </summary>
         public string[] GetObjectIds()
         {
-            return blgmObjects.Keys.ToArray();
+            if (blgmObjects == null)
+                return Array.Empty<string>();
+            
+            string[] result = new string[blgmObjects.Count];
+            blgmObjects.Keys.CopyTo(result, 0);
+            return result;
         }
 
         /// <summary>
@@ -62,82 +202,30 @@ namespace Bannerlord.GameMaster
         /// </summary>
         public bool TryGetObject<T>(string stringId, out T mbObject) where T : MBObjectBase
         {
-            if (blgmObjects.TryGetValue(stringId, out MBObjectBase baseObject))
+            if (blgmObjects == null || !blgmObjects.TryGetValue(stringId, out MBObjectBase baseObject))
             {
-                mbObject = baseObject as T;
-                return mbObject != null;  // Returns false if object exists but is wrong type
+                mbObject = null;
+                return false;
             }
-            mbObject = null;
-            return false;
+
+            mbObject = baseObject as T;
+            return mbObject != null;  // Returns false if object exists but is wrong type
         }
 
-        /// <summary>
-        /// Load objects that were created with BLGM into the dictionary when loading a save game and convert any legacy objects to new format
-        /// </summary>
-        private void LoadObjects()
-        {
-            List<MBObjectBase> legacyObjects = new();
+        #endregion
 
-            // Find objects with stringIds starting with blgm_ in each of the below lists and add to BLGMObjectManager dictionary. 
-            // Also Store any found legacy objects in legacyObjects in legacyObjects so they can be converted to new stringID format and then loaded
-            ProcessObjectsOfType(Campaign.Current.CampaignObjectManager.AliveHeroes, legacyObjects);
-            ProcessObjectsOfType(Campaign.Current.CampaignObjectManager.Clans, legacyObjects);
-            ProcessObjectsOfType(Campaign.Current.CampaignObjectManager.Kingdoms, legacyObjects);
-
-            // Convert old legacy objects with new sequential unique int
-            if (!legacyObjects.IsEmpty()) //If condition not needed, but it Prevents log message when 0 "processing 0 legacy objects"
-                ConvertLegacyObjectsAndRegister(legacyObjects);
-        }
-
-
-        /// <summary>
-        /// Process a specific object type list for BLGM-created objects <br />
-        /// Dont call directly, called from LoadObjects()
-        /// </summary>
-        /// <param name="objectList">MBList to check for objects with blgm_ stringIds</param>
-        /// <param name="legacyObjects">List to store any legacy objects found in objectList (So it can be handled or converted later)</param>
-        private void ProcessObjectsOfType<T>(MBReadOnlyList<T> objectList, List<MBObjectBase> legacyObjects) where T : MBObjectBase
-        {
-            if (objectList == null)
-                return;
-
-            foreach (T obj in objectList)
-            {
-                // Filter for BLGM objects only
-                if (obj == null || obj.StringId == null || !obj.StringId.StartsWith("blgm_"))
-                    continue;
-
-                // Compare with nextID to ensure nextID will be unique when new objects are registered
-                string idSuffix = obj.StringId.Substring(obj.StringId.LastIndexOf('_') + 1);
-
-                // Try to parse as int first (new format)
-                if (int.TryParse(idSuffix, out int parsedId))
-                {
-                    // It's an integer - compare with nextId
-                    if (parsedId >= nextId)
-                    {
-                        nextId = parsedId + 1;
-                    }
-
-                    // Add to blgmObjects normally
-                    blgmObjects[obj.StringId] = obj;
-                }
-                else
-                {
-                    // It's a GUID without dashes - save to temporary list for later processing
-                    legacyObjects.Add(obj);
-                }
-            }
-        }
+        #region Registration Methods
 
         /// <summary>
         /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
         /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
         /// </summary>
         /// <returns>stringId of registered Object</returns>
-        public string RegisterHero(Hero hero)
+        public static string RegisterHero(Hero hero)
         {
-            string stringId = RegisterObject(hero);
+            string stringId = Instance.RegisterObject(hero);
+            Instance.InvalidateListCaches();
+            Instance.InvalidateHeroCountCache();
 
             if (!Campaign.Current.CampaignObjectManager.AliveHeroes.Contains(hero))
                 Campaign.Current.CampaignObjectManager.AliveHeroes.Add(hero);
@@ -150,9 +238,11 @@ namespace Bannerlord.GameMaster
         /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
         /// </summary>
         /// <returns>stringId of registered Object</returns>
-        public string RegisterClan(Clan clan)
+        public static string RegisterClan(Clan clan)
         {
-            string stringId = RegisterObject(clan);
+            string stringId = Instance.RegisterObject(clan);
+            Instance.InvalidateListCaches();
+            Instance.InvalidateClanCountCache();
 
             if (!Campaign.Current.CampaignObjectManager.Clans.Contains(clan))
                 Campaign.Current.CampaignObjectManager.Clans.Add(clan);
@@ -165,15 +255,64 @@ namespace Bannerlord.GameMaster
         /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
         /// </summary>
         /// <returns>stringId of registered Object</returns>
-        public string RegisterKingdom(Kingdom kingdom)
+        public static string RegisterKingdom(Kingdom kingdom)
         {
-            string stringId = RegisterObject(kingdom);
+            string stringId = Instance.RegisterObject(kingdom);
+            Instance.InvalidateListCaches();
+            Instance.InvalidateKingdomCountCache();
 
             if (!Campaign.Current.CampaignObjectManager.Kingdoms.Contains(kingdom))
                 Campaign.Current.CampaignObjectManager.Kingdoms.Add(kingdom);
 
             return stringId;
         }
+
+        #endregion
+
+        #region Unregistration Methods
+
+        /// <summary>
+        /// Unregister a hero from BLGMObjectManager
+        /// </summary>
+        public static bool UnregisterHero(string stringId)
+        {
+            if (!Instance.blgmObjects.TryRemove(stringId, out _))
+                return false;
+
+            Instance.InvalidateListCaches();
+            Instance.InvalidateHeroCountCache();
+            return true;
+        }
+
+        /// <summary>
+        /// Unregister a clan from BLGMObjectManager
+        /// </summary>
+        public static bool UnregisterClan(string stringId)
+        {
+            if (!Instance.blgmObjects.TryRemove(stringId, out _))
+                return false;
+
+            Instance.InvalidateListCaches();
+            Instance.InvalidateClanCountCache();
+            return true;
+        }
+
+        /// <summary>
+        /// Unregister a kingdom from BLGMObjectManager
+        /// </summary>
+        public static bool UnregisterKingdom(string stringId)
+        {
+            if (!Instance.blgmObjects.TryRemove(stringId, out _))
+                return false;
+
+            Instance.InvalidateListCaches();
+            Instance.InvalidateKingdomCountCache();
+            return true;
+        }
+
+        #endregion
+
+        #region Private Methods
 
         /// <summary>
         /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
@@ -217,25 +356,61 @@ namespace Bannerlord.GameMaster
         }
 
         /// <summary>
-        /// Unregister an object from BLGMObjectManager (does not unregister from MBObjectManager)
+        /// Load objects that were created with BLGM into the dictionary when loading a save game and convert any legacy objects to new format
         /// </summary>
-        public bool UnregisterObject(string stringId)
+        private void LoadObjects()
         {
-            if (string.IsNullOrEmpty(stringId))
-                return false;
+            List<MBObjectBase> legacyObjects = new();
 
-            return blgmObjects.TryRemove(stringId, out _);
+            // Find objects with stringIds starting with blgm_ in each of the below lists and add to BLGMObjectManager dictionary. 
+            // Also Store any found legacy objects in legacyObjects in legacyObjects so they can be converted to new stringID format and then loaded
+            LoadObjectsOfType(Campaign.Current.CampaignObjectManager.AliveHeroes, legacyObjects);
+            LoadObjectsOfType(Campaign.Current.CampaignObjectManager.Clans, legacyObjects);
+            LoadObjectsOfType(Campaign.Current.CampaignObjectManager.Kingdoms, legacyObjects);
+
+            // Convert old legacy objects with new sequential unique int
+            if (!legacyObjects.IsEmpty())
+                ConvertLegacyObjectsAndRegister(legacyObjects);
         }
 
         /// <summary>
-        /// Replaces Spaces with underscores and converts all characters to lowercase
+        /// Process a specific object type list for BLGM-created objects <br />
+        /// Dont call directly, called from LoadObjects()
         /// </summary>
-        private string CleanString(string stringToClean)
+        /// <param name="objectList">MBList to check for objects with blgm_ stringIds</param>
+        /// <param name="legacyObjects">List to store any legacy objects found in objectList (So it can be handled or converted later)</param>
+        private void LoadObjectsOfType<T>(MBReadOnlyList<T> objectList, List<MBObjectBase> legacyObjects) where T : MBObjectBase
         {
-            if (string.IsNullOrWhiteSpace(stringToClean))
-                return string.Empty;
+            if (objectList == null)
+                return;
 
-            return stringToClean.Trim().Replace(' ', '_').ToLower();
+            foreach (T obj in objectList)
+            {
+                // Filter for BLGM objects only
+                if (obj == null || obj.StringId == null || !obj.StringId.StartsWith("blgm_"))
+                    continue;
+
+                // Compare with nextID to ensure nextID will be unique when new objects are registered
+                string idSuffix = obj.StringId.Substring(obj.StringId.LastIndexOf('_') + 1);
+
+                // Try to parse as int first (new format)
+                if (int.TryParse(idSuffix, out int parsedId))
+                {
+                    // It's an integer - compare with nextId
+                    if (parsedId >= nextId)
+                    {
+                        nextId = parsedId + 1;
+                    }
+
+                    // Add to blgmObjects normally
+                    blgmObjects[obj.StringId] = obj;
+                }
+                else
+                {
+                    // It's a GUID without dashes - save to temporary list for later processing
+                    legacyObjects.Add(obj);
+                }
+            }
         }
 
         /// <summary>
@@ -250,10 +425,6 @@ namespace Bannerlord.GameMaster
             }
         }
 
-        /// <summary>
-        /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager <br/>
-        /// Non-generic version - for runtime type detection (Used for loading and converting LEGACY objects only)
-        /// </summary>
         /// <summary>
         /// Register a legacy object with runtime type detection
         /// </summary>
@@ -286,5 +457,54 @@ namespace Bannerlord.GameMaster
                 return null;
             }
         }
+
+        /// <summary>
+        /// Invalidate the cached filtered lists so they will be rebuilt on next access
+        /// </summary>
+        private void InvalidateListCaches()
+        {
+            _cacheValid = false;
+        }
+
+        /// <summary>
+        /// Invalidate only the hero count cache
+        /// </summary>
+        private void InvalidateHeroCountCache()
+        {
+            _heroCountValid = false;
+        }
+
+        /// <summary>
+        /// Invalidate only the clan count cache
+        /// </summary>
+        private void InvalidateClanCountCache()
+        {
+            _clanCountValid = false;
+        }
+
+        /// <summary>
+        /// Invalidate only the kingdom count cache
+        /// </summary>
+        private void InvalidateKingdomCountCache()
+        {
+            _kingdomCountValid = false;
+        }
+
+        #endregion
+
+        #region Utility Methods
+
+        /// <summary>
+        /// Replaces Spaces with underscores and converts all characters to lowercase
+        /// </summary>
+        private string CleanString(string stringToClean)
+        {
+            if (string.IsNullOrWhiteSpace(stringToClean))
+                return string.Empty;
+
+            return stringToClean.Trim().Replace(' ', '_').ToLower();
+        }
+
+        #endregion
     }
 }

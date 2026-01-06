@@ -35,7 +35,10 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				return $"{BLGMObjectManager.Instance.ObjectCount} BLGM created objects";
+				return $"{BLGMObjectManager.Instance.ObjectCount} Total objects created with BLGM\n" +
+						$"Heroes: {BLGMObjectManager.BlgmHeroCount}\n" +
+						$"Clans: {BLGMObjectManager.BlgmClanCount}\n" +
+						$"Kingdoms: {BLGMObjectManager.BlgmKingdomCount}";				
 			});
 		}
 
