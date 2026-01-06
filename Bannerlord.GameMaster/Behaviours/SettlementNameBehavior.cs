@@ -7,15 +7,16 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.SaveSystem;
 using TaleWorlds.Localization;
 using TaleWorlds.Library;
+using Bannerlord.GameMaster.Information;
 
-namespace Bannerlord.GameMaster.Settlements
+namespace Bannerlord.GameMaster.Behaviours
 {
     /// <summary>
     /// Campaign behavior that manages custom settlement names with save/load persistence.
     /// Stores both custom names and original names to allow reset functionality.
     /// Uses parallel lists for reliable serialization with TaleWorlds save system.
     /// </summary>
-    public class SettlementNameBehavior : CampaignBehaviorBase
+    internal class SettlementNameBehavior : CampaignBehaviorBase
     {
         // Store as separate lists for reliable serialization
         private List<string> _settlementIds;
@@ -28,6 +29,7 @@ namespace Bannerlord.GameMaster.Settlements
             _settlementIds = new List<string>();
             _customNames = new List<string>();
             _originalNames = new List<string>();
+            
             // Cache the reflection field for performance
             _nameField = typeof(Settlement).GetField("_name", BindingFlags.NonPublic | BindingFlags.Instance);
         }
@@ -46,11 +48,6 @@ namespace Bannerlord.GameMaster.Settlements
                 if (_settlementIds == null) _settlementIds = new List<string>();
                 if (_customNames == null) _customNames = new List<string>();
                 if (_originalNames == null) _originalNames = new List<string>();
-                    
-                // Debug logging before save
-                InformationManager.DisplayMessage(new InformationMessage(
-                    $"[GameMaster] Saving {_settlementIds.Count} custom settlement names",
-                    Colors.Yellow));
             }
             
             dataStore.SyncData("CustomNameSettlementIds", ref _settlementIds);
@@ -62,12 +59,7 @@ namespace Bannerlord.GameMaster.Settlements
             {
                 if (_settlementIds == null) _settlementIds = new List<string>();
                 if (_customNames == null) _customNames = new List<string>();
-                if (_originalNames == null) _originalNames = new List<string>();
-                    
-                // Debug logging
-                InformationManager.DisplayMessage(new InformationMessage(
-                    $"[GameMaster] Loaded {_settlementIds.Count} custom settlement names from save",
-                    Colors.Cyan));
+                if (_originalNames == null) _originalNames = new List<string>();                 
             }
         }
 
@@ -79,9 +71,7 @@ namespace Bannerlord.GameMaster.Settlements
             if (_settlementIds == null || _settlementIds.Count == 0)
                 return;
 
-            InformationManager.DisplayMessage(new InformationMessage(
-                $"[GameMaster] Reapplying {_settlementIds.Count} custom settlement names",
-                Colors.Cyan));
+            InfoMessage.Status($"[GameMaster] Reapplying {_settlementIds.Count} custom settlement names");
 
             for (int i = 0; i < _settlementIds.Count; i++)
             {
@@ -118,19 +108,14 @@ namespace Bannerlord.GameMaster.Settlements
                 {
                     // Update existing
                     _customNames[index] = newName;
-                    InformationManager.DisplayMessage(new InformationMessage(
-                        $"[GameMaster] Updated existing entry for {settlement.StringId} to '{newName}'",
-                        Colors.Green));
                 }
+                
                 else
                 {
                     // Add new
                     _settlementIds.Add(settlement.StringId);
                     _customNames.Add(newName);
                     _originalNames.Add(settlement.Name.ToString());
-                    InformationManager.DisplayMessage(new InformationMessage(
-                        $"[GameMaster] Added new entry: {settlement.StringId} = '{newName}' (count now: {_settlementIds.Count})",
-                        Colors.Green));
                 }
 
                 // Apply the change
@@ -143,6 +128,7 @@ namespace Bannerlord.GameMaster.Settlements
                 InformationManager.DisplayMessage(new InformationMessage(
                     $"[GameMaster] Failed to rename settlement: {ex.Message}",
                     Colors.Red));
+                
                 return false;
             }
         }

@@ -2,10 +2,11 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
 
@@ -17,7 +18,7 @@ namespace Bannerlord.GameMaster
     public class BLGMObjectManager
     {
         private static readonly Lazy<BLGMObjectManager> _instance = new(() => new());
-        private readonly ConcurrentDictionary<string, MBObjectBase> blgmObjects;
+        private ConcurrentDictionary<string, MBObjectBase> blgmObjects;
         private int nextId = 0;
 
         public static BLGMObjectManager Instance => _instance.Value;
@@ -25,14 +26,22 @@ namespace Bannerlord.GameMaster
         public int ObjectCount => blgmObjects.Count;
 
         // Private constructor to prevent external instantiation
-        // BLGM objects for a loaded save are reregisterd here as well
         private BLGMObjectManager()
         {
+            // Initalize is called from BLGMObjectManagerBehaviour
+        }
+
+        // Runs everytime a campaign is started, or a save is loaded initalizing / resetting (Loads prexisitng BLGM created objects)
+        internal void Initialize()
+        {
             blgmObjects = new();
+            nextId = 0;
+
             try
             {
                 LoadObjects();
             }
+
             catch (Exception ex)
             {
                 InfoMessage.Warning($"Failed to load saved BLGM objects during initialization: {ex.Message}\n" +
@@ -63,22 +72,45 @@ namespace Bannerlord.GameMaster
         }
 
         /// <summary>
-        /// Load objects that were created with BLGM into the dictionary when loading a save game
+        /// Load objects that were created with BLGM into the dictionary when loading a save game and convert any legacy objects to new format
         /// </summary>
         private void LoadObjects()
         {
             List<MBObjectBase> legacyObjects = new();
 
-            foreach (MBObjectBase obj in MBObjectManager.Instance.GetObjects<MBObjectBase>(
-                obj => obj.StringId != null && obj.StringId.StartsWith("blgm_")))
+            // Find objects with stringIds starting with blgm_ in each of the below lists and add to BLGMObjectManager dictionary. 
+            // Also Store any found legacy objects in legacyObjects in legacyObjects so they can be converted to new stringID format and then loaded
+            ProcessObjectsOfType(Campaign.Current.CampaignObjectManager.AliveHeroes, legacyObjects);
+            ProcessObjectsOfType(Campaign.Current.CampaignObjectManager.Clans, legacyObjects);
+            ProcessObjectsOfType(Campaign.Current.CampaignObjectManager.Kingdoms, legacyObjects);
+
+            // Convert old legacy objects with new sequential unique int
+            if (!legacyObjects.IsEmpty()) //If condition not needed, but it Prevents log message when 0 "processing 0 legacy objects"
+                ConvertLegacyObjectsAndRegister(legacyObjects);
+        }
+
+
+        /// <summary>
+        /// Process a specific object type list for BLGM-created objects <br />
+        /// Dont call directly, called from LoadObjects()
+        /// </summary>
+        /// <param name="objectList">MBList to check for objects with blgm_ stringIds</param>
+        /// <param name="legacyObjects">List to store any legacy objects found in objectList (So it can be handled or converted later)</param>
+        private void ProcessObjectsOfType<T>(MBReadOnlyList<T> objectList, List<MBObjectBase> legacyObjects) where T : MBObjectBase
+        {
+            if (objectList == null)
+                return;
+
+            foreach (T obj in objectList)
             {
-                if (obj == null)
+                // Filter for BLGM objects only
+                if (obj == null || obj.StringId == null || !obj.StringId.StartsWith("blgm_"))
                     continue;
 
                 // Compare with nextID to ensure nextID will be unique when new objects are registered
                 string idSuffix = obj.StringId.Substring(obj.StringId.LastIndexOf('_') + 1);
 
-                // Try to parse as int first
+                // Try to parse as int first (new format)
                 if (int.TryParse(idSuffix, out int parsedId))
                 {
                     // It's an integer - compare with nextId
@@ -90,16 +122,12 @@ namespace Bannerlord.GameMaster
                     // Add to blgmObjects normally
                     blgmObjects[obj.StringId] = obj;
                 }
-
                 else
                 {
                     // It's a GUID without dashes - save to temporary list for later processing
                     legacyObjects.Add(obj);
                 }
             }
-
-            // Convert old legacy objects with new sequential unique int
-            ConvertLegacyObjectsAndRegister(legacyObjects);
         }
 
         /// <summary>
@@ -110,10 +138,10 @@ namespace Bannerlord.GameMaster
         public string RegisterHero(Hero hero)
         {
             string stringId = RegisterObject(hero);
-            
+
             if (!Campaign.Current.CampaignObjectManager.AliveHeroes.Contains(hero))
                 Campaign.Current.CampaignObjectManager.AliveHeroes.Add(hero);
-            
+
             return stringId;
         }
 
@@ -125,10 +153,10 @@ namespace Bannerlord.GameMaster
         public string RegisterClan(Clan clan)
         {
             string stringId = RegisterObject(clan);
-            
+
             if (!Campaign.Current.CampaignObjectManager.Clans.Contains(clan))
                 Campaign.Current.CampaignObjectManager.Clans.Add(clan);
-            
+
             return stringId;
         }
 
@@ -140,10 +168,10 @@ namespace Bannerlord.GameMaster
         public string RegisterKingdom(Kingdom kingdom)
         {
             string stringId = RegisterObject(kingdom);
-            
+
             if (!Campaign.Current.CampaignObjectManager.Kingdoms.Contains(kingdom))
                 Campaign.Current.CampaignObjectManager.Kingdoms.Add(kingdom);
-            
+
             return stringId;
         }
 
@@ -215,6 +243,7 @@ namespace Bannerlord.GameMaster
         /// </summary>
         private void ConvertLegacyObjectsAndRegister(List<MBObjectBase> legacyObjects)
         {
+            InfoMessage.Status($"[GameMaster] Converting {legacyObjects.Count} Legacy Objects");
             foreach (MBObjectBase legacyObject in legacyObjects)
             {
                 RegisterLegacyObject(legacyObject);
@@ -235,23 +264,25 @@ namespace Bannerlord.GameMaster
 
             try
             {
+                // Call the appropriate public registration method based on runtime type
                 Type runtimeType = mbObject.GetType();
-                MethodInfo method = typeof(BLGMObjectManager)
-                    .GetMethod(nameof(RegisterObject), new[] { runtimeType });
 
-                if (method == null)
+                if (runtimeType == typeof(Hero))
+                    return RegisterHero((Hero)mbObject);
+                else if (runtimeType == typeof(Clan))
+                    return RegisterClan((Clan)mbObject);
+                else if (runtimeType == typeof(Kingdom))
+                    return RegisterKingdom((Kingdom)mbObject);
+                else
                 {
-                    InfoMessage.Warning($"BLGMObjectManager: Could not find RegisterObject method for type {runtimeType.Name}. Object not registered.\n" +
+                    InfoMessage.Warning($"BLGMObjectManager: Unsupported type {runtimeType.Name} for legacy object. Object not registered.\n" +
                                         "Game and object will function as normal");
                     return null;
                 }
-
-                MethodInfo genericMethod = method.MakeGenericMethod(runtimeType);
-                return (string)genericMethod.Invoke(this, new object[] { mbObject });
             }
             catch (Exception ex)
             {
-                InfoMessage.Error($"BLGMObjectManager: Failed to register legacy object: {ex.Message}\nGame and object will function as normal");
+                InfoMessage.Error($"BLGMObjectManager: Failed to register legacy object: {ex.Message}\nObject may not be tracked by blgm, but game functionality is unaffected.");
                 return null;
             }
         }

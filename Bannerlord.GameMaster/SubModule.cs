@@ -1,11 +1,7 @@
 using System;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using Bannerlord.GameMaster.Clans;
-using Bannerlord.GameMaster.Console.ClanCommands;
+using Bannerlord.GameMaster.Behaviours;
 using Bannerlord.GameMaster.Console.Testing;
-using Bannerlord.GameMaster.Settlements;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -53,6 +49,9 @@ namespace Bannerlord.GameMaster
             {
                 // Register settlement name behavior for save/load persistence
                 campaignStarter.AddBehavior(new SettlementNameBehavior());
+
+                // Register BLGMObjectManagerBehaviour for loading blgm created objects
+                campaignStarter.AddBehavior(new BLGMObjectManagerBehaviour());
             }
         }
 

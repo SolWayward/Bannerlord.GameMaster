@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Behaviours;
 using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Cultures;

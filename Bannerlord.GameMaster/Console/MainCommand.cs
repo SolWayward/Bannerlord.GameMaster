@@ -28,6 +28,18 @@ namespace Bannerlord.GameMaster.Console
 		}
 
 		/// <summary>
+		/// List count of objects created with blgm
+		/// </summary>
+		[CommandLineFunctionality.CommandLineArgumentFunction("blgm_object_count", "gm.info")]
+		public static string BLGMObjectCount(List<string> args)
+		{
+			return Cmd.Run(args, () =>
+			{
+				return $"{BLGMObjectManager.Instance.ObjectCount} BLGM created objects";
+			});
+		}
+
+		/// <summary>
 		/// List current loaded mods and their load order
 		/// </summary>
 		[CommandLineFunctionality.CommandLineArgumentFunction("list_mods", "gm.info")]

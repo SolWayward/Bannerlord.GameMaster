@@ -15,6 +15,19 @@ namespace Bannerlord.GameMaster.Console
 	public static class DevCommands
 	{
 		/// <summary>
+		/// Reinitalizes BLGMObjectManager for testing
+		/// </summary>
+		[CommandLineFunctionality.CommandLineArgumentFunction("reinitialize_blgm_objectmanager", "gm.dev")]
+		public static string ReinitalizeBLGMObjectManager(List<string> args)
+		{
+			return Cmd.Run(args, () =>
+			{
+				BLGMObjectManager.Instance.Initialize();
+				return $"BLGMObjectManager Reinitalized: {BLGMObjectManager.Instance.ObjectCount} BLGM created objects loaded";
+			});
+		}
+
+		/// <summary>
 		/// Dumps the banner color palette to a text file for reference
 		/// </summary>
 		[CommandLineFunctionality.CommandLineArgumentFunction("dump_banner_colors", "gm.dev")]
