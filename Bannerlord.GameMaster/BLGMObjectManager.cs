@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
+using Bannerlord.GameMaster.Clans;
+using Bannerlord.GameMaster.Cultures;
+using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
@@ -26,12 +30,12 @@ namespace Bannerlord.GameMaster
         private MBList<Hero> _cachedHeroes;
         private MBList<Clan> _cachedClans;
         private MBList<Kingdom> _cachedKingdoms;
-        
+
         // Separate validity flags for each cache type to prevent cross-type cache corruption
         private bool _heroesValid;
         private bool _clansValid;
         private bool _kingdomsValid;
-        
+
         // Lock for thread-safe cache building
         private readonly object _cacheLock = new object();
 
@@ -53,9 +57,7 @@ namespace Bannerlord.GameMaster
         public int ObjectCount => blgmObjects?.Count ?? 0;
 
         public static int BlgmHeroCount => Instance._heroCount;
-
         public static int BlgmClanCount => Instance._clanCount;
-
         public static int BlgmKingdomCount => Instance._kingdomCount;
 
         #endregion
@@ -75,11 +77,12 @@ namespace Bannerlord.GameMaster
         {
             blgmObjects = new();
             nextId = 0;
+
             InvalidateListCaches();
             _heroCount = 0;
             _clanCount = 0;
             _kingdomCount = 0;
-            
+
             try
             {
                 LoadObjects();
@@ -96,56 +99,36 @@ namespace Bannerlord.GameMaster
         #region Query Methods
 
         /// <summary>
-        /// Get all BLGM objects of a specific type with caching for better performance
+        /// Get all BLGM objects of a specific type with caching for better performance, Only type of Heroes, Clans, and Kingdoms are cached, other types will be non cached access.
         /// </summary>
         public MBList<T> GetObjects<T>() where T : MBObjectBase
         {
             if (blgmObjects == null)
                 return new MBList<T>();
 
-            // Check cache validity for specific type
-            if (typeof(T) == typeof(Hero) && _heroesValid && _cachedHeroes != null)
-                return (MBList<T>)(object)_cachedHeroes;
-            if (typeof(T) == typeof(Clan) && _clansValid && _cachedClans != null)
-                return (MBList<T>)(object)_cachedClans;
-            if (typeof(T) == typeof(Kingdom) && _kingdomsValid && _cachedKingdoms != null)
-                return (MBList<T>)(object)_cachedKingdoms;
+            // Try to get from cache without locking
+            if (TryGetFromCache<T>(out MBList<T> cachedList))
+                return cachedList;
 
-            // Build list with thread safety
+            // Lock and try again
             lock (_cacheLock)
             {
-                // Double-check cache after acquiring lock
-                if (typeof(T) == typeof(Hero) && _heroesValid && _cachedHeroes != null)
-                    return (MBList<T>)(object)_cachedHeroes;
-                if (typeof(T) == typeof(Clan) && _clansValid && _cachedClans != null)
-                    return (MBList<T>)(object)_cachedClans;
-                if (typeof(T) == typeof(Kingdom) && _kingdomsValid && _cachedKingdoms != null)
-                    return (MBList<T>)(object)_cachedKingdoms;
+                // Another thread might have built the cache while we waited for the lock
+                if (TryGetFromCache<T>(out cachedList))
+                    return cachedList;
 
-                // Build list if cache is invalid or type not cached
+                // Cache Miss We need to build the list
                 MBList<T> typedObjects = new();
+
+                // Iterate dictionary values
                 foreach (MBObjectBase obj in blgmObjects.Values)
                 {
                     if (obj is T typedObj)
                         typedObjects.Add(typedObj);
                 }
 
-                // Cache and mark valid
-                if (typeof(T) == typeof(Hero))
-                {
-                    _cachedHeroes = (MBList<Hero>)(object)typedObjects;
-                    _heroesValid = true;
-                }
-                else if (typeof(T) == typeof(Clan))
-                {
-                    _cachedClans = (MBList<Clan>)(object)typedObjects;
-                    _clansValid = true;
-                }
-                else if (typeof(T) == typeof(Kingdom))
-                {
-                    _cachedKingdoms = (MBList<Kingdom>)(object)typedObjects;
-                    _kingdomsValid = true;
-                }
+                // Update the cache for next time
+                UpdateCache(typedObjects);
 
                 return typedObjects;
             }
@@ -158,7 +141,7 @@ namespace Bannerlord.GameMaster
         {
             if (blgmObjects == null)
                 return Array.Empty<string>();
-            
+
             string[] result = new string[blgmObjects.Count];
             blgmObjects.Keys.CopyTo(result, 0);
             return result;
@@ -185,14 +168,24 @@ namespace Bannerlord.GameMaster
 
         /// <summary>
         /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
-        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
+        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId, otherwise name will be randomly assigned
         /// </summary>
         /// <returns>stringId of registered Object</returns>
         public static string RegisterHero(Hero hero)
         {
+            if (hero == null)
+                return null;
+
+            // Name should be pre assigned but just incase.
+            if (string.IsNullOrWhiteSpace(hero.Name.ToString()))
+            {
+                string randomName = CultureLookup.GetUniqueRandomHeroName(hero.Culture, hero.IsFemale);
+                hero.SetStringName(randomName);
+            }
+
             string stringId = Instance.RegisterObject(hero);
             Instance.InvalidateListCaches();
-            Instance._heroCount++;
+            Interlocked.Increment(ref Instance._heroCount);
 
             if (!Campaign.Current.CampaignObjectManager.AliveHeroes.Contains(hero))
                 Campaign.Current.CampaignObjectManager.AliveHeroes.Add(hero);
@@ -202,14 +195,24 @@ namespace Bannerlord.GameMaster
 
         /// <summary>
         /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
-        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
+        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId, otherwise name will be randomly assigned
         /// </summary>
         /// <returns>stringId of registered Object</returns>
         public static string RegisterClan(Clan clan)
         {
+            if (clan == null)
+                return null;
+
+            // Name should be pre assigned but just incase.
+            if (string.IsNullOrWhiteSpace(clan.Name.ToString()))
+            {
+                string randomName = CultureLookup.GetUniqueRandomClanName(clan.Culture);
+                clan.SetStringName(randomName);
+            }
+
             string stringId = Instance.RegisterObject(clan);
             Instance.InvalidateListCaches();
-            Instance._clanCount++;
+            Interlocked.Increment(ref Instance._clanCount);
 
             if (!Campaign.Current.CampaignObjectManager.Clans.Contains(clan))
                 Campaign.Current.CampaignObjectManager.Clans.Add(clan);
@@ -219,14 +222,24 @@ namespace Bannerlord.GameMaster
 
         /// <summary>
         /// Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br/>
-        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId<br/>
+        /// stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId, otherwise name will be randomly assigned
         /// </summary>
         /// <returns>stringId of registered Object</returns>
         public static string RegisterKingdom(Kingdom kingdom)
         {
+            if (kingdom == null)
+                return null;
+
+            // Name should be pre assigned but just incase.
+            if (string.IsNullOrWhiteSpace(kingdom.Name.ToString()))
+            {
+                string randomName = CultureLookup.GetUniqueRandomKingdomName(kingdom.Culture);
+                kingdom.ChangeKingdomName(new TextObject(randomName), new TextObject(randomName));
+            }
+
             string stringId = Instance.RegisterObject(kingdom);
             Instance.InvalidateListCaches();
-            Instance._kingdomCount++;
+            Interlocked.Increment(ref Instance._kingdomCount);
 
             if (!Campaign.Current.CampaignObjectManager.Kingdoms.Contains(kingdom))
                 Campaign.Current.CampaignObjectManager.Kingdoms.Add(kingdom);
@@ -247,7 +260,7 @@ namespace Bannerlord.GameMaster
                 return false;
 
             Instance.InvalidateListCaches();
-            Instance._heroCount--;
+            Interlocked.Decrement(ref Instance._heroCount);
             return true;
         }
 
@@ -260,7 +273,7 @@ namespace Bannerlord.GameMaster
                 return false;
 
             Instance.InvalidateListCaches();
-            Instance._clanCount--;
+            Interlocked.Decrement(ref Instance._clanCount);
             return true;
         }
 
@@ -273,7 +286,7 @@ namespace Bannerlord.GameMaster
                 return false;
 
             Instance.InvalidateListCaches();
-            Instance._kingdomCount--;
+            Interlocked.Decrement(ref Instance._kingdomCount);
             return true;
         }
 
@@ -313,7 +326,7 @@ namespace Bannerlord.GameMaster
             }
 
             string stringID = $"blgm_{prefix}_{Interlocked.Increment(ref nextId)}";
-            
+
             // Change stringId and register
             mbObject.StringId = stringID;
             blgmObjects[mbObject.StringId] = mbObject;
@@ -455,14 +468,95 @@ namespace Bannerlord.GameMaster
         #region Utility Methods
 
         /// <summary>
-        /// Replaces Spaces with underscores and converts all characters to lowercase
+        /// Replaces Spaces with underscores and converts all characters to lowercase, Performant for processing hundreds of objects at once
         /// </summary>
         private string CleanString(string stringToClean)
         {
             if (string.IsNullOrWhiteSpace(stringToClean))
                 return string.Empty;
 
-            return stringToClean.Trim().Replace(' ', '_').ToLower();
+            // Trim first to avoid processing leading/trailing whitespace
+            ReadOnlySpan<char> trimmed = stringToClean.AsSpan().Trim();
+
+            if (trimmed.IsEmpty)
+                return string.Empty;
+
+            StringBuilder sb = new(trimmed.Length);
+
+            foreach (char c in trimmed)
+            {
+                // char.IsWhiteSpace covers spaces (' '), tabs ('\t'), newlines, etc.
+                if (char.IsWhiteSpace(c))
+                {
+                    // Only add underscore if the builder isn't empty and the last char wasn't already an underscore
+                    if (sb.Length > 0 && sb[sb.Length - 1] != '_')
+                    {
+                        sb.Append('_');
+                    }
+                }
+                
+                else
+                {
+                    sb.Append(char.ToLowerInvariant(c));
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Helper to safely retrieve the correct cache list based on type T.
+        /// Returns true if a valid cache exists.
+        /// </summary>
+        private bool TryGetFromCache<T>(out MBList<T> list) where T : MBObjectBase
+        {
+            list = null;
+
+            // Check Hero Cache
+            if (typeof(T) == typeof(Hero) && _heroesValid)
+            {
+                // Double cast is required because C# generics are invariant
+                list = (MBList<T>)(object)_cachedHeroes;
+                return true;
+            }
+
+            // Check Clan Cache
+            if (typeof(T) == typeof(Clan) && _clansValid)
+            {
+                list = (MBList<T>)(object)_cachedClans;
+                return true;
+            }
+
+            // Check Kingdom Cache
+            if (typeof(T) == typeof(Kingdom) && _kingdomsValid)
+            {
+                list = (MBList<T>)(object)_cachedKingdoms;
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Helper to update the correct cache list and set the valid flag.
+        /// </summary>
+        private void UpdateCache<T>(MBList<T> list) where T : MBObjectBase
+        {
+            if (typeof(T) == typeof(Hero))
+            {
+                _cachedHeroes = (MBList<Hero>)(object)list;
+                _heroesValid = true;
+            }
+            else if (typeof(T) == typeof(Clan))
+            {
+                _cachedClans = (MBList<Clan>)(object)list;
+                _clansValid = true;
+            }
+            else if (typeof(T) == typeof(Kingdom))
+            {
+                _cachedKingdoms = (MBList<Kingdom>)(object)list;
+                _kingdomsValid = true;
+            }
         }
 
         #endregion
