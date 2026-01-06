@@ -26,15 +26,19 @@ namespace Bannerlord.GameMaster
         private MBList<Hero> _cachedHeroes;
         private MBList<Clan> _cachedClans;
         private MBList<Kingdom> _cachedKingdoms;
-        private bool _cacheValid;
+        
+        // Separate validity flags for each cache type to prevent cross-type cache corruption
+        private bool _heroesValid;
+        private bool _clansValid;
+        private bool _kingdomsValid;
+        
+        // Lock for thread-safe cache building
+        private readonly object _cacheLock = new object();
 
-        // Cache fields for object counts
-        private int _cachedHeroCount;
-        private int _cachedClanCount;
-        private int _cachedKingdomCount;
-        private bool _heroCountValid;
-        private bool _clanCountValid;
-        private bool _kingdomCountValid;
+        // Object count fields - maintained on register/unregister for O(1) access
+        private int _heroCount = 0;
+        private int _clanCount = 0;
+        private int _kingdomCount = 0;
 
         #endregion
 
@@ -48,68 +52,11 @@ namespace Bannerlord.GameMaster
 
         public int ObjectCount => blgmObjects?.Count ?? 0;
 
-        public static int BlgmHeroCount
-        {
-            get
-            {
-                if (Instance.blgmObjects == null) return 0;
-                
-                if (Instance._heroCountValid)
-                    return Instance._cachedHeroCount;
+        public static int BlgmHeroCount => Instance._heroCount;
 
-                int count = 0;
-                foreach (MBObjectBase obj in Instance.blgmObjects.Values)
-                {
-                    if (obj is Hero) count++;
-                }
+        public static int BlgmClanCount => Instance._clanCount;
 
-                Instance._cachedHeroCount = count;
-                Instance._heroCountValid = true;
-                return count;
-            }
-        }
-
-        public static int BlgmClanCount
-        {
-            get
-            {
-                if (Instance.blgmObjects == null) return 0;
-                
-                if (Instance._clanCountValid)
-                    return Instance._cachedClanCount;
-
-                int count = 0;
-                foreach (MBObjectBase obj in Instance.blgmObjects.Values)
-                {
-                    if (obj is Clan) count++;
-                }
-
-                Instance._cachedClanCount = count;
-                Instance._clanCountValid = true;
-                return count;
-            }
-        }
-
-        public static int BlgmKingdomCount
-        {
-            get
-            {
-                if (Instance.blgmObjects == null) return 0;
-                
-                if (Instance._kingdomCountValid)
-                    return Instance._cachedKingdomCount;
-
-                int count = 0;
-                foreach (MBObjectBase obj in Instance.blgmObjects.Values)
-                {
-                    if (obj is Kingdom) count++;
-                }
-
-                Instance._cachedKingdomCount = count;
-                Instance._kingdomCountValid = true;
-                return count;
-            }
-        }
+        public static int BlgmKingdomCount => Instance._kingdomCount;
 
         #endregion
 
@@ -129,7 +76,10 @@ namespace Bannerlord.GameMaster
             blgmObjects = new();
             nextId = 0;
             InvalidateListCaches();
-
+            _heroCount = 0;
+            _clanCount = 0;
+            _kingdomCount = 0;
+            
             try
             {
                 LoadObjects();
@@ -153,35 +103,52 @@ namespace Bannerlord.GameMaster
             if (blgmObjects == null)
                 return new MBList<T>();
 
-            // Return cached lists if valid
-            if (_cacheValid)
+            // Check cache validity for specific type
+            if (typeof(T) == typeof(Hero) && _heroesValid && _cachedHeroes != null)
+                return (MBList<T>)(object)_cachedHeroes;
+            if (typeof(T) == typeof(Clan) && _clansValid && _cachedClans != null)
+                return (MBList<T>)(object)_cachedClans;
+            if (typeof(T) == typeof(Kingdom) && _kingdomsValid && _cachedKingdoms != null)
+                return (MBList<T>)(object)_cachedKingdoms;
+
+            // Build list with thread safety
+            lock (_cacheLock)
             {
-                if (typeof(T) == typeof(Hero) && _cachedHeroes != null)
+                // Double-check cache after acquiring lock
+                if (typeof(T) == typeof(Hero) && _heroesValid && _cachedHeroes != null)
                     return (MBList<T>)(object)_cachedHeroes;
-                if (typeof(T) == typeof(Clan) && _cachedClans != null)
+                if (typeof(T) == typeof(Clan) && _clansValid && _cachedClans != null)
                     return (MBList<T>)(object)_cachedClans;
-                if (typeof(T) == typeof(Kingdom) && _cachedKingdoms != null)
+                if (typeof(T) == typeof(Kingdom) && _kingdomsValid && _cachedKingdoms != null)
                     return (MBList<T>)(object)_cachedKingdoms;
+
+                // Build list if cache is invalid or type not cached
+                MBList<T> typedObjects = new();
+                foreach (MBObjectBase obj in blgmObjects.Values)
+                {
+                    if (obj is T typedObj)
+                        typedObjects.Add(typedObj);
+                }
+
+                // Cache and mark valid
+                if (typeof(T) == typeof(Hero))
+                {
+                    _cachedHeroes = (MBList<Hero>)(object)typedObjects;
+                    _heroesValid = true;
+                }
+                else if (typeof(T) == typeof(Clan))
+                {
+                    _cachedClans = (MBList<Clan>)(object)typedObjects;
+                    _clansValid = true;
+                }
+                else if (typeof(T) == typeof(Kingdom))
+                {
+                    _cachedKingdoms = (MBList<Kingdom>)(object)typedObjects;
+                    _kingdomsValid = true;
+                }
+
+                return typedObjects;
             }
-
-            // Build list if cache is invalid or type not cached
-            MBList<T> typedObjects = new();
-            foreach (MBObjectBase obj in blgmObjects.Values)
-            {
-                if (obj is T typedObj)
-                    typedObjects.Add(typedObj);
-            }
-
-            // Cache the result if applicable
-            if (typeof(T) == typeof(Hero))
-                _cachedHeroes = (MBList<T>)(object)typedObjects as MBList<Hero>;
-            else if (typeof(T) == typeof(Clan))
-                _cachedClans = (MBList<T>)(object)typedObjects as MBList<Clan>;
-            else if (typeof(T) == typeof(Kingdom))
-                _cachedKingdoms = (MBList<T>)(object)typedObjects as MBList<Kingdom>;
-
-            _cacheValid = true;
-            return typedObjects;
         }
 
         /// <summary>
@@ -225,7 +192,7 @@ namespace Bannerlord.GameMaster
         {
             string stringId = Instance.RegisterObject(hero);
             Instance.InvalidateListCaches();
-            Instance.InvalidateHeroCountCache();
+            Instance._heroCount++;
 
             if (!Campaign.Current.CampaignObjectManager.AliveHeroes.Contains(hero))
                 Campaign.Current.CampaignObjectManager.AliveHeroes.Add(hero);
@@ -242,7 +209,7 @@ namespace Bannerlord.GameMaster
         {
             string stringId = Instance.RegisterObject(clan);
             Instance.InvalidateListCaches();
-            Instance.InvalidateClanCountCache();
+            Instance._clanCount++;
 
             if (!Campaign.Current.CampaignObjectManager.Clans.Contains(clan))
                 Campaign.Current.CampaignObjectManager.Clans.Add(clan);
@@ -259,7 +226,7 @@ namespace Bannerlord.GameMaster
         {
             string stringId = Instance.RegisterObject(kingdom);
             Instance.InvalidateListCaches();
-            Instance.InvalidateKingdomCountCache();
+            Instance._kingdomCount++;
 
             if (!Campaign.Current.CampaignObjectManager.Kingdoms.Contains(kingdom))
                 Campaign.Current.CampaignObjectManager.Kingdoms.Add(kingdom);
@@ -280,7 +247,7 @@ namespace Bannerlord.GameMaster
                 return false;
 
             Instance.InvalidateListCaches();
-            Instance.InvalidateHeroCountCache();
+            Instance._heroCount--;
             return true;
         }
 
@@ -293,7 +260,7 @@ namespace Bannerlord.GameMaster
                 return false;
 
             Instance.InvalidateListCaches();
-            Instance.InvalidateClanCountCache();
+            Instance._clanCount--;
             return true;
         }
 
@@ -306,7 +273,7 @@ namespace Bannerlord.GameMaster
                 return false;
 
             Instance.InvalidateListCaches();
-            Instance.InvalidateKingdomCountCache();
+            Instance._kingdomCount--;
             return true;
         }
 
@@ -340,7 +307,7 @@ namespace Bannerlord.GameMaster
             string prefix = CleanString(typeof(T).Name);
 
             TextObject nameObj = mbObject.GetName();
-            if (nameObj != null && !string.IsNullOrEmpty(nameObj.ToString()))
+            if (nameObj != null && !string.IsNullOrWhiteSpace(nameObj.ToString()))
             {
                 prefix = $"{prefix}_{CleanString(nameObj.ToString())}";
             }
@@ -360,6 +327,9 @@ namespace Bannerlord.GameMaster
         /// </summary>
         private void LoadObjects()
         {
+            if (Campaign.Current == null)
+                return;
+
             List<MBObjectBase> legacyObjects = new();
 
             // Find objects with stringIds starting with blgm_ in each of the below lists and add to BLGMObjectManager dictionary. 
@@ -402,8 +372,14 @@ namespace Bannerlord.GameMaster
                         nextId = parsedId + 1;
                     }
 
-                    // Add to blgmObjects normally
+                    // Add to blgmObjects normally and increment appropriate count
                     blgmObjects[obj.StringId] = obj;
+                    if (obj is Hero)
+                        _heroCount++;
+                    else if (obj is Clan)
+                        _clanCount++;
+                    else if (obj is Kingdom)
+                        _kingdomCount++;
                 }
                 else
                 {
@@ -463,31 +439,15 @@ namespace Bannerlord.GameMaster
         /// </summary>
         private void InvalidateListCaches()
         {
-            _cacheValid = false;
-        }
-
-        /// <summary>
-        /// Invalidate only the hero count cache
-        /// </summary>
-        private void InvalidateHeroCountCache()
-        {
-            _heroCountValid = false;
-        }
-
-        /// <summary>
-        /// Invalidate only the clan count cache
-        /// </summary>
-        private void InvalidateClanCountCache()
-        {
-            _clanCountValid = false;
-        }
-
-        /// <summary>
-        /// Invalidate only the kingdom count cache
-        /// </summary>
-        private void InvalidateKingdomCountCache()
-        {
-            _kingdomCountValid = false;
+            lock (_cacheLock)
+            {
+                _heroesValid = false;
+                _clansValid = false;
+                _kingdomsValid = false;
+                _cachedHeroes = null;
+                _cachedClans = null;
+                _cachedKingdoms = null;
+            }
         }
 
         #endregion
