@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using Bannerlord.GameMaster.Behaviours;
 using Bannerlord.GameMaster.Console.Testing;
+using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -12,19 +13,6 @@ namespace Bannerlord.GameMaster
 {
     public class SubModule : MBSubModuleBase
     {
-
-        private static string version;
-		public static string Version
-		{
-			get
-			{
-				version ??= Assembly.GetExecutingAssembly()
-						.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
-						.InformationalVersion ?? "Unknown";
-				return version;
-			}
-		}
-
         protected override void OnSubModuleLoad()
         {
             base.OnSubModuleLoad();
@@ -82,7 +70,7 @@ namespace Bannerlord.GameMaster
         private void HandleGameMasterMenuOptionClicked()
         {
             TextObject versionText = new("{=InfoMsg_BLGameMaster_Version}BL Game Master v{BLGAMEMASTER_VERSION}");
-            versionText.SetTextVariable("BLGAMEMASTER_VERSION", Version);
+            versionText.SetTextVariable("BLGAMEMASTER_VERSION", GameEnvironment.BLGMVersion);
 
             InformationMessage infoMessage = new(versionText.ToString());
             InformationManager.DisplayMessage(infoMessage);

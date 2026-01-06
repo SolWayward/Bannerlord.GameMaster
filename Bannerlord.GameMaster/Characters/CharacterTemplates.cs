@@ -317,7 +317,7 @@ namespace Bannerlord.GameMaster.Characters
 	
 				if (cultureFlags.HasFlag(CultureFlags.DesertBandits))
 				{
-					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.DesertBandits).ToList();
+					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Deserters).ToList();
 					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
 				}
 	

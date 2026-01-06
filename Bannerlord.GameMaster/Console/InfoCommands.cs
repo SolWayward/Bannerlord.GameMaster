@@ -1,8 +1,10 @@
 using Bannerlord.GameMaster.Console.Common;
+using Bannerlord.GameMaster.Information;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.ModuleManager;
 
@@ -12,18 +14,29 @@ namespace Bannerlord.GameMaster.Console
 	/// Used for displaying useful info
 	/// </summary>
 	[CommandLineFunctionality.CommandLineArgumentFunction("info", "gm")]
-	public static class MainCommand
+	public static class InfoCommands
 	{
+		/// <summary>
+		/// List current Bannerlord game version
+		/// </summary>
+		[CommandLineFunctionality.CommandLineArgumentFunction("bannerlord_version", "gm.info")]
+		public static string BannerlordVersionCommand(List<string> args)
+		{
+			return Cmd.Run(args, () =>
+			{
+				return $"Bannerlord {GameEnvironment.BannerlordVersion}";
+			});
+		}
 
 		/// <summary>
 		/// List current BLGM version
 		/// </summary>
-		[CommandLineFunctionality.CommandLineArgumentFunction("version", "gm.info")]
-		public static string VersionCommand(List<string> args)
+		[CommandLineFunctionality.CommandLineArgumentFunction("blgm_version", "gm.info")]
+		public static string BLGMVersionCommand(List<string> args)
 		{
 			return Cmd.Run(args, () =>
 			{
-				return $"BLGM {SubModule.Version}";
+				return $"BLGM v{GameEnvironment.BLGMVersion}";
 			});
 		}
 
@@ -50,7 +63,7 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				string[] moduleNames = TaleWorlds.Engine.Utilities.GetModulesNames();
+				string[] moduleNames = GameEnvironment.LoadedModules;
 				StringBuilder output = new();
 	
 				output.AppendLine($"Loaded Modules ({moduleNames.Length}):");
@@ -75,7 +88,7 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				string[] moduleNames = TaleWorlds.Engine.Utilities.GetModulesNames();
+				string[] moduleNames = GameEnvironment.LoadedModules;
 				StringBuilder output = new();
 	
 				// Build the launch format string

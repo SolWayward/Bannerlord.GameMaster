@@ -19,7 +19,7 @@ namespace Bannerlord.GameMaster.Cultures
 		public static CultureObject Sturgia => MBObjectManager.Instance.GetObject<CultureObject>("sturgia");
 		public static CultureObject Vlandia => MBObjectManager.Instance.GetObject<CultureObject>("vlandia");
 
-		public static CultureObject DesertBandits => MBObjectManager.Instance.GetObject<CultureObject>("desert_bandits");
+		public static CultureObject Deserters => MBObjectManager.Instance.GetObject<CultureObject>("desert_bandits");
 		public static CultureObject ForestBandits => MBObjectManager.Instance.GetObject<CultureObject>("forest_bandits");
 		public static CultureObject Looters => MBObjectManager.Instance.GetObject<CultureObject>("looters");
 		public static CultureObject MountainBandits => MBObjectManager.Instance.GetObject<CultureObject>("mountain_bandits");
