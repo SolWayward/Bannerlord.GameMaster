@@ -36,6 +36,10 @@ All Commands must make use of exisitng validation, parsing, error handeling, and
 
 All future commands, should be contained in their own seperate class, but should use exisitng command execution paths such as typing gm.hero.create_hero to execute the command create_hero
 
+Commands must support multi word arguments using single quotes, as bannerlord console splits argument on space regardless of quotes and actually removes double quote mark before our mod can even see them, so single quotes must be used. See existing commands for implementation
+
+Commands with culture arguments need to support using named culture groups ex: all_cultures, main_cultures, bandit_cultures, etc and also support specifying multiple cultures using commas with no space ex: vlandia,battania,empire or just a single culture ex: sturgia See existing commands for implementation details and the CultureLookup class
+
 ### Command Common Methods that should be used
 See exisitng commands for reference on how they use these methods:
 CommandBase.ValidateArgumentCount() - Use Whenever arguments are required which is almost always, as default strucure is to display usage when no arguments are used.

@@ -77,6 +77,7 @@ namespace Bannerlord.GameMaster.Bandits
 
         /// <summary>
         /// Removes all bandit parties. If count is null, removes all. If count is specified, randomly removes that many from all bandit types.
+        /// Note: If all bandit parties linked to a hideout are destroyed the hideout is also considered cleared by the game
         /// </summary>
         public static int RemoveAllBanditParties(int? count = null)
         {
@@ -252,7 +253,7 @@ namespace Bannerlord.GameMaster.Bandits
 
                 for (int i = 0; i < hideouts.Count; i++)
                 {
-                    if (hideouts[i] != null && hideouts[i].Settlement != null)
+                    if (hideouts[i] != null && hideouts[i].Settlement != null && hideouts[i].Settlement.Parties.Count > 0)
                     {
                         count++;
                     }
@@ -271,7 +272,7 @@ namespace Bannerlord.GameMaster.Bandits
         /// <summary>
         /// Removes bandit parties of a specific culture. If count is null, removes all. If count is specified, randomly removes that many.
         /// </summary>
-        private static int RemoveBanditPartiesByCulture(CultureObject cultureObj, int? count)
+        public static int RemoveBanditPartiesByCulture(CultureObject cultureObj, int? count)
         {
             MBList<MobileParty> matchingParties = new();
             MBReadOnlyList<MobileParty> allBanditParties = MobileParty.AllBanditParties;
@@ -301,7 +302,7 @@ namespace Bannerlord.GameMaster.Bandits
         /// Removes hideouts of a specific culture. If count is null, removes all. If count is specified, randomly removes that many.
         /// Hideouts are removed by destroying all bandit parties inside them, causing the hideout to deactivate naturally.
         /// </summary>
-        private static int RemoveHideoutsByCulture(CultureObject cultureObj, int? count)
+        public static int RemoveHideoutsByCulture(CultureObject cultureObj, int? count)
         {
             MBList<Hideout> matchingHideouts = new();
             MBReadOnlyList<Hideout> allHideouts = Hideout.All;
