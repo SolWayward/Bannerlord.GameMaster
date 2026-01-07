@@ -5,20 +5,15 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.1
+## Latest Update 1.3.13.2
 ```
-Troops
-	- added command to upgrade all troops to specified tier in party
-	- added command to add specified xp to all troops in party
-	- Upgrading troops attempts to maintain specified ratio or by default infantry: 0.5, ranged: 0.3, calvary: 0.2
-
-Kingdoms
-	- New kingdoms homesettlment culture is now changed to match the kingdom culture
-	- Kingdom rulers now get a bigger party with upgraded troops
-	- Improved random generated kingdom names
+Added Bandit Management Commands
+	- gm.bandit.destroy_bandit_parties
+	- gm.bandit.count
+	- gm.bandit.clear_hideouts
+	- gm.bandit.remove_all
 	
-Clans
-	Leaders of new clans now get upgraded troops
+Massively updated things behind the scenes in preparation for Commander Release
 ```
 ## Key Features
 
