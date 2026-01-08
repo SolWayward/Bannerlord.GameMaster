@@ -37,6 +37,9 @@ namespace Bannerlord.GameMaster
             {
                 // Register settlement name behavior for save/load persistence
                 campaignStarter.AddBehavior(new SettlementNameBehavior());
+                
+                // Register settlement culture behavior for save/load persistence
+                campaignStarter.AddBehavior(new SettlementCultureBehavior());
 
                 // Register BLGMObjectManagerBehaviour for loading blgm created objects
                 campaignStarter.AddBehavior(new BLGMObjectManagerBehaviour());

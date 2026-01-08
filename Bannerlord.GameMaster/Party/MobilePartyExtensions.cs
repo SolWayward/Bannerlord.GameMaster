@@ -133,5 +133,31 @@ namespace Bannerlord.GameMaster.Party
 				mobileParty.MemberRoster.AddXpToTroop(troop.Character, xp);
 			}
 		}
+
+		/// <summary>
+		/// Start disband action
+		/// </summary>
+		public static void Disband(this MobileParty mobileParty)
+        {
+        	DisbandPartyAction.StartDisband(mobileParty);
+			mobileParty.IsDisbanding = true;
+        }
+
+		/// <summary>
+		/// Cancel disband action
+		/// </summary>
+		public static void CancelDisband(this MobileParty mobileParty)
+        {
+        	DisbandPartyAction.CancelDisband(mobileParty);
+			mobileParty.IsDisbanding = false;
+        }
+
+		/// <summary>
+		/// Destroy party. destroyerParty is optional and defaults to null for when destroying for administrative reasons
+		/// </summary>
+		public static void DestroyParty(this MobileParty mobileParty, PartyBase destroyerParty = null)
+        {
+        	DestroyPartyAction.Apply(destroyerParty, mobileParty);
+        }    
 	}
 }

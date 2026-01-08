@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Information;
+using Bannerlord.GameMaster.Party;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Party;
@@ -340,7 +341,7 @@ namespace Bannerlord.GameMaster.Bandits
                 MobileParty party = parties[i];
                 if (party != null && party.IsActive)
                 {
-                    DestroyPartyAction.Apply(null, party);
+                    party.DestroyParty();
                     removedCount++;
                 }
             }

@@ -64,7 +64,7 @@ foreach ($modName in $linkedMods) {
     $item = Get-Item $targetPath
     if ($item.Attributes -band [System.IO.FileAttributes]::ReparsePoint) {
         try {
-            Remove-Item $targetPath -Force -ErrorAction Stop
+            Remove-Item $targetPath -Recurse -Force -ErrorAction Stop
             Write-Host "  Removed symbolic link: $modName" -ForegroundColor Green
             $removedCount++
         } catch {

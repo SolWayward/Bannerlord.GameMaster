@@ -4,150 +4,150 @@
                  {
                      "workshopId":  "2859188632",
                      "modName":  "Bannerlord.Harmony",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2859222409",
                      "modName":  "Bannerlord.UIExtenderEx",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2859232415",
                      "modName":  "Bannerlord.ButterLib",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2859238197",
                      "modName":  "Bannerlord.MBOptionScreen",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2859265386",
                      "modName":  "ImprovedGarrisons",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2875093027",
                      "modName":  "DismembermentPlus",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2875138158",
                      "modName":  "XorberaxLegacy",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2880762493",
                      "modName":  "ArrangeMarriageForFamily",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2882370524",
                      "modName":  "Warbandlord",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2910268800",
                      "modName":  "Bannerlord.NearbyTournaments",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2916000111",
                      "modName":  "Bannerlord.EncyclopediaFilters",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2953564744",
                      "modName":  "Bannerlord.EncyclopediaExtender",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2959469806",
                      "modName":  "Bannerlord.FamilyTree",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "2961485825",
                      "modName":  "Bannerlord.MoreTraitInfo",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3349276720",
                      "modName":  "PlayerSettlement",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3584621421",
                      "modName":  "AIInfluence",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3596692403",
                      "modName":  "RTSCamera",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3596693285",
                      "modName":  "RTSCamera.CommandSystem",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3599557394",
                      "modName":  "Retinues",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3612947519",
                      "modName":  "BannerlordTournamentXpBoost",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3613707917",
                      "modName":  "LordsGear",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3614435151",
                      "modName":  "UnblockableThrust",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3617335871",
                      "modName":  "BannerPigeon",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3618730894",
                      "modName":  "JoinMyKingdom",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3620030171",
                      "modName":  "VillageEnterprise",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3621845412",
                      "modName":  "DistinguishedService",
-                     "enabled":  true
+                     "enabled":  false
                  },
                  {
                      "workshopId":  "3623885977",
                      "modName":  "GovernorsHandleIssues",
-                     "enabled":  true
+                     "enabled":  false
                  }
              ],
     "instructions":  [
                          "Add your Steam workshop mods here to have them automatically linked during debugging.",
                          "Find the workshopId by looking at the folder name in your Steam workshop directory.",
-                         "Set enabled to true to include the mod during debugging.",
+                         "Set enabled to false to include the mod during debugging.",
                          "The modName should match the modules SubModule.xml cId value.",
                          "",
                          "Example:",
                          "{",
                          "  \"workshopId\": \"2859233432\",",
                          "  \"modName\": \"MyAwesomeMod\",",
-                         "  \"enabled\": true",
+                         "  \"enabled\": false",
                          "}"
                      ]
 }

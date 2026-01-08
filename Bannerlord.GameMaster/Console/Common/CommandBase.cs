@@ -382,7 +382,7 @@ namespace Bannerlord.GameMaster.Console.Common
         #region Validation Methods
 
         /// <summary>
-        /// Validates campaign mode
+        /// Validates campaign mode and ensures player isn't actively in any conversation
         /// </summary>
         public static bool ValidateCampaignMode(out string error)
         {
@@ -391,6 +391,13 @@ namespace Bannerlord.GameMaster.Console.Common
                 error = "Error: Must be in campaign mode.\n";
                 return false;
             }
+
+            if (Campaign.Current.ConversationManager.IsConversationInProgress)
+            {
+                error = "Error: Please end conversation before executing command\n";
+                return false;
+            }
+
             error = null;
             return true;
         }

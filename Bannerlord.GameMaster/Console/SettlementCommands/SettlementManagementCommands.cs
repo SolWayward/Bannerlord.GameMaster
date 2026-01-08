@@ -538,8 +538,8 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
         /// MARK: set_culture
         /// <summary>
-        /// Change settlement culture
-        /// Usage: gm.settlement.set_culture [settlement] [culture]
+        /// Change settlement culture with persistence
+        /// Usage: gm.settlement.set_culture [settlement] [culture] [update_bound_villages]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("set_culture", "gm.settlement")]
         public static string SetCulture(List<string> args)
@@ -552,7 +552,8 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 var parsed = CommandBase.ParseArguments(args);
                 parsed.SetValidArguments(
                     new CommandBase.ArgumentDefinition("settlement", true),
-                    new CommandBase.ArgumentDefinition("culture", true)
+                    new CommandBase.ArgumentDefinition("culture", true),
+                    new CommandBase.ArgumentDefinition("update_bound_villages", false)
                 );
 
                 string validationError = parsed.GetValidationError();
@@ -560,10 +561,15 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     return CommandBase.FormatErrorMessage(validationError);
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.settlement.set_culture", "<settlement> <culture>",
-                    "Changes the culture of a settlement. This affects available troops, architecture style, and names.\n" +
-                    "Valid cultures: empire, sturgia, aserai, vlandia, battania, khuzait",
-                    "gm.settlement.set_culture pen empire\ngm.settlement.set_culture zeonica vlandia");
+                    "gm.settlement.set_culture", "<settlement> <culture> [update_bound_villages]",
+                    "Changes the culture of a settlement with save persistence. This affects available troops, architecture style, and names.\n" +
+                    "The culture change persists through save/load cycles and updates all notables in the settlement.\n" +
+                    "- settlement: Settlement name or ID to change culture for\n" +
+                    "- culture: Culture string ID (empire, sturgia, aserai, vlandia, battania, khuzait)\n" +
+                    "- update_bound_villages: Optional boolean (true/false), defaults to false. When true AND settlement is a town, also updates all bound villages",
+                    "gm.settlement.set_culture pen empire\n" +
+                    "gm.settlement.set_culture marunath empire true\n" +
+                    "gm.settlement.set_culture zeonica vlandia false");
 
                 if (!CommandBase.ValidateArgumentCount(args, 2, usageMessage, out error))
                     return error;
@@ -571,11 +577,33 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                 string settlementQuery = parsed.GetArgument("settlement", 0);
                 string cultureQuery = parsed.GetArgument("culture", 1);
 
+                // Parse optional update_bound_villages parameter (defaults to false)
+                bool updateBoundVillages = false;
+                if (args.Count > 2)
+                {
+                    string updateBoundVillagesStr = parsed.GetArgument("update_bound_villages", 2);
+                    if (!string.IsNullOrWhiteSpace(updateBoundVillagesStr))
+                    {
+                        if (updateBoundVillagesStr.ToLower() == "true")
+                        {
+                            updateBoundVillages = true;
+                        }
+                        else if (updateBoundVillagesStr.ToLower() == "false")
+                        {
+                            updateBoundVillages = false;
+                        }
+                        else
+                        {
+                            return CommandBase.FormatErrorMessage($"Invalid value for update_bound_villages: '{updateBoundVillagesStr}'. Must be 'true' or 'false'.");
+                        }
+                    }
+                }
+
                 var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
                 if (settlementError != null) return settlementError;
 
                 // Find the culture
-                var culture = Campaign.Current.ObjectManager.GetObjectTypeList<CultureObject>()
+                CultureObject culture = Campaign.Current.ObjectManager.GetObjectTypeList<CultureObject>()
                     .FirstOrDefault(c => c.StringId.ToLower().Contains(cultureQuery.ToLower()) ||
                                         c.Name.ToString().ToLower().Contains(cultureQuery.ToLower()));
 
@@ -584,21 +612,43 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
                 return CommandBase.ExecuteWithErrorHandling(() =>
                 {
+                    // Get the settlement culture behavior
+                    SettlementCultureBehavior behavior = Campaign.Current.GetCampaignBehavior<SettlementCultureBehavior>();
+                    if (behavior == null)
+                        return CommandBase.FormatErrorMessage("Settlement culture behavior not initialized. Please restart the game.");
+
                     string previousCulture = settlement.Culture?.Name?.ToString() ?? "None";
+                    int notableCount = settlement.Notables?.Count() ?? 0;
+                    int boundVillageCount = updateBoundVillages ? SettlementManager.GetBoundVillagesCount(settlement) : 0;
+
+                    // Use behavior to change culture with persistence
+                    bool success = behavior.SetSettlementCulture(settlement, culture, updateNotables: true, includeBoundVillages: updateBoundVillages);
                     
-                    // Set culture (this is a public property with setter, no reflection needed)
-                    settlement.Culture = culture;
+                    if (!success)
+                        return CommandBase.FormatErrorMessage("Failed to change settlement culture. Check the error log for details.");
 
                     var resolvedValues = new Dictionary<string, string>
                     {
                         ["settlement"] = settlement.Name.ToString(),
-                        ["culture"] = culture.Name.ToString()
+                        ["culture"] = culture.Name.ToString(),
+                        ["update_bound_villages"] = updateBoundVillages.ToString().ToLower()
                     };
 
                     string display = parsed.FormatArgumentDisplay("gm.settlement.set_culture", resolvedValues);
-                    return display + CommandBase.FormatSuccessMessage(
-                        $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) culture changed from '{previousCulture}' to '{settlement.Culture.Name}'.\n" +
-                        $"This change persists through save/load automatically.");
+                    
+                    string message = $"Settlement culture changed successfully.\n" +
+                                   $"Changed '{settlement.Name}' (ID: {settlement.StringId}) from '{previousCulture}' to '{culture.Name}'.\n" +
+                                   $"Updated {notableCount} notable(s).";
+                    
+                    if (updateBoundVillages && boundVillageCount > 0)
+                    {
+                        message += $"\nUpdated {boundVillageCount} bound village(s).";
+                    }
+                    
+                    message += "\nCulture change persists through save/load.\n" +
+                              "Recruit slots will refresh naturally over time.";
+
+                    return display + CommandBase.FormatSuccessMessage(message);
                 }, "Failed to change settlement culture");
             });
         }
@@ -1102,183 +1152,6 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
 
 
         #region Settlement Caravans and NPCs
-
-        /// MARK: create_notable_caravan
-        /// <summary>
-        /// Create a caravan in a settlement for notables
-        /// Usage: gm.settlement.create_notable_caravan [settlement]
-        /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("create_notable_caravan", "gm.settlement")]
-        public static string CreateNotableCaravan(List<string> args)
-        {
-            return Cmd.Run(args, () =>
-            {
-                if (!CommandBase.ValidateCampaignMode(out string error))
-                    return error;
-
-                var parsed = CommandBase.ParseArguments(args);
-                parsed.SetValidArguments(
-                    new CommandBase.ArgumentDefinition("settlement", true)
-                );
-
-                string validationError = parsed.GetValidationError();
-                if (validationError != null)
-                    return CommandBase.FormatErrorMessage(validationError);
-
-                var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.settlement.create_notable_caravan", "<settlement>",
-                    "Creates a new caravan in the specified settlement owned by a notable who doesn't have one yet.",
-                    "gm.settlement.create_notable_caravan pen");
-
-                if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
-                    return error;
-
-                string settlementQuery = parsed.GetArgument("settlement", 0);
-
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
-                if (settlementError != null) return settlementError;
-
-                if (!settlement.IsTown)
-                    return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Caravans can only be created in cities.");
-
-                return CommandBase.ExecuteWithErrorHandling(() =>
-                {
-                    // Find a notable without a caravan
-                    Hero caravanOwner = settlement.Notables.FirstOrDefault(n => n.OwnedCaravans.Count == 0);
-                    
-                    if (caravanOwner == null)
-                        return CommandBase.FormatErrorMessage($"All notables in '{settlement.Name}' already own caravans. Use 'gm.settlement.create_player_caravan' to create a caravan for the player.");
-
-                    // Get a party template for caravans
-                    var partyTemplate = Campaign.Current.ObjectManager.GetObjectTypeList<PartyTemplateObject>()
-                        .FirstOrDefault(pt => pt.StringId.Contains("caravan"));
-                    
-                    if (partyTemplate == null)
-                        return CommandBase.FormatErrorMessage("No caravan party template found in game data.");
-
-                    // Create the caravan using the game's API
-                    var caravan = CaravanPartyComponent.CreateCaravanParty(
-                        caravanOwner,
-                        settlement,
-                        partyTemplate
-                    );
-
-                    if (caravan == null)
-                        return CommandBase.FormatErrorMessage("Failed to create caravan party.");
-
-                    var resolvedValues = new Dictionary<string, string>
-                    {
-                        ["settlement"] = settlement.Name.ToString()
-                    };
-
-                    string display = parsed.FormatArgumentDisplay("gm.settlement.create_notable_caravan", resolvedValues);
-                    return display + CommandBase.FormatSuccessMessage(
-                        $"Created caravan in '{settlement.Name}' (ID: {settlement.StringId}) owned by notable {caravanOwner.Name}.");
-                }, "Failed to create notable caravan");
-            });
-        }
-
-        /// MARK: create_player_caravan
-        /// <summary>
-        /// Create a caravan in a settlement for the player
-        /// Usage: gm.settlement.create_player_caravan [settlement] [optional: leader_hero]
-        /// </summary>
-        [CommandLineFunctionality.CommandLineArgumentFunction("create_player_caravan", "gm.settlement")]
-        public static string CreatePlayerCaravan(List<string> args)
-        {
-            return Cmd.Run(args, () =>
-            {
-                if (!CommandBase.ValidateCampaignMode(out string error))
-                    return error;
-
-                var parsed = CommandBase.ParseArguments(args);
-                parsed.SetValidArguments(
-                    new CommandBase.ArgumentDefinition("settlement", true),
-                    new CommandBase.ArgumentDefinition("leader", false, "Auto-selected")
-                );
-
-                string validationError = parsed.GetValidationError();
-                if (validationError != null)
-                    return CommandBase.FormatErrorMessage(validationError);
-
-                var usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.settlement.create_player_caravan", "<settlement> [leader_hero]",
-                    "Creates a new caravan for the player's clan. Optionally specify a companion hero to lead it.",
-                    "gm.settlement.create_player_caravan pen\ngm.settlement.create_player_caravan pen companion_hero");
-
-                if (!CommandBase.ValidateArgumentCount(args, 1, usageMessage, out error))
-                    return error;
-
-                string settlementQuery = parsed.GetArgument("settlement", 0);
-                string leaderQuery = parsed.GetArgument("leader", 1);
-
-                var (settlement, settlementError) = CommandBase.FindSingleSettlement(settlementQuery);
-                if (settlementError != null) return settlementError;
-
-                if (!settlement.IsTown)
-                    return CommandBase.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Caravans can only be created in cities.");
-
-                return CommandBase.ExecuteWithErrorHandling(() =>
-                {
-                    Hero caravanLeader = null;
-                    
-                    // Check if a specific leader was requested
-                    if (!string.IsNullOrEmpty(leaderQuery))
-                    {
-                        var (hero, heroError) = CommandBase.FindSingleHero(leaderQuery);
-                        if (heroError != null) return heroError;
-                        
-                        if (hero.Clan != Clan.PlayerClan)
-                            return CommandBase.FormatErrorMessage($"{hero.Name} is not a member of the player's clan.");
-                        
-                        if (hero.PartyBelongedTo != null)
-                            return CommandBase.FormatErrorMessage($"{hero.Name} is already in a party.");
-                        
-                        caravanLeader = hero;
-                    }
-                    else
-                    {
-                        // Try to find an available companion
-                        caravanLeader = Clan.PlayerClan.Companions.FirstOrDefault(c =>
-                            c.PartyBelongedTo == null &&
-                            !c.IsPrisoner &&
-                            c.IsActive);
-                    }
-
-                    // Get a party template for caravans
-                    var partyTemplate = Campaign.Current.ObjectManager.GetObjectTypeList<PartyTemplateObject>()
-                        .FirstOrDefault(pt => pt.StringId.Contains("caravan") && pt.StringId.Contains("template"));
-                    
-                    if (partyTemplate == null)
-                        return CommandBase.FormatErrorMessage("No caravan party template found in game data.");
-
-                    // Create caravan for player clan using proper owner
-                    var caravan = CaravanPartyComponent.CreateCaravanParty(
-                        Hero.MainHero,  // Owner is always the clan leader for player caravans
-                        settlement,
-                        partyTemplate,
-                        false,  // isInitialSpawn
-                        caravanLeader  // Optional leader companion
-                    );
-
-                    if (caravan == null)
-                        return CommandBase.FormatErrorMessage("Failed to create caravan party.");
-
-                    string leaderInfo = caravanLeader != null ? $" led by {caravanLeader.Name}" : " (no leader assigned)";
-                    
-                    var resolvedValues = new Dictionary<string, string>
-                    {
-                        ["settlement"] = settlement.Name.ToString(),
-                        ["leader"] = caravanLeader?.Name?.ToString() ?? "Auto-selected"
-                    };
-
-                    string display = parsed.FormatArgumentDisplay("gm.settlement.create_player_caravan", resolvedValues);
-                    return display + CommandBase.FormatSuccessMessage(
-                        $"Created player caravan in '{settlement.Name}' (ID: {settlement.StringId}){leaderInfo}.\n" +
-                        $"The caravan will generate trade profits for your clan.");
-                }, "Failed to create player caravan");
-            });
-        }
 
         /// MARK: spawn_wanderer
         /// <summary>
