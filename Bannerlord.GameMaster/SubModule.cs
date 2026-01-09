@@ -41,6 +41,9 @@ namespace Bannerlord.GameMaster
                 // Register settlement culture behavior for save/load persistence
                 campaignStarter.AddBehavior(new SettlementCultureBehavior());
 
+                // Register village trade bound behavior for save/load persistence
+                campaignStarter.AddBehavior(new VillageTradeBoundBehavior());
+
                 // Register BLGMObjectManagerBehaviour for loading blgm created objects
                 campaignStarter.AddBehavior(new BLGMObjectManagerBehaviour());
             }

@@ -79,6 +79,28 @@ Make sure code is high quality, maintainable, human readable, and well organized
 
 Make use of MARK: for long methods. Use region for sections of code that has many short methods one after another.
 
+Make use of BLGMResult for return types that benefit from returning a bool and a string message. Useful for reflection operations, Console Commands, but also useful for many other methods that the result may need to be checked and displayed:  
+```csharp
+namespace Bannerlord.GameMaster.Common;
+public struct BLGMResult
+    {
+        public bool wasSuccessful;
+        public string message;
+        public BLGMResult()
+        {
+            wasSuccessful = false;
+            message = "unhandled failure";
+        }
+        public BLGMResult(bool wasSuccessful, string message)
+        {
+            this.wasSuccessful = wasSuccessful;
+            this.message = message;
+        }
+    }
+```
+
+Do not use ```InformationManager.DisplayMessage(new InformationMessage())```, instead use InfoMessage.Error(string message), .Warning, .Log, .Success, .Important, .Status, etc which automaticaly uses apropiate colors
+
 ### Performance Considerations
 Avoid LINQ when performance-critical (use native collections instead, LINQ ok for non critical operations)
 String concatenation in loops (use StringBuilder)
@@ -87,5 +109,5 @@ Object pooling patterns for frequently created/destroyed objects when applicable
 ## Documentation
 IMPORTANT NOTE FOR UPDATING USER WIKI DOCUMENTATION: The /Wiki folder is for users documentation. the /Docs folder is for developers documentation. The /wiki folder will probably not be visible to you because it is untracked so run command "dir wiki/Bannerlord.GameMaster.wiki to view the existing wiki documents.
 
-
+## Emoji
 NEVER EVER USE EMOJIs
