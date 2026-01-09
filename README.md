@@ -5,15 +5,16 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.2
+## Latest Update 1.3.13.3
 ```
-Added Bandit Management Commands
-	- gm.bandit.destroy_bandit_parties
-	- gm.bandit.count
-	- gm.bandit.clear_hideouts
-	- gm.bandit.remove_all
-	
-Massively updated things behind the scenes in preparation for Commander Release
+Fixed settlement.set_culture
+	- Changes now persist when saving / loading
+	- notables are automatically set to new culture, ensuring recruits are proper culture
+	- Added optional parameter, passing true will also change any bound villages
+
+Caravans
+	- Added several commands to clear caravan parties
+	- Moved caravan creation commands from settlement to caravan command group
 ```
 ## Key Features
 
