@@ -24,7 +24,10 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				return $"Bannerlord {GameEnvironment.BannerlordVersion}";
+				return CommandBase.ExecuteWithErrorHandling(() =>
+				{
+					return $"Bannerlord {GameEnvironment.BannerlordVersion}";
+				}, "Failed to access Bannerlord version");
 			});
 		}
 
@@ -36,7 +39,10 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				return $"BLGM v{GameEnvironment.BLGMVersion}";
+				return CommandBase.ExecuteWithErrorHandling(() =>
+				{
+					return $"BLGM v{GameEnvironment.BLGMVersion}";
+				}, "Failed to access BLGM version");			
 			});
 		}
 
@@ -48,10 +54,13 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				return $"{BLGMObjectManager.Instance.ObjectCount} Total objects created with BLGM\n" +
+				return CommandBase.ExecuteWithErrorHandling(() =>
+				{
+					return $"{BLGMObjectManager.Instance.ObjectCount} Total objects created with BLGM\n" +
 						$"Heroes: {BLGMObjectManager.BlgmHeroCount}\n" +
 						$"Clans: {BLGMObjectManager.BlgmClanCount}\n" +
-						$"Kingdoms: {BLGMObjectManager.BlgmKingdomCount}";				
+						$"Kingdoms: {BLGMObjectManager.BlgmKingdomCount}";
+				}, "Failed to access BLGMObjectMananager Counts");							
 			});
 		}
 
@@ -63,20 +72,23 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				string[] moduleNames = GameEnvironment.LoadedModules;
-				StringBuilder output = new();
-	
-				output.AppendLine($"Loaded Modules ({moduleNames.Length}):");
-				output.AppendLine(new string('-', 50));
-	
-				foreach (string name in moduleNames)
+				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
-					output.AppendLine($"- {name}");
-				}
-	
-				output.AppendLine("\nUse command 'gm.log.enable' before running this command to save command output to a log file you can easily copy and paste");
-	
-				return output.ToString();
+					string[] moduleNames = GameEnvironment.LoadedModules;
+					StringBuilder output = new();
+
+					output.AppendLine($"Loaded Modules ({moduleNames.Length}):");
+					output.AppendLine(new string('-', 50));
+
+					foreach (string name in moduleNames)
+					{
+						output.AppendLine($"- {name}");
+					}
+
+					output.AppendLine("\nUse command 'gm.log.enable' before running this command to save command output to a log file you can easily copy and paste");
+
+					return output.ToString();
+				}, "Failed to access Modlist");
 			});
 		}
 	
@@ -88,24 +100,27 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				string[] moduleNames = GameEnvironment.LoadedModules;
-				StringBuilder output = new();
-	
-				// Build the launch format string
-				string launchFormat = "_MODULES_*" + string.Join("*", moduleNames) + "*_MODULES_";
-	
-				output.AppendLine($"Loaded Modules in launch.json format ({moduleNames.Length} modules):");
-				output.AppendLine(new string('-', 50));
-				output.AppendLine(launchFormat);
-				output.AppendLine();
-				output.AppendLine("Copy the line above and paste it into your launch.json args section:");
-				output.AppendLine("\"args\": [");
-				output.AppendLine("    \"/singleplayer\",");
-				output.AppendLine("    \"/continuegame\",");
-				output.AppendLine($"    \"{launchFormat}\"");
-				output.AppendLine("]");
-	
-				return output.ToString();
+				return CommandBase.ExecuteWithErrorHandling(() =>
+				{
+					string[] moduleNames = GameEnvironment.LoadedModules;
+					StringBuilder output = new();
+
+					// Build the launch format string
+					string launchFormat = "_MODULES_*" + string.Join("*", moduleNames) + "*_MODULES_";
+
+					output.AppendLine($"Loaded Modules in launch.json format ({moduleNames.Length} modules):");
+					output.AppendLine(new string('-', 50));
+					output.AppendLine(launchFormat);
+					output.AppendLine();
+					output.AppendLine("Copy the line above and paste it into your launch.json args section:");
+					output.AppendLine("\"args\": [");
+					output.AppendLine("    \"/singleplayer\",");
+					output.AppendLine("    \"/continuegame\",");
+					output.AppendLine($"    \"{launchFormat}\"");
+					output.AppendLine("]");
+
+					return output.ToString();
+				}, "Failed to access Modlist");
 			});
 		}
 	}

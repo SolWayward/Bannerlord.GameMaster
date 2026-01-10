@@ -23,8 +23,11 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				BLGMObjectManager.Instance.Initialize();
-				return $"BLGMObjectManager Reinitalized: {BLGMObjectManager.Instance.ObjectCount} BLGM created objects loaded";
+				return CommandBase.ExecuteWithErrorHandling(() =>
+				{
+					BLGMObjectManager.Instance.Initialize();
+					return $"BLGMObjectManager Reinitalized: {BLGMObjectManager.Instance.ObjectCount} BLGM created objects loaded";
+				}, "Failed to reinitalize BLGMObjectManager");
 			});
 		}
 
@@ -36,45 +39,48 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				var colorPalette = BannerManager.Instance.ReadOnlyColorPalette;
-				var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-				var configDir = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster");
-				
-				// Ensure directory exists
-				if (!Directory.Exists(configDir))
+				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
-					Directory.CreateDirectory(configDir);
-				}
-				
-				var outputPath = Path.Combine(configDir, "ColorPalette_Dump.txt");
+					var colorPalette = BannerManager.Instance.ReadOnlyColorPalette;
+					var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+					var configDir = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster");
 
-				using (StreamWriter writer = new StreamWriter(outputPath))
-				{
-					writer.WriteLine($"Banner Color Palette - Total Colors: {colorPalette.Count}");
-					writer.WriteLine(new string('=', 80));
-					writer.WriteLine();
-
-					foreach (var kvp in colorPalette)
+					// Ensure directory exists
+					if (!Directory.Exists(configDir))
 					{
-						int colorId = kvp.Key;
-						uint colorValue = kvp.Value.Color;
-						
-						// Extract ARGB from uint
-						byte a = (byte)((colorValue >> 24) & 0xFF);
-						byte r = (byte)((colorValue >> 16) & 0xFF);
-						byte g = (byte)((colorValue >> 8) & 0xFF);
-						byte b = (byte)(colorValue & 0xFF);
-
-						writer.WriteLine($"Color ID: {colorId}");
-						writer.WriteLine($"  UInt:  {colorValue}");
-						writer.WriteLine($"  ARGB:  ({a}, {r}, {g}, {b})");
-						writer.WriteLine($"  Hex:   #{r:X2}{g:X2}{b:X2}");
-						writer.WriteLine($"  Float: R={r / 255f:F3}, G={g / 255f:F3}, B={b / 255f:F3}, A={a / 255f:F3}");
-						writer.WriteLine();
+						Directory.CreateDirectory(configDir);
 					}
-				}
 
-				return $"Banner color palette dumped to: {outputPath}";
+					var outputPath = Path.Combine(configDir, "ColorPalette_Dump.txt");
+
+					using (StreamWriter writer = new StreamWriter(outputPath))
+					{
+						writer.WriteLine($"Banner Color Palette - Total Colors: {colorPalette.Count}");
+						writer.WriteLine(new string('=', 80));
+						writer.WriteLine();
+
+						foreach (var kvp in colorPalette)
+						{
+							int colorId = kvp.Key;
+							uint colorValue = kvp.Value.Color;
+
+							// Extract ARGB from uint
+							byte a = (byte)((colorValue >> 24) & 0xFF);
+							byte r = (byte)((colorValue >> 16) & 0xFF);
+							byte g = (byte)((colorValue >> 8) & 0xFF);
+							byte b = (byte)(colorValue & 0xFF);
+
+							writer.WriteLine($"Color ID: {colorId}");
+							writer.WriteLine($"  UInt:  {colorValue}");
+							writer.WriteLine($"  ARGB:  ({a}, {r}, {g}, {b})");
+							writer.WriteLine($"  Hex:   #{r:X2}{g:X2}{b:X2}");
+							writer.WriteLine($"  Float: R={r / 255f:F3}, G={g / 255f:F3}, B={b / 255f:F3}, A={a / 255f:F3}");
+							writer.WriteLine();
+						}
+					}
+
+					return $"Banner color palette dumped to: {outputPath}";
+				}, "Failed to dump banner colors to file");
 			});
 		}
 
@@ -83,86 +89,103 @@ namespace Bannerlord.GameMaster.Console
 		{
 			return Cmd.Run(args, () =>
 			{
-				Dictionary<string, GameKeyContext>.ValueCollection HotKeyCategories = HotKeyManager.GetAllCategories();
-				
-				if (HotKeyCategories == null)
+				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
-					return "Failed to retrieve hotkey categories - HotKeyManager returned null";
-				}
+					Dictionary<string, GameKeyContext>.ValueCollection HotKeyCategories = HotKeyManager.GetAllCategories();
 
-				var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-				var configDir = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster");
-				
-				// Ensure directory exists
-				if (!Directory.Exists(configDir))
-				{
-					Directory.CreateDirectory(configDir);
-				}
-				
-				var outputPath = Path.Combine(configDir, "HotkeyCategories_Dump.txt");
-
-				using (StreamWriter writer = new StreamWriter(outputPath))
-				{
-					writer.WriteLine($"Hotkey Categories - Total Categories: {HotKeyCategories.Count}");
-					writer.WriteLine(new string('=', 80));
-					writer.WriteLine();
-
-					foreach (var category in HotKeyCategories)
+					if (HotKeyCategories == null)
 					{
-						if (category == null)
-						{
-							writer.WriteLine("Category: NULL");
-							writer.WriteLine();
-							continue;
-						}
-						
-						writer.WriteLine($"Category ID: {category.GameKeyCategoryId ?? "NULL"}");
-						writer.WriteLine($"Category Type: {category.Type}");
-						
-						if (category.RegisteredGameKeys != null)
-						{
-							writer.WriteLine($"  Registered Game Keys: {category.RegisteredGameKeys.Count}");
-							writer.WriteLine();
+						return "Failed to retrieve hotkey categories - HotKeyManager returned null";
+					}
 
-							foreach (var gameKey in category.RegisteredGameKeys)
+					var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+					var configDir = Path.Combine(documentsPath, "Mount and Blade II Bannerlord", "Configs", "GameMaster");
+
+					// Ensure directory exists
+					if (!Directory.Exists(configDir))
+					{
+						Directory.CreateDirectory(configDir);
+					}
+
+					var outputPath = Path.Combine(configDir, "HotkeyCategories_Dump.txt");
+
+					using (StreamWriter writer = new StreamWriter(outputPath))
+					{
+						writer.WriteLine($"Hotkey Categories - Total Categories: {HotKeyCategories.Count}");
+						writer.WriteLine(new string('=', 80));
+						writer.WriteLine();
+
+						foreach (var category in HotKeyCategories)
+						{
+							if (category == null)
 							{
-								if (gameKey == null)
+								writer.WriteLine("Category: NULL");
+								writer.WriteLine();
+								continue;
+							}
+
+							writer.WriteLine($"Category ID: {category.GameKeyCategoryId ?? "NULL"}");
+							writer.WriteLine($"Category Type: {category.Type}");
+
+							if (category.RegisteredGameKeys != null)
+							{
+								writer.WriteLine($"  Registered Game Keys: {category.RegisteredGameKeys.Count}");
+								writer.WriteLine();
+
+								foreach (var gameKey in category.RegisteredGameKeys)
 								{
-									continue;
+									if (gameKey == null)
+									{
+										continue;
+									}
+
+									writer.WriteLine($"    Key ID: {gameKey.Id}");
+									writer.WriteLine($"    Key String ID: {gameKey.StringId ?? "NULL"}");
+									writer.WriteLine($"    Key Group ID: {gameKey.GroupId ?? "NULL"}");
+									writer.WriteLine($"    Key MainCategory ID: {gameKey.MainCategoryId ?? "NULL"}");
+									writer.WriteLine($"    Key KeyboardKey: {gameKey.KeyboardKey?.ToString() ?? "NULL"}");
+									writer.WriteLine($"    Key DefaultKeyboardKey: {gameKey.DefaultKeyboardKey?.ToString() ?? "NULL"}");
+									writer.WriteLine();
 								}
-								
-								writer.WriteLine($"    Key ID: {gameKey.Id}");
-								writer.WriteLine($"    Key String ID: {gameKey.StringId ?? "NULL"}");
-								writer.WriteLine($"    Key Group ID: {gameKey.GroupId ?? "NULL"}");
-								writer.WriteLine($"    Key MainCategory ID: {gameKey.MainCategoryId ?? "NULL"}");
-								writer.WriteLine($"    Key KeyboardKey: {gameKey.KeyboardKey?.ToString() ?? "NULL"}");
-								writer.WriteLine($"    Key DefaultKeyboardKey: {gameKey.DefaultKeyboardKey?.ToString() ?? "NULL"}");
+							}
+							else
+							{
+								writer.WriteLine("  Registered Game Keys: NULL");
 								writer.WriteLine();
 							}
-						}
-						else
-						{
-							writer.WriteLine("  Registered Game Keys: NULL");
+
+							writer.WriteLine(new string('-', 80));
 							writer.WriteLine();
 						}
-
-						writer.WriteLine(new string('-', 80));
-						writer.WriteLine();
 					}
-				}
 
-				return $"Hotkey categories dumped to: {outputPath}";
+					return $"Hotkey categories dumped to: {outputPath}";
+				}, "Failed to access Hotkey Dictionary or write to file");
 			});
 		}
 
-		[CommandLineFunctionality.CommandLineArgumentFunction("log_current", "gm.dev")]
-		public static string LogCurrent(List<string> args)
+		[CommandLineFunctionality.CommandLineArgumentFunction("get_player_captain_perks", "gm.dev")]
+		public static string GetPlayerCaptainPerks(List<string> args)
 		{
 			return Cmd.Run(args, () =>
 			{
-				return BLGMDebug.HeroDebug.CaptainOnFootPerks(Hero.MainHero); //player hero
+				return CommandBase.ExecuteWithErrorHandling(() =>
+				{
+					return BLGMDebug.HeroDebug.CaptainOnFootPerks(Hero.MainHero); //player hero
+				}, "Failed to log or get captain perks");
 			});
 		}
-				
+
+		[CommandLineFunctionality.CommandLineArgumentFunction("check_heroes_matches_characters_stringid", "gm.dev")]
+		public static string CheckHeroesMatchesCharactersStringId(List<string> args)
+		{
+			return Cmd.Run(args, () =>
+			{
+				return CommandBase.ExecuteWithErrorHandling(() =>
+				{
+					return BLGMDebug.HeroDebug.CheckHeroesCharacterStringId();
+				}, "Failed to log or get captain perks");
+			});
+		}
 	}
 }

@@ -184,7 +184,16 @@ namespace Bannerlord.GameMaster
             }
 
             string stringId = Instance.RegisterObject(hero);
-            hero.CharacterObject.StringId = stringId; //Needs to match hero or things like captain perks dont show on battle deployment UI
+
+            // Always unregister CharacterObject first (safe even if not registered)
+            // Must unregister with OLD StringId still on object
+            MBObjectManager.Instance.UnregisterObject(hero.CharacterObject);
+
+            // Update CharacterObject StringId to match Hero
+            hero.CharacterObject.StringId = stringId;
+
+            // Now register with new StringId
+            MBObjectManager.Instance.RegisterObject(hero.CharacterObject);
 
             Instance.InvalidateListCaches();
             Interlocked.Increment(ref Instance._heroCount);

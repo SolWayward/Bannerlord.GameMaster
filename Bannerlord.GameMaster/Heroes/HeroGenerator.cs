@@ -28,9 +28,7 @@ namespace Bannerlord.GameMaster.Heroes
 	/// </summary>
 	public static class HeroGenerator
 	{
-		#region Core Creation - No Side Effects
-
-		/// MARK: CreateBasicHero
+		/// MARK: CreateBasicHero Core
 		/// <summary>
 		/// Creates a basic hero from a character object WITHOUT any occupation-specific initialization.
 		/// This is the layer 1 foundation method - it only creates the hero object with basic properties.
@@ -57,15 +55,15 @@ namespace Bannerlord.GameMaster.Heroes
 				// Force correct age
 				hero.SetAge(age);
 			}
-			//hero.CharacterObject.DefaultFormationClass = FormationClass.Unset;
+
+			hero.PreferredUpgradeFormation = FormationClass.General;
 			hero.SetRandomDeathDate();
 			hero.SetName(nameObj, nameObj); //Set name before registering so stringId will contain name
 
 			// Register hero assigns stringId
 			BLGMObjectManager.RegisterHero(hero);
 
-			hero.PreferredUpgradeFormation = FormationClass.General;		
-
+			hero.PreferredUpgradeFormation = FormationClass.General;	
 			hero.Clan = clan;
 			hero.IsMinorFactionHero = false;
 
@@ -74,9 +72,6 @@ namespace Bannerlord.GameMaster.Heroes
 
 			return hero;
 		}
-
-		#endregion
-		#region Role Initialization - Explicit Side Effects
 
 		/// MARK: InitializeAsLord
 		/// <summary>
@@ -139,8 +134,10 @@ namespace Bannerlord.GameMaster.Heroes
 			hero.SetNewOccupation(Occupation.Wanderer); // Crashes if not set to wanderer when you talk to them
 			hero.IsMinorFactionHero = false;
 			hero.EquipHeroBasedOnCulture();
-			hero.Gold = 1000;
-			hero.Level = 8;
+
+			int initalLevel = RandomNumberGen.Instance.NextRandomInt(1, 15);
+			hero.HeroDeveloper.SetInitialLevel(initalLevel);
+			hero.Gold = 1000 * initalLevel;
 
 			EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);
 			hero.UpdateLastKnownClosestSettlement(settlement);
@@ -165,8 +162,10 @@ namespace Bannerlord.GameMaster.Heroes
 			hero.SetNewOccupation(Occupation.Lord); // Ensures character is lord (if wanderer the backstory dialog shows error text. Still functions like a wanderer)
 			hero.IsMinorFactionHero = false;
 			hero.EquipHeroBasedOnCulture();
-			hero.Gold = 1000;
-			hero.Level = 8;
+
+			int initalLevel = RandomNumberGen.Instance.NextRandomInt(1, 15);
+			hero.HeroDeveloper.SetInitialLevel(initalLevel);
+			hero.Gold = 1000 * initalLevel;
 
 			// CRITICAL: Initialize hero to set IsInitialized = true
 			hero.Initialize();
@@ -197,8 +196,7 @@ namespace Bannerlord.GameMaster.Heroes
 			}
 		}
 
-		#endregion
-		#region High-Level Convenience Methods
+		#region Convenience Methods
 
 		/// MARK: CreateLord
 		/// <summary>
@@ -326,7 +324,6 @@ namespace Bannerlord.GameMaster.Heroes
 		#endregion
 		#region Helper Methods
 
-		/// MARK: SelectRandomTemplate
 		/// <summary>
 		/// Selects and optionally randomizes a character from the given culture/gender pool.
 		/// Only returns Lord and Wanderer occupation characters (no notables).
@@ -338,7 +335,6 @@ namespace Bannerlord.GameMaster.Heroes
 			return SelectRandomTemplate(characterPool, randomFactor);
 		}
 
-		/// MARK: SelectRandomTemplate (Overload)
 		/// <summary>
 		/// Selects and optionally randomizes a character from the given pool.
 		/// Creates a copy of the character and optionally randomizes appearance.
@@ -354,7 +350,6 @@ namespace Bannerlord.GameMaster.Heroes
 			return character;
 		}
 
-		/// MARK: RandomizeCharacterObject
 		/// <summary>
 		/// Randomizes character appearance within template constraints
 		/// </summary>
