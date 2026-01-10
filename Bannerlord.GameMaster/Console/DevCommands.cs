@@ -2,6 +2,7 @@ using Bannerlord.GameMaster.Console.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
@@ -153,5 +154,15 @@ namespace Bannerlord.GameMaster.Console
 				return $"Hotkey categories dumped to: {outputPath}";
 			});
 		}
+
+		[CommandLineFunctionality.CommandLineArgumentFunction("log_current", "gm.dev")]
+		public static string LogCurrent(List<string> args)
+		{
+			return Cmd.Run(args, () =>
+			{
+				return BLGMDebug.HeroDebug.CaptainOnFootPerks(Hero.MainHero); //player hero
+			});
+		}
+				
 	}
 }

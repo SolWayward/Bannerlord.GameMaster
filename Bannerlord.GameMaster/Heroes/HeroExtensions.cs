@@ -10,6 +10,7 @@ using SandBox.Issues;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.Core;
+using Helpers;
 
 namespace Bannerlord.GameMaster.Heroes
 {
@@ -273,6 +274,47 @@ namespace Bannerlord.GameMaster.Heroes
 			}
 		}
 		#endregion
+
+		/// <summary>
+		/// Sets the hero age by setting a random birthdate based on the specified age
+		/// </summary>
+		/// <returns>The CampaignTime specifying the Heroes new birth date</returns>
+		public static CampaignTime SetAge(this Hero hero, int age)
+		{
+			CampaignTime birthDate = HeroHelper.GetRandomBirthDayForAge(age);
+			hero.SetBirthDay(birthDate);
+
+			return birthDate;
+		}
+
+		/// <summary>
+		/// Sets a date for the hero to die of old age, The date is a random day with year of the character reaching a random age of 55 to 92.<br />
+		/// Random age is weighted to slightly favor ages below 80.
+		/// </summary>
+		/// <param name="hero"></param>
+		/// <returns>The CampignTime containing the actual date the hero will die</returns>
+		public static CampaignTime SetRandomDeathDate(this Hero hero)
+		{
+			int randomDeathAge = RandomNumberGen.Instance.NextRandomInt(55, 92);
+
+			// Reduce likelihood of living longer than 80 by requiring two rolls to pass
+			if (randomDeathAge > 79)
+				randomDeathAge = RandomNumberGen.Instance.NextRandomInt(65, 92);
+
+			// Calculate years until the hero reaches death age
+			int yearsUntilDeath = randomDeathAge - (int)hero.Age;
+
+			// Get a base date that many years from now
+			CampaignTime deathDay = CampaignTime.YearsFromNow(yearsUntilDeath);
+
+			// Add random days within that year (so hero doesn't die on exact anniversary)
+			int randomDays = RandomNumberGen.Instance.NextRandomInt(0, CampaignTime.DaysInYear);
+			deathDay += CampaignTime.Days(randomDays);
+
+			hero.SetDeathDay(deathDay);
+			return deathDay;
+		}
+
 		#region Name / Details
 
 		/// <summary>

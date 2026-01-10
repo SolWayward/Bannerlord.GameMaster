@@ -57,7 +57,7 @@ namespace Bannerlord.GameMaster.Information
         /// </summary>
         public static void Status2(string message)
         {
-            Write(message, Colors.Cyan);
+            Write(message, Colors.Blue);
         }
 
         /// <summary>

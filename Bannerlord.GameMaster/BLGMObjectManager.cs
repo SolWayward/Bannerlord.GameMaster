@@ -184,6 +184,8 @@ namespace Bannerlord.GameMaster
             }
 
             string stringId = Instance.RegisterObject(hero);
+            hero.CharacterObject.StringId = stringId; //Needs to match hero or things like captain perks dont show on battle deployment UI
+
             Instance.InvalidateListCaches();
             Interlocked.Increment(ref Instance._heroCount);
 
