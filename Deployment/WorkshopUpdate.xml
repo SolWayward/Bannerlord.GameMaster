@@ -5,8 +5,12 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.13.4.1
-HotFix attempting to prevent Key already added issues from other mods irresponsibly modifying game dictionaries."
+"v1.3.13.5
+Added max generated object limits
+	- Limits can be bypassed using gm.ignore_limits true
+
+Added commands in gm.cleanup to help remove blgm created objects if game becomes cluttered and performance degraded
+Added safe guards to try to help prevent issues that might arise from other mods doing bad things"
         />
         <Tags>
             <Tag Value="Utility" />
