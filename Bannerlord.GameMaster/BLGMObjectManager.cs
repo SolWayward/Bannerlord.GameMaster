@@ -20,6 +20,10 @@ namespace Bannerlord.GameMaster
     /// </summary>
     public class BLGMObjectManager
     {
+        // Note: Heroes are not registered in MBObjectManager, only their CharacterObject is
+        //       Heroes are instead registered in TaleWorlds.CampaignSystem.Hero.AllAliveHeroes
+        //       Attempting to register heroes in MBObjectManager is safe and will just silently fail
+
         #region Fields
 
         private static readonly Lazy<BLGMObjectManager> _instance = new(() => new());
@@ -341,6 +345,9 @@ namespace Bannerlord.GameMaster
             // Change stringId and register
             mbObject.StringId = stringID;
             blgmObjects[mbObject.StringId] = mbObject;
+
+            // This will silently fail or do nothing for Heroes because MBObjectManager doesn't have a type registration for Hero. 
+            // It only has registrations for CharacterObject, ItemObject, CultureObject, etc.            
             MBObjectManager.Instance.RegisterObject(mbObject);
 
             return stringID;
@@ -404,11 +411,18 @@ namespace Bannerlord.GameMaster
                         _clanCount++;
                     else if (obj is Kingdom)
                         _kingdomCount++;
-                }
-                else
-                {
-                    // It's a GUID without dashes - save to temporary list for later processing
-                    legacyObjects.Add(obj);
+
+                    // CRITICAL FIX: Check if Hero's CharacterObject StringId needs updating
+                    if (obj is Hero hero)
+                    {
+                        if (hero.CharacterObject.StringId != hero.StringId)
+                        {
+                            // CharacterObject has mismatched StringId - add to legacy for reprocessing
+                            legacyObjects.Add(obj);
+                            // Don't increment count yet - will be handled during conversion
+                            _heroCount--;
+                        }
+                    }
                 }
             }
         }
@@ -558,11 +572,13 @@ namespace Bannerlord.GameMaster
                 _cachedHeroes = (MBList<Hero>)(object)list;
                 _heroesValid = true;
             }
+            
             else if (typeof(T) == typeof(Clan))
             {
                 _cachedClans = (MBList<Clan>)(object)list;
                 _clansValid = true;
             }
+            
             else if (typeof(T) == typeof(Kingdom))
             {
                 _cachedKingdoms = (MBList<Kingdom>)(object)list;

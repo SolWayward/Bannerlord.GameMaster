@@ -20,8 +20,10 @@ namespace Bannerlord.GameMaster.BLGMDebug
             foreach (Hero hero in BLGMObjectManager.BlgmHeroes)
             {
                 bool mbHeroRegistered = MBObjectManager.Instance.GetObject<Hero>(hero.StringId) != null;
-                bool mbCharRegistered = MBObjectManager.Instance.GetObject<CharacterObject>(hero.CharacterObject.StringId) != null;
+                CharacterObject registeredChar = MBObjectManager.Instance.GetObject<CharacterObject>(hero.CharacterObject.StringId);
+                bool mbCharRegistered = registeredChar != null;
                 bool mbOrpanedChar = false;
+                bool heroCharSameInstance = hero.CharacterObject == registeredChar;
 
                 if (hero.StringId != hero.CharacterObject.StringId)
                 {
@@ -31,6 +33,7 @@ namespace Bannerlord.GameMaster.BLGMDebug
 
                 debugInfo += $"\nHero: {hero.StringId}, Character: {hero.CharacterObject.StringId}";
                 debugInfo +=$"\nMBObjectManager heroRegistered: {mbHeroRegistered}, charRegistered: {mbCharRegistered}, mbOrphanedChar: {mbOrpanedChar}";
+                debugInfo += $"\nhero.CharacterObject and registerdCharacterObject same instance: {heroCharSameInstance}";
                 debugInfo += "\n";              
             }
             

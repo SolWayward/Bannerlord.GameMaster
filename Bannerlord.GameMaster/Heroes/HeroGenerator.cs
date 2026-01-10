@@ -115,10 +115,6 @@ namespace Bannerlord.GameMaster.Heroes
 
 			// The native pattern shows ChangeState(Active) is the final activation step that marks the hero as ready to participate in the game world
 			hero.ChangeState(Hero.CharacterStates.Active);
-
-			////DEBUG/////////////////////////////////////////////////////////////////////
-			// For comparison with native hero:
-			BLGMDebug.HeroDebug.CaptainOnFootPerks(hero); //Generated Hero
 		}
 
 		/// MARK: InitializeAsWanderer
