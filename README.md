@@ -5,16 +5,18 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.3
+## Latest Update 1.3.13.4
 ```
-Fixed settlement.set_culture
-	- Changes now persist when saving / loading
-	- notables are automatically set to new culture, ensuring recruits are proper culture
-	- Added optional parameter, passing true will also change any bound villages
+Added Settlement commands to change which settlement a village is bound to
+- gm.settlement.set_village_bound_settlement
+- gm.settlement.set_village_trade_bound_settlement
 
-Caravans
-	- Added several commands to clear caravan parties
-	- Moved caravan creation commands from settlement to caravan command group
+Fixed Several Minor Hero Issues
+- Fixed generated heroes not showing their troop influence and captain perks in battle deployment
+- Fixed generated heroes being level 10 with enough xp to go way beyond level 10 causing them to level up 10+ levels after one or two battles
+- Fixed some heroes being generated at age 16 instead of as an adult
+- Generated Heroes leading parties will no longer prefer to upgrade troops to cavalry, and will now upgrade troops more evenly
+- Generated Heroes now get assigned a random date to die based on them reaching a random age of 55-92 years old
 ```
 ## Key Features
 
