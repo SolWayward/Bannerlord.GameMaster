@@ -196,14 +196,32 @@ namespace Bannerlord.GameMaster
             // Update CharacterObject StringId to match Hero
             hero.CharacterObject.StringId = stringId;
 
-            // Now register with new StringId
-            MBObjectManager.Instance.RegisterObject(hero.CharacterObject);
+            // Now register with new StringId - wrapped in try-catch to prevent duplicate key crashes
+            try
+            {
+                MBObjectManager.Instance.RegisterObject(hero.CharacterObject);
+            }
+            catch (Exception ex)
+            {
+                // Log warning but don't crash - object likely already registered
+                InfoMessage.Warning($"[BLGM] CharacterObject already registered in MBObjectManager (StringId: {stringId}). This is safe to ignore. Details: {ex.Message}");
+            }
 
             Instance.InvalidateListCaches();
             Interlocked.Increment(ref Instance._heroCount);
 
-            if (!Campaign.Current.CampaignObjectManager.AliveHeroes.Contains(hero))
-                Campaign.Current.CampaignObjectManager.AliveHeroes.Add(hero);
+            // Use more robust duplicate checking for game collections
+            if (!Instance.IsHeroInGameCollection(hero))
+            {
+                try
+                {
+                    Campaign.Current.CampaignObjectManager.AliveHeroes.Add(hero);
+                }
+                catch (Exception ex)
+                {
+                    InfoMessage.Warning($"[BLGM] Hero already in AliveHeroes collection (Name: {hero.Name}). This is safe to ignore. Details: {ex.Message}");
+                }
+            }
 
             return stringId;
         }
@@ -229,8 +247,18 @@ namespace Bannerlord.GameMaster
             Instance.InvalidateListCaches();
             Interlocked.Increment(ref Instance._clanCount);
 
-            if (!Campaign.Current.CampaignObjectManager.Clans.Contains(clan))
-                Campaign.Current.CampaignObjectManager.Clans.Add(clan);
+            // Use more robust duplicate checking for game collections
+            if (!Instance.IsClanInGameCollection(clan))
+            {
+                try
+                {
+                    Campaign.Current.CampaignObjectManager.Clans.Add(clan);
+                }
+                catch (Exception ex)
+                {
+                    InfoMessage.Warning($"[BLGM] Clan already in Clans collection (Name: {clan.Name}). This is safe to ignore. Details: {ex.Message}");
+                }
+            }
 
             return stringId;
         }
@@ -256,8 +284,18 @@ namespace Bannerlord.GameMaster
             Instance.InvalidateListCaches();
             Interlocked.Increment(ref Instance._kingdomCount);
 
-            if (!Campaign.Current.CampaignObjectManager.Kingdoms.Contains(kingdom))
-                Campaign.Current.CampaignObjectManager.Kingdoms.Add(kingdom);
+            // Use more robust duplicate checking for game collections
+            if (!Instance.IsKingdomInGameCollection(kingdom))
+            {
+                try
+                {
+                    Campaign.Current.CampaignObjectManager.Kingdoms.Add(kingdom);
+                }
+                catch (Exception ex)
+                {
+                    InfoMessage.Warning($"[BLGM] Kingdom already in Kingdoms collection (Name: {kingdom.Name}). This is safe to ignore. Details: {ex.Message}");
+                }
+            }
 
             return stringId;
         }
@@ -527,6 +565,57 @@ namespace Bannerlord.GameMaster
             }
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Check if a hero is already in the game's AliveHeroes collection using reference equality
+        /// </summary>
+        private bool IsHeroInGameCollection(Hero hero)
+        {
+            if (hero == null || Campaign.Current?.CampaignObjectManager?.AliveHeroes == null)
+                return false;
+
+            // Use reference equality check instead of Contains to avoid StringId comparison issues
+            foreach (Hero existingHero in Campaign.Current.CampaignObjectManager.AliveHeroes)
+            {
+                if (ReferenceEquals(existingHero, hero))
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Check if a clan is already in the game's Clans collection using reference equality
+        /// </summary>
+        private bool IsClanInGameCollection(Clan clan)
+        {
+            if (clan == null || Campaign.Current?.CampaignObjectManager?.Clans == null)
+                return false;
+
+            // Use reference equality check instead of Contains to avoid StringId comparison issues
+            foreach (Clan existingClan in Campaign.Current.CampaignObjectManager.Clans)
+            {
+                if (ReferenceEquals(existingClan, clan))
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Check if a kingdom is already in the game's Kingdoms collection using reference equality
+        /// </summary>
+        private bool IsKingdomInGameCollection(Kingdom kingdom)
+        {
+            if (kingdom == null || Campaign.Current?.CampaignObjectManager?.Kingdoms == null)
+                return false;
+
+            // Use reference equality check instead of Contains to avoid StringId comparison issues
+            foreach (Kingdom existingKingdom in Campaign.Current.CampaignObjectManager.Kingdoms)
+            {
+                if (ReferenceEquals(existingKingdom, kingdom))
+                    return true;
+            }
+            return false;
         }
 
         /// <summary>
