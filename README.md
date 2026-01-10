@@ -5,18 +5,13 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.4
+## Latest Update 1.3.13.5
 ```
-Added Settlement commands to change which settlement a village is bound to
-- gm.settlement.set_village_bound_settlement
-- gm.settlement.set_village_trade_bound_settlement
+Added max generated object limits
+- Limits can be bypassed using gm.ignore_limits true
 
-Fixed Several Minor Hero Issues
-- Fixed generated heroes not showing their troop influence and captain perks in battle deployment
-- Fixed generated heroes being level 10 with enough xp to go way beyond level 10 causing them to level up 10+ levels after one or two battles
-- Fixed some heroes being generated at age 16 instead of as an adult
-- Generated Heroes leading parties will no longer prefer to upgrade troops to cavalry, and will now upgrade troops more evenly
-- Generated Heroes now get assigned a random date to die based on them reaching a random age of 55-92 years old
+Added commands in gm.cleanup to help remove blgm created objects if game becomes cluttered and performance degraded
+Added safeguards to try to help prevent issues that might arise from other mods doing bad things
 ```
 ## Key Features
 
