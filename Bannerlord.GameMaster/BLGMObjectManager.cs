@@ -26,6 +26,22 @@ namespace Bannerlord.GameMaster
 
         #region Fields
 
+        readonly public static int maxBlgmHeroes = 500;
+        readonly public static int maxBlgmClans = 100;
+        readonly public static int maxBlgmKingdoms = 10;
+
+        /// <summary>
+        /// Limits to prevent performance decline <br />
+        /// Use gm.ignore_limits true to disable the limits
+        /// </summary>
+        public static bool IgnoreLimits
+        {
+            get { return Instance._ignoreLimits; }
+            set { Instance._ignoreLimits = value; }
+        }
+
+        private bool _ignoreLimits = false;
+
         private static readonly Lazy<BLGMObjectManager> _instance = new(() => new());
         private ConcurrentDictionary<string, MBObjectBase> blgmObjects;
         private int nextId = 0;
@@ -450,7 +466,7 @@ namespace Bannerlord.GameMaster
                     else if (obj is Kingdom)
                         _kingdomCount++;
 
-                    // CRITICAL FIX: Check if Hero's CharacterObject StringId needs updating
+                    // Check if Hero's CharacterObject StringId needs updating
                     if (obj is Hero hero)
                     {
                         if (hero.CharacterObject.StringId != hero.StringId)
@@ -461,6 +477,11 @@ namespace Bannerlord.GameMaster
                             _heroCount--;
                         }
                     }
+                }
+                else
+                {
+                    // It's a GUID without dashes - save to temporary list for later processing
+                    legacyObjects.Add(obj);
                 }
             }
         }
@@ -557,7 +578,7 @@ namespace Bannerlord.GameMaster
                         sb.Append('_');
                     }
                 }
-                
+
                 else
                 {
                     sb.Append(char.ToLowerInvariant(c));
@@ -661,13 +682,13 @@ namespace Bannerlord.GameMaster
                 _cachedHeroes = (MBList<Hero>)(object)list;
                 _heroesValid = true;
             }
-            
+
             else if (typeof(T) == typeof(Clan))
             {
                 _cachedClans = (MBList<Clan>)(object)list;
                 _clansValid = true;
             }
-            
+
             else if (typeof(T) == typeof(Kingdom))
             {
                 _cachedKingdoms = (MBList<Kingdom>)(object)list;

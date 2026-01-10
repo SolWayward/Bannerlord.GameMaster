@@ -108,6 +108,20 @@ namespace Bannerlord.GameMaster.Console.KingdomCommands
 						return CommandBase.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'. Use culture names (e.g., vlandia,battania) or groups (main_cultures, bandit_cultures, all_cultures)");
 				}
 
+				// Validate limits - creating 1 kingdom, 1 ruling clan + vassalCount clans, and heroes for each clan
+				if (!CommandValidator.ValidateKingdomCreationLimit(1, out string kingdomLimitError))
+					return CommandBase.FormatErrorMessage(kingdomLimitError);
+
+				int totalClans = 1 + vassalCount; // 1 ruling clan + vassals
+				if (!CommandValidator.ValidateClanCreationLimit(totalClans, out string clanLimitError))
+					return CommandBase.FormatErrorMessage(clanLimitError);
+
+				// Each clan creates 1 leader + 2 companions by default (estimate)
+				int heroesPerClan = 3;
+				int totalHeroesToCreate = totalClans * heroesPerClan;
+				if (!CommandValidator.ValidateHeroCreationLimit(totalHeroesToCreate, out string heroLimitError))
+					return CommandBase.FormatErrorMessage(heroLimitError);
+
 				// Build resolved values dictionary for display
 				var resolvedValues = new Dictionary<string, string>
 				{
@@ -164,7 +178,7 @@ namespace Bannerlord.GameMaster.Console.KingdomCommands
 					"Generates multiple kingdoms by taking settlements from existing kingdoms.\n" +
 					"Alternates between kingdoms evenly, ensuring not to take a kingdom's last settlement.\n" +
 					"Will not take settlements from the player's kingdom.\n" +
-					"- count: required, number of kingdoms to generate (1-20)\n" +
+					"- count: required, number of kingdoms to generate (1-5)\n" +
 					"- vassalCount/vassals: optional, number of vassal clans per kingdom (0-10, default: 4)\n" +
 					"- cultures/culture: optional, culture pool for kingdoms and clans. Defaults to main_cultures\n" +
 					"Supports named arguments: count:5 vassals:3 cultures:vlandia,battania",
@@ -195,7 +209,7 @@ namespace Bannerlord.GameMaster.Console.KingdomCommands
 				if (countArg == null)
 					return CommandBase.FormatErrorMessage("Missing required argument 'count'.");
 
-				if (!CommandValidator.ValidateIntegerRange(countArg, 1, 20, out int count, out string countError))
+				if (!CommandValidator.ValidateIntegerRange(countArg, 1, 5, out int count, out string countError))
 					return CommandBase.FormatErrorMessage(countError);
 
 				// Parse optional vassalCount
@@ -216,6 +230,21 @@ namespace Bannerlord.GameMaster.Console.KingdomCommands
 					if (cultureFlags == CultureFlags.None)
 						return CommandBase.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'. Use culture names (e.g., vlandia,battania) or groups (main_cultures, bandit_cultures, all_cultures)");
 				}
+
+				// Validate limits - each kingdom creates 1 ruling clan + vassalCount clans, and heroes for each clan
+				if (!CommandValidator.ValidateKingdomCreationLimit(count, out string kingdomLimitError))
+					return CommandBase.FormatErrorMessage(kingdomLimitError);
+
+				int clansPerKingdom = 1 + vassalCount; // 1 ruling clan + vassals
+				int totalClans = count * clansPerKingdom;
+				if (!CommandValidator.ValidateClanCreationLimit(totalClans, out string clanLimitError))
+					return CommandBase.FormatErrorMessage(clanLimitError);
+
+				// Each clan creates 1 leader + 2 companions by default (estimate)
+				int heroesPerClan = 3;
+				int totalHeroesToCreate = totalClans * heroesPerClan;
+				if (!CommandValidator.ValidateHeroCreationLimit(totalHeroesToCreate, out string heroLimitError))
+					return CommandBase.FormatErrorMessage(heroLimitError);
 
 				// Build resolved values dictionary for display
 				var resolvedValues = new Dictionary<string, string>

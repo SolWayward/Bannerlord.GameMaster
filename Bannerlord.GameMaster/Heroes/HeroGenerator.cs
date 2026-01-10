@@ -86,6 +86,7 @@ namespace Bannerlord.GameMaster.Heroes
 			if (hero.Clan == null)
 				throw new ArgumentException("Hero must have a clan assigned before initializing as Lord");
 
+			hero.BornSettlement = homeSettlement ?? hero.GetHomeOrAlternativeSettlement();
 			hero.SetNewOccupation(Occupation.Lord);
 			hero.IsMinorFactionHero = false;
 			hero.UpdateHomeSettlement();
@@ -126,6 +127,7 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="settlement">Settlement where wanderer will wait</param>
 		public static void InitializeAsWanderer(Hero hero, Settlement settlement)
 		{
+			hero.BornSettlement = settlement;
 			hero.Clan = null;
 			hero.SetNewOccupation(Occupation.Wanderer); // Crashes if not set to wanderer when you talk to them
 			hero.IsMinorFactionHero = false;
@@ -155,6 +157,7 @@ namespace Bannerlord.GameMaster.Heroes
 		public static void InitializeAsCompanion(Hero hero)
 		{
 			// Keep clan assignment (should be set by caller)
+			hero.BornSettlement = hero.GetHomeOrAlternativeSettlement();
 			hero.SetNewOccupation(Occupation.Lord); // Ensures character is lord (if wanderer the backstory dialog shows error text. Still functions like a wanderer)
 			hero.IsMinorFactionHero = false;
 			hero.EquipHeroBasedOnCulture();

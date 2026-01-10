@@ -165,6 +165,10 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 						return CommandBase.FormatErrorMessage(randomError);
 				}
 
+				// Validate hero creation limit
+				if (!CommandValidator.ValidateHeroCreationLimit(count, out string limitError))
+					return CommandBase.FormatErrorMessage(limitError);
+
 				// Build resolved values dictionary for display
 				var resolvedValues = new Dictionary<string, string>
 				{
@@ -178,37 +182,36 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				// Display argument header
 				string argumentDisplay = parsedArgs.FormatArgumentDisplay("generate_lords", resolvedValues);
 
-				// Default clan if none specified - will create lords for different random clans
-				if (targetClan == null)
-				{
-					var clans = Clan.NonBanditFactions.ToArray();
-					List<Hero> createdHeroes = new List<Hero>();
-					
-					// Group by clan to use efficient batch creation that generates proper names
-					var clansToUse = new List<Clan>();
-					for (int i = 0; i < count; i++)
-					{
-						clansToUse.Add(clans[RandomNumberGen.Instance.NextRandomInt(clans.Length)]);
-					}
-					
-					// Create lords in batches per clan using the batch method that generates culture-appropriate names
-					var groupedClans = clansToUse.GroupBy(c => c);
-					foreach (var clanGroup in groupedClans)
-					{
-						List<Hero> clanLords = HeroGenerator.CreateLords(clanGroup.Count(), cultureFlags, genderFlags, clanGroup.Key, withParties: true, randomFactor);
-						createdHeroes.AddRange(clanLords);
-					}
-					
-					if (createdHeroes.Count == 0)
-						return argumentDisplay + CommandBase.FormatErrorMessage("Failed to create lords - no templates found matching criteria");
-
-					return argumentDisplay + CommandBase.FormatSuccessMessage($"Created {createdHeroes.Count} lord(s):\n{HeroQueries.GetFormattedDetails(createdHeroes)}");
-				}
-
 				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
-					// Use new architecture - CreateLords method for single clan
-					List<Hero> createdHeroes = HeroGenerator.CreateLords(count, cultureFlags, genderFlags, targetClan, withParties: true, randomFactor);
+					List<Hero> createdHeroes;
+
+					// Default clan if none specified - will create lords for different random clans
+					if (targetClan == null)
+					{
+						Clan[] clans = Clan.NonBanditFactions.ToArray();
+						createdHeroes = new();
+						
+						// Group by clan to use efficient batch creation that generates proper names
+						List<Clan> clansToUse = new();
+						for (int i = 0; i < count; i++)
+						{
+							clansToUse.Add(clans[RandomNumberGen.Instance.NextRandomInt(clans.Length)]);
+						}
+						
+						// Create lords in batches per clan using the batch method that generates culture-appropriate names
+						var groupedClans = clansToUse.GroupBy(c => c);
+						foreach (var clanGroup in groupedClans)
+						{
+							List<Hero> clanLords = HeroGenerator.CreateLords(clanGroup.Count(), cultureFlags, genderFlags, clanGroup.Key, withParties: true, randomFactor);
+							createdHeroes.AddRange(clanLords);
+						}
+					}
+					else
+					{
+						// Use new architecture - CreateLords method for single clan
+						createdHeroes = HeroGenerator.CreateLords(count, cultureFlags, genderFlags, targetClan, withParties: true, randomFactor);
+					}
 
 					if (createdHeroes == null || createdHeroes.Count == 0)
 						return argumentDisplay + CommandBase.FormatErrorMessage("Failed to create lords - no templates found matching criteria");
@@ -403,6 +406,10 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 						return CommandBase.FormatErrorMessage(randomError);
 				}
 
+				// Validate hero creation limit (creating 1 hero)
+				if (!CommandValidator.ValidateHeroCreationLimit(1, out string limitError))
+					return CommandBase.FormatErrorMessage(limitError);
+
 				// Default clan if none specified
 				if (targetClan == null)
 				{
@@ -584,6 +591,10 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 					if (!CommandValidator.ValidateFloatRange(randomArg, 0f, 1f, out randomFactor, out string randomError))
 						return CommandBase.FormatErrorMessage(randomError);
 				}
+
+				// Validate hero creation limit
+				if (!CommandValidator.ValidateHeroCreationLimit(count, out string limitError))
+					return CommandBase.FormatErrorMessage(limitError);
 
 				// Build resolved values dictionary for display
 				var resolvedValues = new Dictionary<string, string>

@@ -114,6 +114,18 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 						return CommandBase.FormatErrorMessage(countError);
 				}
 
+				// Validate limits - creating 1 clan and potentially heroes (leader + companions) if no leader specified
+				if (!CommandValidator.ValidateClanCreationLimit(1, out string clanLimitError))
+					return CommandBase.FormatErrorMessage(clanLimitError);
+
+				// If no leader is provided, we'll create 1 leader + companions
+				if (leader == null)
+				{
+					int heroesToCreate = 1 + companionCount;
+					if (!CommandValidator.ValidateHeroCreationLimit(heroesToCreate, out string heroLimitError))
+						return CommandBase.FormatErrorMessage(heroLimitError);
+				}
+
 				// Build resolved values dictionary
 				var resolvedValues = new Dictionary<string, string>
 				{
@@ -239,6 +251,15 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 						return CommandBase.FormatErrorMessage(compCountError);
 				}
 
+				// Validate limits - each clan creates 1 leader + companions
+				if (!CommandValidator.ValidateClanCreationLimit(count, out string clanLimitError))
+					return CommandBase.FormatErrorMessage(clanLimitError);
+
+				int heroesPerClan = 1 + companionCount; // 1 leader + companions
+				int totalHeroesToCreate = count * heroesPerClan;
+				if (!CommandValidator.ValidateHeroCreationLimit(totalHeroesToCreate, out string heroLimitError))
+					return CommandBase.FormatErrorMessage(heroLimitError);
+
 				// Build resolved values dictionary
 				var resolvedValues = new Dictionary<string, string>
 				{
@@ -348,6 +369,16 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 				{
 					if (!bool.TryParse(partyArg, out createParty))
 						return CommandBase.FormatErrorMessage($"Invalid createParty value: '{partyArg}'. Use 'true' or 'false'.");
+				}
+
+				// Validate limits - creating 1 clan and potentially 1 hero if no leader specified
+				if (!CommandValidator.ValidateClanCreationLimit(1, out string clanLimitError))
+					return CommandBase.FormatErrorMessage(clanLimitError);
+
+				if (leader == null)
+				{
+					if (!CommandValidator.ValidateHeroCreationLimit(1, out string heroLimitError))
+						return CommandBase.FormatErrorMessage(heroLimitError);
 				}
 
 				// Build resolved values dictionary
