@@ -48,22 +48,27 @@ namespace Bannerlord.GameMaster.Behaviours
         #endregion
 
         #region CallBacks
-        
-        public override void SyncData(IDataStore dataStore)
-        {
-            // No data to sync - BLGMObjectManager is reinitialized via OnGameLoaded
-        }
 
         /// <summary>
         /// Called during game load, BEFORE ButterLib's GeopoliticsBehavior.InitializeOnLoad().
         /// This is critical for fixing MBGUIDs before ButterLib builds its distance matrix.
-        /// Event Order: OnGameLoaded (BLGM) -> OnGameLoaded (ButterLib) -> OnSessionLaunched (All mods)
+        /// Event Order: SyncData (BLGM) -> OnGameLoaded (ButterLib) -> OnSessionLaunched (All mods)
         /// </summary>
+        public override void SyncData(IDataStore dataStore)
+        {
+            if (dataStore.IsLoading)
+            {
+                BLGMObjectManager.Instance.Initialize();
+
+                Debug.Print("[BLGM] Initialized in OnGameLoaded - MBGUIDs fixed before ButterLib");
+            }
+        }
+
+        // Moved to syncData to ensure it runs before ButtrLib OnGameLoaded to fix existing saves ButterLib crashes
         private void OnGameLoaded(CampaignGameStarter starter)
         {
-            BLGMObjectManager.Instance.Initialize();
-            
-            Debug.Print("[BLGM] Initialized in OnGameLoaded - MBGUIDs fixed before ButterLib");
+            // BLGMObjectManager.Instance.Initialize();
+            // Debug.Print("[BLGM] Initialized in OnGameLoaded - MBGUIDs fixed before ButterLib");
         }
 
         /// <summary>
