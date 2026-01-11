@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Behaviours
 {
@@ -13,6 +15,8 @@ namespace Bannerlord.GameMaster.Behaviours
         #region Register Events
         public override void RegisterEvents()
         {
+            CampaignEvents.OnGameLoadedEvent.AddNonSerializedListener(this, OnGameLoaded);
+
             // Register event to reapply names after load
             CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, OnSessionLaunched);
 
@@ -47,15 +51,28 @@ namespace Bannerlord.GameMaster.Behaviours
         
         public override void SyncData(IDataStore dataStore)
         {
-            // No data to sync - BLGMObjectManager is reinitialized via OnSessionLaunched
+            // No data to sync - BLGMObjectManager is reinitialized via OnGameLoaded
         }
 
         /// <summary>
-        /// Called after session is loaded. Loads objects that was creating by BLGM into BLGMObjectManager when save is loaded.
+        /// Called during game load, BEFORE ButterLib's GeopoliticsBehavior.InitializeOnLoad().
+        /// This is critical for fixing MBGUIDs before ButterLib builds its distance matrix.
+        /// Event Order: OnGameLoaded (BLGM) -> OnGameLoaded (ButterLib) -> OnSessionLaunched (All mods)
+        /// </summary>
+        private void OnGameLoaded(CampaignGameStarter starter)
+        {
+            BLGMObjectManager.Instance.Initialize();
+            
+            Debug.Print("[BLGM] Initialized in OnGameLoaded - MBGUIDs fixed before ButterLib");
+        }
+
+        /// <summary>
+        /// Called after session is fully launched.
+        /// BLGM initialization has been moved to OnGameLoaded to prevent ButterLib crashes.
         /// </summary>
         private void OnSessionLaunched(CampaignGameStarter starter)
         {
-            BLGMObjectManager.Instance.Initialize();
+            // Moved BLGMObjectManager.Instance.Initialize() to OnGameLoaded to fix ButterLib crash
         }
 
         private void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
