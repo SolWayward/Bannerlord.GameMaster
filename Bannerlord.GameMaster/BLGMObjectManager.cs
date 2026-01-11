@@ -45,7 +45,6 @@ namespace Bannerlord.GameMaster
         private static readonly Lazy<BLGMObjectManager> _instance = new(() => new());
         private ConcurrentDictionary<string, MBObjectBase> blgmObjects;
         private int nextId = 0;
-        private uint nextMBObjectId = 0;
 
         // Cache fields for frequently accessed filtered lists
         private MBList<Hero> _cachedHeroes;
@@ -430,28 +429,6 @@ namespace Bannerlord.GameMaster
         }
 
         /// <summary>
-        /// Get the next safe SubId for a given object type by scanning ALL objects (native + mods)
-        /// Mirrors TaleWorlds native ReInitialize() pattern
-        /// </summary>
-        private uint GetNextSafeSubId<T>() where T : MBObjectBase
-        {
-            uint maxSubId = 0;
-            
-            // Scan ALL objects of this type (native + mods) to prevent collisions
-            MBReadOnlyList<T> allObjects = MBObjectManager.Instance.GetObjectTypeList<T>();
-            if (allObjects != null)
-            {
-                foreach (T obj in allObjects)
-                {
-                    if (obj != null && obj.Id.SubId > maxSubId)
-                        maxSubId = obj.Id.SubId;
-                }
-            }
-            
-            return maxSubId + 1;
-        }
-
-        /// <summary>
         /// Process a specific object type list for BLGM-created objects <br />
         /// Dont call directly, called from LoadObjects()
         /// </summary>
@@ -459,21 +436,31 @@ namespace Bannerlord.GameMaster
         /// <param name="legacyObjects">List to store any legacy objects found in objectList (So it can be handled or converted later)</param>
         private void LoadObjectsOfType<T>(MBReadOnlyList<T> objectList, List<MBObjectBase> legacyObjects) where T : MBObjectBase
         {
-            if (objectList == null)
+            if (objectList == null || objectList.Count == 0)
                 return;
 
-            // Get safe starting SubId that won't collide with ANY existing object
-            uint nextSubId = GetNextSafeSubId<T>();
+            // Scan ALL objects in objectList (native + mods) to find max SubId and typeNo
+            // Mirrors TaleWorlds native ReInitialize() pattern
+            uint maxSubId = 0;
             uint typeNo = 0;
             bool typeNoSet = false;
 
-            // Get the type number from first existing object of this type
-            MBReadOnlyList<T> allObjects = MBObjectManager.Instance.GetObjectTypeList<T>();
-            if (allObjects != null && allObjects.Count > 0)
+            foreach (T obj in objectList)
             {
-                typeNo = allObjects[0].Id.GetTypeIndex();
-                typeNoSet = true;
+                if (obj != null && obj.Id.InternalValue != 0)
+                {
+                    if (!typeNoSet)
+                    {
+                        typeNo = obj.Id.GetTypeIndex();
+                        typeNoSet = true;
+                    }
+
+                    if (obj.Id.SubId > maxSubId)
+                        maxSubId = obj.Id.SubId;
+                }
             }
+
+            uint nextSubId = maxSubId + 1;
 
             foreach (T obj in objectList)
             {
@@ -494,12 +481,11 @@ namespace Bannerlord.GameMaster
                         Debug.Print(typeIDError);
                         continue;
                     }
+                    obj.Id = new MBGUID(typeNo, nextSubId++);
 
-                    string butteLibFixMsg = $"[BLGM Load] Fixed MBGUID that ButterLib uses for {obj.StringId} (now using type:{typeNo} subId:{nextSubId})";
+                    string butteLibFixMsg = $"[BLGM Load] Fixed MBGUID that ButterLib uses for {obj.StringId} (now using type:{typeNo} subId:{nextSubId}) New MBGUID:{obj.Id}";
                     InfoMessage.Warning(butteLibFixMsg);
                     Debug.Print(butteLibFixMsg);
-                    
-                    obj.Id = new MBGUID(typeNo, nextSubId++);
                 }
 
                 // Try to parse as int first (new format)
