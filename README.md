@@ -5,13 +5,14 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.5
+## Latest Update 1.3.13.6
 ```
-Added max generated object limits
-- Limits can be bypassed using gm.ignore_limits true
+Released v1.3.13.6
+Fixed issue causing ButterLib to crash when using mods that require ButterLib
+This crash was due to ButterLib using poor code when creating dictionaries
+This fix should proactively prevent Butterlib from crashing when handling BLGM Objects
 
-Added commands in gm.cleanup to help remove blgm created objects if game becomes cluttered and performance degraded
-Added safeguards to try to help prevent issues that might arise from other mods doing bad things
+This update should fix ButterLib from crashing when handling BLGM Clans. It should also fix any saves that were crashing on load. Let me know if any issues persist.
 ```
 ## Key Features
 
