@@ -7,7 +7,6 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
 
 ## Latest Update 1.3.13.6
 ```
-Released v1.3.13.6
 Fixed issue causing ButterLib to crash when using mods that require ButterLib
 This crash was due to ButterLib using poor code when creating dictionaries
 This fix should proactively prevent Butterlib from crashing when handling BLGM Objects
