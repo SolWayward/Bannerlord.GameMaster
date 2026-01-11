@@ -3,7 +3,7 @@
     "Bannerlord": {
       "commandName": "Executable",
       "executablePath": "$(BANNERLORD_GAME_DIR)\\bin\\$(GameBinariesFolder)\\Bannerlord.exe",
-      "commandLineArgs": "/singleplayer /continuegame _MODULES_*Bannerlord.Harmony*Bannerlord.UIExtenderEx*Bannerlord.ButterLib*Bannerlord.MBOptionScreen*Native*SandBoxCore*Sandbox*StoryMode*CustomBattle*BirthAndDeath*NavalDLC*VillageEnterprise*_MODULES_",
+      "commandLineArgs": "/singleplayer /continuegame _MODULES_*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*NavalDLC*Bannerlord.GameMaster*Bannerlord.Commander*_MODULES_",
       "workingDirectory": "$(BANNERLORD_GAME_DIR)\\bin\\Win64_Shipping_Client",
       "nativeDebugging": true,
       "suppressJITOptimizations": true
