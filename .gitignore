@@ -33,6 +33,7 @@ bld/
 [Ll]og/
 [Kk]nowledge/
 [Ee]xamples/
+.roo/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
