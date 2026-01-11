@@ -44,6 +44,7 @@ namespace Bannerlord.GameMaster.Kingdoms
                 name = CultureLookup.GetUniqueRandomKingdomName(rulingClan.Leader.Culture);
 
             Kingdom kingdom = new();
+            BLGMObjectManager.AssignKingdomMBGUID(kingdom); // CRITICAL: Assign MBGUID immediately to prevent save/load crashes
             TextObject nameObj = new(name);
             kingdom.ChangeKingdomName(nameObj, nameObj); // Set name here even though InitalizeKingdom sets name too so stringId will contain Name
             BLGMObjectManager.RegisterKingdom(kingdom); // Registers and assigns stringId

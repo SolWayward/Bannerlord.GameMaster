@@ -46,6 +46,23 @@ namespace Bannerlord.GameMaster
         private ConcurrentDictionary<string, MBObjectBase> blgmObjects;
         private int nextId = 0;
 
+        // MBGUID tracking - separate counters per type for unique SubIds
+        // These track the next available SubId for each object type
+        private uint _nextHeroSubId = 0;
+        private uint _nextClanSubId = 0;
+        private uint _nextKingdomSubId = 0;
+        private uint _nextCharacterSubId = 0;
+
+        // Type numbers extracted from existing game objects
+        private uint _heroTypeNo = 0;
+        private uint _clanTypeNo = 0;
+        private uint _kingdomTypeNo = 0;
+        private uint _characterTypeNo = 0;
+        private bool _typeNumbersInitialized = false;
+
+        // Lock for thread-safe MBGUID generation
+        private readonly object _mbguidLock = new();
+
         // Cache fields for frequently accessed filtered lists
         private MBList<Hero> _cachedHeroes;
         private MBList<Clan> _cachedClans;
@@ -57,7 +74,7 @@ namespace Bannerlord.GameMaster
         private bool _kingdomsValid;
 
         // Lock for thread-safe cache building
-        private readonly object _cacheLock = new object();
+        private readonly object _cacheLock = new();
 
         // Object count fields - maintained on register/unregister for O(1) access
         private int _heroCount = 0;
@@ -195,6 +212,10 @@ namespace Bannerlord.GameMaster
         {
             if (hero == null)
                 return null;
+
+            // CRITICAL: Ensure Hero and CharacterObject have valid MBGUIDs to prevent save/load crashes
+            // HeroCreator.CreateSpecialHero() should assign these, but verify and fix if needed
+            AssignHeroMBGUIDs(hero);
 
             // Name should be pre assigned but just incase.
             if (string.IsNullOrWhiteSpace(hero.Name.ToString()))
@@ -584,6 +605,239 @@ namespace Bannerlord.GameMaster
                 _cachedHeroes = null;
                 _cachedClans = null;
                 _cachedKingdoms = null;
+            }
+        }
+
+        #endregion
+
+        #region MBGUID Generation
+
+        /// <summary>
+        /// Initialize type numbers by examining existing game objects.
+        /// Must be called during campaign initialization before any BLGM objects are created.
+        /// </summary>
+        private void InitializeTypeNumbers()
+        {
+            if (_typeNumbersInitialized)
+                return;
+
+            lock (_mbguidLock)
+            {
+                if (_typeNumbersInitialized)
+                    return;
+
+                // Get type numbers from existing game objects
+                // Heroes
+                if (Campaign.Current?.CampaignObjectManager?.AliveHeroes?.Count > 0)
+                {
+                    foreach (Hero hero in Campaign.Current.CampaignObjectManager.AliveHeroes)
+                    {
+                        if (hero?.Id.InternalValue != 0)
+                        {
+                            _heroTypeNo = hero.Id.GetTypeIndex();
+                            if (hero.Id.SubId >= _nextHeroSubId)
+                                _nextHeroSubId = hero.Id.SubId + 1;
+                        }
+                    }
+                }
+
+                // Clans
+                if (Campaign.Current?.CampaignObjectManager?.Clans?.Count > 0)
+                {
+                    foreach (Clan clan in Campaign.Current.CampaignObjectManager.Clans)
+                    {
+                        if (clan?.Id.InternalValue != 0)
+                        {
+                            _clanTypeNo = clan.Id.GetTypeIndex();
+                            if (clan.Id.SubId >= _nextClanSubId)
+                                _nextClanSubId = clan.Id.SubId + 1;
+                        }
+                    }
+                }
+
+                // Kingdoms
+                if (Campaign.Current?.CampaignObjectManager?.Kingdoms?.Count > 0)
+                {
+                    foreach (Kingdom kingdom in Campaign.Current.CampaignObjectManager.Kingdoms)
+                    {
+                        if (kingdom?.Id.InternalValue != 0)
+                        {
+                            _kingdomTypeNo = kingdom.Id.GetTypeIndex();
+                            if (kingdom.Id.SubId >= _nextKingdomSubId)
+                                _nextKingdomSubId = kingdom.Id.SubId + 1;
+                        }
+                    }
+                }
+
+                // CharacterObjects - scan from Heroes' CharacterObjects
+                if (Campaign.Current?.CampaignObjectManager?.AliveHeroes?.Count > 0)
+                {
+                    foreach (Hero hero in Campaign.Current.CampaignObjectManager.AliveHeroes)
+                    {
+                        if (hero?.CharacterObject?.Id.InternalValue != 0)
+                        {
+                            _characterTypeNo = hero.CharacterObject.Id.GetTypeIndex();
+                            if (hero.CharacterObject.Id.SubId >= _nextCharacterSubId)
+                                _nextCharacterSubId = hero.CharacterObject.Id.SubId + 1;
+                        }
+                    }
+                }
+
+                _typeNumbersInitialized = true;
+
+                Debug.Print($"[BLGM] MBGUID type numbers initialized - Hero:{_heroTypeNo} Clan:{_clanTypeNo} Kingdom:{_kingdomTypeNo} Character:{_characterTypeNo}");
+                Debug.Print($"[BLGM] MBGUID next SubIds - Hero:{_nextHeroSubId} Clan:{_nextClanSubId} Kingdom:{_nextKingdomSubId} Character:{_nextCharacterSubId}");
+            }
+        }
+
+        /// <summary>
+        /// Generate a unique MBGUID for a Clan object. Thread-safe.
+        /// Call this immediately after creating a new Clan with new Clan().
+        /// </summary>
+        public static MBGUID GenerateClanMBGUID()
+        {
+            Instance.EnsureTypeNumbersInitialized();
+
+            lock (Instance._mbguidLock)
+            {
+                if (Instance._clanTypeNo == 0)
+                {
+                    InfoMessage.Error("[BLGM] Cannot generate Clan MBGUID - no existing clans to determine type number");
+                    return default;
+                }
+
+                uint subId = Instance._nextClanSubId++;
+                return new MBGUID(Instance._clanTypeNo, subId);
+            }
+        }
+
+        /// <summary>
+        /// Generate a unique MBGUID for a Kingdom object. Thread-safe.
+        /// Call this immediately after creating a new Kingdom with new Kingdom().
+        /// </summary>
+        public static MBGUID GenerateKingdomMBGUID()
+        {
+            Instance.EnsureTypeNumbersInitialized();
+
+            lock (Instance._mbguidLock)
+            {
+                if (Instance._kingdomTypeNo == 0)
+                {
+                    InfoMessage.Error("[BLGM] Cannot generate Kingdom MBGUID - no existing kingdoms to determine type number");
+                    return default;
+                }
+
+                uint subId = Instance._nextKingdomSubId++;
+                return new MBGUID(Instance._kingdomTypeNo, subId);
+            }
+        }
+
+        /// <summary>
+        /// Generate a unique MBGUID for a Hero object. Thread-safe.
+        /// Note: Heroes created via HeroCreator.CreateSpecialHero() already have valid MBGUIDs.
+        /// This is for manually created heroes only.
+        /// </summary>
+        public static MBGUID GenerateHeroMBGUID()
+        {
+            Instance.EnsureTypeNumbersInitialized();
+
+            lock (Instance._mbguidLock)
+            {
+                if (Instance._heroTypeNo == 0)
+                {
+                    InfoMessage.Error("[BLGM] Cannot generate Hero MBGUID - no existing heroes to determine type number");
+                    return default;
+                }
+
+                uint subId = Instance._nextHeroSubId++;
+                return new MBGUID(Instance._heroTypeNo, subId);
+            }
+        }
+
+        /// <summary>
+        /// Generate a unique MBGUID for a CharacterObject. Thread-safe.
+        /// Call this for CharacterObjects that need unique MBGUIDs.
+        /// </summary>
+        public static MBGUID GenerateCharacterMBGUID()
+        {
+            Instance.EnsureTypeNumbersInitialized();
+
+            lock (Instance._mbguidLock)
+            {
+                if (Instance._characterTypeNo == 0)
+                {
+                    InfoMessage.Error("[BLGM] Cannot generate CharacterObject MBGUID - no existing characters to determine type number");
+                    return default;
+                }
+
+                uint subId = Instance._nextCharacterSubId++;
+                return new MBGUID(Instance._characterTypeNo, subId);
+            }
+        }
+
+        /// <summary>
+        /// Ensures type numbers are initialized before generating MBGUIDs.
+        /// Safe to call multiple times - only initializes once.
+        /// </summary>
+        private void EnsureTypeNumbersInitialized()
+        {
+            if (!_typeNumbersInitialized)
+            {
+                InitializeTypeNumbers();
+            }
+        }
+
+        /// <summary>
+        /// Assign a unique MBGUID to a Clan if it doesn't already have one.
+        /// Call this immediately after new Clan() and before any game systems process the clan.
+        /// </summary>
+        public static void AssignClanMBGUID(Clan clan)
+        {
+            if (clan == null)
+                return;
+
+            if (clan.Id.InternalValue == 0)
+            {
+                clan.Id = GenerateClanMBGUID();
+                Debug.Print($"[BLGM] Assigned MBGUID to new Clan: {clan.Id}");
+            }
+        }
+
+        /// <summary>
+        /// Assign a unique MBGUID to a Kingdom if it doesn't already have one.
+        /// Call this immediately after new Kingdom() and before any game systems process the kingdom.
+        /// </summary>
+        public static void AssignKingdomMBGUID(Kingdom kingdom)
+        {
+            if (kingdom == null)
+                return;
+
+            if (kingdom.Id.InternalValue == 0)
+            {
+                kingdom.Id = GenerateKingdomMBGUID();
+                Debug.Print($"[BLGM] Assigned MBGUID to new Kingdom: {kingdom.Id}");
+            }
+        }
+
+        /// <summary>
+        /// Assign unique MBGUIDs to a Hero and its CharacterObject if they don't already have them.
+        /// Heroes created via HeroCreator typically already have valid MBGUIDs.
+        /// </summary>
+        public static void AssignHeroMBGUIDs(Hero hero)
+        {
+            if (hero == null)
+                return;
+
+            if (hero.Id.InternalValue == 0)
+            {
+                hero.Id = GenerateHeroMBGUID();
+                Debug.Print($"[BLGM] Assigned MBGUID to Hero: {hero.Id}");
+            }
+
+            if (hero.CharacterObject != null && hero.CharacterObject.Id.InternalValue == 0)
+            {
+                hero.CharacterObject.Id = GenerateCharacterMBGUID();
+                Debug.Print($"[BLGM] Assigned MBGUID to Hero's CharacterObject: {hero.CharacterObject.Id}");
             }
         }
 

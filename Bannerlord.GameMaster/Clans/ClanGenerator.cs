@@ -69,6 +69,7 @@ namespace Bannerlord.GameMaster.Clans
 		public static Clan CreateClan(string name = null, Hero leader = null, Kingdom kingdom = null, bool createParty = true, int companionCount = 2, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
 		{
 			Clan clan = new();
+			BLGMObjectManager.AssignClanMBGUID(clan); // CRITICAL: Assign MBGUID immediately to prevent save/load crashes
 			clan.SetStringName("uninitialized"); // Needs a temp name or name lookup crashes
 
 			// Create leader if not provided - clan now exists so CreateLords can use it
@@ -200,6 +201,7 @@ namespace Bannerlord.GameMaster.Clans
 		public static Clan CreateMinorClan(string name = null, Hero leader = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool createParty = true)
 		{
 			Clan clan = new();
+			BLGMObjectManager.AssignClanMBGUID(clan); // CRITICAL: Assign MBGUID immediately to prevent save/load crashes
 			clan.SetStringName("uninitialized"); // Needs a temp name or name lookup crashes
 
 			// Create leader if not provided - clan now exists so CreateLords can use it
