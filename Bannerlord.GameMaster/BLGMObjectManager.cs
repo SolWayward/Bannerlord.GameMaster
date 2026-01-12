@@ -492,22 +492,22 @@ namespace Bannerlord.GameMaster
                 // Compare with nextID to ensure nextID will be unique when new objects are registered
                 string idSuffix = obj.StringId.Substring(obj.StringId.LastIndexOf('_') + 1);
 
-                // Fix missing MBGUID - this MUST happen BEFORE format detection
-                if (obj.Id.InternalValue == 0)
-                {
-                    if (!typeNoSet)
-                    {
-                        string typeIDError = $"[BLGM Load] Cannot fix MBGUID for {obj.StringId} - no existing objects of type {typeof(T).Name} to determine type number";
-                        InfoMessage.Error(typeIDError);
-                        Debug.Print(typeIDError);
-                        continue;
-                    }
-                    obj.Id = new MBGUID(typeNo, nextSubId++);
+                // // Fix missing MBGUID - this MUST happen BEFORE format detection
+                // if (obj.Id.InternalValue == 0)
+                // {
+                //     if (!typeNoSet)
+                //     {
+                //         string typeIDError = $"[BLGM Load] Cannot fix MBGUID for {obj.StringId} - no existing objects of type {typeof(T).Name} to determine type number";
+                //         InfoMessage.Error(typeIDError);
+                //         Debug.Print(typeIDError);
+                //         continue;
+                //     }
+                //     obj.Id = new MBGUID(typeNo, nextSubId++);
 
-                    string butteLibFixMsg = $"[BLGM Load] Fixed MBGUID that ButterLib uses for {obj.StringId} (now using type:{typeNo} subId:{nextSubId}) New MBGUID:{obj.Id}";
-                    InfoMessage.Warning(butteLibFixMsg);
-                    Debug.Print(butteLibFixMsg);
-                }
+                //     string butteLibFixMsg = $"[BLGM Load] Fixed MBGUID that ButterLib uses for {obj.StringId} (now using type:{typeNo} subId:{nextSubId}) New MBGUID:{obj.Id}";
+                //     InfoMessage.Warning(butteLibFixMsg);
+                //     Debug.Print(butteLibFixMsg);
+                // }
 
                 // Try to parse as int first (new format)
                 if (int.TryParse(idSuffix, out int parsedId))
