@@ -91,4 +91,14 @@ public static class KingdomRemover
 
         return (removedCount, summary.ToString());
     }
+
+    /// <summary>
+    /// Removes all BLGM-generated kingdoms from the game.
+    /// </summary>
+    /// <returns>BLGMResult indicating success with details about removed kingdoms.</returns>
+    public static BLGMResult RemoveAllBlgmKingdoms()
+    {
+        (int removed, string details) = BatchRemoveKingdoms(null);
+        return new(removed > 0, details);
+    }
 }

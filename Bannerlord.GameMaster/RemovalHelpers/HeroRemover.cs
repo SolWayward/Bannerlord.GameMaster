@@ -97,4 +97,14 @@ public static class HeroRemover
 
         return (removedCount, summary.ToString());
     }
+
+    /// <summary>
+    /// Removes all BLGM-generated heroes from the game.
+    /// </summary>
+    /// <returns>BLGMResult indicating success with details about removed heroes.</returns>
+    public static BLGMResult RemoveAllBlgmHeroes()
+    {
+        (int removed, string details) = BatchRemoveHeroes(null);
+        return new(removed > 0, details);
+    }
 }

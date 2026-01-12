@@ -103,4 +103,14 @@ public static class ClanRemover
 
         return (removedCount, summary.ToString());
     }
+
+    /// <summary>
+    /// Removes all BLGM-generated clans from the game.
+    /// </summary>
+    /// <returns>BLGMResult indicating success with details about removed clans.</returns>
+    public static BLGMResult RemoveAllBlgmClans()
+    {
+        (int removed, string details) = BatchRemoveClans(null);
+        return new(removed > 0, details);
+    }
 }
