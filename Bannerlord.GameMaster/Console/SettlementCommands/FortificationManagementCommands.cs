@@ -4,6 +4,7 @@ using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
+using Bannerlord.GameMaster.Settlements;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 
@@ -65,7 +66,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     string previousFaction = settlement.MapFaction?.Name?.ToString() ?? "None";
 
                     // Set owner if city or castle
-                    settlement.Town.OwnerClan = hero.Clan;
+                    settlement.ChangeOwner(hero);
 
                     var resolvedValues = new Dictionary<string, string>
                     {
@@ -136,7 +137,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     string previousFaction = settlement.MapFaction?.Name?.ToString() ?? "None";
 
                     // Set Owner if city or castle
-                    settlement.Town.OwnerClan = clan;
+                    settlement.ChangeOwner(clan.Leader);
 
                     var resolvedValues = new Dictionary<string, string>
                     {
@@ -210,7 +211,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
                     string previousFaction = settlement.MapFaction?.Name?.ToString() ?? "None";
 
                     // Set owner if castle or town
-                    settlement.Town.OwnerClan = kingdom.RulingClan;
+                    settlement.ChangeOwner(kingdom.Leader);
 
                     var resolvedValues = new Dictionary<string, string>
                     {
