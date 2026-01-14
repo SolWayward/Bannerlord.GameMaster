@@ -5,13 +5,22 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.9
+## Latest Update 1.3.13.10
 ```
-Fixed home settlement assignment always defaulting to Diathma
-Fixed character randomization not properly applying
-Fixed create_lord not using the homeSettlement if Specified
-Updated generate_lords to take an optional homeSettlement like create_lord
-Home Settlement will control where the lord is stationed and if not specified defaults to a random clan owned settlement 
+Fixed potential crash when running certain commands while settlement ownership vote decision is pending
+
+Strengthened Generated Clans
+Clans Should also integrate with game systems and AI better now
+Clans and especially kingdoms should generate much faster now.
+Clans now use a random clan tier and the leaders troops, gold, and influence scale with tier
+	Noble clans Tier 3-5
+	Minor Clans Tier 1-3
+	Kingdom Ruling Clan tier 6
+	
+Generated Kingdoms are now more powerful and declare wars more often
+Generated Kingdoms will now integrate properly into AI systems
+
+Pre existing generated clans and kingdoms will not get these improvements
 ```
 ## Key Features
 
