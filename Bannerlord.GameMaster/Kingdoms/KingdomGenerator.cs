@@ -50,8 +50,12 @@ namespace Bannerlord.GameMaster.Kingdoms
             BLGMObjectManager.RegisterKingdom(kingdom); // Registers and assigns stringId
 
             // Prepare clan for ruling BEFORE creating kingdom
-            PrepareClanToRule(rulingClan);        
-            
+            PrepareClanToRule(rulingClan);
+
+            // Game does this after InitializeKingdom but doing it here before lets the kingdoms have better more colorful banners
+            // Doing it after InitializeKingdom causes banners to all be different shades of standard culture banners for the kingdom culture which makes banner all look similar
+            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
+
             CultureObject culture = rulingClan.Culture;
 
             // banner is null atleast on vanilla clans, so use originalBanner if null
@@ -83,9 +87,6 @@ namespace Bannerlord.GameMaster.Kingdoms
                 encyclopediaRulerTitle          // encyclopedia ruler title
             );
 
-            // Move clan to new kingdom
-            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
-            
             // Transfer ownership of settlement
             ChangeOwnerOfSettlementAction.ApplyByDefault(rulingClan.Leader, homeSettlement);
             
