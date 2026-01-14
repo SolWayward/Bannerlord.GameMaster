@@ -10,6 +10,7 @@ using Bannerlord.GameMaster.Kingdoms;
 using Bannerlord.GameMaster.Items;
 using Bannerlord.GameMaster.Troops;
 using Bannerlord.GameMaster.Settlements;
+using TaleWorlds.Diamond;
 
 namespace Bannerlord.GameMaster.Console.Common
 {
@@ -829,7 +830,7 @@ namespace Bannerlord.GameMaster.Console.Common
             }
             catch (Exception ex)
             {
-                return $"{errorPrefix}: {ex.Message}\n";
+                return Cmd.LogError(ex);
             }
         }
 
@@ -1010,6 +1011,19 @@ namespace Bannerlord.GameMaster.Console.Common
             }
             
             return "gm.command";
+        }
+
+        /// <summary>
+        /// Logs the error and stacktrace
+        /// </summary>
+        /// <returns>return just the error message</returns>
+        internal static string LogError(Exception ex)
+        {
+            string command = GetCallingCommandName(new());
+            string error = $"Error: {command}\n{ex.Message}\n{ex.StackTrace}\n";
+            TaleWorlds.Library.Debug.Print(error);
+
+            return $"Error: {ex.Message}";
         }
     }
 }
