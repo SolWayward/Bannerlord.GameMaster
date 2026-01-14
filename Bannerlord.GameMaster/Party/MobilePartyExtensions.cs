@@ -22,7 +22,10 @@ namespace Bannerlord.GameMaster.Party
 		{
 			// Use the game's built-in action which handles CompanionOf properly
 			AddCompanionAction.Apply(mobileParty.LeaderHero.Clan, hero);
-			mobileParty.AddElementToMemberRoster(hero.CharacterObject, 1);
+
+			if (!mobileParty.MemberRoster.Contains(hero.CharacterObject))
+				mobileParty.AddElementToMemberRoster(hero.CharacterObject, 1);
+			
 			hero.ChangeState(Hero.CharacterStates.Active);
 		}
 
