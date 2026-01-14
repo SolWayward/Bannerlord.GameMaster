@@ -33,6 +33,14 @@ namespace Bannerlord.GameMaster.Settlements
 
     public static class SettlementExtensions
     {
+        #region Actions
+
+        /// <inheritdoc cref="SettlementManager.ChangeSettlementOwner"/>
+        public static void ChangeOwner(this Settlement settlement, Hero hero) => SettlementManager.ChangeSettlementOwner(settlement, hero);
+        
+        #endregion
+
+        #region Helpers
         /// <summary>
         /// Gets all settlement type flags for this settlement
         /// </summary>
@@ -179,6 +187,10 @@ namespace Bannerlord.GameMaster.Settlements
         public static SettlementTypes GetTypes(this Settlement settlement) => settlement.GetSettlementTypes();
     }
 
+    #endregion
+
+    #region Wrapper
+
     /// <summary>
     /// Wrapper class implementing IEntityExtensions interface for Settlement entities
     /// </summary>
@@ -189,4 +201,6 @@ namespace Bannerlord.GameMaster.Settlements
         public bool HasAnyType(Settlement entity, SettlementTypes types) => entity.HasAnyType(types);
         public string FormattedDetails(Settlement entity) => entity.FormattedDetails();
     }
+
+    #endregion
 }

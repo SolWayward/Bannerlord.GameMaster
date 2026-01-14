@@ -5,10 +5,10 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.13.6
-Fixed issue causing ButterLib to crash when using mods that require ButterLib
-This crash was due to ButterLib using poor code when creating dictionaries
-This fix should proactively prevents Butterlib from crashing when handling BLGM Objects"
+"v1.3.13.8
+Disabled create_companions due to possible issue of glitched companions until command is fixed
+create_lord and generate_lords are still active
+use spawn_wanderer settlement to create a recruitable wanderer you can recruit as a companion if you wish to have a companion instead of a lord"
         />
         <Tags>
             <Tag Value="Utility" />
