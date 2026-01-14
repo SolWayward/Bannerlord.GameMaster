@@ -29,18 +29,19 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 					return error;
 
 				var usageMessage = CommandValidator.CreateUsageMessage(
-					"gm.hero.generate_lords", "<count> [cultures] [gender] [clan] [randomFactor]",
+					"gm.hero.generate_lords", "<count> [cultures] [gender] [clan] [settlement] [randomFactor]",
 					"Creates lords from random templates with good gear and decent stats. Age 20-30. Names are selected from their culture\n" +
 					"- count: required, number of lords to generate (1-50)\n" +
 					"- cultures/culture: optional, defines the pool of cultures. Defaults to main_cultures. Use commas for multiple: vlandia,battania\n" +
 					"- gender: optional, use keywords both, female, or male (also b, f, m). Defaults to both\n" +
 					"- clan: optional, clanID or clanName. If not specified, each hero goes to a different random clan\n" +
+					"- settlement: optional, settlement for spawning parties or home settlement. Defaults to automatic selection\n" +
 					"- randomFactor/random: optional, float value between 0 and 1. defaults to 1\n" +
-					"Supports named arguments: count:15 cultures:vlandia,battania gender:male clan:player_faction random:0.8",
+					"Supports named arguments: count:15 cultures:vlandia,battania gender:male clan:player_faction settlement:pen_cannoc random:0.8",
 					"gm.hero.generate_lords 15\n" +
 					"gm.hero.generate_lords 15 vlandia player_faction male\n" +
-					"gm.hero.generate_lords count:12 cultures:aserai,sturgia,khuzait clan:'dey Meroc'\n" +
-					"gm.hero.generate_lords 12 aserai,sturgia,khuzait,empire both 'dey Meroc' 0.7");
+					"gm.hero.generate_lords count:12 cultures:aserai,sturgia,khuzait clan:'dey Meroc' settlement:quyaz\n" +
+					"gm.hero.generate_lords 12 aserai,sturgia,khuzait,empire both 'dey Meroc' pen 0.7");
 
 				// Parse arguments with named argument support
 				var parsedArgs = CommandBase.ParseArguments(args);
@@ -51,6 +52,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 					new CommandBase.ArgumentDefinition("cultures", false, null, "culture"),
 					new CommandBase.ArgumentDefinition("gender", false),
 					new CommandBase.ArgumentDefinition("clan", false),
+					new CommandBase.ArgumentDefinition("settlement", false),
 					new CommandBase.ArgumentDefinition("randomFactor", false, null, "random")
 				);
 
@@ -70,10 +72,11 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				if (!CommandValidator.ValidateIntegerRange(countArg, 1, 50, out int count, out string countError))
 					return CommandBase.FormatErrorMessage(countError);
 
-				// Parse optional cultures
+				// Parse optional parameters
 				CultureFlags cultureFlags = CultureFlags.AllMainCultures;
 				GenderFlags genderFlags = GenderFlags.Either;
 				Clan targetClan = null;
+				Settlement settlement = null;
 				float randomFactor = 1f;
 
 				// Try named 'cultures' or 'culture' first, then positional
@@ -122,7 +125,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				string clanArg = parsedArgs.GetNamed("clan");
 				if (clanArg == null)
 				{
-					// Look through positional args for something that's not a number and not a gender
+					// Look through positional args - validate it's actually a clan before claiming
 					for (int i = 1; i < parsedArgs.PositionalCount; i++)
 					{
 						string arg = parsedArgs.GetPositional(i);
@@ -130,18 +133,58 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 						    FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
 						    FlagParser.ParseCultureArgument(arg) == CultureFlags.None)
 						{
-							clanArg = arg;
-							break;
+							// Try to find as clan - only claim if valid
+							(Clan testClan, string _) = CommandBase.FindSingleClan(arg);
+							if (testClan != null)
+							{
+								clanArg = arg;
+								targetClan = testClan;
+								break;
+							}
+							// If not a valid clan, continue - might be settlement
 						}
 					}
 				}
-				
-				if (clanArg != null)
+				else
 				{
-					var (clan, clanError) = CommandBase.FindSingleClan(clanArg);
+					// Named clan argument provided - validate it
+					(Clan clan, string clanError) = CommandBase.FindSingleClan(clanArg);
 					if (clanError != null)
 						return clanError;
 					targetClan = clan;
+				}
+
+				// Parse optional settlement - try named first, then positional
+				string settlementArg = parsedArgs.GetNamed("settlement");
+				if (settlementArg == null)
+				{
+					// Look through positional args for settlement (not number, not gender, not culture, not clan)
+					for (int i = 1; i < parsedArgs.PositionalCount; i++)
+					{
+						string arg = parsedArgs.GetPositional(i);
+						if (!float.TryParse(arg, out _) &&
+						    FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
+						    FlagParser.ParseCultureArgument(arg) == CultureFlags.None &&
+						    arg != clanArg) // Skip if it's the clan we already found
+						{
+							// Try to find as settlement - only claim if valid
+							(Settlement testSettlement, string _) = CommandBase.FindSingleSettlement(arg);
+							if (testSettlement != null)
+							{
+								settlementArg = arg;
+								settlement = testSettlement;
+								break;
+							}
+						}
+					}
+				}
+				else if (settlementArg.ToLower() != "null")
+				{
+					// Named settlement argument provided - validate it
+					(Settlement parsedSettlement, string settlementError) = CommandBase.FindSingleSettlement(settlementArg);
+					if (settlementError != null)
+						return settlementError;
+					settlement = parsedSettlement;
 				}
 
 				// Parse optional randomFactor
@@ -170,12 +213,13 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 					return CommandBase.FormatErrorMessage(limitError);
 
 				// Build resolved values dictionary for display
-				var resolvedValues = new Dictionary<string, string>
+				Dictionary<string, string> resolvedValues = new()
 				{
 					{ "count", count.ToString() },
 					{ "cultures", culturesArg ?? "Main Cultures" },
 					{ "gender", genderFlags == GenderFlags.Either ? "Both" : (genderFlags == GenderFlags.Male ? "Male" : "Female") },
 					{ "clan", targetClan != null ? targetClan.Name.ToString() : "Random" },
+					{ "settlement", settlement != null ? settlement.Name.ToString() : "Auto" },
 					{ "randomFactor", randomFactor.ToString("0.0") }
 				};
 
@@ -203,14 +247,14 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 						var groupedClans = clansToUse.GroupBy(c => c);
 						foreach (var clanGroup in groupedClans)
 						{
-							List<Hero> clanLords = HeroGenerator.CreateLords(clanGroup.Count(), cultureFlags, genderFlags, clanGroup.Key, withParties: true, randomFactor);
+							List<Hero> clanLords = HeroGenerator.CreateLords(clanGroup.Count(), cultureFlags, genderFlags, clanGroup.Key, withParties: true, settlement, randomFactor);
 							createdHeroes.AddRange(clanLords);
 						}
 					}
 					else
 					{
 						// Use new architecture - CreateLords method for single clan
-						createdHeroes = HeroGenerator.CreateLords(count, cultureFlags, genderFlags, targetClan, withParties: true, randomFactor);
+						createdHeroes = HeroGenerator.CreateLords(count, cultureFlags, genderFlags, targetClan, withParties: true, settlement, randomFactor);
 					}
 
 					if (createdHeroes == null || createdHeroes.Count == 0)
@@ -333,7 +377,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				string clanArg = parsedArgs.GetNamed("clan");
 				if (clanArg == null)
 				{
-					// Look through positional args for something that's not a bool, number, or gender
+					// Look through positional args - validate it's actually a clan before claiming
 					for (int i = 1; i < parsedArgs.PositionalCount; i++)
 					{
 						string arg = parsedArgs.GetPositional(i);
@@ -341,15 +385,22 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 						    FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
 						    FlagParser.ParseCultureArgument(arg) == CultureFlags.None)
 						{
-							clanArg = arg;
-							break;
+							// Try to find as clan - only claim if valid
+							(Clan testClan, string _) = CommandBase.FindSingleClan(arg);
+							if (testClan != null)
+							{
+								clanArg = arg;
+								targetClan = testClan;
+								break;
+							}
+							// If not a valid clan, continue - might be settlement
 						}
 					}
 				}
-				
-				if (clanArg != null)
+				else
 				{
-					var (clan, clanError) = CommandBase.FindSingleClan(clanArg);
+					// Named clan argument provided - validate it
+					(Clan clan, string clanError) = CommandBase.FindSingleClan(clanArg);
 					if (clanError != null)
 						return clanError;
 					targetClan = clan;
@@ -375,11 +426,34 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 					}
 				}
 
-				// Parse settlement - try named first
+				// Parse settlement - try named first, then positional
 				string settlementArg = parsedArgs.GetNamed("settlement");
-				if (settlementArg != null && settlementArg.ToLower() != "null")
+				if (settlementArg == null)
 				{
-					var (parsedSettlement, settlementError) = CommandBase.FindSingleSettlement(settlementArg);
+					// Look through positional args for settlement (not bool, not number, not gender, not culture, not clan)
+					for (int i = 1; i < parsedArgs.PositionalCount; i++)
+					{
+						string arg = parsedArgs.GetPositional(i);
+						if (!bool.TryParse(arg, out _) && !float.TryParse(arg, out _) &&
+						    FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
+						    FlagParser.ParseCultureArgument(arg) == CultureFlags.None &&
+						    arg != clanArg) // Skip if it's the clan we already found
+						{
+							// Try to find as settlement - only claim if valid
+							(Settlement testSettlement, string _) = CommandBase.FindSingleSettlement(arg);
+							if (testSettlement != null)
+							{
+								settlementArg = arg;
+								settlement = testSettlement;
+								break;
+							}
+						}
+					}
+				}
+				else if (settlementArg.ToLower() != "null")
+				{
+					// Named settlement argument provided - validate it
+					(Settlement parsedSettlement, string settlementError) = CommandBase.FindSingleSettlement(settlementArg);
 					if (settlementError != null)
 						return settlementError;
 					settlement = parsedSettlement;
@@ -435,7 +509,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
 					// Use new architecture - CreateLord method
-					Hero createdHero = HeroGenerator.CreateLord(name, cultureFlags, genderFlags, targetClan, withParty, randomFactor);
+					Hero createdHero = HeroGenerator.CreateLord(name, cultureFlags, genderFlags, targetClan, withParty, settlement, randomFactor);
 
 					if (createdHero == null)
 						return argumentDisplay + CommandBase.FormatErrorMessage("Failed to create lord - no templates found matching criteria");
@@ -461,6 +535,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 		[CommandLineFunctionality.CommandLineArgumentFunction("create_companions", "gm.hero")]
 		public static string CreateCompanions(List<string> args)
 		{
+			//return "Command Disabled temporarily due to possible issue of multiple instances of the companion being created";
 			return Cmd.Run(args, () =>
 			{
 				if (!CommandBase.ValidateCampaignMode(out string error))
