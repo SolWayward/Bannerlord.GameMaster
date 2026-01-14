@@ -11,6 +11,10 @@ using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.Core;
 using Helpers;
+using Bannerlord.GameMaster.Settlements;
+using TaleWorlds.Library;
+using Bannerlord.GameMaster.Common;
+using System.Drawing;
 
 namespace Bannerlord.GameMaster.Heroes
 {
@@ -133,6 +137,50 @@ namespace Bannerlord.GameMaster.Heroes
 		#region Settlement
 
 		/// <summary>
+		/// Sets heroes born, home, lastknownclosest and attempts to set home settlement directly to specified settlement <br />
+		/// If setting home settlement directly fails, UpdateHomeSettlement() is called instead to set home settlement <br />
+		/// Do not call hero.UpdateHomeSettlement() after this, as it will overwrite the Home Settlement <br /><br />
+		/// If called with null homeSettlement, Overload InitializeHomeSettlement(this Hero hero) is called automatically, selecting a random clan > kingdom > all settlement
+		/// </summary>
+		/// <returns>The resulting new home settlement of the hero</returns>
+		public static Settlement InitializeHomeSettlement(this Hero hero, Settlement homeSettlement)
+		{
+			if (homeSettlement == null)
+				return InitializeHomeSettlement(hero);
+
+			hero.BornSettlement = homeSettlement;
+			hero.UpdateLastKnownClosestSettlement(homeSettlement);
+
+			// Directly set settlement using reflection
+			BLGMResult result = HeroManager.TrySetHomeSettlement(hero, homeSettlement);
+
+			// if reflection fails call UpdateHomeSettlement instead
+			if (!result.wasSuccessful || hero.HomeSettlement != homeSettlement)
+			{
+				hero.UpdateHomeSettlement();
+				Debug.Print($"{result.message}\nTargetSettlement: {homeSettlement}, ActualSettlement: {hero.HomeSettlement}", color: Debug.DebugColor.Red);
+			}
+
+			return hero.HomeSettlement;
+		}
+
+		/// <summary>
+		/// Sets heroes born, home, lastknownclosest a random settlment in this order: From Heroes Clan > From Heroes Kingdom > From All Settlements.
+		/// Also attempts to set home settlement directly using reflection, if it fails, UpdateHomeSettlement() is called instead <br />
+		/// Do not call hero.UpdateHomeSettlement() after this, as it will overwrite the Home Settlement
+		/// <returns>The resulting new home settlement of the hero</returns>
+		/// </summary>
+		public static Settlement InitializeHomeSettlement(this Hero hero)
+		{
+			Settlement homeSettlement;
+
+			// Get a random Clan > Kingdom > All Settlements
+			homeSettlement = HeroManager.GetBestInitialSettlement(hero);
+
+			return InitializeHomeSettlement(hero, homeSettlement);
+		}
+
+		/// <summary>
 		/// Returns the Hero's home settlement if not null, otherwise grabs a random settlement in this order: <br/>
 		/// Home Settlement > Random Clan Owned Settlement > Random Kingdom Owned Settlement > Random Settlement
 		/// </summary>
@@ -142,21 +190,8 @@ namespace Bannerlord.GameMaster.Heroes
 			if (hero.HomeSettlement != null)
 				return hero.HomeSettlement;
 
-			Settlement alternativeSettlement;
-
-			// Try to get Clan Settlement first
-				if (hero.Clan != null && hero.Clan.Settlements != null && hero.Clan.Settlements.Count > 0)
-					alternativeSettlement = hero.Clan.Settlements.FindAll(s => s.IsTown).GetRandomElement();
-
-			// If no Clan Settlments, Try kingdom
-			else if (hero.Clan != null && hero.Clan.Kingdom != null && hero.Clan.Kingdom.Settlements != null && hero.Clan.Kingdom.Settlements.Count > 0)
-				alternativeSettlement = hero.Clan.Kingdom.Settlements.FindAll(s => s.IsTown).GetRandomElement();
-
-			// Fallback to any settlement if no clan or kingdom settlements found
-			else
-				alternativeSettlement = Settlement.All.FindAll(s => s.IsTown).GetRandomElement();
-
-			return alternativeSettlement;
+			// Get Random Clan > Kingdom > All Settlement
+			return HeroManager.GetBestInitialSettlement(hero);
 		}
 
 		#endregion
