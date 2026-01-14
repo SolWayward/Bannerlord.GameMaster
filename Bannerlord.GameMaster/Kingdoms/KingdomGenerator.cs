@@ -50,10 +50,7 @@ namespace Bannerlord.GameMaster.Kingdoms
             BLGMObjectManager.RegisterKingdom(kingdom); // Registers and assigns stringId
 
             // Prepare clan for ruling BEFORE creating kingdom
-            PrepareClanToRule(rulingClan);
-
-            // Move clan to new kingdom
-            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
+            PrepareClanToRule(rulingClan);        
             
             CultureObject culture = rulingClan.Culture;
 
@@ -86,6 +83,9 @@ namespace Bannerlord.GameMaster.Kingdoms
                 encyclopediaRulerTitle          // encyclopedia ruler title
             );
 
+            // Move clan to new kingdom
+            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
+            
             // Transfer ownership of settlement
             ChangeOwnerOfSettlementAction.ApplyByDefault(rulingClan.Leader, homeSettlement);
             
@@ -125,6 +125,7 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             // Set kingdom as ready AFTER all initialization is complete
             kingdom.IsReady = true;
+            CampaignEventDispatcher.Instance.OnKingdomCreated(kingdom);
 
             InfoMessage.Success($"Kingdom '{kingdom.Name}' created with {rulingClan.Name} as ruling clan and {homeSettlement.Name} as the capital and {vassalClanCount} vassal clans");
             
