@@ -5,10 +5,12 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.13.8
-Disabled create_companions due to possible issue of glitched companions until command is fixed
-create_lord and generate_lords are still active
-use spawn_wanderer settlement to create a recruitable wanderer you can recruit as a companion if you wish to have a companion instead of a lord"
+"v1.3.13.9
+Fixed home settlement assignment always defaulting to Diathma
+Fixed character randomization not properly applying
+Fixed create_lord not using the homeSettlement if Specified
+Updated generate_lords to take an optional homeSettlement like create_lord
+Home Settlement will control where the lord is stationed and if not specified defaults to a random clan owned settlement"
         />
         <Tags>
             <Tag Value="Utility" />
