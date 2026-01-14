@@ -5,13 +5,13 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.6
+## Latest Update 1.3.13.9
 ```
-Fixed issue causing ButterLib to crash when using mods that require ButterLib
-This crash was due to ButterLib using poor code when creating dictionaries
-This fix should proactively prevent Butterlib from crashing when handling BLGM Objects
-
-This update should fix ButterLib from crashing when handling BLGM Clans. It should also fix any saves that were crashing on load. Let me know if any issues persist.
+Fixed home settlement assignment always defaulting to Diathma
+Fixed character randomization not properly applying
+Fixed create_lord not using the homeSettlement if Specified
+Updated generate_lords to take an optional homeSettlement like create_lord
+Home Settlement will control where the lord is stationed and if not specified defaults to a random clan owned settlement 
 ```
 ## Key Features
 
