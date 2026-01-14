@@ -25,7 +25,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 		{
 			return Cmd.Run(args, () =>
 			{
-				if (!CommandBase.ValidateCampaignMode(out string error))
+				if (!CommandBase.ValidateCampaignState(out string error))
 					return error;
 
 				var usageMessage = CommandValidator.CreateUsageMessage(
@@ -275,7 +275,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 		{
 			return Cmd.Run(args, () =>
 			{
-				if (!CommandBase.ValidateCampaignMode(out string error))
+				if (!CommandBase.ValidateCampaignState(out string error))
 					return error;
 
 				var usageMessage = CommandValidator.CreateUsageMessage(
@@ -538,7 +538,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 			//return "Command Disabled temporarily due to possible issue of multiple instances of the companion being created";
 			return Cmd.Run(args, () =>
 			{
-				if (!CommandBase.ValidateCampaignMode(out string error))
+				if (!CommandBase.ValidateCampaignState(out string error))
 					return error;
 
 				var usageMessage = CommandValidator.CreateUsageMessage(
@@ -712,7 +712,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands
 		{
 			return Cmd.Run(args, () =>
 			{
-				if (!CommandBase.ValidateCampaignMode(out string error))
+				if (!CommandBase.ValidateCampaignState(out string error))
 					return error;
 
 				var usageMessage = CommandValidator.CreateUsageMessage(

@@ -20,7 +20,7 @@ namespace Bannerlord.GameMaster.Console.Query
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var allModifiers = ItemModifierHelper.GetAllModifiers();
@@ -86,7 +86,7 @@ namespace Bannerlord.GameMaster.Console.Query
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 if (args == null || args.Count == 0)

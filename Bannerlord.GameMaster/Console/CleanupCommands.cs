@@ -17,7 +17,7 @@ namespace Bannerlord.GameMaster.Console
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error)) return error;
+                if (!CommandBase.ValidateCampaignState(out string error)) return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.cleanup.remove_blgm_hero <hero>",
@@ -63,7 +63,7 @@ namespace Bannerlord.GameMaster.Console
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error)) return error;
+                if (!CommandBase.ValidateCampaignState(out string error)) return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.cleanup.batch_remove_heroes [count]",
@@ -110,7 +110,7 @@ namespace Bannerlord.GameMaster.Console
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error)) return error;
+                if (!CommandBase.ValidateCampaignState(out string error)) return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.cleanup.batch_remove_blgm_parties [count]",
@@ -157,7 +157,7 @@ namespace Bannerlord.GameMaster.Console
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error)) return error;
+                if (!CommandBase.ValidateCampaignState(out string error)) return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.cleanup.remove_blgm_clan <clan>",
@@ -203,7 +203,7 @@ namespace Bannerlord.GameMaster.Console
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error)) return error;
+                if (!CommandBase.ValidateCampaignState(out string error)) return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.cleanup.batch_remove_blgm_clans [count]",
@@ -250,7 +250,7 @@ namespace Bannerlord.GameMaster.Console
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error)) return error;
+                if (!CommandBase.ValidateCampaignState(out string error)) return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.cleanup.remove_blgm_kingdom <kingdom>",
@@ -296,7 +296,7 @@ namespace Bannerlord.GameMaster.Console
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error)) return error;
+                if (!CommandBase.ValidateCampaignState(out string error)) return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.cleanup.batch_remove_blgm_kingdoms [count]",

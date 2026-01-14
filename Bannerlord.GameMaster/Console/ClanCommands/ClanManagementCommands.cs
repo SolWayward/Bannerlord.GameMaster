@@ -29,7 +29,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -103,7 +103,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -193,7 +193,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -290,7 +290,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -368,7 +368,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -456,7 +456,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -525,7 +525,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -595,7 +595,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -668,7 +668,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -732,7 +732,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -804,7 +804,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(
@@ -876,7 +876,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var usageMessage = CommandValidator.CreateUsageMessage(

@@ -11,6 +11,8 @@ using Bannerlord.GameMaster.Items;
 using Bannerlord.GameMaster.Troops;
 using Bannerlord.GameMaster.Settlements;
 using TaleWorlds.Diamond;
+using TaleWorlds.Library;
+using TaleWorlds.CampaignSystem.Election;
 
 namespace Bannerlord.GameMaster.Console.Common
 {
@@ -383,9 +385,9 @@ namespace Bannerlord.GameMaster.Console.Common
         #region Validation Methods
 
         /// <summary>
-        /// Validates campaign mode and ensures player isn't actively in any conversation
+        /// Validates that player is in a valid campaign state before executing any commands
         /// </summary>
-        public static bool ValidateCampaignMode(out string error)
+        public static bool ValidateCampaignState(out string error)
         {
             if (Campaign.Current == null)
             {
@@ -393,10 +395,38 @@ namespace Bannerlord.GameMaster.Console.Common
                 return false;
             }
 
+            // Some commands crash or glitch while conversation is inprogress
             if (Campaign.Current.ConversationManager.IsConversationInProgress)
             {
                 error = "Error: Please end conversation before executing command\n";
                 return false;
+            }
+
+            // Prevents commands running while settlement ownership vote is pending as it can cause some crashes
+            if (!ValidateNoSettlementClaimantDecisionsPending(out error))
+                return false;
+
+            error = null;
+            return true;
+        }
+
+        public static bool ValidateNoSettlementClaimantDecisionsPending(out string error)
+        {
+            if (Clan.PlayerClan?.Kingdom != null)
+            {
+                MBReadOnlyList<KingdomDecision> unresolvedDecisions = Clan.PlayerClan.Kingdom.UnresolvedDecisions;
+                if (unresolvedDecisions != null)
+                {
+                    for (int i = 0; i < unresolvedDecisions.Count; i++)
+                    {
+                        KingdomDecision decision = unresolvedDecisions[i];
+                        if (decision is SettlementClaimantDecision || decision is SettlementClaimantPreliminaryDecision)
+                        {
+                            error = "Error: Cannot execute commands while settlement ownership decisions are pending.\nPlease resolve the 'who gets the fief' decision first (click the notification on the map).\n";
+                            return false;
+                        }
+                    }
+                }
             }
 
             error = null;

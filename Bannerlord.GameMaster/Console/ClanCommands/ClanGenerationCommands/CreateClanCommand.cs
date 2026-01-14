@@ -19,7 +19,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(

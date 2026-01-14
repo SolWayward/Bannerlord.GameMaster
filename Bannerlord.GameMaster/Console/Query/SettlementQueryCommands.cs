@@ -88,7 +88,7 @@ namespace Bannerlord.GameMaster.Console.Query
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var (query, types, sortBy, sortDesc) = ParseArguments(args);
@@ -124,7 +124,7 @@ namespace Bannerlord.GameMaster.Console.Query
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var (query, types, sortBy, sortDesc) = ParseArguments(args);
@@ -156,7 +156,7 @@ namespace Bannerlord.GameMaster.Console.Query
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 if (args == null || args.Count == 0)

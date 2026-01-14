@@ -19,7 +19,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
@@ -123,7 +123,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                         $"Leader: {minorClan.Leader.Name} (ID: {minorClan.Leader.StringId})\n" +
                         $"Culture: {minorClan.Culture.Name}\n" +
                         $"Clan ID: {minorClan.StringId}\n" +
-                        $"Type: Minor Faction (Tier 1)");
+                        $"Type: Minor Faction (Tier {minorClan.Tier})");
                 }, "Failed to create minor clan");
             });
         }

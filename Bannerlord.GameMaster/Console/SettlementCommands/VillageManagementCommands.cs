@@ -23,7 +23,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 var parsed = CommandBase.ParseArguments(args);
@@ -84,7 +84,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 CommandBase.ParsedArguments parsed = CommandBase.ParseArguments(args);
@@ -156,7 +156,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignMode(out string error))
+                if (!CommandBase.ValidateCampaignState(out string error))
                     return error;
 
                 CommandBase.ParsedArguments parsed = CommandBase.ParseArguments(args);
