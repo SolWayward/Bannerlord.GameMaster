@@ -1,23 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Bannerlord.GameMaster.Characters;
-using Bannerlord.GameMaster.Console.HeroCommands;
 using Bannerlord.GameMaster.Cultures;
-using Bannerlord.GameMaster.Information;
-using Helpers;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.CampaignSystem.CharacterDevelopment;
-using TaleWorlds.CampaignSystem.ComponentInterfaces;
-using TaleWorlds.CampaignSystem.GameComponents;
-using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.ObjectSystem;
 
 namespace Bannerlord.GameMaster.Heroes
 {
@@ -41,8 +31,9 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="nameObj">Hero's name as TextObject</param>
 		/// <param name="age">Hero's age (defaults to random between 18-30, and is forced to be atleast 18)</param>
 		/// <param name="clan">Hero's clan (can be null for wanderers)</param>
+		/// <param name="randomFactor">Optional, defaults to 0. How much hero appearance is randomized from its base template constraints</param>
 		/// <returns">Created hero with occupation to be set by Initialize methods</returns>
-		private static Hero CreateBasicHero(CharacterObject sourceCharacter, TextObject nameObj, int age = -1, Clan clan = null)
+		private static Hero CreateBasicHero(CharacterObject sourceCharacter, TextObject nameObj, int age = -1, Clan clan = null, float randomFactor = 0)
 		{
 			if (age < 18) //Prevents growing up prompts having to select a attribute
 				age = RandomNumberGen.Instance.NextRandomInt(18, 31);
@@ -70,6 +61,14 @@ namespace Bannerlord.GameMaster.Heroes
 			// NOTE: Occupation is set by Initialize methods (InitializeAsLord, InitializeAsWanderer, etc.)
 			// Source character's appearance is copied but occupation will be overridden
 
+			// Randomize appearance using the new HeroEditor instance pattern
+			if (randomFactor > 0)
+			{
+				HeroEditor heroEditor = new(hero);
+				heroEditor.BodyEditor.BodyConstraints = BodyConstraints.GenderConstraints(hero.IsFemale);
+				heroEditor.RandomizeAppearance(randomFactor);
+			}
+
 			return hero;
 		}
 
@@ -86,10 +85,10 @@ namespace Bannerlord.GameMaster.Heroes
 			if (hero.Clan == null)
 				throw new ArgumentException("Hero must have a clan assigned before initializing as Lord");
 
-			hero.BornSettlement = homeSettlement ?? hero.GetHomeOrAlternativeSettlement();
 			hero.SetNewOccupation(Occupation.Lord);
 			hero.IsMinorFactionHero = false;
-			hero.UpdateHomeSettlement();
+
+			Settlement targetSettlement = hero.InitializeHomeSettlement(homeSettlement);
 
 			int initalLevel = RandomNumberGen.Instance.NextRandomInt(10, 26);
 			hero.HeroDeveloper.SetInitialLevel(initalLevel);
@@ -105,6 +104,11 @@ namespace Bannerlord.GameMaster.Heroes
 			{
 				hero.CreateParty(homeSettlement ?? hero.GetHomeOrAlternativeSettlement());
 			}
+			
+			else
+			{
+				EnterSettlementAction.ApplyForCharacterOnly(hero, targetSettlement);
+			}
 
 			hero.UpdateLastKnownClosestSettlement(homeSettlement ?? hero.GetHomeOrAlternativeSettlement());
 			hero.UpdatePowerModifier();
@@ -115,7 +119,7 @@ namespace Bannerlord.GameMaster.Heroes
 			hero.Initialize();
 
 			// The native pattern shows ChangeState(Active) is the final activation step that marks the hero as ready to participate in the game world
-			hero.ChangeState(Hero.CharacterStates.Active);
+			hero.ChangeState(Hero.CharacterStates.Active);		
 		}
 
 		/// MARK: InitializeAsWanderer
@@ -127,8 +131,8 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="settlement">Settlement where wanderer will wait</param>
 		public static void InitializeAsWanderer(Hero hero, Settlement settlement)
 		{
-			hero.BornSettlement = settlement;
 			hero.Clan = null;
+			hero.InitializeHomeSettlement(settlement);
 			hero.SetNewOccupation(Occupation.Wanderer); // Crashes if not set to wanderer when you talk to them
 			hero.IsMinorFactionHero = false;
 			hero.EquipHeroBasedOnCulture();
@@ -138,7 +142,6 @@ namespace Bannerlord.GameMaster.Heroes
 			hero.Gold = 1000 * initalLevel;
 
 			EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);
-			hero.UpdateLastKnownClosestSettlement(settlement);
 
 			// CRITICAL: Initialize hero to set IsInitialized = true
 			hero.Initialize();
@@ -157,7 +160,7 @@ namespace Bannerlord.GameMaster.Heroes
 		public static void InitializeAsCompanion(Hero hero)
 		{
 			// Keep clan assignment (should be set by caller)
-			hero.BornSettlement = hero.GetHomeOrAlternativeSettlement();
+			hero.InitializeHomeSettlement();
 			hero.SetNewOccupation(Occupation.Lord); // Ensures character is lord (if wanderer the backstory dialog shows error text. Still functions like a wanderer)
 			hero.IsMinorFactionHero = false;
 			hero.EquipHeroBasedOnCulture();
@@ -209,17 +212,17 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="withParty">If true, creates a party for the lord if clan is below commander limit</param>
 		/// <param name="randomFactor">Appearance randomization factor (0-1)</param>
 		/// <returns>Created and initialized lord</returns>
-		public static Hero CreateLord(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParty = true, float randomFactor = 0.5f)
+		public static Hero CreateLord(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParty = true, Settlement settlement = null, float randomFactor = 0.5f)
 		{
 			if (clan == null)
 				throw new ArgumentException("Clan is required for Lord creation");
 
-			var template = SelectRandomTemplate(cultureFlags, genderFlags, randomFactor);
-			TextObject nameObj = new TextObject(name);
+			CharacterObject template = SelectRandomTemplate(cultureFlags, genderFlags);
+			TextObject nameObj = new(name);
 
-			Hero hero = CreateBasicHero(template, nameObj, -1, clan);
-			Settlement homeSettlement = hero.GetHomeOrAlternativeSettlement();
-			InitializeAsLord(hero, homeSettlement, withParty);
+			Hero hero = CreateBasicHero(template, nameObj, -1, clan, randomFactor);
+
+			InitializeAsLord(hero, settlement, withParty);
 
 			return hero;
 		}
@@ -229,24 +232,23 @@ namespace Bannerlord.GameMaster.Heroes
 		/// Creates multiple lords with random names from culture.
 		/// <param name="withParty">If true, creates a party for each lord if clan is below commander limit</param>
 		/// </summary>
-		public static List<Hero> CreateLords(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParties = true, float randomFactor = 0.5f)
+		public static List<Hero> CreateLords(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParties = true, Settlement settlement = null, float randomFactor = 0.5f)
 		{
 			if (clan == null)
 				throw new ArgumentException("Clan is required for Lord creation");
 
-			List<Hero> lords = new List<Hero>();
-			CharacterTemplatePooler templatePooler = new CharacterTemplatePooler();
+			List<Hero> lords = new();
+			CharacterTemplatePooler templatePooler = new();
 			List<CharacterObject> characterPool = templatePooler.GetAllHeroTemplatesFromFlags(cultureFlags, genderFlags);
 
 			for (int i = 0; i < count; i++)
 			{
-				var character = SelectRandomTemplate(characterPool, randomFactor);
+				CharacterObject character = SelectRandomTemplate(characterPool);
 				string randomName = CultureLookup.GetUniqueRandomHeroName(character.Culture, character.IsFemale);
-				TextObject nameObj = new TextObject(randomName);
+				TextObject nameObj = new(randomName);
 
-				Hero hero = CreateBasicHero(character, nameObj, -1, clan);
-				Settlement homeSettlement = hero.GetHomeOrAlternativeSettlement();
-				InitializeAsLord(hero, homeSettlement, withParties);
+				Hero hero = CreateBasicHero(character, nameObj, -1, clan, randomFactor);
+				InitializeAsLord(hero, settlement, withParties);
 
 				lords.Add(hero);
 			}
@@ -260,10 +262,10 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		public static Hero CreateWanderer(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor = 0.5f)
 		{
-			var template = SelectRandomTemplate(cultureFlags, genderFlags, randomFactor);
-			TextObject nameObj = new TextObject(name);
+			CharacterObject template = SelectRandomTemplate(cultureFlags, genderFlags);
+			TextObject nameObj = new(name);
 
-			Hero hero = CreateBasicHero(template, nameObj);
+			Hero hero = CreateBasicHero(template, nameObj, randomFactor: randomFactor);
 			InitializeAsWanderer(hero, settlement);
 
 			return hero;
@@ -275,17 +277,17 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		public static List<Hero> CreateWanderers(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor = 0.5f)
 		{
-			List<Hero> wanderers = new List<Hero>();
-			CharacterTemplatePooler templatePooler = new CharacterTemplatePooler();
+			List<Hero> wanderers = new();
+			CharacterTemplatePooler templatePooler = new();
 			List<CharacterObject> characterPool = templatePooler.GetAllHeroTemplatesFromFlags(cultureFlags, genderFlags);
 
 			for (int i = 0; i < count; i++)
 			{
-				var character = SelectRandomTemplate(characterPool, randomFactor);
+				CharacterObject character = SelectRandomTemplate(characterPool);
 				string randomName = CultureLookup.GetUniqueRandomHeroName(character.Culture, character.IsFemale);
-				TextObject nameObj = new TextObject(randomName);
+				TextObject nameObj = new(randomName);
 
-				Hero hero = CreateBasicHero(character, nameObj);
+				Hero hero = CreateBasicHero(character, nameObj, randomFactor: randomFactor);
 				InitializeAsWanderer(hero, settlement);
 
 				wanderers.Add(hero);
@@ -301,17 +303,17 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		public static List<Hero> CreateCompanions(int count, CultureFlags cultureFlags, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5f)
 		{
-			List<Hero> companions = new List<Hero>();
-			CharacterTemplatePooler templatePooler = new CharacterTemplatePooler();
+			List<Hero> companions = new();
+			CharacterTemplatePooler templatePooler = new();
 			List<CharacterObject> characterPool = templatePooler.GetAllHeroTemplatesFromFlags(cultureFlags, genderFlags);
 
 			for (int i = 0; i < count; i++)
 			{
-				var character = SelectRandomTemplate(characterPool, randomFactor);
+				CharacterObject character = SelectRandomTemplate(characterPool);
 				string randomName = CultureLookup.GetUniqueRandomHeroName(character.Culture, character.IsFemale);
-				TextObject nameObj = new TextObject(randomName);
+				TextObject nameObj = new(randomName);
 
-				Hero hero = CreateBasicHero(character, nameObj, -1);
+				Hero hero = CreateBasicHero(character, nameObj, randomFactor: randomFactor);
 				InitializeAsCompanion(hero);
 
 				companions.Add(hero);
@@ -324,50 +326,26 @@ namespace Bannerlord.GameMaster.Heroes
 		#region Helper Methods
 
 		/// <summary>
-		/// Selects and optionally randomizes a character from the given culture/gender pool.
+		/// Selects a character from the given culture/gender pool.
 		/// Only returns Lord and Wanderer occupation characters (no notables).
 		/// </summary>
-		private static CharacterObject SelectRandomTemplate(CultureFlags cultureFlags, GenderFlags genderFlags, float randomFactor)
+		private static CharacterObject SelectRandomTemplate(CultureFlags cultureFlags, GenderFlags genderFlags)
 		{
-			CharacterTemplatePooler templatePooler = new CharacterTemplatePooler();
+			CharacterTemplatePooler templatePooler = new();
 			List<CharacterObject> characterPool = templatePooler.GetAllHeroTemplatesFromFlags(cultureFlags, genderFlags);
-			return SelectRandomTemplate(characterPool, randomFactor);
+			return SelectRandomTemplate(characterPool);
 		}
 
 		/// <summary>
-		/// Selects and optionally randomizes a character from the given pool.
-		/// Creates a copy of the character and optionally randomizes appearance.
+		/// Selects a character from the given pool.
+		/// Creates a copy of the character.
 		/// </summary>
-		private static CharacterObject SelectRandomTemplate(List<CharacterObject> characterPool, float randomFactor)
+		private static CharacterObject SelectRandomTemplate(List<CharacterObject> characterPool)
 		{
 			int randomIndex = RandomNumberGen.Instance.NextRandomInt(characterPool.Count);
 			CharacterObject character = CharacterObject.CreateFrom(characterPool[randomIndex]);
 
-			if (randomFactor > 0)
-				character = RandomizeCharacterObject(character, randomFactor);
-
 			return character;
-		}
-
-		/// <summary>
-		/// Randomizes character appearance within template constraints
-		/// </summary>
-		public static CharacterObject RandomizeCharacterObject(CharacterObject template, float randomFactor, bool useFaceConstraints = true, bool useBuildConstraints = true, bool useHairConstraints = true)
-		{
-			int _seed = RandomNumberGen.Instance.NextRandomInt();
-
-			BodyProperties minBodyProperties = template.GetBodyPropertiesMin();
-			BodyProperties maxBodyProperties = template.GetBodyPropertiesMax();
-
-			int hairCoverType = HairCoveringType.None;
-			string hairTags = HairTags.All;
-			string beardTags = BeardTags.All;
-			string tatooTags = TattooTags.None;
-
-			BodyProperties randomProperties = TaleWorlds.Core.FaceGen.GetRandomBodyProperties(template.Race, template.IsFemale,
-					minBodyProperties, maxBodyProperties, hairCoverType, _seed, hairTags, beardTags, tatooTags, randomFactor);
-
-			return template;
 		}
 
 		#endregion
