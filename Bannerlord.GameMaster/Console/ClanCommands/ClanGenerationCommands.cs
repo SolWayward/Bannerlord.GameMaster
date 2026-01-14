@@ -141,7 +141,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands
 
 				return CommandBase.ExecuteWithErrorHandling(() =>
 				{
-					Clan newClan = ClanGenerator.CreateClan(clanName, leader, kingdom, createParty, companionCount);
+					Clan newClan = ClanGenerator.CreateNobleClan(clanName, leader, kingdom, createParty, companionCount);
 					
 					string leaderInfo = leader != null ? $" with {leader.Name} as leader" : " with auto-generated leader";
 					string kingdomInfo = kingdom != null ? $" and joined {kingdom.Name}" : " as independent";

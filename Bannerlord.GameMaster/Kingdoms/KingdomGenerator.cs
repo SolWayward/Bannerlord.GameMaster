@@ -38,7 +38,7 @@ namespace Bannerlord.GameMaster.Kingdoms
                 return null;
 
             // Create ruling clan
-            Clan rulingClan = ClanGenerator.CreateClan(rulingClanName, cultureFlags: cultureFlags);
+            Clan rulingClan = ClanGenerator.CreateNobleClan(rulingClanName, cultureFlags: cultureFlags);
 
             if (name == null || name.IsEmpty())
                 name = CultureLookup.GetUniqueRandomKingdomName(rulingClan.Leader.Culture);

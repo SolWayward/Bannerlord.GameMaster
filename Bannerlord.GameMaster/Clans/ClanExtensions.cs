@@ -149,6 +149,4 @@ namespace Bannerlord.GameMaster.Clans
 		public bool HasAnyType(Clan entity, ClanTypes types) => entity.HasAnyType(types);
 		public string FormattedDetails(Clan entity) => entity.FormattedDetails();
 	}
-
-
 }
