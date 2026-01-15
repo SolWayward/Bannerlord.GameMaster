@@ -927,7 +927,7 @@ namespace Bannerlord.GameMaster.Console.Common
             catch (Exception ex)
             {
                 string errorResult = $"Error: {ex.Message}\n";
-                TaleWorlds.Library.Debug.Print($"{errorResult}\n{ex.StackTrace}");
+                TaleWorlds.Library.Debug.Print($"[BLGM] {errorResult}\n{ex.StackTrace}");
 
                 if (CommandLogger.IsEnabled)
                 {
@@ -975,7 +975,7 @@ namespace Bannerlord.GameMaster.Console.Common
             catch (Exception ex)
             {
                 var errorResult = CommandResult.Error(ex.Message);
-                TaleWorlds.Library.Debug.Print($"{errorResult}\n{ex.StackTrace}");
+                TaleWorlds.Library.Debug.Print($"[BLGM] {errorResult}\n{ex.StackTrace}");
 
                 if (CommandLogger.IsEnabled)
                 {
@@ -1052,7 +1052,7 @@ namespace Bannerlord.GameMaster.Console.Common
         internal static string LogError(Exception ex)
         {
             string command = GetCallingCommandName(new());
-            string error = $"Error: {command}\n{ex.Message}\n{ex.StackTrace}\n";
+            string error = $"[BLGM] Error: {command}\n{ex.Message}\n{ex.StackTrace}\n";
             TaleWorlds.Library.Debug.Print(error);
 
             return $"Error: {ex.Message}";
