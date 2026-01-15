@@ -927,7 +927,8 @@ namespace Bannerlord.GameMaster.Console.Common
             catch (Exception ex)
             {
                 string errorResult = $"Error: {ex.Message}\n";
-                
+                TaleWorlds.Library.Debug.Print($"{errorResult}\n{ex.StackTrace}");
+
                 if (CommandLogger.IsEnabled)
                 {
                     CommandLogger.LogCommand(commandName, errorResult, false);
@@ -974,7 +975,8 @@ namespace Bannerlord.GameMaster.Console.Common
             catch (Exception ex)
             {
                 var errorResult = CommandResult.Error(ex.Message);
-                
+                TaleWorlds.Library.Debug.Print($"{errorResult}\n{ex.StackTrace}");
+
                 if (CommandLogger.IsEnabled)
                 {
                     CommandLogger.LogCommand(commandName, errorResult.Message, false);
@@ -1031,7 +1033,7 @@ namespace Bannerlord.GameMaster.Console.Common
             catch (Exception ex)
             {
                 // If reflection fails, log the error for debugging
-                System.Diagnostics.Debug.WriteLine($"[CommandLogger] Failed to get calling command name: {ex.Message}");
+                TaleWorlds.Library.Debug.Print($"[BLGMCommandLogger] Failed to get calling command name: {ex.Message}");
             }
             
             // Fallback: Use generic name with arguments if available
