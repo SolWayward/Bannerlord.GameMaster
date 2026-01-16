@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using Bannerlord.GameMaster.Clans;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
@@ -126,8 +127,9 @@ namespace Bannerlord.GameMaster
             }
             catch (Exception ex)
             {
-                InfoMessage.Warning($"Failed to load saved BLGM objects during initialization: {ex.Message}\n" +
-                        "BLGM objects from previous saves may not be tracked, but game functionality is unaffected.");
+                string errorMsg = $"Failed to load saved BLGM objects during initialization: {ex.Message}\n" +
+                        "BLGM objects from previous saves may not be tracked, but game functionality is unaffected.";
+                new BLGMResult(false, errorMsg, ex).DisplayAndLog();
             }
         }
 
@@ -447,6 +449,8 @@ namespace Bannerlord.GameMaster
             // Convert old legacy objects with new sequential unique int
             if (!legacyObjects.IsEmpty())
                 ConvertLegacyObjectsAndRegister(legacyObjects);
+
+            new BLGMResult(true, $"BLGMObjectManager: Loaded {ObjectCount}, LegacyObjects: {legacyObjects.Count}").Log();
         }
 
         /// <summary>

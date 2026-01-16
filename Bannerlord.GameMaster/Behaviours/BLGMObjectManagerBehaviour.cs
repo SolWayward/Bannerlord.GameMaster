@@ -57,14 +57,11 @@ namespace Bannerlord.GameMaster.Behaviours
         }
 
         /// <summary>
-        /// Called during game load, BEFORE ButterLib's GeopoliticsBehavior.InitializeOnLoad().
-        /// This is critical for fixing MBGUIDs before ButterLib builds its distance matrix.
-        /// Event Order: OnGameLoad (BLGM) -> OnGameLoaded (ButterLib) -> OnSessionLaunched (All mods)
+        /// Initalize BLGMObjectManager and load existing objects
         /// </summary>
         private void OnGameLoaded(CampaignGameStarter starter)
         {
             BLGMObjectManager.Instance.Initialize();
-            Debug.Print("[BLGM] Initialized in OnGameLoaded - MBGUIDs fixed before ButterLib");
 
             // Auto-start command logging if enabled (creates new log file each time a save is loaded)
             LoggingManager.TryAutoStart();
