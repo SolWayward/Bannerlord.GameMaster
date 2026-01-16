@@ -1,26 +1,23 @@
 # Bannerlord.GameMaster (BLGM)
+BLGM provides the ability to Create and manage kingdoms, heroes, wanderers, clans, and tools to control, upgrade, and change ownership of settlements. Easily add members to your clan, or clans to your kingdom and way more. A powerful query system is also included, allowing you to easily add items, modifiers, and troops as well.
+
 - **[Complete Documentation for Users](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
 
 Console commands and framework, providing Settlement, Hero, Clan, Item, troop, and Kingdom management. All commands provide the ability to use object names, or object ids as arguments as well as a query system to search and find objects.
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.10
+## Latest Update 1.3.13.11
 ```
-Fixed potential crash when running certain commands while settlement ownership vote decision is pending
+Reworked Command System (Behind the scenes, still works the same for the user)
+Reworked How Heroes, Clans, and Kingdoms are generated in previous version
+Everything Should be smoother and Heroes, Clans, and Kingdoms will fully interact as if they were native
 
-Strengthened Generated Clans
-Clans Should also integrate with game systems and AI better now
-Clans and especially kingdoms should generate much faster now.
-Clans now use a random clan tier and the leaders troops, gold, and influence scale with tier
-	Noble clans Tier 3-5
-	Minor Clans Tier 1-3
-	Kingdom Ruling Clan tier 6
-	
-Generated Kingdoms are now more powerful and declare wars more often
-Generated Kingdoms will now integrate properly into AI systems
+Raised Object Creation Soft Limits
+Limit can still be bypassed using 'gm.ignore_limits true' Once per game
 
-Pre existing generated clans and kingdoms will not get these improvements
+Enabled auto command Logging 
+Documents/Mount and Blade II Bannerlord/Configs/GameMaster/command_log_xxxx.txt
 ```
 ## Key Features
 
@@ -31,7 +28,6 @@ Pre existing generated clans and kingdoms will not get these improvements
 - **Equipment Save/Load** - Save and load hero equipment sets to files
 - **Advanced Queries** - Powerful search with AND/OR logic, sorting, filtering
 - **Command Logging** - Track all command usage for debugging
-- **Testing Framework** - Setup and run automated tests.
 - **Convenience Features** - Use Ids or names for objects, and even partial matches. Positional and named arguments using ArgName:ArgValue
 
 **Tested:** Bannerlord 1.3.9, 1.3.10, 1.3.12, 1.3.13, and works with or without Warsails.
@@ -48,8 +44,10 @@ The purpose of this mod is mainly for my own use as a foundation for another mod
 
 1. Download from [Releases](https://github.com/SolWayward/Bannerlord.GameMaster/releases)
 2. Extract to: `...\Mount & Blade II Bannerlord\Modules\`
-3. Enable in Bannerlord launcher
-4. Press Alt + `~` (tilde key) in-game to open console
+3. Unblock dlls
+4. Enable in Bannerlord launcher
+5. Press Alt + `~` (tilde key) in-game to open console
+6. type gm. to discover commands
 
 **No external dependencies required** - This mod uses only native Bannerlord APIs
 
@@ -154,8 +152,6 @@ Use powerful queries to search and filter:
 ## Important Notes
 
 - **Backup your saves** - Many commands make permanent changes
-- **Test in separate save** - Running tests greatly effect game state
-- **Enable logging** - Use `gm.log.enable` for tracking
 - **Some actions are irreversible** - Killing heroes, destroying clans
 - **Multi-word Parameters** - Use single quotes to use arguments with spaces ex: `'Multi word argument'`
 - **Renaming Settlements** - Name may not update right away. Open trade menu in settlement or load save to force update.
