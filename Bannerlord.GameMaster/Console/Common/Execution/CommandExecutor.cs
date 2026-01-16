@@ -100,9 +100,11 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 
         // MARK: Helper Methods
 
+        private const int MAX_STACK_FRAMES_TO_SEARCH = 10;
+
         /// <summary>
         /// Automatically determine command name from calling method using reflection.
-        /// Examines the call stack to find the CommandLineArgumentFunctionAttribute.
+        /// Iterates through the call stack to find a method with CommandLineArgumentFunctionAttribute.
         /// </summary>
         /// <param name="args">The parsed arguments to include in the command name</param>
         /// <returns>The formatted command name with arguments</returns>
@@ -111,16 +113,24 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
             try
             {
                 System.Diagnostics.StackTrace stackTrace = new();
-                // Frame 0 = GetCallingCommandName, Frame 1 = Run/ExecuteWithErrorHandling, Frame 2 = actual command
-                System.Reflection.MethodBase callingMethod = stackTrace.GetFrame(2)?.GetMethod();
-
-                if (callingMethod != null)
+                
+                // Start at frame 2 (0 = GetCallingCommandName, 1 = CommandExecutor.Run)
+                // and search upward to find the method with CommandLineArgumentFunctionAttribute
+                for (int frameIndex = 2; frameIndex < MAX_STACK_FRAMES_TO_SEARCH; frameIndex++)
                 {
+                    System.Diagnostics.StackFrame frame = stackTrace.GetFrame(frameIndex);
+                    if (frame == null)
+                        break;
+
+                    System.Reflection.MethodBase callingMethod = frame.GetMethod();
+                    if (callingMethod == null)
+                        continue;
+
                     // Get the CommandLineArgumentFunction attribute
                     object[] attributes = callingMethod.GetCustomAttributes(false);
-                    foreach (object attr in attributes)
+                    for (int i = 0; i < attributes.Length; i++)
                     {
-                        Type attrType = attr.GetType();
+                        Type attrType = attributes[i].GetType();
                         if (attrType.Name == "CommandLineArgumentFunctionAttribute")
                         {
                             // Use reflection to get attribute properties
@@ -129,8 +139,8 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 
                             if (nameProperty != null && parentProperty != null)
                             {
-                                string name = nameProperty.GetValue(attr) as string;
-                                string parent = parentProperty.GetValue(attr) as string;
+                                string name = nameProperty.GetValue(attributes[i]) as string;
+                                string parent = parentProperty.GetValue(attributes[i]) as string;
 
                                 // Build command name
                                 string commandName = string.IsNullOrEmpty(parent) ? name : $"{parent}.{name}";

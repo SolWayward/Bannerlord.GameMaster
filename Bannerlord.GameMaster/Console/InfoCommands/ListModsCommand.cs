@@ -31,7 +31,7 @@ public static class ListModsCommand
                 output.AppendLine($"- {name}");
             }
 
-            output.AppendLine("\nUse command 'gm.log.enable' before running this command to save command output to a log file you can easily copy and paste");
+            output.AppendLine("\nYou can copy this list by opening the BLGM log file\nDefault Log Location: Documents\\Mount and Blade II Bannerlord\\Configs\\GameMaster");
 
             return output.ToString();
         });

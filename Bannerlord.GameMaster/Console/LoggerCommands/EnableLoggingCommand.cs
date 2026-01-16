@@ -2,7 +2,6 @@ using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Parsing;
-using System;
 using System.Collections.Generic;
 using TaleWorlds.Library;
 
@@ -35,32 +34,20 @@ public static class EnableLoggingCommand
             string customPath = parsed.GetArgument("path", 0);
 
             // MARK: Execute Logic
-            try
+            LoggingResult result = LoggingManager.EnableLogging(customPath);
+
+            if (!result.WasSuccessful)
+                return MessageFormatter.FormatErrorMessage(result.Message);
+
+            string path = LoggingManager.CurrentLogFilePath;
+
+            Dictionary<string, string> resolvedValues = new()
             {
-                // Initialize if not already done or if custom path provided
-                if (string.IsNullOrEmpty(CommandLogger.LogFilePath) || !string.IsNullOrEmpty(customPath))
-                {
-                    CommandLogger.Initialize(customPath);
-                }
+                { "path", path }
+            };
 
-                CommandLogger.IsEnabled = true;
-                CommandLogger.LogSessionStart();
-
-                string path = CommandLogger.LogFilePath;
-
-                Dictionary<string, string> resolvedValues = new()
-                {
-                    { "path", path }
-                };
-
-                string argumentDisplay = parsed.FormatArgumentDisplay("enable", resolvedValues);
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                    $"Command logging enabled.\nLog file: {path}");
-            }
-            catch (Exception ex)
-            {
-                return MessageFormatter.FormatErrorMessage($"Failed to enable logging: {ex.Message}");
-            }
+            string argumentDisplay = parsed.FormatArgumentDisplay("enable", resolvedValues);
+            return argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message);
         });
     }
 }

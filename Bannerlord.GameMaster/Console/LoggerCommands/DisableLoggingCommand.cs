@@ -20,8 +20,12 @@ public static class DisableLoggingCommand
     {
         return Cmd.Run(args, () =>
         {
-            CommandLogger.IsEnabled = false;
-            return MessageFormatter.FormatSuccessMessage("Command logging disabled.");
+            LoggingResult result = LoggingManager.DisableLogging();
+
+            if (!result.WasSuccessful)
+                return MessageFormatter.FormatErrorMessage(result.Message);
+
+            return MessageFormatter.FormatSuccessMessage(result.Message);
         });
     }
 }

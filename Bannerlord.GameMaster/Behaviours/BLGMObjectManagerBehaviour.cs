@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Bannerlord.GameMaster.Console.Common.Execution;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.Library;
@@ -64,6 +65,9 @@ namespace Bannerlord.GameMaster.Behaviours
         {
             BLGMObjectManager.Instance.Initialize();
             Debug.Print("[BLGM] Initialized in OnGameLoaded - MBGUIDs fixed before ButterLib");
+
+            // Auto-start command logging if enabled (creates new log file each time a save is loaded)
+            LoggingManager.TryAutoStart();
         }
 
         /// <summary>
