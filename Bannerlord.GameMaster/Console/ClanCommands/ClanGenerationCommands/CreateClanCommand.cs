@@ -1,9 +1,12 @@
-using Bannerlord.GameMaster.Console.Common;
+using Bannerlord.GameMaster.Clans;
+using Bannerlord.GameMaster.Console.Common.Execution;
+using Bannerlord.GameMaster.Console.Common.EntityFinding;
+using Bannerlord.GameMaster.Console.Common.Formatting;
+using Bannerlord.GameMaster.Console.Common.Parsing;
+using Bannerlord.GameMaster.Console.Common.Validation;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
-using Bannerlord.GameMaster.Clans;
-using Bannerlord.GameMaster.Cultures;
 
 namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
 {
@@ -19,7 +22,8 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignState(out string error))
+                // MARK: Validation
+                if (!CommandValidator.ValidateCampaignState(out string error))
                     return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
@@ -38,84 +42,75 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                     "gm.clan.create_clan name:'House Stark' kingdom:sturgia party:true companions:5\n" +
                     "gm.clan.create_clan TradingFamily null null false 0");
 
-                // Parse arguments with named argument support
-                var parsedArgs = CommandBase.ParseArguments(args);
+                ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
-                // Define valid arguments
-                parsedArgs.SetValidArguments(
-                    new CommandBase.ArgumentDefinition("clanName", true, null, "name"),
-                    new CommandBase.ArgumentDefinition("leaderHero", false, null, "leader"),
-                    new CommandBase.ArgumentDefinition("kingdom", false),
-                    new CommandBase.ArgumentDefinition("createParty", false, null, "party"),
-                    new CommandBase.ArgumentDefinition("companionCount", false, null, "companions")
+                parsed.SetValidArguments(
+                    new ArgumentDefinition("clanName", true, null, "name"),
+                    new ArgumentDefinition("leaderHero", false, null, "leader"),
+                    new ArgumentDefinition("kingdom", false),
+                    new ArgumentDefinition("createParty", false, null, "party"),
+                    new ArgumentDefinition("companionCount", false, null, "companions")
                 );
 
-                // Validate
-                string validationError = parsedArgs.GetValidationError();
+                string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandBase.FormatErrorMessage(validationError);
+                    return MessageFormatter.FormatErrorMessage(validationError);
 
-                if (parsedArgs.TotalCount < 1)
+                if (parsed.TotalCount < 1)
                     return usageMessage;
 
-                // Get clan name (required) - supports both 'name' and 'clanName'
-                string clanName = parsedArgs.GetArgument("name", 0) ?? parsedArgs.GetArgument("clanName", 0);
+                // MARK: Parse Arguments
+                string clanName = parsed.GetArgument("name", 0) ?? parsed.GetArgument("clanName", 0);
                 if (string.IsNullOrWhiteSpace(clanName))
-                    return CommandBase.FormatErrorMessage("Clan name cannot be empty.");
+                    return MessageFormatter.FormatErrorMessage("Clan name cannot be empty.");
 
                 Hero leader = null;
                 Kingdom kingdom = null;
                 bool createParty = true;
                 int companionCount = 2;
 
-                // Parse optional leader - supports 'leader' or 'leaderHero'
-                string leaderArg = parsedArgs.GetArgument("leader", 1) ?? parsedArgs.GetArgument("leaderHero", 1);
+                string leaderArg = parsed.GetArgument("leader", 1) ?? parsed.GetArgument("leaderHero", 1);
                 if (leaderArg != null && leaderArg.ToLower() != "null")
                 {
-                    var (hero, heroError) = CommandBase.FindSingleHero(leaderArg);
-                    if (heroError != null) return heroError;
-                    leader = hero;
+                    EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(leaderArg);
+                    if (!heroResult.IsSuccess) return heroResult.Message;
+                    leader = heroResult.Entity;
                 }
 
-                // Parse optional kingdom
-                string kingdomArg = parsedArgs.GetArgument("kingdom", 2);
+                string kingdomArg = parsed.GetArgument("kingdom", 2);
                 if (kingdomArg != null && kingdomArg.ToLower() != "null")
                 {
-                    var (kingdomResult, kingdomError) = CommandBase.FindSingleKingdom(kingdomArg);
-                    if (kingdomError != null) return kingdomError;
-                    kingdom = kingdomResult;
+                    EntityFinderResult<Kingdom> kingdomResult = KingdomFinder.FindSingleKingdom(kingdomArg);
+                    if (!kingdomResult.IsSuccess) return kingdomResult.Message;
+                    kingdom = kingdomResult.Entity;
                 }
 
-                // Parse optional createParty - supports 'createParty' or 'party'
-                string partyArg = parsedArgs.GetArgument("createParty", 3) ?? parsedArgs.GetArgument("party", 3);
+                string partyArg = parsed.GetArgument("createParty", 3) ?? parsed.GetArgument("party", 3);
                 if (partyArg != null)
                 {
                     if (!bool.TryParse(partyArg, out createParty))
-                        return CommandBase.FormatErrorMessage($"Invalid createParty value: '{partyArg}'. Use 'true' or 'false'.");
+                        return MessageFormatter.FormatErrorMessage($"Invalid createParty value: '{partyArg}'. Use 'true' or 'false'.");
                 }
 
-                // Parse optional companionCount - supports 'companionCount' or 'companions'
-                string companionsArg = parsedArgs.GetArgument("companionCount", 4) ?? parsedArgs.GetArgument("companions", 4);
+                string companionsArg = parsed.GetArgument("companionCount", 4) ?? parsed.GetArgument("companions", 4);
                 if (companionsArg != null)
                 {
                     if (!CommandValidator.ValidateIntegerRange(companionsArg, 0, 10, out companionCount, out string countError))
-                        return CommandBase.FormatErrorMessage(countError);
+                        return MessageFormatter.FormatErrorMessage(countError);
                 }
 
-                // Validate limits - creating 1 clan and potentially heroes (leader + companions) if no leader specified
                 if (!CommandValidator.ValidateClanCreationLimit(1, out string clanLimitError))
-                    return CommandBase.FormatErrorMessage(clanLimitError);
+                    return MessageFormatter.FormatErrorMessage(clanLimitError);
 
-                // If no leader is provided, we'll create 1 leader + companions
                 if (leader == null)
                 {
                     int heroesToCreate = 1 + companionCount;
                     if (!CommandValidator.ValidateHeroCreationLimit(heroesToCreate, out string heroLimitError))
-                        return CommandBase.FormatErrorMessage(heroLimitError);
+                        return MessageFormatter.FormatErrorMessage(heroLimitError);
                 }
 
-                // Build resolved values dictionary
-                var resolvedValues = new Dictionary<string, string>
+                // MARK: Execute Logic
+                Dictionary<string, string> resolvedValues = new()
                 {
                     { "clanName", clanName },
                     { "leaderHero", leader != null ? leader.Name.ToString() : "Auto-generated" },
@@ -124,24 +119,19 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                     { "companionCount", companionCount.ToString() }
                 };
 
-                // Display argument header
-                string argumentDisplay = parsedArgs.FormatArgumentDisplay("create_clan", resolvedValues);
+                Clan newClan = ClanGenerator.CreateNobleClan(clanName, leader, kingdom, createParty, companionCount);
 
-                return CommandBase.ExecuteWithErrorHandling(() =>
-                {
-                    Clan newClan = ClanGenerator.CreateNobleClan(clanName, leader, kingdom, createParty, companionCount);
+                string leaderInfo = leader != null ? $" with {leader.Name} as leader" : " with auto-generated leader";
+                string kingdomInfo = kingdom != null ? $" and joined {kingdom.Name}" : " as independent";
+                string partyInfo = createParty ? " (with party)" : " (no party)";
+                string companionInfo = companionCount > 0 ? $" and {companionCount} companions" : "";
 
-                    string leaderInfo = leader != null ? $" with {leader.Name} as leader" : " with auto-generated leader";
-                    string kingdomInfo = kingdom != null ? $" and joined {kingdom.Name}" : " as independent";
-                    string partyInfo = createParty ? " (with party)" : " (no party)";
-                    string companionInfo = companionCount > 0 ? $" and {companionCount} companions" : "";
-
-                    return argumentDisplay + CommandBase.FormatSuccessMessage(
-                        $"Created clan '{newClan.Name}'{leaderInfo}{kingdomInfo}{partyInfo}{companionInfo}.\n" +
-                        $"Leader: {newClan.Leader.Name} (ID: {newClan.Leader.StringId})\n" +
-                        $"Culture: {newClan.Culture.Name}\n" +
-                        $"Clan ID: {newClan.StringId}");
-                }, "Failed to create clan");
+                string argumentDisplay = parsed.FormatArgumentDisplay("create_clan", resolvedValues);
+                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                    $"Created clan '{newClan.Name}'{leaderInfo}{kingdomInfo}{partyInfo}{companionInfo}.\n" +
+                    $"Leader: {newClan.Leader.Name} (ID: {newClan.Leader.StringId})\n" +
+                    $"Culture: {newClan.Culture.Name}\n" +
+                    $"Clan ID: {newClan.StringId}");
             });
         }
     }

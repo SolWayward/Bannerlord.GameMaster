@@ -1,9 +1,13 @@
-using Bannerlord.GameMaster.Console.Common;
+using Bannerlord.GameMaster.Clans;
+using Bannerlord.GameMaster.Console.Common.Execution;
+using Bannerlord.GameMaster.Console.Common.EntityFinding;
+using Bannerlord.GameMaster.Console.Common.Formatting;
+using Bannerlord.GameMaster.Console.Common.Parsing;
+using Bannerlord.GameMaster.Console.Common.Validation;
+using Bannerlord.GameMaster.Cultures;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
-using Bannerlord.GameMaster.Clans;
-using Bannerlord.GameMaster.Cultures;
 
 namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
 {
@@ -19,7 +23,8 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
         {
             return Cmd.Run(args, () =>
             {
-                if (!CommandBase.ValidateCampaignState(out string error))
+                // MARK: Validation
+                if (!CommandValidator.ValidateCampaignState(out string error))
                     return error;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
@@ -37,83 +42,75 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                     "gm.clan.generate_clans count:10 cultures:battania,sturgia kingdom:sturgia\n" +
                     "gm.clan.generate_clans 3 empire null false 0");
 
-                // Parse arguments with named argument support
-                var parsedArgs = CommandBase.ParseArguments(args);
+                ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
-                // Define valid arguments
-                parsedArgs.SetValidArguments(
-                    new CommandBase.ArgumentDefinition("count", true),
-                    new CommandBase.ArgumentDefinition("cultures", false, null, "culture"),
-                    new CommandBase.ArgumentDefinition("kingdom", false),
-                    new CommandBase.ArgumentDefinition("createParties", false, null, "parties"),
-                    new CommandBase.ArgumentDefinition("companionCount", false, null, "companions")
+                parsed.SetValidArguments(
+                    new ArgumentDefinition("count", true),
+                    new ArgumentDefinition("cultures", false, null, "culture"),
+                    new ArgumentDefinition("kingdom", false),
+                    new ArgumentDefinition("createParties", false, null, "parties"),
+                    new ArgumentDefinition("companionCount", false, null, "companions")
                 );
 
-                // Validate
-                string validationError = parsedArgs.GetValidationError();
+                string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandBase.FormatErrorMessage(validationError);
+                    return MessageFormatter.FormatErrorMessage(validationError);
 
-                if (parsedArgs.TotalCount < 1)
+                if (parsed.TotalCount < 1)
                     return usageMessage;
 
-                // Parse count (required)
-                string countArg = parsedArgs.GetArgument("count", 0);
+                // MARK: Parse Arguments
+                string countArg = parsed.GetArgument("count", 0);
                 if (countArg == null)
-                    return CommandBase.FormatErrorMessage("Missing required argument 'count'.");
+                    return MessageFormatter.FormatErrorMessage("Missing required argument 'count'.");
 
                 if (!CommandValidator.ValidateIntegerRange(countArg, 1, 50, out int count, out string countError))
-                    return CommandBase.FormatErrorMessage(countError);
+                    return MessageFormatter.FormatErrorMessage(countError);
 
-                // Parse optional cultures - supports 'cultures' or 'culture'
                 CultureFlags cultureFlags = CultureFlags.AllMainCultures;
-                string culturesArg = parsedArgs.GetArgument("cultures", 1) ?? parsedArgs.GetArgument("culture", 1);
+                string culturesArg = parsed.GetArgument("cultures", 1) ?? parsed.GetArgument("culture", 1);
                 if (culturesArg != null)
                 {
                     cultureFlags = FlagParser.ParseCultureArgument(culturesArg);
                     if (cultureFlags == CultureFlags.None)
-                        return CommandBase.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'. Use culture names (e.g., vlandia,battania) or groups (main_cultures, bandit_cultures, all_cultures)");
+                        return MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'. Use culture names (e.g., vlandia,battania) or groups (main_cultures, bandit_cultures, all_cultures)");
                 }
 
-                // Parse optional kingdom
                 Kingdom kingdom = null;
-                string kingdomArg = parsedArgs.GetArgument("kingdom", 2);
+                string kingdomArg = parsed.GetArgument("kingdom", 2);
                 if (kingdomArg != null && kingdomArg.ToLower() != "null")
                 {
-                    var (kingdomResult, kingdomError) = CommandBase.FindSingleKingdom(kingdomArg);
-                    if (kingdomError != null) return kingdomError;
-                    kingdom = kingdomResult;
+                    EntityFinderResult<Kingdom> kingdomResult = KingdomFinder.FindSingleKingdom(kingdomArg);
+                    if (!kingdomResult.IsSuccess) return kingdomResult.Message;
+                    kingdom = kingdomResult.Entity;
                 }
 
-                // Parse optional createParties - supports 'createParties' or 'parties'
                 bool createParties = true;
-                string partiesArg = parsedArgs.GetArgument("createParties", 3) ?? parsedArgs.GetArgument("parties", 3);
+                string partiesArg = parsed.GetArgument("createParties", 3) ?? parsed.GetArgument("parties", 3);
                 if (partiesArg != null)
                 {
                     if (!bool.TryParse(partiesArg, out createParties))
-                        return CommandBase.FormatErrorMessage($"Invalid createParties value: '{partiesArg}'. Use 'true' or 'false'.");
+                        return MessageFormatter.FormatErrorMessage($"Invalid createParties value: '{partiesArg}'. Use 'true' or 'false'.");
                 }
 
-                // Parse optional companionCount - supports 'companionCount' or 'companions'
                 int companionCount = 2;
-                string companionsArg = parsedArgs.GetArgument("companionCount", 4) ?? parsedArgs.GetArgument("companions", 4);
+                string companionsArg = parsed.GetArgument("companionCount", 4) ?? parsed.GetArgument("companions", 4);
                 if (companionsArg != null)
                 {
                     if (!CommandValidator.ValidateIntegerRange(companionsArg, 0, 10, out companionCount, out string compCountError))
-                        return CommandBase.FormatErrorMessage(compCountError);
+                        return MessageFormatter.FormatErrorMessage(compCountError);
                 }
 
-                // Validate limits - each clan creates 1 leader + companions
                 if (!CommandValidator.ValidateClanCreationLimit(count, out string clanLimitError))
-                    return CommandBase.FormatErrorMessage(clanLimitError);
+                    return MessageFormatter.FormatErrorMessage(clanLimitError);
 
-                int heroesPerClan = 1 + companionCount; // 1 leader + companions
+                int heroesPerClan = 1 + companionCount;
                 int totalHeroesToCreate = count * heroesPerClan;
                 if (!CommandValidator.ValidateHeroCreationLimit(totalHeroesToCreate, out string heroLimitError))
-                    return CommandBase.FormatErrorMessage(heroLimitError);
+                    return MessageFormatter.FormatErrorMessage(heroLimitError);
 
-                // Build resolved values dictionary
-                var resolvedValues = new Dictionary<string, string>
+                // MARK: Execute Logic
+                Dictionary<string, string> resolvedValues = new()
                 {
                     { "count", count.ToString() },
                     { "cultures", culturesArg ?? "Main Cultures" },
@@ -122,24 +119,22 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                     { "companionCount", companionCount.ToString() }
                 };
 
-                // Display argument header
-                string argumentDisplay = parsedArgs.FormatArgumentDisplay("generate_clans", resolvedValues);
+                List<Clan> clans = ClanGenerator.GenerateClans(count, cultureFlags, kingdom, createParties, companionCount);
 
-                return CommandBase.ExecuteWithErrorHandling(() =>
+                if (clans == null || clans.Count == 0)
                 {
-                    List<Clan> clans = ClanGenerator.GenerateClans(count, cultureFlags, kingdom, createParties, companionCount);
+                    string argumentDisplayError = parsed.FormatArgumentDisplay("generate_clans", resolvedValues);
+                    return argumentDisplayError + MessageFormatter.FormatErrorMessage("Failed to generate clans - no clans created");
+                }
 
-                    if (clans == null || clans.Count == 0)
-                        return argumentDisplay + CommandBase.FormatErrorMessage("Failed to generate clans - no clans created");
+                string kingdomInfo = kingdom != null ? $" and joined {kingdom.Name}" : " as independent";
+                string partyInfo = createParties ? " (with parties)" : " (no parties)";
+                string companionInfo = companionCount > 0 ? $" and {companionCount} companions each" : "";
 
-                    string kingdomInfo = kingdom != null ? $" and joined {kingdom.Name}" : " as independent";
-                    string partyInfo = createParties ? " (with parties)" : " (no parties)";
-                    string companionInfo = companionCount > 0 ? $" and {companionCount} companions each" : "";
-
-                    return argumentDisplay + CommandBase.FormatSuccessMessage(
-                        $"Generated {clans.Count} clan(s){kingdomInfo}{partyInfo}{companionInfo}:\n" +
-                        ClanQueries.GetFormattedDetails(clans));
-                }, "Failed to generate clans");
+                string argumentDisplay = parsed.FormatArgumentDisplay("generate_clans", resolvedValues);
+                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                    $"Generated {clans.Count} clan(s){kingdomInfo}{partyInfo}{companionInfo}:\n" +
+                    ClanQueries.GetFormattedDetails(clans));
             });
         }
     }

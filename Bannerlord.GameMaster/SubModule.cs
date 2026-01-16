@@ -1,7 +1,6 @@
 using System;
 using System.Reflection;
 using Bannerlord.GameMaster.Behaviours;
-using Bannerlord.GameMaster.Console.Testing;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
@@ -91,55 +90,5 @@ namespace Bannerlord.GameMaster
         {
             return (false, TextObject.GetEmpty());
         }    
-        
-        /// <summary>
-        /// Run automated tests on startup
-        /// </summary>
-        private void RunAutomatedTests()
-        {
-            try
-            {
-                InformationManager.DisplayMessage(new InformationMessage(
-                    "[Game Master] Auto-running tests...",
-                    new TaleWorlds.Library.Color(0.2f, 0.8f, 1.0f)));
-                
-                // Register standard tests if none are registered
-                if (TestRunner.GetRegisteredTests().Count == 0)
-                {
-                    StandardTests.RegisterAll();
-                }
-                
-                // Run all tests
-                var results = TestRunner.RunAllTests();
-                
-                // Display summary
-                int passed = 0;
-                int failed = 0;
-                foreach (var result in results)
-                {
-                    if (result.Passed) passed++;
-                    else failed++;
-                }
-                
-                var summaryColor = failed == 0
-                    ? new TaleWorlds.Library.Color(0.2f, 1.0f, 0.2f)  // Green for all passed
-                    : new TaleWorlds.Library.Color(1.0f, 0.5f, 0.2f); // Orange for failures
-                
-                InformationManager.DisplayMessage(new InformationMessage(
-                    $"[Game Master] Tests Complete: {passed} passed, {failed} failed",
-                    summaryColor));
-                
-                // Log full report to console/log
-                string report = TestRunner.GenerateReport(results);
-                InformationManager.DisplayMessage(new InformationMessage(
-                    "[Game Master] Use 'gm.test.last_results verbose' to see full test report"));
-            }
-            catch (Exception ex)
-            {
-                InformationManager.DisplayMessage(new InformationMessage(
-                    $"[Game Master] Test auto-run failed: {ex.Message}",
-                    new TaleWorlds.Library.Color(1.0f, 0.2f, 0.2f)));
-            }
-        }
     }
 }

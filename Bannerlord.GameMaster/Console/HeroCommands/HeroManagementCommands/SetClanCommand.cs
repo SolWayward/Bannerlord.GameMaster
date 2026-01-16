@@ -1,0 +1,81 @@
+using Bannerlord.GameMaster.Console.Common.Execution;
+using Bannerlord.GameMaster.Console.Common.EntityFinding;
+using Bannerlord.GameMaster.Console.Common.Formatting;
+using Bannerlord.GameMaster.Console.Common.Parsing;
+using Bannerlord.GameMaster.Console.Common.Validation;
+using Bannerlord.GameMaster.Heroes;
+using System.Collections.Generic;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
+
+namespace Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands;
+
+/// <summary>
+/// Transfer a hero to another clan
+/// Usage: gm.hero.set_clan [hero] [clan]
+/// </summary>
+public static class SetClanCommand
+{
+    [CommandLineFunctionality.CommandLineArgumentFunction("set_clan", "gm.hero")]
+    public static string SetClan(List<string> args)
+    {
+        return Cmd.Run(args, () =>
+        {
+            // MARK: Validation
+            if (!CommandValidator.ValidateCampaignState(out string error))
+                return error;
+
+            string usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.set_clan", "<hero> <clan>",
+                "Transfers a hero to another clan.\n" +
+                "Supports named arguments: hero:lord_1_1 clan:clan_empire_south_1",
+                "gm.hero.set_clan lord_1_1 clan_empire_south_1");
+
+            ParsedArguments parsed = ArgumentParser.ParseArguments(args);
+
+            parsed.SetValidArguments(
+                new ArgumentDefinition("hero", true),
+                new ArgumentDefinition("clan", true)
+            );
+
+            string validationError = parsed.GetValidationError();
+            if (validationError != null)
+                return MessageFormatter.FormatErrorMessage(validationError);
+
+            if (parsed.TotalCount < 2)
+                return usageMessage;
+
+            // MARK: Parse Arguments
+            string heroArg = parsed.GetArgument("hero", 0);
+            if (heroArg == null)
+                return MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.");
+
+            EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
+            if (!heroResult.IsSuccess) return heroResult.Message;
+            Hero hero = heroResult.Entity;
+
+            string clanArg = parsed.GetArgument("clan", 1);
+            if (clanArg == null)
+                return MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.");
+
+            EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
+            if (!clanResult.IsSuccess) return clanResult.Message;
+            Clan clan = clanResult.Entity;
+
+            // MARK: Execute Logic
+            Dictionary<string, string> resolvedValues = new()
+            {
+                { "hero", hero.Name.ToString() },
+                { "clan", clan.Name.ToString() }
+            };
+
+            string previousClanName = hero.Clan?.Name?.ToString() ?? "No Clan";
+            hero.Clan = clan;
+
+            string argumentDisplay = parsed.FormatArgumentDisplay("set_clan", resolvedValues);
+            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                $"{hero.Name} (ID: {hero.StringId}) transferred from '{previousClanName}' to '{clan.Name}'.\n" +
+                $"Updated details: {hero.FormattedDetails()}");
+        });
+    }
+}

@@ -5,6 +5,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
 using Bannerlord.GameMaster.Common.Interfaces;
 using Bannerlord.GameMaster.Console.Common;
+using Bannerlord.GameMaster.Console.Common.Formatting;
 
 namespace Bannerlord.GameMaster.Clans
 {

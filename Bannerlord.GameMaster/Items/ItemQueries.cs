@@ -5,6 +5,7 @@ using TaleWorlds.Core;
 using TaleWorlds.ObjectSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
 using Bannerlord.GameMaster.Console.Common;
+using Bannerlord.GameMaster.Console.Common.Formatting;
 
 namespace Bannerlord.GameMaster.Items
 {

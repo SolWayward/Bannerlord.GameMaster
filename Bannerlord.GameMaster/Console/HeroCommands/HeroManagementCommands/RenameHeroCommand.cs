@@ -1,0 +1,79 @@
+using Bannerlord.GameMaster.Console.Common.Execution;
+using Bannerlord.GameMaster.Console.Common.EntityFinding;
+using Bannerlord.GameMaster.Console.Common.Formatting;
+using Bannerlord.GameMaster.Console.Common.Parsing;
+using Bannerlord.GameMaster.Console.Common.Validation;
+using Bannerlord.GameMaster.Heroes;
+using System.Collections.Generic;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
+
+namespace Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands;
+
+/// <summary>
+/// Rename a hero
+/// Usage: gm.hero.rename [heroQuery] [name]
+/// </summary>
+public static class RenameHeroCommand
+{
+    [CommandLineFunctionality.CommandLineArgumentFunction("rename", "gm.hero")]
+    public static string RenameHero(List<string> args)
+    {
+        return Cmd.Run(args, () =>
+        {
+            // MARK: Validation
+            if (!CommandValidator.ValidateCampaignState(out string error))
+                return error;
+
+            string usageMessage = CommandValidator.CreateUsageMessage(
+                "gm.hero.rename", "<heroQuery> <name>",
+                "Renames the specified hero. Use SINGLE QUOTES for multi-word names.\n" +
+                "- heroQuery/hero: hero ID or name query to find a single hero\n" +
+                "- name: the new name for the hero\n" +
+                "Supports named arguments: hero:lord_1_1 name:'Sir Galahad'",
+                "gm.hero.rename lord_1_1 'Sir Galahad'\n" +
+                "gm.hero.rename hero:'old hero name' name:NewName");
+
+            ParsedArguments parsed = ArgumentParser.ParseArguments(args);
+
+            parsed.SetValidArguments(
+                new ArgumentDefinition("heroQuery", true, null, "hero"),
+                new ArgumentDefinition("name", true)
+            );
+
+            string validationError = parsed.GetValidationError();
+            if (validationError != null)
+                return MessageFormatter.FormatErrorMessage(validationError);
+
+            if (parsed.TotalCount < 2)
+                return usageMessage;
+
+            // MARK: Parse Arguments
+            string heroQuery = parsed.GetArgument("heroQuery", 0) ?? parsed.GetNamed("hero");
+            if (heroQuery == null)
+                return MessageFormatter.FormatErrorMessage("Missing required argument 'heroQuery'.");
+
+            EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroQuery);
+            if (!heroResult.IsSuccess) return heroResult.Message;
+            Hero hero = heroResult.Entity;
+
+            string newName = parsed.GetArgument("name", 1);
+            if (string.IsNullOrWhiteSpace(newName))
+                return MessageFormatter.FormatErrorMessage("Missing or empty required argument 'name'.");
+
+            // MARK: Execute Logic
+            Dictionary<string, string> resolvedValues = new()
+            {
+                { "heroQuery", hero.Name.ToString() },
+                { "name", newName }
+            };
+
+            string previousName = hero.Name.ToString();
+            hero.SetStringName(newName);
+
+            string argumentDisplay = parsed.FormatArgumentDisplay("rename", resolvedValues);
+            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                $"Hero renamed from '{previousName}' to '{hero.Name}' (ID: {hero.StringId})");
+        });
+    }
+}
