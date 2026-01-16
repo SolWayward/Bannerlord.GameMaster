@@ -26,9 +26,9 @@ namespace Bannerlord.GameMaster
 
         #region Fields
 
-        readonly public static int maxBlgmHeroes = 500;
-        readonly public static int maxBlgmClans = 100;
-        readonly public static int maxBlgmKingdoms = 10;
+        readonly public static int maxBlgmHeroes = 1000;
+        readonly public static int maxBlgmClans = 200;
+        readonly public static int maxBlgmKingdoms = 20;
 
         /// <summary>
         /// Limits to prevent performance decline <br />
