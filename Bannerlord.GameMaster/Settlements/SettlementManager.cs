@@ -2,6 +2,8 @@ using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Settlements;
 using Bannerlord.GameMaster.Information;
+using Bannerlord.GameMaster.Common;
+using Bannerlord.GameMaster.Behaviours;
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem.Actions;
 
@@ -9,7 +11,7 @@ namespace Bannerlord.GameMaster.Settlements
 {
     /// <summary>
     /// Manages Settlements for BLGM actions.<br/>
-    /// Remaining Settlement logic should be refactored out of commands to here or similar classes
+    /// Main entry point for settlement operations including renaming with persistence.
     /// </summary>
     public static class SettlementManager
     {
@@ -146,5 +148,87 @@ namespace Bannerlord.GameMaster.Settlements
 
             return settlement.BoundVillages?.Count ?? 0;
         }
+
+        #region Settlement Naming
+
+        /// <summary>
+        /// Gets the SettlementNameBehavior instance from the current campaign.
+        /// </summary>
+        private static SettlementNameBehavior GetNameBehavior()
+        {
+            return Campaign.Current?.GetCampaignBehavior<SettlementNameBehavior>();
+        }
+
+        /// <summary>
+        /// Renames Settlement and calls behavior to save the settlement name ensuring persistence
+        /// </summary>
+        /// <returns>BLGMResult indicating success or failure with a message</returns>
+        public static BLGMResult RenameSettlement(Settlement settlement, string newName)
+        {
+            SettlementNameBehavior behavior = GetNameBehavior();
+            if (behavior == null)
+                return new BLGMResult(false, "Cannot rename settlement: SettlementNameBehavior not found (campaign not loaded?)");
+
+            return behavior.RenameSettlement(settlement, newName);
+        }
+
+        /// <summary>
+        /// Resets a settlement to its original name.
+        /// </summary>
+        /// <returns>BLGMResult indicating success or failure with a message</returns>
+        public static BLGMResult ResetSettlementName(Settlement settlement)
+        {
+            SettlementNameBehavior behavior = GetNameBehavior();
+            if (behavior == null)
+                return new BLGMResult(false, "Failed to reset settlement name: SettlementNameBehavior not found (campaign not loaded?)");
+
+            return behavior.ResetSettlementName(settlement);
+        }
+
+        /// <summary>
+        /// Resets all renamed settlements to their original names.
+        /// </summary>
+        /// <returns>BLGMResult with count of reset settlements</returns>
+        public static BLGMResult ResetAllSettlementNames()
+        {
+            SettlementNameBehavior behavior = GetNameBehavior();
+            if (behavior == null)
+                return new BLGMResult(false, "Failed to reset settlement name: SettlementNameBehavior not found (campaign not loaded?)");
+
+            return behavior.ResetAllSettlementNames();
+        }
+
+        /// <summary>
+        /// Gets the original name of a settlement if it was renamed.
+        /// </summary>
+        /// <param name="settlement">The settlement to check</param>
+        /// <returns>Original name if renamed, null otherwise</returns>
+        public static string GetOriginalSettlementName(Settlement settlement)
+        {
+            SettlementNameBehavior behavior = GetNameBehavior();
+            return behavior?.GetOriginalName(settlement);
+        }
+
+        /// <summary>
+        /// Checks if a settlement has been renamed.
+        /// </summary>
+        /// <param name="settlement">The settlement to check</param>
+        /// <returns>True if the settlement has a custom name</returns>
+        public static bool IsSettlementRenamed(Settlement settlement)
+        {
+            SettlementNameBehavior behavior = GetNameBehavior();
+            return behavior?.IsRenamed(settlement) ?? false;
+        }
+
+        /// <summary>
+        /// Gets the count of renamed settlements.
+        /// </summary>
+        public static int GetRenamedSettlementCount()
+        {
+            SettlementNameBehavior behavior = GetNameBehavior();
+            return behavior?.GetRenamedSettlementCount() ?? 0;
+        }
+
+        #endregion
     }
 }

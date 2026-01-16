@@ -1,11 +1,11 @@
-using Bannerlord.GameMaster.Behaviours;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Parsing;
 using Bannerlord.GameMaster.Console.Common.Validation;
+using Bannerlord.GameMaster.Settlements;
 using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Library;
 
@@ -60,12 +60,9 @@ public static class RenameSettlementCommand
             // MARK: Execute Logic
             string previousName = settlement.Name.ToString();
 
-            SettlementNameBehavior behavior = Campaign.Current.GetCampaignBehavior<SettlementNameBehavior>();
-            if (behavior == null)
-                return MessageFormatter.FormatErrorMessage("Settlement name behavior not initialized. Please restart the game.");
-
-            if (!behavior.RenameSettlement(settlement, newName))
-                return MessageFormatter.FormatErrorMessage("Failed to rename settlement. Check the error log for details.");
+            BLGMResult result = SettlementManager.RenameSettlement(settlement, newName);
+            if (!result.wasSuccessful)
+                return MessageFormatter.FormatErrorMessage(result.message);
 
             Dictionary<string, string> resolvedValues = new()
             {
@@ -77,7 +74,7 @@ public static class RenameSettlementCommand
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement renamed from '{previousName}' to '{settlement.Name}' (ID: {settlement.StringId}).\n" +
                 $"The new name will persist through save/load cycles.\n" +
-                $"Note: Map label may take a moment to update.");
-        });
+                $"The name may not visual update on the campaign map immediately, Open and Close any menu to refresh name");
+    });
     }
 }

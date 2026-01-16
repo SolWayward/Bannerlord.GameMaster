@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Settlements;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Common.Interfaces;
 
 namespace Bannerlord.GameMaster.Settlements
@@ -37,6 +38,31 @@ namespace Bannerlord.GameMaster.Settlements
 
         /// <inheritdoc cref="SettlementManager.ChangeSettlementOwner"/>
         public static void ChangeOwner(this Settlement settlement, Hero hero) => SettlementManager.ChangeSettlementOwner(settlement, hero);
+        
+        /// <summary>
+        /// Renames a settlement with persistence. The name change will persist through save/load cycles.
+        /// </summary>
+        /// <param name="settlement">The settlement to rename</param>
+        /// <param name="newName">The new name for the settlement</param>
+        /// <returns>BLGMResult indicating success or failure with a message</returns>
+        public static BLGMResult Rename(this Settlement settlement, string newName) => SettlementManager.RenameSettlement(settlement, newName);
+
+        /// <summary>
+        /// Resets a settlement's name to its original value.
+        /// </summary>
+        /// <param name="settlement">The settlement to reset</param>
+        /// <returns>BLGMResult indicating success or failure with a message</returns>
+        public static BLGMResult ResetName(this Settlement settlement) => SettlementManager.ResetSettlementName(settlement);
+
+        /// <summary>
+        /// Gets settlment original name if renamed, Other Null if not renamed
+        /// </summary>
+        public static string GetOriginalName(this Settlement settlement) => SettlementManager.GetOriginalSettlementName(settlement);
+
+        /// <summary>
+        /// Returns true if the settlement was renamed
+        /// </summary>
+        public static bool IsRenamed(this Settlement settlement) => SettlementManager.IsSettlementRenamed(settlement);
         
         #endregion
 

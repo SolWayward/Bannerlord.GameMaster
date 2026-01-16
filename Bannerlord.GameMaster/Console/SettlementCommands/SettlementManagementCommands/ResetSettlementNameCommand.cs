@@ -1,11 +1,11 @@
-using Bannerlord.GameMaster.Behaviours;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Parsing;
 using Bannerlord.GameMaster.Console.Common.Validation;
+using Bannerlord.GameMaster.Settlements;
 using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Library;
 
@@ -51,18 +51,15 @@ public static class ResetSettlementNameCommand
             Settlement settlement = settlementResult.Entity;
 
             // MARK: Execute Logic
-            SettlementNameBehavior behavior = Campaign.Current.GetCampaignBehavior<SettlementNameBehavior>();
-            if (behavior == null)
-                return MessageFormatter.FormatErrorMessage("Settlement name behavior not initialized. Please restart the game.");
-
-            if (!behavior.IsRenamed(settlement))
+            if (!SettlementManager.IsSettlementRenamed(settlement))
                 return MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' (ID: {settlement.StringId}) has not been renamed.");
 
-            string originalName = behavior.GetOriginalName(settlement);
+            string originalName = SettlementManager.GetOriginalSettlementName(settlement);
             string currentName = settlement.Name.ToString();
 
-            if (!behavior.ResetSettlementName(settlement))
-                return MessageFormatter.FormatErrorMessage("Failed to reset settlement name. Check the error log for details.");
+            BLGMResult result = SettlementManager.ResetSettlementName(settlement);
+            if (!result.wasSuccessful)
+                return MessageFormatter.FormatErrorMessage(result.message);
 
             Dictionary<string, string> resolvedValues = new()
             {

@@ -1,9 +1,9 @@
-using Bannerlord.GameMaster.Behaviours;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Validation;
+using Bannerlord.GameMaster.Settlements;
 using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands;
@@ -32,18 +32,15 @@ public static class ResetAllSettlementNamesCommand
                 return usageMessage;
 
             // MARK: Execute Logic
-            SettlementNameBehavior behavior = Campaign.Current.GetCampaignBehavior<SettlementNameBehavior>();
-            if (behavior == null)
-                return MessageFormatter.FormatErrorMessage("Settlement name behavior not initialized. Please restart the game.");
-
-            int renamedCount = behavior.GetRenamedSettlementCount();
+            int renamedCount = SettlementManager.GetRenamedSettlementCount();
             if (renamedCount == 0)
                 return MessageFormatter.FormatSuccessMessage("No settlements have been renamed.");
 
-            int resetCount = behavior.ResetAllSettlementNames();
+            BLGMResult result = SettlementManager.ResetAllSettlementNames();
+            if (!result.wasSuccessful)
+                return MessageFormatter.FormatErrorMessage(result.message);
 
-            return MessageFormatter.FormatSuccessMessage(
-                $"Reset {resetCount} settlement(s) to their original names.");
+            return MessageFormatter.FormatSuccessMessage(result.message);
         });
     }
 }
