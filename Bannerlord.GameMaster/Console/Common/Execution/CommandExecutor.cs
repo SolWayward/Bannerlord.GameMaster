@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Bannerlord.GameMaster.Console.Common.Parsing;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Console.Common.Execution
 {
@@ -10,6 +12,10 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
     /// </summary>
     public static class CommandExecutor
     {
+        // Cached Command Fields Reflection
+        private static readonly FieldInfo NameField = typeof(CommandLineFunctionality.CommandLineArgumentFunction).GetField("Name");
+        private static readonly FieldInfo GroupNameField = typeof(CommandLineFunctionality.CommandLineArgumentFunction).GetField("GroupName");
+        
         // MARK: Run Methods (String Return)
 
         /// <summary>
@@ -131,16 +137,12 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
                     for (int i = 0; i < attributes.Length; i++)
                     {
                         Type attrType = attributes[i].GetType();
-                        if (attrType.Name == "CommandLineArgumentFunctionAttribute")
+                        if (attrType == typeof(CommandLineFunctionality.CommandLineArgumentFunction))
                         {
-                            // Use reflection to get attribute properties
-                            System.Reflection.PropertyInfo nameProperty = attrType.GetProperty("Name");
-                            System.Reflection.PropertyInfo parentProperty = attrType.GetProperty("ParentCommandName");
-
-                            if (nameProperty != null && parentProperty != null)
+                            if (NameField != null && GroupNameField != null)
                             {
-                                string name = nameProperty.GetValue(attributes[i]) as string;
-                                string parent = parentProperty.GetValue(attributes[i]) as string;
+                                string name = NameField.GetValue(attributes[i]) as string;
+                                string parent = GroupNameField.GetValue(attributes[i]) as string;
 
                                 // Build command name
                                 string commandName = string.IsNullOrEmpty(parent) ? name : $"{parent}.{name}";
