@@ -137,6 +137,8 @@ namespace Bannerlord.GameMaster.Party
 			}
 		}
 
+		/// MARK: Disband / Destroy
+
 		/// <summary>
 		/// Start disband action
 		/// </summary>

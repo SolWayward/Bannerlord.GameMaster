@@ -6,6 +6,7 @@ using TaleWorlds.CampaignSystem.Settlements;
 using Bannerlord.GameMaster.Common.Interfaces;
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Formatting;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Settlements
 {
@@ -26,7 +27,7 @@ namespace Bannerlord.GameMaster.Settlements
         }
 
         /// <summary>
-        /// Main unified method to find settlements by search string and type flags
+        /// Main unified method to find settlements by search string and type flags<br />
         /// </summary>
         /// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
         /// <param name="requiredTypes">Settlement type flags (AND logic by default)</param>

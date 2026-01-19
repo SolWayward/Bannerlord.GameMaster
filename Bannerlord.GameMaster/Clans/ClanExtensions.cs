@@ -1,9 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
 using TaleWorlds.Localization;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Clans
 {
@@ -91,7 +93,59 @@ namespace Bannerlord.GameMaster.Clans
 		public static ClanTypes GetTypes(this Clan clan) => clan.GetClanTypes();
 
 	#endregion
-		#region Clan Tier
+
+		/// MARK: Get Settlements
+		/// <summary>Gets all Fortifications (Towns and Castles) within the Clan</summary>
+		public static MBReadOnlyList<Settlement> GetFortifications(this Clan clan)
+		{
+			MBList<Settlement> result = new();
+			for (int i = 0; i < clan.Settlements.Count; i++)
+			{
+				Settlement settlement = clan.Settlements[i];
+				if (settlement.IsFortification)
+					result.Add(settlement);
+			}
+			return result;
+		}
+	
+		/// <summary>Gets all Towns within the Clan</summary>
+		public static MBReadOnlyList<Settlement> GetTowns(this Clan clan)
+		{
+			MBList<Settlement> result = new();
+			for (int i = 0; i < clan.Settlements.Count; i++)
+			{
+				Settlement settlement = clan.Settlements[i];
+				if (settlement.IsTown)
+					result.Add(settlement);
+			}
+			return result;
+		}
+	
+		/// <summary>Gets all Castles within the Clan</summary>
+		public static MBReadOnlyList<Settlement> GetCastles(this Clan clan)
+		{
+			MBList<Settlement> result = new();
+			for (int i = 0; i < clan.Settlements.Count; i++)
+			{
+				Settlement settlement = clan.Settlements[i];
+				if (settlement.IsCastle)
+					result.Add(settlement);
+			}
+			return result;
+		}
+	
+		/// <summary>Gets all Villages within the Clan</summary>
+		public static MBReadOnlyList<Settlement> GetVillages(this Clan clan)
+		{
+			MBList<Settlement> result = new();
+			for (int i = 0; i < clan.Settlements.Count; i++)
+			{
+				Settlement settlement = clan.Settlements[i];
+				if (settlement.IsVillage)
+					result.Add(settlement);
+			}
+			return result;
+		}
 
 		/// <summary>
 		/// Set clan tier to a specified tier between 0 and 6
@@ -115,8 +169,6 @@ namespace Bannerlord.GameMaster.Clans
 
 			return true;
 		}
-
-		#endregion
 
 		/// MARK: SetStringName
 		/// <summary>

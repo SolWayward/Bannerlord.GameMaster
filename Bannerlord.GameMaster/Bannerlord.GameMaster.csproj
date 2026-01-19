@@ -4,6 +4,7 @@
     <Version>1.3.13.12</Version>
     <TargetFrameworks>net472;net6</TargetFrameworks>
     <Platforms>x64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <LangVersion>10.0</LangVersion>
     <Nullable>disable</Nullable>
@@ -29,28 +30,18 @@
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
-  <!-- Development Variables -->
   <PropertyGroup>
-    <!--
-    <BUTRSharedVersion>3.0.0.135</BUTRSharedVersion>
-    <BUTRModuleManagerVersion>5.0.198</BUTRModuleManagerVersion>
-    -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <!-- Xml Documentation Missing Warning -->
+  <PropertyGroup>
+    <NoWarn>CS1591;CS1573;CS1572;CS1570</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" PrivateAssets="all" IncludeAssets="compile" />
-    <PackageReference Include="BUTR.Harmony.Analyzer" Version="1.0.1.50" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
     <PackageReference Include="System.Memory" Version="4.6.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Debug\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="_Module\SubModule.xml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
