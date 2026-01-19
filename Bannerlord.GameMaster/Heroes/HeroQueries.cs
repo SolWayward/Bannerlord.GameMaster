@@ -1,30 +1,28 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using TaleWorlds.CampaignSystem;
-using Bannerlord.GameMaster.Common.Interfaces;
-using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Formatting;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Heroes
 {
 	/// <summary>
-	/// Provides utility methods for working with hero entities.
+	/// Provides query methods for searching, finding, filtering, or sorting hero entities.
 	/// </summary>
 	public static class HeroQueries
 	{
 		#region Query
 
 		/// <summary>
-		/// Finds a hero with the specified heroId, using a case-insensitive comparison.
+		/// Finds a hero with the specified heroId, Fast but case sensitive (all string ids SHOULD be lower case) <br />
+		/// Use QueryHeroes().FirstOrDefault() to find hero with case insensitive partial name or partial stringIds <br />
+		/// Example: QueryHeroes("Henry").FirstOrDefault()
 		/// </summary>
-		public static Hero GetHeroById(string heroId)
-		{
-			return Hero.FindFirst(h => h.StringId.Equals(heroId, StringComparison.OrdinalIgnoreCase));
-		}
+		public static Hero GetHeroById(string heroId) => Hero.Find(heroId);
 
 		/// <summary>
-		/// Main unified method to find heroes by search string and type flags
+		/// Performance focused method to find heroes matching multiple parameters. All parameters are optional and can be used with none, one or a combination of any parameters<br />
+		/// Note: <paramref name="query"/> parameter is a string used that will match partial hero names or partial stringIds
 		/// </summary>
 		/// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
 		/// <param name="requiredTypes">Hero type flags that ALL must match (AND logic)</param>
@@ -33,7 +31,7 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="sortBy">Sort field (id, name, age, clan, kingdom, or any HeroType flag)</param>
 		/// <param name="sortDescending">True for descending, false for ascending</param>
 		/// <returns>List of heroes matching all criteria</returns>
-		public static List<Hero> QueryHeroes(
+		public static MBReadOnlyList<Hero> QueryHeroes(
 			string query = "",
 			HeroTypes requiredTypes = HeroTypes.None,
 			bool matchAll = true,
@@ -41,95 +39,154 @@ namespace Bannerlord.GameMaster.Heroes
 			string sortBy = "id",
 			bool sortDescending = false)
 		{
-			// Handle player alias - "player" is an alias for "main_hero"
+			// Handle player alias
 			if (!string.IsNullOrEmpty(query) && query.Equals("player", StringComparison.OrdinalIgnoreCase))
 			{
 				query = "main_hero";
 			}
 
-			IEnumerable<Hero> heroes;
+			// Determine source collection
+			MBReadOnlyList<Hero> aliveSource = Hero.AllAliveHeroes;
+			MBReadOnlyList<Hero> deadSource = Hero.DeadOrDisabledHeroes;
 
-			// When using OR logic with life status flags (Alive or Dead), search both collections
-			// to ensure we find all matching heroes regardless of life status
-			if (!matchAll && requiredTypes != HeroTypes.None &&
-				(requiredTypes.HasFlag(HeroTypes.Alive) || requiredTypes.HasFlag(HeroTypes.Dead)))
-			{
-				// Search both alive and dead heroes for OR queries involving life status
-				heroes = Hero.AllAliveHeroes.Concat(Hero.DeadOrDisabledHeroes);
-			}
-			else
-			{
-				// For AND queries or queries without life status flags, use the standard collection
-				heroes = includeDead ? Hero.DeadOrDisabledHeroes : Hero.AllAliveHeroes;
-			}
+			bool searchBoth = !matchAll && requiredTypes != HeroTypes.None &&
+				(requiredTypes.HasFlag(HeroTypes.Alive) || requiredTypes.HasFlag(HeroTypes.Dead));
 
-			// Filter by name/ID if provided
-			if (!string.IsNullOrEmpty(query))
-			{
-				string lowerFilter = query.ToLower();
-				heroes = heroes.Where(h =>
-					h.Name.ToString().ToLower().Contains(lowerFilter) ||
-					h.StringId.ToLower().Contains(lowerFilter));
-			}
+			int estimatedCapacity = searchBoth
+				? aliveSource.Count + deadSource.Count
+				: (includeDead ? deadSource.Count : aliveSource.Count);
 
-			// Filter by hero types
-			if (requiredTypes != HeroTypes.None)
+			MBReadOnlyList<Hero> results = new(estimatedCapacity);
+
+			bool hasQuery = !string.IsNullOrEmpty(query);
+			bool hasTypes = requiredTypes != HeroTypes.None;
+
+			// Filter alive heroes
+			if (searchBoth || !includeDead)
 			{
-				heroes = heroes.Where(h => matchAll ? h.HasAllTypes(requiredTypes) : h.HasAnyType(requiredTypes));
+				for (int i = 0; i < aliveSource.Count; i++)
+				{
+					Hero h = aliveSource[i];
+					if (MatchesFilters(h, query, hasQuery, requiredTypes, hasTypes, matchAll))
+					{
+						results.Add(h);
+					}
+				}
 			}
 
-			// Apply sorting
-			heroes = ApplySorting(heroes, sortBy, sortDescending);
+			// Filter dead heroes
+			if (searchBoth || includeDead)
+			{
+				for (int i = 0; i < deadSource.Count; i++)
+				{
+					Hero h = deadSource[i];
+					if (MatchesFilters(h, query, hasQuery, requiredTypes, hasTypes, matchAll))
+					{
+						results.Add(h);
+					}
+				}
+			}
 
-			return heroes.ToList();
+			// Sorting - only if needed
+			if (results.Count > 1)
+			{
+				IComparer<Hero> comparer = GetHeroComparer(sortBy, sortDescending);
+				results.Sort(comparer);
+			}
+
+			return results;
 		}
-
-		#endregion
-		#region Sorting
 
 		/// <summary>
-		/// Apply sorting to heroes collection
+		/// Check if hero matches all filter criteria
 		/// </summary>
-		private static IEnumerable<Hero> ApplySorting(
-			IEnumerable<Hero> heroes,
-			string sortBy,
-			bool descending)
+		public static bool MatchesFilters(
+			Hero h,
+			string query,
+			bool hasQuery,
+			HeroTypes requiredTypes,
+			bool hasTypes,
+			bool matchAll)
 		{
-			sortBy = sortBy.ToLower();
-
-			// Check if sortBy matches a HeroType flag
-			if (Enum.TryParse<HeroTypes>(sortBy, true, out var heroType) && heroType != HeroTypes.None)
+			// Name/ID filter using OrdinalIgnoreCase (no string allocation)
+			if (hasQuery)
 			{
-				// Sort by whether hero has this type flag
-				return descending
-					? heroes.OrderByDescending(h => h.GetHeroTypes().HasFlag(heroType))
-					: heroes.OrderBy(h => h.GetHeroTypes().HasFlag(heroType));
+				bool nameMatch = h.Name.ToString().IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
+				bool idMatch = h.StringId.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
+				if (!nameMatch && !idMatch)
+					return false;
 			}
 
-			// Sort by standard fields
-			IOrderedEnumerable<Hero> orderedHeroes = sortBy switch
+			// Type filter
+			if (hasTypes)
 			{
-				"name" => descending
-					? heroes.OrderByDescending(h => h.Name.ToString())
-					: heroes.OrderBy(h => h.Name.ToString()),
-				"age" => descending
-					? heroes.OrderByDescending(h => h.Age)
-					: heroes.OrderBy(h => h.Age),
-				"clan" => descending
-					? heroes.OrderByDescending(h => h.Clan?.Name?.ToString() ?? "")
-					: heroes.OrderBy(h => h.Clan?.Name?.ToString() ?? ""),
-				"kingdom" => descending
-					? heroes.OrderByDescending(h => h.Clan?.Kingdom?.Name?.ToString() ?? "")
-					: heroes.OrderBy(h => h.Clan?.Kingdom?.Name?.ToString() ?? ""),
-				_ => descending  // default to id
-					? heroes.OrderByDescending(h => h.StringId)
-					: heroes.OrderBy(h => h.StringId)
-			};
+				bool matches = matchAll ? h.HasAllTypes(requiredTypes) : h.HasAnyType(requiredTypes);
+				if (!matches)
+					return false;
+			}
 
-			return orderedHeroes;
+			return true;
 		}
 
+		/// <summary>
+		/// Get comparer for hero sorting
+		/// </summary>
+		public static IComparer<Hero> GetHeroComparer(string sortBy, bool descending)
+		{
+			sortBy = sortBy.ToLowerInvariant();
+
+			// Check if sortBy matches a HeroType flag
+			if (Enum.TryParse<HeroTypes>(sortBy, true, out HeroTypes heroType) && heroType != HeroTypes.None)
+			{
+				return Comparer<Hero>.Create((a, b) =>
+				{
+					bool aHas = a.GetHeroTypes().HasFlag(heroType);
+					bool bHas = b.GetHeroTypes().HasFlag(heroType);
+					int result = aHas.CompareTo(bHas);
+					return descending ? -result : result;
+				});
+			}
+
+			// Standard field comparers
+			return sortBy switch
+			{
+				"name" => Comparer<Hero>.Create((a, b) =>
+				{
+					int result = string.Compare(a.Name.ToString(), b.Name.ToString(), StringComparison.Ordinal);
+					return descending ? -result : result;
+				}),
+				"age" => Comparer<Hero>.Create((a, b) =>
+				{
+					int result = a.Age.CompareTo(b.Age);
+					return descending ? -result : result;
+				}),
+				"clan" => Comparer<Hero>.Create((a, b) =>
+				{
+					int result = string.Compare(
+						a.Clan?.Name?.ToString() ?? "",
+						b.Clan?.Name?.ToString() ?? "",
+						StringComparison.Ordinal);
+					return descending ? -result : result;
+				}),
+				"kingdom" => Comparer<Hero>.Create((a, b) =>
+				{
+					int result = string.Compare(
+						a.Clan?.Kingdom?.Name?.ToString() ?? "",
+						b.Clan?.Kingdom?.Name?.ToString() ?? "",
+						StringComparison.Ordinal);
+					return descending ? -result : result;
+				}),
+				_ => Comparer<Hero>.Create((a, b) =>  // default: id
+				{
+					int result = string.Compare(a.StringId, b.StringId, StringComparison.Ordinal);
+					return descending ? -result : result;
+				})
+			};
+		}
+
+
 		#endregion
+
 		#region Parsing / Formatting
 
 		/// <summary>
@@ -137,7 +194,7 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		public static HeroTypes ParseHeroType(string typeString)
 		{
-			if (Enum.TryParse<HeroTypes>(typeString, true, out var result))
+			if (Enum.TryParse<HeroTypes>(typeString, true, out HeroTypes result))
 				return result;
 			return HeroTypes.None;
 		}
@@ -148,12 +205,13 @@ namespace Bannerlord.GameMaster.Heroes
 		public static HeroTypes ParseHeroTypes(IEnumerable<string> typeStrings)
 		{
 			HeroTypes combined = HeroTypes.None;
-			foreach (var typeString in typeStrings)
+			foreach (string typeString in typeStrings)
 			{
-				var parsed = ParseHeroType(typeString);
+				HeroTypes parsed = ParseHeroType(typeString);
 				if (parsed != HeroTypes.None)
 					combined |= parsed;
 			}
+			
 			return combined;
 		}
 
@@ -176,23 +234,6 @@ namespace Bannerlord.GameMaster.Heroes
 				h => $"Kingdom: {h.Clan?.Kingdom?.Name?.ToString() ?? "None"}"
 			);
 		}
-
 		#endregion
 	}
-
-	#region Wrapper
-
-	/// <summary>
-	/// Wrapper class implementing IEntityQueries interface for Hero entities
-	/// </summary>
-	public class HeroQueriesWrapper : IEntityQueries<Hero, HeroTypes>
-	{
-		public Hero GetById(string id) => HeroQueries.GetHeroById(id);
-		public List<Hero> Query(string query, HeroTypes types, bool matchAll) => HeroQueries.QueryHeroes(query, types, matchAll);
-		public HeroTypes ParseType(string typeString) => HeroQueries.ParseHeroType(typeString);
-		public HeroTypes ParseTypes(IEnumerable<string> typeStrings) => HeroQueries.ParseHeroTypes(typeStrings);
-		public string GetFormattedDetails(List<Hero> entities) => HeroQueries.GetFormattedDetails(entities);
-	}
-
-	#endregion
 }

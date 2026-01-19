@@ -27,7 +27,7 @@
   <SubModules>
     <SubModule>
       <Name value="$modulename$" />
-      <DLLName value="$moduleid$.$gameversion$.dll" />
+      <DLLName value="$moduleid$.dll" />
       <SubModuleClassType value="$moduleid$.SubModule" />
       <Tags />
     </SubModule>
