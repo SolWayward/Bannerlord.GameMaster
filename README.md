@@ -7,18 +7,11 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update 1.3.13.11
+## Latest Update 1.3.13.12
 ```
-Reworked Command System (Behind the scenes, still works the same for the user)
-Reworked How Heroes, Clans, and Kingdoms are generated in previous version
-Everything Should be smoother and Heroes, Clans, and Kingdoms will fully interact as if they were native
+General Performance Improvements
+```  
 
-Raised Object Creation Soft Limits
-Limit can still be bypassed using 'gm.ignore_limits true' Once per game
-
-Enabled auto command Logging 
-Documents/Mount and Blade II Bannerlord/Configs/GameMaster/command_log_xxxx.txt
-```
 ## Key Features
 
 - **Hero Management** - Modify attributes, gold, health, relationships, life state
