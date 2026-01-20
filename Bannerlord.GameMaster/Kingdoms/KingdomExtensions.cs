@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using TaleWorlds.CampaignSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
 using TaleWorlds.CampaignSystem.Settlements;
@@ -36,7 +35,7 @@ namespace Bannerlord.GameMaster.Kingdoms
 				types |= KingdomTypes.Active;
 
 			// Check if kingdom has no clans or heroes
-			if (kingdom.Clans.Count == 0 || kingdom.Heroes.Count() == 0)
+			if (kingdom.Clans.Count == 0 || kingdom.Heroes.Count == 0)
 				types |= KingdomTypes.Empty;
 
 			if (kingdom == Hero.MainHero.MapFaction as Kingdom)
@@ -44,8 +43,10 @@ namespace Bannerlord.GameMaster.Kingdoms
 
 			// Check if at war with anyone
 			bool atWar = false;
-			foreach (var otherKingdom in Kingdom.All)
+			MBReadOnlyList<Kingdom> allKingdoms = Kingdom.All;
+			for (int i = 0; i < allKingdoms.Count; i++)
 			{
+				Kingdom otherKingdom = allKingdoms[i];
 				if (otherKingdom != kingdom && FactionManager.IsAtWarAgainstFaction(kingdom, otherKingdom))
 				{
 					atWar = true;
@@ -64,7 +65,7 @@ namespace Bannerlord.GameMaster.Kingdoms
 		public static bool HasAllTypes(this Kingdom kingdom, KingdomTypes types)
 		{
 			if (types == KingdomTypes.None) return true;
-			var kingdomTypes = kingdom.GetKingdomTypes();
+			KingdomTypes kingdomTypes = kingdom.GetKingdomTypes();
 			return (kingdomTypes & types) == types;
 		}
 
@@ -74,7 +75,7 @@ namespace Bannerlord.GameMaster.Kingdoms
 		public static bool HasAnyType(this Kingdom kingdom, KingdomTypes types)
 		{
 			if (types == KingdomTypes.None) return true;
-			var kingdomTypes = kingdom.GetKingdomTypes();
+			KingdomTypes kingdomTypes = kingdom.GetKingdomTypes();
 			return (kingdomTypes & types) != KingdomTypes.None;
 		}
 
@@ -137,7 +138,7 @@ namespace Bannerlord.GameMaster.Kingdoms
 		/// </summary>
 		public static string FormattedDetails(this Kingdom kingdom)
 		{
-			int heroCount = kingdom.Heroes.Count();
+			int heroCount = kingdom.Heroes.Count;
 			return $"{kingdom.StringId}\t{kingdom.Name}\tClans: {kingdom.Clans.Count}\tHeroes: {heroCount}\t" +
 				   $"RulingClan: {kingdom.RulingClan?.Name}\tRuler: {kingdom.Leader?.Name}";
 		}

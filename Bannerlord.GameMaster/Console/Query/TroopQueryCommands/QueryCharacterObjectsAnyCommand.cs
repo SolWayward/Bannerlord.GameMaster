@@ -1,7 +1,7 @@
+using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
-using Bannerlord.GameMaster.Troops;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
@@ -9,12 +9,13 @@ using TaleWorlds.Library;
 namespace Bannerlord.GameMaster.Console.Query.TroopQueryCommands;
 
 /// <summary>
-/// UNFILTERED query for ALL CharacterObjects (except heroes) matching ANY of the specified types (OR logic)
-/// WARNING: Returns NPCs, templates, children, etc. - not just combat troops
-/// Usage: gm.query.character_objects_any [search terms] [type keywords] [tier] [sort parameters]
-/// Example: gm.query.character_objects_any cavalry ranged (cavalry OR ranged)
-/// Example: gm.query.character_objects_any bow crossbow tier4
-/// Note: Use gm.query.troop_any for filtered combat troops only
+/// Query ALL CharacterObjects matching ANY of the specified types (OR logic).
+/// Returns EVERYTHING by default (heroes, troops, templates, NPCs).
+/// Use type keywords to filter specific categories.
+/// Usage: gm.query.character_objects_any [search terms] [type keywords] [culture keywords] [tier] [sort parameters]
+/// Example: gm.query.character_objects_any hero troop (returns characters that are EITHER hero OR troop)
+/// Example: gm.query.character_objects_any lord wanderer (returns lords OR wanderers)
+/// Example: gm.query.character_objects_any cavalry ranged tier4
 /// </summary>
 public static class QueryCharacterObjectsAnyCommand
 {
@@ -28,33 +29,32 @@ public static class QueryCharacterObjectsAnyCommand
                 return error;
 
             // MARK: Parse Arguments
-            TroopQueryArguments queryArgs = TroopQueryHelpers.ParseTroopQueryArguments(args);
+            CharacterQueryArguments queryArgs = CharacterQueryHelpers.ParseCharacterQueryArguments(args);
 
             // MARK: Execute Logic
-            List<CharacterObject> matchedCharacters = TroopQueries.QueryCharacterObjects(
-                queryArgs.QueryArgs.Query, 
-                queryArgs.Types, 
-                matchAll: false, 
-                queryArgs.Tier, 
-                queryArgs.QueryArgs.SortBy, 
+            MBReadOnlyList<CharacterObject> matchedCharacters = CharacterQueries.QueryCharacterObjects(
+                queryArgs.QueryArgs.Query,
+                queryArgs.Types,
+                matchAll: false, // OR logic - match ANY of the specified types
+                queryArgs.Cultures,
+                queryArgs.Tier,
+                queryArgs.QueryArgs.SortBy,
                 queryArgs.QueryArgs.SortDesc);
 
             string criteriaDesc = queryArgs.GetCriteriaString();
 
-            string headerNote = "[WARNING] UNFILTERED QUERY - Shows ALL CharacterObjects (except heroes)\n" +
-                                "Includes NPCs, templates, children, etc. Use gm.query.troop_any for combat troops only.\n\n";
-
             if (matchedCharacters.Count == 0)
             {
-                return headerNote +
-                       $"Found 0 character(s) matching ANY of {criteriaDesc}\n" +
-                       "Usage: gm.query.character_objects_any [search] [type keywords] [tier] [sort]\n" +
-                       "Example: gm.query.character_objects_any cavalry ranged tier3 sort:tier\n";
+                return $"Found 0 character(s) matching ANY of {criteriaDesc}\n" +
+                       "Usage: gm.query.character_objects_any [search] [type keywords] [cultures] [tier] [sort]\n" +
+                       "Uses OR logic - matches characters that have ANY of the specified types.\n" +
+                       "Example: gm.query.character_objects_any hero troop (hero OR troop)\n" +
+                       "Example: gm.query.character_objects_any lord wanderer empire (lord OR wanderer, AND empire culture)\n";
             }
 
-            return headerNote +
-                   $"Found {matchedCharacters.Count} character(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{TroopQueries.GetFormattedDetails(matchedCharacters)}";
+            List<CharacterObject> characterList = new(matchedCharacters);
+            return $"Found {matchedCharacters.Count} character(s) matching ANY of {criteriaDesc}:\n" +
+                   $"{CharacterQueries.GetFormattedDetails(characterList)}";
         });
     }
 }

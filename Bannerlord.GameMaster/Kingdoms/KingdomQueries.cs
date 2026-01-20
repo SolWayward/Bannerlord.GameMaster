@@ -1,221 +1,212 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Party;
-using Bannerlord.GameMaster.Common.Interfaces;
-using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Formatting;
+using TaleWorlds.Library;
+using TaleWorlds.ObjectSystem;
 
 namespace Bannerlord.GameMaster.Kingdoms
 {
+	/// <summary>
+	/// Provides query methods for searching, finding, filtering, or sorting kingdom entities.
+	/// </summary>
 	public static class KingdomQueries
-    {
-        /// <summary>
-        /// Finds a kingdom with the specified kingdomId, using a case-insensitive comparison.
-        /// </summary>
-        public static Kingdom GetKingdomById(string kingdomId)
-        {
-            return Kingdom.All.FirstOrDefault(k => k.StringId.Equals(kingdomId, StringComparison.OrdinalIgnoreCase));
-        }
+	{
+		#region Query
 
-        /// <summary>
-        /// Main unified method to find kingdoms by search string and type flags
-        /// </summary>
-        /// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
-        /// <param name="requiredTypes">Kingdom type flags to match</param>
-        /// <param name="matchAll">If true, kingdom must have ALL flags. If false, kingdom must have ANY flag</param>
-        /// <param name="sortBy">Sort field (id, name, clans, heroes, fiefs, strength, or any KingdomType flag)</param>
-        /// <param name="sortDescending">True for descending, false for ascending</param>
-        /// <returns>List of kingdoms matching all criteria</returns>
-        public static List<Kingdom> QueryKingdoms(
-            string query = "",
-            KingdomTypes requiredTypes = KingdomTypes.None,
-            bool matchAll = true,
-            string sortBy = "id",
-            bool sortDescending = false)
-        {
-            IEnumerable<Kingdom> kingdoms = Kingdom.All;
+		/// <summary>
+		/// Finds a kingdom with the specified kingdomId, Fast but case sensitive (all string ids SHOULD be lower case) <br />
+		/// Use QueryKingdoms().FirstOrDefault() to find kingdom with case insensitive partial name or partial stringIds <br />
+		/// Example: QueryKingdoms("Vlandia").FirstOrDefault()
+		/// </summary>
+		public static Kingdom GetKingdomById(string kingdomId) => Campaign.Current.CampaignObjectManager.Find<Kingdom>(kingdomId);
 
-            // Filter by name/ID if provided
-            if (!string.IsNullOrEmpty(query))
-            {
-                string lowerFilter = query.ToLower();
-                kingdoms = kingdoms.Where(k =>
-                    k.Name.ToString().ToLower().Contains(lowerFilter) ||
-                    k.StringId.ToLower().Contains(lowerFilter));
-            }
+		/// <summary>
+		/// Performance focused method to find kingdoms matching multiple parameters. All parameters are optional and can be used with none, one or a combination of any parameters<br />
+		/// Note: <paramref name="query"/> parameter is a string used that will match partial kingdom names or partial stringIds
+		/// </summary>
+		/// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
+		/// <param name="requiredTypes">Kingdom type flags that ALL must match (AND logic)</param>
+		/// <param name="matchAll">If true, kingdom must have ALL flags. If false, kingdom must have ANY flag</param>
+		/// <param name="sortBy">Sort field (id, name, clans, heroes, fiefs, strength, ruler, or any KingdomType flag)</param>
+		/// <param name="sortDescending">True for descending, false for ascending</param>
+		/// <returns>List of kingdoms matching all criteria</returns>
+		public static MBReadOnlyList<Kingdom> QueryKingdoms(
+			string query = "",
+			KingdomTypes requiredTypes = KingdomTypes.None,
+			bool matchAll = true,
+			string sortBy = "id",
+			bool sortDescending = false)
+		{
+			// Filter kingdoms
+			MBReadOnlyList<Kingdom> source = Kingdom.All;
+			MBReadOnlyList<Kingdom> results = new(source.Count);
 
-            // Filter by kingdom types
-            if (requiredTypes != KingdomTypes.None)
-            {
-                kingdoms = kingdoms.Where(k => matchAll ? k.HasAllTypes(requiredTypes) : k.HasAnyType(requiredTypes));
-            }
+			bool hasQuery = !string.IsNullOrEmpty(query);
+			bool hasTypes = requiredTypes != KingdomTypes.None;
 
-            // Apply sorting
-            kingdoms = ApplySorting(kingdoms, sortBy, sortDescending);
+			for (int i = 0; i < source.Count; i++)
+			{
+				Kingdom k = source[i];
+				if (MatchesFilters(k, query, hasQuery, requiredTypes, hasTypes, matchAll))
+				{
+					results.Add(k);
+				}
+			}
 
-            return kingdoms.ToList();
-        }
+			// Sorting - only if needed
+			if (results.Count > 1)
+			{
+				IComparer<Kingdom> comparer = GetKingdomComparer(sortBy, sortDescending);
+				results.Sort(comparer);
+			}
 
-        /// <summary>
-        /// Apply sorting to kingdoms collection
-        /// </summary>
-        private static IEnumerable<Kingdom> ApplySorting(
-            IEnumerable<Kingdom> kingdoms,
-            string sortBy,
-            bool descending)
-        {
-            sortBy = sortBy.ToLower();
+			return results;
+		}
 
-            // Check if sortBy matches a KingdomType flag
-            if (Enum.TryParse<KingdomTypes>(sortBy, true, out var kingdomType) && kingdomType != KingdomTypes.None)
-            {
-                // Sort by whether kingdom has this type flag
-                return descending
-                    ? kingdoms.OrderByDescending(k => k.GetKingdomTypes().HasFlag(kingdomType))
-                    : kingdoms.OrderBy(k => k.GetKingdomTypes().HasFlag(kingdomType));
-            }
+		/// <summary>
+		/// Check if kingdom matches all filter criteria
+		/// </summary>
+		public static bool MatchesFilters(
+			Kingdom k,
+			string query,
+			bool hasQuery,
+			KingdomTypes requiredTypes,
+			bool hasTypes,
+			bool matchAll)
+		{
+			// Name/ID filter using OrdinalIgnoreCase (no string allocation)
+			if (hasQuery)
+			{
+				bool nameMatch = k.Name.ToString().IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
+				bool idMatch = k.StringId.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
+				if (!nameMatch && !idMatch)
+					return false;
+			}
 
-            // Sort by standard fields
-            IOrderedEnumerable<Kingdom> orderedKingdoms = sortBy switch
-            {
-                "name" => descending
-                    ? kingdoms.OrderByDescending(k => k.Name.ToString())
-                    : kingdoms.OrderBy(k => k.Name.ToString()),
-                "clans" => descending
-                    ? kingdoms.OrderByDescending(k => k.Clans.Count)
-                    : kingdoms.OrderBy(k => k.Clans.Count),
-                "heroes" => descending
-                    ? kingdoms.OrderByDescending(k => k.Heroes.Count())
-                    : kingdoms.OrderBy(k => k.Heroes.Count()),
-                "fiefs" => descending
-                    ? kingdoms.OrderByDescending(k => k.Fiefs.Count)
-                    : kingdoms.OrderBy(k => k.Fiefs.Count),
-                "strength" => descending
-                    ? kingdoms.OrderByDescending(k => k.CurrentTotalStrength)
-                    : kingdoms.OrderBy(k => k.CurrentTotalStrength),
-                "ruler" => descending
-                    ? kingdoms.OrderByDescending(k => k.Leader?.Name?.ToString() ?? "")
-                    : kingdoms.OrderBy(k => k.Leader?.Name?.ToString() ?? ""),
-                _ => descending  // default to id
-                    ? kingdoms.OrderByDescending(k => k.StringId)
-                    : kingdoms.OrderBy(k => k.StringId)
-            };
+			// Type filter
+			if (hasTypes)
+			{
+				bool matches = matchAll ? k.HasAllTypes(requiredTypes) : k.HasAnyType(requiredTypes);
+				if (!matches)
+					return false;
+			}
 
-            return orderedKingdoms;
-        }
+			return true;
+		}
 
-        /// <summary>
-        /// Parse a string into KingdomTypes enum value
-        /// </summary>
-        public static KingdomTypes ParseKingdomType(string typeString)
-        {
-            var normalizedType = typeString.ToLower() switch
-            {
-                "active" => "Active",
-                "eliminated" => "Eliminated",
-                "empty" => "Empty",
-                "player" => "PlayerKingdom",
-                "playerkingdom" => "PlayerKingdom",
-                "atwar" => "AtWar",
-                "war" => "AtWar",
-                "hasallies" => "HasAllies",
-                "allies" => "HasAllies",
-                "allied" => "HasAllies",
-                "hasenemies" => "HasEnemies",
-                "enemies" => "HasEnemies",
-                _ => typeString
-            };
+		/// <summary>
+		/// Get comparer for kingdom sorting
+		/// </summary>
+		public static IComparer<Kingdom> GetKingdomComparer(string sortBy, bool descending)
+		{
+			sortBy = sortBy.ToLowerInvariant();
 
-            if (Enum.TryParse<KingdomTypes>(normalizedType, true, out var result))
-                return result;
-            return KingdomTypes.None;
-        }
+			// Check if sortBy matches a KingdomType flag
+			if (Enum.TryParse<KingdomTypes>(sortBy, true, out KingdomTypes kingdomType) && kingdomType != KingdomTypes.None)
+			{
+				return Comparer<Kingdom>.Create((a, b) =>
+				{
+					bool aHas = a.GetKingdomTypes().HasFlag(kingdomType);
+					bool bHas = b.GetKingdomTypes().HasFlag(kingdomType);
+					int result = aHas.CompareTo(bHas);
+					return descending ? -result : result;
+				});
+			}
 
-        /// <summary>
-        /// Parse multiple strings and combine into KingdomTypes flags
-        /// </summary>
-        public static KingdomTypes ParseKingdomTypes(IEnumerable<string> typeStrings)
-        {
-            KingdomTypes combined = KingdomTypes.None;
-            foreach (var typeString in typeStrings)
-            {
-                var parsed = ParseKingdomType(typeString);
-                if (parsed != KingdomTypes.None)
-                    combined |= parsed;
-            }
-            return combined;
-        }
+			// Standard field comparers
+			return sortBy switch
+			{
+				"name" => Comparer<Kingdom>.Create((a, b) =>
+				{
+					int result = string.Compare(a.Name.ToString(), b.Name.ToString(), StringComparison.Ordinal);
+					return descending ? -result : result;
+				}),
+				"clans" => Comparer<Kingdom>.Create((a, b) =>
+				{
+					int result = a.Clans.Count.CompareTo(b.Clans.Count);
+					return descending ? -result : result;
+				}),
+				"heroes" => Comparer<Kingdom>.Create((a, b) =>
+				{
+					int result = a.Heroes.Count.CompareTo(b.Heroes.Count);
+					return descending ? -result : result;
+				}),
+				"fiefs" => Comparer<Kingdom>.Create((a, b) =>
+				{
+					int result = a.Fiefs.Count.CompareTo(b.Fiefs.Count);
+					return descending ? -result : result;
+				}),
+				"strength" => Comparer<Kingdom>.Create((a, b) =>
+				{
+					int result = a.CurrentTotalStrength.CompareTo(b.CurrentTotalStrength);
+					return descending ? -result : result;
+				}),
+				"ruler" => Comparer<Kingdom>.Create((a, b) =>
+				{
+					int result = string.Compare(
+						a.Leader?.Name?.ToString() ?? "",
+						b.Leader?.Name?.ToString() ?? "",
+						StringComparison.Ordinal);
+					return descending ? -result : result;
+				}),
+				_ => Comparer<Kingdom>.Create((a, b) =>  // default: id
+				{
+					int result = string.Compare(a.StringId, b.StringId, StringComparison.Ordinal);
+					return descending ? -result : result;
+				})
+			};
+		}
 
-        /// <summary>
-        /// Returns a formatted string listing kingdom details with aligned columns
-        /// </summary>
-        public static string GetFormattedDetails(List<Kingdom> kingdoms)
-        {
-            if (kingdoms.Count == 0)
-                return "";
+		#endregion
 
-            return ColumnFormatter<Kingdom>.FormatList(
-                kingdoms,
-                k => k.StringId,
-                k => k.Name.ToString(),
-                k => $"Clans: {k.Clans.Count}",
-                k => $"Heroes: {k.Heroes.Count()}",
-                k => $"RulingClan: {k.RulingClan?.Name?.ToString() ?? "None"}",
-                k => $"Ruler: {k.Leader?.Name?.ToString() ?? "None"}"
-            );
-        }
+		#region Parsing / Formatting
 
-        /// <summary>
-        /// Get all clan leaders for a specific kingdom
-        /// </summary>
-        public static List<Hero> GetClanLeaders(Kingdom kingdom)
-        {
-            if (kingdom == null)
-                return new List<Hero>();
+		/// <summary>
+		/// Parse a string into KingdomTypes enum value
+		/// </summary>
+		public static KingdomTypes ParseKingdomType(string typeString)
+		{
+			if (Enum.TryParse<KingdomTypes>(typeString, true, out KingdomTypes result))
+				return result;
+			return KingdomTypes.None;
+		}
 
-            return kingdom.Clans
-                .Where(c => c.Leader != null)
-                .Select(c => c.Leader)
-                .ToList();
-        }
+		/// <summary>
+		/// Parse multiple strings and combine into KingdomTypes flags
+		/// </summary>
+		public static KingdomTypes ParseKingdomTypes(IEnumerable<string> typeStrings)
+		{
+			KingdomTypes combined = KingdomTypes.None;
+			foreach (string typeString in typeStrings)
+			{
+				KingdomTypes parsed = ParseKingdomType(typeString);
+				if (parsed != KingdomTypes.None)
+					combined |= parsed;
+			}
+			
+			return combined;
+		}
 
-        /// <summary>
-        /// Get all party leaders for a specific kingdom
-        /// </summary>
-        public static List<Hero> GetPartyLeaders(Kingdom kingdom)
-        {
-            if (kingdom == null)
-                return new List<Hero>();
+		/// <summary>
+		/// Returns a formatted string listing kingdom details with aligned columns
+		/// </summary>
+		public static string GetFormattedDetails(List<Kingdom> kingdoms)
+		{
+			if (kingdoms.Count == 0)
+				return "";
 
-            return kingdom.AllParties
-                .Where(p => p.LeaderHero != null)
-                .Select(p => p.LeaderHero)
-                .ToList();
-        }
+			return ColumnFormatter<Kingdom>.FormatList(
+				kingdoms,
+				k => k.StringId,
+				k => k.Name.ToString(),
+				k => $"Clans: {k.Clans.Count}",
+				k => $"Heroes: {k.Heroes.Count}",
+				k => $"Fiefs: {k.Fiefs.Count}",
+				k => $"Ruler: {k.Leader?.Name?.ToString() ?? "None"}"
+			);
+		}
 
-        /// <summary>
-        /// Get all heroes in a specific kingdom
-        /// </summary>
-        public static List<Hero> GetHeroes(Kingdom kingdom)
-        {
-            if (kingdom == null)
-                return new List<Hero>();
-
-            return kingdom.Heroes.ToList();
-        }
- }
-
- /// <summary>
- /// Wrapper class implementing IEntityQueries interface for Kingdom entities
- /// </summary>
- public class KingdomQueriesWrapper : IEntityQueries<Kingdom, KingdomTypes>
- {
-  public Kingdom GetById(string id) => KingdomQueries.GetKingdomById(id);
-  public List<Kingdom> Query(string query, KingdomTypes types, bool matchAll) => KingdomQueries.QueryKingdoms(query, types, matchAll);
-  public KingdomTypes ParseType(string typeString) => KingdomQueries.ParseKingdomType(typeString);
-  public KingdomTypes ParseTypes(IEnumerable<string> typeStrings) => KingdomQueries.ParseKingdomTypes(typeStrings);
-  public string GetFormattedDetails(List<Kingdom> entities) => KingdomQueries.GetFormattedDetails(entities);
- }
+		#endregion
+	}
 }

@@ -5,8 +5,9 @@ using Bannerlord.GameMaster.Troops;
 namespace Bannerlord.GameMaster.Console.Common.EntityFinding
 {
     /// <summary>
-    /// Provides methods to find single CharacterObject entities from query strings.
-    /// Includes both filtered troop-only and unfiltered CharacterObject finders.
+    /// Provides methods to find single combat troop entities from query strings.
+    /// CRITICAL: Only returns actual combat troops (via IsActualTroop check).
+    /// For unfiltered CharacterObject queries (dancers, refugees, NPCs, etc.), use CharacterObjectFinder instead.
     /// </summary>
     public static class TroopFinder
     {
@@ -33,32 +34,6 @@ namespace Bannerlord.GameMaster.Console.Common.EntityFinding
                 getName: t => t.Name?.ToString() ?? "",
                 formatDetails: TroopQueries.GetFormattedDetails,
                 entityType: "troop");
-        }
-
-        /// <summary>
-        /// Finds a single CharacterObject from a query string (unfiltered - includes all non-hero CharacterObjects).
-        /// Use this when you need to accept any CharacterObject including dancers, refugees, etc.
-        /// </summary>
-        /// <param name="query">The search query (character name or ID)</param>
-        /// <returns>EntityFinderResult containing the found character or error message</returns>
-        public static EntityFinderResult<CharacterObject> FindSingleCharacterObject(string query)
-        {
-            List<CharacterObject> matchedCharacters = TroopQueries.QueryCharacterObjects(query);
-
-            if (matchedCharacters == null || matchedCharacters.Count == 0)
-                return EntityFinderResult<CharacterObject>.Error($"Error: No character matching query '{query}' found.\n");
-
-            if (matchedCharacters.Count == 1)
-                return EntityFinderResult<CharacterObject>.Success(matchedCharacters[0]);
-
-            // Use smart matching for multiple results
-            return EntityFinder.ResolveMultipleMatches(
-                matches: matchedCharacters,
-                query: query,
-                getStringId: c => c.StringId,
-                getName: c => c.Name?.ToString() ?? "",
-                formatDetails: TroopQueries.GetFormattedDetails,
-                entityType: "character");
         }
     }
 }

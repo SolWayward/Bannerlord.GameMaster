@@ -1,7 +1,7 @@
+using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
-using Bannerlord.GameMaster.Troops;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
@@ -9,11 +9,11 @@ using TaleWorlds.Library;
 namespace Bannerlord.GameMaster.Console.Query.TroopQueryCommands;
 
 /// <summary>
-/// Get detailed info about a specific CharacterObject by ID (UNFILTERED)
-/// WARNING: Can return info on NPCs, templates, children, etc. - not just combat troops
+/// Get detailed info about a specific CharacterObject by ID.
+/// Works for ALL character types: heroes, troops, templates, NPCs.
 /// Usage: gm.query.character_objects_info [characterId]
 /// Example: gm.query.character_objects_info imperial_legionary
-/// Note: Use gm.query.troop_info for filtered combat troops only
+/// Example: gm.query.character_objects_info lord_1_1
 /// </summary>
 public static class QueryCharacterObjectsInfoCommand
 {
@@ -27,46 +27,64 @@ public static class QueryCharacterObjectsInfoCommand
                 return error;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a character ID.\nUsage: gm.query.character_objects_info <characterId>\n";
+                return "Error: Please provide a character ID.\nUsage: gm.query.character_objects_info <characterId>\n" +
+                       "Example: gm.query.character_objects_info imperial_legionary\n" +
+                       "Example: gm.query.character_objects_info lord_1_1 (hero character)\n";
 
             // MARK: Parse Arguments
             string characterId = args[0];
 
             // MARK: Execute Logic
-            CharacterObject character = TroopQueries.GetTroopById(characterId);
+            CharacterObject character = CharacterQueries.GetCharacterById(characterId);
 
             if (character == null)
                 return $"Error: Character with ID '{characterId}' not found.\n";
 
-            if (character.IsHero)
-                return $"Error: '{characterId}' is a hero/lord. Use gm.query.hero_info instead.\n";
-
-            string headerNote = "[WARNING] UNFILTERED - Showing info for ANY CharacterObject (may be NPC, template, child, etc.)\n";
-
-            // Check if it's an actual troop
-            string troopStatus = character.IsActualTroop()
-                ? "[OK] This is a valid combat troop"
-                : "[WARNING] This is NOT a combat troop (NPC, template, child, etc.)";
-
-            TroopTypes types = character.GetTroopTypes();
+            // Build detailed info using CharacterExtensions
+            CharacterTypes types = character.GetCharacterTypes();
+            string classification = character.GetCharacterClassification();
             string cultureName = character.Culture?.Name?.ToString() ?? "None";
-            string equipmentInfo = TroopQueryHelpers.BuildEquipmentInfo(character);
-            string upgradeInfo = TroopQueryHelpers.BuildUpgradeInfo(character);
-            string category = character.GetTroopCategory();
+            string equipmentInfo = CharacterQueryHelpers.BuildEquipmentInfo(character);
+            string upgradeInfo = CharacterQueryHelpers.BuildUpgradeInfo(character);
 
-            return headerNote + "\n" +
-                   $"Character Information:\n" +
-                   $"ID: {character.StringId}\n" +
-                   $"Name: {character.Name}\n" +
-                   $"Status: {troopStatus}\n" +
-                   $"Category: {category}\n" +
-                   $"Tier: {character.GetBattleTier()}\n" +
-                   $"Level: {character.Level}\n" +
-                   $"Culture: {cultureName}\n" +
-                   $"Formation: {character.DefaultFormationClass}\n" +
-                   $"Types: {types}\n" +
-                   equipmentInfo +
-                   upgradeInfo;
+            // Build the result string
+            string result = $"Character Information:\n" +
+                            $"ID: {character.StringId}\n" +
+                            $"Name: {character.Name}\n" +
+                            $"Classification: {classification}\n" +
+                            $"Gender: {(character.IsFemale ? "Female" : "Male")}\n" +
+                            $"Culture: {cultureName}\n";
+
+            // Add tier/level for non-heroes
+            if (!character.IsHero)
+            {
+                result += $"Tier: {character.GetBattleTier()}\n" +
+                          $"Level: {character.Level}\n" +
+                          $"Formation: {character.DefaultFormationClass}\n";
+            }
+            else if (character.HeroObject != null)
+            {
+                // Add hero-specific info
+                Hero hero = character.HeroObject;
+                result += $"Age: {(int)hero.Age}\n" +
+                          $"Clan: {hero.Clan?.Name?.ToString() ?? "None"}\n";
+
+                if (hero.CurrentSettlement != null)
+                    result += $"Location: {hero.CurrentSettlement.Name}\n";
+
+                if (hero.IsPrisoner)
+                    result += $"Status: Prisoner\n";
+                else if (hero.IsDead)
+                    result += $"Status: Dead\n";
+                else
+                    result += $"Status: Alive\n";
+            }
+
+            result += $"CharacterTypes: {types}\n" +
+                      equipmentInfo +
+                      upgradeInfo;
+
+            return result;
         });
     }
 }

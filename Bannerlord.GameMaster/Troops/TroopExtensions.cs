@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
 using Bannerlord.GameMaster.Common.Interfaces;
@@ -100,39 +99,49 @@ namespace Bannerlord.GameMaster.Troops
 
             // Troop Line Categories (based on StringId patterns and culture)
             // CRITICAL: Occupation is for HEROES not TROOPS - use StringId patterns instead
-            var stringIdLower = character.StringId.ToLower();
+            string stringId = character.StringId;
             
             // Detect troop line by StringId patterns
-            if (stringIdLower.Contains("noble") || stringIdLower.Contains("knight") ||
-                stringIdLower.Contains("druzhnik") || stringIdLower.Contains("cataphract"))
+            if (stringId.IndexOf("noble", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("knight", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("druzhnik", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("cataphract", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 types |= TroopTypes.Noble;
             }
-            else if (stringIdLower.Contains("militia"))
+            else if (stringId.IndexOf("militia", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 types |= TroopTypes.Militia;
             }
-            else if (stringIdLower.Contains("mercenary") && !stringIdLower.Contains("leader"))
+            else if (stringId.IndexOf("mercenary", StringComparison.OrdinalIgnoreCase) >= 0 &&
+                     stringId.IndexOf("leader", StringComparison.OrdinalIgnoreCase) < 0)
             {
                 types |= TroopTypes.Mercenary;
             }
-            else if (stringIdLower.Contains("caravan_guard") || stringIdLower.Contains("caravan_master") ||
-                     stringIdLower.Contains("armed_trader") || stringIdLower.Contains("sea_trader"))
+            else if (stringId.IndexOf("caravan_guard", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                     stringId.IndexOf("caravan_master", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                     stringId.IndexOf("armed_trader", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                     stringId.IndexOf("sea_trader", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 types |= TroopTypes.Caravan;
             }
-            else if ((stringIdLower.Contains("villager") || stringIdLower.Contains("village_woman") ||
-                      stringIdLower.Contains("townsman") || stringIdLower.Contains("townswoman") ||
-                      (stringIdLower.Contains("fighter") && character.GetBattleTier() == 0)) &&
+            else if ((stringId.IndexOf("villager", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("village_woman", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("townsman", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("townswoman", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      (stringId.IndexOf("fighter", StringComparison.OrdinalIgnoreCase) >= 0 && character.GetBattleTier() == 0)) &&
                      character.GetBattleTier() == 0 && character.Level == 1)
             {
                 types |= TroopTypes.Peasant;
             }
             else if (character.GetBattleTier() >= 2 &&
-                     (stringIdLower.Contains("eleftheroi") || stringIdLower.Contains("brotherhood_of_woods") ||
-                      stringIdLower.Contains("hidden_hand") || stringIdLower.Contains("jawwal") ||
-                      stringIdLower.Contains("lake_rats") || stringIdLower.Contains("forest_people") ||
-                      stringIdLower.Contains("karakhuzait")))
+                     (stringId.IndexOf("eleftheroi", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("brotherhood_of_woods", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("hidden_hand", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("jawwal", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("lake_rats", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("forest_people", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      stringId.IndexOf("karakhuzait", StringComparison.OrdinalIgnoreCase) >= 0))
             {
                 types |= TroopTypes.MinorFaction;
             }
@@ -176,23 +185,24 @@ namespace Bannerlord.GameMaster.Troops
             // Culture-Based Categories
             if (character.Culture != null)
             {
-                string cultureId = character.Culture.StringId.ToLower();
+                string cultureId = character.Culture.StringId;
                 
-                if (cultureId.Contains("empire"))
+                if (cultureId.IndexOf("empire", StringComparison.OrdinalIgnoreCase) >= 0)
                     types |= TroopTypes.Empire;
-                else if (cultureId.Contains("vlandia"))
+                else if (cultureId.IndexOf("vlandia", StringComparison.OrdinalIgnoreCase) >= 0)
                     types |= TroopTypes.Vlandia;
-                else if (cultureId.Contains("sturgia"))
+                else if (cultureId.IndexOf("sturgia", StringComparison.OrdinalIgnoreCase) >= 0)
                     types |= TroopTypes.Sturgia;
-                else if (cultureId.Contains("aserai"))
+                else if (cultureId.IndexOf("aserai", StringComparison.OrdinalIgnoreCase) >= 0)
                     types |= TroopTypes.Aserai;
-                else if (cultureId.Contains("khuzait"))
+                else if (cultureId.IndexOf("khuzait", StringComparison.OrdinalIgnoreCase) >= 0)
                     types |= TroopTypes.Khuzait;
-                else if (cultureId.Contains("battania"))
+                else if (cultureId.IndexOf("battania", StringComparison.OrdinalIgnoreCase) >= 0)
                     types |= TroopTypes.Battania;
-                else if (cultureId.Contains("nord"))
+                else if (cultureId.IndexOf("nord", StringComparison.OrdinalIgnoreCase) >= 0)
                     types |= TroopTypes.Nord;
-                else if (cultureId.Contains("bandit") || cultureId.Contains("looter"))
+                else if (cultureId.IndexOf("bandit", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                         cultureId.IndexOf("looter", StringComparison.OrdinalIgnoreCase) >= 0)
                     types |= TroopTypes.Bandit;
             }
 
@@ -211,7 +221,7 @@ namespace Bannerlord.GameMaster.Troops
         public static bool HasAllTypes(this CharacterObject character, TroopTypes types)
         {
             if (types == TroopTypes.None) return true;
-            var troopTypes = character.GetTroopTypes();
+            TroopTypes troopTypes = character.GetTroopTypes();
             return (troopTypes & types) == types;
         }
 
@@ -221,7 +231,7 @@ namespace Bannerlord.GameMaster.Troops
         public static bool HasAnyType(this CharacterObject character, TroopTypes types)
         {
             if (types == TroopTypes.None) return true;
-            var troopTypes = character.GetTroopTypes();
+            TroopTypes troopTypes = character.GetTroopTypes();
             return (troopTypes & types) != TroopTypes.None;
         }
 
@@ -235,89 +245,113 @@ namespace Bannerlord.GameMaster.Troops
             if (character.IsHero)
                 return false;
 
-            var stringIdLower = character.StringId.ToLower();
+            string stringId = character.StringId;
 
             // 1. Templates/Equipment Sets - Non-playable character templates
-            if (stringIdLower.Contains("template") || stringIdLower.Contains("_equipment") ||
-                stringIdLower.Contains("_bat_") || stringIdLower.Contains("_civ_") ||
-                stringIdLower.Contains("_noncom_"))
+            if (stringId.IndexOf("template", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("_equipment", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("_bat_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("_civ_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("_noncom_", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 2. Town Service NPCs - Non-combat town workers and merchants
             // These provide services in towns but never participate in combat
-            if (stringIdLower.Contains("armorer") || stringIdLower.Contains("barber") ||
-                stringIdLower.Contains("blacksmith") || stringIdLower.Contains("beggar") ||
-                stringIdLower.Contains("merchant") || stringIdLower.Contains("shop_keeper") ||
-                stringIdLower.Contains("shop_worker") || stringIdLower.Contains("weaponsmith") ||
-                stringIdLower.Contains("shipwright") || stringIdLower.Contains("ransom_broker") ||
-                stringIdLower.Contains("musician"))
+            if (stringId.IndexOf("armorer", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("barber", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("blacksmith", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("beggar", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("merchant", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("shop_keeper", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("shop_worker", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("weaponsmith", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("shipwright", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("ransom_broker", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("musician", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 3. Tavern NPCs - Non-combat tavern workers
-            if (stringIdLower.Contains("tavern_wench") || stringIdLower.Contains("tavernkeeper") ||
-                stringIdLower.Contains("barmaid") || stringIdLower.Contains("tavern_gamehost") ||
-                stringIdLower.Contains("tavern_guard"))
+            if (stringId.IndexOf("tavern_wench", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("tavernkeeper", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("barmaid", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("tavern_gamehost", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("tavern_guard", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 4. Horse-related NPCs - Stable workers and horse merchants
-            if (stringIdLower.Contains("horse_merchant") || stringIdLower.Contains("horse_trader"))
+            if (stringId.IndexOf("horse_merchant", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("horse_trader", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 5. Notables - Notable NPCs with "notary" suffix (preacher_notary, merchant_notary, etc.)
-            if (stringIdLower.Contains("notary"))
+            if (stringId.IndexOf("notary", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 6. Wanderers/Companions - Recruitable NPCs that should be excluded
             // These start with specific prefixes identifying them as special characters
-            if (stringIdLower.StartsWith("spc_notable_") || stringIdLower.StartsWith("spc_wanderer_") ||
-                stringIdLower.StartsWith("npc_wanderer") || stringIdLower.StartsWith("npc_companion") ||
-                stringIdLower.StartsWith("npc_armed_wanderer") || stringIdLower.StartsWith("npc_artisan") ||
-                stringIdLower.StartsWith("npc_gang_leader") || stringIdLower.StartsWith("npc_merchant") ||
-                stringIdLower.StartsWith("npc_preacher") || stringIdLower.StartsWith("npc_gentry") ||
-                stringIdLower.StartsWith("npc_poor_wanderer"))
+            if (stringId.StartsWith("spc_notable_", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("spc_wanderer_", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_wanderer", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_companion", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_armed_wanderer", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_artisan", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_gang_leader", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_merchant", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_preacher", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_gentry", StringComparison.OrdinalIgnoreCase) ||
+                stringId.StartsWith("npc_poor_wanderer", StringComparison.OrdinalIgnoreCase))
                 return false;
 
             // 7. Entertainment/Event NPCs - Dancers, tournament masters, game hosts
             // These are Tier 0, Level 1 non-combat NPCs
-            if (stringIdLower.Contains("dancer") ||
-                stringIdLower.Contains("tournament_master") ||
-                stringIdLower.Contains("taverngamehost"))  // Note: no underscore in ID
+            if (stringId.IndexOf("dancer", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("tournament_master", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("taverngamehost", StringComparison.OrdinalIgnoreCase) >= 0)  // Note: no underscore in ID
                 return false;
 
             // 8. Special Character NPCs - Minor faction leaders, headmen, etc.
             // These are Tier 0, Level 1 quest/story NPCs, NOT the actual combat troops
             // Actual minor faction troops (tier_1/2/3) are properly included
-            if (stringIdLower.StartsWith("spc_") &&
-                (stringIdLower.Contains("_leader_") ||
-                 stringIdLower.Contains("_headman_") ||
-                 stringIdLower.Contains("_gangleader_") ||
-                 stringIdLower.Contains("_artisan_") ||
-                 stringIdLower.Contains("_rural_notable_") ||
-                 stringIdLower.Contains("_e3_character_")))
+            if (stringId.StartsWith("spc_", StringComparison.OrdinalIgnoreCase) &&
+                (stringId.IndexOf("_leader_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                 stringId.IndexOf("_headman_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                 stringId.IndexOf("_gangleader_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                 stringId.IndexOf("_artisan_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                 stringId.IndexOf("_rural_notable_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                 stringId.IndexOf("_e3_character_", StringComparison.OrdinalIgnoreCase) >= 0))
                 return false;
 
             // 9. Children/Teens/Infants - Non-combat young characters
-            if (stringIdLower.Contains("child") || stringIdLower.Contains("infant") ||
-                stringIdLower.Contains("teenager"))
+            if (stringId.IndexOf("child", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("infant", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("teenager", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 10. Practice/Training Dummies - Arena and training targets
-            if (stringIdLower.Contains("_dummy") || stringIdLower.Contains("practice_stage") ||
-                stringIdLower.Contains("weapon_practice") || stringIdLower.Contains("gear_practice"))
+            if (stringId.IndexOf("_dummy", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("practice_stage", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("weapon_practice", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("gear_practice", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 11. Special/System Characters - Tutorial, cutscene, and test characters
-            if (stringIdLower.Contains("cutscene_") || stringIdLower.Contains("tutorial_") ||
-                stringIdLower.Contains("duel_style_") || stringIdLower.Contains("player_char_creation_") ||
-                stringIdLower.Contains("disguise_") || stringIdLower.StartsWith("test") ||
-                stringIdLower.Contains("crazy_man") || stringIdLower.Contains("unarmed_ai") ||
-                stringIdLower.Contains("borrowed_troop") || stringIdLower.Contains("neutral_lord") ||
-                stringIdLower.Contains("stealth_character"))
+            if (stringId.IndexOf("cutscene_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("tutorial_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("duel_style_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("player_char_creation_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("disguise_", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.StartsWith("test", StringComparison.OrdinalIgnoreCase) ||
+                stringId.IndexOf("crazy_man", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("unarmed_ai", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("borrowed_troop", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("neutral_lord", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("stealth_character", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 12. Townsfolk Civilians - Non-combat town residents (NOT villagers!)
             // townsman/townswoman are passive civilians, unlike villagers who fight in village raids
-            if (stringIdLower.Contains("townsman") || stringIdLower.Contains("townswoman"))
+            if (stringId.IndexOf("townsman", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                stringId.IndexOf("townswoman", StringComparison.OrdinalIgnoreCase) >= 0)
                 return false;
 
             // 13. Tier 0 Level 1 Filter - Catch-all for non-combat NPCs
@@ -326,13 +360,13 @@ namespace Bannerlord.GameMaster.Troops
             if (character.GetBattleTier() == 0 && character.Level == 1)
             {
                 // Check for known Tier 0 Level 1 COMBAT troops that should NOT be excluded
-                if (stringIdLower.Contains("villager") ||           // villager_* - fight in village raids
-                    stringIdLower.Contains("village_woman") ||      // village_woman_* - fight in village raids
-                    stringIdLower.Contains("fighter") ||            // fighter_* - basic recruitable troops
-                    stringIdLower.Contains("caravan_guard") ||      // caravan_guard_* - fight when attacking caravans
-                    stringIdLower.Contains("armed_trader") ||       // armed_trader_* - combat-capable traders
-                    stringIdLower.Contains("looter") ||             // looter_* - bandit combat troops
-                    stringIdLower.Contains("sea_raider_recruit"))   // sea_raider_recruit - combat troop
+                if (stringId.IndexOf("villager", StringComparison.OrdinalIgnoreCase) >= 0 ||           // villager_* - fight in village raids
+                    stringId.IndexOf("village_woman", StringComparison.OrdinalIgnoreCase) >= 0 ||      // village_woman_* - fight in village raids
+                    stringId.IndexOf("fighter", StringComparison.OrdinalIgnoreCase) >= 0 ||            // fighter_* - basic recruitable troops
+                    stringId.IndexOf("caravan_guard", StringComparison.OrdinalIgnoreCase) >= 0 ||      // caravan_guard_* - fight when attacking caravans
+                    stringId.IndexOf("armed_trader", StringComparison.OrdinalIgnoreCase) >= 0 ||       // armed_trader_* - combat-capable traders
+                    stringId.IndexOf("looter", StringComparison.OrdinalIgnoreCase) >= 0 ||             // looter_* - bandit combat troops
+                    stringId.IndexOf("sea_raider_recruit", StringComparison.OrdinalIgnoreCase) >= 0)   // sea_raider_recruit - combat troop
                 {
                     // This is a known Tier 0 Level 1 combat troop - INCLUDE it
                     return true;
@@ -362,8 +396,8 @@ namespace Bannerlord.GameMaster.Troops
             if (!character.IsActualTroop())
                 return "Non-Troop";
 
-            var stringIdLower = character.StringId.ToLower();
-            var types = character.GetTroopTypes();
+            string stringId = character.StringId;
+            TroopTypes types = character.GetTroopTypes();
 
             // Check specific categories first
             if (types.HasFlag(TroopTypes.Bandit))
@@ -417,10 +451,10 @@ namespace Bannerlord.GameMaster.Troops
             if (character.FirstBattleEquipment == null)
                 return false;
                 
-            var equipment = character.FirstBattleEquipment;
+            Equipment equipment = character.FirstBattleEquipment;
             for (int i = 0; i < 12; i++) // Equipment slot count
             {
-                var equipmentElement = equipment[i];
+                EquipmentElement equipmentElement = equipment[i];
                 if (equipmentElement.Item != null &&
                     equipmentElement.Item.ItemType == ItemObject.ItemTypeEnum.Shield)
                 {
@@ -438,10 +472,10 @@ namespace Bannerlord.GameMaster.Troops
             if (character.FirstBattleEquipment == null)
                 return false;
                 
-            var equipment = character.FirstBattleEquipment;
+            Equipment equipment = character.FirstBattleEquipment;
             for (int i = 0; i < 12; i++)
             {
-                var equipmentElement = equipment[i];
+                EquipmentElement equipmentElement = equipment[i];
                 if (equipmentElement.Item != null && equipmentElement.Item.ItemType == weaponType)
                 {
                     return true;
@@ -458,10 +492,10 @@ namespace Bannerlord.GameMaster.Troops
             if (character.FirstBattleEquipment == null)
                 return false;
                 
-            var equipment = character.FirstBattleEquipment;
+            Equipment equipment = character.FirstBattleEquipment;
             for (int i = 0; i < 12; i++)
             {
-                var equipmentElement = equipment[i];
+                EquipmentElement equipmentElement = equipment[i];
                 if (equipmentElement.Item?.WeaponComponent != null)
                 {
                     if (equipmentElement.Item.WeaponComponent.PrimaryWeapon.WeaponClass == weaponClass)

@@ -1,181 +1,227 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using TaleWorlds.Core;
 using TaleWorlds.ObjectSystem;
-using Bannerlord.GameMaster.Common.Interfaces;
-using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Formatting;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Items
 {
-    /// <summary>
-    /// Provides utility methods for querying item entities
-    /// </summary>
-    public static class ItemQueries
-    {
-        /// <summary>
-        /// Finds an item with the specified itemId, using a case-insensitive comparison
-        /// </summary>
-        public static ItemObject GetItemById(string itemId)
-        {
-            return MBObjectManager.Instance.GetObject<ItemObject>(itemId);
-        }
+	/// <summary>
+	/// Provides query methods for searching, finding, filtering, or sorting item entities.
+	/// </summary>
+	public static class ItemQueries
+	{
+		#region Query
 
-        /// <summary>
-        /// Main unified method to find items by search string and type flags
-        /// </summary>
-        /// <param name="query">Optional case-insensitive substring to filter by name, ID, or tier</param>
-        /// <param name="requiredTypes">Item type flags that ALL must match (AND logic)</param>
-        /// <param name="matchAll">If true, item must have ALL flags. If false, item must have ANY flag</param>
-        /// <param name="tierFilter">Optional tier filter (0-6, -1 for no filter)</param>
-        /// <param name="sortBy">Sort field (name, tier, value, type, id)</param>
-        /// <param name="sortDescending">True for descending, false for ascending</param>
-        /// <returns>List of items matching all criteria</returns>
-        public static List<ItemObject> QueryItems(
-            string query = "",
-            ItemTypes requiredTypes = ItemTypes.None,
-            bool matchAll = true,
-            int tierFilter = -1,
-            string sortBy = "id",
-            bool sortDescending = false)
-        {
-            IEnumerable<ItemObject> items = MBObjectManager.Instance.GetObjectTypeList<ItemObject>();
+		/// <summary>
+		/// Finds an item with the specified itemId. Fast but case sensitive (all string ids SHOULD be lower case) <br />
+		/// Use QueryItems().FirstOrDefault() to find item with case insensitive partial name or partial stringIds <br />
+		/// Example: QueryItems("iron_sword").FirstOrDefault()
+		/// </summary>
+		public static ItemObject GetItemById(string itemId) => MBObjectManager.Instance.GetObject<ItemObject>(itemId);
 
-            // Filter by name/ID/tier if provided
-            if (!string.IsNullOrEmpty(query))
-            {
-                string lowerFilter = query.ToLower();
-                items = items.Where(i =>
-                    i.Name.ToString().ToLower().Contains(lowerFilter) ||
-                    i.StringId.ToLower().Contains(lowerFilter) ||
-                    (i.Tier >= 0 && i.Tier.ToString().Contains(lowerFilter)));
-            }
+		/// <summary>
+		/// Performance focused method to find items matching multiple parameters. All parameters are optional and can be used with none, one or a combination of any parameters<br />
+		/// Note: <paramref name="query"/> parameter is a string used that will match partial item names or partial stringIds
+		/// </summary>
+		/// <param name="query">Optional case-insensitive substring to filter by name or ID</param>
+		/// <param name="requiredTypes">Item type flags that ALL must match (AND logic)</param>
+		/// <param name="matchAll">If true, item must have ALL flags. If false, item must have ANY flag</param>
+		/// <param name="tierFilter">Optional tier filter (0-6, -1 for no filter)</param>
+		/// <param name="sortBy">Sort field (id, name, tier, value, type, or any ItemType flag)</param>
+		/// <param name="sortDescending">True for descending, false for ascending</param>
+		/// <returns>List of items matching all criteria</returns>
+		public static MBReadOnlyList<ItemObject> QueryItems(
+			string query = "",
+			ItemTypes requiredTypes = ItemTypes.None,
+			bool matchAll = true,
+			int tierFilter = -1,
+			string sortBy = "id",
+			bool sortDescending = false)
+		{
+			// MARK: Get source collection
+			MBReadOnlyList<ItemObject> source = MBObjectManager.Instance.GetObjectTypeList<ItemObject>();
+			MBReadOnlyList<ItemObject> results = new(source.Count);
 
-            // Filter by item types
-            if (requiredTypes != ItemTypes.None)
-            {
-                items = items.Where(i =>
-                    matchAll ? i.HasAllTypes(requiredTypes) : i.HasAnyType(requiredTypes));
-            }
+			bool hasQuery = !string.IsNullOrEmpty(query);
+			bool hasTypes = requiredTypes != ItemTypes.None;
+			bool hasTierFilter = tierFilter >= 0;
 
-            // Filter by tier
-            // Note: ItemTiers enum values are offset by 1 (Tier0=-1, Tier1=0, Tier2=1, etc.)
-            // So we subtract 1 from the user's tier input to match the enum value
-            if (tierFilter >= 0)
-            {
-                items = items.Where(i => (int)i.Tier == tierFilter - 1);
-            }
+			// Filter items
+			for (int i = 0; i < source.Count; i++)
+			{
+				ItemObject item = source[i];
+				if (MatchesFilters(item, query, hasQuery, requiredTypes, hasTypes, tierFilter, hasTierFilter, matchAll))
+				{
+					results.Add(item);
+				}
+			}
 
-            // Apply sorting
-            items = ApplySorting(items, sortBy, sortDescending);
+			// Sorting - only if needed
+			if (results.Count > 1)
+			{
+				IComparer<ItemObject> comparer = GetItemComparer(sortBy, sortDescending);
+				results.Sort(comparer);
+			}
 
-            return items.ToList();
-        }
+			return results;
+		}
 
-        /// <summary>
-        /// Apply sorting to items collection
-        /// </summary>
-        private static IEnumerable<ItemObject> ApplySorting(
-            IEnumerable<ItemObject> items,
-            string sortBy,
-            bool descending)
-        {
-            sortBy = sortBy.ToLower();
+		/// <summary>
+		/// Check if item matches all filter criteria
+		/// </summary>
+		public static bool MatchesFilters(
+			ItemObject item,
+			string query,
+			bool hasQuery,
+			ItemTypes requiredTypes,
+			bool hasTypes,
+			int tierFilter,
+			bool hasTierFilter,
+			bool matchAll)
+		{
+			// Name/ID filter using OrdinalIgnoreCase (no string allocation)
+			if (hasQuery)
+			{
+				bool nameMatch = item.Name.ToString().IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
+				bool idMatch = item.StringId.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
+				if (!nameMatch && !idMatch)
+					return false;
+			}
 
-            IOrderedEnumerable<ItemObject> orderedItems = sortBy switch
-            {
-                "name" => descending
-                    ? items.OrderByDescending(i => i.Name.ToString())
-                    : items.OrderBy(i => i.Name.ToString()),
-                "tier" => descending
-                    ? items.OrderByDescending(i => i.Tier)
-                    : items.OrderBy(i => i.Tier),
-                "value" => descending
-                    ? items.OrderByDescending(i => i.Value)
-                    : items.OrderBy(i => i.Value),
-                "type" => descending
-                    ? items.OrderByDescending(i => i.ItemType.ToString())
-                    : items.OrderBy(i => i.ItemType.ToString()),
-                _ => descending  // default to id
-                    ? items.OrderByDescending(i => i.StringId)
-                    : items.OrderBy(i => i.StringId)
-            };
+			// Type filter
+			if (hasTypes)
+			{
+				bool matches = matchAll ? item.HasAllTypes(requiredTypes) : item.HasAnyType(requiredTypes);
+				if (!matches)
+					return false;
+			}
 
-            return orderedItems;
-        }
+			// Tier filter
+			// Note: ItemTiers enum values are offset by 1 (Tier0=-1, Tier1=0, Tier2=1, etc.)
+			// So we subtract 1 from the user's tier input to match the enum value
+			if (hasTierFilter)
+			{
+				if ((int)item.Tier != tierFilter - 1)
+					return false;
+			}
 
-        /// <summary>
-        /// Parse a string into ItemTypes enum value
-        /// </summary>
-        public static ItemTypes ParseItemType(string typeString)
-        {
-            // Handle common aliases
-            var normalized = typeString.ToLower() switch
-            {
-                "1h" => "OneHanded",
-                "2h" => "TwoHanded",
-                "head" => "HeadArmor",
-                "body" => "BodyArmor",
-                "leg" => "LegArmor",
-                "hand" => "HandArmor",
-                _ => typeString
-            };
+			return true;
+		}
 
-            return Enum.TryParse<ItemTypes>(normalized, true, out var result) 
-                ? result : ItemTypes.None;
-        }
+		/// <summary>
+		/// Get comparer for item sorting
+		/// </summary>
+		public static IComparer<ItemObject> GetItemComparer(string sortBy, bool descending)
+		{
+			sortBy = sortBy.ToLowerInvariant();
 
-        /// <summary>
-        /// Parse multiple strings and combine into ItemTypes flags
-        /// </summary>
-        public static ItemTypes ParseItemTypes(IEnumerable<string> typeStrings)
-        {
-            ItemTypes combined = ItemTypes.None;
-            foreach (var typeString in typeStrings)
-            {
-                var parsed = ParseItemType(typeString);
-                if (parsed != ItemTypes.None)
-                    combined |= parsed;
-            }
-            return combined;
-        }
+			// Standard field comparers
+			return sortBy switch
+			{
+				"name" => Comparer<ItemObject>.Create((a, b) =>
+				{
+					int result = string.Compare(a.Name.ToString(), b.Name.ToString(), StringComparison.Ordinal);
+					return descending ? -result : result;
+				}),
+				"tier" => Comparer<ItemObject>.Create((a, b) =>
+				{
+					int result = a.Tier.CompareTo(b.Tier);
+					return descending ? -result : result;
+				}),
+				"value" => Comparer<ItemObject>.Create((a, b) =>
+				{
+					int result = a.Value.CompareTo(b.Value);
+					return descending ? -result : result;
+				}),
+				"type" => Comparer<ItemObject>.Create((a, b) =>
+				{
+					int result = string.Compare(
+						a.ItemType.ToString(),
+						b.ItemType.ToString(),
+						StringComparison.Ordinal);
+					return descending ? -result : result;
+				}),
+				"weight" => Comparer<ItemObject>.Create((a, b) =>
+				{
+					int result = a.Weight.CompareTo(b.Weight);
+					return descending ? -result : result;
+				}),
+				_ => Comparer<ItemObject>.Create((a, b) =>  // default: id
+				{
+					int result = string.Compare(a.StringId, b.StringId, StringComparison.Ordinal);
+					return descending ? -result : result;
+				})
+			};
+		}
 
-        /// <summary>
-        /// Returns a formatted string listing item details with aligned columns
-        /// </summary>
-        public static string GetFormattedDetails(List<ItemObject> items)
-        {
-            if (items.Count == 0)
-                return "";
+		#endregion
 
-            return ColumnFormatter<ItemObject>.FormatList(
-                items,
-                i => i.StringId,
-                i => i.Name.ToString(),
-                i => $"Type: {i.ItemType}",
-                i => $"Value: {i.Value}",
-                i => {
-                    // Note: ItemTiers enum values are offset by 1
-                    string tier = (int)i.Tier >= -1 ? $"Tier: {(int)i.Tier + 1}" : "Tier: N/A";
-                    return tier;
-                }
-            );
-        }
-    }
+		#region Parsing / Formatting
 
-    /// <summary>
-    /// Wrapper class implementing IEntityQueries interface for ItemObject entities
-    /// </summary>
-    public class ItemQueriesWrapper : IEntityQueries<ItemObject, ItemTypes>
-    {
-        public ItemObject GetById(string id) => ItemQueries.GetItemById(id);
-        public List<ItemObject> Query(string query, ItemTypes types, bool matchAll) => 
-            ItemQueries.QueryItems(query, types, matchAll);
-        public ItemTypes ParseType(string typeString) => ItemQueries.ParseItemType(typeString);
-        public ItemTypes ParseTypes(IEnumerable<string> typeStrings) => 
-            ItemQueries.ParseItemTypes(typeStrings);
-        public string GetFormattedDetails(List<ItemObject> entities) => 
-            ItemQueries.GetFormattedDetails(entities);
-    }
+		/// <summary>
+		/// Parse a string into ItemTypes enum value
+		/// </summary>
+		public static ItemTypes ParseItemType(string typeString)
+		{
+			// Handle common aliases
+			string normalized = typeString.ToLower() switch
+			{
+				"1h" => "OneHanded",
+				"2h" => "TwoHanded",
+				"head" => "HeadArmor",
+				"body" => "BodyArmor",
+				"leg" => "LegArmor",
+				"hand" => "HandArmor",
+				_ => typeString
+			};
+
+			if (Enum.TryParse<ItemTypes>(normalized, true, out ItemTypes result))
+				return result;
+			return ItemTypes.None;
+		}
+
+		/// <summary>
+		/// Parse multiple strings and combine into ItemTypes flags
+		/// </summary>
+		public static ItemTypes ParseItemTypes(IEnumerable<string> typeStrings)
+		{
+			ItemTypes combined = ItemTypes.None;
+			foreach (string typeString in typeStrings)
+			{
+				ItemTypes parsed = ParseItemType(typeString);
+				if (parsed != ItemTypes.None)
+					combined |= parsed;
+			}
+			
+			return combined;
+		}
+
+		/// <summary>
+		/// Returns a formatted string listing item details with aligned columns
+		/// </summary>
+		public static string GetFormattedDetails(List<ItemObject> items)
+		{
+			if (items.Count == 0)
+				return "";
+
+			return ColumnFormatter<ItemObject>.FormatList(
+				items,
+				i => i.StringId,
+				i => i.Name.ToString(),
+				i => $"Type: {i.ItemType}",
+				i => $"Value: {i.Value}",
+				i => $"Weight: {i.Weight}",
+				i =>
+				{
+					// Note: ItemTiers enum values are offset by 1
+					string tier = (int)i.Tier >= -1 ? $"Tier: {(int)i.Tier + 1}" : "Tier: N/A";
+					return tier;
+				}
+			);
+		}
+
+		#endregion
+	}
 }

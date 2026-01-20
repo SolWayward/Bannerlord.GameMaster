@@ -101,4 +101,25 @@
     <PackageReference Include="Bannerlord.BuildResources" Version="1.1.0.124" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
   </ItemGroup>
 
+  <!-- Copy XML Documentation to Mod Directory -->
+  <Target Name="CopyXmlDocumentation" AfterTargets="Build">
+    <!-- For net472: Copy to Win64_Shipping_Client (Steam/GOG/Epic) -->
+    <Copy SourceFiles="$(TargetDir)$(TargetName).xml"
+          DestinationFolder="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster\bin\Win64_Shipping_Client"
+          Condition="'$(TargetFramework)' == 'net472' AND Exists('$(TargetDir)$(TargetName).xml')"
+          SkipUnchangedFiles="true" />
+    <Message Text="Copied net472 XML documentation"
+             Condition="'$(TargetFramework)' == 'net472' AND Exists('$(TargetDir)$(TargetName).xml')"
+             Importance="high" />
+    
+    <!-- For net6: Copy to Gaming.Desktop.x64_Shipping_Client (Xbox Game Pass PC) -->
+    <Copy SourceFiles="$(TargetDir)$(TargetName).xml"
+          DestinationFolder="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster\bin\Gaming.Desktop.x64_Shipping_Client"
+          Condition="'$(TargetFramework)' == 'net6' AND Exists('$(TargetDir)$(TargetName).xml')"
+          SkipUnchangedFiles="true" />
+    <Message Text="Copied net6 XML documentation"
+             Condition="'$(TargetFramework)' == 'net6' AND Exists('$(TargetDir)$(TargetName).xml')"
+             Importance="high" />
+  </Target>
+
 </Project>

@@ -61,7 +61,7 @@ public static class GiveHeroTroopsCommand
             if (characterArg == null)
                 return MessageFormatter.FormatErrorMessage("Missing required argument 'character'.");
 
-            EntityFinderResult<CharacterObject> characterResult = TroopFinder.FindSingleCharacterObject(characterArg);
+            EntityFinderResult<CharacterObject> characterResult = CharacterObjectFinder.FindSingleCharacterObject(characterArg);
             if (!characterResult.IsSuccess)
                 return characterResult.Message;
             CharacterObject character = characterResult.Entity;
