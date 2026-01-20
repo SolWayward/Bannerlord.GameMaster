@@ -5,14 +5,8 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.13.11
-Reworked Command System (Behind the scenes, still works the same for the user)
-Reworked How Heroes, Clans, and Kingdoms are generated in previous version
-Everything Should be smoother and Heroes, Clans, and Kingdoms will fully interact as if they were native
-Raised Object Creation Soft Limits
-Limit can still be bypassed using 'gm.ignore_limits true' Once per game
-Enabled auto command Logging 
-Documents/Mount and Blade II Bannerlord/Configs/GameMaster/command_log_xxxx.txt "
+"v1.3.13.12
+General performance improvements"
         />
         <Tags>
             <Tag Value="Utility" />
