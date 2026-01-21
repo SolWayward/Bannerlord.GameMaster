@@ -329,7 +329,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 
 			// ALWAYS write to RGL log (unconditional)
 			Debug.Print(fullLogMessage);
-			System.Console.WriteLine(fullLogMessage);
+			SystemConsoleManager.WriteLog(fullLogMessage);
 
 			// CONDITIONALLY write to custom file (only if enabled)
 			if (_isEnabled && !string.IsNullOrEmpty(_logFilePath))

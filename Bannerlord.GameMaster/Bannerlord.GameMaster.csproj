@@ -121,5 +121,4 @@
              Condition="'$(TargetFramework)' == 'net6' AND Exists('$(TargetDir)$(TargetName).xml')"
              Importance="high" />
   </Target>
-
 </Project>

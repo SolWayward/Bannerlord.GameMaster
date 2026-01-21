@@ -23,7 +23,7 @@ namespace Bannerlord.GameMaster.Console.Common
 		public override CommandResult Log()
 		{
 			base.Log();
-			
+					
 			// Log to custom command log file (only if logging is enabled)
 			if (Execution.CommandLogger.IsEnabled)
 			{

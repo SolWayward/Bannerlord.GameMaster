@@ -86,7 +86,7 @@ namespace Bannerlord.GameMaster.Common
                 TaleWorlds.Library.Debug.Print(logEntry);
 
             // Always Write to system console for easier debugging
-            System.Console.WriteLine(logEntry);
+            SystemConsoleManager.WriteLog(logEntry);
             return (TSelf)this;
         }
 

@@ -21,5 +21,15 @@ namespace Bannerlord.GameMaster.Common
 
         /// <inheritdoc/>
         public BLGMResult(bool isSuccess, string message, Exception ex) : base(isSuccess, message, ex) { }
+
+        /// <summary>
+        /// Prints to the game console
+        /// </summary>
+        public void PrintToGameConsole(bool includeException = false)
+        {
+            TaleWorlds.Engine.MBDebug.EchoCommandWindow(GetFormattedMessage());
+            if (includeException && Exception != null)
+                TaleWorlds.Engine.MBDebug.EchoCommandWindow($"Exception:\n{Exception}");
+        }
     }
 }
