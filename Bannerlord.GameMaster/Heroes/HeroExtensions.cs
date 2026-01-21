@@ -155,10 +155,10 @@ namespace Bannerlord.GameMaster.Heroes
 			BLGMResult result = HeroManager.TrySetHomeSettlement(hero, homeSettlement);
 
 			// if reflection fails call UpdateHomeSettlement instead
-			if (!result.wasSuccessful || hero.HomeSettlement != homeSettlement)
+			if (!result.IsSuccess || hero.HomeSettlement != homeSettlement)
 			{
 				hero.UpdateHomeSettlement();
-				Debug.Print($"{result.message}\nTargetSettlement: {homeSettlement}, ActualSettlement: {hero.HomeSettlement}", color: Debug.DebugColor.Red);
+				Debug.Print($"{result.Message}\nTargetSettlement: {homeSettlement}, ActualSettlement: {hero.HomeSettlement}", color: Debug.DebugColor.Red);
 			}
 
 			return hero.HomeSettlement;

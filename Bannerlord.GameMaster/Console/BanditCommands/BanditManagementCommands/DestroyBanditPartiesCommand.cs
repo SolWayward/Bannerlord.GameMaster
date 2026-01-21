@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Bannerlord.GameMaster.Bandits;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Parsing;
@@ -54,28 +55,28 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return MessageFormatter.FormatErrorMessage(validationError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
                 if (parsed.TotalCount < 1)
-                    return usageMessage;
+                    return CommandResult.Error(usageMessage).Log().Message;
 
                 // MARK: Parse Arguments
                 string banditTypeArg = parsed.GetArgument("banditType", 0) ?? parsed.GetArgument("type", 0);
                 if (banditTypeArg == null)
-                    return MessageFormatter.FormatErrorMessage("Missing required argument 'banditType'.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'banditType'.")).Log().Message;
 
                 int? count = null;
                 string countArg = parsed.GetArgument("count", 1);
                 if (countArg != null)
                 {
                     if (!CommandValidator.ValidateIntegerRange(countArg, 1, int.MaxValue, out int countValue, out string countError))
-                        return MessageFormatter.FormatErrorMessage(countError);
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Log().Message;
                     count = countValue;
                 }
 
                 (List<CultureObject> cultures, string parseError) = BanditCommandHelpers.ParseBanditCultures(banditTypeArg);
                 if (parseError != null)
-                    return MessageFormatter.FormatErrorMessage(parseError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(parseError)).Log().Message;
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -96,10 +97,11 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
                 string countsSummary = BanditCommandHelpers.GetBanditCountsSummary();
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("destroy_bandit_parties", resolvedValues);
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Destroyed {totalRemoved} bandit parties{countInfo}.\n" +
                     $"Types: {BanditCommandHelpers.FormatBanditTypeList(cultures)}\n\n" +
                     $"Remaining Counts:\n{countsSummary}");
+                return CommandResult.Success(fullMessage).Log().Message;
             });
         }
     }

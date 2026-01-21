@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -23,7 +24,7 @@ public static class ReleaseHeroCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.release", "<hero>",
@@ -39,22 +40,22 @@ public static class ReleaseHeroCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 1)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return heroResult.Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
             Hero hero = heroResult.Entity;
 
             if (!hero.IsPrisoner)
-                return MessageFormatter.FormatErrorMessage($"{hero.Name} is not a prisoner.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a prisoner.")).Log().Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -65,7 +66,8 @@ public static class ReleaseHeroCommand
             EndCaptivityAction.ApplyByReleasedAfterBattle(hero);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("release", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name} (ID: {hero.StringId}) has been released from captivity.");
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name} (ID: {hero.StringId}) has been released from captivity.");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

@@ -4,6 +4,8 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Bannerlord.GameMaster.Common;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.Library;
 
@@ -94,10 +96,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 			}
 			catch (Exception ex)
 			{
-				InfoMessage.Error(new StringBuilder()
-					.Append("[BLGMCommandLogger] Error: Failed to initialize: ")
-					.Append(ex.Message)
-					.ToString());
+				BLGMResult.Error($"CommandLogger failed to initialize: {ex.Message}", ex).Log();
 			}
 		}
 
@@ -146,19 +145,13 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 					}
 					catch (Exception ex)
 					{
-						Debug.Print(new StringBuilder()
-							.Append("[BLGMCommandLogger] Error: Failed to delete old log file: ")
-							.Append(ex.Message)
-							.ToString());
+						BLGMResult.Error($"Failed to delete old log file: {ex.Message}", ex).Log();
 					}
 				}
 			}
 			catch (Exception ex)
 			{
-				Debug.Print(new StringBuilder()
-					.Append("[BLGMCommandLogger] Error: Failed to perform log rotation: ")
-					.Append(ex.Message)
-					.ToString());
+				BLGMResult.Error($"Failed to perform log rotation: {ex.Message}", ex).Log();
 			}
 		}
 		#endregion
@@ -246,6 +239,36 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 
 			EnqueueWrite(logEntry.ToString());
 		}
+	
+		/// <summary>
+		/// Log a CommandResult to the custom log file.
+		/// Uses the result's Message and status for formatting.
+		/// Only writes if logging is enabled.
+		/// </summary>
+		/// <param name="result">The CommandResult to log</param>
+		public static void LogCommandResult(CommandResult result)
+		{
+			if (!_isEnabled || string.IsNullOrEmpty(_logFilePath))
+				return;
+	
+			StringBuilder logEntry = new();
+			logEntry.AppendLine(SEPARATOR_EQUALS);
+			logEntry.Append("Timestamp: ").AppendLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+			logEntry.Append("Status: ").AppendLine(result.IsSuccess ? "SUCCESS" : "FAILED");
+			logEntry.AppendLine(SEPARATOR_DASHES);
+			logEntry.AppendLine(result.Message);
+			
+			if (!result.IsSuccess && result.Exception != null)
+			{
+				logEntry.AppendLine("Exception Details:");
+				AppendExceptionDetailsForLog(logEntry, result.Exception, 0);
+			}
+			
+			logEntry.AppendLine(SEPARATOR_EQUALS);
+			logEntry.AppendLine();
+	
+			EnqueueWrite(logEntry.ToString());
+		}
 		#endregion
 
 		#region Exception Logging
@@ -298,7 +321,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 
 			// Build the log message (single [BLGM] prefix at start)
 			StringBuilder logBuilder = new();
-			logBuilder.AppendLine("[BLGM] Error:");
+			logBuilder.AppendLine("[BLGM] Command Error:");
 			logBuilder.Append("Command: ").AppendLine(commandName);
 			AppendExceptionDetailsForLog(logBuilder, ex, 0);
 
@@ -306,6 +329,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 
 			// ALWAYS write to RGL log (unconditional)
 			Debug.Print(fullLogMessage);
+			System.Console.WriteLine(fullLogMessage);
 
 			// CONDITIONALLY write to custom file (only if enabled)
 			if (_isEnabled && !string.IsNullOrEmpty(_logFilePath))
@@ -411,13 +435,12 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 						File.AppendAllText(_logFilePath, batchContent.ToString());
 					}
 				}
+				
 				catch (Exception ex)
 				{
-					Debug.Print(new StringBuilder()
-						.Append("[BLGMCommandLogger] Error: Failed to flush log queue: ")
-						.Append(ex.Message)
-						.ToString());
+					BLGMResult.Error($"Failed to flush log queue: {ex.Message}", ex).Log();
 				}
+
 				finally
 				{
 					_isFlushingQueue = false;

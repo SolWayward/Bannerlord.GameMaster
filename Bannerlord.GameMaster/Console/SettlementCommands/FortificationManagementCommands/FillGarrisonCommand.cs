@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -24,7 +25,7 @@ public static class FillGarrisonCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.fill_garrison", "<settlement>",
@@ -38,23 +39,23 @@ public static class FillGarrisonCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 1)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return settlementResult.Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Log().Message;
 
             if (settlement.Town.GarrisonParty == null)
-                return MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no garrison party.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no garrison party.")).Log().Message;
 
             // MARK: Execute Logic
             TaleWorlds.CampaignSystem.Party.MobileParty garrison = settlement.Town.GarrisonParty;
@@ -70,7 +71,7 @@ public static class FillGarrisonCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("fill_garrison", resolvedValues);
 
             if (spaceAvailable <= 0)
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage($"Settlement '{settlement.Name}' garrison is already at maximum capacity ({currentSize}/{maxSize}).");
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"Settlement '{settlement.Name}' garrison is already at maximum capacity ({currentSize}/{maxSize}).")).Log().Message;
 
             // Get existing troops and their proportions
             List<(CharacterObject troop, int count)> troopTypes = new();
@@ -83,7 +84,7 @@ public static class FillGarrisonCommand
             }
 
             if (troopTypes.Count == 0)
-                return argumentDisplay + MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no troops to use as template for filling.");
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no troops to use as template for filling.")).Log().Message;
 
             // Calculate total existing troops for proportions
             int totalExisting = troopTypes.Sum(t => t.count);
@@ -112,8 +113,9 @@ public static class FillGarrisonCommand
                 addedCount += remaining;
             }
 
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) garrison filled from {currentSize} to {garrison.MemberRoster.TotalManCount} (+{addedCount}).");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

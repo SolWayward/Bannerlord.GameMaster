@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Caravans;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -26,7 +27,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return error;
+                    return CommandResult.Error(error).Log().Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.caravan.create_player_caravan", "<settlement> [leader_hero]",

@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ public static class DumpBannerColorsCommand
 
             File.WriteAllText(outputPath, sb.ToString());
 
-            return MessageFormatter.FormatSuccessMessage($"Banner color palette dumped to: {outputPath}");
+            return CommandResult.Success(MessageFormatter.FormatSuccessMessage($"Banner color palette dumped to: {outputPath}")).Log().Message;
         });
     }
 }

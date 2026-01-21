@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -22,7 +23,7 @@ public static class SetHearthsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.set_hearths", "<settlement> <value>",
@@ -37,24 +38,24 @@ public static class SetHearthsCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string valueStr = parsed.GetArgument("value", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return settlementResult.Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Village == null)
-                return MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a village.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a village.")).Log().Message;
 
             if (!CommandValidator.ValidateFloatRange(valueStr, 0, 2000, out float value, out string valueError))
-                return MessageFormatter.FormatErrorMessage(valueError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(valueError)).Log().Message;
 
             // MARK: Execute Logic
             float previousValue = settlement.Village.Hearth;
@@ -67,8 +68,9 @@ public static class SetHearthsCommand
             };
 
             string argumentDisplay = parsed.FormatArgumentDisplay("set_hearths", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Village '{settlement.Name}' (ID: {settlement.StringId}) hearth changed from {previousValue:F0} to {settlement.Village.Hearth:F0}.");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

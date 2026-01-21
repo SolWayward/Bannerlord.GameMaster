@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -25,7 +26,7 @@ public static class ImprisonHeroCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.imprison", "<prisoner> <captor>",
@@ -42,30 +43,30 @@ public static class ImprisonHeroCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string prisonerArg = parsed.GetArgument("prisoner", 0);
             if (prisonerArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'prisoner'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'prisoner'.")).Log().Message;
 
             EntityFinderResult<Hero> prisonerResult = HeroFinder.FindSingleHero(prisonerArg);
-            if (!prisonerResult.IsSuccess) return prisonerResult.Message;
+            if (!prisonerResult.IsSuccess) return CommandResult.Error(prisonerResult.Message).Log().Message;
             Hero prisoner = prisonerResult.Entity;
 
             string captorArg = parsed.GetArgument("captor", 1);
             if (captorArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'captor'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'captor'.")).Log().Message;
 
             EntityFinderResult<Hero> captorResult = HeroFinder.FindSingleHero(captorArg);
-            if (!captorResult.IsSuccess) return captorResult.Message;
+            if (!captorResult.IsSuccess) return CommandResult.Error(captorResult.Message).Log().Message;
             Hero captor = captorResult.Entity;
 
             if (prisoner.IsPrisoner)
-                return MessageFormatter.FormatErrorMessage($"{prisoner.Name} is already a prisoner.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{prisoner.Name} is already a prisoner.")).Log().Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -80,12 +81,13 @@ public static class ImprisonHeroCommand
                                     ?? Settlement.FindFirst(s => s.OwnerClan == captor.Clan)?.Party;
 
             if (captorParty == null)
-                return MessageFormatter.FormatErrorMessage($"{captor.Name} has no valid party or settlement to hold prisoners.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{captor.Name} has no valid party or settlement to hold prisoners.")).Log().Message;
 
             TakePrisonerAction.Apply(captorParty, prisoner);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("imprison", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{prisoner.Name} (ID: {prisoner.StringId}) is now imprisoned by {captor.Name}.");
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{prisoner.Name} (ID: {prisoner.StringId}) is now imprisoned by {captor.Name}.");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

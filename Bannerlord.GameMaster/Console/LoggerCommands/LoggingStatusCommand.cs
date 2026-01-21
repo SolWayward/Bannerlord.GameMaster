@@ -26,11 +26,12 @@ public static class LoggingStatusCommand
 
             string sizeFormatted = LoggerCommandHelpers.FormatFileSize(size);
 
-            return $"Command Logger Status:\n" +
+            string statusMessage = $"Command Logger Status:\n" +
                    $"Status: {status}\n" +
                    $"Log File: {path}\n" +
                    $"File Size: {sizeFormatted}\n" +
                    $"Log Entries: {entries}\n";
+            return CommandResult.Success(statusMessage).Log().Message;
         });
     }
 }

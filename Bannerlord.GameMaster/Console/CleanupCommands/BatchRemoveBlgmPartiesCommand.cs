@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Parsing;
@@ -38,7 +39,7 @@ public static class BatchRemoveBlgmPartiesCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             // MARK: Parse Arguments
             int? count = null;
@@ -49,7 +50,7 @@ public static class BatchRemoveBlgmPartiesCommand
                 string countStr = parsed.GetArgument("count", 0);
                 if (!CommandValidator.ValidateIntegerRange(countStr, 1, int.MaxValue, out int countValue, out string countError))
                 {
-                    return MessageFormatter.FormatErrorMessage(countError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Log().Message;
                 }
 
                 count = countValue;
@@ -66,8 +67,9 @@ public static class BatchRemoveBlgmPartiesCommand
             };
 
             string argumentDisplay = parsed.FormatArgumentDisplay("batch_remove_blgm_parties", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Removed {removed} BLGM party(ies)\n{details}");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

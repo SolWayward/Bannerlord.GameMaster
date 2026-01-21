@@ -79,15 +79,15 @@ public static class ClanRemover
 
             BLGMResult result = RemoveSingleClan(clan);
 
-            if (result.wasSuccessful)
+            if (result.IsSuccess)
             {
                 removedCount++;
-                details.AppendLine($"  ✓ {result.message}");
+                details.AppendLine($"  ✓ {result.Message}");
             }
             else
             {
                 skippedCount++;
-                details.AppendLine($"  - Skipped: {result.message}");
+                details.AppendLine($"  - Skipped: {result.Message}");
             }
 
             processed++;

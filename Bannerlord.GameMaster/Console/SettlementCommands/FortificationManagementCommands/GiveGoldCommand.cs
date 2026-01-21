@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -22,7 +23,7 @@ public static class GiveGoldCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.give_gold", "<settlement> <amount>",
@@ -37,24 +38,24 @@ public static class GiveGoldCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string amountStr = parsed.GetArgument("amount", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return settlementResult.Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Log().Message;
 
             if (!CommandValidator.ValidateIntegerRange(amountStr, int.MinValue, int.MaxValue, out int amount, out string amountError))
-                return MessageFormatter.FormatErrorMessage(amountError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(amountError)).Log().Message;
 
             // MARK: Execute Logic
             int previousValue = settlement.Town.Gold;
@@ -67,8 +68,9 @@ public static class GiveGoldCommand
             };
 
             string argumentDisplay = parsed.FormatArgumentDisplay("give_gold", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) gold changed from {previousValue} to {settlement.Town.Gold} ({(amount >= 0 ? "+" : "")}{amount}).");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

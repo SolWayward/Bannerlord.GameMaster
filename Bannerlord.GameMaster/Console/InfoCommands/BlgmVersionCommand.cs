@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Information;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ public static class BlgmVersionCommand
     {
         return Cmd.Run(args, () =>
         {
-            return $"BLGM v{GameEnvironment.BLGMVersion}";
+            return CommandResult.Success($"BLGM v{GameEnvironment.BLGMVersion}").Log().Message;
         });
     }
 }

@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Caravans;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -25,7 +26,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return error;
+                    return CommandResult.Error(error).Log().Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.caravan.create_notable_caravan", "<settlement>",
@@ -39,7 +40,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return MessageFormatter.FormatErrorMessage(validationError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
                 if (parsed.TotalCount < 1)
                     return usageMessage;

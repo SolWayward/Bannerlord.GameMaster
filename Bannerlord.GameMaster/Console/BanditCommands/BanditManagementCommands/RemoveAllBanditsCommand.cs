@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Bannerlord.GameMaster.Bandits;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Parsing;
@@ -44,19 +45,19 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return MessageFormatter.FormatErrorMessage(validationError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
                 if (parsed.TotalCount < 1)
-                    return usageMessage;
+                    return CommandResult.Error(usageMessage).Log().Message;
 
                 // MARK: Parse Arguments
                 string confirmationArg = parsed.GetArgument("confirmation", 0);
                 if (confirmationArg == null)
-                    return MessageFormatter.FormatErrorMessage("Missing required argument 'confirmation'.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'confirmation'.")).Log().Message;
 
                 if (confirmationArg.ToLower() != "confirm")
-                    return MessageFormatter.FormatErrorMessage(
-                        $"Invalid confirmation value: '{confirmationArg}'. Must be 'confirm' to execute this command.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(
+                        $"Invalid confirmation value: '{confirmationArg}'. Must be 'confirm' to execute this command.")).Log().Message;
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -70,11 +71,12 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
                 string countsSummary = BanditCommandHelpers.GetBanditCountsSummary();
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("remove_all", resolvedValues);
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Removed all bandits from the game.\n" +
                     $"Parties destroyed: {partiesRemoved}\n" +
                     $"Hideouts cleared: {hideoutsRemoved}\n\n" +
                     $"Remaining Counts:\n{countsSummary}");
+                return CommandResult.Success(fullMessage).Log().Message;
             });
         }
     }

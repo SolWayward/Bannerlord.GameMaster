@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ public static class DumpHotkeyCategoriesCommand
 
             if (hotkeyCategories == null)
             {
-                return MessageFormatter.FormatErrorMessage("Failed to retrieve hotkey categories - HotKeyManager returned null");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Failed to retrieve hotkey categories - HotKeyManager returned null")).Log().Message;
             }
 
             string outputPath = DevCommandHelpers.GetDumpFilePath("HotkeyCategories_Dump.txt");
@@ -82,7 +83,7 @@ public static class DumpHotkeyCategoriesCommand
 
             File.WriteAllText(outputPath, sb.ToString());
 
-            return MessageFormatter.FormatSuccessMessage($"Hotkey categories dumped to: {outputPath}");
+            return CommandResult.Success(MessageFormatter.FormatSuccessMessage($"Hotkey categories dumped to: {outputPath}")).Log().Message;
         });
     }
 }

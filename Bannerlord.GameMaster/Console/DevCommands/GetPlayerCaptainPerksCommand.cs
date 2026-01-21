@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.BLGMDebug;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using System.Collections.Generic;
@@ -26,7 +27,8 @@ public static class GetPlayerCaptainPerksCommand
                 return error;
 
             // MARK: Execute Logic
-            return HeroDebug.CaptainOnFootPerks(Hero.MainHero);
+            string message = HeroDebug.CaptainOnFootPerks(Hero.MainHero);
+            return CommandResult.Success(message).Log().Message;
         });
     }
 }

@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.BLGMDebug;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using System.Collections.Generic;
@@ -25,7 +26,8 @@ public static class CheckHeroesMatchesCharactersStringIdCommand
                 return error;
 
             // MARK: Execute Logic
-            return HeroDebug.CheckHeroesCharacterStringId();
+            string message = HeroDebug.CheckHeroesCharacterStringId();
+            return CommandResult.Success(message).Log().Message;
         });
     }
 }

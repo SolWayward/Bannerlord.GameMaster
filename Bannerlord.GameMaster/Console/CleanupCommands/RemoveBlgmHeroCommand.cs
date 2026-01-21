@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Common;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -40,19 +41,19 @@ public static class RemoveBlgmHeroCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 1)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string heroIdentifier = parsed.GetArgument("hero", 0);
             if (string.IsNullOrWhiteSpace(heroIdentifier))
-                return MessageFormatter.FormatErrorMessage("Hero identifier cannot be empty.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Hero identifier cannot be empty.")).Log().Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroIdentifier);
             if (!heroResult.IsSuccess)
-                return heroResult.Message;
+                return CommandResult.Error(heroResult.Message).Log().Message;
             Hero hero = heroResult.Entity;
 
             // MARK: Execute Logic
@@ -65,13 +66,15 @@ public static class RemoveBlgmHeroCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("remove_blgm_hero", resolvedValues);
 
-            if (result.wasSuccessful)
+            if (result.IsSuccess)
             {
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(result.message);
+                string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message);
+                return CommandResult.Success(fullMessage).Log().Message;
             }
             else
             {
-                return argumentDisplay + MessageFormatter.FormatErrorMessage(result.message);
+                string fullMessage = argumentDisplay + MessageFormatter.FormatErrorMessage(result.Message);
+                return CommandResult.Error(fullMessage).Log().Message;
             }
         });
     }

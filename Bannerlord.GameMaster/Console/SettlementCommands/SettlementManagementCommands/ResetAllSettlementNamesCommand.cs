@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Common;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Validation;
@@ -21,7 +22,7 @@ public static class ResetAllSettlementNamesCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.reset_all_names", "",
@@ -29,18 +30,18 @@ public static class ResetAllSettlementNamesCommand
                 "gm.settlement.reset_all_names");
 
             if (args.Count > 0)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Execute Logic
             int renamedCount = SettlementManager.GetRenamedSettlementCount();
             if (renamedCount == 0)
-                return MessageFormatter.FormatSuccessMessage("No settlements have been renamed.");
+                return CommandResult.Success(MessageFormatter.FormatSuccessMessage("No settlements have been renamed.")).Log().Message;
 
             BLGMResult result = SettlementManager.ResetAllSettlementNames();
-            if (!result.wasSuccessful)
-                return MessageFormatter.FormatErrorMessage(result.message);
+            if (!result.IsSuccess)
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Log().Message;
 
-            return MessageFormatter.FormatSuccessMessage(result.message);
+            return CommandResult.Success(MessageFormatter.FormatSuccessMessage(result.Message)).Log().Message;
         });
     }
 }

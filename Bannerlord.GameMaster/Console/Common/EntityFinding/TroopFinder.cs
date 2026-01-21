@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using Bannerlord.GameMaster.Troops;
+using Bannerlord.GameMaster.Common;
 
 namespace Bannerlord.GameMaster.Console.Common.EntityFinding
 {

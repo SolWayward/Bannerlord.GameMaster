@@ -29,7 +29,7 @@ public static class EnableLoggingCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             string customPath = parsed.GetArgument("path", 0);
 
@@ -37,7 +37,7 @@ public static class EnableLoggingCommand
             LoggingResult result = LoggingManager.EnableLogging(customPath);
 
             if (!result.WasSuccessful)
-                return MessageFormatter.FormatErrorMessage(result.Message);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Log().Message;
 
             string path = LoggingManager.CurrentLogFilePath;
 
@@ -47,7 +47,8 @@ public static class EnableLoggingCommand
             };
 
             string argumentDisplay = parsed.FormatArgumentDisplay("enable", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message);
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message);
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

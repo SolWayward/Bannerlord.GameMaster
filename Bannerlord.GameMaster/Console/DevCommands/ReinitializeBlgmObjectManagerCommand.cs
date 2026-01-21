@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using System.Collections.Generic;
@@ -22,8 +23,9 @@ public static class ReinitializeBlgmObjectManagerCommand
             // MARK: Execute Logic
             BLGMObjectManager.Instance.Initialize();
             
-            return MessageFormatter.FormatSuccessMessage(
+            string message = MessageFormatter.FormatSuccessMessage(
                 $"BLGMObjectManager Reinitialized: {BLGMObjectManager.Instance.ObjectCount} BLGM created objects loaded");
+            return CommandResult.Success(message).Log().Message;
         });
     }
 }

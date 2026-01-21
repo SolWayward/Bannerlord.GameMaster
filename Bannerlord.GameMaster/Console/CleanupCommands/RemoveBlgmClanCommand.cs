@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Common;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -40,19 +41,19 @@ public static class RemoveBlgmClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 1)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string clanIdentifier = parsed.GetArgument("clan", 0);
             if (string.IsNullOrWhiteSpace(clanIdentifier))
-                return MessageFormatter.FormatErrorMessage("Clan identifier cannot be empty.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Clan identifier cannot be empty.")).Log().Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanIdentifier);
             if (!clanResult.IsSuccess)
-                return clanResult.Message;
+                return CommandResult.Error(clanResult.Message).Log().Message;
             Clan clan = clanResult.Entity;
 
             // MARK: Execute Logic
@@ -65,13 +66,15 @@ public static class RemoveBlgmClanCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("remove_blgm_clan", resolvedValues);
 
-            if (result.wasSuccessful)
+            if (result.IsSuccess)
             {
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(result.message);
+                string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message);
+                return CommandResult.Success(fullMessage).Log().Message;
             }
             else
             {
-                return argumentDisplay + MessageFormatter.FormatErrorMessage(result.message);
+                string fullMessage = argumentDisplay + MessageFormatter.FormatErrorMessage(result.Message);
+                return CommandResult.Error(fullMessage).Log().Message;
             }
         });
     }

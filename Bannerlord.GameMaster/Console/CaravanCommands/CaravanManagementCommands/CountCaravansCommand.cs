@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Validation;
@@ -24,7 +25,8 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
 
                 // MARK: Execute Logic
                 string countsSummary = CaravanCommandHelpers.GetCaravanCountsSummary();
-                return MessageFormatter.FormatSuccessMessage($"Caravan Statistics:\n{countsSummary}");
+                string fullMessage = MessageFormatter.FormatSuccessMessage($"Caravan Statistics:\n{countsSummary}");
+                return CommandResult.Success(fullMessage).Log().Message;
             });
         }
     }

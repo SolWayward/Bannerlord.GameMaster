@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Information;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ public static class BannerlordVersionCommand
     {
         return Cmd.Run(args, () =>
         {
-            return $"Bannerlord {GameEnvironment.BannerlordVersion}";
+            return CommandResult.Success($"Bannerlord {GameEnvironment.BannerlordVersion}").Log().Message;
         });
     }
 }

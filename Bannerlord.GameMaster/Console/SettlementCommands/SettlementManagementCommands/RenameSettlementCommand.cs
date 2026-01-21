@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Common;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -24,7 +25,7 @@ public static class RenameSettlementCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.rename", "<settlement> <new_name>",
@@ -41,28 +42,28 @@ public static class RenameSettlementCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string newName = parsed.GetArgument("name", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return settlementResult.Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
             Settlement settlement = settlementResult.Entity;
 
             if (string.IsNullOrWhiteSpace(newName))
-                return MessageFormatter.FormatErrorMessage("New name cannot be empty.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("New name cannot be empty.")).Log().Message;
 
             // MARK: Execute Logic
             string previousName = settlement.Name.ToString();
 
             BLGMResult result = SettlementManager.RenameSettlement(settlement, newName);
-            if (!result.wasSuccessful)
-                return MessageFormatter.FormatErrorMessage(result.message);
+            if (!result.IsSuccess)
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Log().Message;
 
             Dictionary<string, string> resolvedValues = new()
             {
@@ -71,10 +72,11 @@ public static class RenameSettlementCommand
             };
 
             string argumentDisplay = parsed.FormatArgumentDisplay("rename", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement renamed from '{previousName}' to '{settlement.Name}' (ID: {settlement.StringId}).\n" +
                 $"The new name will persist through save/load cycles.\n" +
                 $"The name may not visual update on the campaign map immediately, Open and Close any menu to refresh name");
-    });
+            return CommandResult.Success(fullMessage).Log().Message;
+        });
     }
 }

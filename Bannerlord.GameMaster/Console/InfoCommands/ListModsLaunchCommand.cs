@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Information;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ public static class ListModsLaunchCommand
             output.AppendLine($"    \"{launchFormat}\"");
             output.AppendLine("]");
 
-            return output.ToString();
+            return CommandResult.Success(output.ToString()).Log().Message;
         });
     }
 }

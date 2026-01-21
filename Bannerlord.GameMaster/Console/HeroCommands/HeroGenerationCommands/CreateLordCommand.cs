@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -28,7 +29,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return error;
+                    return CommandResult.Error(error).Log().Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.hero.create_lord", "<name> [cultures] [gender] [clan] [withParty] [settlement] [randomFactor]",
@@ -61,15 +62,15 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return MessageFormatter.FormatErrorMessage(validationError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
                 if (parsed.TotalCount < 1)
-                    return usageMessage;
+                    return CommandResult.Error(usageMessage).Log().Message;
 
                 // MARK: Parse Arguments
                 string name = parsed.GetArgument("name", 0);
                 if (string.IsNullOrWhiteSpace(name))
-                    return MessageFormatter.FormatErrorMessage("Name cannot be empty.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Name cannot be empty.")).Log().Message;
 
                 CultureFlags cultureFlags = CultureFlags.AllMainCultures;
                 GenderFlags genderFlags = GenderFlags.Either;
@@ -95,7 +96,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     cultureFlags = FlagParser.ParseCultureArgument(culturesArg);
                     if (cultureFlags == CultureFlags.None)
-                        return MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'");
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'")).Log().Message;
                 }
 
                 // Parse gender - try named first, then scan positional
@@ -116,7 +117,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     genderFlags = FlagParser.ParseGenderArgument(genderArg);
                     if (genderFlags == GenderFlags.None)
-                        return MessageFormatter.FormatErrorMessage($"Invalid gender: '{genderArg}'");
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid gender: '{genderArg}'")).Log().Message;
                 }
 
                 // Parse clan - try named first
@@ -144,7 +145,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
                     if (!clanResult.IsSuccess)
-                        return clanResult.Message;
+                        return CommandResult.Error(clanResult.Message).Log().Message;
                     targetClan = clanResult.Entity;
                 }
 
@@ -153,7 +154,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 if (withPartyArg != null)
                 {
                     if (!bool.TryParse(withPartyArg, out withParty))
-                        return MessageFormatter.FormatErrorMessage($"Invalid withParty value: '{withPartyArg}'. Use true or false.");
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid withParty value: '{withPartyArg}'. Use true or false.")).Log().Message;
                 }
                 else
                 {
@@ -193,7 +194,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementArg);
                     if (!settlementResult.IsSuccess)
-                        return settlementResult.Message;
+                        return CommandResult.Error(settlementResult.Message).Log().Message;
                     settlement = settlementResult.Entity;
                 }
 
@@ -214,11 +215,11 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 if (randomArg != null)
                 {
                     if (!CommandValidator.ValidateFloatRange(randomArg, 0f, 1f, out randomFactor, out string randomError))
-                        return MessageFormatter.FormatErrorMessage(randomError);
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError)).Log().Message;
                 }
 
                 if (!CommandValidator.ValidateHeroCreationLimit(1, out string limitError))
-                    return MessageFormatter.FormatErrorMessage(limitError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(limitError)).Log().Message;
 
                 // Default clan if none specified
                 if (targetClan == null)
@@ -244,7 +245,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 Hero createdHero = HeroGenerator.CreateLord(name, cultureFlags, genderFlags, targetClan, withParty, settlement, randomFactor);
 
                 if (createdHero == null)
-                    return argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to create lord - no templates found matching criteria");
+                    return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to create lord - no templates found matching criteria")).Log().Message;
 
                 // If no party and settlement specified, place lord there
                 if (!withParty && settlement != null)
@@ -254,7 +255,8 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 }
 
                 string partyInfo = withParty ? " with party" : (settlement != null ? $" at {settlement.Name}" : " (no party)");
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage($"Created lord '{createdHero.Name}' (ID: {createdHero.StringId}){partyInfo}\n{HeroQueries.GetFormattedDetails(new List<Hero> { createdHero })}");
+                string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"Created lord '{createdHero.Name}' (ID: {createdHero.StringId}){partyInfo}\n{HeroQueries.GetFormattedDetails(new List<Hero> { createdHero })}");
+                return CommandResult.Success(fullMessage).Log().Message;
             });
         }
     }

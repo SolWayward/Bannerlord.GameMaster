@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Caravans;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Parsing;
@@ -22,7 +23,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return error;
+                    return CommandResult.Error(error).Log().Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.caravan.force_destroy_disbanding_caravans", "<confirm>",
@@ -37,12 +38,12 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
                 );
 
                 if (parsed.TotalCount < 1)
-                    return usageMessage;
+                    return CommandResult.Error(usageMessage).Log().Message;
 
                 // MARK: Parse Arguments
                 string confirmArg = parsed.GetArgument("confirm", 0);
                 if (string.IsNullOrWhiteSpace(confirmArg) || confirmArg.ToLower().Trim() != "confirm")
-                    return usageMessage;
+                    return CommandResult.Error(usageMessage).Log().Message;
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -55,9 +56,10 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
                 string countsSummary = CaravanCommandHelpers.GetCaravanCountsSummary();
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("force_destroy_disbanding_caravans", resolvedValues);
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Destroyed: {destroyed} caravans\n\n" +
                     $"Remaining Counts:\n{countsSummary}");
+                return CommandResult.Success(fullMessage).Log().Message;
             });
         }
     }

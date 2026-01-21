@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Bannerlord.GameMaster.Common;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -24,7 +25,7 @@ public static class SetVillageBoundSettlementCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.set_village_bound_settlement", "<village> <settlement>",
@@ -47,24 +48,24 @@ public static class SetVillageBoundSettlementCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string villageQuery = parsed.GetArgument("village", 0);
             string settlementQuery = parsed.GetArgument("settlement", 1);
 
             EntityFinderResult<Settlement> villageResult = SettlementFinder.FindSingleSettlement(villageQuery);
-            if (!villageResult.IsSuccess) return villageResult.Message;
+            if (!villageResult.IsSuccess) return CommandResult.Error(villageResult.Message).Log().Message;
             Settlement villageSettlement = villageResult.Entity;
 
             if (villageSettlement.Village == null)
-                return MessageFormatter.FormatErrorMessage($"Settlement '{villageSettlement.Name}' is not a village.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{villageSettlement.Name}' is not a village.")).Log().Message;
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return settlementResult.Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
             Settlement newBoundSettlement = settlementResult.Entity;
 
             // MARK: Execute Logic
@@ -79,10 +80,10 @@ public static class SetVillageBoundSettlementCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("set_village_bound_settlement", resolvedValues);
 
-            if (result.wasSuccessful)
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(result.message);
+            if (result.IsSuccess)
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message)).Log().Message;
             else
-                return argumentDisplay + MessageFormatter.FormatErrorMessage(result.message);
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage(result.Message)).Log().Message;
         });
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -24,7 +25,7 @@ public static class SetOwnerKingdomCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.set_owner_kingdom", "<settlement> <kingdom>",
@@ -39,31 +40,31 @@ public static class SetOwnerKingdomCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string kingdomQuery = parsed.GetArgument("kingdom", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return settlementResult.Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.")).Log().Message;
 
             EntityFinderResult<Kingdom> kingdomResult = KingdomFinder.FindSingleKingdom(kingdomQuery);
-            if (!kingdomResult.IsSuccess) return kingdomResult.Message;
+            if (!kingdomResult.IsSuccess) return CommandResult.Error(kingdomResult.Message).Log().Message;
             Kingdom kingdom = kingdomResult.Entity;
 
             if (kingdom.Leader == null)
-                return MessageFormatter.FormatErrorMessage($"Kingdom '{kingdom.Name}' has no ruler.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Kingdom '{kingdom.Name}' has no ruler.")).Log().Message;
 
             if (kingdom.RulingClan == null)
-                return MessageFormatter.FormatErrorMessage($"Kingdom '{kingdom.Name}' has no ruling clan.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Kingdom '{kingdom.Name}' has no ruling clan.")).Log().Message;
 
             // MARK: Execute Logic
             string previousOwner = settlement.Owner?.Name?.ToString() ?? "None";
@@ -79,11 +80,12 @@ public static class SetOwnerKingdomCommand
             };
 
             string argumentDisplay = parsed.FormatArgumentDisplay("set_owner_kingdom", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) ownership changed:\n" +
                 $"Owner: {previousOwner} -> {settlement.Owner?.Name?.ToString() ?? "None"}\n" +
                 $"Owner Clan: {previousClan} -> {settlement.OwnerClan?.Name?.ToString() ?? "None"}\n" +
                 $"Map Faction: {previousFaction} -> {settlement.MapFaction?.Name?.ToString() ?? "None"}");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

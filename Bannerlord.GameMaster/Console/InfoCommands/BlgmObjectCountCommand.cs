@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using System.Collections.Generic;
 using TaleWorlds.Library;
@@ -18,10 +19,11 @@ public static class BlgmObjectCountCommand
     {
         return Cmd.Run(args, () =>
         {
-            return $"{BLGMObjectManager.Instance.ObjectCount} Total objects created with BLGM\n" +
+            string message = $"{BLGMObjectManager.Instance.ObjectCount} Total objects created with BLGM\n" +
                 $"Heroes: {BLGMObjectManager.BlgmHeroCount}\n" +
                 $"Clans: {BLGMObjectManager.BlgmClanCount}\n" +
                 $"Kingdoms: {BLGMObjectManager.BlgmKingdomCount}";
+            return CommandResult.Success(message).Log().Message;
         });
     }
 }

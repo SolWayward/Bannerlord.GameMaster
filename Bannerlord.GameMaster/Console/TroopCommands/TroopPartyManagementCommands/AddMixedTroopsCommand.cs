@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -23,7 +24,7 @@ public static class AddMixedTroopsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.troops.add_mixed", "<partyLeader> <countOfEach>",
@@ -42,34 +43,34 @@ public static class AddMixedTroopsCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string leaderArg = parsed.GetArgument("partyLeader", 0) ?? parsed.GetNamed("leader");
             if (leaderArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Log().Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(leaderArg);
             if (!heroResult.IsSuccess)
-                return heroResult.Message;
+                return CommandResult.Error(heroResult.Message).Log().Message;
             Hero hero = heroResult.Entity;
 
             string countArg = parsed.GetArgument("countOfEach", 1) ?? parsed.GetNamed("count");
             if (countArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'countOfEach'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'countOfEach'.")).Log().Message;
 
             if (!CommandValidator.ValidateIntegerRange(countArg, 1, 3000, out int countOfEach, out string countError))
-                return MessageFormatter.FormatErrorMessage(countError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Log().Message;
 
             // MARK: Execute Logic
             if (hero.PartyBelongedTo == null)
-                return MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.")).Log().Message;
 
             if (hero.PartyBelongedTo.LeaderHero != hero)
-                return MessageFormatter.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.")).Log().Message;
 
             hero.PartyBelongedTo.AddMixedTierTroops(countOfEach);
 
@@ -82,9 +83,10 @@ public static class AddMixedTroopsCommand
             };
 
             string argumentDisplay = parsed.FormatArgumentDisplay("add_mixed", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {totalAdded} mixed tier troops to {hero.Name}'s party ({countOfEach} of each: basic, elite, mercenary).\n" +
                 $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

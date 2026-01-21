@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -28,7 +29,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return error;
+                    return CommandResult.Error(error).Log().Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.hero.generate_lords", "<count> [cultures] [gender] [clan] [settlement] [randomFactor]",
@@ -58,18 +59,18 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return MessageFormatter.FormatErrorMessage(validationError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
                 if (parsed.TotalCount < 1)
-                    return usageMessage;
+                    return CommandResult.Error(usageMessage).Log().Message;
 
                 // MARK: Parse Arguments
                 string countArg = parsed.GetArgument("count", 0);
                 if (countArg == null)
-                    return MessageFormatter.FormatErrorMessage("Missing required argument 'count'.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'count'.")).Log().Message;
 
                 if (!CommandValidator.ValidateIntegerRange(countArg, 1, 50, out int count, out string countError))
-                    return MessageFormatter.FormatErrorMessage(countError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Log().Message;
 
                 CultureFlags cultureFlags = CultureFlags.AllMainCultures;
                 GenderFlags genderFlags = GenderFlags.Either;
@@ -94,7 +95,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     cultureFlags = FlagParser.ParseCultureArgument(culturesArg);
                     if (cultureFlags == CultureFlags.None)
-                        return MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'. Use culture names (e.g., vlandia,battania) or groups (main_cultures, bandit_cultures, all_cultures)");
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'. Use culture names (e.g., vlandia,battania) or groups (main_cultures, bandit_cultures, all_cultures)")).Log().Message;
                 }
 
                 // Parse optional gender - try named first, then scan positional args
@@ -115,7 +116,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     genderFlags = FlagParser.ParseGenderArgument(genderArg);
                     if (genderFlags == GenderFlags.None)
-                        return MessageFormatter.FormatErrorMessage($"Invalid gender: '{genderArg}'. Use 'both', 'female', or 'male'.");
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid gender: '{genderArg}'. Use 'both', 'female', or 'male'.")).Log().Message;
                 }
 
                 // Parse optional clan - try named first, then look for non-gender, non-culture, non-float positional
@@ -143,7 +144,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
                     if (!clanResult.IsSuccess)
-                        return clanResult.Message;
+                        return CommandResult.Error(clanResult.Message).Log().Message;
                     targetClan = clanResult.Entity;
                 }
 
@@ -173,7 +174,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementArg);
                     if (!settlementResult.IsSuccess)
-                        return settlementResult.Message;
+                        return CommandResult.Error(settlementResult.Message).Log().Message;
                     settlement = settlementResult.Entity;
                 }
 
@@ -194,11 +195,11 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 if (randomArg != null)
                 {
                     if (!CommandValidator.ValidateFloatRange(randomArg, 0f, 1f, out randomFactor, out string randomError))
-                        return MessageFormatter.FormatErrorMessage(randomError);
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError)).Log().Message;
                 }
 
                 if (!CommandValidator.ValidateHeroCreationLimit(count, out string limitError))
-                    return MessageFormatter.FormatErrorMessage(limitError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(limitError)).Log().Message;
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -239,9 +240,10 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 }
 
                 if (createdHeroes == null || createdHeroes.Count == 0)
-                    return argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to create lords - no templates found matching criteria");
+                    return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to create lords - no templates found matching criteria")).Log().Message;
 
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage($"Created {createdHeroes.Count} lord(s):\n{HeroQueries.GetFormattedDetails(createdHeroes)}");
+                string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"Created {createdHeroes.Count} lord(s):\n{HeroQueries.GetFormattedDetails(createdHeroes)}");
+                return CommandResult.Success(fullMessage).Log().Message;
             });
         }
     }

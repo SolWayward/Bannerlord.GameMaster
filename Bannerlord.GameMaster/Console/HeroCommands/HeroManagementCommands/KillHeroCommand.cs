@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -23,7 +24,7 @@ public static class KillHeroCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.kill", "<hero> [show_death_log]",
@@ -40,29 +41,29 @@ public static class KillHeroCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 1)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return heroResult.Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
             Hero hero = heroResult.Entity;
 
             if (!hero.IsAlive)
-                return MessageFormatter.FormatErrorMessage($"{hero.Name} is already dead.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is already dead.")).Log().Message;
 
             bool showDeathLog = false;
             string showDeathLogArg = parsed.GetArgument("showDeathLog", 1) ?? parsed.GetNamed("show_death_log");
             if (showDeathLogArg != null)
             {
                 if (!CommandValidator.ValidateBoolean(showDeathLogArg, out showDeathLog, out string boolError))
-                    return MessageFormatter.FormatErrorMessage(boolError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(boolError)).Log().Message;
             }
 
             // MARK: Execute Logic
@@ -75,7 +76,8 @@ public static class KillHeroCommand
             KillCharacterAction.ApplyByMurder(hero, null, showDeathLog);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("kill", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name} (ID: {hero.StringId}) has been killed.");
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name} (ID: {hero.StringId}) has been killed.");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Parsing;
@@ -40,12 +41,12 @@ public static class IgnoreLimitsCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             // If no arguments, display current status and limits
             if (parsed.TotalCount == 0)
             {
-                return GeneralCommandHelpers.GetStatusMessage();
+                return CommandResult.Error(GeneralCommandHelpers.GetStatusMessage()).Log().Message;
             }
 
             // MARK: Parse Arguments

@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -23,7 +24,7 @@ public static class SetRelationCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.set_relation", "<hero1> <hero2> <value>",
@@ -41,34 +42,34 @@ public static class SetRelationCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 3)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string hero1Arg = parsed.GetArgument("hero1", 0);
             if (hero1Arg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'hero1'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero1'.")).Log().Message;
 
             EntityFinderResult<Hero> hero1Result = HeroFinder.FindSingleHero(hero1Arg);
-            if (!hero1Result.IsSuccess) return hero1Result.Message;
+            if (!hero1Result.IsSuccess) return CommandResult.Error(hero1Result.Message).Log().Message;
             Hero hero1 = hero1Result.Entity;
 
             string hero2Arg = parsed.GetArgument("hero2", 1);
             if (hero2Arg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'hero2'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero2'.")).Log().Message;
 
             EntityFinderResult<Hero> hero2Result = HeroFinder.FindSingleHero(hero2Arg);
-            if (!hero2Result.IsSuccess) return hero2Result.Message;
+            if (!hero2Result.IsSuccess) return CommandResult.Error(hero2Result.Message).Log().Message;
             Hero hero2 = hero2Result.Entity;
 
             string valueArg = parsed.GetArgument("value", 2);
             if (valueArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'value'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'value'.")).Log().Message;
 
             if (!CommandValidator.ValidateIntegerRange(valueArg, -100, 100, out int value, out string relationError))
-                return MessageFormatter.FormatErrorMessage(relationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(relationError)).Log().Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -83,8 +84,9 @@ public static class SetRelationCommand
             ChangeRelationAction.ApplyRelationChangeBetweenHeroes(hero1, hero2, change, true);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("set_relation", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Relation between {hero1.Name} and {hero2.Name} changed from {previousRelation} to {value}.");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

@@ -193,7 +193,7 @@ namespace Bannerlord.GameMaster.Behaviours
 
                 // Apply original name (reflection + visual update)
                 BLGMResult result = ApplyNameOnly(settlement, originalName);
-                if (!result.wasSuccessful)
+                if (!result.IsSuccess)
                     return result;
 
                 // Remove from tracking lists
@@ -228,7 +228,7 @@ namespace Bannerlord.GameMaster.Behaviours
                 if (settlement != null)
                 {
                     BLGMResult result = ResetSettlementName(settlement);
-                    if (result.wasSuccessful)
+                    if (result.IsSuccess)
                         resetCount++;
                 }
             }

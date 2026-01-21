@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using System.Collections.Generic;
 using TaleWorlds.Library;
@@ -18,7 +19,7 @@ public static class LoggingHelpCommand
     {
         return Cmd.Run(args, () =>
         {
-            return "=== GAME MASTER LOGGING COMMANDS ===\n\n" +
+            string helpMessage = "=== GAME MASTER LOGGING COMMANDS ===\n\n" +
                    "Logger Control:\n" +
                    "  gm.log.enable [path:path]  - Enable command logging (optional custom path)\n" +
                    "  gm.log.disable             - Disable command logging\n" +
@@ -33,6 +34,7 @@ public static class LoggingHelpCommand
                    "  Documents\\Mount and Blade II Bannerlord\\Configs\\GameMaster\\command_log.txt\n\n" +
                    "Note: Commands integrated with logging will be logged when enabled.\n" +
                    "See LOGGING.md for integration guide.\n";
+            return CommandResult.Success(helpMessage).Log().Message;
         });
     }
 }

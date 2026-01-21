@@ -1,37 +1,36 @@
+using System;
+using Bannerlord.GameMaster.Common;
+
 namespace Bannerlord.GameMaster.Console.Common
 {
 	/// <summary>
-	/// Represents the result of a command execution
+	/// An object containing a bool indicating if a Command operation succeeded, a string message with details of the result of the operation,
+	/// and an exception if an exception occured. Also includes convenience methods for logging to game rgl log and system console and or displaying in game.
 	/// </summary>
-	public class CommandResult
+	public class CommandResult : ResultBase<CommandResult>
 	{
-		public bool IsSuccess { get; set; }
-		public string Message { get; set; }
+		protected override string Prefix => "[BLGM COMMAND]";
 
-		private CommandResult(bool isSuccess, string message)
+		/// <inheritdoc/>
+		public CommandResult() : base() { }
+
+		/// <inheritdoc/>
+		public CommandResult(bool isSuccess, string message) : base(isSuccess, message) { }
+
+		/// <inheritdoc/>
+		public CommandResult(bool isSuccess, string message, Exception ex) : base(isSuccess, message, ex) { }
+
+		public override CommandResult Log()
 		{
-			IsSuccess = isSuccess;
-			Message = message;
+			base.Log();
+			
+			// Log to custom command log file (only if logging is enabled)
+			if (Execution.CommandLogger.IsEnabled)
+			{
+				Execution.CommandLogger.LogCommandResult(this);
+			}
+			
+			return this;
 		}
-
-		/// <summary>
-		/// Creates a successful command result
-		/// </summary>
-		public static CommandResult Success(string message) => new CommandResult(true, $"Success: {message}\n");
-
-		/// <summary>
-		/// Creates a failed command result
-		/// </summary>
-		public static CommandResult Error(string message) => new CommandResult(false, $"Error: {message}\n");
-
-		/// <summary>
-		/// Implicitly converts CommandResult to string for backward compatibility
-		/// </summary>
-		public static implicit operator string(CommandResult result) => result.Message;
-
-		/// <summary>
-		/// Creates CommandResult from string message (assumes success)
-		/// </summary>
-		public static implicit operator CommandResult(string message) => Success(message);
 	}
 }

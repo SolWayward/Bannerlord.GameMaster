@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -22,7 +23,7 @@ public static class SetAgeCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.set_age", "<hero> <age>",
@@ -39,26 +40,26 @@ public static class SetAgeCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return heroResult.Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
             Hero hero = heroResult.Entity;
 
             string ageArg = parsed.GetArgument("age", 1);
             if (ageArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'age'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'age'.")).Log().Message;
 
             if (!CommandValidator.ValidateFloatRange(ageArg, 0, 128, out float age, out string ageError))
-                return MessageFormatter.FormatErrorMessage(ageError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(ageError)).Log().Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -71,7 +72,8 @@ public static class SetAgeCommand
             hero.SetBirthDay(CampaignTime.YearsFromNow(-age));
 
             string argumentDisplay = parsed.FormatArgumentDisplay("set_age", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name}'s age changed from {previousAge:F0} to {hero.Age:F0}.");
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name}'s age changed from {previousAge:F0} to {hero.Age:F0}.");
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

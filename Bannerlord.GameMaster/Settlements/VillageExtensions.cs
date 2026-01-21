@@ -84,7 +84,7 @@ namespace Bannerlord.GameMaster.Settlements
 
                     if (tradeBound != null)
                     {
-                        tradeBoundInfo += $"{village.SetTradeBoundSettlement(tradeBound).message}";
+                        tradeBoundInfo += $"{village.SetTradeBoundSettlement(tradeBound).Message}";
                     }
                     else
                     {

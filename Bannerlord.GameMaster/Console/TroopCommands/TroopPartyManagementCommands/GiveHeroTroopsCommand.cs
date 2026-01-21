@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -24,7 +25,7 @@ public static class GiveHeroTroopsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.troops.give_hero_troops", "<hero_query> <character_query> <count>",
@@ -42,44 +43,44 @@ public static class GiveHeroTroopsCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 3)
-                return usageMessage;
+                return CommandResult.Error(usageMessage).Log().Message;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
             if (!heroResult.IsSuccess)
-                return heroResult.Message;
+                return CommandResult.Error(heroResult.Message).Log().Message;
             Hero hero = heroResult.Entity;
 
             string characterArg = parsed.GetArgument("character", 1) ?? parsed.GetNamed("troop");
             if (characterArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'character'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'character'.")).Log().Message;
 
             EntityFinderResult<CharacterObject> characterResult = CharacterObjectFinder.FindSingleCharacterObject(characterArg);
             if (!characterResult.IsSuccess)
-                return characterResult.Message;
+                return CommandResult.Error(characterResult.Message).Log().Message;
             CharacterObject character = characterResult.Entity;
 
             // Validate character is not a hero
             if (character.IsHero)
-                return MessageFormatter.FormatErrorMessage($"{character.Name} is a hero and cannot be added as a troop.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{character.Name} is a hero and cannot be added as a troop.")).Log().Message;
 
             string countArg = parsed.GetArgument("count", 2);
             if (countArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'count'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'count'.")).Log().Message;
 
             if (!CommandValidator.ValidateIntegerRange(countArg, 1, 10000, out int count, out string countError))
-                return MessageFormatter.FormatErrorMessage(countError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Log().Message;
 
             // MARK: Execute Logic
             if (hero.PartyBelongedTo == null)
-                return MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.")).Log().Message;
 
             bool isPartyLeader = hero.PartyBelongedTo.LeaderHero == hero;
 
@@ -105,7 +106,8 @@ public static class GiveHeroTroopsCommand
             }
 
             string argumentDisplay = parsed.FormatArgumentDisplay("give_hero_troops", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(result.ToString());
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.ToString());
+            return CommandResult.Success(fullMessage).Log().Message;
         });
     }
 }

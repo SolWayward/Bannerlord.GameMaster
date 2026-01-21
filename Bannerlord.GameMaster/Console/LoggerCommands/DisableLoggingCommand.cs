@@ -23,9 +23,9 @@ public static class DisableLoggingCommand
             LoggingResult result = LoggingManager.DisableLogging();
 
             if (!result.WasSuccessful)
-                return MessageFormatter.FormatErrorMessage(result.Message);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Log().Message;
 
-            return MessageFormatter.FormatSuccessMessage(result.Message);
+            return CommandResult.Success(MessageFormatter.FormatSuccessMessage(result.Message)).Log().Message;
         });
     }
 }
