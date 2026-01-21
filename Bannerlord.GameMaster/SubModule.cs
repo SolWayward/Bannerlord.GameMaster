@@ -1,7 +1,4 @@
-using System;
-using System.Reflection;
 using Bannerlord.GameMaster.Behaviours;
-using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
@@ -16,6 +13,10 @@ namespace Bannerlord.GameMaster
         protected override void OnSubModuleLoad()
         {
             base.OnSubModuleLoad();
+
+            // Opens a system console if bannerlord is launched with /systemconsole
+            SystemConsoleManager.ShowConsoleIfLaunchedWithCommandLineOption();
+
             //CreateMainMenuButton(); // For Testing purposes (May use for new game options or configs in the future)
         }
 
@@ -47,6 +48,18 @@ namespace Bannerlord.GameMaster
                 // Register BLGMObjectManagerBehaviour for loading blgm created objects
                 campaignStarter.AddBehavior(new BLGMObjectManagerBehaviour());
             }
+        }
+
+        /// <summary>
+        /// Executes every frame
+        /// </summary>
+        /// <param name="dt">Delta Time: Time since last frame</param>
+        protected override void OnApplicationTick(float dt)
+        {
+            base.OnApplicationTick(dt);
+
+            // Process commands waiting in the queue
+            SystemConsoleManager.OnTick();
         }
 
         /// <summary>
