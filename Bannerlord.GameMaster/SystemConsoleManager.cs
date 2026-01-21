@@ -62,8 +62,11 @@ namespace Bannerlord.GameMaster
         private static volatile bool _isCommandRunning = false;
         private static bool _isConsoleAllocated = false;
 
-        // Store what the user is currently typing
+        // Input state
         private static StringBuilder _inputBuffer = new();
+        private static int _cursorIndex = 0; // Tracks cursor position within the buffer
+        private static List<string> _commandHistory = new();
+        private static int _historyIndex = 0;
 
         // Lock to prevent writing logs while the user is typing and vice versa
         private static readonly object _consoleLock = new();
@@ -113,8 +116,9 @@ namespace Bannerlord.GameMaster
 
                     _realConsoleWriter.Write("BLGM > " + _inputBuffer.ToString());
 
+                    // Restore Cursor to the specific index (handling edits in middle of string)
                     int promptLen = 7;
-                    System.Console.SetCursorPosition(promptLen + _inputBuffer.Length, System.Console.CursorTop);
+                    System.Console.SetCursorPosition(promptLen + _cursorIndex, System.Console.CursorTop);
                 }
                 catch
                 {
@@ -248,6 +252,7 @@ namespace Bannerlord.GameMaster
                 lock (_consoleLock)
                 {
                     _realConsoleWriter?.Write("BLGM > ");
+                    _cursorIndex = 0;
                 }
 
                 while (_isRunning)
@@ -265,29 +270,139 @@ namespace Bannerlord.GameMaster
 
                     lock (_consoleLock)
                     {
+                        int promptLen = 7; // "BLGM > ".Length
+
+                        // --- Execution ---
                         if (keyInfo.Key == ConsoleKey.Enter)
                         {
                             _realConsoleWriter?.WriteLine();
                             inputToProcess = _inputBuffer.ToString();
+
+                            // Save to history
+                            if (!string.IsNullOrWhiteSpace(inputToProcess))
+                            {
+                                _commandHistory.Add(inputToProcess);
+                                _historyIndex = _commandHistory.Count;
+                            }
+
                             _inputBuffer.Clear();
+                            _cursorIndex = 0;
                         }
 
+                        // --- Editing ---
                         else if (keyInfo.Key == ConsoleKey.Backspace)
                         {
-                            if (_inputBuffer.Length > 0)
+                            if (_cursorIndex > 0)
                             {
-                                _inputBuffer.Length--;
-                                _realConsoleWriter?.Write("\b \b");
+                                // Remove char before cursor
+                                _inputBuffer.Remove(_cursorIndex - 1, 1);
+                                _cursorIndex--;
+
+                                // Move back one step
+                                System.Console.CursorLeft = promptLen + _cursorIndex;
+
+                                // Redraw remaining string
+                                string remainder = _inputBuffer.ToString().Substring(_cursorIndex) + " ";
+                                _realConsoleWriter?.Write(remainder);
+
+                                // Reset cursor pos
+                                System.Console.CursorLeft = promptLen + _cursorIndex;
                             }
                         }
 
+                        // --- Navigation (Left/Right) ---
+                        else if (keyInfo.Key == ConsoleKey.LeftArrow)
+                        {
+                            if (_cursorIndex > 0)
+                            {
+                                _cursorIndex--;
+                                System.Console.CursorLeft = promptLen + _cursorIndex;
+                            }
+                        }
+                        else if (keyInfo.Key == ConsoleKey.RightArrow)
+                        {
+                            if (_cursorIndex < _inputBuffer.Length)
+                            {
+                                _cursorIndex++;
+                                System.Console.CursorLeft = promptLen + _cursorIndex;
+                            }
+                        }
+
+                        // --- History (Up/Down) ---
+                        else if (keyInfo.Key == ConsoleKey.UpArrow)
+                        {
+                            if (_historyIndex > 0)
+                            {
+                                _historyIndex--;
+
+                                // Wipe current line
+                                System.Console.CursorLeft = promptLen;
+                                _realConsoleWriter?.Write(new string(' ', _inputBuffer.Length));
+
+                                // Load History
+                                _inputBuffer.Clear();
+                                _inputBuffer.Append(_commandHistory[_historyIndex]);
+
+                                // Redraw
+                                System.Console.CursorLeft = promptLen;
+                                _realConsoleWriter?.Write(_inputBuffer.ToString());
+
+                                // Move cursor to end
+                                _cursorIndex = _inputBuffer.Length;
+                            }
+                        }
+                        else if (keyInfo.Key == ConsoleKey.DownArrow)
+                        {
+                            if (_historyIndex < _commandHistory.Count)
+                            {
+                                _historyIndex++;
+
+                                // Wipe current line
+                                System.Console.CursorLeft = promptLen;
+                                _realConsoleWriter?.Write(new string(' ', _inputBuffer.Length));
+
+                                _inputBuffer.Clear();
+
+                                // If not at the very bottom (empty new line), load history
+                                if (_historyIndex < _commandHistory.Count)
+                                {
+                                    _inputBuffer.Append(_commandHistory[_historyIndex]);
+                                }
+
+                                // Redraw
+                                System.Console.CursorLeft = promptLen;
+                                _realConsoleWriter?.Write(_inputBuffer.ToString());
+
+                                // Move cursor to end
+                                _cursorIndex = _inputBuffer.Length;
+                            }
+                        }
+
+                        // --- Typing ---
                         else if (!char.IsControl(keyInfo.KeyChar))
                         {
-                            _inputBuffer.Append(keyInfo.KeyChar);
+                            // Insert at cursor position
+                            _inputBuffer.Insert(_cursorIndex, keyInfo.KeyChar);
+                            _cursorIndex++;
+
+                            // Print the new char
                             _realConsoleWriter?.Write(keyInfo.KeyChar);
+
+                            // If we are in the middle, we must redraw the tail
+                            if (_cursorIndex < _inputBuffer.Length)
+                            {
+                                // Print rest of string
+                                int originalCursor = System.Console.CursorLeft;
+                                string remainder = _inputBuffer.ToString().Substring(_cursorIndex);
+                                _realConsoleWriter?.Write(remainder);
+
+                                // Move cursor back to where we were typing
+                                System.Console.CursorLeft = originalCursor;
+                            }
                         }
                     }
 
+                    // Handle Execution Outside Lock
                     if (inputToProcess != null)
                     {
                         if (!string.IsNullOrWhiteSpace(inputToProcess))
@@ -301,6 +416,7 @@ namespace Bannerlord.GameMaster
                             lock (_consoleLock)
                             {
                                 _realConsoleWriter?.Write("BLGM > ");
+                                _cursorIndex = 0;
                             }
                         }
                     }
@@ -419,7 +535,6 @@ namespace Bannerlord.GameMaster
 
                 catch (Exception ex)
                 {
-                    // Route internal errors back to WriteLog
                     WriteLog($"Error executing command: {ex}");
                 }
             }
@@ -433,12 +548,12 @@ namespace Bannerlord.GameMaster
         {
             public override Encoding Encoding => Encoding.UTF8;
 
-            public override void WriteLine(string value) => SystemConsoleManager.WriteLog(value);
+            public override void WriteLine(string value) => WriteLog(value);
 
             public override void Write(string value)
             {
                 if (value == "\n" || value == "\r\n") return;
-                SystemConsoleManager.WriteLog(value);
+                WriteLog(value);
             }
         }
     }
