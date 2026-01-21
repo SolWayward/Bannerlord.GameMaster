@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using Bannerlord.GameMaster.Common;
 using System.Text;
 
+// This has grown so bloated, But Im so tired of refactoring right now.
 namespace Bannerlord.GameMaster
 {
     /// <summary>
@@ -167,8 +168,8 @@ namespace Bannerlord.GameMaster
                     System.Console.SetOut(new ThreadSafeConsoleRouter());
 
                     _realConsoleWriter.WriteLine("All output from Bannerlord Console and any debug output will be visible here");
-                    _realConsoleWriter.WriteLine("Commands: 'close' to close console, 'quitgame' to exit game");
-                    _realConsoleWriter.WriteLine("\nType 'ls' to discover command categories");
+                    _realConsoleWriter.WriteLine("Commands: 'clear' to clear console, 'close' to close console, 'quitgame' to exit game");
+                    _realConsoleWriter.WriteLine("\nType 'ls' or press tab for autocomplete to discover commands");
                     _realConsoleWriter.WriteLine("\nYou can also list commands in each category by using 'ls campaign', 'ls gm', 'ls gm.hero'\n");
                 }
                 catch (Exception ex)
@@ -289,23 +290,80 @@ namespace Bannerlord.GameMaster
                             _cursorIndex = 0;
                         }
 
+                        // --- Tab Completion ---
+                        else if (keyInfo.Key == ConsoleKey.Tab)
+                        {
+                            string currentInput = _inputBuffer.ToString();
+
+                            // Use fuzzy matching to get candidates via Helpers
+                            var matches = SystemConsoleHelper.GetFuzzyMatches(currentInput);
+
+                            if (matches.Count == 1)
+                            {
+                                // Single match found
+                                string match = matches[0];
+                                _inputBuffer.Clear();
+                                _inputBuffer.Append(match);
+
+                                // Append space if it is a full command (not a group)
+                                if (SystemConsoleHelper.GetAllRegisteredCommands().Contains(match))
+                                {
+                                    _inputBuffer.Append(" ");
+                                }
+
+                                // Wipe and Redraw
+                                System.Console.CursorLeft = promptLen;
+                                _realConsoleWriter?.Write(new string(' ', System.Console.WindowWidth - 1));
+                                System.Console.CursorLeft = promptLen;
+                                _realConsoleWriter?.Write(_inputBuffer.ToString());
+                                _cursorIndex = _inputBuffer.Length;
+                            }
+                            else if (matches.Count > 1)
+                            {
+                                // Multiple matches: Auto-complete to common prefix via Helpers
+                                string commonPrefix = SystemConsoleHelper.GetCommonPrefix(matches);
+
+                                if (commonPrefix.Length > currentInput.Length)
+                                {
+                                    _inputBuffer.Clear();
+                                    _inputBuffer.Append(commonPrefix);
+
+                                    // Wipe and Redraw
+                                    System.Console.CursorLeft = promptLen;
+                                    _realConsoleWriter?.Write(new string(' ', System.Console.WindowWidth - 1));
+                                    System.Console.CursorLeft = promptLen;
+                                    _realConsoleWriter?.Write(_inputBuffer.ToString());
+                                    _cursorIndex = _inputBuffer.Length;
+                                }
+                                else
+                                {
+                                    // Ambiguous: Print candidates
+                                    _realConsoleWriter?.WriteLine();
+                                    foreach (var m in matches)
+                                    {
+                                        _realConsoleWriter?.WriteLine("  " + m);
+                                    }
+
+                                    // Redraw Prompt
+                                    _realConsoleWriter?.Write("BLGM > " + _inputBuffer.ToString());
+                                    _cursorIndex = _inputBuffer.Length;
+                                }
+                            }
+                        }
+
                         // --- Editing ---
                         else if (keyInfo.Key == ConsoleKey.Backspace)
                         {
                             if (_cursorIndex > 0)
                             {
-                                // Remove char before cursor
                                 _inputBuffer.Remove(_cursorIndex - 1, 1);
                                 _cursorIndex--;
 
-                                // Move back one step
                                 System.Console.CursorLeft = promptLen + _cursorIndex;
 
-                                // Redraw remaining string
                                 string remainder = _inputBuffer.ToString().Substring(_cursorIndex) + " ";
                                 _realConsoleWriter?.Write(remainder);
 
-                                // Reset cursor pos
                                 System.Console.CursorLeft = promptLen + _cursorIndex;
                             }
                         }
@@ -335,19 +393,14 @@ namespace Bannerlord.GameMaster
                             {
                                 _historyIndex--;
 
-                                // Wipe current line
                                 System.Console.CursorLeft = promptLen;
                                 _realConsoleWriter?.Write(new string(' ', _inputBuffer.Length));
 
-                                // Load History
                                 _inputBuffer.Clear();
                                 _inputBuffer.Append(_commandHistory[_historyIndex]);
 
-                                // Redraw
                                 System.Console.CursorLeft = promptLen;
                                 _realConsoleWriter?.Write(_inputBuffer.ToString());
-
-                                // Move cursor to end
                                 _cursorIndex = _inputBuffer.Length;
                             }
                         }
@@ -357,23 +410,16 @@ namespace Bannerlord.GameMaster
                             {
                                 _historyIndex++;
 
-                                // Wipe current line
                                 System.Console.CursorLeft = promptLen;
                                 _realConsoleWriter?.Write(new string(' ', _inputBuffer.Length));
 
                                 _inputBuffer.Clear();
 
-                                // If not at the very bottom (empty new line), load history
                                 if (_historyIndex < _commandHistory.Count)
-                                {
                                     _inputBuffer.Append(_commandHistory[_historyIndex]);
-                                }
 
-                                // Redraw
                                 System.Console.CursorLeft = promptLen;
                                 _realConsoleWriter?.Write(_inputBuffer.ToString());
-
-                                // Move cursor to end
                                 _cursorIndex = _inputBuffer.Length;
                             }
                         }
@@ -381,22 +427,16 @@ namespace Bannerlord.GameMaster
                         // --- Typing ---
                         else if (!char.IsControl(keyInfo.KeyChar))
                         {
-                            // Insert at cursor position
                             _inputBuffer.Insert(_cursorIndex, keyInfo.KeyChar);
                             _cursorIndex++;
 
-                            // Print the new char
                             _realConsoleWriter?.Write(keyInfo.KeyChar);
 
-                            // If we are in the middle, we must redraw the tail
                             if (_cursorIndex < _inputBuffer.Length)
                             {
-                                // Print rest of string
                                 int originalCursor = System.Console.CursorLeft;
                                 string remainder = _inputBuffer.ToString().Substring(_cursorIndex);
                                 _realConsoleWriter?.Write(remainder);
-
-                                // Move cursor back to where we were typing
                                 System.Console.CursorLeft = originalCursor;
                             }
                         }
@@ -447,7 +487,13 @@ namespace Bannerlord.GameMaster
             string[] parts = input.Split(' ');
             string command = parts[0].ToLower();
             List<string> args = parts.Skip(1).ToList();
-
+            
+            // Remove invalid args
+            while (args != null && args.Count > 0 && string.IsNullOrWhiteSpace(args[0]))
+            {
+                args.Remove(args[0]);
+            }
+            
             _isCommandRunning = true;
 
             Enqueue(() =>

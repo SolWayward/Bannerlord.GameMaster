@@ -88,88 +88,17 @@ namespace Bannerlord.GameMaster
 
         /// MARK: ListCommand
         /// <summary>
-        /// Lists commands
+        /// Lists commands using fuzzy search
         /// </summary>
         public static string ListCommand(List<string> args)
         {
-            // Normalize commands to lower case
-            List<string> _commands = SystemConsoleHelper.GetRegisteredCommands()
-                                        .Select(c => c.ToLower())
-                                        .ToList();
-            // Add custom commands                           
-            _commands.AddRange(GetCustomRegistedCommands());
-            
-            // sort
-            _commands = _commands.OrderBy(c => c).ToList();
+            string filter = (args != null && args.Count > 0 && args[0] != "-r") ? args[0] : "";
 
-            // Parse Arguments
-            string filterPath = "";
-            bool isRecursive = false;
-
-            if (args != null && args.Count > 0)
-            {
-                // Handle "ListCommand -r"
-                if (args[0] == "-r")
-                {
-                    isRecursive = true;
-                }
-
-                else
-                {
-                    // Handle "ListCommand filter" or "ListCommand filter -r"
-                    filterPath = args[0].ToLower();
-                    if (args.Count > 1 && args[1] == "-r")
-                    {
-                        isRecursive = true;
-                    }
-                }
-            }
-
-            HashSet<string> uniqueResults = new HashSet<string>();
-
-            // Filter and Truncate
-            foreach (var cmd in _commands)
-            {
-                // Simple StartsWith check handles both "topgroupA" and "topgroupA.pa"
-                if (!cmd.StartsWith(filterPath)) continue;
-
-                // If recursive, we return the full string immediately
-                if (isRecursive)
-                {
-                    uniqueResults.Add(cmd);
-                    continue;
-                }
-
-                // TRUNCATION LOGIC
-                // Default start: end of the filter string.
-                int searchStartIndex = filterPath.Length;
-
-                // Edge Case: The user typed a full group name exactly (e.g. "group1")
-                // but the command continues ("group1.sub").
-                // If the character at [filterLength] is a dot, the user has hit a boundary.
-                // We want to skip that dot and show the *next* segment.
-                if (searchStartIndex < cmd.Length && cmd[searchStartIndex] == '.')
-                {
-                    searchStartIndex++;
-                }
-
-                // Find the NEXT dot after our start index
-                int nextDotIndex = cmd.IndexOf('.', searchStartIndex);
-
-                if (nextDotIndex == -1)
-                {
-                    // No more dots found, this is a leaf node (command)
-                    uniqueResults.Add(cmd);
-                }
-                else
-                {
-                    // Found a dot, cut the string there to show the group level
-                    uniqueResults.Add(cmd.Substring(0, nextDotIndex));
-                }
-            }
+            // Use the new helper
+            List<string> matches = SystemConsoleHelper.GetFuzzyMatches(filter);
 
             string result = "";
-            foreach (string cmd in uniqueResults.OrderBy(x => x))
+            foreach (string cmd in matches)
                 result += $"{cmd}\n";
 
             return result;

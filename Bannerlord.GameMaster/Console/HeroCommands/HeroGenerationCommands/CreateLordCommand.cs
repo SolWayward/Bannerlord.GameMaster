@@ -34,7 +34,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.hero.create_lord", "<name> [cultures] [gender] [clan] [withParty] [settlement] [randomFactor]",
                     "Creates a single lord from random templates with good gear and decent stats. Age 18-30. Allows custom naming.\n" +
-                    "Creates a party for the lord by default if clan is not at max allowed parties. Use create_party to exceed party limit" +
+                    "Creates a party for the lord by default if clan is not at max allowed parties. Use create_party to exceed party limit\n" +
                     "- name: required, the name for the hero. Use SINGLE QUOTES for multi-word names\n" +
                     "- cultures/culture: optional, defines the pool of cultures allowed to be chosen from. Defaults to main_cultures\n" +
                     "- gender: optional, use keywords both, female, or male. also allowed b, f, and m. Defaults to both\n" +
