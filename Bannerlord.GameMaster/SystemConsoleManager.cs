@@ -9,6 +9,7 @@ using TaleWorlds.Library;
 using System.Collections.Generic;
 using System.Text;
 
+// This is getting very bloated, but I am sick of refactoring at the moment.
 namespace Bannerlord.GameMaster
 {
     /// <summary>
@@ -89,6 +90,26 @@ namespace Bannerlord.GameMaster
         // Direct stream to the console window, bypassing the log router
         private static TextWriter _realConsoleWriter;
 
+        /// MARK: WriteStyledPrompt
+        /// <summary>
+        /// Writes the colorized BLGM prompt and sets the color for user input
+        /// </summary>
+        private static void WriteStyledPrompt()
+        {
+            if (_realConsoleWriter == null) return;
+
+            // BLGM (Light Blue / Cyan)
+            System.Console.ForegroundColor = ConsoleColor.Cyan;
+            _realConsoleWriter.Write("BLGM ");
+
+            // > (Green)
+            System.Console.ForegroundColor = ConsoleColor.Green;
+            _realConsoleWriter.Write("> ");
+
+            // User Input (Light Gold / Yellow)
+            System.Console.ForegroundColor = ConsoleColor.Yellow;
+        }
+
         /// MARK: WriteLine
         /// <summary>
         /// Writes to the console without mixing jumbling text but does not redraw input prompt
@@ -101,11 +122,13 @@ namespace Bannerlord.GameMaster
             {
                 try
                 {
+                    // Ensure output is default color
+                    System.Console.ResetColor();
                     _realConsoleWriter.WriteLine(message);
                 }
 
-                catch 
-                { 
+                catch
+                {
                     // Handle closed console race condition
                 }
             }
@@ -127,6 +150,7 @@ namespace Bannerlord.GameMaster
                     // If command is running, prompt will be redrawn by InputLoop later
                     if (_isCommandRunning)
                     {
+                        System.Console.ResetColor();
                         _realConsoleWriter.WriteLine(message);
                         return;
                     }
@@ -138,18 +162,21 @@ namespace Bannerlord.GameMaster
                         _realConsoleWriter.Write(new string(' ', System.Console.WindowWidth - 1));
                         System.Console.SetCursorPosition(0, System.Console.CursorTop);
                     }
-                    
-                    catch 
-                    { 
+
+                    catch
+                    {
                         //Console resized or buffer error
                     }
 
+                    // Write Log in default color
+                    System.Console.ResetColor();
                     _realConsoleWriter.WriteLine(message);
 
                     // Only restore prompt if visible, otherwise we just log the output
                     if (_isConsoleVisible)
                     {
-                        _realConsoleWriter.Write("BLGM > " + _inputBuffer.ToString());
+                        WriteStyledPrompt();
+                        _realConsoleWriter.Write(_inputBuffer.ToString());
 
                         // Restore Cursor to the specific index
                         int promptLen = 7;
@@ -157,14 +184,14 @@ namespace Bannerlord.GameMaster
                         {
                             System.Console.SetCursorPosition(promptLen + _cursorIndex, System.Console.CursorTop);
                         }
-                        
-                        catch 
-                        { 
+
+                        catch
+                        {
                             //Cursor out of bounds
                         }
                     }
                 }
-                
+
                 catch
                 {
                     // Ignore general IO errors if console is dying
@@ -185,6 +212,35 @@ namespace Bannerlord.GameMaster
                 ShowConsole();
         }
 
+        /// MARK: ApplyConsoleSettings
+        /// <summary>
+        /// Sets the title and resizing the console window
+        /// </summary>
+        private static void ApplyConsoleSettings()
+        {
+            try
+            {
+                System.Console.Title = "BLGM Console";
+
+                // Increase width by ~33%
+                int currentWidth = System.Console.WindowWidth;
+                int newWidth = (int)(currentWidth * 1.33);
+
+                if (newWidth <= System.Console.LargestWindowWidth)
+                {
+                    // Adjust buffer if needed before resizing window
+                    if (System.Console.BufferWidth < newWidth)
+                        System.Console.BufferWidth = newWidth;
+
+                    System.Console.WindowWidth = newWidth;
+                }
+            }
+            catch
+            {
+                // Ignore resize errors (e.g. if constrained by screen size)
+            }
+        }
+
         /// MARK: ShowConsole
         /// <summary>
         /// Open and attach System Console for debugging, or to show command output or error output
@@ -199,11 +255,12 @@ namespace Bannerlord.GameMaster
                 ShowWindow(existingHandle, SW_SHOW);
                 _isConsoleVisible = true;
                 _isConsoleAllocated = true; // Ensure flag is true
+                ApplyConsoleSettings(); // Re-apply settings on re-show
                 StartInputThread(); // Ensure input loop is running
                 return;
             }
 
-            if (_isConsoleAllocated) 
+            if (_isConsoleAllocated)
                 return;
 
             if (AllocConsole())
@@ -213,6 +270,9 @@ namespace Bannerlord.GameMaster
 
                 // Disable the "X" Close button to prevent killing the game process
                 DisableCloseButton();
+
+                // Apply Title and Size
+                ApplyConsoleSettings();
 
                 // Reset Console Streams (Critical for re-opening or .NET will use dead handles)
                 ResetConsoleStreams();
@@ -278,7 +338,7 @@ namespace Bannerlord.GameMaster
                 var stdIn = new StreamReader(System.Console.OpenStandardInput());
                 System.Console.SetIn(stdIn);
             }
-            
+
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error resetting console streams: {ex}");
@@ -294,7 +354,7 @@ namespace Bannerlord.GameMaster
             if (!_isConsoleAllocated) return;
 
             IntPtr handle = GetConsoleWindow();
-            
+
             if (handle != IntPtr.Zero)
             {
                 try { _realConsoleWriter?.WriteLine("Hiding console..."); } catch { }
@@ -332,7 +392,7 @@ namespace Bannerlord.GameMaster
                     // This prevents double prompts like "BLGM > BLGM > "
                     if (System.Console.CursorLeft == 0)
                     {
-                        _realConsoleWriter?.Write("BLGM > ");
+                        WriteStyledPrompt();
                     }
                     _cursorIndex = 0;
                 }
@@ -357,25 +417,25 @@ namespace Bannerlord.GameMaster
                         ConsoleKeyInfo keyInfo = System.Console.ReadKey(intercept: true);
                         ProcessKey(keyInfo);
                     }
-                    
+
                     catch (InvalidOperationException)
                     {
                         // Handle invalidation if it occurs
                         break;
                     }
-                    
+
                     catch (IOException)
                     {
                         break;
                     }
                 }
             }
-            
+
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Console Loop Stopped: {ex.Message}");
             }
-            
+
             finally
             {
                 _isRunning = false;
@@ -397,6 +457,7 @@ namespace Bannerlord.GameMaster
                 // Execution
                 if (keyInfo.Key == ConsoleKey.Enter)
                 {
+                    System.Console.ResetColor(); // Reset color for output
                     _realConsoleWriter?.WriteLine();
                     inputToProcess = _inputBuffer.ToString();
 
@@ -410,13 +471,13 @@ namespace Bannerlord.GameMaster
                     _inputBuffer.Clear();
                     _cursorIndex = 0;
                 }
-                
+
                 // Tab Completion
                 else if (keyInfo.Key == ConsoleKey.Tab)
                 {
                     HandleTabCompletion(promptLen);
                 }
-                
+
                 // Editing (Backspace) ---
                 else if (keyInfo.Key == ConsoleKey.Backspace)
                 {
@@ -427,7 +488,7 @@ namespace Bannerlord.GameMaster
                         RedrawInputLine(promptLen);
                     }
                 }
-                
+
                 // Navigation (Left/Right) ---
                 else if (keyInfo.Key == ConsoleKey.LeftArrow)
                 {
@@ -437,7 +498,7 @@ namespace Bannerlord.GameMaster
                         System.Console.CursorLeft = promptLen + _cursorIndex;
                     }
                 }
-                
+
                 else if (keyInfo.Key == ConsoleKey.RightArrow)
                 {
                     if (_cursorIndex < _inputBuffer.Length)
@@ -462,9 +523,11 @@ namespace Bannerlord.GameMaster
                     // Optimization: if typing at end, just append
                     if (_cursorIndex == _inputBuffer.Length)
                     {
+                        // Ensure input is gold/yellow
+                        System.Console.ForegroundColor = ConsoleColor.Yellow;
                         _realConsoleWriter?.Write(keyInfo.KeyChar);
                     }
-                    
+
                     else
                     {
                         RedrawInputLine(promptLen);
@@ -483,7 +546,7 @@ namespace Bannerlord.GameMaster
                 {
                     lock (_consoleLock)
                     {
-                        _realConsoleWriter?.Write("BLGM > ");
+                        WriteStyledPrompt();
                         _cursorIndex = 0;
                     }
                 }
@@ -505,7 +568,11 @@ namespace Bannerlord.GameMaster
                 _realConsoleWriter?.Write(new string(' ', clearLen));
 
             System.Console.CursorLeft = promptLen;
+
+            // Ensure input color
+            System.Console.ForegroundColor = ConsoleColor.Yellow;
             _realConsoleWriter?.Write(_inputBuffer.ToString());
+
             System.Console.CursorLeft = originalLeft;
         }
 
@@ -517,10 +584,10 @@ namespace Bannerlord.GameMaster
         {
             if (key == ConsoleKey.UpArrow && _historyIndex > 0)
                 _historyIndex--;
-            
+
             else if (key == ConsoleKey.DownArrow && _historyIndex < _commandHistory.Count)
                 _historyIndex++;
-            
+
             else
                 return;
 
@@ -536,7 +603,11 @@ namespace Bannerlord.GameMaster
                 _realConsoleWriter?.Write(new string(' ', clearLen));
 
             System.Console.CursorLeft = promptLen;
+
+            // Ensure input color
+            System.Console.ForegroundColor = ConsoleColor.Yellow;
             _realConsoleWriter?.Write(_inputBuffer.ToString());
+
             _cursorIndex = _inputBuffer.Length;
         }
 
@@ -570,10 +641,14 @@ namespace Bannerlord.GameMaster
                     _realConsoleWriter?.Write(new string(' ', clearLen));
 
                 System.Console.CursorLeft = promptLen;
+
+                // Ensure input color
+                System.Console.ForegroundColor = ConsoleColor.Yellow;
                 _realConsoleWriter?.Write(_inputBuffer.ToString());
+
                 _cursorIndex = _inputBuffer.Length;
             }
-            
+
             else if (matches.Count > 1)
             {
                 // Multiple matches: Auto-complete to common prefix via Helpers
@@ -591,16 +666,23 @@ namespace Bannerlord.GameMaster
                         _realConsoleWriter?.Write(new string(' ', clearLen));
 
                     System.Console.CursorLeft = promptLen;
+
+                    // Ensure input color
+                    System.Console.ForegroundColor = ConsoleColor.Yellow;
                     _realConsoleWriter?.Write(_inputBuffer.ToString());
+
                     _cursorIndex = _inputBuffer.Length;
                 }
-                
+
                 else
                 {
                     // Ambiguous: Print candidates
+                    System.Console.ResetColor(); // List should be white
                     _realConsoleWriter?.WriteLine();
                     foreach (var m in matches) _realConsoleWriter?.WriteLine("  " + m);
-                    _realConsoleWriter?.Write("BLGM > " + _inputBuffer.ToString());
+
+                    WriteStyledPrompt();
+                    _realConsoleWriter?.Write(_inputBuffer.ToString());
                     _cursorIndex = _inputBuffer.Length;
                 }
             }
