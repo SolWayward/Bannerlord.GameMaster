@@ -67,7 +67,7 @@ public static class GiveFoodCommand
                 ["amount"] = amount.ToString("F0")
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("give_food", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.give_food", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) food stocks changed from {previousValue:F0} to {settlement.Town.FoodStocks:F0} ({(amount >= 0 ? "+" : "")}{amount:F0}).");
             return CommandResult.Success(fullMessage).Log().Message;

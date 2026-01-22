@@ -94,7 +94,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
                     ["leader"] = caravanLeader?.Name?.ToString() ?? "Auto-selected"
                 };
 
-                string display = parsed.FormatArgumentDisplay("create_player_caravan", resolvedValues);
+                string display = parsed.FormatArgumentDisplay("gm.caravan.create_player_caravan", resolvedValues);
                 return display + MessageFormatter.FormatSuccessMessage(
                     $"Created player caravan in '{settlement.Name}' (ID: {settlement.StringId}){leaderInfo}.\n" +
                     $"The caravan will generate trade profits for your clan.");

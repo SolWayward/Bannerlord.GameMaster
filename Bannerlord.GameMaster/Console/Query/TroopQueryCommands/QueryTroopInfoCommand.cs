@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -22,10 +23,10 @@ public static class QueryTroopInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a troop ID.\nUsage: gm.query.troop_info <troopId>\n";
+                return CommandResult.Error("Please provide a troop ID.\nUsage: gm.query.troop_info <troopId>\n").Log().Message;
 
             // MARK: Parse Arguments
             string troopId = args[0];
@@ -34,13 +35,13 @@ public static class QueryTroopInfoCommand
             CharacterObject troop = TroopQueries.GetTroopById(troopId);
 
             if (troop == null)
-                return $"Error: Troop with ID '{troopId}' not found.\n";
+                return CommandResult.Error($"Troop with ID '{troopId}' not found.\n").Log().Message;
 
             if (troop.IsHero)
-                return $"Error: '{troopId}' is a hero/lord, not a troop. Use gm.query.hero_info instead.\n";
+                return CommandResult.Error($"'{troopId}' is a hero/lord, not a troop. Use gm.query.hero_info instead.\n").Log().Message;
 
             if (!troop.IsActualTroop())
-                return $"Error: '{troopId}' is not an actual troop (may be NPC, child, template, etc.).\n";
+                return CommandResult.Error($"'{troopId}' is not an actual troop (may be NPC, child, template, etc.).\n").Log().Message;
 
             TroopTypes types = troop.GetTroopTypes();
             string cultureName = troop.Culture?.Name?.ToString() ?? "None";
@@ -48,7 +49,7 @@ public static class QueryTroopInfoCommand
             string upgradeInfo = TroopQueryHelpers.BuildUpgradeInfo(troop);
             string category = troop.GetTroopCategory();
 
-            return $"Troop Information:\n" +
+            return CommandResult.Success($"Troop Information:\n" +
                    $"ID: {troop.StringId}\n" +
                    $"Name: {troop.Name}\n" +
                    $"Category: {category}\n" +
@@ -58,7 +59,7 @@ public static class QueryTroopInfoCommand
                    $"Formation: {troop.DefaultFormationClass}\n" +
                    $"Types: {types}\n" +
                    equipmentInfo +
-                   upgradeInfo;
+                   upgradeInfo).Log().Message;
         });
     }
 }

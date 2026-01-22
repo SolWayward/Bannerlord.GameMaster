@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -23,7 +24,7 @@ public static class QueryHeroAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             HeroQueryArguments queryArgs = HeroQueryHelpers.ParseHeroQueryArguments(args);
@@ -41,13 +42,13 @@ public static class QueryHeroAnyCommand
             
             if (matchedHeroes.Count == 0)
             {
-                return $"Found 0 hero(es) matching ANY of {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 hero(es) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.hero_any [search] [type keywords] [sort]\n" +
-                       "Example: gm.query.hero_any lord wanderer sort:name\n";
+                       "Example: gm.query.hero_any lord wanderer sort:name\n").Log().Message;
             }
 
-            return $"Found {matchedHeroes.Count} hero(es) matching ANY of {criteriaDesc}:\n" +
-                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}";
+            return CommandResult.Success($"Found {matchedHeroes.Count} hero(es) matching ANY of {criteriaDesc}:\n" +
+                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}").Log().Message;
         });
     }
 }

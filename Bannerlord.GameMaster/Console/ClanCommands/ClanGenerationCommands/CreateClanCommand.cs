@@ -126,7 +126,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                 string partyInfo = createParty ? " (with party)" : " (no party)";
                 string companionInfo = companionCount > 0 ? $" and {companionCount} companions" : "";
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("create_clan", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.create_clan", resolvedValues);
                 return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Created clan '{newClan.Name}'{leaderInfo}{kingdomInfo}{partyInfo}{companionInfo}.\n" +
                     $"Leader: {newClan.Leader.Name} (ID: {newClan.Leader.StringId})\n" +

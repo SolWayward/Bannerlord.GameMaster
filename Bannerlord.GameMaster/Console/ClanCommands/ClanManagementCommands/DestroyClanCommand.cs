@@ -67,7 +67,7 @@ public static class DestroyClanCommand
 
             DestroyClanAction.Apply(clan);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("destroy", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.destroy", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name} has been destroyed/eliminated.");
         });
     }

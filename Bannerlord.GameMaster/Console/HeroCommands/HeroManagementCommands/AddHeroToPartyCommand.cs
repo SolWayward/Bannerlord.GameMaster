@@ -71,7 +71,7 @@ public static class AddHeroToPartyCommand
                 { "hero", hero.Name.ToString() },
                 { "partyLeader", partyLeader.Name.ToString() }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_hero_to_party", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.add_hero_to_party", resolvedValues);
 
             // Validate party leader has a party
             if (partyLeader.PartyBelongedTo == null)

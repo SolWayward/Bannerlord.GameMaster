@@ -69,7 +69,7 @@ public static class RemoveClanCommand
             string previousKingdom = clan.Kingdom.Name.ToString();
             clan.Kingdom = null;
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("remove_clan", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.remove_clan", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{clan.Name} removed from {previousKingdom}.");
         });

@@ -67,7 +67,7 @@ public static class SetHearthsCommand
                 ["value"] = value.ToString("F0")
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_hearths", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_hearths", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Village '{settlement.Name}' (ID: {settlement.StringId}) hearth changed from {previousValue:F0} to {settlement.Village.Hearth:F0}.");
             return CommandResult.Success(fullMessage).Log().Message;

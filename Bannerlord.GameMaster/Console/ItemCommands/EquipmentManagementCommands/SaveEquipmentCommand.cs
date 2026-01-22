@@ -73,7 +73,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 };
 
                 StringBuilder result = new();
-                result.AppendLine(parsed.FormatArgumentDisplay("save_equipment", resolvedValues));
+                result.AppendLine(parsed.FormatArgumentDisplay("gm.item.save_equipment", resolvedValues));
                 result.AppendLine($"Saved {hero.Name}'s battle equipment to: {Path.GetFileName(filepath)}");
                 result.AppendLine($"Items saved ({savedItems.Count}):");
                 foreach (EquipmentItemInfo item in savedItems)

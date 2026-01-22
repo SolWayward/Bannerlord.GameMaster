@@ -87,7 +87,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     { "civilian", isCivilian.ToString() }
                 };
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("unequip_slot", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.item.unequip_slot", resolvedValues);
                 return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Unequipped {previousItem.Name} from {hero.Name}'s {eqType} equipment slot {slot}.");
             });

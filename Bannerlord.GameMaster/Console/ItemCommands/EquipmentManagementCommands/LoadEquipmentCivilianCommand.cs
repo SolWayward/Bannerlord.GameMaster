@@ -78,7 +78,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 };
 
                 StringBuilder result = new();
-                result.AppendLine(parsed.FormatArgumentDisplay("load_equipment_civilian", resolvedValues));
+                result.AppendLine(parsed.FormatArgumentDisplay("gm.item.load_equipment_civilian", resolvedValues));
                 result.AppendLine($"Loaded {hero.Name}'s civilian equipment from: {Path.GetFileName(filepath)}");
                 result.AppendLine($"Items loaded ({loadedCount}):");
 

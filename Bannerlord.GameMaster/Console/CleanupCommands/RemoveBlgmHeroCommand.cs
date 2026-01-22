@@ -64,7 +64,7 @@ public static class RemoveBlgmHeroCommand
                 { "hero", hero.Name.ToString() }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("remove_blgm_hero", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.cleanup.remove_blgm_hero", resolvedValues);
 
             if (result.IsSuccess)
             {

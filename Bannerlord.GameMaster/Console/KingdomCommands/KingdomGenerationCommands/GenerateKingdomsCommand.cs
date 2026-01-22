@@ -108,7 +108,7 @@ public static class GenerateKingdomsCommand
 
             List<Kingdom> createdKingdoms = KingdomGenerator.GenerateKingdoms(count, vassalCount, cultureFlags);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("generate_kingdoms", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.generate_kingdoms", resolvedValues);
 
             if (createdKingdoms == null || createdKingdoms.Count == 0)
                 return argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to generate kingdoms - no suitable settlements available or all kingdoms exhausted.");

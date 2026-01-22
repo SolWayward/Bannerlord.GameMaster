@@ -74,7 +74,7 @@ public static class SetClanTierCommand
             int previousTier = clan.Tier;
             clan.SetClanTier(tier);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_tier", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.set_tier", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name}'s tier changed from {previousTier} to {clan.Tier}.");
         });
     }

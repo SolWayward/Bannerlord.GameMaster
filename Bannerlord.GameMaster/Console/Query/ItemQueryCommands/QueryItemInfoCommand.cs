@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Items;
@@ -20,17 +21,17 @@ public static class QueryItemInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide an item ID.\nUsage: gm.query.item_info <itemId>\n";
+                return CommandResult.Error("Please provide an item ID.\nUsage: gm.query.item_info <itemId>\n").Log().Message;
 
             // MARK: Parse Arguments
             string itemId = args[0];
             ItemObject item = ItemQueries.GetItemById(itemId);
 
             if (item == null)
-                return $"Error: Item with ID '{itemId}' not found.\n";
+                return CommandResult.Error($"Item with ID '{itemId}' not found.\n").Log().Message;
 
             // MARK: Execute Logic
             ItemTypes types = item.GetItemTypes();
@@ -71,7 +72,7 @@ public static class QueryItemInfoCommand
                                  $"Hit Points: {horse.HitPoints}\n";
             }
 
-            return $"Item Information:\n" +
+            return CommandResult.Success($"Item Information:\n" +
                    $"ID: {item.StringId}\n" +
                    $"Name: {item.Name}\n" +
                    $"Type: {item.ItemType}\n" +
@@ -79,7 +80,7 @@ public static class QueryItemInfoCommand
                    $"Weight: {item.Weight}\n" +
                    $"Tier: {tier}\n" +
                    $"Types: {types}\n" +
-                   additionalInfo;
+                   additionalInfo).Log().Message;
         });
     }
 }

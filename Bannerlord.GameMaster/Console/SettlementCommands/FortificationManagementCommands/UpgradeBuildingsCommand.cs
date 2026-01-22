@@ -80,7 +80,7 @@ public static class UpgradeBuildingsCommand
                 ["level"] = targetLevel.ToString()
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("upgrade_buildings", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.upgrade_buildings", resolvedValues);
 
             if (upgradedCount == 0)
                 return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"All buildings in '{settlement.Name}' are already at level {targetLevel} or higher.")).Log().Message;

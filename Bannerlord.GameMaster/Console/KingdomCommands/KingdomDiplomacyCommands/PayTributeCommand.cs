@@ -94,7 +94,7 @@ public static class PayTributeCommand
                 { "dailyAmount", dailyAmount.ToString() },
                 { "days", days.ToString() }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("pay_tribute", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.pay_tribute", resolvedValues);
 
             TributeInfo tributeInfo = payingKingdom.PayTribute(receivingKingdom, dailyAmount, days);
 

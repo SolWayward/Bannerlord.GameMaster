@@ -70,7 +70,7 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
 
                 string countsSummary = BanditCommandHelpers.GetBanditCountsSummary();
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("remove_all", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.bandit.remove_all", resolvedValues);
                 string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Removed all bandits from the game.\n" +
                     $"Parties destroyed: {partiesRemoved}\n" +

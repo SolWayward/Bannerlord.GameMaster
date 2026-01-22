@@ -71,7 +71,7 @@ public static class MakePeaceCommand
                 { "kingdom1", kingdom1.Name.ToString() },
                 { "kingdom2", kingdom2.Name.ToString() }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("make_peace", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.make_peace", resolvedValues);
 
             MakePeaceAction.Apply(kingdom1, kingdom2);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage($"Peace established between {kingdom1.Name} and {kingdom2.Name}.");

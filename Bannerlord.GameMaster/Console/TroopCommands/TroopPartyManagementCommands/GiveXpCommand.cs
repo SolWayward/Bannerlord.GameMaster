@@ -87,7 +87,7 @@ public static class GiveXpCommand
                 { "xp", xp.ToString() }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("give_xp", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.troop.give_xp", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {xp} XP to {troopCount} troop types in {hero.Name}'s party.\n" +
                 $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");

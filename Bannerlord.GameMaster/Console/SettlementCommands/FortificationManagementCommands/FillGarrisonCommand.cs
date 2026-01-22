@@ -68,7 +68,7 @@ public static class FillGarrisonCommand
                 ["settlement"] = settlement.Name.ToString()
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("fill_garrison", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.fill_garrison", resolvedValues);
 
             if (spaceAvailable <= 0)
                 return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"Settlement '{settlement.Name}' garrison is already at maximum capacity ({currentSize}/{maxSize}).")).Log().Message;

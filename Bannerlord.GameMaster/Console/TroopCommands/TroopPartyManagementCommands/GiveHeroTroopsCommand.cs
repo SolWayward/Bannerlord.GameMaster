@@ -105,7 +105,7 @@ public static class GiveHeroTroopsCommand
                 result.AppendLine($"Party: {hero.PartyBelongedTo.Name}");
             }
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("give_hero_troops", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.troop.give_hero_troops", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.ToString());
             return CommandResult.Success(fullMessage).Log().Message;
         });

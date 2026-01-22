@@ -69,7 +69,7 @@ public static class DestroyKingdomCommand
 
             DestroyKingdomAction.Apply(kingdom);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("destroy", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.destroy", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{kingdom.Name} has been destroyed/eliminated.");
         });

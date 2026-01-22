@@ -107,7 +107,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 };
 
                 StringBuilder result = new();
-                result.AppendLine(parsed.FormatArgumentDisplay("set_equipped_modifier", resolvedValues));
+                result.AppendLine(parsed.FormatArgumentDisplay("gm.item.set_equipped_modifier", resolvedValues));
                 result.AppendLine($"Set modifier '{modifier.Name}' on {itemsChanged} equipped items for {hero.Name}:");
                 foreach (string item in changedItems)
                 {

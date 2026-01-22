@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -25,8 +26,8 @@ public static class QueryTroopCommand
         return Cmd.Run(args, () =>
         {
             // MARK: Validation
-            if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+             if (!CommandValidator.ValidateCampaignState(out string error))
+                 return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             TroopQueryArguments queryArgs = TroopQueryHelpers.ParseTroopQueryArguments(args);
@@ -44,18 +45,18 @@ public static class QueryTroopCommand
 
             if (matchedTroops.Count == 0)
             {
-                return $"Found 0 troop(s) matching {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 troop(s) matching {criteriaDesc}\n" +
                        "Usage: gm.query.troop [search] [type keywords] [tier] [sort]\n" +
                        "Type keywords: infantry, ranged, cavalry, horsearcher, shield, bow, crossbow, regular, noble, militia, mercenary, caravan, bandit, female, male, etc.\n" +
                        "Tier keywords: tier0, tier1, tier2, tier3, tier4, tier5, tier6, tier6plus\n" +
                        "Sort: sort:name, sort:tier, sort:level, sort:culture, sort:<type> (add :desc for descending)\n" +
                        "Example: gm.query.troop imperial infantry tier2 sort:name\n" +
                        "Example: gm.query.troop female cavalry (find female cavalry troops)\n" +
-                       "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n";
+                       "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n").Log().Message;
             }
 
-            return $"Found {matchedTroops.Count} troop(s) matching {criteriaDesc}:\n" +
-                   $"{TroopQueries.GetFormattedDetails(matchedTroops)}";
+            return CommandResult.Success($"Found {matchedTroops.Count} troop(s) matching {criteriaDesc}:\n" +
+                   $"{TroopQueries.GetFormattedDetails(matchedTroops)}").Log().Message;
         });
     }
 }

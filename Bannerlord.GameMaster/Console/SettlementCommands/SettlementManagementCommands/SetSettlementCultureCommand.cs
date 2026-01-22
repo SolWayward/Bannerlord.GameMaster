@@ -107,7 +107,7 @@ public static class SetSettlementCultureCommand
                 { "update_bound_villages", updateBoundVillages.ToString().ToLower() }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_culture", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_culture", resolvedValues);
 
             string message = $"Settlement culture changed successfully.\n" +
                            $"Changed '{settlement.Name}' (ID: {settlement.StringId}) from '{previousCulture}' to '{culture.Name}'.\n" +

@@ -75,7 +75,7 @@ public static class AddGoldToLeaderCommand
 
             clan.Leader.ChangeHeroGold(amount);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_gold_leader", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.add_gold_leader", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {amount} gold to {clan.Leader.Name} (leader of {clan.Name}).\n" +
                 $"Leader gold: {previousLeaderGold} -> {clan.Leader.Gold}\n" +

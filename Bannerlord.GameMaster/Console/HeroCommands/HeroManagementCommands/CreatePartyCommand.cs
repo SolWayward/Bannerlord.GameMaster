@@ -64,7 +64,7 @@ public static class CreatePartyCommand
             {
                 { "hero", hero.Name.ToString() }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("create_party", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.create_party", resolvedValues);
 
             // Check if hero already has a party
             if (hero.PartyBelongedTo != null && hero.PartyBelongedTo.LeaderHero == hero)

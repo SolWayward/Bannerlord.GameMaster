@@ -72,7 +72,7 @@ public static class RenameHeroCommand
             string previousName = hero.Name.ToString();
             hero.SetStringName(newName);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("rename", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.rename", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Hero renamed from '{previousName}' to '{hero.Name}' (ID: {hero.StringId})");
             return CommandResult.Success(fullMessage).Log().Message;

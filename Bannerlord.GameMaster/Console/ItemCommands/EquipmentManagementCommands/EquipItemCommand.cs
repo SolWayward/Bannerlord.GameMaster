@@ -83,7 +83,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     { "civilian", isCivilian.ToString() }
                 };
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("equip", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.item.equip", resolvedValues);
                 return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Equipped {item.Name} to {hero.Name}'s {equipmentType} equipment (slot: {slot}).");
             });

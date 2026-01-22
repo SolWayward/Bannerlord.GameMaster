@@ -70,7 +70,7 @@ public static class SetClanRenownCommand
             float previousRenown = clan.Renown;
             clan.Renown = amount;
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_renown", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.set_renown", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name}'s renown changed from {previousRenown:F0} to {clan.Renown:F0}.");
         });
     }

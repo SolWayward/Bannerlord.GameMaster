@@ -66,7 +66,7 @@ public static class BatchRemoveBlgmKingdomsCommand
                 { "count", resolvedCount }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("batch_remove_blgm_kingdoms", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.cleanup.batch_remove_blgm_kingdoms", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Removed {removed} BLGM kingdom(s)\n{details}");
             return CommandResult.Success(fullMessage).Log().Message;

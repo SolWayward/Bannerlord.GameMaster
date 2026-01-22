@@ -67,7 +67,7 @@ public static class GiveGoldCommand
                 ["amount"] = amount.ToString()
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("give_gold", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.give_gold", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) gold changed from {previousValue} to {settlement.Town.Gold} ({(amount >= 0 ? "+" : "")}{amount}).");
             return CommandResult.Success(fullMessage).Log().Message;

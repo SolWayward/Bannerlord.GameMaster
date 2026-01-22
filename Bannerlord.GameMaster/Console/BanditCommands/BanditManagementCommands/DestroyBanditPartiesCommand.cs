@@ -96,7 +96,7 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
                 string countInfo = count.HasValue ? $" (requested: {count.Value})" : " (all)";
                 string countsSummary = BanditCommandHelpers.GetBanditCountsSummary();
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("destroy_bandit_parties", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.bandit.destroy_bandit_parties", resolvedValues);
                 string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Destroyed {totalRemoved} bandit parties{countInfo}.\n" +
                     $"Types: {BanditCommandHelpers.FormatBanditTypeList(cultures)}\n\n" +

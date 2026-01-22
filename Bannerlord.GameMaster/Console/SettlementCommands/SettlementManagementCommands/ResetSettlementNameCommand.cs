@@ -67,7 +67,7 @@ public static class ResetSettlementNameCommand
                 { "settlement", currentName }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("reset_name", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.reset_name", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement name reset from '{currentName}' to '{settlement.Name}' (original: '{originalName}') (ID: {settlement.StringId}).");
             return CommandResult.Success(fullMessage).Log().Message;

@@ -91,7 +91,7 @@ public static class IgnoreLimitsCommand
                 result.AppendLine("WARNING: Exceeding these limits may cause performance degradation on the campaign map.");
             }
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("ignore_limits", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.ignore_limits", resolvedValues);
             return argumentDisplay + result.ToString();
         });
     }

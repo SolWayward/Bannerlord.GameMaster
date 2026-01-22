@@ -79,7 +79,7 @@ public static class AddMercenaryTroopsCommand
                 { "count", count.ToString() }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_mercenary", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.troop.add_mercenary", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {count}x random mercenary troops from {hero.Culture?.Name} culture to {hero.Name}'s party.\n" +
                 $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");

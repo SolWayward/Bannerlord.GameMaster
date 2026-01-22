@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -23,7 +24,7 @@ public static class QuerySettlementAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             SettlementQueryArguments queryArgs = SettlementQueryHelpers.ParseSettlementQueryArguments(args);
@@ -40,13 +41,13 @@ public static class QuerySettlementAnyCommand
 
             if (matchedSettlements.Count == 0)
             {
-                return $"Found 0 settlement(s) matching ANY of {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 settlement(s) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.settlement_any [search] [type keywords] [sort]\n" +
-                       "Example: gm.query.settlement_any castle city sort:prosperity:desc\n";
+                       "Example: gm.query.settlement_any castle city sort:prosperity:desc\n").Log().Message;
             }
 
-            return $"Found {matchedSettlements.Count} settlement(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{SettlementQueries.GetFormattedDetails(matchedSettlements)}";
+            return CommandResult.Success($"Found {matchedSettlements.Count} settlement(s) matching ANY of {criteriaDesc}:\n" +
+                   $"{SettlementQueries.GetFormattedDetails(matchedSettlements)}").Log().Message;
         });
     }
 }

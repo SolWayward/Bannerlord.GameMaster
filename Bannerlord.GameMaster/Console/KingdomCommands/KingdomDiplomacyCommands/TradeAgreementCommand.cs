@@ -71,7 +71,7 @@ public static class TradeAgreementCommand
                 { "proposingKingdom", proposingKingdom.Name.ToString() },
                 { "receivingKingdom", receivingKingdom.Name.ToString() }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("trade_agreement", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.trade_agreement", resolvedValues);
 
             proposingKingdom.MakeTradeAgreement(receivingKingdom);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(

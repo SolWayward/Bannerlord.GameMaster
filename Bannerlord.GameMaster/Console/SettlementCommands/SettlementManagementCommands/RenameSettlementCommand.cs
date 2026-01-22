@@ -71,7 +71,7 @@ public static class RenameSettlementCommand
                 { "name", newName }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("rename", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.rename", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement renamed from '{previousName}' to '{settlement.Name}' (ID: {settlement.StringId}).\n" +
                 $"The new name will persist through save/load cycles.\n" +

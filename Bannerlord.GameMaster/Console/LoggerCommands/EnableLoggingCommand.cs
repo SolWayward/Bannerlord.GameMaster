@@ -46,7 +46,7 @@ public static class EnableLoggingCommand
                 { "path", path }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("enable", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.log.enable", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message);
             return CommandResult.Success(fullMessage).Log().Message;
         });

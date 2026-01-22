@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -25,7 +26,7 @@ public static class QueryItemCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             ItemQueryArguments queryArgs = ItemQueryHelpers.ParseItemQueryArguments(args);
@@ -43,16 +44,16 @@ public static class QueryItemCommand
 
             if (matchedItems.Count == 0)
             {
-                return $"Found 0 item(s) matching {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 item(s) matching {criteriaDesc}\n" +
                        "Usage: gm.query.item [search] [type keywords] [tier] [sort]\n" +
                        "Type keywords: weapon, armor, mount, food, trade, 1h, 2h, ranged, bow, crossbow, civilian, combat, horsearmor, etc.\n" +
                        "Tier keywords: tier0, tier1, tier2, tier3, tier4, tier5, tier6\n" +
                        "Sort: sort:name, sort:tier, sort:value, sort:type (add :desc for descending)\n" +
-                       "Example: gm.query.item sword weapon 1h tier3 sort:value:desc\n";
+                       "Example: gm.query.item sword weapon 1h tier3 sort:value:desc\n").Log().Message;
             }
 
-            return $"Found {matchedItems.Count} item(s) matching {criteriaDesc}:\n" +
-                   $"{ItemQueries.GetFormattedDetails(matchedItems)}";
+            return CommandResult.Success($"Found {matchedItems.Count} item(s) matching {criteriaDesc}:\n" +
+                   $"{ItemQueries.GetFormattedDetails(matchedItems)}").Log().Message;
         });
     }
 }

@@ -98,7 +98,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     { "hero", hero.Name.ToString() }
                 };
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("unequip", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.item.unequip", resolvedValues);
                 return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Unequipped {item.Name} from {hero.Name} (removed from: {string.Join(", ", unequippedSlots)}).");
             });

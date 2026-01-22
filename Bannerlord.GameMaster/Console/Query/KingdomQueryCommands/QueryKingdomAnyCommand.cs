@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -22,7 +23,7 @@ public static class QueryKingdomAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             KingdomQueryArguments queryArgs = KingdomQueryHelpers.ParseKingdomQueryArguments(args);
@@ -39,12 +40,12 @@ public static class QueryKingdomAnyCommand
             
             if (matchedKingdoms.Count == 0)
             {
-                return $"Found 0 kingdom(s) matching ANY of {criteriaDesc}\n" +
-                       "Usage: gm.query.kingdom_any [search] [type keywords] [sort]\n";
+                return CommandResult.Success($"Found 0 kingdom(s) matching ANY of {criteriaDesc}\n" +
+                       "Usage: gm.query.kingdom_any [search] [type keywords] [sort]\n").Log().Message;
             }
 
-            return $"Found {matchedKingdoms.Count} kingdom(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
+            return CommandResult.Success($"Found {matchedKingdoms.Count} kingdom(s) matching ANY of {criteriaDesc}:\n" +
+                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}").Log().Message;
         });
     }
 }

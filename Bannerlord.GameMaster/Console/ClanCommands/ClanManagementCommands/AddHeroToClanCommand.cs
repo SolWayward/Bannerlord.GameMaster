@@ -75,7 +75,7 @@ public static class AddHeroToClanCommand
             if (hero == Hero.MainHero)
                 clan.SetLeader(Hero.MainHero);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_hero", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.add_hero", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name} transferred from '{previousClanName}' to '{clan.Name}'.");
         });

@@ -74,7 +74,7 @@ public static class SetClanLeaderCommand
             string previousLeader = clan.Leader?.Name?.ToString() ?? "None";
             clan.SetLeader(hero);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_leader", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.set_leader", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name}'s leader changed from {previousLeader} to {hero.Name}.");
         });
     }

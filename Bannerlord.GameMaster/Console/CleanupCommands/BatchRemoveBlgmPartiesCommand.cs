@@ -66,7 +66,7 @@ public static class BatchRemoveBlgmPartiesCommand
                 { "count", resolvedCount }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("batch_remove_blgm_parties", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.cleanup.batch_remove_blgm_parties", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Removed {removed} BLGM party(ies)\n{details}");
             return CommandResult.Success(fullMessage).Log().Message;

@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -24,12 +25,12 @@ public static class QueryCharacterObjectsInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a character ID.\nUsage: gm.query.character_objects_info <characterId>\n" +
+                return CommandResult.Error("Please provide a character ID.\nUsage: gm.query.character_objects_info <characterId>\n" +
                        "Example: gm.query.character_objects_info imperial_legionary\n" +
-                       "Example: gm.query.character_objects_info lord_1_1 (hero character)\n";
+                       "Example: gm.query.character_objects_info lord_1_1 (hero character)\n").Log().Message;
 
             // MARK: Parse Arguments
             string characterId = args[0];
@@ -38,7 +39,7 @@ public static class QueryCharacterObjectsInfoCommand
             CharacterObject character = CharacterQueries.GetCharacterById(characterId);
 
             if (character == null)
-                return $"Error: Character with ID '{characterId}' not found.\n";
+                return CommandResult.Error($"Character with ID '{characterId}' not found.\n").Log().Message;
 
             // Build detailed info using CharacterExtensions
             CharacterTypes types = character.GetCharacterTypes();
@@ -84,7 +85,7 @@ public static class QueryCharacterObjectsInfoCommand
                       equipmentInfo +
                       upgradeInfo;
 
-            return result;
+            return CommandResult.Success(result).Log().Message;
         });
     }
 }

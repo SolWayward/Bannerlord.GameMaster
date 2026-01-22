@@ -93,7 +93,7 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
                 string countInfo = count.HasValue ? $" (requested: {count.Value})" : " (all)";
                 string countsSummary = BanditCommandHelpers.GetBanditCountsSummary();
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("clear_hideouts", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.bandit.clear_hideouts", resolvedValues);
                 string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Cleared {totalRemoved} bandit hideouts{countInfo}.\n" +
                     $"Types: {BanditCommandHelpers.FormatBanditTypeList(cultures)}\n\n" +

@@ -86,7 +86,7 @@ public static class DeclareAllianceCommand
                 { "receivingKingdom", receivingKingdom.Name.ToString() },
                 { "callToWar", callToWar.ToString() }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("declare_alliance", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.declare_alliance", resolvedValues);
 
             proposingKingdom.DeclareAlliance(receivingKingdom, callToWar);
 

@@ -71,7 +71,7 @@ public static class AddGoldCommand
             int previousGold = hero.Gold;
             hero.ChangeHeroGold(amount);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_gold", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.add_gold", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name}'s gold changed from {previousGold} to {hero.Gold} ({(amount >= 0 ? "+" : "")}{amount}).");
             return CommandResult.Success(fullMessage).Log().Message;

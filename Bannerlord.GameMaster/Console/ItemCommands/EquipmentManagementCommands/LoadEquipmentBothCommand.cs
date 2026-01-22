@@ -68,7 +68,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 };
 
                 StringBuilder result = new();
-                result.AppendLine(parsed.FormatArgumentDisplay("load_equipment_both", resolvedValues));
+                result.AppendLine(parsed.FormatArgumentDisplay("gm.item.load_equipment_both", resolvedValues));
                 result.AppendLine($"Loading equipment sets for {hero.Name}:");
 
                 // Track overall results

@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Validation;
@@ -21,10 +22,10 @@ public static class QueryHeroInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return MessageFormatter.FormatErrorMessage("Please provide a hero ID.\nUsage: gm.query.hero_info <heroId>");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Please provide a hero ID.\nUsage: gm.query.hero_info <heroId>")).Log().Message;
 
             // MARK: Parse Arguments
             string heroId = args[0];
@@ -33,13 +34,13 @@ public static class QueryHeroInfoCommand
             Hero hero = HeroQueries.GetHeroById(heroId);
 
             if (hero == null)
-                return MessageFormatter.FormatErrorMessage($"Hero with ID '{heroId}' not found.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Hero with ID '{heroId}' not found.")).Log().Message;
 
             HeroTypes types = hero.GetHeroTypes();
             string clanName = hero.Clan?.Name?.ToString() ?? "None";
             string kingdomName = hero.Clan?.Kingdom?.Name?.ToString() ?? "None";
 
-            return $"Hero Information:\n" +
+            return CommandResult.Success($"Hero Information:\n" +
                    $"ID: {hero.StringId}\n" +
                    $"Name: {hero.Name}\n" +
                    $"Clan: {clanName}\n" +
@@ -47,7 +48,7 @@ public static class QueryHeroInfoCommand
                    $"Age: {hero.Age:F0}\n" +
                    $"Types: {types}\n" +
                    $"Is Alive: {hero.IsAlive}\n" +
-                   $"Is Prisoner: {hero.IsPrisoner}\n";
+                   $"Is Prisoner: {hero.IsPrisoner}\n").Log().Message;
         });
     }
 }

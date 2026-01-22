@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -25,7 +26,7 @@ public static class QueryKingdomCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             KingdomQueryArguments queryArgs = KingdomQueryHelpers.ParseKingdomQueryArguments(args);
@@ -42,15 +43,15 @@ public static class QueryKingdomCommand
             
             if (matchedKingdoms.Count == 0)
             {
-                return $"Found 0 kingdom(s) matching {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 kingdom(s) matching {criteriaDesc}\n" +
                        "Usage: gm.query.kingdom [search] [type keywords] [sort]\n" +
                        "Type keywords: active, eliminated, empty, atwar, player, etc.\n" +
                        "Sort: sort:name, sort:clans, sort:heroes, sort:fiefs, sort:strength, sort:<type> (add :desc for descending)\n" +
-                       "Example: gm.query.kingdom empire atwar sort:strength:desc\n";
+                       "Example: gm.query.kingdom empire atwar sort:strength:desc\n").Log().Message;
             }
 
-            return $"Found {matchedKingdoms.Count} kingdom(s) matching {criteriaDesc}:\n" +
-                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}";
+            return CommandResult.Success($"Found {matchedKingdoms.Count} kingdom(s) matching {criteriaDesc}:\n" +
+                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}").Log().Message;
         });
     }
 }

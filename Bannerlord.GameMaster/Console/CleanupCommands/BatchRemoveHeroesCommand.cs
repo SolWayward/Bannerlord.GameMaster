@@ -66,7 +66,7 @@ public static class BatchRemoveHeroesCommand
                 { "count", resolvedCount }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("batch_remove_heroes", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.cleanup.batch_remove_heroes", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Removed {removed} BLGM hero(es)\n{details}");
             return CommandResult.Success(fullMessage).Log().Message;

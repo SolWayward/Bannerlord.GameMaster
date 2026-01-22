@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Validation;
@@ -24,7 +25,7 @@ public static class QueryModifiersCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Execute Logic
             List<ItemModifier> allModifiers = ItemModifierHelper.GetAllModifiers();
@@ -41,12 +42,12 @@ public static class QueryModifiersCommand
 
             if (allModifiers.Count == 0)
             {
-                string searchMsg = args != null && args.Count > 0 
-                    ? $" matching '{string.Join(" ", args)}'" 
+                string searchMsg = args != null && args.Count > 0
+                    ? $" matching '{string.Join(" ", args)}'"
                     : "";
-                return $"Found 0 modifiers{searchMsg}.\n" +
+                return CommandResult.Success($"Found 0 modifiers{searchMsg}.\n" +
                        "Usage: gm.query.modifiers [search]\n" +
-                       "Example: gm.query.modifiers fine\n";
+                       "Example: gm.query.modifiers fine\n").Log().Message;
             }
 
             // Sort by name for better readability
@@ -77,7 +78,7 @@ public static class QueryModifiersCommand
                 m => $"x{m.PriceMultiplier:F2}"
             );
 
-            return result;
+            return CommandResult.Success(result).Log().Message;
         });
     }
 }

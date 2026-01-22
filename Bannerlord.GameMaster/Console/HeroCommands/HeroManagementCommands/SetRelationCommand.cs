@@ -83,7 +83,7 @@ public static class SetRelationCommand
             int change = value - previousRelation;
             ChangeRelationAction.ApplyRelationChangeBetweenHeroes(hero1, hero2, change, true);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_relation", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.set_relation", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Relation between {hero1.Name} and {hero2.Name} changed from {previousRelation} to {value}.");
             return CommandResult.Success(fullMessage).Log().Message;

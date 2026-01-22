@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -25,7 +26,7 @@ public static class QueryHeroCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             HeroQueryArguments queryArgs = HeroQueryHelpers.ParseHeroQueryArguments(args);
@@ -43,15 +44,15 @@ public static class QueryHeroCommand
             
             if (matchedHeroes.Count == 0)
             {
-                return $"Found 0 hero(es) matching {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 hero(es) matching {criteriaDesc}\n" +
                        "Usage: gm.query.hero [search] [type keywords] [sort]\n" +
                        "Type keywords: lord, wanderer, notable, female, male, clanleader, kingdomruler, dead, etc.\n" +
                        "Sort: sort:name, sort:age, sort:clan, sort:kingdom, sort:<type> (add :desc for descending)\n" +
-                       "Example: gm.query.hero john lord female sort:name\n";
+                       "Example: gm.query.hero john lord female sort:name\n").Log().Message;
             }
 
-            return $"Found {matchedHeroes.Count} hero(es) matching {criteriaDesc}:\n" +
-                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}";
+            return CommandResult.Success($"Found {matchedHeroes.Count} hero(es) matching {criteriaDesc}:\n" +
+                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}").Log().Message;
         });
     }
 }

@@ -97,7 +97,7 @@ public static class CallAllyToWarCommand
                 { "allyKingdom", allyKingdom.Name.ToString() },
                 { "enemyKingdom", enemyKingdom != null ? enemyKingdom.Name.ToString() : "All enemies" }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("call_ally_to_war", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.call_ally_to_war", resolvedValues);
 
             if (enemyKingdom != null)
             {

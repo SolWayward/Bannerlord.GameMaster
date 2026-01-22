@@ -74,7 +74,7 @@ public static class SetOwnerCommand
                 ["hero"] = hero.Name.ToString()
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_owner", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_owner", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) ownership changed:\n" +
                 $"Owner: {previousOwner} -> {settlement.Owner?.Name?.ToString() ?? "None"}\n" +

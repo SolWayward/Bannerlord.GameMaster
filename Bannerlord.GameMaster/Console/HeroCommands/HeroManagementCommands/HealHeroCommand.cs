@@ -64,7 +64,7 @@ public static class HealHeroCommand
 
             hero.HitPoints = hero.CharacterObject.MaxHitPoints();
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("heal", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.heal", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name} has been healed to full health ({hero.HitPoints}/{hero.CharacterObject.MaxHitPoints()}).");
             return CommandResult.Success(fullMessage).Log().Message;

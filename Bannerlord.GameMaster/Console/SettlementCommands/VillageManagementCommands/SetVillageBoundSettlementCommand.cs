@@ -78,7 +78,7 @@ public static class SetVillageBoundSettlementCommand
                 ["settlement"] = newBoundSettlement.Name.ToString()
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_village_bound_settlement", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_village_bound_settlement", resolvedValues);
 
             if (result.IsSuccess)
                 return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message)).Log().Message;

@@ -85,7 +85,7 @@ public static class GiveGoldToMemberCommand
 
             hero.ChangeHeroGold(amount);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("give_gold", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.give_gold", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {amount} gold to {hero.Name} (member of {clan.Name}).\n" +
                 $"Hero gold: {previousHeroGold} -> {hero.Gold}\n" +

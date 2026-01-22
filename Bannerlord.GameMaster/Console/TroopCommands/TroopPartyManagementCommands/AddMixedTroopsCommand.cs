@@ -82,7 +82,7 @@ public static class AddMixedTroopsCommand
                 { "countOfEach", countOfEach.ToString() }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_mixed", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.troop.add_mixed", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {totalAdded} mixed tier troops to {hero.Name}'s party ({countOfEach} of each: basic, elite, mercenary).\n" +
                 $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");

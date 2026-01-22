@@ -78,7 +78,7 @@ public static class SetVillageTradeBoundSettlementCommand
                 ["settlement"] = tradeBoundSettlement.Name.ToString()
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_village_trade_bound_settlement", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_village_trade_bound_settlement", resolvedValues);
 
             if (result.IsSuccess)
                 return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message)).Log().Message;

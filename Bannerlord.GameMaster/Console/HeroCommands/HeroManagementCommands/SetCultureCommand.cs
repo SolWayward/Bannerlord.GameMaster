@@ -75,7 +75,7 @@ public static class SetCultureCommand
             string previousCulture = hero.Culture?.Name?.ToString() ?? "None";
             hero.Culture = newCulture;
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_culture", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.set_culture", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name}'s culture changed from '{previousCulture}' to '{hero.Culture.Name}'.");
             return CommandResult.Success(fullMessage).Log().Message;

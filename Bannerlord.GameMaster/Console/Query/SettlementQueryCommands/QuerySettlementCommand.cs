@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -24,7 +25,7 @@ public static class QuerySettlementCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             SettlementQueryArguments queryArgs = SettlementQueryHelpers.ParseSettlementQueryArguments(args);
@@ -41,16 +42,16 @@ public static class QuerySettlementCommand
 
             if (matchedSettlements.Count == 0)
             {
-                return $"Found 0 settlement(s) matching {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 settlement(s) matching {criteriaDesc}\n" +
                        "Usage: gm.query.settlement [search] [type keywords] [sort]\n" +
                        "Type keywords: town, castle, city, village, hideout, player, besieged, raided, empire, vlandia, etc.\n" +
                        "Prosperity: low, medium, high\n" +
                        "Sort: sort:name, sort:prosperity, sort:owner, sort:kingdom, sort:culture (add :desc for descending)\n" +
-                       "Example: gm.query.settlement castle empire sort:prosperity:desc\n";
+                       "Example: gm.query.settlement castle empire sort:prosperity:desc\n").Log().Message;
             }
 
-            return $"Found {matchedSettlements.Count} settlement(s) matching {criteriaDesc}:\n" +
-                   $"{SettlementQueries.GetFormattedDetails(matchedSettlements)}";
+            return CommandResult.Success($"Found {matchedSettlements.Count} settlement(s) matching {criteriaDesc}:\n" +
+                   $"{SettlementQueries.GetFormattedDetails(matchedSettlements)}").Log().Message;
         });
     }
 }

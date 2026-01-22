@@ -69,7 +69,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
                     ["settlement"] = settlement.Name.ToString()
                 };
 
-                string display = parsed.FormatArgumentDisplay("create_notable_caravan", resolvedValues);
+                string display = parsed.FormatArgumentDisplay("gm.caravan.create_notable_caravan", resolvedValues);
                 return display + MessageFormatter.FormatSuccessMessage(
                     $"Created caravan in '{settlement.Name}' (ID: {settlement.StringId}) owned by notable {caravan.Owner?.Name}.");
             });

@@ -72,7 +72,7 @@ public static class RenameClanCommand
             string previousName = clan.Name.ToString();
             clan.SetStringName(newName);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("rename", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.rename", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Clan renamed from '{previousName}' to '{clan.Name}' (ID: {clan.StringId})");
         });

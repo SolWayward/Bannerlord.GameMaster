@@ -65,7 +65,7 @@ public static class RemoveClanCommand
             string previousClanName = hero.Clan.Name.ToString();
             hero.Clan = null;
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("remove_clan", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.remove_clan", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name} (ID: {hero.StringId}) removed from clan '{previousClanName}'.");
             return CommandResult.Success(fullMessage).Log().Message;

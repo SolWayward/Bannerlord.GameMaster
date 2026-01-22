@@ -67,7 +67,7 @@ public static class SetLoyaltyCommand
                 ["value"] = value.ToString("F1")
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_loyalty", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_loyalty", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) loyalty changed from {previousValue:F1} to {settlement.Town.Loyalty:F1}.");
             return CommandResult.Success(fullMessage).Log().Message;

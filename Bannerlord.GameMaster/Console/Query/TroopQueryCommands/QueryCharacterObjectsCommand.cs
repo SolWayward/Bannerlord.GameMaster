@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -26,7 +27,7 @@ public static class QueryCharacterObjectsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             CharacterQueryArguments queryArgs = CharacterQueryHelpers.ParseCharacterQueryArguments(args);
@@ -45,7 +46,7 @@ public static class QueryCharacterObjectsCommand
 
             if (matchedCharacters.Count == 0)
             {
-                return $"Found 0 character(s) matching {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 character(s) matching {criteriaDesc}\n" +
                        "Usage: gm.query.character_objects [search] [type keywords] [cultures] [tier] [sort]\n" +
                        "Type keywords: hero, troop, template, npc, lord, wanderer, notable, child, female, male, original, blgm\n" +
                        "Culture keywords: empire, vlandia, sturgia, aserai, khuzait, battania, nord, bandit\n" +
@@ -53,12 +54,12 @@ public static class QueryCharacterObjectsCommand
                        "Tier keywords: tier0, tier1, tier2, tier3, tier4, tier5, tier6, tier6plus\n" +
                        "Sort: sort:name, sort:tier, sort:level, sort:culture, sort:classification (add :desc for descending)\n" +
                        "Example: gm.query.character_objects imperial hero sort:name\n" +
-                       "Example: gm.query.character_objects troop vlandia,empire tier3\n";
+                       "Example: gm.query.character_objects troop vlandia,empire tier3\n").Log().Message;
             }
 
             List<CharacterObject> characterList = new(matchedCharacters);
-            return $"Found {matchedCharacters.Count} character(s) matching {criteriaDesc}:\n" +
-                   $"{CharacterQueries.GetFormattedDetails(characterList)}";
+            return CommandResult.Success($"Found {matchedCharacters.Count} character(s) matching {criteriaDesc}:\n" +
+                   $"{CharacterQueries.GetFormattedDetails(characterList)}").Log().Message;
         });
     }
 }

@@ -160,7 +160,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     { "randomFactor", randomFactor.ToString("0.0") }
                 };
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("create_companions", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.create_companions", resolvedValues);
 
                 List<Hero> companions = HeroGenerator.CreateCompanions(count, cultureFlags, genderFlags, randomFactor);
 

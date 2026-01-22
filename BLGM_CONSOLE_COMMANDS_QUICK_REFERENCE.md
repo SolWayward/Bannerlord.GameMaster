@@ -663,7 +663,7 @@ public static string CommandName(List<string> args)
             { "count", count.ToString() }
         };
         
-        string argumentDisplay = parsed.FormatArgumentDisplay("command_name", resolvedValues);
+        string argumentDisplay = parsed.FormatArgumentDisplay("gm.group.command_name", resolvedValues);
         return argumentDisplay + MessageFormatter.FormatSuccessMessage("Operation completed");
     });
 }

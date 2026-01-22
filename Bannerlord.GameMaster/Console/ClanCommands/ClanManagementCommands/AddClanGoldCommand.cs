@@ -73,7 +73,7 @@ public static class AddClanGoldCommand
 
             if (membersCount == 0)
             {
-                string argumentDisplayError = parsed.FormatArgumentDisplay("add_gold", resolvedValues);
+                string argumentDisplayError = parsed.FormatArgumentDisplay("gm.clan.add_gold", resolvedValues);
                 return argumentDisplayError + MessageFormatter.FormatErrorMessage($"{clan.Name} has no living heroes to receive gold.");
             }
 
@@ -92,7 +92,7 @@ public static class AddClanGoldCommand
                 hero.ChangeHeroGold(goldToAdd);
             }
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_gold", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.add_gold", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {amount} gold to {clan.Name} (distributed among {membersCount} members).\n" +
                 $"Clan gold changed from {previousGold} to {clan.Gold}.");

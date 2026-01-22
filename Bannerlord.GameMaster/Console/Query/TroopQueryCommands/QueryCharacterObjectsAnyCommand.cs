@@ -1,4 +1,5 @@
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -26,7 +27,7 @@ public static class QueryCharacterObjectsAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             CharacterQueryArguments queryArgs = CharacterQueryHelpers.ParseCharacterQueryArguments(args);
@@ -45,16 +46,16 @@ public static class QueryCharacterObjectsAnyCommand
 
             if (matchedCharacters.Count == 0)
             {
-                return $"Found 0 character(s) matching ANY of {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 character(s) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.character_objects_any [search] [type keywords] [cultures] [tier] [sort]\n" +
                        "Uses OR logic - matches characters that have ANY of the specified types.\n" +
                        "Example: gm.query.character_objects_any hero troop (hero OR troop)\n" +
-                       "Example: gm.query.character_objects_any lord wanderer empire (lord OR wanderer, AND empire culture)\n";
+                       "Example: gm.query.character_objects_any lord wanderer empire (lord OR wanderer, AND empire culture)\n").Log().Message;
             }
 
             List<CharacterObject> characterList = new(matchedCharacters);
-            return $"Found {matchedCharacters.Count} character(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{CharacterQueries.GetFormattedDetails(characterList)}";
+            return CommandResult.Success($"Found {matchedCharacters.Count} character(s) matching ANY of {criteriaDesc}:\n" +
+                   $"{CharacterQueries.GetFormattedDetails(characterList)}").Log().Message;
         });
     }
 }

@@ -64,7 +64,7 @@ public static class RemoveBlgmKingdomCommand
                 { "kingdom", kingdom.Name.ToString() }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("remove_blgm_kingdom", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.cleanup.remove_blgm_kingdom", resolvedValues);
 
             if (result.IsSuccess)
             {

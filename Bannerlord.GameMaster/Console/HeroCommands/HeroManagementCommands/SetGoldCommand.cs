@@ -71,7 +71,7 @@ public static class SetGoldCommand
             int previousGold = hero.Gold;
             hero.ChangeHeroGold(amount - previousGold);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_gold", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.set_gold", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name}'s gold changed from {previousGold} to {hero.Gold}.");
             return CommandResult.Success(fullMessage).Log().Message;
         });

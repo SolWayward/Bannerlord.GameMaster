@@ -67,7 +67,7 @@ public static class AddMilitiaCommand
                 ["amount"] = amount.ToString("F0")
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_militia", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.add_militia", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) militia changed from {previousValue:F0} to {settlement.Militia:F0} (+{amount:F0}).");
             return CommandResult.Success(fullMessage).Log().Message;

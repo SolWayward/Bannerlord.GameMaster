@@ -123,7 +123,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
 
                 if (clans == null || clans.Count == 0)
                 {
-                    string argumentDisplayError = parsed.FormatArgumentDisplay("generate_clans", resolvedValues);
+                    string argumentDisplayError = parsed.FormatArgumentDisplay("gm.clan.generate_clans", resolvedValues);
                     return argumentDisplayError + MessageFormatter.FormatErrorMessage("Failed to generate clans - no clans created");
                 }
 
@@ -131,7 +131,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                 string partyInfo = createParties ? " (with parties)" : " (no parties)";
                 string companionInfo = companionCount > 0 ? $" and {companionCount} companions each" : "";
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("generate_clans", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.generate_clans", resolvedValues);
                 return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Generated {clans.Count} clan(s){kingdomInfo}{partyInfo}{companionInfo}:\n" +
                     ClanQueries.GetFormattedDetails(clans));

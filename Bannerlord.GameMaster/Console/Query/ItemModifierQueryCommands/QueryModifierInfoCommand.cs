@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Formatting;
 using Bannerlord.GameMaster.Console.Common.Validation;
@@ -22,26 +23,28 @@ public static class QueryModifierInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a modifier name.\n" +
+                return CommandResult.Success("Please provide a modifier name.\n" +
                        "Usage: gm.query.modifier_info <modifier_name>\n" +
-                       "Example: gm.query.modifier_info fine\n";
+                       "Example: gm.query.modifier_info fine\n").Log().Message;
 
             // MARK: Parse Arguments
             string modifierName = string.Join(" ", args);
             
             // MARK: Execute Logic
-            var (modifier, parseError) = ItemModifierHelper.ParseModifier(modifierName);
+            ItemModifier modifier;
+            string parseError;
+            (modifier, parseError) = ItemModifierHelper.ParseModifier(modifierName);
 
             if (parseError != null)
-                return MessageFormatter.FormatErrorMessage(parseError);
+                return CommandResult.Error(parseError).Log().Message;
 
             if (modifier == null)
-                return MessageFormatter.FormatErrorMessage($"Modifier '{modifierName}' not found.");
+                return CommandResult.Error($"Modifier '{modifierName}' not found.").Log().Message;
 
-            return $"Modifier Information:\n" +
+            return CommandResult.Success($"Modifier Information:\n" +
                    $"StringId: {modifier.StringId}\n" +
                    $"Name: {modifier.Name}\n" +
                    $"Price Multiplier: x{modifier.PriceMultiplier:F2}\n" +
@@ -50,7 +53,7 @@ public static class QueryModifierInfoCommand
                    $"Missile Speed Modifier: {(modifier.MissileSpeed >= 0 ? "+" : "")}{modifier.MissileSpeed}\n" +
                    $"Armor Modifier: {(modifier.Armor >= 0 ? "+" : "")}{modifier.Armor}\n" +
                    $"Hit Points Modifier: {(modifier.HitPoints >= 0 ? "+" : "")}{modifier.HitPoints}\n" +
-                   $"Stack Count Modifier: {(modifier.StackCount >= 0 ? "+" : "")}{modifier.StackCount}\n";
+                   $"Stack Count Modifier: {(modifier.StackCount >= 0 ? "+" : "")}{modifier.StackCount}\n").Log().Message;
         });
     }
 }

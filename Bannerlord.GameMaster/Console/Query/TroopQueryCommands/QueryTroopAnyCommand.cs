@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -24,7 +25,7 @@ public static class QueryTroopAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             TroopQueryArguments queryArgs = TroopQueryHelpers.ParseTroopQueryArguments(args);
@@ -42,14 +43,14 @@ public static class QueryTroopAnyCommand
 
             if (matchedTroops.Count == 0)
             {
-                return $"Found 0 troop(s) matching ANY of {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 troop(s) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.troop_any [search] [type keywords] [tier] [sort]\n" +
                        "Example: gm.query.troop_any cavalry ranged tier3 sort:tier\n" +
-                       "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n";
+                       "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n").Log().Message;
             }
 
-            return $"Found {matchedTroops.Count} troop(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{TroopQueries.GetFormattedDetails(matchedTroops)}";
+            return CommandResult.Success($"Found {matchedTroops.Count} troop(s) matching ANY of {criteriaDesc}:\n" +
+                   $"{TroopQueries.GetFormattedDetails(matchedTroops)}").Log().Message;
         });
     }
 }

@@ -73,7 +73,7 @@ public static class SetClanCommand
             string previousClanName = hero.Clan?.Name?.ToString() ?? "No Clan";
             hero.Clan = clan;
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_clan", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.set_clan", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name} (ID: {hero.StringId}) transferred from '{previousClanName}' to '{clan.Name}'.\n" +
                 $"Updated details: {hero.FormattedDetails()}");

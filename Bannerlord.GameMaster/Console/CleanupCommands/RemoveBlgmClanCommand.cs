@@ -64,7 +64,7 @@ public static class RemoveBlgmClanCommand
                 { "clan", clan.Name.ToString() }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("remove_blgm_clan", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.cleanup.remove_blgm_clan", resolvedValues);
 
             if (result.IsSuccess)
             {

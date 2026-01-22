@@ -79,7 +79,7 @@ public static class SetCultureCommand
             clan.Culture = newCulture;
             clan.BasicTroop = newCulture.BasicTroop;
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_culture", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.set_culture", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{clan.Name}'s culture changed from '{previousCulture}' to '{clan.Culture.Name}'.\n" +
                 $"Basic troop updated to: {clan.BasicTroop?.Name}");

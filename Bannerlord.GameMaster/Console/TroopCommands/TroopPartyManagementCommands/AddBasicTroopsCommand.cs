@@ -81,7 +81,7 @@ public static class AddBasicTroopsCommand
                 { "count", count.ToString() }
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_basic", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.troop.add_basic", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {count}x {troopName} to {hero.Name}'s party.\n" +
                 $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");

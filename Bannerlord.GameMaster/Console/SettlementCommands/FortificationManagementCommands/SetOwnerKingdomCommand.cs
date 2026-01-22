@@ -79,7 +79,7 @@ public static class SetOwnerKingdomCommand
                 ["kingdom"] = kingdom.Name.ToString()
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_owner_kingdom", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_owner_kingdom", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) ownership changed:\n" +
                 $"Owner: {previousOwner} -> {settlement.Owner?.Name?.ToString() ?? "None"}\n" +

@@ -78,7 +78,7 @@ public static class AddClanCommand
             string previousKingdom = clan.Kingdom?.Name?.ToString() ?? "No Kingdom";
             ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, showNotification: true);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("add_clan", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.add_clan", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{clan.Name} joined {kingdom.Name} from {previousKingdom}.");
         });

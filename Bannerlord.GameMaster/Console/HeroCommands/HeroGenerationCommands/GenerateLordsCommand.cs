@@ -212,7 +212,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     { "randomFactor", randomFactor.ToString("0.0") }
                 };
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("generate_lords", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.generate_lords", resolvedValues);
 
                 List<Hero> createdHeroes;
 

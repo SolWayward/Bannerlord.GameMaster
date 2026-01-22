@@ -240,7 +240,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     { "randomFactor", randomFactor.ToString("0.0") }
                 };
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("create_lord", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.create_lord", resolvedValues);
 
                 Hero createdHero = HeroGenerator.CreateLord(name, cultureFlags, genderFlags, targetClan, withParty, settlement, randomFactor);
 

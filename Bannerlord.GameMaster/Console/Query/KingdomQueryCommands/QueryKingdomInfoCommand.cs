@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Kingdoms;
@@ -21,17 +22,17 @@ public static class QueryKingdomInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a kingdom ID.\nUsage: gm.query.kingdom_info <kingdomId>\n";
+                return CommandResult.Error("Please provide a kingdom ID.\nUsage: gm.query.kingdom_info <kingdomId>\n").Log().Message;
 
             // MARK: Parse Arguments
             string kingdomId = args[0];
             Kingdom kingdom = KingdomQueries.GetKingdomById(kingdomId);
 
             if (kingdom == null)
-                return $"Error: Kingdom with ID '{kingdomId}' not found.\n";
+                return CommandResult.Error($"Kingdom with ID '{kingdomId}' not found.\n").Log().Message;
 
             // MARK: Execute Logic
             KingdomTypes types = kingdom.GetKingdomTypes();
@@ -46,7 +47,7 @@ public static class QueryKingdomInfoCommand
                 }
             }
 
-            return $"Kingdom Information:\n" +
+            return CommandResult.Success($"Kingdom Information:\n" +
                    $"ID: {kingdom.StringId}\n" +
                    $"Name: {kingdom.Name}\n" +
                    $"Culture: {kingdom.Culture?.Name}\n" +
@@ -58,7 +59,7 @@ public static class QueryKingdomInfoCommand
                    $"Total Strength: {kingdom.CurrentTotalStrength:F0}\n" +
                    $"Types: {types}\n" +
                    $"Is Eliminated: {kingdom.IsEliminated}\n" +
-                   $"At War With ({enemies.Count}): {string.Join(", ", enemies.Select(k => k.Name))}\n";
+                   $"At War With ({enemies.Count}): {string.Join(", ", enemies.Select(k => k.Name))}\n").Log().Message;
         });
     }
 }

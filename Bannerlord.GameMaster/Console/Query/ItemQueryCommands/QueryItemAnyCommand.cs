@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -23,7 +24,7 @@ public static class QueryItemAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             ItemQueryArguments queryArgs = ItemQueryHelpers.ParseItemQueryArguments(args);
@@ -41,13 +42,13 @@ public static class QueryItemAnyCommand
 
             if (matchedItems.Count == 0)
             {
-                return $"Found 0 item(s) matching ANY of {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 item(s) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.item_any [search] [type keywords] [tier] [sort]\n" +
-                       "Example: gm.query.item_any weapon armor tier3 sort:name\n";
+                       "Example: gm.query.item_any weapon armor tier3 sort:name\n").Log().Message;
             }
 
-            return $"Found {matchedItems.Count} item(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{ItemQueries.GetFormattedDetails(matchedItems)}";
+            return CommandResult.Success($"Found {matchedItems.Count} item(s) matching ANY of {criteriaDesc}:\n" +
+                   $"{ItemQueries.GetFormattedDetails(matchedItems)}").Log().Message;
         });
     }
 }

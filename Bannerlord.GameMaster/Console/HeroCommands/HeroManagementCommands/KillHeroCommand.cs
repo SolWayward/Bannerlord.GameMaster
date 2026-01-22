@@ -75,7 +75,7 @@ public static class KillHeroCommand
 
             KillCharacterAction.ApplyByMurder(hero, null, showDeathLog);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("kill", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.kill", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name} (ID: {hero.StringId}) has been killed.");
             return CommandResult.Success(fullMessage).Log().Message;
         });

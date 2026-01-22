@@ -71,7 +71,7 @@ public static class SetAgeCommand
             float previousAge = hero.Age;
             hero.SetBirthDay(CampaignTime.YearsFromNow(-age));
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_age", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.set_age", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name}'s age changed from {previousAge:F0} to {hero.Age:F0}.");
             return CommandResult.Success(fullMessage).Log().Message;
         });

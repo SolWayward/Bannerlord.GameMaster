@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Settlements;
@@ -22,17 +23,17 @@ public static class QuerySettlementInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a settlement ID.\nUsage: gm.query.settlement_info <settlementId>\n";
+                return CommandResult.Error("Please provide a settlement ID.\nUsage: gm.query.settlement_info <settlementId>\n").Log().Message;
 
             // MARK: Parse Arguments
             string settlementId = args[0];
             Settlement settlement = SettlementQueries.GetSettlementById(settlementId);
 
             if (settlement == null)
-                return $"Error: Settlement with ID '{settlementId}' not found.\n";
+                return CommandResult.Error($"Settlement with ID '{settlementId}' not found.\n").Log().Message;
 
             // MARK: Execute Logic
             SettlementTypes types = settlement.GetSettlementTypes();
@@ -70,7 +71,7 @@ public static class QuerySettlementInfoCommand
                 notableInfo = $"Notables: {settlement.Notables.Count()}\n";
             }
 
-            return $"Settlement Information:\n" +
+            return CommandResult.Success($"Settlement Information:\n" +
                    $"ID: {settlement.StringId}\n" +
                    $"Name: {settlement.Name}\n" +
                    $"Type: {settlementType}\n" +
@@ -81,7 +82,7 @@ public static class QuerySettlementInfoCommand
                    $"{siegeInfo}" +
                    $"{notableInfo}" +
                    $"Types: {types}\n" +
-                   $"Position: X={settlement.GetPosition2D.X:F1}, Y={settlement.GetPosition2D.Y:F1}\n";
+                   $"Position: X={settlement.GetPosition2D.X:F1}, Y={settlement.GetPosition2D.Y:F1}\n").Log().Message;
         });
     }
 }

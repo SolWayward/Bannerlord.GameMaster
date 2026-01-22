@@ -67,7 +67,7 @@ public static class SetSecurityCommand
                 ["value"] = value.ToString("F1")
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_security", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_security", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) security changed from {previousValue:F1} to {settlement.Town.Security:F1}.");
             return CommandResult.Success(fullMessage).Log().Message;

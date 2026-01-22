@@ -78,7 +78,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 };
 
                 StringBuilder result = new();
-                result.AppendLine(parsed.FormatArgumentDisplay("load_equipment", resolvedValues));
+                result.AppendLine(parsed.FormatArgumentDisplay("gm.item.load_equipment", resolvedValues));
                 result.AppendLine($"Loaded {hero.Name}'s battle equipment from: {Path.GetFileName(filepath)}");
                 result.AppendLine($"Items loaded ({loadedCount}):");
 

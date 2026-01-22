@@ -71,7 +71,7 @@ public static class DeclareWarCommand
                 { "kingdom1", kingdom1.Name.ToString() },
                 { "kingdom2", kingdom2.Name.ToString() }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("declare_war", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.declare_war", resolvedValues);
 
             DeclareWarAction.ApplyByDefault(kingdom1, kingdom2);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage($"War declared between {kingdom1.Name} and {kingdom2.Name}.");

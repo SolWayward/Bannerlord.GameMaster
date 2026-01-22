@@ -152,7 +152,7 @@ public static class UpgradeTroopsCommand
 
             result.AppendLine($"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("upgrade_troops", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.troop.upgrade_troops", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.ToString());
             return CommandResult.Success(fullMessage).Log().Message;
         });

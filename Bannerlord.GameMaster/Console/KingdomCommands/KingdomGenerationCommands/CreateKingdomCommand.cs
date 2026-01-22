@@ -144,11 +144,11 @@ public static class CreateKingdomCommand
 
             if (kingdom == null)
             {
-                string argumentDisplayError = parsed.FormatArgumentDisplay("create_kingdom", resolvedValues);
+                string argumentDisplayError = parsed.FormatArgumentDisplay("gm.kingdom.create_kingdom", resolvedValues);
                 return argumentDisplayError + MessageFormatter.FormatErrorMessage("Failed to create kingdom - settlement could not be resolved or assigned.");
             }
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("create_kingdom", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.create_kingdom", resolvedValues);
             return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Created kingdom '{kingdom.Name}' (ID: {kingdom.StringId}):\n" +
                 $"Capital: {settlement.Name}\n" +

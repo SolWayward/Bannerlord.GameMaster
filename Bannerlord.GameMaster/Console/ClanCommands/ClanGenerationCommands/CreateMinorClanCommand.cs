@@ -111,7 +111,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                 string leaderInfo = leader != null ? $" with {leader.Name} as leader" : " with auto-generated leader";
                 string partyInfo = createParty ? " (with party)" : " (no party)";
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("create_minor_clan", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.create_minor_clan", resolvedValues);
                 return argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Created minor clan '{minorClan.Name}'{leaderInfo}{partyInfo}.\n" +
                     $"Leader: {minorClan.Leader.Name} (ID: {minorClan.Leader.StringId})\n" +

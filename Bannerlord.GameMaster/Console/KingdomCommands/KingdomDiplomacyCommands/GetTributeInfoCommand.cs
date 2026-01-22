@@ -68,7 +68,7 @@ public static class GetTributeInfoCommand
                 { "kingdomA", kingdomA.Name.ToString() },
                 { "kingdomB", kingdomB.Name.ToString() }
             };
-            string argumentDisplay = parsed.FormatArgumentDisplay("get_tribute_info", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.get_tribute_info", resolvedValues);
 
             TributeInfo tributeInfo = kingdomA.GetTributeInfo(kingdomB);
             string tributeString = tributeInfo.GetTributeString();

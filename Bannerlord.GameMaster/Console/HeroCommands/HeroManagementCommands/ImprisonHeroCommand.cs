@@ -85,7 +85,7 @@ public static class ImprisonHeroCommand
 
             TakePrisonerAction.Apply(captorParty, prisoner);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("imprison", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.imprison", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{prisoner.Name} (ID: {prisoner.StringId}) is now imprisoned by {captor.Name}.");
             return CommandResult.Success(fullMessage).Log().Message;
         });

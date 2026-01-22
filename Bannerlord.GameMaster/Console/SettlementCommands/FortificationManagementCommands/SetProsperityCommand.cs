@@ -67,7 +67,7 @@ public static class SetProsperityCommand
                 ["value"] = value.ToString("F0")
             };
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("set_prosperity", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_prosperity", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) prosperity changed from {previousValue:F0} to {settlement.Town.Prosperity:F0}.");
             return CommandResult.Success(fullMessage).Log().Message;

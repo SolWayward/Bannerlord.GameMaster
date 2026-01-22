@@ -55,7 +55,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
 
                 string countsSummary = CaravanCommandHelpers.GetCaravanCountsSummary();
 
-                string argumentDisplay = parsed.FormatArgumentDisplay("force_destroy_disbanding_caravans", resolvedValues);
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.caravan.force_destroy_disbanding_caravans", resolvedValues);
                 string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Destroyed: {destroyed} caravans\n\n" +
                     $"Remaining Counts:\n{countsSummary}");

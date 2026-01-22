@@ -65,7 +65,7 @@ public static class ReleaseHeroCommand
 
             EndCaptivityAction.ApplyByReleasedAfterBattle(hero);
 
-            string argumentDisplay = parsed.FormatArgumentDisplay("release", resolvedValues);
+            string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.release", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name} (ID: {hero.StringId}) has been released from captivity.");
             return CommandResult.Success(fullMessage).Log().Message;
         });
