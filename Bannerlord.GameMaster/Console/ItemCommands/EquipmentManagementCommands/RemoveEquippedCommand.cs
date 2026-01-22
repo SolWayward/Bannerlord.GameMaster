@@ -80,8 +80,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 };
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("gm.item.remove_equipped", resolvedValues);
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                    $"Removed {itemsRemoved} equipped items from {hero.Name} (battle and civilian equipment cleared).");
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                    $"Removed {itemsRemoved} equipped items from {hero.Name} (battle and civilian equipment cleared).")).Log().Message;
             });
         }
     }

@@ -102,8 +102,8 @@ public static class CallAllyToWarCommand
             if (enemyKingdom != null)
             {
                 proposingKingdom.ProposeCallAllyToWarForceAccept(allyKingdom, enemyKingdom);
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                    $"{allyKingdom.Name} called to war against {enemyKingdom.Name}.");
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                    $"{allyKingdom.Name} called to war against {enemyKingdom.Name}.")).Log().Message;
             }
             else
             {
@@ -115,8 +115,8 @@ public static class CallAllyToWarCommand
                 proposingKingdom.ProposeCallAllyToWarForceAccept(allyKingdom);
 
                 string enemyList = string.Join(", ", enemies.Select(k => k.Name.ToString()));
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                    $"{allyKingdom.Name} called to war against all enemies: {enemyList}");
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                    $"{allyKingdom.Name} called to war against all enemies: {enemyList}")).Log().Message;
             }
         });
     }

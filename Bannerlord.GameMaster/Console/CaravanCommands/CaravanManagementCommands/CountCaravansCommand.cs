@@ -21,7 +21,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return error;
+                    return CommandResult.Error(error).Log().Message;
 
                 // MARK: Execute Logic
                 string countsSummary = CaravanCommandHelpers.GetCaravanCountsSummary();

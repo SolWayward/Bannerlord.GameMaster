@@ -1,5 +1,7 @@
 using Bannerlord.GameMaster.Clans;
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
+using Bannerlord.GameMaster.Console.Common.Parsing;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +24,10 @@ public static class QueryClanInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a clan ID.\nUsage: gm.query.clan_info <clanId>\n";
+                return CommandResult.Error("Please provide a clan ID.\nUsage: gm.query.clan_info <clanId>\n").Log().Message;
 
             // MARK: Parse Arguments
             string clanId = args[0];
@@ -34,13 +36,19 @@ public static class QueryClanInfoCommand
             Clan clan = ClanQueries.GetClanById(clanId);
 
             if (clan == null)
-                return $"Error: Clan with ID '{clanId}' not found.\n";
+                return CommandResult.Error($"Clan with ID '{clanId}' not found.\n").Log().Message;
+
+            Dictionary<string, string> resolvedValues = new()
+            {
+                { "clanId", clanId }
+            };
+            string argumentDisplay = new ParsedArguments(new()).FormatArgumentDisplay("gm.query.clan_info", resolvedValues);
 
             ClanTypes types = clan.GetClanTypes();
             string kingdomName = clan.Kingdom?.Name?.ToString() ?? "None";
             string leaderName = clan.Leader?.Name?.ToString() ?? "None";
 
-            return $"Clan Information:\n" +
+            string clanInfo = $"Clan Information:\n" +
                    $"ID: {clan.StringId}\n" +
                    $"Name: {clan.Name}\n" +
                    $"Leader: {leaderName}\n" +
@@ -53,6 +61,8 @@ public static class QueryClanInfoCommand
                    $"Renown: {clan.Renown:F0}\n" +
                    $"Types: {types}\n" +
                    $"Is Eliminated: {clan.IsEliminated}\n";
+
+            return CommandResult.Success(argumentDisplay + clanInfo).Log().Message;
         });
     }
 }

@@ -46,7 +46,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return MessageFormatter.FormatErrorMessage(validationError);
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
                 if (parsed.TotalCount < 1)
                     return usageMessage;
@@ -54,14 +54,14 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
                 // MARK: Parse Arguments
                 string settlementQuery = parsed.GetArgument("settlement", 0);
                 if (string.IsNullOrWhiteSpace(settlementQuery))
-                    return MessageFormatter.FormatErrorMessage("Settlement cannot be empty.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Settlement cannot be empty.")).Log().Message;
 
                 EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
                 if (!settlementResult.IsSuccess) return settlementResult.Message;
                 Settlement settlement = settlementResult.Entity;
 
                 if (!settlement.IsTown)
-                    return MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Caravans can only be created in cities.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Caravans can only be created in cities.")).Log().Message;
 
                 Hero caravanLeader = null;
                 string leaderQuery = parsed.GetArgument("leader", 1) ?? parsed.GetArgument("leaderHero", 1);
@@ -72,10 +72,10 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
                     if (!heroResult.IsSuccess) return heroResult.Message;
 
                     if (heroResult.Entity.Clan != Clan.PlayerClan)
-                        return MessageFormatter.FormatErrorMessage($"{heroResult.Entity.Name} is not a member of the player's clan.");
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{heroResult.Entity.Name} is not a member of the player's clan.")).Log().Message;
 
                     if (heroResult.Entity.PartyBelongedTo != null)
-                        return MessageFormatter.FormatErrorMessage($"{heroResult.Entity.Name} is already in a party.");
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{heroResult.Entity.Name} is already in a party.")).Log().Message;
 
                     caravanLeader = heroResult.Entity;
                 }
@@ -84,7 +84,7 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
                 MobileParty caravan = CaravanManager.CreatePlayerCaravan(settlement, caravanLeader);
 
                 if (caravan == null)
-                    return MessageFormatter.FormatErrorMessage($"Failed to create player caravan in '{settlement.Name}'.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Failed to create player caravan in '{settlement.Name}'.")).Log().Message;
 
                 string leaderInfo = caravanLeader != null ? $" led by {caravanLeader.Name}" : " (no leader assigned)";
 

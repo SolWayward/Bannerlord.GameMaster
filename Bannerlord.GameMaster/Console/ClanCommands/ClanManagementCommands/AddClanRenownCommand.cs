@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -22,7 +23,7 @@ public static class AddClanRenownCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.add_renown", "<clan> <amount>",
@@ -39,7 +40,7 @@ public static class AddClanRenownCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -47,7 +48,7 @@ public static class AddClanRenownCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Log().Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
@@ -55,10 +56,10 @@ public static class AddClanRenownCommand
 
             string amountArg = parsed.GetArgument("amount", 1);
             if (amountArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.")).Log().Message;
 
             if (!CommandValidator.ValidateFloatRange(amountArg, float.MinValue, float.MaxValue, out float amount, out string renownError))
-                return MessageFormatter.FormatErrorMessage(renownError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(renownError)).Log().Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -71,8 +72,8 @@ public static class AddClanRenownCommand
             clan.AddRenown(amount, true);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.add_renown", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                $"{clan.Name}'s renown changed from {previousRenown:F0} to {clan.Renown:F0} ({(amount >= 0 ? "+" : "")}{amount:F0}).");
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                $"{clan.Name}'s renown changed from {previousRenown:F0} to {clan.Renown:F0} ({(amount >= 0 ? "+" : "")}{amount:F0}).")).Log().Message;
         });
     }
 }

@@ -109,8 +109,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
 
                 string display = parsed.FormatArgumentDisplay("gm.item.add", resolvedValues);
                 string modText = modifier != null ? $" ({modifier.Name})" : "";
-                return display + MessageFormatter.FormatSuccessMessage(
-                    $"Added {count}x {item.Name}{modText} to {hero.Name}'s party inventory.");
+                return CommandResult.Success(display + MessageFormatter.FormatSuccessMessage(
+                    $"Added {count}x {item.Name}{modText} to {hero.Name}'s party inventory.")).Log().Message;
             });
         }
     }

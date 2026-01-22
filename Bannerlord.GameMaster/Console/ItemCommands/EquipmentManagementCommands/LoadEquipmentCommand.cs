@@ -79,7 +79,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
 
                 StringBuilder result = new();
                 result.AppendLine(parsed.FormatArgumentDisplay("gm.item.load_equipment", resolvedValues));
-                result.AppendLine($"Loaded {hero.Name}'s battle equipment from: {Path.GetFileName(filepath)}");
+                result.AppendLine(MessageFormatter.FormatSuccessMessage($"Loaded {hero.Name}'s battle equipment from: {Path.GetFileName(filepath)}"));
                 result.AppendLine($"Items loaded ({loadedCount}):");
 
                 foreach (EquipmentItemInfo item in loadedItems)
@@ -96,7 +96,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     }
                 }
 
-                return result.ToString();
+                return CommandResult.Success(result.ToString()).Log().Message;
             });
         }
     }

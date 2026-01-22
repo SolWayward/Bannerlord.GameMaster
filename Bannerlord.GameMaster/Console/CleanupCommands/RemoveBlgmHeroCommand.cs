@@ -25,7 +25,7 @@ public static class RemoveBlgmHeroCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.cleanup.remove_blgm_hero", "<hero>",

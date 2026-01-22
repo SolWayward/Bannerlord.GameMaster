@@ -28,7 +28,7 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return error;
+                    return CommandResult.Error(error).Log().Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.bandit.clear_hideouts", "<banditType> [count]",

@@ -65,8 +65,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
                 };
 
                 string display = parsed.FormatArgumentDisplay("gm.item.remove_all", resolvedValues);
-                return display + MessageFormatter.FormatSuccessMessage(
-                    $"Removed all items ({itemCount} types) from {hero.Name}'s party inventory.");
+                return CommandResult.Success(display + MessageFormatter.FormatSuccessMessage(
+                    $"Removed all items ({itemCount} types) from {hero.Name}'s party inventory.")).Log().Message;
             });
         }
     }

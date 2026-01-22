@@ -23,7 +23,7 @@ public static class CheckHeroesMatchesCharactersStringIdCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Execute Logic
             string message = HeroDebug.CheckHeroesCharacterStringId();

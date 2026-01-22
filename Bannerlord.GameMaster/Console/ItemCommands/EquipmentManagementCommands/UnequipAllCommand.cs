@@ -99,14 +99,22 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 if (itemsUnequipped == 0)
                     return MessageFormatter.FormatSuccessMessage($"{hero.Name} has no items equipped.");
 
+                Dictionary<string, string> resolvedValues = new()
+                {
+                    { "hero", hero.Name.ToString() }
+                };
+                
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.item.unequip_all", resolvedValues);
+                
                 StringBuilder result = new();
-                result.AppendLine($"Unequipped {itemsUnequipped} items from {hero.Name} and added them to party inventory:");
+                result.AppendLine(argumentDisplay);
+                result.AppendLine(MessageFormatter.FormatSuccessMessage($"Unequipped {itemsUnequipped} items from {hero.Name} and added them to party inventory:"));
                 foreach (string item in unequippedItems)
                 {
                     result.AppendLine($"  - {item}");
                 }
 
-                return result.ToString();
+                return CommandResult.Success(result.ToString()).Log().Message;
             });
         }
     }

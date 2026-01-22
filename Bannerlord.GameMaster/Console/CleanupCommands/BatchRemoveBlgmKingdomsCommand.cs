@@ -22,7 +22,7 @@ public static class BatchRemoveBlgmKingdomsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.cleanup.batch_remove_blgm_kingdoms", "[count]",

@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -23,7 +24,7 @@ public static class AddClanGoldCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.add_gold", "<clan> <amount>",
@@ -40,7 +41,7 @@ public static class AddClanGoldCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -48,7 +49,7 @@ public static class AddClanGoldCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Log().Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
@@ -56,10 +57,10 @@ public static class AddClanGoldCommand
 
             string amountArg = parsed.GetArgument("amount", 1);
             if (amountArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.")).Log().Message;
 
             if (!CommandValidator.ValidateIntegerRange(amountArg, int.MinValue, int.MaxValue, out int amount, out string goldError))
-                return MessageFormatter.FormatErrorMessage(goldError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(goldError)).Log().Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -74,7 +75,7 @@ public static class AddClanGoldCommand
             if (membersCount == 0)
             {
                 string argumentDisplayError = parsed.FormatArgumentDisplay("gm.clan.add_gold", resolvedValues);
-                return argumentDisplayError + MessageFormatter.FormatErrorMessage($"{clan.Name} has no living heroes to receive gold.");
+                return CommandResult.Error(argumentDisplayError + MessageFormatter.FormatErrorMessage($"{clan.Name} has no living heroes to receive gold.")).Log().Message;
             }
 
             // Distribute gold evenly among all living clan members
@@ -93,9 +94,9 @@ public static class AddClanGoldCommand
             }
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.add_gold", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {amount} gold to {clan.Name} (distributed among {membersCount} members).\n" +
-                $"Clan gold changed from {previousGold} to {clan.Gold}.");
+                $"Clan gold changed from {previousGold} to {clan.Gold}.")).Log().Message;
         });
     }
 }

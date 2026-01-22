@@ -24,7 +24,7 @@ public static class GetPlayerCaptainPerksCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Execute Logic
             string message = HeroDebug.CaptainOnFootPerks(Hero.MainHero);

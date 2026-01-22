@@ -48,21 +48,21 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
                 // MARK: Parse Arguments
                 string settlementQuery = parsed.GetArgument("settlement", 0);
                 if (string.IsNullOrWhiteSpace(settlementQuery))
-                    return MessageFormatter.FormatErrorMessage("Settlement cannot be empty.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Settlement cannot be empty.")).Log().Message;
 
                 EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
                 if (!settlementResult.IsSuccess) return settlementResult.Message;
                 Settlement settlement = settlementResult.Entity;
 
                 if (!settlement.IsTown)
-                    return MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Caravans can only be created in cities.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city. Caravans can only be created in cities.")).Log().Message;
 
                 // MARK: Execute Logic
                 MobileParty caravan = CaravanManager.CreateNotableCaravan(settlement);
 
                 if (caravan == null)
-                    return MessageFormatter.FormatErrorMessage($"Failed to create notable caravan in '{settlement.Name}'. " +
-                        $"All notables may already own caravans, or no suitable notable was found.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Failed to create notable caravan in '{settlement.Name}'. " +
+                        $"All notables may already own caravans, or no suitable notable was found.")).Log().Message;
 
                 Dictionary<string, string> resolvedValues = new()
                 {
@@ -70,8 +70,8 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
                 };
 
                 string display = parsed.FormatArgumentDisplay("gm.caravan.create_notable_caravan", resolvedValues);
-                return display + MessageFormatter.FormatSuccessMessage(
-                    $"Created caravan in '{settlement.Name}' (ID: {settlement.StringId}) owned by notable {caravan.Owner?.Name}.");
+                return CommandResult.Success(display + MessageFormatter.FormatSuccessMessage(
+                    $"Created caravan in '{settlement.Name}' (ID: {settlement.StringId}) owned by notable {caravan.Owner?.Name}.")).Log().Message;
             });
         }
     }

@@ -75,7 +75,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
 
                 StringBuilder result = new();
                 result.AppendLine(parsed.FormatArgumentDisplay("gm.item.save_equipment_both", resolvedValues));
-                result.AppendLine($"Saved {hero.Name}'s equipment sets:");
+                result.AppendLine(MessageFormatter.FormatSuccessMessage($"Saved {hero.Name}'s equipment sets:"));
                 
                 result.AppendLine($"\nBattle equipment -> {Path.GetFileName(battlePath)} ({battleItems.Count} items):");
                 foreach (EquipmentItemInfo item in battleItems)
@@ -89,7 +89,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
                 }
 
-                return result.ToString();
+                return CommandResult.Success(result.ToString()).Log().Message;
             });
         }
     }

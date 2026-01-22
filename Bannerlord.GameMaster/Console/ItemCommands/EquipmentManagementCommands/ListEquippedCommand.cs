@@ -56,7 +56,15 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 Hero hero = heroResult.Entity;
 
                 // MARK: Execute Logic
+                Dictionary<string, string> resolvedValues = new()
+                {
+                    { "hero", hero.Name.ToString() }
+                };
+
+                string argumentDisplay = parsed.FormatArgumentDisplay("gm.item.list_equipped", resolvedValues);
+                
                 StringBuilder result = new();
+                result.AppendLine(argumentDisplay);
                 result.AppendLine($"Equipped items for {hero.Name}:\n");
 
                 // Battle Equipment

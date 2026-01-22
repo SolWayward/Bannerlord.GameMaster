@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
 using Bannerlord.GameMaster.Console.Common.Formatting;
@@ -23,7 +24,7 @@ public static class DestroyClanCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.destroy", "<clan>",
@@ -39,7 +40,7 @@ public static class DestroyClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return MessageFormatter.FormatErrorMessage(validationError);
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
 
             if (parsed.TotalCount < 1)
                 return usageMessage;
@@ -47,17 +48,17 @@ public static class DestroyClanCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Log().Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
             Clan clan = clanResult.Entity;
 
             if (clan.IsEliminated)
-                return MessageFormatter.FormatErrorMessage($"{clan.Name} is already eliminated.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{clan.Name} is already eliminated.")).Log().Message;
 
             if (clan == Clan.PlayerClan)
-                return MessageFormatter.FormatErrorMessage("Cannot destroy the player's clan.");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Cannot destroy the player's clan.")).Log().Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -68,7 +69,7 @@ public static class DestroyClanCommand
             DestroyClanAction.Apply(clan);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.destroy", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name} has been destroyed/eliminated.");
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name} has been destroyed/eliminated.")).Log().Message;
         });
     }
 }

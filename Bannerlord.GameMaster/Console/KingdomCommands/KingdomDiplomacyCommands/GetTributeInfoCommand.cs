@@ -73,7 +73,7 @@ public static class GetTributeInfoCommand
             TributeInfo tributeInfo = kingdomA.GetTributeInfo(kingdomB);
             string tributeString = tributeInfo.GetTributeString();
 
-            return argumentDisplay + tributeString + "\n";
+            return CommandResult.Success(argumentDisplay + tributeString + "\n").Log().Message;
         });
     }
 }

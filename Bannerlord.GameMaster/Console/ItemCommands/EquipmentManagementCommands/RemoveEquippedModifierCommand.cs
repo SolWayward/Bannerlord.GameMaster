@@ -89,8 +89,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 };
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("gm.item.remove_equipped_modifier", resolvedValues);
-                return argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                    $"Removed modifiers from {itemsChanged} equipped items for {hero.Name}.");
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
+                    $"Removed modifiers from {itemsChanged} equipped items for {hero.Name}.")).Log().Message;
             });
         }
     }

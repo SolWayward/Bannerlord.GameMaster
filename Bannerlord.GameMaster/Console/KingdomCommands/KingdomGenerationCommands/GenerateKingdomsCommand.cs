@@ -111,7 +111,7 @@ public static class GenerateKingdomsCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.generate_kingdoms", resolvedValues);
 
             if (createdKingdoms == null || createdKingdoms.Count == 0)
-                return argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to generate kingdoms - no suitable settlements available or all kingdoms exhausted.");
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to generate kingdoms - no suitable settlements available or all kingdoms exhausted.")).Log().Message;
 
             // Build detailed output with settlement names
             StringBuilder detailsBuilder = new();
@@ -134,7 +134,7 @@ public static class GenerateKingdomsCommand
                     "No more suitable settlements available.");
             }
 
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(detailsBuilder.ToString());
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(detailsBuilder.ToString())).Log().Message;
         });
     }
 }

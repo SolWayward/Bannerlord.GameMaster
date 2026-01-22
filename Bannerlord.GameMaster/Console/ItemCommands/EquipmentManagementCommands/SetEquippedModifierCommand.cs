@@ -108,13 +108,13 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
 
                 StringBuilder result = new();
                 result.AppendLine(parsed.FormatArgumentDisplay("gm.item.set_equipped_modifier", resolvedValues));
-                result.AppendLine($"Set modifier '{modifier.Name}' on {itemsChanged} equipped items for {hero.Name}:");
+                result.AppendLine(MessageFormatter.FormatSuccessMessage($"Set modifier '{modifier.Name}' on {itemsChanged} equipped items for {hero.Name}:"));
                 foreach (string item in changedItems)
                 {
                     result.AppendLine($"  - {item}");
                 }
 
-                return result.ToString();
+                return CommandResult.Success(result.ToString()).Log().Message;
             });
         }
     }

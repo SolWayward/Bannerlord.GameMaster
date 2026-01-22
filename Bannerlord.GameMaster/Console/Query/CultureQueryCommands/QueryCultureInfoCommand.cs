@@ -1,4 +1,6 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
+using Bannerlord.GameMaster.Console.Common.Parsing;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
@@ -22,22 +24,28 @@ public static class QueryCultureInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             if (args == null || args.Count == 0)
-                return "Error: Please provide a culture ID.\n" +
+                return CommandResult.Error("Please provide a culture ID.\n" +
                        "Usage: gm.query.culture_info <cultureId>\n" +
-                       "Example: gm.query.culture_info empire\n";
+                       "Example: gm.query.culture_info empire\n").Log().Message;
 
             // MARK: Parse Arguments
             string cultureId = args[0];
             CultureObject culture = MBObjectManager.Instance.GetObject<CultureObject>(cultureId);
 
             if (culture == null)
-                return $"Error: Culture with ID '{cultureId}' not found.\n";
+                return CommandResult.Error($"Culture with ID '{cultureId}' not found.\n").Log().Message;
 
             // MARK: Execute Logic
-            return $"Culture Information:\n" +
+            Dictionary<string, string> resolvedValues = new()
+            {
+                { "cultureId", cultureId }
+            };
+            string argumentDisplay = new ParsedArguments(new()).FormatArgumentDisplay("gm.query.culture_info", resolvedValues);
+
+            string cultureInfo = $"Culture Information:\n" +
                    $"ID: {culture.StringId}\n" +
                    $"Name: {culture.Name}\n" +
                    $"Is Main Culture: {culture.IsMainCulture}\n" +
@@ -47,6 +55,8 @@ public static class QueryCultureInfoCommand
                    $"Male Names: {culture.MaleNameList?.Count ?? 0}\n" +
                    $"Female Names: {culture.FemaleNameList?.Count ?? 0}\n" +
                    $"Clan Names: {culture.ClanNameList?.Count ?? 0}\n";
+
+            return CommandResult.Success(argumentDisplay + cultureInfo).Log().Message;
         });
     }
 }

@@ -94,7 +94,7 @@ public static class DeclareAllianceCommand
             if (callToWar && proposingKingdom.FactionsAtWarWith.Count > 0)
                 message += $"\n{receivingKingdom.Name} called to war against {proposingKingdom.Name}'s enemies.";
 
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(message);
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(message)).Log().Message;
         });
     }
 }

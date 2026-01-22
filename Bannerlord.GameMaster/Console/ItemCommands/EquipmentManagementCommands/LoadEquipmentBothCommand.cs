@@ -151,10 +151,10 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
 
                 if (!battleLoaded && !civilianLoaded)
                 {
-                    return MessageFormatter.FormatErrorMessage("Neither battle nor civilian equipment files were found.");
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Neither battle nor civilian equipment files were found.")).Log().Message;
                 }
 
-                return result.ToString();
+                return CommandResult.Success(result.ToString()).Log().Message;
             });
         }
     }

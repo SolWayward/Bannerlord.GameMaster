@@ -25,7 +25,7 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return error;
+                    return CommandResult.Error(error).Log().Message;
 
                 // MARK: Execute Logic
                 string countsSummary = BanditCommandHelpers.GetBanditCountsSummary();

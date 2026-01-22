@@ -53,7 +53,7 @@ public static class IgnoreLimitsCommand
             string enabledArg = parsed.GetArgument("enabled", 0) ?? parsed.GetArgument("value", 0);
             if (string.IsNullOrWhiteSpace(enabledArg))
             {
-                return GeneralCommandHelpers.GetStatusMessage();
+                return CommandResult.Success(GeneralCommandHelpers.GetStatusMessage()).Log().Message;
             }
 
             string input = enabledArg.ToLower();
@@ -69,7 +69,7 @@ public static class IgnoreLimitsCommand
             }
             else
             {
-                return MessageFormatter.FormatErrorMessage($"Invalid value '{enabledArg}'. Must be true, false, 1, or 0.\n{usageMessage}");
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid value '{enabledArg}'. Must be true, false, 1, or 0.\n{usageMessage}")).Log().Message;
             }
 
             // MARK: Execute Logic

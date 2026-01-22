@@ -84,9 +84,9 @@ public static class SetRulerCommand
                 hero.Clan.SetLeader(hero);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.set_ruler", resolvedValues);
-            return argumentDisplay + MessageFormatter.FormatSuccessMessage(
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{kingdom.Name}'s ruler changed from {previousRuler} to {hero.Name}.\n" +
-                $"Ruling clan is now {hero.Clan.Name}.");
+                $"Ruling clan is now {hero.Clan.Name}.")).Log().Message;
         });
     }
 }

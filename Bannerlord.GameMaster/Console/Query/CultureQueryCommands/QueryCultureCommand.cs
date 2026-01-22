@@ -1,3 +1,4 @@
+using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using Bannerlord.GameMaster.Console.Query.CommandQueryHelpers;
@@ -26,7 +27,7 @@ public static class QueryCultureCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return error;
+                return CommandResult.Error(error).Log().Message;
 
             // MARK: Parse Arguments
             CultureQueryArguments queryArgs = CultureQueryHelpers.ParseCultureQueryArguments(args);
@@ -63,15 +64,15 @@ public static class QueryCultureCommand
 
             if (cultureList.Count == 0)
             {
-                return $"Found 0 culture(s) matching {criteriaDesc}\n" +
+                return CommandResult.Success($"Found 0 culture(s) matching {criteriaDesc}\n" +
                        "Usage: gm.query.culture [search] [main|bandit] [sort]\n" +
                        "Example: gm.query.culture empire\n" +
                        "Example: gm.query.culture main sort:name\n" +
-                       "Example: gm.query.culture bandit\n";
+                       "Example: gm.query.culture bandit\n").Log().Message;
             }
 
-            return $"Found {cultureList.Count} culture(s) matching {criteriaDesc}:\n" +
-                   $"{CultureQueryHelpers.GetFormattedCultureList(cultureList)}";
+            return CommandResult.Success($"Found {cultureList.Count} culture(s) matching {criteriaDesc}:\n" +
+                   $"{CultureQueryHelpers.GetFormattedCultureList(cultureList)}").Log().Message;
         });
     }
 }
