@@ -2,17 +2,13 @@ using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.CampaignSystem;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Linq;
 using TaleWorlds.Library;
 using System.Collections.Generic;
-using Bannerlord.GameMaster.Common;
 using System.Text;
 
-// This has grown so bloated, But Im so tired of refactoring right now.
 namespace Bannerlord.GameMaster
 {
     /// <summary>
@@ -23,45 +19,63 @@ namespace Bannerlord.GameMaster
         /// MARK: Properties
         static readonly string systemConsoleOption = "/systemconsole";
 
-        // Import AllocConsole from kernel32.dll
+        // KERNEL32 IMPORTS
+
+        /// <summary>
+        /// Allocates a new console for the calling process.
+        /// </summary>
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
 
-        // Import FreeConsole to release it (optional, for cleanup)
+        /// <summary>
+        /// Detaches the calling process from its console.
+        /// </summary>
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool FreeConsole();
 
-        // Import SetConsoleCtrlHandler to intercept console close events
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool SetConsoleCtrlHandler(ConsoleCtrlDelegate handlerRoutine, bool add);
+        /// <summary>
+        /// Retrieves the window handle used by the console associated with the calling process.
+        /// </summary>
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetConsoleWindow();
 
-        // Delegate for console control handler
-        private delegate bool ConsoleCtrlDelegate(CtrlTypes ctrlType);
+        // USER32 IMPORTS
+
+        /// <summary>
+        /// Sets the specified window's show state.
+        /// </summary>
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        /// <summary>
+        /// Allows the application to access the window menu for copying and modifying.
+        /// </summary>
+        [DllImport("user32.dll")]
+        static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+
+        /// <summary>
+        /// Deletes an item from the specified menu.
+        /// </summary>
+        [DllImport("user32.dll")]
+        static extern bool DeleteMenu(IntPtr hMenu, uint uPosition, uint uFlags);
+
+        private const int SW_HIDE = 0;
+        private const int SW_SHOW = 5;
+        private const uint SC_CLOSE = 0xF060;
+        private const uint MF_BYCOMMAND = 0x00000000;
 
         // Synchronization event to pause input while command executes
         private static readonly AutoResetEvent _commandFinished = new(false);
-
-        // Console control event types
-        private enum CtrlTypes
-        {
-            CTRL_C_EVENT = 0,
-            CTRL_BREAK_EVENT = 1,
-            CTRL_CLOSE_EVENT = 2,
-            CTRL_LOGOFF_EVENT = 5,
-            CTRL_SHUTDOWN_EVENT = 6
-        }
-
-        // Keep a reference to prevent garbage collection
-        private static ConsoleCtrlDelegate _consoleCtrlHandler;
 
         // A thread-safe queue to store actions that need to run on the main thread
         private static readonly ConcurrentQueue<Action> _executionQueue = new();
         private static volatile bool _isRunning = false;
         private static volatile bool _isCommandRunning = false;
         private static bool _isConsoleAllocated = false;
+        private static volatile bool _isConsoleVisible = false;
+        private static Task _inputTask;
 
         // Input state
         private static StringBuilder _inputBuffer = new();
@@ -85,7 +99,15 @@ namespace Bannerlord.GameMaster
 
             lock (_consoleLock)
             {
-                _realConsoleWriter.WriteLine(message);
+                try
+                {
+                    _realConsoleWriter.WriteLine(message);
+                }
+
+                catch 
+                { 
+                    // Handle closed console race condition
+                }
             }
         }
 
@@ -95,6 +117,7 @@ namespace Bannerlord.GameMaster
         /// </summary>
         public static void WriteLog(string message)
         {
+            // We write logs even if hidden, so history is preserved when reopened
             if (!_isConsoleAllocated || _realConsoleWriter == null) return;
 
             lock (_consoleLock)
@@ -109,21 +132,42 @@ namespace Bannerlord.GameMaster
                     }
 
                     // Otherwise, wipe line, write log, and restore prompt
-                    System.Console.SetCursorPosition(0, System.Console.CursorTop);
-                    _realConsoleWriter.Write(new string(' ', System.Console.WindowWidth - 1));
-                    System.Console.SetCursorPosition(0, System.Console.CursorTop);
+                    try
+                    {
+                        System.Console.SetCursorPosition(0, System.Console.CursorTop);
+                        _realConsoleWriter.Write(new string(' ', System.Console.WindowWidth - 1));
+                        System.Console.SetCursorPosition(0, System.Console.CursorTop);
+                    }
+                    
+                    catch 
+                    { 
+                        //Console resized or buffer error
+                    }
 
                     _realConsoleWriter.WriteLine(message);
 
-                    _realConsoleWriter.Write("BLGM > " + _inputBuffer.ToString());
+                    // Only restore prompt if visible, otherwise we just log the output
+                    if (_isConsoleVisible)
+                    {
+                        _realConsoleWriter.Write("BLGM > " + _inputBuffer.ToString());
 
-                    // Restore Cursor to the specific index (handling edits in middle of string)
-                    int promptLen = 7;
-                    System.Console.SetCursorPosition(promptLen + _cursorIndex, System.Console.CursorTop);
+                        // Restore Cursor to the specific index
+                        int promptLen = 7;
+                        try
+                        {
+                            System.Console.SetCursorPosition(promptLen + _cursorIndex, System.Console.CursorTop);
+                        }
+                        
+                        catch 
+                        { 
+                            //Cursor out of bounds
+                        }
+                    }
                 }
+                
                 catch
                 {
-                    // Ignore resize/handle errors
+                    // Ignore general IO errors if console is dying
                 }
             }
         }
@@ -147,14 +191,31 @@ namespace Bannerlord.GameMaster
         /// </summary>
         public static void ShowConsole()
         {
-            if (_isConsoleAllocated) return;
+            // If we already have a handle, just show the window
+            // This prevents re-allocating and breaking Input Handles
+            IntPtr existingHandle = GetConsoleWindow();
+            if (existingHandle != IntPtr.Zero)
+            {
+                ShowWindow(existingHandle, SW_SHOW);
+                _isConsoleVisible = true;
+                _isConsoleAllocated = true; // Ensure flag is true
+                StartInputThread(); // Ensure input loop is running
+                return;
+            }
+
+            if (_isConsoleAllocated) 
+                return;
 
             if (AllocConsole())
             {
                 _isConsoleAllocated = true;
+                _isConsoleVisible = true;
 
-                _consoleCtrlHandler = new ConsoleCtrlDelegate(ConsoleCtrlHandler);
-                SetConsoleCtrlHandler(_consoleCtrlHandler, true);
+                // Disable the "X" Close button to prevent killing the game process
+                DisableCloseButton();
+
+                // Reset Console Streams (Critical for re-opening or .NET will use dead handles)
+                ResetConsoleStreams();
 
                 try
                 {
@@ -168,10 +229,13 @@ namespace Bannerlord.GameMaster
                     System.Console.SetOut(new ThreadSafeConsoleRouter());
 
                     _realConsoleWriter.WriteLine("All output from Bannerlord Console and any debug output will be visible here");
-                    _realConsoleWriter.WriteLine("Commands: 'clear' to clear console, 'close' to close console, 'quitgame' to exit game");
-                    _realConsoleWriter.WriteLine("\nType 'ls' or press tab for autocomplete to discover commands");
-                    _realConsoleWriter.WriteLine("\nYou can also list commands in each category by using 'ls campaign', 'ls gm', 'ls gm.hero'\n");
+                    _realConsoleWriter.WriteLine("Commands: 'clear', 'close', 'quitgame', 'ls'");
+                    _realConsoleWriter.WriteLine("Tab completion and history navigation is also available");
+                    _realConsoleWriter.WriteLine("NOTE: Use the 'close' command to close this window. The X button is disabled.");
+                    _realConsoleWriter.WriteLine("\nType 'help' for more info.");
+                    _realConsoleWriter.WriteLine("-------------------------------------------------------------------------------");
                 }
+
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine("Failed to attach console output: " + ex.Message);
@@ -181,53 +245,64 @@ namespace Bannerlord.GameMaster
             }
         }
 
-        /// MARK: CloseCtrlHandler
+        /// MARK: DisableCloseButton
         /// <summary>
-        /// Handles console control events (like clicking the X button)
+        /// Removes the Close (X) button from the System Menu to prevent accidental process termination.
         /// </summary>
-        private static bool ConsoleCtrlHandler(CtrlTypes ctrlType)
+        private static void DisableCloseButton()
         {
-            switch (ctrlType)
+            IntPtr windowHandle = GetConsoleWindow();
+            IntPtr sysMenu = GetSystemMenu(windowHandle, false);
+
+            if (windowHandle != IntPtr.Zero && sysMenu != IntPtr.Zero)
             {
-                case CtrlTypes.CTRL_CLOSE_EVENT:
-                case CtrlTypes.CTRL_C_EVENT:
-                case CtrlTypes.CTRL_BREAK_EVENT:
-                    CloseConsole();
-                    return true;
+                DeleteMenu(sysMenu, SC_CLOSE, MF_BYCOMMAND);
+            }
+        }
 
-                case CtrlTypes.CTRL_LOGOFF_EVENT:
-                case CtrlTypes.CTRL_SHUTDOWN_EVENT:
-                    return false;
+        /// MARK: ResetConsoleStreams
+        /// <summary>
+        /// Forces .NET to refresh internal handles for In/Out.
+        /// Required because System.Console caches handles that become invalid after FreeConsole().
+        /// </summary>
+        private static void ResetConsoleStreams()
+        {
+            try
+            {
+                // Re-initialize Standard Output
+                var stdOut = new StreamWriter(System.Console.OpenStandardOutput());
+                stdOut.AutoFlush = true;
+                System.Console.SetOut(stdOut);
 
-                default:
-                    return false;
+                // Re-initialize Standard Input
+                var stdIn = new StreamReader(System.Console.OpenStandardInput());
+                System.Console.SetIn(stdIn);
+            }
+            
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error resetting console streams: {ex}");
             }
         }
 
         /// MARK: Close Console
         /// <summary>
-        /// Closes the console window and stops the input thread without exiting the game
+        /// Hides the console window instead of freeing it. This prevents breaking Input Handles.
         /// </summary>
         public static void CloseConsole()
         {
             if (!_isConsoleAllocated) return;
 
-            _isRunning = false;
-
-            // Redirect to null to prevent crash if game logs to dead console
-            try { System.Console.SetOut(StreamWriter.Null); } catch { }
-
-            try { _realConsoleWriter?.WriteLine("Closing console..."); } catch { }
-
-            if (_consoleCtrlHandler != null)
+            IntPtr handle = GetConsoleWindow();
+            
+            if (handle != IntPtr.Zero)
             {
-                SetConsoleCtrlHandler(_consoleCtrlHandler, false);
-                _consoleCtrlHandler = null;
-            }
+                try { _realConsoleWriter?.WriteLine("Hiding console..."); } catch { }
 
-            FreeConsole();
-            _isConsoleAllocated = false;
-            _realConsoleWriter = null;
+                // Hide window and pause input loop processing
+                ShowWindow(handle, SW_HIDE);
+                _isConsoleVisible = false;
+            }
         }
 
         /// MARK: StartInputThread
@@ -239,7 +314,8 @@ namespace Bannerlord.GameMaster
             if (_isRunning) return;
             _isRunning = true;
 
-            Task.Run(() => InputLoop());
+            // Keep reference to task so we can wait on it during close
+            _inputTask = Task.Run(() => InputLoop());
         }
 
         /// MARK: ReadInput
@@ -252,228 +328,282 @@ namespace Bannerlord.GameMaster
             {
                 lock (_consoleLock)
                 {
-                    _realConsoleWriter?.Write("BLGM > ");
+                    // Only print prompt if it hasn't been printed by WriteLog already
+                    // This prevents double prompts like "BLGM > BLGM > "
+                    if (System.Console.CursorLeft == 0)
+                    {
+                        _realConsoleWriter?.Write("BLGM > ");
+                    }
                     _cursorIndex = 0;
                 }
 
                 while (_isRunning)
                 {
-                    if (!IsConsoleAvailable()) break;
-
-                    if (!System.Console.KeyAvailable)
+                    // If console is hidden, sleep to save CPU and avoid reading ghost input
+                    if (!_isConsoleVisible || !_isConsoleAllocated)
                     {
-                        Thread.Sleep(50);
+                        Thread.Sleep(100);
                         continue;
                     }
 
-                    ConsoleKeyInfo keyInfo = System.Console.ReadKey(intercept: true);
-                    string inputToProcess = null;
-
-                    lock (_consoleLock)
+                    try
                     {
-                        int promptLen = 7; // "BLGM > ".Length
-
-                        // --- Execution ---
-                        if (keyInfo.Key == ConsoleKey.Enter)
+                        if (!System.Console.KeyAvailable)
                         {
-                            _realConsoleWriter?.WriteLine();
-                            inputToProcess = _inputBuffer.ToString();
-
-                            // Save to history
-                            if (!string.IsNullOrWhiteSpace(inputToProcess))
-                            {
-                                _commandHistory.Add(inputToProcess);
-                                _historyIndex = _commandHistory.Count;
-                            }
-
-                            _inputBuffer.Clear();
-                            _cursorIndex = 0;
+                            Thread.Sleep(50);
+                            continue;
                         }
 
-                        // --- Tab Completion ---
-                        else if (keyInfo.Key == ConsoleKey.Tab)
-                        {
-                            string currentInput = _inputBuffer.ToString();
-
-                            // Use fuzzy matching to get candidates via Helpers
-                            var matches = SystemConsoleHelper.GetFuzzyMatches(currentInput);
-
-                            if (matches.Count == 1)
-                            {
-                                // Single match found
-                                string match = matches[0];
-                                _inputBuffer.Clear();
-                                _inputBuffer.Append(match);
-
-                                // Append space if it is a full command (not a group)
-                                if (SystemConsoleHelper.GetAllRegisteredCommands().Contains(match))
-                                {
-                                    _inputBuffer.Append(" ");
-                                }
-
-                                // Wipe and Redraw
-                                System.Console.CursorLeft = promptLen;
-                                _realConsoleWriter?.Write(new string(' ', System.Console.WindowWidth - 1));
-                                System.Console.CursorLeft = promptLen;
-                                _realConsoleWriter?.Write(_inputBuffer.ToString());
-                                _cursorIndex = _inputBuffer.Length;
-                            }
-                            else if (matches.Count > 1)
-                            {
-                                // Multiple matches: Auto-complete to common prefix via Helpers
-                                string commonPrefix = SystemConsoleHelper.GetCommonPrefix(matches);
-
-                                if (commonPrefix.Length > currentInput.Length)
-                                {
-                                    _inputBuffer.Clear();
-                                    _inputBuffer.Append(commonPrefix);
-
-                                    // Wipe and Redraw
-                                    System.Console.CursorLeft = promptLen;
-                                    _realConsoleWriter?.Write(new string(' ', System.Console.WindowWidth - 1));
-                                    System.Console.CursorLeft = promptLen;
-                                    _realConsoleWriter?.Write(_inputBuffer.ToString());
-                                    _cursorIndex = _inputBuffer.Length;
-                                }
-                                else
-                                {
-                                    // Ambiguous: Print candidates
-                                    _realConsoleWriter?.WriteLine();
-                                    foreach (var m in matches)
-                                    {
-                                        _realConsoleWriter?.WriteLine("  " + m);
-                                    }
-
-                                    // Redraw Prompt
-                                    _realConsoleWriter?.Write("BLGM > " + _inputBuffer.ToString());
-                                    _cursorIndex = _inputBuffer.Length;
-                                }
-                            }
-                        }
-
-                        // --- Editing ---
-                        else if (keyInfo.Key == ConsoleKey.Backspace)
-                        {
-                            if (_cursorIndex > 0)
-                            {
-                                _inputBuffer.Remove(_cursorIndex - 1, 1);
-                                _cursorIndex--;
-
-                                System.Console.CursorLeft = promptLen + _cursorIndex;
-
-                                string remainder = _inputBuffer.ToString().Substring(_cursorIndex) + " ";
-                                _realConsoleWriter?.Write(remainder);
-
-                                System.Console.CursorLeft = promptLen + _cursorIndex;
-                            }
-                        }
-
-                        // --- Navigation (Left/Right) ---
-                        else if (keyInfo.Key == ConsoleKey.LeftArrow)
-                        {
-                            if (_cursorIndex > 0)
-                            {
-                                _cursorIndex--;
-                                System.Console.CursorLeft = promptLen + _cursorIndex;
-                            }
-                        }
-                        else if (keyInfo.Key == ConsoleKey.RightArrow)
-                        {
-                            if (_cursorIndex < _inputBuffer.Length)
-                            {
-                                _cursorIndex++;
-                                System.Console.CursorLeft = promptLen + _cursorIndex;
-                            }
-                        }
-
-                        // --- History (Up/Down) ---
-                        else if (keyInfo.Key == ConsoleKey.UpArrow)
-                        {
-                            if (_historyIndex > 0)
-                            {
-                                _historyIndex--;
-
-                                System.Console.CursorLeft = promptLen;
-                                _realConsoleWriter?.Write(new string(' ', _inputBuffer.Length));
-
-                                _inputBuffer.Clear();
-                                _inputBuffer.Append(_commandHistory[_historyIndex]);
-
-                                System.Console.CursorLeft = promptLen;
-                                _realConsoleWriter?.Write(_inputBuffer.ToString());
-                                _cursorIndex = _inputBuffer.Length;
-                            }
-                        }
-                        else if (keyInfo.Key == ConsoleKey.DownArrow)
-                        {
-                            if (_historyIndex < _commandHistory.Count)
-                            {
-                                _historyIndex++;
-
-                                System.Console.CursorLeft = promptLen;
-                                _realConsoleWriter?.Write(new string(' ', _inputBuffer.Length));
-
-                                _inputBuffer.Clear();
-
-                                if (_historyIndex < _commandHistory.Count)
-                                    _inputBuffer.Append(_commandHistory[_historyIndex]);
-
-                                System.Console.CursorLeft = promptLen;
-                                _realConsoleWriter?.Write(_inputBuffer.ToString());
-                                _cursorIndex = _inputBuffer.Length;
-                            }
-                        }
-
-                        // --- Typing ---
-                        else if (!char.IsControl(keyInfo.KeyChar))
-                        {
-                            _inputBuffer.Insert(_cursorIndex, keyInfo.KeyChar);
-                            _cursorIndex++;
-
-                            _realConsoleWriter?.Write(keyInfo.KeyChar);
-
-                            if (_cursorIndex < _inputBuffer.Length)
-                            {
-                                int originalCursor = System.Console.CursorLeft;
-                                string remainder = _inputBuffer.ToString().Substring(_cursorIndex);
-                                _realConsoleWriter?.Write(remainder);
-                                System.Console.CursorLeft = originalCursor;
-                            }
-                        }
+                        ConsoleKeyInfo keyInfo = System.Console.ReadKey(intercept: true);
+                        ProcessKey(keyInfo);
                     }
-
-                    // Handle Execution Outside Lock
-                    if (inputToProcess != null)
+                    
+                    catch (InvalidOperationException)
                     {
-                        if (!string.IsNullOrWhiteSpace(inputToProcess))
-                        {
-                            HandleInput(inputToProcess);
-                            _commandFinished.WaitOne();
-                        }
-
-                        if (_isRunning && IsConsoleAvailable())
-                        {
-                            lock (_consoleLock)
-                            {
-                                _realConsoleWriter?.Write("BLGM > ");
-                                _cursorIndex = 0;
-                            }
-                        }
+                        // Handle invalidation if it occurs
+                        break;
+                    }
+                    
+                    catch (IOException)
+                    {
+                        break;
                     }
                 }
             }
+            
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Console Loop Stopped: {ex.Message}");
             }
+            
+            finally
+            {
+                _isRunning = false;
+            }
         }
 
+        /// MARK: ProcessKey
         /// <summary>
-        /// Helper needed to prevent crash when checking KeyAvailable on a closed console
+        /// Processes a specific key press event and handles buffer manipulation
         /// </summary>
-        private static bool IsConsoleAvailable()
+        private static void ProcessKey(ConsoleKeyInfo keyInfo)
         {
-            try { int h = System.Console.WindowHeight; return true; } catch { return false; }
+            string inputToProcess = null;
+
+            lock (_consoleLock)
+            {
+                int promptLen = 7; // "BLGM > ".Length
+
+                // Execution
+                if (keyInfo.Key == ConsoleKey.Enter)
+                {
+                    _realConsoleWriter?.WriteLine();
+                    inputToProcess = _inputBuffer.ToString();
+
+                    // Save to history
+                    if (!string.IsNullOrWhiteSpace(inputToProcess))
+                    {
+                        _commandHistory.Add(inputToProcess);
+                        _historyIndex = _commandHistory.Count;
+                    }
+
+                    _inputBuffer.Clear();
+                    _cursorIndex = 0;
+                }
+                
+                // Tab Completion
+                else if (keyInfo.Key == ConsoleKey.Tab)
+                {
+                    HandleTabCompletion(promptLen);
+                }
+                
+                // Editing (Backspace) ---
+                else if (keyInfo.Key == ConsoleKey.Backspace)
+                {
+                    if (_cursorIndex > 0)
+                    {
+                        _inputBuffer.Remove(_cursorIndex - 1, 1);
+                        _cursorIndex--;
+                        RedrawInputLine(promptLen);
+                    }
+                }
+                
+                // Navigation (Left/Right) ---
+                else if (keyInfo.Key == ConsoleKey.LeftArrow)
+                {
+                    if (_cursorIndex > 0)
+                    {
+                        _cursorIndex--;
+                        System.Console.CursorLeft = promptLen + _cursorIndex;
+                    }
+                }
+                
+                else if (keyInfo.Key == ConsoleKey.RightArrow)
+                {
+                    if (_cursorIndex < _inputBuffer.Length)
+                    {
+                        _cursorIndex++;
+                        System.Console.CursorLeft = promptLen + _cursorIndex;
+                    }
+                }
+
+                // History (Up/Down)
+                else if (keyInfo.Key == ConsoleKey.UpArrow || keyInfo.Key == ConsoleKey.DownArrow)
+                {
+                    HandleHistory(keyInfo.Key, promptLen);
+                }
+
+                // Typing
+                else if (!char.IsControl(keyInfo.KeyChar))
+                {
+                    _inputBuffer.Insert(_cursorIndex, keyInfo.KeyChar);
+                    _cursorIndex++;
+
+                    // Optimization: if typing at end, just append
+                    if (_cursorIndex == _inputBuffer.Length)
+                    {
+                        _realConsoleWriter?.Write(keyInfo.KeyChar);
+                    }
+                    
+                    else
+                    {
+                        RedrawInputLine(promptLen);
+                    }
+                }
+            }
+
+            // Handle Execution Outside Lock
+            if (inputToProcess != null && !string.IsNullOrWhiteSpace(inputToProcess))
+            {
+                HandleInput(inputToProcess);
+                _commandFinished.WaitOne();
+
+                // Restore prompt if still running and visible
+                if (_isRunning && _isConsoleAllocated && _isConsoleVisible)
+                {
+                    lock (_consoleLock)
+                    {
+                        _realConsoleWriter?.Write("BLGM > ");
+                        _cursorIndex = 0;
+                    }
+                }
+            }
+        }
+
+        /// MARK: RedrawInputLine
+        /// <summary>
+        /// Redraws the input buffer on the console, used after editing actions like backspace or history navigation
+        /// </summary>
+        private static void RedrawInputLine(int promptLen)
+        {
+            int originalLeft = promptLen + _cursorIndex;
+            System.Console.CursorLeft = promptLen;
+
+            // Calculate exact space needed. Using WindowWidth - 1 caused wrapping to next line.
+            int clearLen = System.Console.WindowWidth - promptLen - 1;
+            if (clearLen > 0)
+                _realConsoleWriter?.Write(new string(' ', clearLen));
+
+            System.Console.CursorLeft = promptLen;
+            _realConsoleWriter?.Write(_inputBuffer.ToString());
+            System.Console.CursorLeft = originalLeft;
+        }
+
+        /// MARK: HandleHistory
+        /// <summary>
+        /// Cycles through command history
+        /// </summary>
+        private static void HandleHistory(ConsoleKey key, int promptLen)
+        {
+            if (key == ConsoleKey.UpArrow && _historyIndex > 0)
+                _historyIndex--;
+            
+            else if (key == ConsoleKey.DownArrow && _historyIndex < _commandHistory.Count)
+                _historyIndex++;
+            
+            else
+                return;
+
+            _inputBuffer.Clear();
+            if (_historyIndex < _commandHistory.Count)
+                _inputBuffer.Append(_commandHistory[_historyIndex]);
+
+            // Redraw full line
+            System.Console.CursorLeft = promptLen;
+
+            int clearLen = System.Console.WindowWidth - promptLen - 1;
+            if (clearLen > 0)
+                _realConsoleWriter?.Write(new string(' ', clearLen));
+
+            System.Console.CursorLeft = promptLen;
+            _realConsoleWriter?.Write(_inputBuffer.ToString());
+            _cursorIndex = _inputBuffer.Length;
+        }
+
+        /// MARK: TabCompletion
+        /// <summary>
+        /// Handles tab key presses to trigger autocomplete or display suggestions
+        /// </summary>
+        private static void HandleTabCompletion(int promptLen)
+        {
+            string currentInput = _inputBuffer.ToString();
+
+            // Use fuzzy matching to get candidates via Helpers
+            var matches = SystemConsoleHelper.GetFuzzyMatches(currentInput);
+
+            if (matches.Count == 1)
+            {
+                // Single match found
+                _inputBuffer.Clear();
+                _inputBuffer.Append(matches[0]);
+
+                // Append space if it is a full command (not a group)
+                if (SystemConsoleHelper.GetAllRegisteredCommands().Contains(matches[0]))
+                    _inputBuffer.Append(" ");
+
+                // Wipe and Redraw
+                System.Console.CursorLeft = promptLen;
+
+                // Formatting causing wrap-around
+                int clearLen = System.Console.WindowWidth - promptLen - 1;
+                if (clearLen > 0)
+                    _realConsoleWriter?.Write(new string(' ', clearLen));
+
+                System.Console.CursorLeft = promptLen;
+                _realConsoleWriter?.Write(_inputBuffer.ToString());
+                _cursorIndex = _inputBuffer.Length;
+            }
+            
+            else if (matches.Count > 1)
+            {
+                // Multiple matches: Auto-complete to common prefix via Helpers
+                string commonPrefix = SystemConsoleHelper.GetCommonPrefix(matches);
+                if (commonPrefix.Length > currentInput.Length)
+                {
+                    _inputBuffer.Clear();
+                    _inputBuffer.Append(commonPrefix);
+
+                    // Wipe and Redraw
+                    System.Console.CursorLeft = promptLen;
+
+                    int clearLen = System.Console.WindowWidth - promptLen - 1;
+                    if (clearLen > 0)
+                        _realConsoleWriter?.Write(new string(' ', clearLen));
+
+                    System.Console.CursorLeft = promptLen;
+                    _realConsoleWriter?.Write(_inputBuffer.ToString());
+                    _cursorIndex = _inputBuffer.Length;
+                }
+                
+                else
+                {
+                    // Ambiguous: Print candidates
+                    _realConsoleWriter?.WriteLine();
+                    foreach (var m in matches) _realConsoleWriter?.WriteLine("  " + m);
+                    _realConsoleWriter?.Write("BLGM > " + _inputBuffer.ToString());
+                    _cursorIndex = _inputBuffer.Length;
+                }
+            }
         }
 
         /// MARK: HandleInput
@@ -487,13 +617,11 @@ namespace Bannerlord.GameMaster
             string[] parts = input.Split(' ');
             string command = parts[0].ToLower();
             List<string> args = parts.Skip(1).ToList();
-            
+
             // Remove invalid args
             while (args != null && args.Count > 0 && string.IsNullOrWhiteSpace(args[0]))
-            {
                 args.Remove(args[0]);
-            }
-            
+
             _isCommandRunning = true;
 
             Enqueue(() =>
@@ -502,7 +630,6 @@ namespace Bannerlord.GameMaster
                 {
                     ExecuteGameCommand(command, args);
                 }
-
                 catch (Exception ex)
                 {
                     lock (_consoleLock)
@@ -512,7 +639,6 @@ namespace Bannerlord.GameMaster
                         System.Console.ResetColor();
                     }
                 }
-
                 finally
                 {
                     _isCommandRunning = false;
@@ -535,11 +661,8 @@ namespace Bannerlord.GameMaster
                 try
                 {
                     result = CommandLineFunctionality.CallFunction(command, args, out bool commandFound);
-
-                    if (!command.StartsWith("gm."))
-                        WriteLine(result);
+                    if (!command.StartsWith("gm.")) WriteLine(result);
                 }
-
                 catch (Exception ex)
                 {
                     result = $"Command Execution Failed: {ex}";
@@ -574,15 +697,8 @@ namespace Bannerlord.GameMaster
         {
             while (_executionQueue.TryDequeue(out Action action))
             {
-                try
-                {
-                    action.Invoke();
-                }
-
-                catch (Exception ex)
-                {
-                    WriteLog($"Error executing command: {ex}");
-                }
+                try { action.Invoke(); }
+                catch (Exception ex) { WriteLog($"Error executing command: {ex}"); }
             }
         }
 
@@ -592,10 +708,19 @@ namespace Bannerlord.GameMaster
         /// </summary>
         private class ThreadSafeConsoleRouter : TextWriter
         {
+            /// <summary>
+            /// Gets the character encoding
+            /// </summary>
             public override Encoding Encoding => Encoding.UTF8;
 
+            /// <summary>
+            /// Writes a line to the thread-safe logger
+            /// </summary>
             public override void WriteLine(string value) => WriteLog(value);
 
+            /// <summary>
+            /// Writes a string to the thread-safe logger, ignoring simple newlines to prevent formatting issues
+            /// </summary>
             public override void Write(string value)
             {
                 if (value == "\n" || value == "\r\n") return;

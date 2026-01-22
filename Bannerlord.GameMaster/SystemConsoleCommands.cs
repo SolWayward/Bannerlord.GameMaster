@@ -22,6 +22,7 @@ namespace Bannerlord.GameMaster
                 { "clear", ClearCommand },
                 { "close", CloseConsole },
                 { "config.cheat_mode", ToggleCheatModeCommand },
+                { "help", HelpCommand },
                 { "ls", ListCommand },
                 { "quitgame", QuitGame },
             };
@@ -84,6 +85,26 @@ namespace Bannerlord.GameMaster
         {
             SystemConsoleManager.CloseConsole();
             return "";
+        }
+
+        /// MARK: CloseConsole
+        /// <summary>
+        /// Clears system console
+        /// </summary>
+        public static string HelpCommand(List<string> args)
+        {
+            string output = "ls: Use 'ls' to discover commands. entering 'ls' will list all top level group commands"
+                            + "\n\t'ls gm' will list al BLGM command groups, 'ls gm.hero' will list all BLGM hero commands"
+                            + "\n\t'ls campaign' will list all of Bannerlords native campaign commands\n"
+                            + "\nTab Completion: you can press Tab for auto completion on commands or groups\n"
+                            + "Command History: up/down arrows will allow you to navigate through your command history\n"
+                            + "Close Console: typing 'close' will close the console window without closing the game\n"
+                            + "Clear: typing 'clear' will clear the console output\n"
+                            + "Quit Bannerlord: typing 'quitgame' will completely quit out of Bannerlord and close the console\n"
+                            + "\nNote: While native Bannerlord commands are available, native engine commands are not. However, I have included\n"
+                            + "\ta custom command for toggling cheat mode. 'config.cheat_mode 1' or 'config.cheat_mode 0'\n";
+
+            return output;
         }
 
         /// MARK: ListCommand
