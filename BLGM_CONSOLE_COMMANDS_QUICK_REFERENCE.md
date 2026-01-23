@@ -350,6 +350,17 @@ Global BLGM settings.
 | Command | File | Purpose | Arguments |
 |---------|------|---------|-----------|
 | `gm.ignore_limits` | [`IgnoreLimitsCommand.cs`](Bannerlord.GameMaster/Console/GeneralCommands/IgnoreLimitsCommand.cs) | Enable/disable creation limits bypass | true/false |
+| `gm.show_system_console` | [`ShowSystemConsoleCommand.cs`](Bannerlord.GameMaster/Console/GeneralCommands/ShowSystemConsoleCommand.cs) | Opens the System Console window | None |
+
+#### gm.show_system_console Details
+
+The System Console displays results and output of in-game BLGM commands and other debug info/errors. Features:
+
+- Opens a native Windows console window for viewing command results
+- Displays output of all BLGM commands and debug information
+- Allows running any game console command including BLGM commands from the Windows console window outside the game
+- Can also be opened on launch by running Bannerlord with `/systemconsole` command line option when BLGM mod is enabled
+- The in-game console remains fully usable - System Console use is entirely optional
 
 ---
 

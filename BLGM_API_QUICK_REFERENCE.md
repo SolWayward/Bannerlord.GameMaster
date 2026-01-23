@@ -75,6 +75,21 @@ Wrapper around InformationManager with pre-configured colors for different messa
 - `Status2(string message)` - Blue message
 - `Write(string message, Color color)` - Custom color message
 
+### SystemConsoleCommands
+**Location:** [`SystemConsoleCommands.cs`](Bannerlord.GameMaster/SystemConsoleCommands.cs)
+
+Command handlers and registration for system-level console commands. Manages command execution and routing for system console functionality.
+
+### SystemConsoleHelper
+**Location:** [`SystemConsoleHelper.cs`](Bannerlord.GameMaster/SystemConsoleHelper.cs)
+
+Helper utilities and common operations for system console functionality. Provides shared utilities for console command processing and system interactions.
+
+### SystemConsoleManager
+**Location:** [`SystemConsoleManager.cs`](Bannerlord.GameMaster/SystemConsoleManager.cs)
+
+Core manager for system console operations. Handles initialization, state management, and coordination of system console features.
+
 ### Interfaces: IEntityExtensions & IEntityQueries
 
 **Location:** [`IEntityExtensions.cs`](Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs), [`IEntityQueries.cs`](Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs)
@@ -188,6 +203,27 @@ string GetFormattedDetails(List<TEntity> entities);
 ---
 
 ## 3. CHARACTERS: HEROES, CLANS & KINGDOMS
+
+### Character Queries & Finding
+
+#### CharacterFinder
+**Location:** [`Characters/`](Bannerlord.GameMaster/Characters/) - Character finding utilities
+
+Utilities for finding and locating CharacterObjects by various criteria and filters.
+
+#### CharacterQueries
+**Location:** [`CharacterQueries.cs`](Bannerlord.GameMaster/Characters/CharacterQueries.cs)
+
+Queries all CharacterObjects including heroes, troops, NPCs, templates, and children. Provides comprehensive filtering and search capabilities across all character types in the game.
+
+**Key Methods:**
+- `GetCharacterById(string characterId)` - Lookup by StringId
+- `QueryCharacterObjects(string query, CharacterTypes types, bool matchAll)` - Unified query for all characters
+- `ParseCharacterType(string typeString)` - Parse single type
+- `ParseCharacterTypes(IEnumerable<string> typeStrings)` - Parse multiple types
+- `GetFormattedDetails(List<CharacterObject> characters)` - Formatted output
+
+---
 
 ### Heroes
 
@@ -454,13 +490,14 @@ Pre-defined property accessors: `Fine`, `Masterwork`, `Legendary`, `Bent`, `Chip
 ### TroopQueries
 **Location:** [`TroopQueries.cs`](Bannerlord.GameMaster/Troops/TroopQueries.cs)
 
-**Key Methods:**
+**Key Methods (TROOPS ONLY):**
 - `GetTroopById(string troopId)` - Lookup by StringId
 - `QueryTroops(string query, TroopTypes types, bool matchAll, int tierFilter, string sortBy, bool sortDescending)` - FILTERED to actual combat troops only
-- `QueryCharacterObjects(string query, TroopTypes types, bool matchAll, int tierFilter, string sortBy, bool sortDescending)` - UNFILTERED (includes NPCs, templates, children)
 - `ParseTroopType(string typeString)` - Parse single type (aliases: 2h, mounted, cav, ha)
 - `ParseTroopTypes(IEnumerable<string> typeStrings)` - Parse multiple types
 - `GetFormattedDetails(List<CharacterObject> troops)` - Formatted output
+
+**Note:** All CharacterObject querying (including NPCs, templates, children) has been moved to [`CharacterQueries`](Bannerlord.GameMaster/Characters/CharacterQueries.cs). This class now exclusively handles actual combat troops.
 
 ### TroopUpgrader
 **Location:** [`TroopUpgrader.cs`](Bannerlord.GameMaster/Troops/TroopUpgrader.cs)
@@ -491,6 +528,16 @@ TroopUpgrader.UpgradeTroops(party.MemberRoster, targetTier: 5,
 ---
 
 ## 7. SETTLEMENTS & VILLAGES
+
+### Clan Settlement Extensions
+**Location:** [`Settlements/`](Bannerlord.GameMaster/Settlements/) - Clan settlement management
+
+Extensions for managing settlement-related operations at the clan level, including ownership and clan-specific settlement interactions.
+
+### KingdomSettlementExtensions
+**Location:** [`Settlements/`](Bannerlord.GameMaster/Settlements/) - Kingdom settlement management
+
+Extensions for managing settlement-related operations at the kingdom level, including kingdom-wide settlement management and properties.
 
 ### SettlementExtensions
 **Location:** [`SettlementExtensions.cs`](Bannerlord.GameMaster/Settlements/SettlementExtensions.cs)
