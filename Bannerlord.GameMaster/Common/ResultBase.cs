@@ -72,9 +72,10 @@ namespace Bannerlord.GameMaster.Common
         }
 
         /// <summary>
-        /// Writes to the game's main rgl log file the message and success status for exceptions. 
+        /// Writes to the game's main rgl log file the message and success status if exception occured. 
         /// Will also always write to system console if console is attached.
         /// Automatically writes exception details if applicable.
+        /// Does not write to custom log file, that is handled by CommandExecutor.Run()
         /// </summary>
         /// <returns>Returns itself to allow chaining</returns>
         public virtual TSelf Log()

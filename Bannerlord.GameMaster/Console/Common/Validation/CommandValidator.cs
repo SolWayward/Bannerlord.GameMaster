@@ -21,7 +21,7 @@ namespace Bannerlord.GameMaster.Console.Common.Validation
         /// <returns>True if in valid campaign state, false otherwise</returns>
         public static bool ValidateCampaignState(out string error)
         {
-            if (Campaign.Current == null)
+            if (Campaign.Current == null || !BLGMObjectManager.CampaignFullyLoaded)
             {
                 error = "Error: Must be in campaign mode.\n";
                 return false;

@@ -26,6 +26,13 @@ namespace Bannerlord.GameMaster
         //       Attempting to register heroes in MBObjectManager is safe and will just silently fail
 
         #region Fields
+        
+        internal bool _campaignFullyLoaded = false; // Set from BLGMObjectManagerBehaviour
+
+        /// <summary>
+        /// True when game is fully loaded
+        /// </summary>
+        public static bool CampaignFullyLoaded => Instance._campaignFullyLoaded;
 
         readonly public static int maxBlgmHeroes = 1000;
         readonly public static int maxBlgmClans = 200;

@@ -34,9 +34,9 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <!-- Xml Documentation Missing Warning -->
+  <!-- CS1591;CS1573;CS1572;CS1570 = XML Documentation Warnings,  CA1416 = Windows only warning (From SystemConsole)-->
   <PropertyGroup>
-    <NoWarn>CS1591;CS1573;CS1572;CS1570</NoWarn>
+    <NoWarn>CS1591;CS1573;CS1572;CS1570;CA1416</NoWarn>
   </PropertyGroup>
 
     <ItemGroup>

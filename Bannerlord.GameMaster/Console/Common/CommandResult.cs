@@ -19,18 +19,5 @@ namespace Bannerlord.GameMaster.Console.Common
 
 		/// <inheritdoc/>
 		public CommandResult(bool isSuccess, string message, Exception ex) : base(isSuccess, message, ex) { }
-
-		public override CommandResult Log()
-		{
-			base.Log();
-					
-			// Log to custom command log file (only if logging is enabled)
-			if (Execution.CommandLogger.IsEnabled)
-			{
-				Execution.CommandLogger.LogCommandResult(this);
-			}
-			
-			return this;
-		}
 	}
 }

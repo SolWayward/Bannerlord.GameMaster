@@ -15,11 +15,17 @@ namespace Bannerlord.GameMaster.Behaviours
     {
         #region Register Events
         public override void RegisterEvents()
-        {
+        {   
+            // Quit back to main menu
+            CampaignEvents.OnGameEarlyLoadedEvent.AddNonSerializedListener(this, OnGameEarlyLoaded);
+            
+            // Game is loading
             CampaignEvents.OnGameLoadedEvent.AddNonSerializedListener(this, OnGameLoaded);
 
             // Register event to reapply names after load
             CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, OnSessionLaunched);
+
+            CampaignEvents.OnGameLoadFinishedEvent.AddNonSerializedListener(this, OnGameFullyLoaded);
 
             // For Heroes
             CampaignEvents.HeroKilledEvent.AddNonSerializedListener(
@@ -56,6 +62,12 @@ namespace Bannerlord.GameMaster.Behaviours
             // Not syncing data
         }
 
+        // Prevent gm commands from being ran if a new game is loaded from another session
+        private void OnGameEarlyLoaded(CampaignGameStarter starter)
+        {
+            BLGMObjectManager.Instance._campaignFullyLoaded = false; // New save is loading, reset to false
+        }
+
         /// <summary>
         /// Initalize BLGMObjectManager and load existing objects
         /// </summary>
@@ -66,7 +78,7 @@ namespace Bannerlord.GameMaster.Behaviours
             // Auto-start command logging if enabled (creates new log file each time a save is loaded)
             LoggingManager.TryAutoStart();
         }
-
+        
         /// <summary>
         /// Called after session is fully launched.
         /// BLGM initialization has been moved to OnGameLoaded to prevent ButterLib crashes.
@@ -74,6 +86,11 @@ namespace Bannerlord.GameMaster.Behaviours
         private void OnSessionLaunched(CampaignGameStarter starter)
         {
             // Moved BLGMObjectManager.Instance.Initialize() to OnGameLoaded to fix ButterLib crash
+        }
+
+        private void OnGameFullyLoaded()
+        {
+            BLGMObjectManager.Instance._campaignFullyLoaded = true; // All loading done, commands are ready to execute
         }
 
         private void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
