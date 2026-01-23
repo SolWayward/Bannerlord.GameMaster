@@ -27,8 +27,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error).Message
-;
+                    return CommandResult.Error(error);
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.hero.create_companions", "<count> <heroLeader> [cultures] [gender] [randomFactor]",
@@ -57,41 +56,33 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError));
 
                 if (parsed.TotalCount < 2)
-                    return CommandResult.Error(usageMessage).Message
-;
+                    return CommandResult.Error(usageMessage);
 
                 // MARK: Parse Arguments
                 string countArg = parsed.GetArgument("count", 0);
                 if (countArg == null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'count'.")).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'count'."));
 
                 if (!CommandValidator.ValidateIntegerRange(countArg, 1, 20, out int count, out string countError))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError));
 
                 string heroArg = parsed.GetArgument("heroLeader", 1) ?? parsed.GetNamed("hero");
                 if (heroArg == null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'heroLeader'.")).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'heroLeader'."));
 
                 EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
                 if (!heroResult.IsSuccess)
-                    return CommandResult.Error(heroResult.Message).Message
-;
+                    return CommandResult.Error(heroResult.Message);
                 Hero hero = heroResult.Entity;
 
                 if (hero.PartyBelongedTo == null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Hero {hero.Name} is not in a party.")).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Hero {hero.Name} is not in a party."));
 
                 if (hero.PartyBelongedTo.LeaderHero != hero)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Hero {hero.Name} is not the leader of their party.")).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Hero {hero.Name} is not the leader of their party."));
 
                 CultureFlags cultureFlags = CultureFlags.AllMainCultures;
                 GenderFlags genderFlags = GenderFlags.Either;
@@ -112,8 +103,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     cultureFlags = FlagParser.ParseCultureArgument(culturesArg);
                     if (cultureFlags == CultureFlags.None)
-                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'")).Message
-;
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{culturesArg}'"));
                 }
 
                 // Parse gender - try named first, then scan positional
@@ -134,8 +124,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 {
                     genderFlags = FlagParser.ParseGenderArgument(genderArg);
                     if (genderFlags == GenderFlags.None)
-                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid gender: '{genderArg}'")).Message
-;
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid gender: '{genderArg}'"));
                 }
 
                 // Parse randomFactor
@@ -155,13 +144,11 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 if (randomArg != null)
                 {
                     if (!CommandValidator.ValidateFloatRange(randomArg, 0f, 1f, out randomFactor, out string randomError))
-                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError)).Message
-;
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError));
                 }
 
                 if (!CommandValidator.ValidateHeroCreationLimit(count, out string limitError))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(limitError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(limitError));
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -178,17 +165,15 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 List<Hero> companions = HeroGenerator.CreateCompanions(count, cultureFlags, genderFlags, randomFactor);
 
                 if (companions == null || companions.Count == 0)
-                    return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to create companions - no templates found matching criteria")).Message
-;
+                    return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to create companions - no templates found matching criteria"));
 
                 hero.PartyBelongedTo.AddCompanionsToParty(companions);
 
                 string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Created and added {companions.Count} companion(s) to {hero.Name}'s party:\n" +
                     HeroQueries.GetFormattedDetails(companions));
-                return CommandResult.Success(fullMessage).Message
-;
-            });
+                return CommandResult.Success(fullMessage);
+            }).Message;
         }
     }
 }
