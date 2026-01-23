@@ -41,8 +41,7 @@ public static class PayTributeCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 4)
                 return usageMessage;

@@ -24,8 +24,7 @@ public static class QueryClanAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             // MARK: Parse Arguments
             ClanQueryArguments queryArgs = ClanQueryHelpers.ParseClanQueryArguments(args);
@@ -50,13 +49,11 @@ public static class QueryClanAnyCommand
             {
                 return CommandResult.Success(argumentDisplay + $"Found 0 clan(s) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.clan_any [search] [type keywords] [sort]\n" +
-                       "Example: gm.query.clan_any bandit outlaw sort:name\n").Message
-;
+                       "Example: gm.query.clan_any bandit outlaw sort:name\n").Message;
             }
 
             return CommandResult.Success(argumentDisplay + $"Found {matchedClans.Count} clan(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{ClanQueries.GetFormattedDetails(matchedClans)}").Message
-;
+                   $"{ClanQueries.GetFormattedDetails(matchedClans)}").Message;
         });
     }
 }

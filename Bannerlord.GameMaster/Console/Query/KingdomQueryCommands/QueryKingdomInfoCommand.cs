@@ -22,20 +22,17 @@ public static class QueryKingdomInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             if (args == null || args.Count == 0)
-                return CommandResult.Error("Please provide a kingdom ID.\nUsage: gm.query.kingdom_info <kingdomId>\n").Message
-;
+                return CommandResult.Error("Please provide a kingdom ID.\nUsage: gm.query.kingdom_info <kingdomId>\n").Message;
 
             // MARK: Parse Arguments
             string kingdomId = args[0];
             Kingdom kingdom = KingdomQueries.GetKingdomById(kingdomId);
 
             if (kingdom == null)
-                return CommandResult.Error($"Kingdom with ID '{kingdomId}' not found.\n").Message
-;
+                return CommandResult.Error($"Kingdom with ID '{kingdomId}' not found.\n").Message;
 
             // MARK: Execute Logic
             KingdomTypes types = kingdom.GetKingdomTypes();
@@ -62,8 +59,7 @@ public static class QueryKingdomInfoCommand
                    $"Total Strength: {kingdom.CurrentTotalStrength:F0}\n" +
                    $"Types: {types}\n" +
                    $"Is Eliminated: {kingdom.IsEliminated}\n" +
-                   $"At War With ({enemies.Count}): {string.Join(", ", enemies.Select(k => k.Name))}\n").Message
-;
+                   $"At War With ({enemies.Count}): {string.Join(", ", enemies.Select(k => k.Name))}\n").Message;
         });
     }
 }

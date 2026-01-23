@@ -25,14 +25,12 @@ public static class QueryCharacterObjectsInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             if (args == null || args.Count == 0)
                 return CommandResult.Error("Please provide a character ID.\nUsage: gm.query.character_objects_info <characterId>\n" +
                        "Example: gm.query.character_objects_info imperial_legionary\n" +
-                       "Example: gm.query.character_objects_info lord_1_1 (hero character)\n").Message
-;
+                       "Example: gm.query.character_objects_info lord_1_1 (hero character)\n").Message;
 
             // MARK: Parse Arguments
             string characterId = args[0];
@@ -41,8 +39,7 @@ public static class QueryCharacterObjectsInfoCommand
             CharacterObject character = CharacterQueries.GetCharacterById(characterId);
 
             if (character == null)
-                return CommandResult.Error($"Character with ID '{characterId}' not found.\n").Message
-;
+                return CommandResult.Error($"Character with ID '{characterId}' not found.\n").Message;
 
             // Build detailed info using CharacterExtensions
             CharacterTypes types = character.GetCharacterTypes();
@@ -88,8 +85,7 @@ public static class QueryCharacterObjectsInfoCommand
                       equipmentInfo +
                       upgradeInfo;
 
-            return CommandResult.Success(result).Message
-;
+            return CommandResult.Success(result).Message;
         });
     }
 }

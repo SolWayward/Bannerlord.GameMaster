@@ -34,8 +34,7 @@ public static class ListModsCommand
 
             output.AppendLine("\nYou can copy this list by opening the BLGM log file\nDefault Log Location: Documents\\Mount and Blade II Bannerlord\\Configs\\GameMaster");
 
-            return CommandResult.Success(output.ToString()).Message
-;
+            return CommandResult.Success(output.ToString()).Message;
         });
     }
 }

@@ -42,8 +42,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
                 if (parsed.TotalCount < 1)
                     return usageMessage;
@@ -91,8 +90,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("gm.item.remove_equipped_modifier", resolvedValues);
                 return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                    $"Removed modifiers from {itemsChanged} equipped items for {hero.Name}.")).Message
-;
+                    $"Removed modifiers from {itemsChanged} equipped items for {hero.Name}.")).Message;
             });
         }
     }

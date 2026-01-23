@@ -25,8 +25,7 @@ public static class RemoveBlgmClanCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.cleanup.remove_blgm_clan", "<clan>",
@@ -42,23 +41,19 @@ public static class RemoveBlgmClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 1)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string clanIdentifier = parsed.GetArgument("clan", 0);
             if (string.IsNullOrWhiteSpace(clanIdentifier))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Clan identifier cannot be empty.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Clan identifier cannot be empty.")).Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanIdentifier);
             if (!clanResult.IsSuccess)
-                return CommandResult.Error(clanResult.Message).Message
-;
+                return CommandResult.Error(clanResult.Message).Message;
             Clan clan = clanResult.Entity;
 
             // MARK: Execute Logic
@@ -74,14 +69,12 @@ public static class RemoveBlgmClanCommand
             if (result.IsSuccess)
             {
                 string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message);
-                return CommandResult.Success(fullMessage).Message
-;
+                return CommandResult.Success(fullMessage).Message;
             }
             else
             {
                 string fullMessage = argumentDisplay + MessageFormatter.FormatErrorMessage(result.Message);
-                return CommandResult.Error(fullMessage).Message
-;
+                return CommandResult.Error(fullMessage).Message;
             }
         });
     }

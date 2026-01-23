@@ -23,8 +23,7 @@ public static class GiveGoldCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.give_gold", "<settlement> <amount>",
@@ -39,29 +38,24 @@ public static class GiveGoldCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string amountStr = parsed.GetArgument("amount", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
-;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Message;
 
             if (!CommandValidator.ValidateIntegerRange(amountStr, int.MinValue, int.MaxValue, out int amount, out string amountError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(amountError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(amountError)).Message;
 
             // MARK: Execute Logic
             int previousValue = settlement.Town.Gold;
@@ -76,8 +70,7 @@ public static class GiveGoldCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.give_gold", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) gold changed from {previousValue} to {settlement.Town.Gold} ({(amount >= 0 ? "+" : "")}{amount}).");
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }

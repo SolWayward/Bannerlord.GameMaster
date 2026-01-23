@@ -23,8 +23,7 @@ public static class UpgradeBuildingsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.upgrade_buildings", "<settlement> <level>",
@@ -39,29 +38,24 @@ public static class UpgradeBuildingsCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string levelStr = parsed.GetArgument("level", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
-;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Message;
 
             if (!CommandValidator.ValidateIntegerRange(levelStr, 0, 3, out int targetLevel, out string levelError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(levelError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(levelError)).Message;
 
             // MARK: Execute Logic
             int upgradedCount = 0;
@@ -89,13 +83,11 @@ public static class UpgradeBuildingsCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.upgrade_buildings", resolvedValues);
 
             if (upgradedCount == 0)
-                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"All buildings in '{settlement.Name}' are already at level {targetLevel} or higher.")).Message
-;
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"All buildings in '{settlement.Name}' are already at level {targetLevel} or higher.")).Message;
 
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}): upgraded {upgradedCount} building(s) to level {targetLevel}, {skippedCount} already at or above target level.");
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }

@@ -23,20 +23,17 @@ public static class QuerySettlementInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             if (args == null || args.Count == 0)
-                return CommandResult.Error("Please provide a settlement ID.\nUsage: gm.query.settlement_info <settlementId>\n").Message
-;
+                return CommandResult.Error("Please provide a settlement ID.\nUsage: gm.query.settlement_info <settlementId>\n").Message;
 
             // MARK: Parse Arguments
             string settlementId = args[0];
             Settlement settlement = SettlementQueries.GetSettlementById(settlementId);
 
             if (settlement == null)
-                return CommandResult.Error($"Settlement with ID '{settlementId}' not found.\n").Message
-;
+                return CommandResult.Error($"Settlement with ID '{settlementId}' not found.\n").Message;
 
             // MARK: Execute Logic
             SettlementTypes types = settlement.GetSettlementTypes();
@@ -85,8 +82,7 @@ public static class QuerySettlementInfoCommand
                    $"{siegeInfo}" +
                    $"{notableInfo}" +
                    $"Types: {types}\n" +
-                   $"Position: X={settlement.GetPosition2D.X:F1}, Y={settlement.GetPosition2D.Y:F1}\n").Message
-;
+                   $"Position: X={settlement.GetPosition2D.X:F1}, Y={settlement.GetPosition2D.Y:F1}\n").Message;
         });
     }
 }

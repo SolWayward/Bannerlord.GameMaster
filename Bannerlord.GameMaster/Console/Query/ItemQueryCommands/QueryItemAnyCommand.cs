@@ -24,8 +24,7 @@ public static class QueryItemAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             // MARK: Parse Arguments
             ItemQueryArguments queryArgs = ItemQueryHelpers.ParseItemQueryArguments(args);
@@ -45,13 +44,11 @@ public static class QueryItemAnyCommand
             {
                 return CommandResult.Success($"Found 0 item(s) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.item_any [search] [type keywords] [tier] [sort]\n" +
-                       "Example: gm.query.item_any weapon armor tier3 sort:name\n").Message
-;
+                       "Example: gm.query.item_any weapon armor tier3 sort:name\n").Message;
             }
 
             return CommandResult.Success($"Found {matchedItems.Count} item(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{ItemQueries.GetFormattedDetails(matchedItems)}").Message
-;
+                   $"{ItemQueries.GetFormattedDetails(matchedItems)}").Message;
         });
     }
 }

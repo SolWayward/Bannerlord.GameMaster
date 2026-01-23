@@ -23,12 +23,10 @@ public static class QueryTroopInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             if (args == null || args.Count == 0)
-                return CommandResult.Error("Please provide a troop ID.\nUsage: gm.query.troop_info <troopId>\n").Message
-;
+                return CommandResult.Error("Please provide a troop ID.\nUsage: gm.query.troop_info <troopId>\n").Message;
 
             // MARK: Parse Arguments
             string troopId = args[0];
@@ -37,16 +35,13 @@ public static class QueryTroopInfoCommand
             CharacterObject troop = TroopQueries.GetTroopById(troopId);
 
             if (troop == null)
-                return CommandResult.Error($"Troop with ID '{troopId}' not found.\n").Message
-;
+                return CommandResult.Error($"Troop with ID '{troopId}' not found.\n").Message;
 
             if (troop.IsHero)
-                return CommandResult.Error($"'{troopId}' is a hero/lord, not a troop. Use gm.query.hero_info instead.\n").Message
-;
+                return CommandResult.Error($"'{troopId}' is a hero/lord, not a troop. Use gm.query.hero_info instead.\n").Message;
 
             if (!troop.IsActualTroop())
-                return CommandResult.Error($"'{troopId}' is not an actual troop (may be NPC, child, template, etc.).\n").Message
-;
+                return CommandResult.Error($"'{troopId}' is not an actual troop (may be NPC, child, template, etc.).\n").Message;
 
             TroopTypes types = troop.GetTroopTypes();
             string cultureName = troop.Culture?.Name?.ToString() ?? "None";
@@ -64,8 +59,7 @@ public static class QueryTroopInfoCommand
                    $"Formation: {troop.DefaultFormationClass}\n" +
                    $"Types: {types}\n" +
                    equipmentInfo +
-                   upgradeInfo).Message
-;
+                   upgradeInfo).Message;
         });
     }
 }

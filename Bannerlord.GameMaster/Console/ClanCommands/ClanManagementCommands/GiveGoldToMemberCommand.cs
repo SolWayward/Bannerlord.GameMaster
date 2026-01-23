@@ -23,8 +23,7 @@ public static class GiveGoldToMemberCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.give_gold", "<clan> <hero> <amount>",
@@ -42,8 +41,7 @@ public static class GiveGoldToMemberCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 3)
                 return usageMessage;
@@ -51,8 +49,7 @@ public static class GiveGoldToMemberCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
@@ -60,25 +57,21 @@ public static class GiveGoldToMemberCommand
 
             string heroArg = parsed.GetArgument("hero", 1);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
             if (!heroResult.IsSuccess) return heroResult.Message;
             Hero hero = heroResult.Entity;
 
             if (hero.Clan != clan)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a member of {clan.Name}.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a member of {clan.Name}.")).Message;
 
             string amountArg = parsed.GetArgument("amount", 2);
             if (amountArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.")).Message;
 
             if (!CommandValidator.ValidateIntegerRange(amountArg, int.MinValue, int.MaxValue, out int amount, out string goldError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(goldError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(goldError)).Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -97,8 +90,7 @@ public static class GiveGoldToMemberCommand
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {amount} gold to {hero.Name} (member of {clan.Name}).\n" +
                 $"Hero gold: {previousHeroGold} -> {hero.Gold}\n" +
-                $"Clan total gold: {previousClanGold} -> {clan.Gold}")).Message
-;
+                $"Clan total gold: {previousClanGold} -> {clan.Gold}")).Message;
         });
     }
 }

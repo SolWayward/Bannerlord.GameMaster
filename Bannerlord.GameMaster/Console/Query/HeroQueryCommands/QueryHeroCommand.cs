@@ -26,8 +26,7 @@ public static class QueryHeroCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             // MARK: Parse Arguments
             HeroQueryArguments queryArgs = HeroQueryHelpers.ParseHeroQueryArguments(args);
@@ -49,13 +48,11 @@ public static class QueryHeroCommand
                        "Usage: gm.query.hero [search] [type keywords] [sort]\n" +
                        "Type keywords: lord, wanderer, notable, female, male, clanleader, kingdomruler, dead, etc.\n" +
                        "Sort: sort:name, sort:age, sort:clan, sort:kingdom, sort:<type> (add :desc for descending)\n" +
-                       "Example: gm.query.hero john lord female sort:name\n").Message
-;
+                       "Example: gm.query.hero john lord female sort:name\n").Message;
             }
 
             return CommandResult.Success($"Found {matchedHeroes.Count} hero(es) matching {criteriaDesc}:\n" +
-                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}").Message
-;
+                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}").Message;
         });
     }
 }

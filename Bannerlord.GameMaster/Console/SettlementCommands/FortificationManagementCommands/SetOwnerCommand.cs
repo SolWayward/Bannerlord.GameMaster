@@ -26,8 +26,7 @@ public static class SetOwnerCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.set_owner", "<settlement> <hero>",
@@ -42,29 +41,24 @@ public static class SetOwnerCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string heroQuery = parsed.GetArgument("hero", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
-;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.")).Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroQuery);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
-;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message;
             Hero hero = heroResult.Entity;
 
             // MARK: Execute Logic
@@ -86,8 +80,7 @@ public static class SetOwnerCommand
                 $"Owner: {previousOwner} -> {settlement.Owner?.Name?.ToString() ?? "None"}\n" +
                 $"Owner Clan: {previousClan} -> {settlement.OwnerClan?.Name?.ToString() ?? "None"}\n" +
                 $"Map Faction: {previousFaction} -> {settlement.MapFaction?.Name?.ToString() ?? "None"}");
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }

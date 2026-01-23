@@ -41,8 +41,7 @@ public static class CallAllyToWarCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -104,8 +103,7 @@ public static class CallAllyToWarCommand
             {
                 proposingKingdom.ProposeCallAllyToWarForceAccept(allyKingdom, enemyKingdom);
                 return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                    $"{allyKingdom.Name} called to war against {enemyKingdom.Name}.")).Message
-;
+                    $"{allyKingdom.Name} called to war against {enemyKingdom.Name}.")).Message;
             }
             else
             {
@@ -118,8 +116,7 @@ public static class CallAllyToWarCommand
 
                 string enemyList = string.Join(", ", enemies.Select(k => k.Name.ToString()));
                 return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                    $"{allyKingdom.Name} called to war against all enemies: {enemyList}")).Message
-;
+                    $"{allyKingdom.Name} called to war against all enemies: {enemyList}")).Message;
             }
         });
     }

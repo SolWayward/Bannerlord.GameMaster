@@ -89,8 +89,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     result.AppendLine($"  {item.Slot,-15} {item.ItemName}{item.ModifierText}");
                 }
 
-                return CommandResult.Success(result.ToString()).Message
-;
+                return CommandResult.Success(result.ToString()).Message;
             });
         }
     }

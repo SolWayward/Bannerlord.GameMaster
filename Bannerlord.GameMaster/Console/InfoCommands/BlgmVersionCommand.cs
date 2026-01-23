@@ -20,8 +20,7 @@ public static class BlgmVersionCommand
     {
         return Cmd.Run(args, () =>
         {
-            return CommandResult.Success($"BLGM v{GameEnvironment.BLGMVersion}").Message
-;
+            return CommandResult.Success($"BLGM v{GameEnvironment.BLGMVersion}").Message;
         });
     }
 }

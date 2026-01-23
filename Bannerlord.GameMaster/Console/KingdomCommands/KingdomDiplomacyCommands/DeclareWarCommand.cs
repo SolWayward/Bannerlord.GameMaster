@@ -37,8 +37,7 @@ public static class DeclareWarCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -75,8 +74,7 @@ public static class DeclareWarCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.declare_war", resolvedValues);
 
             DeclareWarAction.ApplyByDefault(kingdom1, kingdom2);
-            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"War declared between {kingdom1.Name} and {kingdom2.Name}.")).Message
-;
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"War declared between {kingdom1.Name} and {kingdom2.Name}.")).Message;
         });
     }
 }

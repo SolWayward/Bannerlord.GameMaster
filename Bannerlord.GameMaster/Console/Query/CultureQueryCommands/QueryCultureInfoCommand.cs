@@ -24,22 +24,19 @@ public static class QueryCultureInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             if (args == null || args.Count == 0)
                 return CommandResult.Error("Please provide a culture ID.\n" +
                        "Usage: gm.query.culture_info <cultureId>\n" +
-                       "Example: gm.query.culture_info empire\n").Message
-;
+                       "Example: gm.query.culture_info empire\n").Message;
 
             // MARK: Parse Arguments
             string cultureId = args[0];
             CultureObject culture = MBObjectManager.Instance.GetObject<CultureObject>(cultureId);
 
             if (culture == null)
-                return CommandResult.Error($"Culture with ID '{cultureId}' not found.\n").Message
-;
+                return CommandResult.Error($"Culture with ID '{cultureId}' not found.\n").Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -59,8 +56,7 @@ public static class QueryCultureInfoCommand
                    $"Female Names: {culture.FemaleNameList?.Count ?? 0}\n" +
                    $"Clan Names: {culture.ClanNameList?.Count ?? 0}\n";
 
-            return CommandResult.Success(argumentDisplay + cultureInfo).Message
-;
+            return CommandResult.Success(argumentDisplay + cultureInfo).Message;
         });
     }
 }

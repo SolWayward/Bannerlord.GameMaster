@@ -24,8 +24,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error).Message
-;
+                    return CommandResult.Error(error).Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.item.transfer", "<item_query> <count> <from_hero> <to_hero>",
@@ -47,8 +46,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
                 if (parsed.TotalCount < 4)
                     return usageMessage;
@@ -61,39 +59,32 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
 
                 // Find item
                 EntityFinderResult<ItemObject> itemResult = ItemFinder.FindSingleItem(itemQuery);
-                if (!itemResult.IsSuccess) return CommandResult.Error(itemResult.Message).Message
-;
+                if (!itemResult.IsSuccess) return CommandResult.Error(itemResult.Message).Message;
                 ItemObject item = itemResult.Entity;
 
                 // Validate count
                 if (!CommandValidator.ValidateIntegerRange(countStr, 1, 10000, out int count, out string countError))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Message;
 
                 // Find from hero
                 EntityFinderResult<Hero> fromHeroResult = HeroFinder.FindSingleHero(fromHeroQuery);
-                if (!fromHeroResult.IsSuccess) return CommandResult.Error(fromHeroResult.Message).Message
-;
+                if (!fromHeroResult.IsSuccess) return CommandResult.Error(fromHeroResult.Message).Message;
                 Hero fromHero = fromHeroResult.Entity;
 
                 // Find to hero
                 EntityFinderResult<Hero> toHeroResult = HeroFinder.FindSingleHero(toHeroQuery);
-                if (!toHeroResult.IsSuccess) return CommandResult.Error(toHeroResult.Message).Message
-;
+                if (!toHeroResult.IsSuccess) return CommandResult.Error(toHeroResult.Message).Message;
                 Hero toHero = toHeroResult.Entity;
 
                 // MARK: Execute Logic
                 if (fromHero.PartyBelongedTo == null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{fromHero.Name} does not belong to a party.")).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{fromHero.Name} does not belong to a party.")).Message;
                 if (toHero.PartyBelongedTo == null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{toHero.Name} does not belong to a party.")).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{toHero.Name} does not belong to a party.")).Message;
 
                 int currentCount = fromHero.PartyBelongedTo.ItemRoster.GetItemNumber(item);
                 if (currentCount < count)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{fromHero.Name}'s party only has {currentCount}x {item.Name}, cannot transfer {count}.")).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{fromHero.Name}'s party only has {currentCount}x {item.Name}, cannot transfer {count}.")).Message;
 
                 fromHero.PartyBelongedTo.ItemRoster.AddToCounts(item, -count);
                 toHero.PartyBelongedTo.ItemRoster.AddToCounts(item, count);
@@ -108,8 +99,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
 
                 string display = parsed.FormatArgumentDisplay("gm.item.transfer", resolvedValues);
                 return CommandResult.Success(display + MessageFormatter.FormatSuccessMessage(
-                    $"Transferred {count}x {item.Name} from {fromHero.Name} to {toHero.Name}.")).Message
-;
+                    $"Transferred {count}x {item.Name} from {fromHero.Name} to {toHero.Name}.")).Message;
             });
         }
     }

@@ -27,8 +27,7 @@ public static class QueryClanCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             // MARK: Parse Arguments
             ClanQueryArguments queryArgs = ClanQueryHelpers.ParseClanQueryArguments(args);
@@ -55,13 +54,11 @@ public static class QueryClanCommand
                        "Usage: gm.query.clan [search] [type keywords] [sort]\n" +
                        "Type keywords: noble, minor, bandit, mercenary, eliminated, empty, etc.\n" +
                        "Sort: sort:name, sort:tier, sort:gold, sort:renown, sort:<type> (add :desc for descending)\n" +
-                       "Example: gm.query.clan empire noble sort:name\n").Message
-;
+                       "Example: gm.query.clan empire noble sort:name\n").Message;
             }
 
             return CommandResult.Success(argumentDisplay + $"Found {matchedClans.Count} clan(s) matching {criteriaDesc}:\n" +
-                   $"{ClanQueries.GetFormattedDetails(matchedClans)}").Message
-;
+                   $"{ClanQueries.GetFormattedDetails(matchedClans)}").Message;
         });
     }
 }

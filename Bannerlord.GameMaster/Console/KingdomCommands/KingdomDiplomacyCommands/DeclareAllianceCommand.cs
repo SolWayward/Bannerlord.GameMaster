@@ -40,8 +40,7 @@ public static class DeclareAllianceCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -95,8 +94,7 @@ public static class DeclareAllianceCommand
             if (callToWar && proposingKingdom.FactionsAtWarWith.Count > 0)
                 message += $"\n{receivingKingdom.Name} called to war against {proposingKingdom.Name}'s enemies.";
 
-            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(message)).Message
-;
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(message)).Message;
         });
     }
 }

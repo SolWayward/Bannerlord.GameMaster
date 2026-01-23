@@ -23,8 +23,7 @@ public static class HealHeroCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.heal", "<hero>",
@@ -40,27 +39,22 @@ public static class HealHeroCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 1)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
-;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message;
             Hero hero = heroResult.Entity;
 
             if (!hero.IsAlive)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Cannot heal {hero.Name} - hero is dead.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Cannot heal {hero.Name} - hero is dead.")).Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -73,8 +67,7 @@ public static class HealHeroCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.heal", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name} has been healed to full health ({hero.HitPoints}/{hero.CharacterObject.MaxHitPoints()}).");
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }

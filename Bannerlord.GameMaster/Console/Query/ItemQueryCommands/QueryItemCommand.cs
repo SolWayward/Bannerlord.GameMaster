@@ -26,8 +26,7 @@ public static class QueryItemCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             // MARK: Parse Arguments
             ItemQueryArguments queryArgs = ItemQueryHelpers.ParseItemQueryArguments(args);
@@ -50,13 +49,11 @@ public static class QueryItemCommand
                        "Type keywords: weapon, armor, mount, food, trade, 1h, 2h, ranged, bow, crossbow, civilian, combat, horsearmor, etc.\n" +
                        "Tier keywords: tier0, tier1, tier2, tier3, tier4, tier5, tier6\n" +
                        "Sort: sort:name, sort:tier, sort:value, sort:type (add :desc for descending)\n" +
-                       "Example: gm.query.item sword weapon 1h tier3 sort:value:desc\n").Message
-;
+                       "Example: gm.query.item sword weapon 1h tier3 sort:value:desc\n").Message;
             }
 
             return CommandResult.Success($"Found {matchedItems.Count} item(s) matching {criteriaDesc}:\n" +
-                   $"{ItemQueries.GetFormattedDetails(matchedItems)}").Message
-;
+                   $"{ItemQueries.GetFormattedDetails(matchedItems)}").Message;
         });
     }
 }

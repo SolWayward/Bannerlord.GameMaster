@@ -27,8 +27,7 @@ public static class UpgradeTroopsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.troops.upgrade_troops", "<partyLeader> [tier] [infantryRatio] [rangedRatio] [cavalryRatio]",
@@ -53,23 +52,19 @@ public static class UpgradeTroopsCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 1)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string leaderArg = parsed.GetArgument("partyLeader", 0) ?? parsed.GetNamed("leader");
             if (leaderArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(leaderArg);
             if (!heroResult.IsSuccess)
-                return CommandResult.Error(heroResult.Message).Message
-;
+                return CommandResult.Error(heroResult.Message).Message;
             Hero hero = heroResult.Entity;
 
             // Parse tier (optional, default 7)
@@ -78,8 +73,7 @@ public static class UpgradeTroopsCommand
             if (tierArg != null)
             {
                 if (!CommandValidator.ValidateIntegerRange(tierArg, 1, 10, out tier, out string tierError))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(tierError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(tierError)).Message;
             }
 
             // Parse ratios (optional)
@@ -88,8 +82,7 @@ public static class UpgradeTroopsCommand
             if (infantryArg != null)
             {
                 if (!CommandValidator.ValidateFloatRange(infantryArg, 0f, 1f, out float infantry, out string infantryError))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(infantryError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(infantryError)).Message;
                 infantryRatio = infantry;
             }
 
@@ -98,8 +91,7 @@ public static class UpgradeTroopsCommand
             if (rangedArg != null)
             {
                 if (!CommandValidator.ValidateFloatRange(rangedArg, 0f, 1f, out float ranged, out string rangedError))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(rangedError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(rangedError)).Message;
                 rangedRatio = ranged;
             }
 
@@ -108,8 +100,7 @@ public static class UpgradeTroopsCommand
             if (cavalryArg != null)
             {
                 if (!CommandValidator.ValidateFloatRange(cavalryArg, 0f, 1f, out float cavalry, out string cavalryError))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(cavalryError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(cavalryError)).Message;
                 cavalryRatio = cavalry;
             }
 
@@ -118,8 +109,7 @@ public static class UpgradeTroopsCommand
             {
                 float sum = infantryRatio.Value + rangedRatio.Value + cavalryRatio.Value;
                 if (Math.Abs(sum - 1.0f) > 0.01f)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Troop ratios must add up to 1.0. Current sum: {sum:F2}")).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Troop ratios must add up to 1.0. Current sum: {sum:F2}")).Message;
             }
 
             // Calculate actual ratios that will be used (including defaults for unspecified)
@@ -128,12 +118,10 @@ public static class UpgradeTroopsCommand
 
             // MARK: Execute Logic
             if (hero.PartyBelongedTo == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.")).Message;
 
             if (hero.PartyBelongedTo.LeaderHero != hero)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.")).Message;
 
             // Call the extension method with proper parameter order (ranged, cavalry, infantry)
             hero.PartyBelongedTo.UpgradeTroops(tier, rangedRatio, cavalryRatio, infantryRatio);
@@ -166,8 +154,7 @@ public static class UpgradeTroopsCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.troop.upgrade_troops", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.ToString());
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }

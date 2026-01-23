@@ -24,8 +24,7 @@ public static class SetClanCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.set_clan", "<hero> <clan>",
@@ -42,32 +41,26 @@ public static class SetClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
-;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message;
             Hero hero = heroResult.Entity;
 
             string clanArg = parsed.GetArgument("clan", 1);
             if (clanArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
-            if (!clanResult.IsSuccess) return CommandResult.Error(clanResult.Message).Message
-;
+            if (!clanResult.IsSuccess) return CommandResult.Error(clanResult.Message).Message;
             Clan clan = clanResult.Entity;
 
             // MARK: Execute Logic
@@ -84,8 +77,7 @@ public static class SetClanCommand
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name} (ID: {hero.StringId}) transferred from '{previousClanName}' to '{clan.Name}'.\n" +
                 $"Updated details: {hero.FormattedDetails()}");
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }

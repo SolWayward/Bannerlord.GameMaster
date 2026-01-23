@@ -23,14 +23,12 @@ public static class QueryModifierInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             if (args == null || args.Count == 0)
                 return CommandResult.Success("Please provide a modifier name.\n" +
                        "Usage: gm.query.modifier_info <modifier_name>\n" +
-                       "Example: gm.query.modifier_info fine\n").Message
-;
+                       "Example: gm.query.modifier_info fine\n").Message;
 
             // MARK: Parse Arguments
             string modifierName = string.Join(" ", args);
@@ -41,12 +39,10 @@ public static class QueryModifierInfoCommand
             (modifier, parseError) = ItemModifierHelper.ParseModifier(modifierName);
 
             if (parseError != null)
-                return CommandResult.Error(parseError).Message
-;
+                return CommandResult.Error(parseError).Message;
 
             if (modifier == null)
-                return CommandResult.Error($"Modifier '{modifierName}' not found.").Message
-;
+                return CommandResult.Error($"Modifier '{modifierName}' not found.").Message;
 
             return CommandResult.Success($"Modifier Information:\n" +
                    $"StringId: {modifier.StringId}\n" +
@@ -57,8 +53,7 @@ public static class QueryModifierInfoCommand
                    $"Missile Speed Modifier: {(modifier.MissileSpeed >= 0 ? "+" : "")}{modifier.MissileSpeed}\n" +
                    $"Armor Modifier: {(modifier.Armor >= 0 ? "+" : "")}{modifier.Armor}\n" +
                    $"Hit Points Modifier: {(modifier.HitPoints >= 0 ? "+" : "")}{modifier.HitPoints}\n" +
-                   $"Stack Count Modifier: {(modifier.StackCount >= 0 ? "+" : "")}{modifier.StackCount}\n").Message
-;
+                   $"Stack Count Modifier: {(modifier.StackCount >= 0 ? "+" : "")}{modifier.StackCount}\n").Message;
         });
     }
 }

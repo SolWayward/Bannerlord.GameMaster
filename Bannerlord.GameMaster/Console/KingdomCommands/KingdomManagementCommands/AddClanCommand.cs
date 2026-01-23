@@ -41,8 +41,7 @@ public static class AddClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -81,8 +80,7 @@ public static class AddClanCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.add_clan", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                $"{clan.Name} joined {kingdom.Name} from {previousKingdom}.")).Message
-;
+                $"{clan.Name} joined {kingdom.Name} from {previousKingdom}.")).Message;
         });
     }
 }

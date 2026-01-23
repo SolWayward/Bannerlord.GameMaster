@@ -24,8 +24,7 @@ public static class GiveXpCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.troops.give_xp", "<partyLeader> <xp>",
@@ -43,42 +42,34 @@ public static class GiveXpCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string leaderArg = parsed.GetArgument("partyLeader", 0) ?? parsed.GetNamed("leader");
             if (leaderArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(leaderArg);
             if (!heroResult.IsSuccess)
-                return CommandResult.Error(heroResult.Message).Message
-;
+                return CommandResult.Error(heroResult.Message).Message;
             Hero hero = heroResult.Entity;
 
             string xpArg = parsed.GetArgument("xp", 1);
             if (xpArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'xp'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'xp'.")).Message;
 
             if (!CommandValidator.ValidateIntegerRange(xpArg, 1, 1000000, out int xp, out string xpError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(xpError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(xpError)).Message;
 
             // MARK: Execute Logic
             if (hero.PartyBelongedTo == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.")).Message;
 
             if (hero.PartyBelongedTo.LeaderHero != hero)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.")).Message;
 
             // Count non-hero troops before adding XP
             int troopCount = 0;
@@ -100,8 +91,7 @@ public static class GiveXpCommand
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {xp} XP to {troopCount} troop types in {hero.Name}'s party.\n" +
                 $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }

@@ -25,8 +25,7 @@ public static class ReinitializeBlgmObjectManagerCommand
             
             string message = MessageFormatter.FormatSuccessMessage(
                 $"BLGMObjectManager Reinitialized: {BLGMObjectManager.Instance.ObjectCount} BLGM created objects loaded");
-            return CommandResult.Success(message).Message
-;
+            return CommandResult.Success(message).Message;
         });
     }
 }

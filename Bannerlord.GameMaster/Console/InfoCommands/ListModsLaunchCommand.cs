@@ -38,8 +38,7 @@ public static class ListModsLaunchCommand
             output.AppendLine($"    \"{launchFormat}\"");
             output.AppendLine("]");
 
-            return CommandResult.Success(output.ToString()).Message
-;
+            return CommandResult.Success(output.ToString()).Message;
         });
     }
 }

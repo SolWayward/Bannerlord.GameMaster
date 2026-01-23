@@ -22,8 +22,7 @@ public static class ResetAllSettlementNamesCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.reset_all_names", "",
@@ -31,22 +30,18 @@ public static class ResetAllSettlementNamesCommand
                 "gm.settlement.reset_all_names");
 
             if (args.Count > 0)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Execute Logic
             int renamedCount = SettlementManager.GetRenamedSettlementCount();
             if (renamedCount == 0)
-                return CommandResult.Success(MessageFormatter.FormatSuccessMessage("No settlements have been renamed.")).Message
-;
+                return CommandResult.Success(MessageFormatter.FormatSuccessMessage("No settlements have been renamed.")).Message;
 
             BLGMResult result = SettlementManager.ResetAllSettlementNames();
             if (!result.IsSuccess)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Message;
 
-            return CommandResult.Success(MessageFormatter.FormatSuccessMessage(result.Message)).Message
-;
+            return CommandResult.Success(MessageFormatter.FormatSuccessMessage(result.Message)).Message;
         });
     }
 }

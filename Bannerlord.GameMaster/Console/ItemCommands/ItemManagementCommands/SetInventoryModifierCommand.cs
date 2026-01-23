@@ -130,8 +130,7 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
                     result.AppendLine($"  ... and {changedItems.Count - 10} more item types");
                 }
 
-                return CommandResult.Success(result.ToString()).Message
-;
+                return CommandResult.Success(result.ToString()).Message;
             });
         }
     }

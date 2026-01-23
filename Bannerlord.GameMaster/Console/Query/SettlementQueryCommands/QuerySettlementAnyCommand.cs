@@ -24,8 +24,7 @@ public static class QuerySettlementAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             // MARK: Parse Arguments
             SettlementQueryArguments queryArgs = SettlementQueryHelpers.ParseSettlementQueryArguments(args);
@@ -44,13 +43,11 @@ public static class QuerySettlementAnyCommand
             {
                 return CommandResult.Success($"Found 0 settlement(s) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.settlement_any [search] [type keywords] [sort]\n" +
-                       "Example: gm.query.settlement_any castle city sort:prosperity:desc\n").Message
-;
+                       "Example: gm.query.settlement_any castle city sort:prosperity:desc\n").Message;
             }
 
             return CommandResult.Success($"Found {matchedSettlements.Count} settlement(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{SettlementQueries.GetFormattedDetails(matchedSettlements)}").Message
-;
+                   $"{SettlementQueries.GetFormattedDetails(matchedSettlements)}").Message;
         });
     }
 }

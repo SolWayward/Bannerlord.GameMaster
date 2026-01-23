@@ -24,12 +24,10 @@ public static class QueryClanInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             if (args == null || args.Count == 0)
-                return CommandResult.Error("Please provide a clan ID.\nUsage: gm.query.clan_info <clanId>\n").Message
-;
+                return CommandResult.Error("Please provide a clan ID.\nUsage: gm.query.clan_info <clanId>\n").Message;
 
             // MARK: Parse Arguments
             string clanId = args[0];
@@ -38,8 +36,7 @@ public static class QueryClanInfoCommand
             Clan clan = ClanQueries.GetClanById(clanId);
 
             if (clan == null)
-                return CommandResult.Error($"Clan with ID '{clanId}' not found.\n").Message
-;
+                return CommandResult.Error($"Clan with ID '{clanId}' not found.\n").Message;
 
             Dictionary<string, string> resolvedValues = new()
             {
@@ -65,8 +62,7 @@ public static class QueryClanInfoCommand
                    $"Types: {types}\n" +
                    $"Is Eliminated: {clan.IsEliminated}\n";
 
-            return CommandResult.Success(argumentDisplay + clanInfo).Message
-;
+            return CommandResult.Success(argumentDisplay + clanInfo).Message;
         });
     }
 }

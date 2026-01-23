@@ -54,8 +54,7 @@ public static class DumpBannerColorsCommand
 
             File.WriteAllText(outputPath, sb.ToString());
 
-            return CommandResult.Success(MessageFormatter.FormatSuccessMessage($"Banner color palette dumped to: {outputPath}")).Message
-;
+            return CommandResult.Success(MessageFormatter.FormatSuccessMessage($"Banner color palette dumped to: {outputPath}")).Message;
         });
     }
 }

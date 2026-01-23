@@ -25,14 +25,12 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error).Message
-;
+                    return CommandResult.Error(error).Message;
 
                 // MARK: Execute Logic
                 string countsSummary = BanditCommandHelpers.GetBanditCountsSummary();
                 string fullMessage = MessageFormatter.FormatSuccessMessage($"Bandit Statistics:\n{countsSummary}");
-                return CommandResult.Success(fullMessage).Message
-;
+                return CommandResult.Success(fullMessage).Message;
             });
         }
     }

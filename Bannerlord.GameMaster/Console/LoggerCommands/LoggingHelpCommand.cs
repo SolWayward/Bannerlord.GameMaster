@@ -34,8 +34,7 @@ public static class LoggingHelpCommand
                    "  Documents\\Mount and Blade II Bannerlord\\Configs\\GameMaster\\command_log.txt\n\n" +
                    "Note: Commands integrated with logging will be logged when enabled.\n" +
                    "See LOGGING.md for integration guide.\n";
-            return CommandResult.Success(helpMessage).Message
-;
+            return CommandResult.Success(helpMessage).Message;
         });
     }
 }

@@ -23,8 +23,7 @@ public static class AddGoldToLeaderCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.add_gold_leader", "<clan> <amount>",
@@ -41,8 +40,7 @@ public static class AddGoldToLeaderCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -50,25 +48,21 @@ public static class AddGoldToLeaderCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
             Clan clan = clanResult.Entity;
 
             if (clan.Leader == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{clan.Name} has no leader.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{clan.Name} has no leader.")).Message;
 
             string amountArg = parsed.GetArgument("amount", 1);
             if (amountArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.")).Message;
 
             if (!CommandValidator.ValidateIntegerRange(amountArg, int.MinValue, int.MaxValue, out int amount, out string goldError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(goldError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(goldError)).Message;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -86,8 +80,7 @@ public static class AddGoldToLeaderCommand
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {amount} gold to {clan.Leader.Name} (leader of {clan.Name}).\n" +
                 $"Leader gold: {previousLeaderGold} -> {clan.Leader.Gold}\n" +
-                $"Clan total gold: {previousClanGold} -> {clan.Gold}")).Message
-;
+                $"Clan total gold: {previousClanGold} -> {clan.Gold}")).Message;
         });
     }
 }

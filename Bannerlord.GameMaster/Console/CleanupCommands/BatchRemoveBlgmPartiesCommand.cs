@@ -22,8 +22,7 @@ public static class BatchRemoveBlgmPartiesCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.cleanup.batch_remove_blgm_parties", "[count]",
@@ -40,8 +39,7 @@ public static class BatchRemoveBlgmPartiesCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             // MARK: Parse Arguments
             int? count = null;
@@ -52,8 +50,7 @@ public static class BatchRemoveBlgmPartiesCommand
                 string countStr = parsed.GetArgument("count", 0);
                 if (!CommandValidator.ValidateIntegerRange(countStr, 1, int.MaxValue, out int countValue, out string countError))
                 {
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Message
-;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Message;
                 }
 
                 count = countValue;
@@ -72,8 +69,7 @@ public static class BatchRemoveBlgmPartiesCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.cleanup.batch_remove_blgm_parties", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Removed {removed} BLGM party(ies)\n{details}");
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }

@@ -23,8 +23,7 @@ public static class AddHeroToClanCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.add_hero", "<clan> <hero>",
@@ -41,8 +40,7 @@ public static class AddHeroToClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -50,8 +48,7 @@ public static class AddHeroToClanCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
@@ -59,8 +56,7 @@ public static class AddHeroToClanCommand
 
             string heroArg = parsed.GetArgument("hero", 1);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
             if (!heroResult.IsSuccess) return heroResult.Message;
@@ -82,8 +78,7 @@ public static class AddHeroToClanCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.add_hero", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                $"{hero.Name} transferred from '{previousClanName}' to '{clan.Name}'.")).Message
-;
+                $"{hero.Name} transferred from '{previousClanName}' to '{clan.Name}'.")).Message;
         });
     }
 }

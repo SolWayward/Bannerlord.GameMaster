@@ -27,8 +27,7 @@ public static class QueryCultureCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             // MARK: Parse Arguments
             CultureQueryArguments queryArgs = CultureQueryHelpers.ParseCultureQueryArguments(args);
@@ -69,13 +68,11 @@ public static class QueryCultureCommand
                        "Usage: gm.query.culture [search] [main|bandit] [sort]\n" +
                        "Example: gm.query.culture empire\n" +
                        "Example: gm.query.culture main sort:name\n" +
-                       "Example: gm.query.culture bandit\n").Message
-;
+                       "Example: gm.query.culture bandit\n").Message;
             }
 
             return CommandResult.Success($"Found {cultureList.Count} culture(s) matching {criteriaDesc}:\n" +
-                   $"{CultureQueryHelpers.GetFormattedCultureList(cultureList)}").Message
-;
+                   $"{CultureQueryHelpers.GetFormattedCultureList(cultureList)}").Message;
         });
     }
 }

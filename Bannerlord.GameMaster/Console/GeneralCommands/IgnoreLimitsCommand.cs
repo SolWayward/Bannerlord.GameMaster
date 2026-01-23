@@ -41,22 +41,19 @@ public static class IgnoreLimitsCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             // If no arguments, display current status and limits
             if (parsed.TotalCount == 0)
             {
-                return CommandResult.Error(GeneralCommandHelpers.GetStatusMessage()).Message
-;
+                return CommandResult.Error(GeneralCommandHelpers.GetStatusMessage()).Message;
             }
 
             // MARK: Parse Arguments
             string enabledArg = parsed.GetArgument("enabled", 0) ?? parsed.GetArgument("value", 0);
             if (string.IsNullOrWhiteSpace(enabledArg))
             {
-                return CommandResult.Success(GeneralCommandHelpers.GetStatusMessage()).Message
-;
+                return CommandResult.Success(GeneralCommandHelpers.GetStatusMessage()).Message;
             }
 
             string input = enabledArg.ToLower();
@@ -72,8 +69,7 @@ public static class IgnoreLimitsCommand
             }
             else
             {
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid value '{enabledArg}'. Must be true, false, 1, or 0.\n{usageMessage}")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid value '{enabledArg}'. Must be true, false, 1, or 0.\n{usageMessage}")).Message;
             }
 
             // MARK: Execute Logic

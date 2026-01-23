@@ -25,8 +25,7 @@ public static class SetOwnerClanCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Message
-;
+                return CommandResult.Error(error).Message;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.set_owner_clan", "<settlement> <clan>",
@@ -41,34 +40,28 @@ public static class SetOwnerClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Message
-;
+                return CommandResult.Error(usageMessage).Message;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string clanQuery = parsed.GetArgument("clan", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
-;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no town likely because it is not a castle of city.")).Message;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanQuery);
-            if (!clanResult.IsSuccess) return CommandResult.Error(clanResult.Message).Message
-;
+            if (!clanResult.IsSuccess) return CommandResult.Error(clanResult.Message).Message;
             Clan clan = clanResult.Entity;
 
             if (clan.Leader == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Clan '{clan.Name}' has no leader.")).Message
-;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Clan '{clan.Name}' has no leader.")).Message;
 
             // MARK: Execute Logic
             string previousOwner = settlement.Owner?.Name?.ToString() ?? "None";
@@ -89,8 +82,7 @@ public static class SetOwnerClanCommand
                 $"Owner: {previousOwner} -> {settlement.Owner?.Name?.ToString() ?? "None"}\n" +
                 $"Owner Clan: {previousClan} -> {settlement.OwnerClan?.Name?.ToString() ?? "None"}\n" +
                 $"Map Faction: {previousFaction} -> {settlement.MapFaction?.Name?.ToString() ?? "None"}");
-            return CommandResult.Success(fullMessage).Message
-;
+            return CommandResult.Success(fullMessage).Message;
         });
     }
 }
