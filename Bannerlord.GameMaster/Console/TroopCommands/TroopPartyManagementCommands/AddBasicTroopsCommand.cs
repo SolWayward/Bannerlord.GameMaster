@@ -24,7 +24,8 @@ public static class AddBasicTroopsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.troops.add_basic", "<partyLeader> <count>",
@@ -42,34 +43,42 @@ public static class AddBasicTroopsCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string leaderArg = parsed.GetArgument("partyLeader", 0) ?? parsed.GetNamed("leader");
             if (leaderArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Message
+;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(leaderArg);
             if (!heroResult.IsSuccess)
-                return CommandResult.Error(heroResult.Message).Log().Message;
+                return CommandResult.Error(heroResult.Message).Message
+;
             Hero hero = heroResult.Entity;
 
             string countArg = parsed.GetArgument("count", 1);
             if (countArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'count'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'count'.")).Message
+;
 
             if (!CommandValidator.ValidateIntegerRange(countArg, 1, 10000, out int count, out string countError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Message
+;
 
             // MARK: Execute Logic
             if (hero.PartyBelongedTo == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} does not belong to a party.")).Message
+;
 
             if (hero.PartyBelongedTo.LeaderHero != hero)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a party leader. They belong to {hero.PartyBelongedTo.LeaderHero.Name}'s party.")).Message
+;
 
             hero.PartyBelongedTo.AddBasicTroops(count);
 
@@ -85,7 +94,8 @@ public static class AddBasicTroopsCommand
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Added {count}x {troopName} to {hero.Name}'s party.\n" +
                 $"Party: {hero.PartyBelongedTo.Name} (Total size: {hero.PartyBelongedTo.MemberRoster.TotalManCount})");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

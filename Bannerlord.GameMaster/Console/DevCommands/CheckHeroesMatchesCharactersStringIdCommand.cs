@@ -23,11 +23,13 @@ public static class CheckHeroesMatchesCharactersStringIdCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Execute Logic
             string message = HeroDebug.CheckHeroesCharacterStringId();
-            return CommandResult.Success(message).Log().Message;
+            return CommandResult.Success(message).Message
+;
         });
     }
 }

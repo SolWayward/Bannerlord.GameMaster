@@ -22,10 +22,12 @@ public static class QueryHeroInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             if (args == null || args.Count == 0)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Please provide a hero ID.\nUsage: gm.query.hero_info <heroId>")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Please provide a hero ID.\nUsage: gm.query.hero_info <heroId>")).Message
+;
 
             // MARK: Parse Arguments
             string heroId = args[0];
@@ -34,7 +36,8 @@ public static class QueryHeroInfoCommand
             Hero hero = HeroQueries.GetHeroById(heroId);
 
             if (hero == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Hero with ID '{heroId}' not found.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Hero with ID '{heroId}' not found.")).Message
+;
 
             HeroTypes types = hero.GetHeroTypes();
             string clanName = hero.Clan?.Name?.ToString() ?? "None";
@@ -48,7 +51,8 @@ public static class QueryHeroInfoCommand
                    $"Age: {hero.Age:F0}\n" +
                    $"Types: {types}\n" +
                    $"Is Alive: {hero.IsAlive}\n" +
-                   $"Is Prisoner: {hero.IsPrisoner}\n").Log().Message;
+                   $"Is Prisoner: {hero.IsPrisoner}\n").Message
+;
         });
     }
 }

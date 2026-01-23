@@ -25,7 +25,8 @@ public static class QuerySettlementCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Parse Arguments
             SettlementQueryArguments queryArgs = SettlementQueryHelpers.ParseSettlementQueryArguments(args);
@@ -47,11 +48,13 @@ public static class QuerySettlementCommand
                        "Type keywords: town, castle, city, village, hideout, player, besieged, raided, empire, vlandia, etc.\n" +
                        "Prosperity: low, medium, high\n" +
                        "Sort: sort:name, sort:prosperity, sort:owner, sort:kingdom, sort:culture (add :desc for descending)\n" +
-                       "Example: gm.query.settlement castle empire sort:prosperity:desc\n").Log().Message;
+                       "Example: gm.query.settlement castle empire sort:prosperity:desc\n").Message
+;
             }
 
             return CommandResult.Success($"Found {matchedSettlements.Count} settlement(s) matching {criteriaDesc}:\n" +
-                   $"{SettlementQueries.GetFormattedDetails(matchedSettlements)}").Log().Message;
+                   $"{SettlementQueries.GetFormattedDetails(matchedSettlements)}").Message
+;
         });
     }
 }

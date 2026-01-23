@@ -23,7 +23,8 @@ public static class AddGoldCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.add_gold", "<hero> <amount>",
@@ -40,26 +41,32 @@ public static class AddGoldCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
+;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
+;
             Hero hero = heroResult.Entity;
 
             string amountArg = parsed.GetArgument("amount", 1);
             if (amountArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'amount'.")).Message
+;
 
             if (!CommandValidator.ValidateIntegerRange(amountArg, int.MinValue, int.MaxValue, out int amount, out string goldError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(goldError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(goldError)).Message
+;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -74,7 +81,8 @@ public static class AddGoldCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.add_gold", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name}'s gold changed from {previousGold} to {hero.Gold} ({(amount >= 0 ? "+" : "")}{amount}).");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

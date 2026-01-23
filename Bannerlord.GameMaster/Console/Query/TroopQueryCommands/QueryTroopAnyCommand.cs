@@ -25,7 +25,8 @@ public static class QueryTroopAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Parse Arguments
             TroopQueryArguments queryArgs = TroopQueryHelpers.ParseTroopQueryArguments(args);
@@ -46,11 +47,13 @@ public static class QueryTroopAnyCommand
                 return CommandResult.Success($"Found 0 troop(s) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.troop_any [search] [type keywords] [tier] [sort]\n" +
                        "Example: gm.query.troop_any cavalry ranged tier3 sort:tier\n" +
-                       "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n").Log().Message;
+                       "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n").Message
+;
             }
 
             return CommandResult.Success($"Found {matchedTroops.Count} troop(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{TroopQueries.GetFormattedDetails(matchedTroops)}").Log().Message;
+                   $"{TroopQueries.GetFormattedDetails(matchedTroops)}").Message
+;
         });
     }
 }

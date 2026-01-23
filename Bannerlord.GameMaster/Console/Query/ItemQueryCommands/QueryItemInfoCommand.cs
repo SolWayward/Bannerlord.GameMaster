@@ -21,17 +21,20 @@ public static class QueryItemInfoCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             if (args == null || args.Count == 0)
-                return CommandResult.Error("Please provide an item ID.\nUsage: gm.query.item_info <itemId>\n").Log().Message;
+                return CommandResult.Error("Please provide an item ID.\nUsage: gm.query.item_info <itemId>\n").Message
+;
 
             // MARK: Parse Arguments
             string itemId = args[0];
             ItemObject item = ItemQueries.GetItemById(itemId);
 
             if (item == null)
-                return CommandResult.Error($"Item with ID '{itemId}' not found.\n").Log().Message;
+                return CommandResult.Error($"Item with ID '{itemId}' not found.\n").Message
+;
 
             // MARK: Execute Logic
             ItemTypes types = item.GetItemTypes();
@@ -80,7 +83,8 @@ public static class QueryItemInfoCommand
                    $"Weight: {item.Weight}\n" +
                    $"Tier: {tier}\n" +
                    $"Types: {types}\n" +
-                   additionalInfo).Log().Message;
+                   additionalInfo).Message
+;
         });
     }
 }

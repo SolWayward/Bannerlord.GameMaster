@@ -40,7 +40,8 @@ public static class SetRulerCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -86,7 +87,8 @@ public static class SetRulerCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.set_ruler", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{kingdom.Name}'s ruler changed from {previousRuler} to {hero.Name}.\n" +
-                $"Ruling clan is now {hero.Clan.Name}.")).Log().Message;
+                $"Ruling clan is now {hero.Clan.Name}.")).Message
+;
         });
     }
 }

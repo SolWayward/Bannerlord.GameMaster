@@ -24,7 +24,8 @@ public static class AddHeroToPartyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.add_hero_to_party", "<hero> <partyLeader>",
@@ -43,26 +44,32 @@ public static class AddHeroToPartyCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
+;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
+;
             Hero hero = heroResult.Entity;
 
             string leaderArg = parsed.GetArgument("partyLeader", 1) ?? parsed.GetNamed("leader");
             if (leaderArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'partyLeader'.")).Message
+;
 
             EntityFinderResult<Hero> leaderResult = HeroFinder.FindSingleHero(leaderArg);
-            if (!leaderResult.IsSuccess) return CommandResult.Error(leaderResult.Message).Log().Message;
+            if (!leaderResult.IsSuccess) return CommandResult.Error(leaderResult.Message).Message
+;
             Hero partyLeader = leaderResult.Entity;
 
             // MARK: Execute Logic
@@ -75,14 +82,17 @@ public static class AddHeroToPartyCommand
 
             // Validate party leader has a party
             if (partyLeader.PartyBelongedTo == null)
-                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"{partyLeader.Name} does not have a party.")).Log().Message;
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"{partyLeader.Name} does not have a party.")).Message
+;
 
             if (partyLeader.PartyBelongedTo.LeaderHero != partyLeader)
-                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"{partyLeader.Name} is not a party leader.")).Log().Message;
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"{partyLeader.Name} is not a party leader.")).Message
+;
 
             // Check if hero is trying to join their own party
             if (hero == partyLeader)
-                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Cannot add a hero to their own party.")).Log().Message;
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Cannot add a hero to their own party.")).Message
+;
 
             string previousPartyInfo = "None";
             
@@ -97,7 +107,8 @@ public static class AddHeroToPartyCommand
                     // Disband the party (this is complex, so we'll just prevent it for now)
                     return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage(
                         $"{hero.Name} is currently leading their own party ({hero.PartyBelongedTo.Name}). " +
-                        "Party leaders must disband their party before joining another. This is not yet implemented.")).Log().Message;
+                        "Party leaders must disband their party before joining another. This is not yet implemented.")).Message
+;
                 }
                 
                 // Remove hero from their current party roster
@@ -114,7 +125,8 @@ public static class AddHeroToPartyCommand
                 $"Previous party: {previousPartyInfo}\n" +
                 $"New party: {partyLeader.PartyBelongedTo.Name}\n" +
                 $"Clan updated to: {hero.Clan?.Name}");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

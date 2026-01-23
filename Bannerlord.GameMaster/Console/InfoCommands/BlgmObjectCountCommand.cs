@@ -23,7 +23,8 @@ public static class BlgmObjectCountCommand
                 $"Heroes: {BLGMObjectManager.BlgmHeroCount}\n" +
                 $"Clans: {BLGMObjectManager.BlgmClanCount}\n" +
                 $"Kingdoms: {BLGMObjectManager.BlgmKingdomCount}";
-            return CommandResult.Success(message).Log().Message;
+            return CommandResult.Success(message).Message
+;
         });
     }
 }

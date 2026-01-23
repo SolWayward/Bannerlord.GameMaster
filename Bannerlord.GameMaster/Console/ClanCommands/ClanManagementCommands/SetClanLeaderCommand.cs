@@ -23,7 +23,8 @@ public static class SetClanLeaderCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.set_leader", "<clan> <hero>",
@@ -40,7 +41,8 @@ public static class SetClanLeaderCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -48,7 +50,8 @@ public static class SetClanLeaderCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message
+;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
@@ -56,14 +59,16 @@ public static class SetClanLeaderCommand
 
             string heroArg = parsed.GetArgument("hero", 1);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
+;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
             if (!heroResult.IsSuccess) return heroResult.Message;
             Hero hero = heroResult.Entity;
 
             if (hero.Clan != clan)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a member of {clan.Name}.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a member of {clan.Name}.")).Message
+;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -76,7 +81,8 @@ public static class SetClanLeaderCommand
             clan.SetLeader(hero);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.set_leader", resolvedValues);
-            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name}'s leader changed from {previousLeader} to {hero.Name}.")).Log().Message;
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name}'s leader changed from {previousLeader} to {hero.Name}.")).Message
+;
         });
     }
 }

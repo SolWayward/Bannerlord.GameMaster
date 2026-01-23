@@ -39,7 +39,8 @@ public static class RemoveClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 1)
                 return usageMessage;
@@ -71,7 +72,8 @@ public static class RemoveClanCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.remove_clan", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                $"{clan.Name} removed from {previousKingdom}.")).Log().Message;
+                $"{clan.Name} removed from {previousKingdom}.")).Message
+;
         });
     }
 }

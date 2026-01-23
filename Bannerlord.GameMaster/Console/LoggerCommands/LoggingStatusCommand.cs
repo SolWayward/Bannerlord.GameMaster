@@ -31,7 +31,8 @@ public static class LoggingStatusCommand
                    $"Log File: {path}\n" +
                    $"File Size: {sizeFormatted}\n" +
                    $"Log Entries: {entries}\n";
-            return CommandResult.Success(statusMessage).Log().Message;
+            return CommandResult.Success(statusMessage).Message
+;
         });
     }
 }

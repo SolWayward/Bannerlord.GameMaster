@@ -23,7 +23,8 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error).Log().Message;
+                    return CommandResult.Error(error).Message
+;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.caravan.disband_notable_caravans", "<count>",
@@ -42,19 +43,23 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
                 if (parsed.TotalCount < 1)
-                    return CommandResult.Error(usageMessage).Log().Message;
+                    return CommandResult.Error(usageMessage).Message
+;
 
                 // MARK: Parse Arguments
                 string countArg = parsed.GetArgument("count", 0);
                 if (string.IsNullOrWhiteSpace(countArg))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'count'.")).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'count'.")).Message
+;
 
                 int? count = CaravanCommandHelpers.ParseCountArgument(countArg, out string parseError);
                 if (parseError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(parseError)).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(parseError)).Message
+;
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -71,7 +76,8 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
                 string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Disbanded {disbanded} notable caravans{countInfo}.\n\n" +
                     $"Remaining Counts:\n{countsSummary}");
-                return CommandResult.Success(fullMessage).Log().Message;
+                return CommandResult.Success(fullMessage).Message
+;
             });
         }
     }

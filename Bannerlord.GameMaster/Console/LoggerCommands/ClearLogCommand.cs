@@ -26,16 +26,19 @@ public static class ClearLogCommand
                 if (string.IsNullOrEmpty(CommandLogger.LogFilePath))
                 {
                     return CommandResult.Error(MessageFormatter.FormatErrorMessage(
-                        "Logger not initialized. Enable logging first with gm.log.enable")).Log().Message;
+                        "Logger not initialized. Enable logging first with gm.log.enable")).Message
+;
                 }
 
                 CommandLogger.ClearLog();
                 return CommandResult.Success(MessageFormatter.FormatSuccessMessage(
-                    $"Log file cleared.\nLog file: {CommandLogger.LogFilePath}")).Log().Message;
+                    $"Log file cleared.\nLog file: {CommandLogger.LogFilePath}")).Message
+;
             }
             catch (Exception ex)
             {
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Failed to clear log: {ex.Message}"), ex).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Failed to clear log: {ex.Message}"), ex).Message
+;
             }
         });
     }

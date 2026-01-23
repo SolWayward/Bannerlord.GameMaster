@@ -28,7 +28,8 @@ public static class DumpHotkeyCategoriesCommand
 
             if (hotkeyCategories == null)
             {
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Failed to retrieve hotkey categories - HotKeyManager returned null")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Failed to retrieve hotkey categories - HotKeyManager returned null")).Message
+;
             }
 
             string outputPath = DevCommandHelpers.GetDumpFilePath("HotkeyCategories_Dump.txt");
@@ -83,7 +84,8 @@ public static class DumpHotkeyCategoriesCommand
 
             File.WriteAllText(outputPath, sb.ToString());
 
-            return CommandResult.Success(MessageFormatter.FormatSuccessMessage($"Hotkey categories dumped to: {outputPath}")).Log().Message;
+            return CommandResult.Success(MessageFormatter.FormatSuccessMessage($"Hotkey categories dumped to: {outputPath}")).Message
+;
         });
     }
 }

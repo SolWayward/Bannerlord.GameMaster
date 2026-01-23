@@ -23,7 +23,8 @@ public static class SetProsperityCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.set_prosperity", "<settlement> <value>",
@@ -38,24 +39,29 @@ public static class SetProsperityCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string valueStr = parsed.GetArgument("value", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
+;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Message
+;
 
             if (!CommandValidator.ValidateFloatRange(valueStr, 0, 20000, out float value, out string valueError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(valueError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(valueError)).Message
+;
 
             // MARK: Execute Logic
             float previousValue = settlement.Town.Prosperity;
@@ -70,7 +76,8 @@ public static class SetProsperityCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_prosperity", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) prosperity changed from {previousValue:F0} to {settlement.Town.Prosperity:F0}.");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

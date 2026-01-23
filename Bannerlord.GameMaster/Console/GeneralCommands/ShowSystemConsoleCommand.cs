@@ -27,7 +27,8 @@ public static class ShowSystemConsoleCommand
             SystemConsoleManager.ShowConsole();
 
             string message = MessageFormatter.FormatSuccessMessage($"{command}\nSystem Console allocated and attached");
-            return CommandResult.Success(message).Log().Message;
+            return CommandResult.Success(message).Message
+;
         });
     }
 }

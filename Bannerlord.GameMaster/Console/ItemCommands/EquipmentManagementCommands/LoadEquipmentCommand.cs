@@ -96,7 +96,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     }
                 }
 
-                return CommandResult.Success(result.ToString()).Log().Message;
+                return CommandResult.Success(result.ToString()).Message
+;
             });
         }
     }

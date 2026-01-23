@@ -37,7 +37,8 @@ public static class GetTributeInfoCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -73,7 +74,8 @@ public static class GetTributeInfoCommand
             TributeInfo tributeInfo = kingdomA.GetTributeInfo(kingdomB);
             string tributeString = tributeInfo.GetTributeString();
 
-            return CommandResult.Success(argumentDisplay + tributeString + "\n").Log().Message;
+            return CommandResult.Success(argumentDisplay + tributeString + "\n").Message
+;
         });
     }
 }

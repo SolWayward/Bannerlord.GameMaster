@@ -28,7 +28,8 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error).Log().Message;
+                    return CommandResult.Error(error).Message
+;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.bandit.clear_hideouts", "<banditType> [count]",
@@ -52,28 +53,33 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
                 if (parsed.TotalCount < 1)
-                    return CommandResult.Error(usageMessage).Log().Message;
+                    return CommandResult.Error(usageMessage).Message
+;
 
                 // MARK: Parse Arguments
                 string banditTypeArg = parsed.GetArgument("banditType", 0) ?? parsed.GetArgument("type", 0);
                 if (banditTypeArg == null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'banditType'.")).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'banditType'.")).Message
+;
 
                 int? count = null;
                 string countArg = parsed.GetArgument("count", 1);
                 if (countArg != null)
                 {
                     if (!CommandValidator.ValidateIntegerRange(countArg, 1, int.MaxValue, out int countValue, out string countError))
-                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Log().Message;
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(countError)).Message
+;
                     count = countValue;
                 }
 
                 (List<CultureObject> cultures, string parseError) = BanditCommandHelpers.ParseBanditCultures(banditTypeArg);
                 if (parseError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(parseError)).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(parseError)).Message
+;
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -98,7 +104,8 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
                     $"Cleared {totalRemoved} bandit hideouts{countInfo}.\n" +
                     $"Types: {BanditCommandHelpers.FormatBanditTypeList(cultures)}\n\n" +
                     $"Remaining Counts:\n{countsSummary}");
-                return CommandResult.Success(fullMessage).Log().Message;
+                return CommandResult.Success(fullMessage).Message
+;
             });
         }
     }

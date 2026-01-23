@@ -27,7 +27,8 @@ public static class SpawnWandererCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.spawn_wanderer", "<settlement> [name] [cultures] [gender] [randomFactor]",
@@ -55,16 +56,19 @@ public static class SpawnWandererCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 1)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
+;
             Settlement settlement = settlementResult.Entity;
 
             // Parse optional name
@@ -100,7 +104,8 @@ public static class SpawnWandererCommand
                 {
                     cultureFlags = FlagParser.ParseCultureArgument(args[currentArgIndex]);
                     if (cultureFlags == CultureFlags.None)
-                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{args[currentArgIndex]})'")).Log().Message;
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid culture(s): '{args[currentArgIndex]})'")).Message
+;
                     currentArgIndex++;
                 }
             }
@@ -111,7 +116,8 @@ public static class SpawnWandererCommand
             {
                 genderFlags = FlagParser.ParseGenderArgument(args[currentArgIndex]);
                 if (genderFlags == GenderFlags.None)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid gender: '{args[currentArgIndex]}'. Use 'both/b', 'female/f', or 'male/m'")).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid gender: '{args[currentArgIndex]}'. Use 'both/b', 'female/f', or 'male/m'")).Message
+;
                 currentArgIndex++;
             }
 
@@ -120,7 +126,8 @@ public static class SpawnWandererCommand
             if (args.Count > currentArgIndex)
             {
                 if (!CommandValidator.ValidateFloatRange(args[currentArgIndex], 0f, 1f, out randomFactor, out string randomError))
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError)).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError)).Message
+;
             }
 
             // MARK: Execute Logic
@@ -138,12 +145,14 @@ public static class SpawnWandererCommand
             }
 
             if (wanderer == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Failed to spawn wanderer - no templates found matching criteria")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Failed to spawn wanderer - no templates found matching criteria")).Message
+;
 
             return CommandResult.Success(MessageFormatter.FormatSuccessMessage(
                 $"Spawned wanderer '{wanderer.Name}' (ID: {wanderer.StringId}) in '{settlement.Name}'.\n" +
                 $"Culture: {wanderer.Culture?.Name} | Age: {(int)wanderer.Age} | Gender: {(wanderer.IsFemale ? "Female" : "Male")}\n" +
-                $"Wanderer can be recruited from the tavern in {settlement.Name}.")).Log().Message;
+                $"Wanderer can be recruited from the tavern in {settlement.Name}.")).Message
+;
         });
     }
 }

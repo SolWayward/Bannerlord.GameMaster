@@ -27,7 +27,8 @@ public static class QueryCharacterObjectsCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Parse Arguments
             CharacterQueryArguments queryArgs = CharacterQueryHelpers.ParseCharacterQueryArguments(args);
@@ -54,12 +55,14 @@ public static class QueryCharacterObjectsCommand
                        "Tier keywords: tier0, tier1, tier2, tier3, tier4, tier5, tier6, tier6plus\n" +
                        "Sort: sort:name, sort:tier, sort:level, sort:culture, sort:classification (add :desc for descending)\n" +
                        "Example: gm.query.character_objects imperial hero sort:name\n" +
-                       "Example: gm.query.character_objects troop vlandia,empire tier3\n").Log().Message;
+                       "Example: gm.query.character_objects troop vlandia,empire tier3\n").Message
+;
             }
 
             List<CharacterObject> characterList = new(matchedCharacters);
             return CommandResult.Success($"Found {matchedCharacters.Count} character(s) matching {criteriaDesc}:\n" +
-                   $"{CharacterQueries.GetFormattedDetails(characterList)}").Log().Message;
+                   $"{CharacterQueries.GetFormattedDetails(characterList)}").Message
+;
         });
     }
 }

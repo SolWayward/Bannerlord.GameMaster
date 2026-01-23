@@ -25,7 +25,8 @@ public static class ResetSettlementNameCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.reset_name", "<settlement>",
@@ -39,28 +40,33 @@ public static class ResetSettlementNameCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 1)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
+;
             Settlement settlement = settlementResult.Entity;
 
             // MARK: Execute Logic
             if (!SettlementManager.IsSettlementRenamed(settlement))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' (ID: {settlement.StringId}) has not been renamed.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' (ID: {settlement.StringId}) has not been renamed.")).Message
+;
 
             string originalName = SettlementManager.GetOriginalSettlementName(settlement);
             string currentName = settlement.Name.ToString();
 
             BLGMResult result = SettlementManager.ResetSettlementName(settlement);
             if (!result.IsSuccess)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Message
+;
 
             Dictionary<string, string> resolvedValues = new()
             {
@@ -70,7 +76,8 @@ public static class ResetSettlementNameCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.reset_name", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement name reset from '{currentName}' to '{settlement.Name}' (original: '{originalName}') (ID: {settlement.StringId}).");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

@@ -26,7 +26,8 @@ public static class QueryKingdomCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Parse Arguments
             KingdomQueryArguments queryArgs = KingdomQueryHelpers.ParseKingdomQueryArguments(args);
@@ -47,11 +48,13 @@ public static class QueryKingdomCommand
                        "Usage: gm.query.kingdom [search] [type keywords] [sort]\n" +
                        "Type keywords: active, eliminated, empty, atwar, player, etc.\n" +
                        "Sort: sort:name, sort:clans, sort:heroes, sort:fiefs, sort:strength, sort:<type> (add :desc for descending)\n" +
-                       "Example: gm.query.kingdom empire atwar sort:strength:desc\n").Log().Message;
+                       "Example: gm.query.kingdom empire atwar sort:strength:desc\n").Message
+;
             }
 
             return CommandResult.Success($"Found {matchedKingdoms.Count} kingdom(s) matching {criteriaDesc}:\n" +
-                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}").Log().Message;
+                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}").Message
+;
         });
     }
 }

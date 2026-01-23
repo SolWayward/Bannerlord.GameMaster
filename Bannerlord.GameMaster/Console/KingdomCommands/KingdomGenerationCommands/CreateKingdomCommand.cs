@@ -145,7 +145,8 @@ public static class CreateKingdomCommand
             if (kingdom == null)
             {
                 string argumentDisplayError = parsed.FormatArgumentDisplay("gm.kingdom.create_kingdom", resolvedValues);
-                return CommandResult.Error(argumentDisplayError + MessageFormatter.FormatErrorMessage("Failed to create kingdom - settlement could not be resolved or assigned.")).Log().Message;
+                return CommandResult.Error(argumentDisplayError + MessageFormatter.FormatErrorMessage("Failed to create kingdom - settlement could not be resolved or assigned.")).Message
+;
             }
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.create_kingdom", resolvedValues);
@@ -156,7 +157,8 @@ public static class CreateKingdomCommand
                 $"Ruler: {kingdom.Leader.Name}\n" +
                 $"Culture: {kingdom.Culture.Name}\n" +
                 $"Vassal Clans: {vassalCount}\n" +
-                $"Total Clans: {kingdom.Clans.Count}")).Log().Message;
+                $"Total Clans: {kingdom.Clans.Count}")).Message
+;
         });
     }
 }

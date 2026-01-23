@@ -23,7 +23,8 @@ public static class SetAgeCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.set_age", "<hero> <age>",
@@ -40,26 +41,32 @@ public static class SetAgeCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
+;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
+;
             Hero hero = heroResult.Entity;
 
             string ageArg = parsed.GetArgument("age", 1);
             if (ageArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'age'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'age'.")).Message
+;
 
             if (!CommandValidator.ValidateFloatRange(ageArg, 0, 128, out float age, out string ageError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(ageError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(ageError)).Message
+;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -73,7 +80,8 @@ public static class SetAgeCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.set_age", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"{hero.Name}'s age changed from {previousAge:F0} to {hero.Age:F0}.");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

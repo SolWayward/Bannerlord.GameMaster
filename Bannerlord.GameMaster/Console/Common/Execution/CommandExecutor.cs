@@ -16,52 +16,8 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
         private static readonly FieldInfo NameField = typeof(CommandLineFunctionality.CommandLineArgumentFunction).GetField("Name");
         private static readonly FieldInfo GroupNameField = typeof(CommandLineFunctionality.CommandLineArgumentFunction).GetField("GroupName");
         
-        // MARK: Run Methods (String Return)
 
-        /// <summary>
-        /// Execute command with automatic logging and quote parsing.
-        /// Automatically parses quoted arguments before passing to command logic.
-        /// </summary>
-        /// <param name="args">The raw argument list from the console</param>
-        /// <param name="action">The command action to execute</param>
-        /// <returns>The result string from the command or an error message</returns>
-        public static string Run(List<string> args, Func<string> action)
-        {
-            // Parse quoted arguments BEFORE passing to action
-            // This reconstructs 'multi word' arguments that were split by TaleWorlds
-            List<string> parsedArgs = ArgumentParser.ParseQuotedArguments(args);
-
-            // Replace the args list contents with parsed args
-            if (args != null && parsedArgs != null)
-            {
-                args.Clear();
-                args.AddRange(parsedArgs);
-            }
-
-            // Get command name using parsed args for cleaner logging
-            string commandName = GetCallingCommandName(parsedArgs);
-
-            try
-            {
-                string result = action();
-
-                if (CommandLogger.IsEnabled)
-                {
-                    bool isSuccess = !result.StartsWith("Error:", StringComparison.OrdinalIgnoreCase);
-                    CommandLogger.LogCommand(commandName, result, isSuccess);
-                }
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                // HandleAndLogException logs to both RGL and custom file, returns simplified message
-                return CommandLogger.HandleAndLogException(commandName, ex);
-            }
-        }
-
-        // MARK: Run Methods (CommandResult Return)
-
+        // MARK: Run Method
         /// <summary>
         /// Execute command with automatic logging and quote parsing using CommandResult.
         /// Automatically parses quoted arguments before passing to command logic.
@@ -71,34 +27,31 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
         /// <returns>A CommandResult containing success status and message</returns>
         public static CommandResult Run(List<string> args, Func<CommandResult> action)
         {
-            // Parse quoted arguments BEFORE passing to action
-            // This reconstructs 'multi word' arguments that were split by TaleWorlds
+            // Parse quoted arguments
             List<string> parsedArgs = ArgumentParser.ParseQuotedArguments(args);
-
-            // Replace the args list contents with parsed args
             if (args != null && parsedArgs != null)
             {
                 args.Clear();
                 args.AddRange(parsedArgs);
             }
 
-            // Get command name using parsed args for cleaner logging
             string commandName = GetCallingCommandName(parsedArgs);
 
             try
             {
                 CommandResult result = action();
 
+                // Log to custom command file (if enabled)
                 if (CommandLogger.IsEnabled)
                 {
                     CommandLogger.LogCommand(commandName, result.Message, result.IsSuccess);
                 }
 
-                return result;
+                return result.Log();  // Logs to system console + RGL
             }
             catch (Exception ex)
             {
-                // HandleAndLogException logs to both RGL and custom file, returns simplified message
+                // Already logs everything
                 string errorMessage = CommandLogger.HandleAndLogException(commandName, ex);
                 return CommandResult.Error(errorMessage);
             }
@@ -175,6 +128,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
         }
     }
 
+    /// MARK: Run Alias
     /// <summary>
     /// Short alias for command execution with automatic logging.
     /// Delegates all functionality to <see cref="CommandExecutor"/>.
@@ -183,15 +137,22 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
     public static class Cmd
     {
         /// <summary>
-        /// Execute command with automatic logging and quote parsing.
-        /// Automatically parses quoted arguments before passing to command logic.
+        /// Execute string-based command by converting to CommandResult internally.
         /// </summary>
         /// <param name="args">The raw argument list from the console</param>
         /// <param name="action">The command action to execute</param>
-        /// <returns>The result string from the command or an error message</returns>
+        /// <returns>A string containing result of command</returns>
         public static string Run(List<string> args, Func<string> action)
         {
-            return CommandExecutor.Run(args, action);
+            // Convert string action to CommandResult action
+            CommandResult result = CommandExecutor.Run(args, () =>
+            {
+                string stringResult = action();
+                bool isSuccess = !stringResult.StartsWith("Error:", StringComparison.OrdinalIgnoreCase);
+                return isSuccess ? CommandResult.Success(stringResult) : CommandResult.Error(stringResult);
+            });
+
+            return result.Message;
         }
 
         /// <summary>

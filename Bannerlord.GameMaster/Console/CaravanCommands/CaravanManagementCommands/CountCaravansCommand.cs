@@ -21,12 +21,14 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error).Log().Message;
+                    return CommandResult.Error(error).Message
+;
 
                 // MARK: Execute Logic
                 string countsSummary = CaravanCommandHelpers.GetCaravanCountsSummary();
                 string fullMessage = MessageFormatter.FormatSuccessMessage($"Caravan Statistics:\n{countsSummary}");
-                return CommandResult.Success(fullMessage).Log().Message;
+                return CommandResult.Success(fullMessage).Message
+;
             });
         }
     }

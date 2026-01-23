@@ -24,7 +24,8 @@ public static class RenameClanCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.rename", "<clan> <newName>",
@@ -42,7 +43,8 @@ public static class RenameClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -50,7 +52,8 @@ public static class RenameClanCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message
+;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
@@ -58,10 +61,12 @@ public static class RenameClanCommand
 
             string newName = parsed.GetArgument("newName", 1) ?? parsed.GetNamed("name");
             if (newName == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'newName'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'newName'.")).Message
+;
 
             if (string.IsNullOrWhiteSpace(newName))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("New name cannot be empty.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("New name cannot be empty.")).Message
+;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -75,7 +80,8 @@ public static class RenameClanCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.rename", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                $"Clan renamed from '{previousName}' to '{clan.Name}' (ID: {clan.StringId})")).Log().Message;
+                $"Clan renamed from '{previousName}' to '{clan.Name}' (ID: {clan.StringId})")).Message
+;
         });
     }
 }

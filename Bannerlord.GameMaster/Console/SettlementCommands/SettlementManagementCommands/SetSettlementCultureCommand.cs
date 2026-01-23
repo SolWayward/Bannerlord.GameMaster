@@ -28,7 +28,8 @@ public static class SetSettlementCultureCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.set_culture", "<settlement> <culture> [update_bound_villages]",
@@ -50,17 +51,20 @@ public static class SetSettlementCultureCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
             string cultureQuery = parsed.GetArgument("culture", 1);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
+;
             Settlement settlement = settlementResult.Entity;
 
             // Parse optional update_bound_villages parameter (defaults to false)
@@ -74,7 +78,8 @@ public static class SetSettlementCultureCommand
                 }
                 else if (updateBoundVillagesStr.ToLower() != "false")
                 {
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid value for update_bound_villages: '{updateBoundVillagesStr}'. Must be 'true' or 'false'.")).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Invalid value for update_bound_villages: '{updateBoundVillagesStr}'. Must be 'true' or 'false'.")).Message
+;
                 }
             }
 
@@ -84,12 +89,14 @@ public static class SetSettlementCultureCommand
                                     c.Name.ToString().ToLower().Contains(cultureQuery.ToLower()));
 
             if (culture == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Culture not found matching '{cultureQuery}'. Valid cultures include: empire, sturgia, aserai, vlandia, battania, khuzait.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Culture not found matching '{cultureQuery}'. Valid cultures include: empire, sturgia, aserai, vlandia, battania, khuzait.")).Message
+;
 
             // MARK: Execute Logic
             SettlementCultureBehavior behavior = Campaign.Current.GetCampaignBehavior<SettlementCultureBehavior>();
             if (behavior == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Settlement culture behavior not initialized. Please restart the game.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Settlement culture behavior not initialized. Please restart the game.")).Message
+;
 
             string previousCulture = settlement.Culture?.Name?.ToString() ?? "None";
             int notableCount = settlement.Notables?.Count() ?? 0;
@@ -98,7 +105,8 @@ public static class SetSettlementCultureCommand
             bool success = behavior.SetSettlementCulture(settlement, culture, updateNotables: true, includeBoundVillages: updateBoundVillages);
 
             if (!success)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Failed to change settlement culture. Check the error log for details.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Failed to change settlement culture. Check the error log for details.")).Message
+;
 
             Dictionary<string, string> resolvedValues = new()
             {
@@ -122,7 +130,8 @@ public static class SetSettlementCultureCommand
                       "Recruit slots will refresh naturally over time.";
 
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(message);
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

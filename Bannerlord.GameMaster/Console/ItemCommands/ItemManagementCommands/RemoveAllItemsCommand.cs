@@ -39,7 +39,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
                 if (parsed.TotalCount < 1)
                     return usageMessage;
@@ -66,7 +67,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
 
                 string display = parsed.FormatArgumentDisplay("gm.item.remove_all", resolvedValues);
                 return CommandResult.Success(display + MessageFormatter.FormatSuccessMessage(
-                    $"Removed all items ({itemCount} types) from {hero.Name}'s party inventory.")).Log().Message;
+                    $"Removed all items ({itemCount} types) from {hero.Name}'s party inventory.")).Message
+;
             });
         }
     }

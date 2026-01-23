@@ -24,7 +24,8 @@ public static class SetClanTierCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.set_tier", "<clan> <tier>",
@@ -41,7 +42,8 @@ public static class SetClanTierCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -49,7 +51,8 @@ public static class SetClanTierCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message
+;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
@@ -57,13 +60,16 @@ public static class SetClanTierCommand
 
             string tierArg = parsed.GetArgument("tier", 1);
             if (tierArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'tier'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'tier'.")).Message
+;
 
             if (!CommandValidator.ValidateIntegerRange(tierArg, 0, 6, out int tier, out string tierError))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(tierError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(tierError)).Message
+;
 
             if (clan.Tier == tier)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Clan is already tier {clan.Tier}")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Clan is already tier {clan.Tier}")).Message
+;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -76,7 +82,8 @@ public static class SetClanTierCommand
             clan.SetClanTier(tier);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.set_tier", resolvedValues);
-            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name}'s tier changed from {previousTier} to {clan.Tier}.")).Log().Message;
+            return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"{clan.Name}'s tier changed from {previousTier} to {clan.Tier}.")).Message
+;
         });
     }
 }

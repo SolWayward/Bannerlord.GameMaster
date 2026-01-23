@@ -27,7 +27,8 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error).Log().Message;
+                    return CommandResult.Error(error).Message
+;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.bandit.remove_all", "<confirmation>",
@@ -45,19 +46,23 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
 
                 string validationError = parsed.GetValidationError();
                 if (validationError != null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
                 if (parsed.TotalCount < 1)
-                    return CommandResult.Error(usageMessage).Log().Message;
+                    return CommandResult.Error(usageMessage).Message
+;
 
                 // MARK: Parse Arguments
                 string confirmationArg = parsed.GetArgument("confirmation", 0);
                 if (confirmationArg == null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'confirmation'.")).Log().Message;
+                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'confirmation'.")).Message
+;
 
                 if (confirmationArg.ToLower() != "confirm")
                     return CommandResult.Error(MessageFormatter.FormatErrorMessage(
-                        $"Invalid confirmation value: '{confirmationArg}'. Must be 'confirm' to execute this command.")).Log().Message;
+                        $"Invalid confirmation value: '{confirmationArg}'. Must be 'confirm' to execute this command.")).Message
+;
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -76,7 +81,8 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
                     $"Parties destroyed: {partiesRemoved}\n" +
                     $"Hideouts cleared: {hideoutsRemoved}\n\n" +
                     $"Remaining Counts:\n{countsSummary}");
-                return CommandResult.Success(fullMessage).Log().Message;
+                return CommandResult.Success(fullMessage).Message
+;
             });
         }
     }

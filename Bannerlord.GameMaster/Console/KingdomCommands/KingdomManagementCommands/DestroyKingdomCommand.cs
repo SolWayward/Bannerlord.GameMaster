@@ -40,7 +40,8 @@ public static class DestroyKingdomCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 1)
                 return usageMessage;
@@ -71,7 +72,8 @@ public static class DestroyKingdomCommand
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.destroy", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                $"{kingdom.Name} has been destroyed/eliminated.")).Log().Message;
+                $"{kingdom.Name} has been destroyed/eliminated.")).Message
+;
         });
     }
 }

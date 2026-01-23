@@ -25,7 +25,8 @@ public static class SetVillageBoundSettlementCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.set_village_bound_settlement", "<village> <settlement>",
@@ -48,24 +49,29 @@ public static class SetVillageBoundSettlementCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string villageQuery = parsed.GetArgument("village", 0);
             string settlementQuery = parsed.GetArgument("settlement", 1);
 
             EntityFinderResult<Settlement> villageResult = SettlementFinder.FindSingleSettlement(villageQuery);
-            if (!villageResult.IsSuccess) return CommandResult.Error(villageResult.Message).Log().Message;
+            if (!villageResult.IsSuccess) return CommandResult.Error(villageResult.Message).Message
+;
             Settlement villageSettlement = villageResult.Entity;
 
             if (villageSettlement.Village == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{villageSettlement.Name}' is not a village.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{villageSettlement.Name}' is not a village.")).Message
+;
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
+;
             Settlement newBoundSettlement = settlementResult.Entity;
 
             // MARK: Execute Logic
@@ -81,9 +87,11 @@ public static class SetVillageBoundSettlementCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.set_village_bound_settlement", resolvedValues);
 
             if (result.IsSuccess)
-                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message)).Log().Message;
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message)).Message
+;
             else
-                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage(result.Message)).Log().Message;
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage(result.Message)).Message
+;
         });
     }
 }

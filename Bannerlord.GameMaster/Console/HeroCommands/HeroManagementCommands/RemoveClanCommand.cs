@@ -23,7 +23,8 @@ public static class RemoveClanCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.remove_clan", "<hero>",
@@ -39,22 +40,27 @@ public static class RemoveClanCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 1)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
+;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
+;
             Hero hero = heroResult.Entity;
 
             if (hero.Clan == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a member of any clan.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not a member of any clan.")).Message
+;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -68,7 +74,8 @@ public static class RemoveClanCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.remove_clan", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{hero.Name} (ID: {hero.StringId}) removed from clan '{previousClanName}'.");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

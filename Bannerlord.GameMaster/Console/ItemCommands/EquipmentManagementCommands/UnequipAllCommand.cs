@@ -114,7 +114,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     result.AppendLine($"  - {item}");
                 }
 
-                return CommandResult.Success(result.ToString()).Log().Message;
+                return CommandResult.Success(result.ToString()).Message
+;
             });
         }
     }

@@ -23,7 +23,8 @@ public static class QueryKingdomAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Parse Arguments
             KingdomQueryArguments queryArgs = KingdomQueryHelpers.ParseKingdomQueryArguments(args);
@@ -41,11 +42,13 @@ public static class QueryKingdomAnyCommand
             if (matchedKingdoms.Count == 0)
             {
                 return CommandResult.Success($"Found 0 kingdom(s) matching ANY of {criteriaDesc}\n" +
-                       "Usage: gm.query.kingdom_any [search] [type keywords] [sort]\n").Log().Message;
+                       "Usage: gm.query.kingdom_any [search] [type keywords] [sort]\n").Message
+;
             }
 
             return CommandResult.Success($"Found {matchedKingdoms.Count} kingdom(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}").Log().Message;
+                   $"{KingdomQueries.GetFormattedDetails(matchedKingdoms)}").Message
+;
         });
     }
 }

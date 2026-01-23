@@ -25,7 +25,8 @@ public static class FillGarrisonCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.settlement.fill_garrison", "<settlement>",
@@ -39,23 +40,28 @@ public static class FillGarrisonCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 1)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string settlementQuery = parsed.GetArgument("settlement", 0);
 
             EntityFinderResult<Settlement> settlementResult = SettlementFinder.FindSingleSettlement(settlementQuery);
-            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Log().Message;
+            if (!settlementResult.IsSuccess) return CommandResult.Error(settlementResult.Message).Message
+;
             Settlement settlement = settlementResult.Entity;
 
             if (settlement.Town == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' is not a city or castle.")).Message
+;
 
             if (settlement.Town.GarrisonParty == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no garrison party.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no garrison party.")).Message
+;
 
             // MARK: Execute Logic
             TaleWorlds.CampaignSystem.Party.MobileParty garrison = settlement.Town.GarrisonParty;
@@ -71,7 +77,8 @@ public static class FillGarrisonCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.settlement.fill_garrison", resolvedValues);
 
             if (spaceAvailable <= 0)
-                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"Settlement '{settlement.Name}' garrison is already at maximum capacity ({currentSize}/{maxSize}).")).Log().Message;
+                return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage($"Settlement '{settlement.Name}' garrison is already at maximum capacity ({currentSize}/{maxSize}).")).Message
+;
 
             // Get existing troops and their proportions
             List<(CharacterObject troop, int count)> troopTypes = new();
@@ -84,7 +91,8 @@ public static class FillGarrisonCommand
             }
 
             if (troopTypes.Count == 0)
-                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no troops to use as template for filling.")).Log().Message;
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"Settlement '{settlement.Name}' has no troops to use as template for filling.")).Message
+;
 
             // Calculate total existing troops for proportions
             int totalExisting = troopTypes.Sum(t => t.count);
@@ -115,7 +123,8 @@ public static class FillGarrisonCommand
 
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Settlement '{settlement.Name}' (ID: {settlement.StringId}) garrison filled from {currentSize} to {garrison.MemberRoster.TotalManCount} (+{addedCount}).");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

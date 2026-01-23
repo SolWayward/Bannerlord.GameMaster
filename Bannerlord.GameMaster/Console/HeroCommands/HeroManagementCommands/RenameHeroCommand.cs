@@ -24,7 +24,8 @@ public static class RenameHeroCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.rename", "<heroQuery> <name>",
@@ -44,23 +45,28 @@ public static class RenameHeroCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string heroQuery = parsed.GetArgument("heroQuery", 0) ?? parsed.GetNamed("hero");
             if (heroQuery == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'heroQuery'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'heroQuery'.")).Message
+;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroQuery);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
+;
             Hero hero = heroResult.Entity;
 
             string newName = parsed.GetArgument("name", 1);
             if (string.IsNullOrWhiteSpace(newName))
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing or empty required argument 'name'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing or empty required argument 'name'.")).Message
+;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -75,7 +81,8 @@ public static class RenameHeroCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.rename", resolvedValues);
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Hero renamed from '{previousName}' to '{hero.Name}' (ID: {hero.StringId})");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

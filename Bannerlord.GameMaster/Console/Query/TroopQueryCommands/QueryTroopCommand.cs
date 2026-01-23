@@ -27,7 +27,8 @@ public static class QueryTroopCommand
         {
             // MARK: Validation
              if (!CommandValidator.ValidateCampaignState(out string error))
-                 return CommandResult.Error(error).Log().Message;
+                 return CommandResult.Error(error).Message
+;
 
             // MARK: Parse Arguments
             TroopQueryArguments queryArgs = TroopQueryHelpers.ParseTroopQueryArguments(args);
@@ -52,11 +53,13 @@ public static class QueryTroopCommand
                        "Sort: sort:name, sort:tier, sort:level, sort:culture, sort:<type> (add :desc for descending)\n" +
                        "Example: gm.query.troop imperial infantry tier2 sort:name\n" +
                        "Example: gm.query.troop female cavalry (find female cavalry troops)\n" +
-                       "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n").Log().Message;
+                       "Note: Non-troops (heroes, NPCs, children, templates, etc.) are automatically excluded.\n").Message
+;
             }
 
             return CommandResult.Success($"Found {matchedTroops.Count} troop(s) matching {criteriaDesc}:\n" +
-                   $"{TroopQueries.GetFormattedDetails(matchedTroops)}").Log().Message;
+                   $"{TroopQueries.GetFormattedDetails(matchedTroops)}").Message
+;
         });
     }
 }

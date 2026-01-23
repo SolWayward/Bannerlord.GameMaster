@@ -27,7 +27,8 @@ public static class SetCultureCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.set_culture", "<clan> <culture>",
@@ -45,7 +46,8 @@ public static class SetCultureCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 2)
                 return usageMessage;
@@ -53,7 +55,8 @@ public static class SetCultureCommand
             // MARK: Parse Arguments
             string clanArg = parsed.GetArgument("clan", 0);
             if (clanArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'clan'.")).Message
+;
 
             EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
             if (!clanResult.IsSuccess) return clanResult.Message;
@@ -61,11 +64,13 @@ public static class SetCultureCommand
 
             string cultureArg = parsed.GetArgument("culture", 1);
             if (cultureArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'culture'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'culture'.")).Message
+;
 
             CultureObject newCulture = MBObjectManager.Instance.GetObject<CultureObject>(cultureArg);
             if (newCulture == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Culture '{cultureArg}' not found. Valid cultures: aserai, battania, empire, khuzait, nord, sturgia, vlandia")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Culture '{cultureArg}' not found. Valid cultures: aserai, battania, empire, khuzait, nord, sturgia, vlandia")).Message
+;
 
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
@@ -83,7 +88,8 @@ public static class SetCultureCommand
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.clan.set_culture", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"{clan.Name}'s culture changed from '{previousCulture}' to '{clan.Culture.Name}'.\n" +
-                $"Basic troop updated to: {clan.BasicTroop?.Name}")).Log().Message;
+                $"Basic troop updated to: {clan.BasicTroop?.Name}")).Message
+;
         });
     }
 }

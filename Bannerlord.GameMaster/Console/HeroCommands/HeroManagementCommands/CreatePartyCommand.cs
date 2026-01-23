@@ -26,7 +26,8 @@ public static class CreatePartyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.hero.create_party", "<hero>",
@@ -45,18 +46,22 @@ public static class CreatePartyCommand
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError)).Message
+;
 
             if (parsed.TotalCount < 1)
-                return CommandResult.Error(usageMessage).Log().Message;
+                return CommandResult.Error(usageMessage).Message
+;
 
             // MARK: Parse Arguments
             string heroArg = parsed.GetArgument("hero", 0);
             if (heroArg == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Log().Message;
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Missing required argument 'hero'.")).Message
+;
 
             EntityFinderResult<Hero> heroResult = HeroFinder.FindSingleHero(heroArg);
-            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Log().Message;
+            if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message
+;
             Hero hero = heroResult.Entity;
 
             // MARK: Execute Logic
@@ -68,7 +73,8 @@ public static class CreatePartyCommand
 
             // Check if hero already has a party
             if (hero.PartyBelongedTo != null && hero.PartyBelongedTo.LeaderHero == hero)
-                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"{hero.Name} already leads a party: {hero.PartyBelongedTo.Name}")).Log().Message;
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"{hero.Name} already leads a party: {hero.PartyBelongedTo.Name}")).Message
+;
 
             // Determine spawn settlement
             Settlement spawnSettlement = null;
@@ -86,13 +92,15 @@ public static class CreatePartyCommand
             }
 
             if (spawnSettlement == null)
-                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"Could not find a suitable settlement to spawn {hero.Name}'s party.")).Log().Message;
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"Could not find a suitable settlement to spawn {hero.Name}'s party.")).Message
+;
 
             // Create the party using the extension method
             MobileParty newParty = hero.CreateParty(spawnSettlement);
 
             if (newParty == null)
-                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"Failed to create party for {hero.Name}.")).Log().Message;
+                return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage($"Failed to create party for {hero.Name}.")).Message
+;
 
             string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                 $"Created party for {hero.Name}.\n" +
@@ -100,7 +108,8 @@ public static class CreatePartyCommand
                 $"Location: {spawnSettlement.Name}\n" +
                 $"Initial roster: {newParty.MemberRoster.TotalManCount} troops\n" +
                 $"Trade gold: {newParty.PartyTradeGold}");
-            return CommandResult.Success(fullMessage).Log().Message;
+            return CommandResult.Success(fullMessage).Message
+;
         });
     }
 }

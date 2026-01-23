@@ -20,7 +20,8 @@ public static class BannerlordVersionCommand
     {
         return Cmd.Run(args, () =>
         {
-            return CommandResult.Success($"Bannerlord {GameEnvironment.BannerlordVersion}").Log().Message;
+            return CommandResult.Success($"Bannerlord {GameEnvironment.BannerlordVersion}").Message
+;
         });
     }
 }

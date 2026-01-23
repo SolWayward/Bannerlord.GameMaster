@@ -25,7 +25,8 @@ public static class QueryModifiersCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Execute Logic
             List<ItemModifier> allModifiers = ItemModifierHelper.GetAllModifiers();
@@ -47,7 +48,8 @@ public static class QueryModifiersCommand
                     : "";
                 return CommandResult.Success($"Found 0 modifiers{searchMsg}.\n" +
                        "Usage: gm.query.modifiers [search]\n" +
-                       "Example: gm.query.modifiers fine\n").Log().Message;
+                       "Example: gm.query.modifiers fine\n").Message
+;
             }
 
             // Sort by name for better readability
@@ -78,7 +80,8 @@ public static class QueryModifiersCommand
                 m => $"x{m.PriceMultiplier:F2}"
             );
 
-            return CommandResult.Success(result).Log().Message;
+            return CommandResult.Success(result).Message
+;
         });
     }
 }

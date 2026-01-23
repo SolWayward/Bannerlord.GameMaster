@@ -87,7 +87,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
 
                 string display = parsed.FormatArgumentDisplay("gm.item.remove", resolvedValues);
                 return CommandResult.Success(display + MessageFormatter.FormatSuccessMessage(
-                    $"Removed {count}x {item.Name} from {hero.Name}'s party inventory.")).Log().Message;
+                    $"Removed {count}x {item.Name} from {hero.Name}'s party inventory.")).Message
+;
             });
         }
     }

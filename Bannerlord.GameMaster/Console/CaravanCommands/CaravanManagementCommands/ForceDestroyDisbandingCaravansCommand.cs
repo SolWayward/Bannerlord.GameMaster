@@ -23,7 +23,8 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error).Log().Message;
+                    return CommandResult.Error(error).Message
+;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.caravan.force_destroy_disbanding_caravans", "<confirm>",
@@ -38,12 +39,14 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
                 );
 
                 if (parsed.TotalCount < 1)
-                    return CommandResult.Error(usageMessage).Log().Message;
+                    return CommandResult.Error(usageMessage).Message
+;
 
                 // MARK: Parse Arguments
                 string confirmArg = parsed.GetArgument("confirm", 0);
                 if (string.IsNullOrWhiteSpace(confirmArg) || confirmArg.ToLower().Trim() != "confirm")
-                    return CommandResult.Error(usageMessage).Log().Message;
+                    return CommandResult.Error(usageMessage).Message
+;
 
                 // MARK: Execute Logic
                 Dictionary<string, string> resolvedValues = new()
@@ -59,7 +62,8 @@ namespace Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommand
                 string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(
                     $"Destroyed: {destroyed} caravans\n\n" +
                     $"Remaining Counts:\n{countsSummary}");
-                return CommandResult.Success(fullMessage).Log().Message;
+                return CommandResult.Success(fullMessage).Message
+;
             });
         }
     }

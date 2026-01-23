@@ -27,7 +27,8 @@ public static class QueryCharacterObjectsAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Parse Arguments
             CharacterQueryArguments queryArgs = CharacterQueryHelpers.ParseCharacterQueryArguments(args);
@@ -50,12 +51,14 @@ public static class QueryCharacterObjectsAnyCommand
                        "Usage: gm.query.character_objects_any [search] [type keywords] [cultures] [tier] [sort]\n" +
                        "Uses OR logic - matches characters that have ANY of the specified types.\n" +
                        "Example: gm.query.character_objects_any hero troop (hero OR troop)\n" +
-                       "Example: gm.query.character_objects_any lord wanderer empire (lord OR wanderer, AND empire culture)\n").Log().Message;
+                       "Example: gm.query.character_objects_any lord wanderer empire (lord OR wanderer, AND empire culture)\n").Message
+;
             }
 
             List<CharacterObject> characterList = new(matchedCharacters);
             return CommandResult.Success($"Found {matchedCharacters.Count} character(s) matching ANY of {criteriaDesc}:\n" +
-                   $"{CharacterQueries.GetFormattedDetails(characterList)}").Log().Message;
+                   $"{CharacterQueries.GetFormattedDetails(characterList)}").Message
+;
         });
     }
 }

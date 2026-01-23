@@ -24,7 +24,8 @@ public static class QueryHeroAnyCommand
         {
             // MARK: Validation
             if (!CommandValidator.ValidateCampaignState(out string error))
-                return CommandResult.Error(error).Log().Message;
+                return CommandResult.Error(error).Message
+;
 
             // MARK: Parse Arguments
             HeroQueryArguments queryArgs = HeroQueryHelpers.ParseHeroQueryArguments(args);
@@ -44,11 +45,13 @@ public static class QueryHeroAnyCommand
             {
                 return CommandResult.Success($"Found 0 hero(es) matching ANY of {criteriaDesc}\n" +
                        "Usage: gm.query.hero_any [search] [type keywords] [sort]\n" +
-                       "Example: gm.query.hero_any lord wanderer sort:name\n").Log().Message;
+                       "Example: gm.query.hero_any lord wanderer sort:name\n").Message
+;
             }
 
             return CommandResult.Success($"Found {matchedHeroes.Count} hero(es) matching ANY of {criteriaDesc}:\n" +
-                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}").Log().Message;
+                   $"{HeroQueries.GetFormattedDetails(matchedHeroes)}").Message
+;
         });
     }
 }
