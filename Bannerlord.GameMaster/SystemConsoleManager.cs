@@ -752,7 +752,19 @@ namespace Bannerlord.GameMaster
                     WriteLine(result);
                     System.Console.ResetColor();
                 }
+                
+                // Write to game console if not custom command
+                try
+                {
+                    TaleWorlds.Engine.MBDebug.EchoCommandWindow($"BLGM > {command} {string.Join(" ", args)}\n{result}");
+                }
+
+                catch
+                {
+                    //Ignore if failed to write to game console
+                }
             }
+            
             else
             {
                 result = SystemConsoleCommands.ExecuteCustomSystemConsoleCommand(command, args);
