@@ -168,7 +168,6 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 				return;
 
 			StringBuilder logEntry = new();
-			logEntry.AppendLine(SEPARATOR_EQUALS);
 			logEntry.Append("Timestamp: ").AppendLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 			logEntry.Append("Command: ").AppendLine(command);
 			logEntry.AppendLine(SEPARATOR_DASHES);
@@ -191,7 +190,6 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 				return;
 
 			StringBuilder logEntry = new();
-			logEntry.AppendLine(SEPARATOR_EQUALS);
 			logEntry.Append("Timestamp: ").AppendLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 			logEntry.Append("Command: ").AppendLine(command);
 			logEntry.Append("Status: ").AppendLine(isSuccess ? "SUCCESS" : "FAILED");
@@ -216,7 +214,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 				return;
 
 			StringBuilder logEntry = new();
-			logEntry.AppendLine(SEPARATOR_EQUALS);
+
 			logEntry.Append("Timestamp: ").AppendLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 			logEntry.Append("Command: ").AppendLine(rawCommand);
 
@@ -252,7 +250,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 				return;
 	
 			StringBuilder logEntry = new();
-			logEntry.AppendLine(SEPARATOR_EQUALS);
+
 			logEntry.Append("Timestamp: ").AppendLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 			logEntry.Append("Status: ").AppendLine(result.IsSuccess ? "SUCCESS" : "FAILED");
 			logEntry.AppendLine(SEPARATOR_DASHES);
@@ -295,7 +293,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 			if (_isEnabled && !string.IsNullOrEmpty(_logFilePath))
 			{
 				StringBuilder logEntry = new();
-				logEntry.AppendLine(SEPARATOR_EQUALS);
+
 				logEntry.AppendLine("[BLGM] Error:");
 				logEntry.Append("Timestamp: ").AppendLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 				logEntry.Append("Command: ").AppendLine(commandName);
@@ -335,7 +333,7 @@ namespace Bannerlord.GameMaster.Console.Common.Execution
 			if (_isEnabled && !string.IsNullOrEmpty(_logFilePath))
 			{
 				StringBuilder fileEntry = new();
-				fileEntry.AppendLine(SEPARATOR_EQUALS);
+
 				fileEntry.AppendLine("[BLGM] Error:");
 				fileEntry.Append("Timestamp: ").AppendLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 				fileEntry.Append("Command: ").AppendLine(commandName);
