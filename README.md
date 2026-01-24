@@ -7,8 +7,10 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update v1.3.13.13
+## Latest Update v1.3.13.14
 ```
+Fixed BLGMObjectManager not being initialized on New Games, only saved games.
+
 Added command to open System Console gm.show_system_console
 	- The system console will display the results the output of ingame blgm commands and other debug info / errors
 	- The system console can also be used to run any game console command including blgm commands from the windows console window outside the game
