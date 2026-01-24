@@ -9,7 +9,7 @@ namespace Bannerlord.GameMaster.Information
     {
         private const string WarsailsDlcId = "NavalDLC";
         private static string bannerlordVersion;
-        private static string blgmVersion;
+        private static Version blgmVersion;
         private static string[] loadedModules;
 
         /// <summary>
@@ -32,15 +32,29 @@ namespace Bannerlord.GameMaster.Information
         /// <summary>
         /// Gets the current Bannerlord.GameMaster mod version.
         /// </summary>
-        public static string BLGMVersion
+        public static Version BLGMVersion
         {
             get
             {
-                blgmVersion ??= Assembly.GetExecutingAssembly()
-                  .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
-                  .InformationalVersion ?? "Unknown";
+                blgmVersion ??= Assembly.GetExecutingAssembly().GetName().Version;
                 return blgmVersion;
             }
+        }
+
+        /// <summary>
+        /// Checks if the current BLGM version is equal to or greater than the specified version.
+        /// </summary>
+        public static bool BLGMIsVersionOrGreater(int major, int minor, int build, int revision = 0)
+        {
+            return BLGMVersion >= new Version(major, minor, build, revision);
+        }
+
+        /// <summary>
+        /// Checks if the current BLGM version exactly matches the specified version.
+        /// </summary>
+        public static bool BLGMIsVersion(int major, int minor, int build, int revision = 0)
+        {
+            return BLGMVersion == new Version(major, minor, build, revision);
         }
 
         /// <summary>

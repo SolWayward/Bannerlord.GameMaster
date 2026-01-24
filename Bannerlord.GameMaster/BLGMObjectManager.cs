@@ -138,6 +138,8 @@ namespace Bannerlord.GameMaster
                         "BLGM objects from previous saves may not be tracked, but game functionality is unaffected.";
                 new BLGMResult(false, errorMsg, ex).DisplayAndLog();
             }
+
+            InfoMessage.Status("BLGM Console Commands available. press 'alt + ~' to open console, and type 'gm.' to view commands");
         }
 
         #endregion

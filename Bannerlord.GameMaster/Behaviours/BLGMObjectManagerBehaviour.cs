@@ -1,9 +1,9 @@
 using System;
-using System.Linq;
 using Bannerlord.GameMaster.Console.Common.Execution;
+using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
 
 namespace Bannerlord.GameMaster.Behaviours
 {
@@ -13,19 +13,23 @@ namespace Bannerlord.GameMaster.Behaviours
     /// </summary
     internal class BLGMObjectManagerBehaviour : CampaignBehaviorBase
     {
+        bool isNewGame = false;
+        bool initialized = false;
+
         #region Register Events
         public override void RegisterEvents()
-        {   
-            // Quit back to main menu
+        {
+            // New Game
+            CampaignEvents.OnNewGameCreatedEvent.AddNonSerializedListener(this, OnNewGameCreated);
+
+            // Reset
             CampaignEvents.OnGameEarlyLoadedEvent.AddNonSerializedListener(this, OnGameEarlyLoaded);
             
             // Game is loading
-            CampaignEvents.OnGameLoadedEvent.AddNonSerializedListener(this, OnGameLoaded);
+            CampaignEvents.OnGameLoadedEvent.AddNonSerializedListener(this, OnGameLoaded);          
 
-            // Register event to reapply names after load
-            CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, OnSessionLaunched);
-
-            CampaignEvents.OnGameLoadFinishedEvent.AddNonSerializedListener(this, OnGameFullyLoaded);
+            // Initialize for new games
+            CampaignEvents.TickEvent.AddNonSerializedListener(this, OnTick);
 
             // For Heroes
             CampaignEvents.HeroKilledEvent.AddNonSerializedListener(
@@ -62,9 +66,37 @@ namespace Bannerlord.GameMaster.Behaviours
             // Not syncing data
         }
 
+        /// <summary>
+        /// Allows BLGMObjectManager to Initialize if new game
+        /// </summary>
+        private void OnNewGameCreated(CampaignGameStarter starter)
+        {
+            isNewGame = true;
+            initialized = false;
+        }
+
+        /// <summary>
+        /// Allows BLGMObjectManager to Initialize if new game
+        /// </summary>
+        private void OnTick(float dt)
+        {
+            // Runs When campaign map is full loaded and ready one time
+            if (!initialized)
+            {
+                if (Hero.MainHero?.PartyBelongedTo != null && Campaign.Current?.CurrentGame != null)
+                {
+                    if (isNewGame)
+                        InitializeObjectManager();
+
+                    SetGameCampaignReady();
+                }
+            }
+        }
+
         // Prevent gm commands from being ran if a new game is loaded from another session
         private void OnGameEarlyLoaded(CampaignGameStarter starter)
         {
+            initialized = false;
             BLGMObjectManager.Instance._campaignFullyLoaded = false; // New save is loading, reset to false
         }
 
@@ -73,24 +105,7 @@ namespace Bannerlord.GameMaster.Behaviours
         /// </summary>
         private void OnGameLoaded(CampaignGameStarter starter)
         {
-            BLGMObjectManager.Instance.Initialize();
-
-            // Auto-start command logging if enabled (creates new log file each time a save is loaded)
-            LoggingManager.TryAutoStart();
-        }
-        
-        /// <summary>
-        /// Called after session is fully launched.
-        /// BLGM initialization has been moved to OnGameLoaded to prevent ButterLib crashes.
-        /// </summary>
-        private void OnSessionLaunched(CampaignGameStarter starter)
-        {
-            // Moved BLGMObjectManager.Instance.Initialize() to OnGameLoaded to fix ButterLib crash
-        }
-
-        private void OnGameFullyLoaded()
-        {
-            BLGMObjectManager.Instance._campaignFullyLoaded = true; // All loading done, commands are ready to execute
+            InitializeObjectManager();
         }
 
         private void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
@@ -124,6 +139,21 @@ namespace Bannerlord.GameMaster.Behaviours
             {
                 BLGMObjectManager.UnregisterHero(hero.StringId);
             }
+        }
+
+        void InitializeObjectManager()
+        {
+            BLGMObjectManager.Instance.Initialize();
+
+            // Auto-start command logging if enabled (creates new log file each time a save is loaded)
+            LoggingManager.TryAutoStart();
+        }
+
+        void SetGameCampaignReady()
+        {
+            BLGMObjectManager.Instance._campaignFullyLoaded = true;
+            isNewGame = false;
+            initialized = true;
         }
 
         #endregion

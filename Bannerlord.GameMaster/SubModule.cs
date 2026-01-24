@@ -50,6 +50,17 @@ namespace Bannerlord.GameMaster
             }
         }
 
+        public override void OnGameEnd(Game game)
+        {
+            base.OnGameEnd(game);
+
+            // This fires when exiting campaign/battle back to main menu
+            if (game.GameType is Campaign)
+            {
+                BLGMObjectManager.Instance._campaignFullyLoaded = false;
+            }
+        }
+
         /// <summary>
         /// Executes every frame
         /// </summary>
@@ -89,7 +100,7 @@ namespace Bannerlord.GameMaster
         private void HandleGameMasterMenuOptionClicked()
         {
             TextObject versionText = new("{=InfoMsg_BLGameMaster_Version}BL Game Master v{BLGAMEMASTER_VERSION}");
-            versionText.SetTextVariable("BLGAMEMASTER_VERSION", GameEnvironment.BLGMVersion);
+            versionText.SetTextVariable("BLGAMEMASTER_VERSION", GameEnvironment.BLGMVersion.ToString());
 
             InformationMessage infoMessage = new(versionText.ToString());
             InformationManager.DisplayMessage(infoMessage);
