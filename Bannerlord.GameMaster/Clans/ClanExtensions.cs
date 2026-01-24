@@ -6,6 +6,8 @@ using Bannerlord.GameMaster.Common.Interfaces;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Library;
+using TaleWorlds.Core;
+using TaleWorlds.CampaignSystem.Actions;
 
 namespace Bannerlord.GameMaster.Clans
 {
@@ -168,6 +170,43 @@ namespace Bannerlord.GameMaster.Clans
 			clan.AddRenown(requiredRenownForTargetTier);
 
 			return true;
+		}
+
+		/// <summary>
+		/// Join kingdom default action
+		/// </summary>
+		public static void JoinKingdom(this Clan clan, Kingdom kingdom, bool showNotification = true)
+		{
+			TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, showNotification: showNotification);
+		}
+
+		/// <summary>
+		/// Join as a mercenary clan
+		/// </summary>
+		public static void JoinKingdomAsMercenary(this Clan clan, Kingdom kingdom, bool showNotification = true)
+		{
+			TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ApplyByJoinFactionAsMercenary(clan, kingdom, showNotification: showNotification);
+		}
+
+		/// <summary>
+		/// Defect from one kingdom to another
+		/// </summary>
+		public static void DefectToKingdom(this Clan clan, Kingdom kingdom, Kingdom oldKindom, bool showNotification = true)
+		{
+			TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ApplyByJoinToKingdomByDefection(clan, kingdom, oldKindom, showNotification: showNotification);
+		}
+
+		/// <summary>
+		/// Leave kingdom
+		/// </summary>
+		public static void LeaveKingdom(this Clan clan, bool showNotification = true)
+		{
+			TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ApplyByLeaveKingdom(clan, showNotification);
+		}
+
+		public static void DeclareWar(this Clan clan, IFaction targetFaction)
+		{
+			DeclareWarAction.ApplyByDefault(clan, targetFaction);
 		}
 
 		/// MARK: SetStringName

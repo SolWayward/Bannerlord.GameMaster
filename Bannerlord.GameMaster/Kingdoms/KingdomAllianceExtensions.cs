@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.CampaignSystem.Election;
 
@@ -116,5 +117,10 @@ namespace Bannerlord.GameMaster.Kingdoms
             foreach (var decision in decisionsToRemove)
                 kingdom.UnresolvedDecisions.Remove(decision);
         }
+
+		public static void DeclareWar(this Kingdom kingdom, IFaction targetFaction)
+		{
+			DeclareWarAction.ApplyByDefault(kingdom, targetFaction);
+		}
     }
 }
