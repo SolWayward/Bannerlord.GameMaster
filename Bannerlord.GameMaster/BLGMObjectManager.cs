@@ -9,6 +9,7 @@ using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
@@ -60,6 +61,7 @@ namespace Bannerlord.GameMaster
         private uint _nextClanSubId = 0;
         private uint _nextKingdomSubId = 0;
         private uint _nextCharacterSubId = 0;
+        private uint _nextPartySubId = 0;
 
         // Type numbers extracted from existing game objects
         private uint _heroTypeNo = 0;
@@ -75,11 +77,13 @@ namespace Bannerlord.GameMaster
         private MBList<Hero> _cachedHeroes;
         private MBList<Clan> _cachedClans;
         private MBList<Kingdom> _cachedKingdoms;
+        private MBList<MobileParty> _cachedParties;
 
         // Separate validity flags for each cache type to prevent cross-type cache corruption
         private bool _heroesValid;
         private bool _clansValid;
         private bool _kingdomsValid;
+        private bool _partiesValid;
 
         // Lock for thread-safe cache building
         private readonly object _cacheLock = new();
@@ -88,6 +92,27 @@ namespace Bannerlord.GameMaster
         private int _heroCount = 0;
         private int _clanCount = 0;
         private int _kingdomCount = 0;
+        private int _partyCount = 0;
+
+        #endregion
+
+        #region Party Type Names Constants
+
+        /// <summary>
+        /// Constants for party type names used in StringId generation
+        /// </summary>
+        public static class PartyTypeNames
+        {
+            public const string Lord = "lord";
+            public const string Bandit = "bandit";
+            public const string Villager = "villager";
+            public const string Patrol = "patrol";
+            public const string NavalPatrol = "naval_patrol";
+            public const string Militia = "militia";
+            public const string Caravan = "caravan";
+            public const string Looter = "looter";
+            public const string Custom = "custom";
+        }
 
         #endregion
 
@@ -99,11 +124,40 @@ namespace Bannerlord.GameMaster
         public static MBList<Clan> BlgmClans => Instance.GetObjects<Clan>();
         public static MBList<Kingdom> BlgmKingdoms => Instance.GetObjects<Kingdom>();
 
+        /// <summary>
+        /// Gets all BLGM-tracked MobileParties with caching.
+        /// </summary>
+        public static MBReadOnlyList<MobileParty> BlgmParties
+        {
+            get
+            {
+                if (!Instance._partiesValid || Instance._cachedParties == null)
+                {
+                    lock (Instance._cacheLock)
+                    {
+                        // Double-check after acquiring lock
+                        if (!Instance._partiesValid || Instance._cachedParties == null)
+                        {
+                            Instance._cachedParties = new MBList<MobileParty>();
+                            foreach (MobileParty party in MobileParty.All)
+                            {
+                                if (party.StringId.StartsWith("blgm_party_"))
+                                    Instance._cachedParties.Add(party);
+                            }
+                            Instance._partiesValid = true;
+                        }
+                    }
+                }
+                return Instance._cachedParties;
+            }
+        }
+
         public int ObjectCount => blgmObjects?.Count ?? 0;
 
         public static int BlgmHeroCount => Instance._heroCount;
         public static int BlgmClanCount => Instance._clanCount;
         public static int BlgmKingdomCount => Instance._kingdomCount;
+        public static int BlgmPartyCount => Instance._partyCount;
 
         #endregion
 
@@ -127,6 +181,7 @@ namespace Bannerlord.GameMaster
             _heroCount = 0;
             _clanCount = 0;
             _kingdomCount = 0;
+            _partyCount = 0;
 
             try
             {
@@ -348,6 +403,38 @@ namespace Bannerlord.GameMaster
             return stringId;
         }
 
+        /// <summary>
+        /// Registers a MobileParty with BLGMObjectManager, assigning a BLGM StringId.
+        /// Works like RegisterHero/RegisterClan - changes StringId after creation.
+        /// Called automatically by MobilePartyGenerator, but available for external use.
+        /// </summary>
+        /// <param name="party">The MobileParty to register</param>
+        /// <param name="partyType">Type of party (use PartyTypeNames constants)</param>
+        /// <param name="contextId">Optional context identifier (e.g., settlement StringId)</param>
+        /// <returns>The new BLGM StringId, or null on failure</returns>
+        public static string RegisterParty(MobileParty party, string partyType, string contextId = null)
+        {
+            if (party == null)
+            {
+                BLGMResult.Error("RegisterParty() failed, party cannot be null",
+                    new ArgumentNullException(nameof(party))).Log();
+                return null;
+            }
+
+            string oldId = party.StringId;
+            string newId = string.IsNullOrEmpty(contextId)
+                ? $"blgm_party_{partyType}_{Instance._nextPartySubId++}"
+                : $"blgm_party_{partyType}_{contextId}_{Instance._nextPartySubId++}";
+
+            // Change StringId (same pattern as RegisterHero)
+            party.StringId = newId;
+
+            Instance.InvalidateListCaches();
+            Interlocked.Increment(ref Instance._partyCount);
+
+            return newId;
+        }
+
         #endregion
 
         #region Unregistration Methods
@@ -388,6 +475,25 @@ namespace Bannerlord.GameMaster
 
             Instance.InvalidateListCaches();
             Interlocked.Decrement(ref Instance._kingdomCount);
+            return true;
+        }
+
+        /// <summary>
+        /// Unregisters a MobileParty from BLGMObjectManager tracking.
+        /// Called automatically by destruction event handlers.
+        /// </summary>
+        /// <param name="party">The MobileParty to unregister</param>
+        /// <returns>True if unregistered successfully</returns>
+        public static bool UnregisterParty(MobileParty party)
+        {
+            if (party == null)
+                return false;
+
+            if (!party.StringId.StartsWith("blgm_party_"))
+                return false;
+
+            Instance.InvalidateListCaches();
+            Interlocked.Decrement(ref Instance._partyCount);
             return true;
         }
 
@@ -449,11 +555,31 @@ namespace Bannerlord.GameMaster
 
             List<MBObjectBase> legacyObjects = new();
 
-            // Find objects with stringIds starting with blgm_ in each of the below lists and add to BLGMObjectManager dictionary. 
+            // Find objects with stringIds starting with blgm_ in each of the below lists and add to BLGMObjectManager dictionary.
             // Also Store any found legacy objects in legacyObjects in legacyObjects so they can be converted to new stringID format and then loaded
             LoadObjectsOfType(Campaign.Current.CampaignObjectManager.AliveHeroes, legacyObjects);
             LoadObjectsOfType(Campaign.Current.CampaignObjectManager.Clans, legacyObjects);
             LoadObjectsOfType(Campaign.Current.CampaignObjectManager.Kingdoms, legacyObjects);
+
+            // Load existing BLGM parties on save load
+            _partyCount = 0;
+            uint maxPartyId = 0;
+            foreach (MobileParty party in MobileParty.All)
+            {
+                if (party.StringId.StartsWith("blgm_party_"))
+                {
+                    _partyCount++;
+                    // Extract ID from stringId if possible to set _nextPartySubId
+                    string[] parts = party.StringId.Split('_');
+                    if (parts.Length > 0 && uint.TryParse(parts[parts.Length - 1], out uint extractedId))
+                    {
+                        if (extractedId >= maxPartyId)
+                            maxPartyId = extractedId + 1;
+                    }
+                }
+            }
+            _nextPartySubId = maxPartyId;
+            _partiesValid = false;
 
             // Convert old legacy objects with new sequential unique int
             if (!legacyObjects.IsEmpty())
@@ -598,9 +724,11 @@ namespace Bannerlord.GameMaster
                 _heroesValid = false;
                 _clansValid = false;
                 _kingdomsValid = false;
+                _partiesValid = false;
                 _cachedHeroes = null;
                 _cachedClans = null;
                 _cachedKingdoms = null;
+                _cachedParties = null;
             }
         }
 

@@ -61,7 +61,7 @@ public static class DeclareWarCommand
 
             if (kingdom1 == kingdom2)
                 return MessageFormatter.FormatErrorMessage("A kingdom cannot declare war on itself.");
-
+            
             if (FactionManager.IsAtWarAgainstFaction(kingdom1, kingdom2))
                 return MessageFormatter.FormatErrorMessage($"{kingdom1.Name} and {kingdom2.Name} are already at war.");
 

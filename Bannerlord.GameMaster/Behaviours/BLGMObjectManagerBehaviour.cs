@@ -3,6 +3,8 @@ using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.MountAndBlade;
 
 namespace Bannerlord.GameMaster.Behaviours
@@ -53,6 +55,17 @@ namespace Bannerlord.GameMaster.Behaviours
             CampaignEvents.OnHeroUnregisteredEvent.AddNonSerializedListener(
                 this,
                 new Action<Hero>(OnHeroUnregistered)
+            );
+
+            // For Parties
+            CampaignEvents.MobilePartyDestroyed.AddNonSerializedListener(
+                this,
+                new Action<MobileParty, PartyBase>(OnMobilePartyDestroyed)
+            );
+
+            CampaignEvents.OnPartyDisbandedEvent.AddNonSerializedListener(
+                this,
+                new Action<MobileParty, Settlement>(OnPartyDisbanded)
             );
         }
 
@@ -138,6 +151,22 @@ namespace Bannerlord.GameMaster.Behaviours
             if (hero?.StringId != null && hero.StringId.StartsWith("blgm_"))
             {
                 BLGMObjectManager.UnregisterHero(hero.StringId);
+            }
+        }
+
+        private void OnMobilePartyDestroyed(MobileParty mobileParty, PartyBase destroyerParty)
+        {
+            if (mobileParty?.StringId?.StartsWith("blgm_party_") == true)
+            {
+                BLGMObjectManager.UnregisterParty(mobileParty);
+            }
+        }
+
+        private void OnPartyDisbanded(MobileParty disbandParty, Settlement relatedSettlement)
+        {
+            if (disbandParty?.StringId?.StartsWith("blgm_party_") == true)
+            {
+                BLGMObjectManager.UnregisterParty(disbandParty);
             }
         }
 

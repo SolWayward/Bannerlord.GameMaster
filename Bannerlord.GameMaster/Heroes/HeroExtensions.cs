@@ -15,6 +15,7 @@ using Bannerlord.GameMaster.Settlements;
 using TaleWorlds.Library;
 using Bannerlord.GameMaster.Common;
 using System.Drawing;
+using Bannerlord.GameMaster.Party;
 
 namespace Bannerlord.GameMaster.Heroes
 {
@@ -99,38 +100,15 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		public static HeroTypes GetTypes(this Hero hero) => hero.GetHeroTypes();
 
-		#endregion
+	#endregion
 		#region Party
 
 		/// <summary>
 		/// Creates a party, and configuring AI to work as a normal party.<br/>
-		/// Party is initalized with 20000 trade gold and 10 basic troops
 		/// </summary>
-		/// <param name="hero"></param>
-		/// <param name="spawnSettlement"></param>
-		/// <returns></returns>
 		public static MobileParty CreateParty(this Hero hero, Settlement spawnSettlement)
 		{
-			MobileParty party = LordPartyComponent.CreateLordParty(
-			stringId: "party_" + hero.StringId,
-			hero: hero,
-			position: spawnSettlement.GatePosition,
-			spawnRadius: 0.5f,
-			spawnSettlement: spawnSettlement,
-			partyLeader: hero
-			);
-
-			party.DesiredAiNavigationType = MobileParty.NavigationType.All;
-			party.Aggressiveness = Math.Max(0.3f, RandomNumberGen.Instance.NextRandomFloat());
-			party.PartyTradeGold = 20000;
-			//party.PartyMoveMode = MoveModeType.Party; // For caravans?
-
-			//party.InitializeMobilePartyAtPosition(hero.Clan.DefaultPartyTemplate, spawnSettlement.GatePosition);
-			party.AddElementToMemberRoster(hero.Culture.BasicTroop, 10);
-			party.Ai.EnableAi();
-			party.SetMovePatrolAroundSettlement(spawnSettlement, party.DesiredAiNavigationType, false);
-
-			return party;
+			return MobilePartyGenerator.CreateLordParty(hero, spawnSettlement);
 		}
 
 		#endregion
