@@ -254,7 +254,7 @@ namespace Bannerlord.GameMaster.Bandits
 
                 for (int i = 0; i < hideouts.Count; i++)
                 {
-                    if (hideouts[i] != null && hideouts[i].Settlement != null && hideouts[i].Settlement.Parties.Count > 0)
+                    if (hideouts[i] != null && hideouts[i].IsInfested)
                     {
                         count++;
                     }
