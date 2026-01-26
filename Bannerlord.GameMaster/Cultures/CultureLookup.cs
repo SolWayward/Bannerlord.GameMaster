@@ -92,10 +92,25 @@ namespace Bannerlord.GameMaster.Cultures
 			}
 		}
 
+		/// <summary>
+		/// Get a random main culture
+		/// </summary>
 		public static CultureObject RandomMainCulture()
 		{
 			List<CultureObject> mainCultures = MainCultures;
 			return mainCultures[RandomNumberGen.Instance.NextRandomInt(mainCultures.Count)];
+		}
+
+		/// <summary>
+		/// Get a random bandit culture
+		/// </summary>
+		public static CultureObject RandomBanditCulture(bool includeLooters)
+		{
+			List<CultureObject> banditCultures = BanditCultures;
+			if (!includeLooters)
+				banditCultures.Remove(Looters);
+
+			return banditCultures[RandomNumberGen.Instance.NextRandomInt(banditCultures.Count)];
 		}
 
 		/// MARK: Hero Name
