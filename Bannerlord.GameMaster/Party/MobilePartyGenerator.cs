@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Bannerlord.GameMaster.Bandits;
 using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Cultures;
@@ -10,6 +11,7 @@ using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 
 namespace Bannerlord.GameMaster.Party
 {
@@ -111,7 +113,7 @@ namespace Bannerlord.GameMaster.Party
         /// </summary>
         /// <param name="hideout">The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout</param>
         /// <param name="banditClan">The bandit clan (if null, uses hideout's owning clan)</param>
-        /// <param name="isBossParty">BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are insdie the hideout</param>
+        /// <param name="isBossParty">BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout</param>
         /// <param name="partyTemplate">Party template to use (if null, uses culture default)</param>
         public static MobileParty CreateBanditParty(
             Hideout hideout,
@@ -495,6 +497,62 @@ namespace Bannerlord.GameMaster.Party
             return CreateSettlementParty(settlement, SettlementPartyType.Militia);
         }
 
+        // MARK: Deserter Party
+        /// <summary>
+        /// Creates a deserter party with troops from the specified main culture.
+        /// Deserters are bandits composed of troops that "deserted" from a main faction.
+        /// </summary>
+        /// <param name="sourceCulture">The main culture to draw troops from (e.g., Vlandia, Empire)</param>
+        /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='hideout']"/>
+        /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='isBossParty']"/>
+        public static MobileParty CreateDeserterParty(
+            Hideout hideout,
+            CultureObject sourceCulture,
+            bool isBossParty = false)
+        {
+            if (hideout == null)
+            {
+                BLGMResult.Error("CreateDeserterParty() failed, hideout cannot be null",
+                    new ArgumentNullException(nameof(hideout))).Log();
+                return null;
+            }
+
+            if (sourceCulture == null || !sourceCulture.IsMainCulture)
+            {
+                BLGMResult.Error("CreateDeserterParty() requires a main culture for source troops",
+                    new ArgumentException("sourceCulture must be a main culture")).Log();
+                return null;
+            }
+
+            // Get the deserter clan
+            Clan deserterClan = Clan.FindFirst(x => x.StringId == "deserters");
+            if (deserterClan == null)
+            {
+                BLGMResult.Error("CreateDeserterParty() failed: Deserter clan not found",
+                    new InvalidOperationException("Deserter clan not found")).Log();
+                return null;
+            }
+
+            // Create the party using the deserter clan but fill with source culture troops
+            MobileParty party = BanditPartyComponent.CreateBanditParty(
+                $"deserter_{hideout.StringId}_temp",
+                deserterClan,
+                hideout,
+                isBossParty,
+                sourceCulture.DefaultPartyTemplate,  // Use source culture's troop template
+                hideout.Settlement.GatePosition
+            );
+
+            // Register with BLGM
+            BLGMObjectManager.RegisterParty(party, BLGMObjectManager.PartyTypeNames.Bandit, hideout.StringId);
+
+            // Set custom name to indicate deserter origin
+            TextObject partyName = new($"{sourceCulture.Name} Deserters");
+            party.Party.SetCustomName(partyName);
+
+            return party;
+        }
+
         // MARK: Desert Bandit
         /// <summary>
         /// Creates a desert bandit party at a hideout.
@@ -502,7 +560,7 @@ namespace Bannerlord.GameMaster.Party
         /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='hideout']"/><inheritdoc cref = "CreateBanditParty" path="/param[@name='isBossParty']"/>
         public static MobileParty CreateDesertBanditParty(Hideout hideout, bool isBossParty = false)
         {
-            return CreateBanditPartyForCulture(hideout, CultureLookup.Deserters, isBossParty);
+            return CreateBanditPartyForCulture(hideout, CultureLookup.DesertBandits, isBossParty);
         }
 
         // MARK: Forest Bandit
@@ -547,11 +605,14 @@ namespace Bannerlord.GameMaster.Party
 
         // MARK: Bandit For Culture
         /// <summary>
-        /// Creates a bandit party for the specified bandit culture
+        /// Creates a bandit party for the specified culture.
+        /// If a non-bandit (main) culture is provided, creates a deserter party instead.
         /// </summary>
-        /// <param name="banditCulture">The type of bandit</param>
+        /// <param name="culture">The bandit type that will be used for the party. If culture is a main cuture instead of a bandit culture, a deserter party will be created using troops from the specified culture. 
+        /// If culture is null or not specified, the party will use the same cultures of any bandit parties residing inside the hideout, or 
+        /// if the hideout is empty, the bandit culture for the terrain type of the hideout will be used.</param>
         /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='hideout']"/><inheritdoc cref = "CreateBanditParty" path="/param[@name='isBossParty']"/>
-        private static MobileParty CreateBanditPartyForCulture(Hideout hideout, CultureObject banditCulture, bool isBossParty)
+        public static MobileParty CreateBanditPartyForCulture(Hideout hideout, CultureObject culture = null, bool isBossParty = false)
         {
             if (hideout == null)
             {
@@ -559,8 +620,28 @@ namespace Bannerlord.GameMaster.Party
                 return null;
             }
 
+            // Handle non-bandit cultures by creating deserter parties
+            if (culture != null && !culture.IsBandit)
+            {
+                if (culture.IsMainCulture)
+                {
+                    // Create a deserter party with troops from this culture
+                    return CreateDeserterParty(hideout, culture, isBossParty);
+                }
+                else
+                {
+                    // Unknown culture type - log warning and use terrain-appropriate bandit
+                    BLGMResult.Error($"CreateBanditPartyForCulture() received non-bandit, non-main culture: {culture.StringId}. Using terrain-appropriate bandit culture.").Log();
+                    culture = BanditHelpers.GetTerrainAppropriateBanditCulture(hideout);
+                }
+            }
+
+            // Null culture - get terrain-appropriate
+            if (culture == null)
+                culture = BanditHelpers.GetTerrainAppropriateBanditCulture(hideout);
+
             // Find the bandit clan for this culture
-            Clan banditClan = Clan.BanditFactions.FirstOrDefault(c => c.Culture == banditCulture);
+            Clan banditClan = Clan.BanditFactions.FirstOrDefault(c => c.Culture == culture);
 
             // Fall back to hideout's owning clan
             banditClan ??= hideout.Settlement.OwnerClan;
