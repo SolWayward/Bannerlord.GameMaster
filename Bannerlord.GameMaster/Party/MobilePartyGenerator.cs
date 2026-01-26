@@ -15,14 +15,9 @@ namespace Bannerlord.GameMaster.Party
 {
     /// <summary>
     /// Centralized party generation system with layered architecture.
-    /// Layer 1: Base party initialization methods
-    /// Layer 2: Type-specific party methods (Lord, Bandit, Settlement)
-    /// Layer 3: Convenience methods for specific use cases
     /// </summary>
     public static class MobilePartyGenerator
     {
-        #region Layer 1: Base Methods
-
         /// <summary>
         /// Initializes a party with common settings after creation.
         /// Called by party creation methods to apply consistent configuration.
@@ -59,10 +54,6 @@ namespace Bannerlord.GameMaster.Party
                 party.Ai.DisableAi();
             }
         }
-
-        #endregion
-
-        #region Layer 2: Type-Specific Methods
 
         // MARK: CreateLordParty
         /// <summary>
@@ -116,7 +107,7 @@ namespace Bannerlord.GameMaster.Party
 
         // MARK: CreateBanditParty
         /// <summary>
-        /// Creates a bandit party at a hideout using native BanditPartyComponent.
+        /// Creates a bandit party at a hideout using native BanditPartyComponent. Recommended to use one of the convenience methods for specific bandit type, or CreateBanditPartyForCulture unless you want to use a non bandit party template.
         /// </summary>
         /// <param name="hideout">The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout</param>
         /// <param name="banditClan">The bandit clan (if null, uses hideout's owning clan)</param>
@@ -203,12 +194,11 @@ namespace Bannerlord.GameMaster.Party
 
         // MARK: CreateSettlementParty
         /// <summary>
-        /// Creates a settlement-based party (villagers, patrol, militia).
+        /// Creates a settlement-based party (villagers, patrol, militia). Recommended to use one of the convenience methods for either Patrol, Militia, Villager, or Caravan parties
         /// </summary>
         /// <param name="settlement">The settlement this party belongs to</param>
         /// <param name="partyType">Type of settlement party to create</param>
         /// <param name="partyTemplate">Optional custom party template</param>
-        /// <returns>The created MobileParty</returns>
         public static MobileParty CreateSettlementParty(
             Settlement settlement,
             SettlementPartyType partyType,
@@ -293,10 +283,6 @@ namespace Bannerlord.GameMaster.Party
             return party;
         }
 
-        #endregion
-
-        #region Layer 3: Convenience Methods
-
         // MARK: CreateClanParty
         /// <summary>
         /// Creates a party for a clan member (convenience wrapper for CreateLordParty).
@@ -320,16 +306,11 @@ namespace Bannerlord.GameMaster.Party
         }
 
         /// <summary>
-        /// Creates a party for a new hero, generating a leader if none specified.
+        /// Randomly generates a new lord for the specified clan and creates a party for that hero.
         /// </summary>
         /// <param name="clan">The clan this party belongs to</param>
-        /// <param name="leader">Optional leader hero. If null, generates a new one.</param>
         /// <param name="spawnSettlement">Settlement to spawn at</param>
-        /// <returns>The created MobileParty</returns>
-        public static MobileParty CreateClanPartyWithNewLeader(
-            Clan clan,
-            Hero leader = null,
-            Settlement spawnSettlement = null)
+        public static MobileParty CreateClanPartyWithNewLeader(Clan clan, Settlement spawnSettlement = null)
         {
             if (clan == null)
             {
@@ -345,23 +326,19 @@ namespace Bannerlord.GameMaster.Party
                 return null;
             }
 
-            Hero partyLeader = leader;
-            if (partyLeader == null)
-            {
-                // Generate a new hero for this party using HeroGenerator
-                CultureFlags cultureFlag = CultureLookup.GetCultureFlag(clan.Culture);
-                bool isFemale = RandomNumberGen.Instance.NextRandomInt(2) == 0;
-                string heroName = CultureLookup.GetUniqueRandomHeroName(clan.Culture, isFemale);
+            // Generate a new hero for this party using HeroGenerator
+            CultureFlags cultureFlag = clan.Culture.ToCultureFlag();
+            bool isFemale = RandomNumberGen.Instance.NextRandomInt(2) == 0;
+            string heroName = CultureLookup.GetUniqueRandomHeroName(clan.Culture, isFemale);
 
-                partyLeader = HeroGenerator.CreateLord(
-                    heroName,
-                    cultureFlag,
-                    isFemale ? GenderFlags.Female : GenderFlags.Male,
-                    clan,
-                    withParty: false,
-                    settlement: settlement
-                );
-            }
+            Hero partyLeader = HeroGenerator.CreateLord(
+                heroName,
+                cultureFlag,
+                isFemale ? GenderFlags.Female : GenderFlags.Male,
+                clan,
+                withParty: false,
+                settlement: settlement
+            );
 
             return CreateLordParty(partyLeader, settlement);
         }
@@ -374,7 +351,6 @@ namespace Bannerlord.GameMaster.Party
         /// <param name="homeSettlement">Settlement the caravan is based at (must be a town)</param>
         /// <param name="caravanLeader">Optional leader hero</param>
         /// <param name="isElite">Whether this is an armed/elite caravan</param>
-        /// <returns>The created MobileParty</returns>
         public static MobileParty CreateCaravanParty(
             Hero owner,
             Settlement homeSettlement,
@@ -440,7 +416,7 @@ namespace Bannerlord.GameMaster.Party
         }
 
         /// <summary>
-        /// Creates a villager party from a settlement (must be a village).
+        /// Creates a villager party from a settlement (must be a village). Will fail if settlement is not a village
         /// </summary>
         public static MobileParty CreateVillagerParty(Settlement settlement)
         {
@@ -477,7 +453,6 @@ namespace Bannerlord.GameMaster.Party
         /// </summary>
         /// <param name="settlement">Port Town</param>
         /// <param name="template">Template to use for party creation, recommended to leave as default null, which will use the Naval patrol template</param>
-        /// <returns></returns>
         public static MobileParty CreateNavalPatrolParty(Settlement settlement, PartyTemplateObject template = null)
         {
             if (!GameEnvironment.IsWarsailsDlcLoaded)
@@ -599,8 +574,6 @@ namespace Bannerlord.GameMaster.Party
 
             return CreateBanditParty(hideout, banditClan, isBossParty);
         }
-
-        #endregion
     }
 
     // MARK: Party Types
