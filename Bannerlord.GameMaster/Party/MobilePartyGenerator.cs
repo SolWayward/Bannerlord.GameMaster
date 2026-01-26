@@ -118,11 +118,10 @@ namespace Bannerlord.GameMaster.Party
         /// <summary>
         /// Creates a bandit party at a hideout using native BanditPartyComponent.
         /// </summary>
-        /// <param name="hideout">The hideout this bandit party belongs to</param>
+        /// <param name="hideout">The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout</param>
         /// <param name="banditClan">The bandit clan (if null, uses hideout's owning clan)</param>
-        /// <param name="isBossParty">Whether this is a boss party</param>
+        /// <param name="isBossParty">BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are insdie the hideout</param>
         /// <param name="partyTemplate">Party template to use (if null, uses culture default)</param>
-        /// <returns>The created MobileParty</returns>
         public static MobileParty CreateBanditParty(
             Hideout hideout,
             Clan banditClan = null,
@@ -164,15 +163,11 @@ namespace Bannerlord.GameMaster.Party
 
         // MARK: CreateLooterParty
         /// <summary>
-        /// Creates a looter party near a settlement.
-        /// Looters are bandits without a hideout.
+        /// Creates a looter party near a settlement. Looters are bandits without a hideout.
         /// </summary>
         /// <param name="relatedSettlement">Settlement the looters spawn near</param>
         /// <param name="partyTemplate">Party template (if null, uses looters template)</param>
-        /// <returns>The created MobileParty</returns>
-        public static MobileParty CreateLooterParty(
-            Settlement relatedSettlement,
-            PartyTemplateObject partyTemplate = null)
+        public static MobileParty CreateLooterParty(Settlement relatedSettlement, PartyTemplateObject partyTemplate = null)
         {
             if (relatedSettlement == null)
             {
@@ -458,7 +453,7 @@ namespace Bannerlord.GameMaster.Party
             return CreateSettlementParty(settlement, SettlementPartyType.Villager);
         }
 
-        // MARK: Patrol/Guard Methods
+        // MARK: Patrol party
         /// <summary>
         /// Creates a patrol party (guard party) for a fortification.
         /// Uses strong patrol party template by default if no template is specified
@@ -532,47 +527,62 @@ namespace Bannerlord.GameMaster.Party
             return CreateSettlementParty(settlement, SettlementPartyType.Militia);
         }
 
-        // MARK: Bandit Convenience Methods
+        // MARK: Desert Bandit
         /// <summary>
         /// Creates a desert bandit party at a hideout.
         /// </summary>
+        /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='hideout']"/><inheritdoc cref = "CreateBanditParty" path="/param[@name='isBossParty']"/>
         public static MobileParty CreateDesertBanditParty(Hideout hideout, bool isBossParty = false)
         {
             return CreateBanditPartyForCulture(hideout, CultureLookup.Deserters, isBossParty);
         }
 
+        // MARK: Forest Bandit
         /// <summary>
         /// Creates a forest bandit party at a hideout.
         /// </summary>
+        /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='hideout']"/><inheritdoc cref = "CreateBanditParty" path="/param[@name='isBossParty']"/>
         public static MobileParty CreateForestBanditParty(Hideout hideout, bool isBossParty = false)
         {
             return CreateBanditPartyForCulture(hideout, CultureLookup.ForestBandits, isBossParty);
         }
 
+        // MARK: Mountain Bandit
         /// <summary>
         /// Creates a mountain bandit party at a hideout.
         /// </summary>
+        /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='hideout']"/><inheritdoc cref = "CreateBanditParty" path="/param[@name='isBossParty']"/>
         public static MobileParty CreateMountainBanditParty(Hideout hideout, bool isBossParty = false)
         {
             return CreateBanditPartyForCulture(hideout, CultureLookup.MountainBandits, isBossParty);
         }
 
+        // MARK: Sea Raider
         /// <summary>
         /// Creates a sea raider party at a hideout.
         /// </summary>
+        /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='hideout']"/><inheritdoc cref = "CreateBanditParty" path="/param[@name='isBossParty']"/>
         public static MobileParty CreateSeaRaiderParty(Hideout hideout, bool isBossParty = false)
         {
             return CreateBanditPartyForCulture(hideout, CultureLookup.SeaRaiders, isBossParty);
         }
 
+        // MARK: Steppe Bandit
         /// <summary>
         /// Creates a steppe bandit party at a hideout.
         /// </summary>
+        /// <inheritdoc cref="CreateBanditParty" path="/param[@name='hideout']"/><inheritdoc cref="CreateBanditParty" path="/param[@name='isBossParty']"/>
         public static MobileParty CreateSteppeBanditParty(Hideout hideout, bool isBossParty = false)
         {
             return CreateBanditPartyForCulture(hideout, CultureLookup.SteppeBandits, isBossParty);
         }
 
+        // MARK: Bandit For Culture
+        /// <summary>
+        /// Creates a bandit party for the specified bandit culture
+        /// </summary>
+        /// <param name="banditCulture">The type of bandit</param>
+        /// <inheritdoc cref = "CreateBanditParty" path="/param[@name='hideout']"/><inheritdoc cref = "CreateBanditParty" path="/param[@name='isBossParty']"/>
         private static MobileParty CreateBanditPartyForCulture(Hideout hideout, CultureObject banditCulture, bool isBossParty)
         {
             if (hideout == null)
@@ -593,6 +603,7 @@ namespace Bannerlord.GameMaster.Party
         #endregion
     }
 
+    // MARK: Party Types
     /// <summary>
     /// Types of parties that can be created from settlements.
     /// </summary>
