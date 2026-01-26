@@ -34,7 +34,8 @@ namespace Bannerlord.GameMaster.Cultures
 			}
 		}
 
-		public static CultureObject Deserters => MBObjectManager.Instance.GetObject<CultureObject>("desert_bandits");
+		public static CultureObject Deserters => MBObjectManager.Instance.GetObject<CultureObject>("deserters");
+		public static CultureObject DesertBandits => MBObjectManager.Instance.GetObject<CultureObject>("desert_bandits");
 		public static CultureObject ForestBandits => MBObjectManager.Instance.GetObject<CultureObject>("forest_bandits");
 		public static CultureObject Looters => MBObjectManager.Instance.GetObject<CultureObject>("looters");
 		public static CultureObject MountainBandits => MBObjectManager.Instance.GetObject<CultureObject>("mountain_bandits");
@@ -110,6 +111,22 @@ namespace Bannerlord.GameMaster.Cultures
 			if (!includeLooters)
 				banditCultures.Remove(Looters);
 
+			return banditCultures[RandomNumberGen.Instance.NextRandomInt(banditCultures.Count)];
+		}
+
+		/// <summary>
+		/// Returns a random bandit culture appropriate for hideouts (excludes looters and optionally deserters).
+		/// </summary>
+		/// <param name="includeDeserters">If true, includes deserters in the selection pool.</param>
+		/// <returns>A random hideout-appropriate bandit culture.</returns>
+		public static CultureObject RandomHideoutBanditCulture(bool includeDeserters = false)
+		{
+			List<CultureObject> banditCultures = BanditCultures;
+			banditCultures.Remove(Looters);  // Looters don't have hideouts
+			
+			if (!includeDeserters)
+				banditCultures.Remove(Deserters);  // Deserters are special
+			
 			return banditCultures[RandomNumberGen.Instance.NextRandomInt(banditCultures.Count)];
 		}
 
@@ -349,6 +366,7 @@ namespace Bannerlord.GameMaster.Cultures
 				"sturgia" => CultureFlags.Sturgia,
 				"vlandia" => CultureFlags.Vlandia,
 				"looters" => CultureFlags.Looters,
+				"deserters" => CultureFlags.Deserters,
 				"desert_bandits" => CultureFlags.DesertBandits,
 				"forest_bandits" => CultureFlags.ForestBandits,
 				"mountain_bandits" => CultureFlags.MountainBandits,

@@ -19,20 +19,21 @@ namespace Bannerlord.GameMaster.Cultures
         AllMainCultures = Calradian | Aserai | Battania | Empire |
                           Khuzait | Nord | Sturgia | Vlandia,
 
-        // Bandit Cultures (bits 8-14)
-        Looters = 1 << 8,         
-        DesertBandits = 1 << 9,   
-        ForestBandits = 1 << 10,  
-        MountainBandits = 1 << 11,
-        SteppeBandits = 1 << 12,  
-        SeaRaiders = 1 << 13,     
-        Corsairs = 1 << 14,       
-        AllBanditCultures = Looters | DesertBandits | ForestBandits |
+        // Bandit Cultures (bits 8-15)
+        Looters = 1 << 8,
+        Deserters = 1 << 9,
+        DesertBandits = 1 << 10,
+        ForestBandits = 1 << 11,
+        MountainBandits = 1 << 12,
+        SteppeBandits = 1 << 13,
+        SeaRaiders = 1 << 14,
+        Corsairs = 1 << 15,
+        AllBanditCultures = Looters | Deserters | DesertBandits | ForestBandits |
                             MountainBandits | SteppeBandits | SeaRaiders | Corsairs,
 
-        // Special Cultures (bits 15-16)
-        DarshiSpecial = 1 << 15,
-        VakkenSpecial = 1 << 16,
+        // Special Cultures (bits 16-17)
+        DarshiSpecial = 1 << 16,
+        VakkenSpecial = 1 << 17,
 
         // All combinations
         AllCultures = AllMainCultures | AllBanditCultures |
