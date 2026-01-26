@@ -370,7 +370,7 @@ namespace Bannerlord.GameMaster.Party
             }
 
             // Determine if this should be a land or naval caravan based on settlement
-            bool isLand = !homeSettlement.HasPort;
+            bool isLand = !GameEnvironment.IsWarsailsDlcLoaded || !homeSettlement.HasPort;
 
             PartyTemplateObject template = Helpers.CaravanHelper.GetRandomCaravanTemplate(
                 owner.Culture,
@@ -391,13 +391,6 @@ namespace Bannerlord.GameMaster.Party
             BLGMObjectManager.RegisterParty(party, BLGMObjectManager.PartyTypeNames.Caravan, owner.StringId);
 
             return party;
-        }
-
-
-        private static PartyTemplateObject GetCaravanTemplate(CultureObject culture, bool isElite, bool isLand = true)
-        {
-            // Use native helper which properly handles elite/non-elite and land/naval
-            return Helpers.CaravanHelper.GetRandomCaravanTemplate(culture, isElite, isLand);
         }
 
         // MARK: Villager Methods

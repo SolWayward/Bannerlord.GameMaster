@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Party;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
@@ -185,35 +186,32 @@ namespace Bannerlord.GameMaster.Caravans
         /// Finds a notable without a caravan and creates one for them.
         /// </summary>
         /// <param name="settlement">The settlement where the caravan will be created. Must be a town.</param>
+        /// <param name="isElite">Should caravan use elite template. Defaults to true.</param>
         /// <returns>The created MobileParty if successful, null if failed.</returns>
-        public static MobileParty CreateNotableCaravan(Settlement settlement)
-        {
+        public static MobileParty CreateNotableCaravan(Settlement settlement, bool isElite = true)
+        {          
             if (settlement == null)
+            {
+                BLGMResult.Error("CreateNotableCaravan() failed, settlement cannot be null", new ArgumentNullException(nameof(settlement))).Log();
                 return null;
+            }
 
             if (!settlement.IsTown)
+            {
+                BLGMResult.Error($"CreateNotableCaravan() failed, settlement {settlement.Name} is not a town", new InvalidOperationException("Caravan home settlement must be a town")).Log();
                 return null;
+            }
 
             // Find a notable without a caravan
             Hero caravanOwner = settlement.Notables.FirstOrDefault(n => n.OwnedCaravans.Count == 0);
             
             if (caravanOwner == null)
+            {
+                BLGMResult.Error($"CreateNotableCaravan() failed, Could not find a valid notable not already owning any caravans in settlement {settlement.Name} to use as caravan owner", new InvalidOperationException("No notable found in settlement to use as caravan owner which does not already own a caravan")).Log();
                 return null;
+            }
 
-            // Get a party template for caravans
-            PartyTemplateObject partyTemplate = MBObjectManager.Instance.GetObjectTypeList<PartyTemplateObject>()
-                .FirstOrDefault(pt => pt.StringId.Contains("caravan"));
-            
-            if (partyTemplate == null)
-                return null;
-
-            // Create the caravan using the game's API
-            MobileParty caravan = CaravanPartyComponent.CreateCaravanParty(
-                caravanOwner,
-                settlement,
-                partyTemplate
-            );
-
+            MobileParty caravan = MobilePartyGenerator.CreateCaravanParty(caravanOwner, settlement, isElite:isElite);
             return caravan;
         }
 
@@ -222,14 +220,21 @@ namespace Bannerlord.GameMaster.Caravans
         /// </summary>
         /// <param name="settlement">The settlement where the caravan will be created. Must be a town.</param>
         /// <param name="leaderHero">Optional hero to lead the caravan. If null, will try to find an available companion.</param>
+        /// <param name = "isElite" > Should caravan use elite template.Defaults to true.</param>
         /// <returns>The created MobileParty if successful, null if failed.</returns>
-        public static MobileParty CreatePlayerCaravan(Settlement settlement, Hero leaderHero = null)
+        public static MobileParty CreatePlayerCaravan(Settlement settlement, Hero leaderHero = null, bool isElite = true)
         {
             if (settlement == null)
+            {
+                BLGMResult.Error("CreatePlayerCaravan() failed, settlement cannot be null", new ArgumentNullException(nameof(settlement))).Log();
                 return null;
+            }
 
             if (!settlement.IsTown)
+            {
+                BLGMResult.Error($"CreatePlayerCaravan() failed, settlement {settlement.Name} is not a town", new InvalidOperationException("Caravan home settlement must be a town")).Log();
                 return null;
+            }
 
             Hero caravanLeader = null;
             
@@ -237,13 +242,20 @@ namespace Bannerlord.GameMaster.Caravans
             if (leaderHero != null)
             {
                 if (leaderHero.Clan != Clan.PlayerClan)
+                {
+                    BLGMResult.Error($"CreatePlayerCaravan() failed, {leaderHero.Name} is not a member of players clan", new InvalidOperationException("Caravan leader must be a member of the players clan")).Log();
                     return null;
-                
+                }
+
                 if (leaderHero.PartyBelongedTo != null)
+                {
+                    BLGMResult.Error($"CreatePlayerCaravan() failed, {leaderHero.Name} is already a member of another party", new InvalidOperationException("Caravan leader must not already be a member of a party")).Log();
                     return null;
-                
+                }
+
                 caravanLeader = leaderHero;
             }
+            
             else
             {
                 // Try to find an available companion
@@ -252,23 +264,8 @@ namespace Bannerlord.GameMaster.Caravans
                     !c.IsPrisoner &&
                     c.IsActive);
             }
-
-            // Get a party template for caravans
-            PartyTemplateObject partyTemplate = MBObjectManager.Instance.GetObjectTypeList<PartyTemplateObject>()
-                .FirstOrDefault(pt => pt.StringId.Contains("caravan") && pt.StringId.Contains("template"));
             
-            if (partyTemplate == null)
-                return null;
-
-            // Create caravan for player clan using proper owner
-            MobileParty caravan = CaravanPartyComponent.CreateCaravanParty(
-                Hero.MainHero,  // Owner is always the clan leader for player caravans
-                settlement,
-                partyTemplate,
-                false,  // isInitialSpawn
-                caravanLeader  // Optional leader companion
-            );
-
+            MobileParty caravan = MobilePartyGenerator.CreateCaravanParty(Hero.MainHero, settlement, caravanLeader, isElite);
             return caravan;
         }
 
