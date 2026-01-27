@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Party;
+using Bannerlord.GameMaster.Settlements;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
@@ -118,7 +119,7 @@ namespace Bannerlord.GameMaster.Bandits
             {
                 BLGMResult.Error("GetHideoutCulture() hideout cannot be null",
                     new ArgumentNullException(nameof(hideout))).Log();
-                return CultureLookup.RandomHideoutBanditCulture(false);
+                return null;
             }
 
             // Try to get culture from existing parties
@@ -165,7 +166,7 @@ namespace Bannerlord.GameMaster.Bandits
                 return nearbyHideoutCulture;
 
             // 3. Map nearest settlement's main culture to bandit type
-            Settlement nearestSettlement = FindNearestNonHideoutSettlement(hideout.Settlement);
+            Settlement nearestSettlement = SettlementDistanceHelpers.FindNearestNonHideoutSettlement(hideout.Settlement);
             if (nearestSettlement != null)
             {
                 CultureObject mappedBanditCulture = MapMainCultureToBanditCulture(nearestSettlement.Culture);
@@ -222,27 +223,6 @@ namespace Bannerlord.GameMaster.Bandits
             }
             
             return nearestCulture;
-        }
-
-        private static Settlement FindNearestNonHideoutSettlement(Settlement hideoutSettlement)
-        {
-            float minDistance = float.MaxValue;
-            Settlement nearest = null;
-            
-            foreach (Settlement settlement in Settlement.All)
-            {
-                if (settlement.IsHideout || settlement.Culture == null || !settlement.Culture.IsMainCulture)
-                    continue;
-                    
-                float distance = hideoutSettlement.Position.DistanceSquared(settlement.Position);
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    nearest = settlement;
-                }
-            }
-            
-            return nearest;
         }
 
         /// <summary>

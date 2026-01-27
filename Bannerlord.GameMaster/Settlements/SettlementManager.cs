@@ -6,6 +6,7 @@ using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Behaviours;
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Settlements
 {
@@ -66,6 +67,7 @@ namespace Bannerlord.GameMaster.Settlements
         public static Settlement GetRandomKingdomVillage(Kingdom kingdom) => kingdom?.Settlements.FindAll(s => s.IsVillage).GetRandomElement();
         #endregion
 
+        /// MARK: ChangeOwner
         /// <summary>
         /// Sets new owner of the settlement by calling ChangeOwnerOfSettlementAction
         /// </summary>
@@ -74,6 +76,7 @@ namespace Bannerlord.GameMaster.Settlements
             ChangeOwnerOfSettlementAction.ApplyByDefault(newOwnerHero, settlement);
         }
 
+        /// MARK: Set Culture
         /// <summary>
         /// Changes the culture of a settlement and optionally its notables and bound villages.
         /// </summary>
@@ -134,6 +137,7 @@ namespace Bannerlord.GameMaster.Settlements
             }
         }
 
+        /// MARK: Bound Village Count
         /// <summary>
         /// Gets the count of bound villages for a settlement.
         /// </summary>
