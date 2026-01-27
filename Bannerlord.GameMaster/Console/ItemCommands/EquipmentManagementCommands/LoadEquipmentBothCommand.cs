@@ -82,11 +82,11 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 List<SkippedItemInfo> civilianSkippedItems = new();
 
                 // Try to load battle equipment
-                string battlePath = EquipmentFileManager.GetEquipmentFilePath(filename, false);
-                if (EquipmentFileManager.EquipmentFileExists(filename, false))
+                string battlePath = EquipmentFileManager.Default.GetEquipmentFilePath(filename, false);
+                if (EquipmentFileManager.Default.EquipmentFileExists(filename, false))
                 {
-                    (battleLoadedCount, battleSkippedCount, battleSkippedItems) = 
-                        EquipmentFileManager.LoadEquipmentFromFile(hero, battlePath, false);
+                    (battleLoadedCount, battleSkippedCount, battleSkippedItems) =
+                        EquipmentFileManager.Default.LoadEquipmentFromFile(hero, battlePath, false);
                     battleLoaded = true;
 
                     result.AppendLine($"\nBattle equipment loaded from: {Path.GetFileName(battlePath)}");
@@ -109,11 +109,11 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                 }
 
                 // Try to load civilian equipment
-                string civilianPath = EquipmentFileManager.GetEquipmentFilePath(filename, true);
-                if (EquipmentFileManager.EquipmentFileExists(filename, true))
+                string civilianPath = EquipmentFileManager.Default.GetEquipmentFilePath(filename, true);
+                if (EquipmentFileManager.Default.EquipmentFileExists(filename, true))
                 {
-                    (civilianLoadedCount, civilianSkippedCount, civilianSkippedItems) = 
-                        EquipmentFileManager.LoadEquipmentFromFile(hero, civilianPath, true);
+                    (civilianLoadedCount, civilianSkippedCount, civilianSkippedItems) =
+                        EquipmentFileManager.Default.LoadEquipmentFromFile(hero, civilianPath, true);
                     civilianLoaded = true;
 
                     result.AppendLine($"\nCivilian equipment loaded from: {Path.GetFileName(civilianPath)}");

@@ -61,13 +61,13 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     return MessageFormatter.FormatErrorMessage("Filename cannot be empty.");
 
                 // MARK: Execute Logic
-                string filepath = EquipmentFileManager.GetEquipmentFilePath(filename, true);
+                string filepath = EquipmentFileManager.Default.GetEquipmentFilePath(filename, true);
 
-                if (!EquipmentFileManager.EquipmentFileExists(filename, true))
+                if (!EquipmentFileManager.Default.EquipmentFileExists(filename, true))
                     return MessageFormatter.FormatErrorMessage($"Civilian equipment file not found: {Path.GetFileName(filepath)}");
 
-                (int loadedCount, int skippedCount, List<SkippedItemInfo> skippedItems) = 
-                    EquipmentFileManager.LoadEquipmentFromFile(hero, filepath, true);
+                (int loadedCount, int skippedCount, List<SkippedItemInfo> skippedItems) =
+                    EquipmentFileManager.Default.LoadEquipmentFromFile(hero, filepath, true);
 
                 List<EquipmentItemInfo> loadedItems = ItemCommandHelpers.GetEquipmentList(hero.CivilianEquipment);
 

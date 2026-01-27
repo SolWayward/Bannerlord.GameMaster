@@ -10,15 +10,37 @@ using TaleWorlds.Core;
 namespace Bannerlord.GameMaster.Items
 {
     /// <summary>
-    /// Manages equipment file I/O operations for saving and loading hero equipment sets
+    /// Manages equipment file I/O operations for saving and loading hero equipment sets.
+    /// Supports configurable mod folder names for use by different mods.
     /// </summary>
-    public static class EquipmentFileManager
+    public class EquipmentFileManager
     {
         private const string BaseFolder = "Mount and Blade II Bannerlord";
         private const string ConfigFolder = "Configs";
-        private const string GameMasterFolder = "GameMaster";
         private const string HeroSetsFolder = "HeroSets";
         private const string CivilianFolder = "civilian";
+
+        /// <summary>
+        /// The mod-specific folder name used in the configuration path.
+        /// </summary>
+        public string ModFolder { get; }
+
+        /// <summary>
+        /// Default instance using "GameMaster" folder for backwards compatibility.
+        /// </summary>
+        public static EquipmentFileManager Default { get; } = new("GameMaster");
+
+        /// <summary>
+        /// Creates a new EquipmentFileManager with the specified mod folder name.
+        /// </summary>
+        /// <param name="modFolder">The mod folder name to use in the configuration path.</param>
+        /// <exception cref="ArgumentException">Thrown when modFolder is null or whitespace.</exception>
+        public EquipmentFileManager(string modFolder)
+        {
+            if (string.IsNullOrWhiteSpace(modFolder))
+                throw new ArgumentException("Mod folder cannot be null or empty.", nameof(modFolder));
+            ModFolder = modFolder;
+        }
 
         #region File Path Operations
 
@@ -28,10 +50,10 @@ namespace Bannerlord.GameMaster.Items
         /// <param name="filename">The filename without extension</param>
         /// <param name="isCivilian">Whether this is civilian equipment</param>
         /// <returns>The full file path</returns>
-        public static string GetEquipmentFilePath(string filename, bool isCivilian)
+        public string GetEquipmentFilePath(string filename, bool isCivilian)
         {
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string basePath = Path.Combine(documentsPath, BaseFolder, ConfigFolder, GameMasterFolder, HeroSetsFolder);
+            string basePath = Path.Combine(documentsPath, BaseFolder, ConfigFolder, ModFolder, HeroSetsFolder);
 
             if (isCivilian)
             {
@@ -58,10 +80,10 @@ namespace Bannerlord.GameMaster.Items
         /// </summary>
         /// <param name="isCivilian">Whether to get the civilian equipment folder</param>
         /// <returns>The directory path</returns>
-        public static string GetEquipmentDirectory(bool isCivilian)
+        public string GetEquipmentDirectory(bool isCivilian)
         {
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string basePath = Path.Combine(documentsPath, BaseFolder, ConfigFolder, GameMasterFolder, HeroSetsFolder);
+            string basePath = Path.Combine(documentsPath, BaseFolder, ConfigFolder, ModFolder, HeroSetsFolder);
 
             if (isCivilian)
             {
@@ -82,7 +104,7 @@ namespace Bannerlord.GameMaster.Items
         /// <param name="equipment">The equipment set to save</param>
         /// <param name="filepath">The full file path to save to</param>
         /// <param name="isCivilian">Whether this is civilian equipment</param>
-        public static void SaveEquipmentToFile(Hero hero, Equipment equipment, string filepath, bool isCivilian)
+        public void SaveEquipmentToFile(Hero hero, Equipment equipment, string filepath, bool isCivilian)
         {
             EquipmentSetData equipmentData = new()
             {
@@ -125,7 +147,7 @@ namespace Bannerlord.GameMaster.Items
         /// <param name="battleEquipment">The battle equipment set</param>
         /// <param name="civilianEquipment">The civilian equipment set</param>
         /// <returns>Tuple with battle and civilian file paths</returns>
-        public static (string battlePath, string civilianPath) SaveBothEquipmentSets(
+        public (string battlePath, string civilianPath) SaveBothEquipmentSets(
             Hero hero,
             string filename,
             Equipment battleEquipment,
@@ -149,7 +171,7 @@ namespace Bannerlord.GameMaster.Items
         /// </summary>
         /// <param name="filepath">The full file path to load from</param>
         /// <returns>The deserialized equipment set data</returns>
-        public static EquipmentSetData LoadEquipmentData(string filepath)
+        public EquipmentSetData LoadEquipmentData(string filepath)
         {
             string jsonString = File.ReadAllText(filepath);
             EquipmentSetData equipmentData = JsonConvert.DeserializeObject<EquipmentSetData>(jsonString);
@@ -169,7 +191,7 @@ namespace Bannerlord.GameMaster.Items
         /// <param name="filepath">The full file path to load from</param>
         /// <param name="isCivilian">Whether to load to civilian equipment</param>
         /// <returns>Tuple with (loadedCount, skippedCount, skippedItems)</returns>
-        public static (int loadedCount, int skippedCount, List<SkippedItemInfo> skippedItems) LoadEquipmentFromFile(
+        public (int loadedCount, int skippedCount, List<SkippedItemInfo> skippedItems) LoadEquipmentFromFile(
             Hero hero,
             string filepath,
             bool isCivilian)
@@ -215,16 +237,19 @@ namespace Bannerlord.GameMaster.Items
                     continue; // Skip if item not found
                 }
 
-                // Try to find modifier if specified
+                // Try to find modifier by StringId first (for saved equipment), then by Name (for backwards compatibility)
                 ItemModifier modifier = null;
                 if (!string.IsNullOrEmpty(slotData.ModifierId))
                 {
-                    (ItemModifier parsedModifier, string _) = ItemModifierHelper.ParseModifier(slotData.ModifierId);
-                    if (parsedModifier != null)
+                    // Try StringId lookup first (exact match for saved equipment)
+                    modifier = ItemModifierHelper.GetModifierByStringId(slotData.ModifierId);
+                    
+                    // Fall back to name lookup (for backwards compatibility or manual JSON edits)
+                    if (modifier == null)
                     {
+                        (ItemModifier parsedModifier, string _) = ItemModifierHelper.ParseModifier(slotData.ModifierId);
                         modifier = parsedModifier;
                     }
-                    // If modifier not found, we still load the item without modifier
                 }
 
                 // Equip the item
@@ -241,7 +266,7 @@ namespace Bannerlord.GameMaster.Items
         /// <param name="filename">The filename to check</param>
         /// <param name="isCivilian">Whether to check civilian equipment folder</param>
         /// <returns>True if the file exists</returns>
-        public static bool EquipmentFileExists(string filename, bool isCivilian)
+        public bool EquipmentFileExists(string filename, bool isCivilian)
         {
             string filepath = GetEquipmentFilePath(filename, isCivilian);
             return File.Exists(filepath);
@@ -252,7 +277,7 @@ namespace Bannerlord.GameMaster.Items
         /// </summary>
         /// <param name="isCivilian">Whether to list civilian equipment files</param>
         /// <returns>Array of file names without paths</returns>
-        public static string[] ListEquipmentFiles(bool isCivilian)
+        public string[] ListEquipmentFiles(bool isCivilian)
         {
             string directory = GetEquipmentDirectory(isCivilian);
 

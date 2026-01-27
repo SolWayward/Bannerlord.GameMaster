@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.ObjectSystem;
 
 namespace Bannerlord.GameMaster.Items
@@ -50,6 +51,18 @@ namespace Bannerlord.GameMaster.Items
                 .FirstOrDefault(m => m.Name.ToString().ToLower().Contains(lowerName));
             
             return containsMatch;
+        }
+
+        /// <summary>
+        /// Find a modifier by StringId (exact match)
+        /// </summary>
+        public static ItemModifier GetModifierByStringId(string stringId)
+        {
+            if (string.IsNullOrEmpty(stringId))
+                return null;
+
+            MBReadOnlyList<ItemModifier> allModifiers = MBObjectManager.Instance.GetObjectTypeList<ItemModifier>();
+            return allModifiers.FirstOrDefault(m => m.StringId == stringId);
         }
 
         /// <summary>

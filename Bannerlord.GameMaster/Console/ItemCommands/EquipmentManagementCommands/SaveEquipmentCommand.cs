@@ -61,8 +61,8 @@ namespace Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
                     return MessageFormatter.FormatErrorMessage("Filename cannot be empty.");
 
                 // MARK: Execute Logic
-                string filepath = EquipmentFileManager.GetEquipmentFilePath(filename, false);
-                EquipmentFileManager.SaveEquipmentToFile(hero, hero.BattleEquipment, filepath, false);
+                string filepath = EquipmentFileManager.Default.GetEquipmentFilePath(filename, false);
+                EquipmentFileManager.Default.SaveEquipmentToFile(hero, hero.BattleEquipment, filepath, false);
 
                 List<EquipmentItemInfo> savedItems = ItemCommandHelpers.GetEquipmentList(hero.BattleEquipment);
 
