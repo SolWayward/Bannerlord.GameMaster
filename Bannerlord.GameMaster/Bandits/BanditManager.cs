@@ -189,6 +189,7 @@ namespace Bannerlord.GameMaster.Bandits
 
         /// <summary>
         /// Removes looter hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+        /// Looter hideouts do not normally exist, but may exist if player used a command, or someother code added looters to a hideout
         /// </summary>
         public static int RemoveLooterHideouts(int? count = null)
         {
