@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using Bannerlord.GameMaster.Common;
+using Bannerlord.GameMaster.Cultures;
+using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Party;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
@@ -216,26 +218,91 @@ namespace Bannerlord.GameMaster.Caravans
         }
 
         /// <summary>
-        /// Creates a player caravan at the specified settlement.
+        /// Creates a caravan owned by the specified clan at the specified settlement.
         /// </summary>
         /// <param name="settlement">The settlement where the caravan will be created. Must be a town.</param>
+        /// <param name="ownerClan">The clan whose leader will own the caravan.</param>
         /// <param name="leaderHero">Optional hero to lead the caravan. If null, will try to find an available companion.</param>
-        /// <param name = "isElite" > Should caravan use elite template.Defaults to true.</param>
-        /// <returns>The created MobileParty if successful, null if failed.</returns>
-        public static MobileParty CreatePlayerCaravan(Settlement settlement, Hero leaderHero = null, bool isElite = true)
+        /// <param name = "isElite" > Should caravan use elite template. Defaults to true.</param>
+        /// <param name = "createLeaderIfNoneAvailable" > Should a leader hero be created if none specified or available. Defaults to true</param>
+        /// <returns>The created MobileParty for the caravan if successful, null if failed.</returns>
+        public static MobileParty CreateLordCaravan(Settlement settlement, Clan ownerClan, Hero leaderHero = null, bool isElite = true, bool createLeaderIfNoneAvailable = true)
         {
             if (settlement == null)
             {
-                BLGMResult.Error("CreatePlayerCaravan() failed, settlement cannot be null", new ArgumentNullException(nameof(settlement))).Log();
+                BLGMResult.Error("CreateLordCaravan() failed, settlement cannot be null", new ArgumentNullException(nameof(settlement))).Log();
+                return null;
+            }
+
+            if (ownerClan == null)
+            {
+                BLGMResult.Error("CreateLordCaravan() failed, ownerClan cannot be null", new ArgumentNullException(nameof(ownerClan))).Log();
                 return null;
             }
 
             if (!settlement.IsTown)
             {
-                BLGMResult.Error($"CreatePlayerCaravan() failed, settlement {settlement.Name} is not a town", new InvalidOperationException("Caravan home settlement must be a town")).Log();
+                BLGMResult.Error($"CreateLordCaravan() failed, settlement {settlement.Name} is not a town", new InvalidOperationException("Caravan home settlement must be a town")).Log();
                 return null;
             }
 
+            Hero caravanLeader = null;
+
+            // If a specific leader was provided, use them
+            if (leaderHero != null)
+            {
+                if (leaderHero.PartyBelongedTo != null)
+                {
+                    BLGMResult.Error($"CreateLordCaravan() failed, {leaderHero.Name} is already a member of another party", new InvalidOperationException("Caravan leader must not already be a member of a party")).Log();
+                    return null;
+                }
+
+                caravanLeader = leaderHero;
+            }
+
+            else
+            {
+                // Try to find an available companion
+                caravanLeader = ownerClan.Companions.FirstOrDefault(c =>
+                    c.PartyBelongedTo == null &&
+                    !c.IsPrisoner &&
+                    c.IsActive);
+
+                // No companion available, create one
+                if (caravanLeader == null && createLeaderIfNoneAvailable)
+                {             
+                    caravanLeader = HeroGenerator.CreateCompanions(1, ownerClan.Culture.ToCultureFlag(), Characters.GenderFlags.Either, 1).FirstOrDefault();
+
+                    if (caravanLeader == null)
+                    {
+                        BLGMResult.Error($"CreateLordCaravan() failed, Unable to create new caravan leader hero after no available leaders were found.", new InvalidOperationException("Caravan creation failed, No available caravan leader")).Log();
+                        return null;
+                    }
+
+                    caravanLeader.Clan = ownerClan;
+                }
+
+                if (caravanLeader == null)
+                {
+                    BLGMResult.Error($"CreateLordCaravan() failed, No available caravan leader for clan {ownerClan.Name} and createLeaderIfNoneAvailable={createLeaderIfNoneAvailable}", new InvalidOperationException("Caravan creation failed, No available caravan leader")).Log();
+                    return null;
+                }
+            }
+
+            MobileParty caravan = MobilePartyGenerator.CreateCaravanParty(ownerClan.Leader, settlement, caravanLeader, isElite);
+            return caravan;
+        }
+
+        /// <summary>
+        /// Creates a player caravan at the specified settlement.
+        /// </summary>
+        /// <inheritdoc cref = "CreateLordCaravan" path="/param[@name='settlement']"/>
+        /// <inheritdoc cref = "CreateLordCaravan" path="/param[@name='leaderHero']"/>
+        /// <inheritdoc cref = "CreateLordCaravan" path="/param[@name='isElite']"/>
+        /// <inheritdoc cref = "CreateLordCaravan" path="/param[@name='createLeaderIfNoneAvailable']"/>
+        /// <returns>The created MobileParty for the caravan if successful, null if failed.</returns>
+        public static MobileParty CreatePlayerCaravan(Settlement settlement, Hero leaderHero = null, bool isElite = true, bool createLeaderIfNoneAvailable = true)
+        {
             Hero caravanLeader = null;
             
             // If a specific leader was provided, use them
@@ -247,26 +314,10 @@ namespace Bannerlord.GameMaster.Caravans
                     return null;
                 }
 
-                if (leaderHero.PartyBelongedTo != null)
-                {
-                    BLGMResult.Error($"CreatePlayerCaravan() failed, {leaderHero.Name} is already a member of another party", new InvalidOperationException("Caravan leader must not already be a member of a party")).Log();
-                    return null;
-                }
-
                 caravanLeader = leaderHero;
-            }
+            }          
             
-            else
-            {
-                // Try to find an available companion
-                caravanLeader = Clan.PlayerClan.Companions.FirstOrDefault(c =>
-                    c.PartyBelongedTo == null &&
-                    !c.IsPrisoner &&
-                    c.IsActive);
-            }
-            
-            MobileParty caravan = MobilePartyGenerator.CreateCaravanParty(Hero.MainHero, settlement, caravanLeader, isElite);
-            return caravan;
+            return CreateLordCaravan(settlement, Clan.PlayerClan, caravanLeader, isElite, createLeaderIfNoneAvailable);
         }
 
         #endregion
