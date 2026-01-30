@@ -135,13 +135,14 @@ namespace Bannerlord.GameMaster.Items
         /// <summary>
         /// Generates a complete equipment set based on the specified parameters.
         /// Uses the hero's skills to determine ranged vs throwing priority when both are specified.
+        /// For heroes level 10+, selects skill-appropriate banners when withBanner is true.
         /// </summary>
         /// <param name="hero">The hero to use for skill-based priority determination.</param>
         /// <param name="culture">The culture to use for item selection. If null, uses neutral items.</param>
         /// <param name="heroLevel">The hero's level used to determine tier range.</param>
         /// <param name="weaponPreferences">Flags indicating preferred weapon types.</param>
         /// <param name="withHorse">Whether to include horse and harness equipment.</param>
-        /// <param name="withBanner">Whether to include a banner in slot 4.</param>
+        /// <param name="withBanner">Whether to include a banner in slot 4 (only for level 10+).</param>
         /// <param name="isFemale">Whether the hero is female (affects armor filtering).</param>
         /// <param name="includeNeutralItems">Whether to also check neutral item pools.</param>
         /// <returns>A new Equipment object populated with selected items.</returns>
@@ -176,19 +177,20 @@ namespace Bannerlord.GameMaster.Items
             // Fill weapon slots (0-3)
             FillWeaponSlots(equipment, culture, minTier, maxTier, loadout, withHorse, includeNeutralItems);
 
-            // Fill banner slot (4) if requested
-            if (withBanner)
-            {
-                FillBannerSlot(equipment, culture);
-            }
-
-            // Fill armor slots (5-9: Head, Cape, Body, Gloves, Boots)
+            // Fill armor slots (5-9: Head, Cape, Body, Gloves, Boots) - BEFORE banner so we know equipment state
             FillArmorSlots(equipment, culture, heroLevel, minTier, maxTier, isFemale, includeNeutralItems, hero);
 
-            // Fill horse slots (10-11) if requested
+            // Fill horse slots (10-11) if requested - BEFORE banner so we know mount state
             if (withHorse)
             {
                 FillHorseSlots(equipment, culture, minTier, maxTier, includeNeutralItems);
+            }
+
+            // Fill banner slot (4) if requested AND hero is level 10+
+            // Banner selection uses skill-based logic from BannerSelector
+            if (withBanner && heroLevel >= 10)
+            {
+                FillBannerSlotForHero(equipment, hero, heroLevel);
             }
 
             return equipment;
@@ -293,8 +295,20 @@ namespace Bannerlord.GameMaster.Items
             
             else if ((allowedWeapons & WeaponTypeFlags.AllOneHanded) != 0)
             {
-                loadout.PrimaryMeleeType = allowedWeapons & WeaponTypeFlags.AllOneHanded;
-                loadout.IsTwoHanded = false;
+                // Check if any of the one-handed weapons include OneHandedPolearm
+                // One-handed polearms still need sidearms, so treat them as polearms
+                if ((allowedWeapons & WeaponTypeFlags.OneHandedPolearm) != 0)
+                {
+                    // Include polearm in primary type but also other one-handed for variety
+                    loadout.PrimaryMeleeType = allowedWeapons & WeaponTypeFlags.AllOneHanded;
+                    loadout.IsTwoHanded = false;
+                    // NOTE: isPolearmPrimary check in FillMeleeOnlyLoadout will handle sidearm requirement
+                }
+                else
+                {
+                    loadout.PrimaryMeleeType = allowedWeapons & WeaponTypeFlags.AllOneHanded;
+                    loadout.IsTwoHanded = false;
+                }
             }
             
             else
@@ -423,8 +437,10 @@ namespace Bannerlord.GameMaster.Items
                     if (hasPolearm)
                     {
                         // Bow + Polearm layout: bow, arrow, polearm, sidearm
-                        // Slot 2 - Polearm
-                        ItemObject polearm = SelectWeaponByType(cultureId, minTier, maxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
+                        // Slot 2 - Polearm (use specialized selection for mounted vs infantry)
+                        ItemObject polearm = isMounted
+                            ? SelectPolearmForMounted(cultureId, minTier, maxTier, includeNeutralItems)
+                            : SelectPolearmForInfantry(cultureId, minTier, maxTier, includeNeutralItems);
                         if (polearm != null)
                         {
                             equipment[EquipmentIndex.Weapon2] = new EquipmentElement(polearm);
@@ -479,9 +495,20 @@ namespace Bannerlord.GameMaster.Items
             {
                 // Check if primary melee is a polearm - affects slot layout (requires sidearm)
                 bool hasPolearm = (loadout.PrimaryMeleeType & WeaponTypeFlags.AllPolearms) != 0;
-                
-                // Slot 0 - Primary melee weapon
-                ItemObject meleeWeapon = SelectWeaponByType(cultureId, minTier, maxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
+
+                // Slot 0 - Primary melee weapon (use specialized polearm selection if polearm is primary)
+                ItemObject meleeWeapon;
+                if (hasPolearm)
+                {
+                    meleeWeapon = isMounted
+                        ? SelectPolearmForMounted(cultureId, minTier, maxTier, includeNeutralItems)
+                        : SelectPolearmForInfantry(cultureId, minTier, maxTier, includeNeutralItems);
+                }
+                else
+                {
+                    meleeWeapon = SelectWeaponByType(cultureId, minTier, maxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
+                }
+
                 if (meleeWeapon != null)
                 {
                     equipment[EquipmentIndex.Weapon0] = new EquipmentElement(meleeWeapon);
@@ -567,6 +594,8 @@ namespace Bannerlord.GameMaster.Items
         /// <summary>
         /// Fills weapon slots with melee-only loadout.
         /// Enforces sidearm requirement when polearm is primary.
+        /// Uses specialized polearm selection to ensure mounted heroes get couchable polearms
+        /// and infantry heroes get braceable polearms.
         /// </summary>
         private void FillMeleeOnlyLoadout(
             Equipment equipment,
@@ -577,16 +606,34 @@ namespace Bannerlord.GameMaster.Items
             bool isMounted,
             bool includeNeutralItems)
         {
+            // Check if primary is a polearm - includes OneHandedPolearm which is in AllOneHanded
+            // One-handed polearms still need sidearms just like two-handed polearms
             bool isPolearmPrimary = (loadout.PrimaryMeleeType & WeaponTypeFlags.AllPolearms) != 0;
-            
+
             // Slot 0 - Primary melee weapon
-            ItemObject primaryMelee = SelectWeaponByType(cultureId, minTier, maxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
+            // For polearms, use specialized selection based on mounted vs infantry
+            ItemObject primaryMelee;
+            if (isPolearmPrimary)
+            {
+                primaryMelee = isMounted
+                    ? SelectPolearmForMounted(cultureId, minTier, maxTier, includeNeutralItems)
+                    : SelectPolearmForInfantry(cultureId, minTier, maxTier, includeNeutralItems);
+            }
+            else
+            {
+                primaryMelee = SelectWeaponByType(cultureId, minTier, maxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
+            }
+
             bool hasPrimaryWeapon = false;
-            
+
             if (primaryMelee != null)
             {
                 equipment[EquipmentIndex.Weapon0] = new EquipmentElement(primaryMelee);
                 hasPrimaryWeapon = true;
+
+                // Re-check if the actually selected weapon is a polearm
+                // (in case PrimaryMeleeType had multiple options and we got a non-polearm)
+                isPolearmPrimary = ItemValidation.IsPolearmWeapon(primaryMelee);
             }
             else
             {
@@ -601,8 +648,8 @@ namespace Bannerlord.GameMaster.Items
                 }
             }
 
-            // Slot 1 - Shield if allowed and not two-handed, otherwise sidearm for polearm users
-            // ONLY add shield if we have a primary weapon
+            // Slot 1 - Shield if allowed and not two-handed
+            // Sidearm is handled separately - shield and sidearm are NOT mutually exclusive for polearm users
             if (hasPrimaryWeapon && loadout.IncludeShield && !loadout.IsTwoHanded)
             {
                 ItemObject shield = SelectShield(cultureId, minTier, maxTier, includeNeutralItems);
@@ -611,39 +658,37 @@ namespace Bannerlord.GameMaster.Items
                     equipment[EquipmentIndex.Weapon1] = new EquipmentElement(shield);
                 }
             }
-            else if (hasPrimaryWeapon && isPolearmPrimary)
+
+            // Slot 2 - SIDEARM for polearm users (REQUIRED - polearms always need a backup weapon)
+            // Or if no shield was added in slot 1, put sidearm there instead
+            if (hasPrimaryWeapon && isPolearmPrimary)
             {
-                // SIDEARM REQUIRED for polearm users
                 ItemObject sidearm = SelectSidearmWeapon(cultureId, minTier, maxTier, isMounted, includeNeutralItems);
                 if (sidearm != null)
                 {
-                    equipment[EquipmentIndex.Weapon1] = new EquipmentElement(sidearm);
-                }
-            }
-
-            // Slot 2 - If polearm primary: another sidearm or backup weapon
-            //          If not polearm: add a polearm as backup
-            if (isPolearmPrimary)
-            {
-                // Polearm users get a second sidearm or different weapon
-                if (!loadout.IncludeShield)
-                {
-                    // No shield - add shield in slot 2 if available
-                    ItemObject shield = SelectShield(cultureId, minTier, maxTier, includeNeutralItems);
-                    if (shield != null)
+                    // Put sidearm in slot 2 if we have a shield in slot 1, otherwise slot 1
+                    if (equipment[EquipmentIndex.Weapon1].Item != null)
                     {
-                        equipment[EquipmentIndex.Weapon2] = new EquipmentElement(shield);
+                        equipment[EquipmentIndex.Weapon2] = new EquipmentElement(sidearm);
+                    }
+                    else
+                    {
+                        equipment[EquipmentIndex.Weapon1] = new EquipmentElement(sidearm);
                     }
                 }
             }
-            else if (hasPrimaryWeapon)
+            else if (hasPrimaryWeapon && !isPolearmPrimary)
             {
                 // Non-polearm primary - add a polearm as backup in slot 2
-                ItemObject polearm = SelectWeaponByType(cultureId, minTier, maxTier, WeaponTypeFlags.AllPolearms, isMounted, includeNeutralItems);
+                // Use specialized polearm selection based on mounted vs infantry
+                ItemObject polearm = isMounted
+                    ? SelectPolearmForMounted(cultureId, minTier, maxTier, includeNeutralItems)
+                    : SelectPolearmForInfantry(cultureId, minTier, maxTier, includeNeutralItems);
+
                 if (polearm != null)
                 {
                     equipment[EquipmentIndex.Weapon2] = new EquipmentElement(polearm);
-                    
+
                     // Slot 3 - SIDEARM REQUIRED since we added a polearm
                     ItemObject sidearm = SelectSidearmWeapon(cultureId, minTier, maxTier, isMounted, includeNeutralItems);
                     if (sidearm != null)
@@ -658,6 +703,7 @@ namespace Bannerlord.GameMaster.Items
         /// <summary>
         /// Selects a sidearm weapon (one-handed sword, axe, or mace).
         /// Used when polearm is equipped to ensure hero has a backup melee weapon.
+        /// Implements tier fallback to guarantee a sidearm is found.
         /// </summary>
         private ItemObject SelectSidearmWeapon(
             string cultureId,
@@ -671,8 +717,267 @@ namespace Bannerlord.GameMaster.Items
                                            WeaponTypeFlags.OneHandedAxe |
                                            WeaponTypeFlags.OneHandedMace;
             
-            return SelectWeaponByType(cultureId, minTier, maxTier, sidearmTypes, isMounted, includeNeutralItems);
+            // First attempt: Try requested tier range
+            ItemObject sidearm = SelectWeaponByType(cultureId, minTier, maxTier, sidearmTypes, isMounted, includeNeutralItems);
+            if (sidearm != null)
+                return sidearm;
+
+            // TIER FALLBACK: Expand search to find ANY sidearm
+            // Try lower tiers first
+            for (int tier = (int)minTier - 1; tier >= 0; tier--)
+            {
+                sidearm = SelectWeaponByType(cultureId, (ItemObject.ItemTiers)tier, (ItemObject.ItemTiers)tier, sidearmTypes, isMounted, includeNeutralItems);
+                if (sidearm != null)
+                    return sidearm;
+            }
+
+            // Try higher tiers
+            for (int tier = (int)maxTier + 1; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
+            {
+                sidearm = SelectWeaponByType(cultureId, (ItemObject.ItemTiers)tier, (ItemObject.ItemTiers)tier, sidearmTypes, isMounted, includeNeutralItems);
+                if (sidearm != null)
+                    return sidearm;
+            }
+
+            // Last resort: Try ALL one-handed weapons (including daggers, etc.)
+            sidearm = SelectWeaponByType(cultureId, ItemObject.ItemTiers.Tier1, ItemObject.ItemTiers.Tier6, WeaponTypeFlags.AllOneHanded, isMounted, includeNeutralItems: true);
+            if (sidearm != null)
+                return sidearm;
+
+            // Ultimate fallback: Try without mount compatibility filter
+            return SelectWeaponByType(cultureId, ItemObject.ItemTiers.Tier1, ItemObject.ItemTiers.Tier6, WeaponTypeFlags.AllOneHanded, isMounted: false, includeNeutralItems: true);
         }
+
+        #region Specialized Polearm Selection
+
+        /// MARK: SelectPolearmForMounted
+        /// <summary>
+        /// Selects a polearm for mounted heroes with proper priority:
+        /// 1. Couchable polearms in tier range (preferred for mounted)
+        /// 2. Any mounted-usable polearm in tier range (non-braceable)
+        /// 3. Tier fallback only if NO mounted-usable polearm found
+        /// NEVER returns a braceable-only polearm for mounted heroes.
+        /// </summary>
+        private ItemObject SelectPolearmForMounted(
+            string cultureId,
+            ItemObject.ItemTiers minTier,
+            ItemObject.ItemTiers maxTier,
+            bool includeNeutralItems)
+        {
+            MBList<ItemObject> couchable = new();
+            MBList<ItemObject> otherMountedUsable = new();
+
+            // Collect from tier range
+            CollectMountedPolearmsFromTierRange(cultureId, minTier, maxTier, includeNeutralItems,
+                couchable, otherMountedUsable);
+
+            // Priority 1: Couchable polearms in tier range
+            if (couchable.Count > 0)
+                return SelectRandomItem(couchable);
+
+            // Priority 2: Any mounted-usable polearm in tier range
+            if (otherMountedUsable.Count > 0)
+                return SelectRandomItem(otherMountedUsable);
+
+            // Priority 3: Tier fallback - expand search
+            return SelectPolearmForMountedWithTierFallback(cultureId, minTier, maxTier, includeNeutralItems);
+        }
+
+        /// MARK: CollectMountedPolearmsFromTierRange
+        /// <summary>
+        /// Collects mounted-usable polearms from a tier range, separating couchable from other types.
+        /// </summary>
+        private void CollectMountedPolearmsFromTierRange(
+            string cultureId,
+            ItemObject.ItemTiers minTier,
+            ItemObject.ItemTiers maxTier,
+            bool includeNeutralItems,
+            MBList<ItemObject> couchable,
+            MBList<ItemObject> otherMountedUsable)
+        {
+            for (int tier = (int)minTier; tier <= (int)maxTier; tier++)
+            {
+                // Culture pool
+                if (cultureId != null &&
+                    _poolManager.WeaponPoolsByCulture.TryGetValue(cultureId,
+                        out Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> cultureTiers) &&
+                    cultureTiers.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> cultureWeapons))
+                {
+                    CollectMountedPolearmsFromPool(cultureWeapons, couchable, otherMountedUsable);
+                }
+
+                // Neutral pool
+                if (includeNeutralItems &&
+                    _poolManager.NeutralWeaponPools.TryGetValue(tier,
+                        out Dictionary<WeaponTypeFlags, MBList<ItemObject>> neutralWeapons))
+                {
+                    CollectMountedPolearmsFromPool(neutralWeapons, couchable, otherMountedUsable);
+                }
+            }
+        }
+
+        /// MARK: CollectMountedPolearmsFromPool
+        /// <summary>
+        /// Collects mounted-usable polearms from a weapon pool, categorizing by couchable vs other.
+        /// </summary>
+        private void CollectMountedPolearmsFromPool(
+            Dictionary<WeaponTypeFlags, MBList<ItemObject>> weaponPools,
+            MBList<ItemObject> couchable,
+            MBList<ItemObject> otherMountedUsable)
+        {
+            foreach (KeyValuePair<WeaponTypeFlags, MBList<ItemObject>> kvp in weaponPools)
+            {
+                if ((kvp.Key & WeaponTypeFlags.AllPolearms) == 0)
+                    continue;
+
+                for (int i = 0; i < kvp.Value.Count; i++)
+                {
+                    ItemObject item = kvp.Value[i];
+
+                    // Skip polearms that cannot be used on mount (braceable-only polearms)
+                    if (!MountCompatibility.IsPolearmUsableOnMount(item))
+                        continue;
+
+                    if (MountCompatibility.IsCouchablePolearm(item))
+                        couchable.Add(item);
+                    else
+                        otherMountedUsable.Add(item);
+                }
+            }
+        }
+
+        /// MARK: SelectPolearmForMountedWithTierFallback
+        /// <summary>
+        /// Tier fallback for mounted polearm selection - expands search to other tiers.
+        /// </summary>
+        private ItemObject SelectPolearmForMountedWithTierFallback(
+            string cultureId,
+            ItemObject.ItemTiers minTier,
+            ItemObject.ItemTiers maxTier,
+            bool includeNeutralItems)
+        {
+            MBList<ItemObject> couchable = new();
+            MBList<ItemObject> otherMountedUsable = new();
+
+            // Try lower tiers
+            for (int tier = (int)minTier - 1; tier >= 0; tier--)
+            {
+                CollectMountedPolearmsFromTierRange(cultureId, (ItemObject.ItemTiers)tier,
+                    (ItemObject.ItemTiers)tier, includeNeutralItems, couchable, otherMountedUsable);
+
+                if (couchable.Count > 0)
+                    return SelectRandomItem(couchable);
+                if (otherMountedUsable.Count > 0)
+                    return SelectRandomItem(otherMountedUsable);
+            }
+
+            // Try higher tiers
+            for (int tier = (int)maxTier + 1; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
+            {
+                CollectMountedPolearmsFromTierRange(cultureId, (ItemObject.ItemTiers)tier,
+                    (ItemObject.ItemTiers)tier, includeNeutralItems, couchable, otherMountedUsable);
+
+                if (couchable.Count > 0)
+                    return SelectRandomItem(couchable);
+                if (otherMountedUsable.Count > 0)
+                    return SelectRandomItem(otherMountedUsable);
+            }
+
+            return null;
+        }
+
+        /// MARK: SelectPolearmForInfantry
+        /// <summary>
+        /// Selects a polearm for infantry heroes with proper priority:
+        /// 1. Braceable polearms in tier range (best for infantry anti-cavalry)
+        /// 2. Any polearm in tier range (couchable is fine on foot too)
+        /// 3. Tier fallback only if NO polearm found at all
+        /// </summary>
+        private ItemObject SelectPolearmForInfantry(
+            string cultureId,
+            ItemObject.ItemTiers minTier,
+            ItemObject.ItemTiers maxTier,
+            bool includeNeutralItems)
+        {
+            MBList<ItemObject> braceable = new();
+            MBList<ItemObject> allPolearms = new();
+
+            // Collect from tier range
+            CollectInfantryPolearmsFromTierRange(cultureId, minTier, maxTier, includeNeutralItems,
+                braceable, allPolearms);
+
+            // Priority 1: Braceable polearms in tier range
+            if (braceable.Count > 0)
+                return SelectRandomItem(braceable);
+
+            // Priority 2: Any polearm in tier range
+            if (allPolearms.Count > 0)
+                return SelectRandomItem(allPolearms);
+
+            // Priority 3: Standard tier fallback
+            return SelectWeaponByType(cultureId, minTier, maxTier, WeaponTypeFlags.AllPolearms,
+                isMounted: false, includeNeutralItems);
+        }
+
+        /// MARK: CollectInfantryPolearmsFromTierRange
+        /// <summary>
+        /// Collects polearms for infantry from a tier range, separating braceable from other types.
+        /// </summary>
+        private void CollectInfantryPolearmsFromTierRange(
+            string cultureId,
+            ItemObject.ItemTiers minTier,
+            ItemObject.ItemTiers maxTier,
+            bool includeNeutralItems,
+            MBList<ItemObject> braceable,
+            MBList<ItemObject> allPolearms)
+        {
+            for (int tier = (int)minTier; tier <= (int)maxTier; tier++)
+            {
+                // Culture pool
+                if (cultureId != null &&
+                    _poolManager.WeaponPoolsByCulture.TryGetValue(cultureId,
+                        out Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> cultureTiers) &&
+                    cultureTiers.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> cultureWeapons))
+                {
+                    CollectInfantryPolearmsFromPool(cultureWeapons, braceable, allPolearms);
+                }
+
+                // Neutral pool
+                if (includeNeutralItems &&
+                    _poolManager.NeutralWeaponPools.TryGetValue(tier,
+                        out Dictionary<WeaponTypeFlags, MBList<ItemObject>> neutralWeapons))
+                {
+                    CollectInfantryPolearmsFromPool(neutralWeapons, braceable, allPolearms);
+                }
+            }
+        }
+
+        /// MARK: CollectInfantryPolearmsFromPool
+        /// <summary>
+        /// Collects polearms for infantry from a weapon pool, categorizing by braceable vs other.
+        /// </summary>
+        private void CollectInfantryPolearmsFromPool(
+            Dictionary<WeaponTypeFlags, MBList<ItemObject>> weaponPools,
+            MBList<ItemObject> braceable,
+            MBList<ItemObject> allPolearms)
+        {
+            foreach (KeyValuePair<WeaponTypeFlags, MBList<ItemObject>> kvp in weaponPools)
+            {
+                if ((kvp.Key & WeaponTypeFlags.AllPolearms) == 0)
+                    continue;
+
+                for (int i = 0; i < kvp.Value.Count; i++)
+                {
+                    ItemObject item = kvp.Value[i];
+                    allPolearms.Add(item);
+
+                    if (MountCompatibility.IsBraceablePolearm(item))
+                        braceable.Add(item);
+                }
+            }
+        }
+
+        #endregion
 
         /// MARK: FillArmorSlots
         /// <summary>
@@ -734,6 +1039,7 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: FillHorseSlots
         /// <summary>
         /// Fills horse slots 10-11 (Horse, HorseHarness).
+        /// Horse is ALWAYS equipped if requested, harness MUST be found with tier fallback.
         /// </summary>
         private void FillHorseSlots(
             Equipment equipment,
@@ -744,18 +1050,19 @@ namespace Bannerlord.GameMaster.Items
         {
             string cultureId = culture?.StringId;
 
-            // Slot 10 - Horse
-            ItemObject horse = SelectHorse(cultureId, minTier, maxTier, includeNeutralItems);
+            // Slot 10 - Horse (use tier fallback to guarantee horse is found)
+            ItemObject horse = SelectHorseWithFallback(cultureId, minTier, maxTier, includeNeutralItems);
             if (horse != null)
             {
                 equipment[EquipmentIndex.Horse] = new EquipmentElement(horse);
-            }
-
-            // Slot 11 - Horse Harness
-            ItemObject harness = SelectHarness(cultureId, minTier, maxTier, includeNeutralItems);
-            if (harness != null)
-            {
-                equipment[EquipmentIndex.HorseHarness] = new EquipmentElement(harness);
+                
+                // Slot 11 - Horse Harness (MUST be equipped when horse is equipped)
+                // Use tier fallback to GUARANTEE harness is found
+                ItemObject harness = SelectHarnessWithFallback(cultureId, minTier, maxTier, includeNeutralItems);
+                if (harness != null)
+                {
+                    equipment[EquipmentIndex.HorseHarness] = new EquipmentElement(harness);
+                }
             }
         }
 
@@ -773,6 +1080,25 @@ namespace Bannerlord.GameMaster.Items
         private void FillBannerSlot(Equipment equipment, CultureObject culture)
         {
             ItemObject banner = SelectBanner(culture?.StringId);
+            if (banner != null)
+            {
+                equipment[BannerSlotIndex] = new EquipmentElement(banner);
+            }
+        }
+
+        /// MARK: FillBannerSlotForHero
+        /// <summary>
+        /// Fills banner slot 4 with a skill-appropriate banner for the hero.
+        /// Uses BannerSelector to determine the best banner based on hero's level and combat skills.
+        /// Only called for heroes level 10+.
+        /// </summary>
+        /// <param name="equipment">The equipment to fill (should already have weapons/armor/horse populated).</param>
+        /// <param name="hero">The hero to select a banner for.</param>
+        /// <param name="heroLevel">The hero's level for tier calculation.</param>
+        private void FillBannerSlotForHero(Equipment equipment, Hero hero, int heroLevel)
+        {
+            // Use BannerSelector to get skill-appropriate banner
+            ItemObject banner = BannerSelector.SelectBannerForHero(hero, heroLevel, equipment);
             if (banner != null)
             {
                 equipment[BannerSlotIndex] = new EquipmentElement(banner);
@@ -883,13 +1209,15 @@ namespace Bannerlord.GameMaster.Items
                 }
             }
 
-            // Use weighted selection to favor higher tier weapons
-            return SelectWeightedRandomItem(candidates);
+            // Use equal probability selection - all items in tier range have equal chance
+            return SelectRandomItem(candidates);
         }
 
         /// MARK: CollectMatchWeapons
         /// <summary>
         /// Collects weapons matching the specified type flags into the candidates list.
+        /// Uses IsPolearmUsableOnMount() for polearms to properly exclude braceable-only polearms
+        /// from mounted heroes.
         /// </summary>
         private void CollectMatchingWeapons(
             Dictionary<WeaponTypeFlags, MBList<ItemObject>> weaponPools,
@@ -905,8 +1233,23 @@ namespace Bannerlord.GameMaster.Items
                     for (int i = 0; i < kvp.Value.Count; i++)
                     {
                         ItemObject item = kvp.Value[i];
-                        // Apply mount compatibility filter if mounted
-                        if (!isMounted || MountCompatibility.IsWeaponUsableOnMount(item, allowPolearms: true))
+
+                        if (isMounted)
+                        {
+                            // For polearms, use specific mount usability check that excludes braceable-only polearms
+                            if (item.ItemType == ItemObject.ItemTypeEnum.Polearm)
+                            {
+                                if (MountCompatibility.IsPolearmUsableOnMount(item))
+                                    candidates.Add(item);
+                            }
+                            else
+                            {
+                                // For non-polearms, use standard mount check
+                                if (MountCompatibility.IsWeaponUsableOnMount(item, allowPolearms: true))
+                                    candidates.Add(item);
+                            }
+                        }
+                        else
                         {
                             candidates.Add(item);
                         }
@@ -937,10 +1280,10 @@ namespace Bannerlord.GameMaster.Items
             // First attempt: Try requested tier range
             CollectArmorFromTierRange(cultureId, (int)minTier, (int)maxTier, slot, isFemale, excludeCloth, includeNeutralItems, candidates);
 
-            // If items found, return WEIGHTED random selection (favors higher tiers)
+            // If items found, return random selection (equal probability for all items in tier range)
             if (candidates.Count > 0)
             {
-                return SelectWeightedRandomItem(candidates);
+                return SelectRandomItem(candidates);
             }
 
             // TIER FALLBACK: No items found in requested range
@@ -1297,6 +1640,79 @@ namespace Bannerlord.GameMaster.Items
             }
 
             return SelectRandomItem(candidates);
+        }
+
+        /// MARK: SelectHorseWithFallback
+        /// <summary>
+        /// Selects a horse with tier fallback to guarantee a horse is found.
+        /// </summary>
+        private ItemObject SelectHorseWithFallback(
+            string cultureId,
+            ItemObject.ItemTiers minTier,
+            ItemObject.ItemTiers maxTier,
+            bool includeNeutralItems)
+        {
+            // First attempt: Try requested tier range
+            ItemObject horse = SelectHorse(cultureId, minTier, maxTier, includeNeutralItems);
+            if (horse != null)
+                return horse;
+
+            // TIER FALLBACK: Expand search to find ANY horse
+            // Try lower tiers first
+            for (int tier = (int)minTier - 1; tier >= 0; tier--)
+            {
+                horse = SelectHorse(cultureId, (ItemObject.ItemTiers)tier, (ItemObject.ItemTiers)tier, includeNeutralItems);
+                if (horse != null)
+                    return horse;
+            }
+
+            // Try higher tiers
+            for (int tier = (int)maxTier + 1; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
+            {
+                horse = SelectHorse(cultureId, (ItemObject.ItemTiers)tier, (ItemObject.ItemTiers)tier, includeNeutralItems);
+                if (horse != null)
+                    return horse;
+            }
+
+            // Last resort: Try ALL tiers with neutral items forced
+            return SelectHorse(cultureId, ItemObject.ItemTiers.Tier1, ItemObject.ItemTiers.Tier6, includeNeutralItems: true);
+        }
+
+        /// MARK: SelectHarnessWithFallback
+        /// <summary>
+        /// Selects a horse harness with tier fallback to GUARANTEE a harness is found.
+        /// Horses ALWAYS require harness/armor/saddle.
+        /// </summary>
+        private ItemObject SelectHarnessWithFallback(
+            string cultureId,
+            ItemObject.ItemTiers minTier,
+            ItemObject.ItemTiers maxTier,
+            bool includeNeutralItems)
+        {
+            // First attempt: Try requested tier range
+            ItemObject harness = SelectHarness(cultureId, minTier, maxTier, includeNeutralItems);
+            if (harness != null)
+                return harness;
+
+            // TIER FALLBACK: Expand search to find ANY harness
+            // Try lower tiers first
+            for (int tier = (int)minTier - 1; tier >= 0; tier--)
+            {
+                harness = SelectHarness(cultureId, (ItemObject.ItemTiers)tier, (ItemObject.ItemTiers)tier, includeNeutralItems);
+                if (harness != null)
+                    return harness;
+            }
+
+            // Try higher tiers
+            for (int tier = (int)maxTier + 1; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
+            {
+                harness = SelectHarness(cultureId, (ItemObject.ItemTiers)tier, (ItemObject.ItemTiers)tier, includeNeutralItems);
+                if (harness != null)
+                    return harness;
+            }
+
+            // Last resort: Try ALL tiers with neutral items forced
+            return SelectHarness(cultureId, ItemObject.ItemTiers.Tier1, ItemObject.ItemTiers.Tier6, includeNeutralItems: true);
         }
 
         /// MARK: SelectBanner

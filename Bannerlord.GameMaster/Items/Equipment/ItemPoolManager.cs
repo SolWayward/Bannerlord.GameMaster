@@ -780,7 +780,7 @@ namespace Bannerlord.GameMaster.Items
                 // Shields
                 WeaponClass.SmallShield => WeaponTypeFlags.Shield,
                 WeaponClass.LargeShield => WeaponTypeFlags.Shield,
-
+                
                 // Banner
                 WeaponClass.Banner => WeaponTypeFlags.Banner,
 

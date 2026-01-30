@@ -570,6 +570,67 @@ namespace Bannerlord.GameMaster.Items
 
         #endregion
 
+        #region Weapon Type Detection Methods
+
+        /// MARK: IsPolearmWeapon
+        /// <summary>
+        /// Determines if a weapon item is a polearm (including one-handed polearms).
+        /// Polearms always require a sidearm weapon for backup melee combat.
+        /// </summary>
+        /// <param name="item">The weapon item to check.</param>
+        /// <returns>True if the item is a polearm; false otherwise.</returns>
+        public static bool IsPolearmWeapon(ItemObject item)
+        {
+            if (item == null)
+                return false;
+
+            if (!item.HasWeaponComponent)
+                return false;
+
+            WeaponComponentData primaryWeapon = item.PrimaryWeapon;
+            if (primaryWeapon == null)
+                return false;
+
+            // Check weapon class for polearm types
+            WeaponClass weaponClass = primaryWeapon.WeaponClass;
+            
+            // Polearm weapon classes (NOT throwing weapons like Javelin, ThrowingAxe, ThrowingKnife)
+            return weaponClass == WeaponClass.OneHandedPolearm ||
+                   weaponClass == WeaponClass.TwoHandedPolearm ||
+                   weaponClass == WeaponClass.LowGripPolearm;
+        }
+
+        /// MARK: IsSidearmWeapon
+        /// <summary>
+        /// Determines if a weapon item is a sidearm (one-handed sword, axe, mace, or dagger).
+        /// Sidearms are backup weapons used when polearm is not effective (close combat).
+        /// </summary>
+        /// <param name="item">The weapon item to check.</param>
+        /// <returns>True if the item is a sidearm; false otherwise.</returns>
+        public static bool IsSidearmWeapon(ItemObject item)
+        {
+            if (item == null)
+                return false;
+
+            if (!item.HasWeaponComponent)
+                return false;
+
+            WeaponComponentData primaryWeapon = item.PrimaryWeapon;
+            if (primaryWeapon == null)
+                return false;
+
+            // Check weapon class for sidearm types
+            WeaponClass weaponClass = primaryWeapon.WeaponClass;
+            
+            // One-handed sidearm weapon classes (not polearms, not two-handed, not ranged)
+            return weaponClass == WeaponClass.OneHandedSword ||
+                   weaponClass == WeaponClass.OneHandedAxe ||
+                   weaponClass == WeaponClass.Mace ||
+                   weaponClass == WeaponClass.Dagger;
+        }
+
+        #endregion
+
         #region Hero Validation Methods
 
         /// MARK: IsRulingClanMember

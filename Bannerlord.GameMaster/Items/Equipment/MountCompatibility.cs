@@ -1,4 +1,6 @@
+using System;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Items
 {
@@ -8,6 +10,101 @@ namespace Bannerlord.GameMaster.Items
     /// </summary>
     public static class MountCompatibility
     {
+        #region Polearm Couch/Brace Detection
+
+        /// MARK: IsCouchablePolearm
+        /// <summary>
+        /// Determines if a polearm can be couched while mounted.
+        /// Uses native detection: WeaponDescriptionId contains "couch".
+        /// Couchable polearms are designed for mounted combat.
+        /// </summary>
+        /// <param name="item">The polearm item to check.</param>
+        /// <returns>True if the polearm can be couched; false otherwise.</returns>
+        public static bool IsCouchablePolearm(ItemObject item)
+        {
+            if (item == null || !item.HasWeaponComponent)
+                return false;
+
+            // Check all weapon components (native pattern from MissionAgentStatusVM.IsWeaponCouchable())
+            MBReadOnlyList<WeaponComponentData> weapons = item.Weapons;
+            if (weapons == null)
+                return false;
+
+            for (int i = 0; i < weapons.Count; i++)
+            {
+                string weaponDescriptionId = weapons[i].WeaponDescriptionId;
+                if (weaponDescriptionId != null &&
+                    weaponDescriptionId.IndexOf("couch", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// MARK: IsBraceablePolearm
+        /// <summary>
+        /// Determines if a polearm can be braced (infantry anti-cavalry).
+        /// Uses native detection: WeaponDescriptionId contains "bracing".
+        /// Braceable polearms (pikes) are infantry-only weapons.
+        /// </summary>
+        /// <param name="item">The polearm item to check.</param>
+        /// <returns>True if the polearm can be braced; false otherwise.</returns>
+        public static bool IsBraceablePolearm(ItemObject item)
+        {
+            if (item == null || !item.HasWeaponComponent)
+                return false;
+
+            // Check all weapon components (native pattern from MissionAgentStatusVM.IsWeaponBracable())
+            MBReadOnlyList<WeaponComponentData> weapons = item.Weapons;
+            if (weapons == null)
+                return false;
+
+            for (int i = 0; i < weapons.Count; i++)
+            {
+                string weaponDescriptionId = weapons[i].WeaponDescriptionId;
+                if (weaponDescriptionId != null &&
+                    weaponDescriptionId.IndexOf("bracing", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// MARK: IsPolearmUsableOnMount
+        /// <summary>
+        /// Determines if a polearm can be used effectively while mounted.
+        /// Braceable polearms (pikes) are infantry-only and should NOT be given to mounted heroes.
+        /// Couchable polearms are explicitly designed for mounted combat.
+        /// </summary>
+        /// <param name="item">The polearm item to check.</param>
+        /// <returns>True if the polearm can be used on a mount; false otherwise.</returns>
+        public static bool IsPolearmUsableOnMount(ItemObject item)
+        {
+            if (item == null)
+                return false;
+
+            if (item.ItemType != ItemObject.ItemTypeEnum.Polearm)
+                return false;
+
+            // Braceable polearms are infantry weapons - NOT for mounted use
+            // Exception: If polearm is BOTH couchable AND braceable, it can be used mounted
+            if (IsBraceablePolearm(item) && !IsCouchablePolearm(item))
+                return false;
+
+            // Couchable polearms are explicitly for mounted combat
+            if (IsCouchablePolearm(item))
+                return true;
+
+            // For other polearms, use standard mount usability flags
+            return IsWeaponUsableOnMount(item);
+        }
+
+        #endregion
+
+        #region Weapon Mount Compatibility
+
         /// MARK: IsWepUsableOnMount
         /// <summary>
         /// Determines if a weapon can be used while mounted on a horse.
@@ -42,11 +139,12 @@ namespace Bannerlord.GameMaster.Items
             return true;
         }
 
-        /// MARK: IsWepUsableOnMount
+        /// MARK: IsWepUsableOnMount (allowPolearms)
         /// <summary>
         /// Determines if a weapon is usable on mount considering weapon type-specific exceptions.
         /// Some two-handed weapons like polearms are designed for mounted combat despite
-        /// having the NotUsableWithOneHand flag.
+        /// having the NotUsableWithOneHand flag. Uses IsPolearmUsableOnMount() to properly
+        /// exclude braceable-only polearms (pikes) which are infantry weapons.
         /// </summary>
         /// <param name="item">The weapon item to check.</param>
         /// <param name="allowPolearms">Whether to allow two-handed polearms (lances, etc.).</param>
@@ -71,9 +169,11 @@ namespace Bannerlord.GameMaster.Items
             // Check two-handed restriction
             if (HasWeaponFlag(primaryWeapon, WeaponFlags.NotUsableWithOneHand))
             {
-                // Allow polearms if specified (they are designed for mounted use)
+                // For polearms, use specific mount usability check that excludes braceable-only polearms
                 if (allowPolearms && item.ItemType == ItemObject.ItemTypeEnum.Polearm)
-                    return true;
+                {
+                    return IsPolearmUsableOnMount(item);
+                }
 
                 return false;
             }
@@ -167,6 +267,10 @@ namespace Bannerlord.GameMaster.Items
             return true;
         }
 
+        #endregion
+
+        #region Private Helpers
+
         /// MARK: HasWeaponFlag
         /// <summary>
         /// Checks if a weapon component has a specific weapon flag.
@@ -182,5 +286,7 @@ namespace Bannerlord.GameMaster.Items
 
             return (weapon.WeaponFlags & flag) == flag;
         }
+
+        #endregion
     }
 }

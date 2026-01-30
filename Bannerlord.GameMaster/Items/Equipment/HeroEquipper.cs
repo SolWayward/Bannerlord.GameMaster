@@ -88,6 +88,9 @@ namespace Bannerlord.GameMaster.Items
             // Determine if hero should be mounted based on riding skill
             bool isMounted = hero.GetSkillValue(DefaultSkills.Riding) >= 50;
 
+            // Determine if hero should get a banner (level 10+)
+            bool withBanner = heroLevel >= 10;
+
             // Generate and apply battle equipment
             if (replaceBattleEquipment)
             {
@@ -97,7 +100,7 @@ namespace Bannerlord.GameMaster.Items
                     heroLevel,
                     effectivePreferences,
                     withHorse: isMounted,
-                    withBanner: false,
+                    withBanner: withBanner,
                     isFemale: hero.IsFemale,
                     includeNeutralItems: true);
 
@@ -162,6 +165,9 @@ namespace Bannerlord.GameMaster.Items
                 effectivePreferences = WeaponTypeFlags.AllOneHanded | WeaponTypeFlags.Shield;
             }
 
+            // Determine if hero should get a banner (level 10+)
+            bool withBanner = heroLevel >= 10;
+
             // Generate and apply battle equipment
             if (replaceBattleEquipment)
             {
@@ -171,7 +177,7 @@ namespace Bannerlord.GameMaster.Items
                     heroLevel,
                     effectivePreferences,
                     withHorse: isMounted,
-                    withBanner: false,
+                    withBanner: withBanner,
                     isFemale: hero.IsFemale,
                     includeNeutralItems: true);
 
@@ -244,6 +250,9 @@ namespace Bannerlord.GameMaster.Items
             // Determine if mounted
             bool isMounted = hero.GetSkillValue(DefaultSkills.Riding) >= 50;
 
+            // Determine if hero should get a banner (level 10+)
+            bool withBanner = heroLevel >= 10;
+
             // Generate battle equipment
             return _equipmentBuilder.GetEquipmentSet(
                 hero,
@@ -251,7 +260,7 @@ namespace Bannerlord.GameMaster.Items
                 heroLevel,
                 effectivePreferences,
                 withHorse: isMounted,
-                withBanner: false,
+                withBanner: withBanner,
                 isFemale: hero.IsFemale,
                 includeNeutralItems: true);
         }
