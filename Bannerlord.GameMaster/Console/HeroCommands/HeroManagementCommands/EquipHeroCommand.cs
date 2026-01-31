@@ -26,7 +26,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
             {
                 // MARK: Validation
                 if (!CommandValidator.ValidateCampaignState(out string error))
-                    return CommandResult.Error(error);
+                    return CommandResult.Error(error); 
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
                     "gm.hero.equip_hero", "<hero> [tier] [civilian]",

@@ -80,6 +80,23 @@ namespace Bannerlord.GameMaster.Items
         /// <summary>Banner items.</summary>
         Banner = 1L << 21,
 
+        // MARK: Future Expansion Types (Heroes should not receive these)
+
+        /// <summary>Slings (ranged weapon type in native).</summary>
+        Sling = 1L << 22,
+
+        /// <summary>Sling stones (ammo for slings).</summary>
+        SlingStone = 1L << 23,
+
+        /// <summary>Rifles (for mods with firearms).</summary>
+        Rifle = 1L << 24,
+
+        /// <summary>Siege boulders (siege weapon ammo).</summary>
+        Boulder = 1L << 25,
+
+        /// <summary>Ballista bolts (siege weapon ammo).</summary>
+        BallistaBolt = 1L << 26,
+
         // MARK: Weapon Type Groups
 
         /// <summary>All one-handed melee weapons (swords, axes, maces, polearms, daggers).</summary>
@@ -103,14 +120,17 @@ namespace Bannerlord.GameMaster.Items
         /// <summary>All throwing weapons (axes, knives, javelins, stones).</summary>
         AllThrowing = ThrowingAxe | ThrowingKnife | Javelin | Stone,
 
-        /// <summary>All ranged weapons (bows, crossbows).</summary>
-        AllRanged = Bow | Crossbow,
+        /// <summary>All ranged weapons (bows, crossbows, slings).</summary>
+        AllRanged = Bow | Crossbow | Sling,
 
-        /// <summary>All ammunition (arrows, bolts, bullets).</summary>
-        AllAmmo = Arrow | Bolt | Bullet,
+        /// <summary>All ammunition (arrows, bolts, bullets, sling stones).</summary>
+        AllAmmo = Arrow | Bolt | Bullet | SlingStone,
 
-        /// <summary>All firearms (muskets, pistols).</summary>
-        AllFirearms = Musket | Pistol,
+        /// <summary>All siege weapon ammo (boulders, ballista bolts).</summary>
+        AllSiegeAmmo = Boulder | BallistaBolt,
+
+        /// <summary>All firearms (muskets, pistols, rifles).</summary>
+        AllFirearms = Musket | Pistol | Rifle,
 
         /// <summary>All melee weapons (one-handed and two-handed).</summary>
         AllMelee = AllOneHanded | AllTwoHanded,

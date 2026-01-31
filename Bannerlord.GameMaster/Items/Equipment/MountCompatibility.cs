@@ -1,6 +1,7 @@
 using System;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
 
 namespace Bannerlord.GameMaster.Items
 {
@@ -10,8 +11,6 @@ namespace Bannerlord.GameMaster.Items
     /// </summary>
     public static class MountCompatibility
     {
-        #region Polearm Couch/Brace Detection
-
         /// MARK: IsCouchablePolearm
         /// <summary>
         /// Determines if a polearm can be couched while mounted.
@@ -101,14 +100,11 @@ namespace Bannerlord.GameMaster.Items
             return IsWeaponUsableOnMount(item);
         }
 
-        #endregion
-
-        #region Weapon Mount Compatibility
-
         /// MARK: IsWepUsableOnMount
         /// <summary>
         /// Determines if a weapon can be used while mounted on a horse.
-        /// Excludes weapons that cannot be reloaded on horseback or require two hands.
+        /// Uses native ItemUsageSetFlags check via MBItem.GetItemUsageSetFlags().
+        /// Also respects CantReloadOnHorseback flag for crossbows.
         /// </summary>
         /// <param name="item">The weapon item to check.</param>
         /// <returns>True if the weapon can be used on a mount; false otherwise.</returns>
@@ -125,29 +121,31 @@ namespace Bannerlord.GameMaster.Items
             if (primaryWeapon == null)
                 return true;
 
-            // Check if weapon cannot be reloaded on horseback (e.g., crossbows)
+            // Check ItemUsageSetFlags
+            if (!string.IsNullOrEmpty(primaryWeapon.ItemUsage))
+            {
+                ItemObject.ItemUsageSetFlags usageFlags = MBItem.GetItemUsageSetFlags(primaryWeapon.ItemUsage);
+
+                // RequiresNoMount = 2 - this is the definitive "cannot use on horseback" indicator
+                if ((usageFlags & ItemObject.ItemUsageSetFlags.RequiresNoMount) != 0)
+                    return false;
+            }
+
+            // Also check WeaponFlags for crossbow reload restriction
             // WeaponFlags.CantReloadOnHorseback = 262144UL
             if (HasWeaponFlag(primaryWeapon, WeaponFlags.CantReloadOnHorseback))
-                return false;
-
-            // Check if weapon cannot be used with one hand (two-handed weapons)
-            // Two-handed weapons are generally not usable on mounts
-            // WeaponFlags.NotUsableWithOneHand = 16UL
-            if (HasWeaponFlag(primaryWeapon, WeaponFlags.NotUsableWithOneHand))
                 return false;
 
             return true;
         }
 
-        /// MARK: IsWepUsableOnMount (allowPolearms)
+        /// MARK: IsWepUsableOnMount Pole
         /// <summary>
         /// Determines if a weapon is usable on mount considering weapon type-specific exceptions.
-        /// Some two-handed weapons like polearms are designed for mounted combat despite
-        /// having the NotUsableWithOneHand flag. Uses IsPolearmUsableOnMount() to properly
-        /// exclude braceable-only polearms (pikes) which are infantry weapons.
+        /// Uses native ItemUsageSetFlags and polearm-specific checks.
         /// </summary>
         /// <param name="item">The weapon item to check.</param>
-        /// <param name="allowPolearms">Whether to allow two-handed polearms (lances, etc.).</param>
+        /// <param name="allowPolearms">Whether to allow polearms (uses IsPolearmUsableOnMount for filtering).</param>
         /// <returns>True if the weapon can be used on a mount; false otherwise.</returns>
         public static bool IsWeaponUsableOnMount(ItemObject item, bool allowPolearms)
         {
@@ -158,27 +156,12 @@ namespace Bannerlord.GameMaster.Items
             if (!item.HasWeaponComponent)
                 return true;
 
-            WeaponComponentData primaryWeapon = item.PrimaryWeapon;
-            if (primaryWeapon == null)
-                return true;
+            // For polearms, use specialized check that excludes braceable-only polearms
+            if (allowPolearms && item.ItemType == ItemObject.ItemTypeEnum.Polearm)
+                return IsPolearmUsableOnMount(item);
 
-            // Check if weapon cannot be reloaded on horseback
-            if (HasWeaponFlag(primaryWeapon, WeaponFlags.CantReloadOnHorseback))
-                return false;
-
-            // Check two-handed restriction
-            if (HasWeaponFlag(primaryWeapon, WeaponFlags.NotUsableWithOneHand))
-            {
-                // For polearms, use specific mount usability check that excludes braceable-only polearms
-                if (allowPolearms && item.ItemType == ItemObject.ItemTypeEnum.Polearm)
-                {
-                    return IsPolearmUsableOnMount(item);
-                }
-
-                return false;
-            }
-
-            return true;
+            // Use standard mount compatibility check
+            return IsWeaponUsableOnMount(item);
         }
 
         /// MARK: IsMountOrHarness
@@ -267,10 +250,6 @@ namespace Bannerlord.GameMaster.Items
             return true;
         }
 
-        #endregion
-
-        #region Private Helpers
-
         /// MARK: HasWeaponFlag
         /// <summary>
         /// Checks if a weapon component has a specific weapon flag.
@@ -286,7 +265,5 @@ namespace Bannerlord.GameMaster.Items
 
             return (weapon.WeaponFlags & flag) == flag;
         }
-
-        #endregion
     }
 }
