@@ -15,7 +15,7 @@ public static class ItemQueryHelpers
     public static ItemQueryArguments ParseItemQueryArguments(List<string> args)
     {
         if (args == null || args.Count == 0)
-            return new("", ItemTypes.None, -1, "id", false);
+            return new("", ItemTypes.None, -1, "", null, "id", false);
 
         HashSet<string> typeKeywords = new(StringComparer.OrdinalIgnoreCase)
         {
@@ -23,7 +23,7 @@ public static class ItemQueryHelpers
             "1h", "onehanded", "2h", "twohanded", "ranged", "shield", "polearm", "thrown",
             "arrows", "bolts", "head", "headarmor", "body", "bodyarmor",
             "leg", "legarmor", "hand", "handarmor", "cape",
-            "bow", "crossbow", "civilian", "combat", "horsearmor"
+            "bow", "crossbow", "combat", "horsearmor"
         };
 
         HashSet<string> tierKeywords = new(StringComparer.OrdinalIgnoreCase)
@@ -31,9 +31,16 @@ public static class ItemQueryHelpers
             "tier0", "tier1", "tier2", "tier3", "tier4", "tier5", "tier6"
         };
 
+        HashSet<string> loadoutKeywords = new(StringComparer.OrdinalIgnoreCase)
+        {
+            "civilian", "battle"
+        };
+
         List<string> searchTerms = new();
         List<string> typeTerms = new();
         int tierFilter = -1;
+        string cultureFilter = "";
+        bool? civilianFilter = null;
         string sortBy = "id";
         bool sortDesc = false;
 
@@ -43,6 +50,16 @@ public static class ItemQueryHelpers
             if (arg.StartsWith("sort:", StringComparison.OrdinalIgnoreCase))
             {
                 CommonQueryHelpers.ParseSortParameter(arg, ref sortBy, ref sortDesc);
+            }
+            // Check for culture: parameter
+            else if (arg.StartsWith("culture:", StringComparison.OrdinalIgnoreCase))
+            {
+                cultureFilter = arg.Substring(8);
+            }
+            // Check for loadout keywords (civilian/battle)
+            else if (loadoutKeywords.Contains(arg))
+            {
+                civilianFilter = arg.Equals("civilian", StringComparison.OrdinalIgnoreCase);
             }
             // Check for tier keywords
             else if (tierKeywords.Contains(arg))
@@ -64,7 +81,7 @@ public static class ItemQueryHelpers
         string query = string.Join(" ", searchTerms).Trim();
         ItemTypes types = ItemQueries.ParseItemTypes(typeTerms);
 
-        return new(query, types, tierFilter, sortBy, sortDesc);
+        return new(query, types, tierFilter, cultureFilter, civilianFilter, sortBy, sortDesc);
     }
 
     /// <summary>

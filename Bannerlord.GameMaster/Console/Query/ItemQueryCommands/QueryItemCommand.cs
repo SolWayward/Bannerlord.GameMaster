@@ -33,11 +33,13 @@ public static class QueryItemCommand
 
             // MARK: Execute Logic
             List<ItemObject> matchedItems = ItemQueries.QueryItems(
-                queryArgs.QueryArgs.Query, 
-                queryArgs.Types, 
-                matchAll: true, 
-                queryArgs.Tier, 
-                queryArgs.QueryArgs.SortBy, 
+                queryArgs.QueryArgs.Query,
+                queryArgs.Types,
+                matchAll: true,
+                queryArgs.Tier,
+                queryArgs.Culture,
+                queryArgs.CivilianFilter,
+                queryArgs.QueryArgs.SortBy,
                 queryArgs.QueryArgs.SortDesc);
 
             string criteriaDesc = queryArgs.GetCriteriaString();
@@ -45,11 +47,14 @@ public static class QueryItemCommand
             if (matchedItems.Count == 0)
             {
                 return CommandResult.Success($"Found 0 item(s) matching {criteriaDesc}\n" +
-                       "Usage: gm.query.item [search] [type keywords] [tier] [sort]\n" +
-                       "Type keywords: weapon, armor, mount, food, trade, 1h, 2h, ranged, bow, crossbow, civilian, combat, horsearmor, etc.\n" +
+                       "Usage: gm.query.item [search] [type keywords] [tier] [culture:name] [civilian|battle] [sort]\n" +
+                       "Type keywords: weapon, armor, mount, food, trade, 1h, 2h, ranged, bow, crossbow, combat, horsearmor, etc.\n" +
                        "Tier keywords: tier0, tier1, tier2, tier3, tier4, tier5, tier6\n" +
-                       "Sort: sort:name, sort:tier, sort:value, sort:type (add :desc for descending)\n" +
-                       "Example: gm.query.item sword weapon 1h tier3 sort:value:desc\n").Message;
+                       "Culture: culture:vlandia, culture:empire, culture:sturgia, etc.\n" +
+                       "Loadout: civilian (can use in civilian loadout), battle (battle only)\n" +
+                       "Sort: sort:name, sort:tier, sort:value, sort:type, sort:culture, sort:loadout (add :desc for descending)\n" +
+                       "Example: gm.query.item sword weapon 1h tier3 sort:value:desc\n" +
+                       "Example: gm.query.item armor culture:empire civilian\n").Message;
             }
 
             return CommandResult.Success($"Found {matchedItems.Count} item(s) matching {criteriaDesc}:\n" +

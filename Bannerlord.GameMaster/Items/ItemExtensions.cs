@@ -50,48 +50,39 @@ namespace Bannerlord.GameMaster.Items
             if (item.IsFood) types |= ItemTypes.Food;
             if (item.IsBannerItem) types |= ItemTypes.Banner;
 
-            // Determine if item is civilian or combat
-            bool isCombatItem = false;
-            bool isCivilianItem = false;
+            // Check native civilian flag (ItemFlags.Civilian = 4194304)
+            // This is the same flag the game UI uses to show the civilian equipment icon
+            bool hasNativeCivilianFlag = (item.ItemFlags & ItemFlags.Civilian) == ItemFlags.Civilian;
 
-            // Weapon types
+            // Item type categorization
             switch (item.ItemType)
             {
                 case ItemObject.ItemTypeEnum.OneHandedWeapon:
-                    types |= ItemTypes.Weapon | ItemTypes.OneHanded;
-                    isCombatItem = true;
+                    types |= ItemTypes.Weapon | ItemTypes.OneHanded | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.TwoHandedWeapon:
-                    types |= ItemTypes.Weapon | ItemTypes.TwoHanded;
-                    isCombatItem = true;
+                    types |= ItemTypes.Weapon | ItemTypes.TwoHanded | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.Polearm:
-                    types |= ItemTypes.Weapon | ItemTypes.Polearm;
-                    isCombatItem = true;
+                    types |= ItemTypes.Weapon | ItemTypes.Polearm | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.Bow:
-                    types |= ItemTypes.Weapon | ItemTypes.Ranged | ItemTypes.Bow;
-                    isCombatItem = true;
+                    types |= ItemTypes.Weapon | ItemTypes.Ranged | ItemTypes.Bow | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.Crossbow:
-                    types |= ItemTypes.Weapon | ItemTypes.Ranged | ItemTypes.Crossbow;
-                    isCombatItem = true;
+                    types |= ItemTypes.Weapon | ItemTypes.Ranged | ItemTypes.Crossbow | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.Thrown:
-                    types |= ItemTypes.Weapon | ItemTypes.Thrown;
-                    isCombatItem = true;
+                    types |= ItemTypes.Weapon | ItemTypes.Thrown | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.Arrows:
-                    types |= ItemTypes.Arrows;
-                    isCombatItem = true;
+                    types |= ItemTypes.Arrows | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.Bolts:
-                    types |= ItemTypes.Bolts;
-                    isCombatItem = true;
+                    types |= ItemTypes.Bolts | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.Shield:
-                    types |= ItemTypes.Shield;
-                    isCombatItem = true;
+                    types |= ItemTypes.Shield | ItemTypes.Combat;
                     break;
                 case ItemObject.ItemTypeEnum.Horse:
                     types |= ItemTypes.Mount;
@@ -101,7 +92,6 @@ namespace Bannerlord.GameMaster.Items
                     break;
                 case ItemObject.ItemTypeEnum.Goods:
                     types |= ItemTypes.Goods | ItemTypes.Trade;
-                    isCivilianItem = true;
                     break;
                 case ItemObject.ItemTypeEnum.HeadArmor:
                     types |= ItemTypes.Armor | ItemTypes.HeadArmor;
@@ -120,29 +110,13 @@ namespace Bannerlord.GameMaster.Items
                     break;
             }
 
-            // Check if armor is civilian (has IsCivilian property in game)
-            if (item.ArmorComponent != null)
-            {
-                // In Mount & Blade, civilian armor can be identified by having no armor value or being marked as civilian
-                if (item.ArmorComponent.HeadArmor == 0 &&
-                    item.ArmorComponent.BodyArmor == 0 &&
-                    item.ArmorComponent.ArmArmor == 0 &&
-                    item.ArmorComponent.LegArmor == 0)
-                {
-                    isCivilianItem = true;
-                }
-                else
-                {
-                    isCombatItem = true;
-                }
-            }
+            // Apply civilian flag based on native ItemFlags.Civilian
+            if (hasNativeCivilianFlag)
+                types |= ItemTypes.Civilian;
 
-            // Apply civilian/combat flags
-            if (isCivilianItem) types |= ItemTypes.Civilian;
-            if (isCombatItem) types |= ItemTypes.Combat;
-
-            // Food items are also civilian
-            if (item.IsFood) types |= ItemTypes.Civilian;
+            // Food items are also considered civilian
+            if (item.IsFood)
+                types |= ItemTypes.Civilian;
 
             return types;
         }
@@ -163,8 +137,18 @@ namespace Bannerlord.GameMaster.Items
         public static bool HasAnyType(this ItemObject item, ItemTypes types)
         {
             if (types == ItemTypes.None) return true;
-            var itemTypes = item.GetItemTypes();
+            ItemTypes itemTypes = item.GetItemTypes();
             return (itemTypes & types) != ItemTypes.None;
+        }
+
+        /// <summary>
+        /// Checks if item can be used in civilian loadout using the native ItemFlags.Civilian flag.
+        /// This is the same flag the game UI uses to show the civilian equipment icon.
+        /// </summary>
+        public static bool IsCivilian(this ItemObject item)
+        {
+            // Use native ItemFlags.Civilian (value 4194304) - same check as game UI
+            return (item.ItemFlags & ItemFlags.Civilian) == ItemFlags.Civilian;
         }
 
         /// <summary>
@@ -175,7 +159,9 @@ namespace Bannerlord.GameMaster.Items
             // Note: ItemTiers enum values are offset by 1 (Tier0=-1, Tier1=0, Tier2=1, etc.)
             // So we add 1 to display the user-friendly tier number
             string tier = (int)item.Tier >= -1 ? $"Tier: {(int)item.Tier + 1}" : "Tier: N/A";
-            return $"{item.StringId}\t{item.Name}\tType: {item.ItemType}\tValue: {item.Value}\t{tier}";
+            string culture = item.Culture?.Name?.ToString() ?? "None";
+            string loadout = item.IsCivilian() ? "Civilian" : "Battle";
+            return $"{item.StringId}\t{item.Name}\t{culture}\tType: {item.ItemType}\t{tier}\tValue: {item.Value}\t{loadout}";
         }
 
         /// <summary>

@@ -806,7 +806,16 @@ namespace Bannerlord.GameMaster.Items
                     CollectMountedPolearmsFromPool(cultureWeapons, couchable, otherMountedUsable);
                 }
 
-                // Neutral pool
+                // Calradian pool (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.WeaponPoolsByCulture.TryGetValue("calradian",
+                        out Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> calradianWeapons))
+                {
+                    CollectMountedPolearmsFromPool(calradianWeapons, couchable, otherMountedUsable);
+                }
+
+                // Neutral pool (Culture=null items)
                 if (includeNeutralItems &&
                     _poolManager.NeutralWeaponPools.TryGetValue(tier,
                         out Dictionary<WeaponTypeFlags, MBList<ItemObject>> neutralWeapons))
@@ -942,7 +951,16 @@ namespace Bannerlord.GameMaster.Items
                     CollectInfantryPolearmsFromPool(cultureWeapons, braceable, allPolearms);
                 }
 
-                // Neutral pool
+                // Calradian pool (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.WeaponPoolsByCulture.TryGetValue("calradian",
+                        out Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> calradianWeapons))
+                {
+                    CollectInfantryPolearmsFromPool(calradianWeapons, braceable, allPolearms);
+                }
+
+                // Neutral pool (Culture=null items)
                 if (includeNeutralItems &&
                     _poolManager.NeutralWeaponPools.TryGetValue(tier,
                         out Dictionary<WeaponTypeFlags, MBList<ItemObject>> neutralWeapons))
@@ -1201,7 +1219,15 @@ namespace Bannerlord.GameMaster.Items
                     CollectMatchingWeapons(cultureWeapons, weaponType, isMounted, candidates);
                 }
 
-                // Also check neutral pool if enabled
+                // Also check Calradian pool if enabled (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.WeaponPoolsByCulture.TryGetValue("calradian", out Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> calradianWeapons))
+                {
+                    CollectMatchingWeapons(calradianWeapons, weaponType, isMounted, candidates);
+                }
+
+                // Also check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralWeaponPools.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> neutralWeapons))
                 {
@@ -1352,6 +1378,7 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: CollectArmorFromTierRange
         /// <summary>
         /// Helper method to collect armor from a specific tier range into candidates list.
+        /// When includeNeutralItems is true, also includes Calradian (generic) items and Culture=null items.
         /// </summary>
         private void CollectArmorFromTierRange(
             string cultureId,
@@ -1374,7 +1401,16 @@ namespace Bannerlord.GameMaster.Items
                     CollectValidArmor(cultureItems, isFemale, excludeCloth, candidates);
                 }
 
-                // Also check neutral pool if enabled
+                // Also check Calradian pool if enabled (generic human items) - treated equally with hero's culture
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
+                    calradianArmor.TryGetValue(slot, out MBList<ItemObject> calradianItems))
+                {
+                    CollectValidArmor(calradianItems, isFemale, excludeCloth, candidates);
+                }
+
+                // Also check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
                     neutralArmor.TryGetValue(slot, out MBList<ItemObject> neutralItems))
@@ -1422,7 +1458,16 @@ namespace Bannerlord.GameMaster.Items
                     CollectBattleHeadArmor(cultureItems, isFemale, excludeCloth, isRulingClan, candidates);
                 }
 
-                // Also check neutral pool if enabled
+                // Also check Calradian pool if enabled (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
+                    calradianArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> calradianItems))
+                {
+                    CollectBattleHeadArmor(calradianItems, isFemale, excludeCloth, isRulingClan, candidates);
+                }
+
+                // Also check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
                     neutralArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> neutralItems))
@@ -1537,7 +1582,18 @@ namespace Bannerlord.GameMaster.Items
                     }
                 }
 
-                // Neutral shields
+                // Calradian shields (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.ShieldPoolsByCulture.TryGetValue("calradian", out Dictionary<int, MBList<ItemObject>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out MBList<ItemObject> calradianShields))
+                {
+                    for (int i = 0; i < calradianShields.Count; i++)
+                    {
+                        candidates.Add(calradianShields[i]);
+                    }
+                }
+
+                // Neutral shields (Culture=null items)
                 if (includeNeutralItems &&
                     _poolManager.NeutralShieldPools.TryGetValue(tier, out MBList<ItemObject> neutralShields))
                 {
@@ -1589,7 +1645,18 @@ namespace Bannerlord.GameMaster.Items
                     }
                 }
 
-                // Neutral horses
+                // Calradian horses (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.HorsePoolsByCulture.TryGetValue("calradian", out Dictionary<int, MBList<ItemObject>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out MBList<ItemObject> calradianHorses))
+                {
+                    for (int i = 0; i < calradianHorses.Count; i++)
+                    {
+                        candidates.Add(calradianHorses[i]);
+                    }
+                }
+
+                // Neutral horses (Culture=null items)
                 if (includeNeutralItems &&
                     _poolManager.NeutralHorsePools.TryGetValue(tier, out MBList<ItemObject> neutralHorses))
                 {
@@ -1628,7 +1695,18 @@ namespace Bannerlord.GameMaster.Items
                     }
                 }
 
-                // Neutral harnesses
+                // Calradian harnesses (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.HarnessPoolsByCulture.TryGetValue("calradian", out Dictionary<int, MBList<ItemObject>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out MBList<ItemObject> calradianHarnesses))
+                {
+                    for (int i = 0; i < calradianHarnesses.Count; i++)
+                    {
+                        candidates.Add(calradianHarnesses[i]);
+                    }
+                }
+
+                // Neutral harnesses (Culture=null items)
                 if (includeNeutralItems &&
                     _poolManager.NeutralHarnessPools.TryGetValue(tier, out MBList<ItemObject> neutralHarnesses))
                 {
@@ -1893,7 +1971,15 @@ namespace Bannerlord.GameMaster.Items
                     CollectCivilianWeapons(cultureWeapons, candidates);
                 }
 
-                // Also check neutral pool if enabled
+                // Also check Calradian pool if enabled (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.WeaponPoolsByCulture.TryGetValue("calradian", out Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> calradianWeapons))
+                {
+                    CollectCivilianWeapons(calradianWeapons, candidates);
+                }
+
+                // Also check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralWeaponPools.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> neutralWeapons))
                 {
@@ -1959,7 +2045,20 @@ namespace Bannerlord.GameMaster.Items
                     }
                 }
 
-                // Check neutral pool if enabled
+                // Check Calradian pool if enabled (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
+                    calradianArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> calradianBodyItems))
+                {
+                    for (int i = 0; i < calradianBodyItems.Count; i++)
+                    {
+                        if (ItemValidation.IsDressItem(calradianBodyItems[i]))
+                            return true;
+                    }
+                }
+
+                // Check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
                     neutralArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> neutralBodyItems))
@@ -2070,7 +2169,23 @@ namespace Bannerlord.GameMaster.Items
                     }
                 }
 
-                // Check neutral pool if enabled
+                // Check Calradian pool if enabled (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
+                    calradianArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> calradianBodyItems))
+                {
+                    for (int i = 0; i < calradianBodyItems.Count; i++)
+                    {
+                        ItemObject item = calradianBodyItems[i];
+                        if (ItemValidation.IsDressItem(item) && ItemValidation.IsCivilianAppropriateItem(item))
+                        {
+                            candidates.Add(item);
+                        }
+                    }
+                }
+
+                // Check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
                     neutralArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> neutralBodyItems))
@@ -2117,7 +2232,23 @@ namespace Bannerlord.GameMaster.Items
                     }
                 }
 
-                // Check neutral pool if enabled
+                // Check Calradian pool if enabled (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
+                    calradianArmor.TryGetValue(EquipmentIndex.Leg, out MBList<ItemObject> calradianLegItems))
+                {
+                    for (int i = 0; i < calradianLegItems.Count; i++)
+                    {
+                        ItemObject item = calradianLegItems[i];
+                        if (ItemValidation.IsLadiesShoes(item))
+                        {
+                            candidates.Add(item);
+                        }
+                    }
+                }
+
+                // Check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
                     neutralArmor.TryGetValue(EquipmentIndex.Leg, out MBList<ItemObject> neutralLegItems))
@@ -2226,7 +2357,16 @@ namespace Bannerlord.GameMaster.Items
                     CollectCivilianArmor(cultureItems, isFemale, candidates);
                 }
 
-                // Also check neutral pool if enabled
+                // Also check Calradian pool if enabled (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
+                    calradianArmor.TryGetValue(slot, out MBList<ItemObject> calradianItems))
+                {
+                    CollectCivilianArmor(calradianItems, isFemale, candidates);
+                }
+
+                // Also check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
                     neutralArmor.TryGetValue(slot, out MBList<ItemObject> neutralItems))
@@ -2304,7 +2444,16 @@ namespace Bannerlord.GameMaster.Items
                     CollectCivilianCrowns(cultureItems, isFemale, candidates);
                 }
 
-                // Also check neutral pool if enabled
+                // Also check Calradian pool if enabled (generic human items)
+                if (includeNeutralItems && cultureId != "calradian" &&
+                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
+                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
+                    calradianArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> calradianItems))
+                {
+                    CollectCivilianCrowns(calradianItems, isFemale, candidates);
+                }
+
+                // Also check neutral pool (Culture=null items) if enabled
                 if (includeNeutralItems &&
                     _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
                     neutralArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> neutralItems))

@@ -13,12 +13,16 @@ public struct ItemQueryArguments
     public QueryArguments QueryArgs;
     public ItemTypes Types;
     public int Tier;
+    public string Culture;
+    public bool? CivilianFilter;
 
-    public ItemQueryArguments(string query, ItemTypes types, int tier, string sortBy, bool sortDesc)
+    public ItemQueryArguments(string query, ItemTypes types, int tier, string culture, bool? civilianFilter, string sortBy, bool sortDesc)
     {
         QueryArgs = new(query, sortBy, sortDesc);
         Types = types;
         Tier = tier;
+        Culture = culture;
+        CivilianFilter = civilianFilter;
     }
 
     /// <summary>
@@ -43,6 +47,12 @@ public struct ItemQueryArguments
 
         if (Tier >= 0)
             parts.Add($"tier: {Tier}");
+
+        if (!string.IsNullOrEmpty(Culture))
+            parts.Add($"culture: {Culture}");
+
+        if (CivilianFilter.HasValue)
+            parts.Add(CivilianFilter.Value ? "loadout: civilian" : "loadout: battle");
 
         if (!string.IsNullOrEmpty(QueryArgs.SortBy) && QueryArgs.SortBy != "id")
             parts.Add($"sort: {QueryArgs.SortBy}{(QueryArgs.SortDesc ? " (desc)" : " (asc)")}");

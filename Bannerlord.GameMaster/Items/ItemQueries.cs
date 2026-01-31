@@ -29,7 +29,9 @@ namespace Bannerlord.GameMaster.Items
 		/// <param name="requiredTypes">Item type flags that ALL must match (AND logic)</param>
 		/// <param name="matchAll">If true, item must have ALL flags. If false, item must have ANY flag</param>
 		/// <param name="tierFilter">Optional tier filter (0-6, -1 for no filter)</param>
-		/// <param name="sortBy">Sort field (id, name, tier, value, type, or any ItemType flag)</param>
+		/// <param name="cultureFilter">Optional culture StringId filter</param>
+		/// <param name="civilianFilter">Optional civilian filter (null = any, true = civilian, false = battle)</param>
+		/// <param name="sortBy">Sort field (id, name, tier, value, type, culture, loadout, or any ItemType flag)</param>
 		/// <param name="sortDescending">True for descending, false for ascending</param>
 		/// <returns>List of items matching all criteria</returns>
 		public static MBReadOnlyList<ItemObject> QueryItems(
@@ -37,6 +39,8 @@ namespace Bannerlord.GameMaster.Items
 			ItemTypes requiredTypes = ItemTypes.None,
 			bool matchAll = true,
 			int tierFilter = -1,
+			string cultureFilter = "",
+			bool? civilianFilter = null,
 			string sortBy = "id",
 			bool sortDescending = false)
 		{
@@ -47,12 +51,13 @@ namespace Bannerlord.GameMaster.Items
 			bool hasQuery = !string.IsNullOrEmpty(query);
 			bool hasTypes = requiredTypes != ItemTypes.None;
 			bool hasTierFilter = tierFilter >= 0;
+			bool hasCultureFilter = !string.IsNullOrEmpty(cultureFilter);
 
 			// Filter items
 			for (int i = 0; i < source.Count; i++)
 			{
 				ItemObject item = source[i];
-				if (MatchesFilters(item, query, hasQuery, requiredTypes, hasTypes, tierFilter, hasTierFilter, matchAll))
+				if (MatchesFilters(item, query, hasQuery, requiredTypes, hasTypes, tierFilter, hasTierFilter, matchAll, cultureFilter, hasCultureFilter, civilianFilter))
 				{
 					results.Add(item);
 				}
@@ -79,7 +84,10 @@ namespace Bannerlord.GameMaster.Items
 			bool hasTypes,
 			int tierFilter,
 			bool hasTierFilter,
-			bool matchAll)
+			bool matchAll,
+			string cultureFilter,
+			bool hasCultureFilter,
+			bool? civilianFilter)
 		{
 			// Name/ID filter using OrdinalIgnoreCase (no string allocation)
 			if (hasQuery)
@@ -104,6 +112,22 @@ namespace Bannerlord.GameMaster.Items
 			if (hasTierFilter)
 			{
 				if ((int)item.Tier != tierFilter - 1)
+					return false;
+			}
+
+			// Culture filter
+			if (hasCultureFilter)
+			{
+				string itemCulture = item.Culture?.StringId ?? "";
+				if (!itemCulture.Equals(cultureFilter, StringComparison.OrdinalIgnoreCase))
+					return false;
+			}
+
+			// Civilian/Battle filter
+			if (civilianFilter.HasValue)
+			{
+				bool itemIsCivilian = item.IsCivilian();
+				if (itemIsCivilian != civilianFilter.Value)
 					return false;
 			}
 
@@ -146,6 +170,18 @@ namespace Bannerlord.GameMaster.Items
 				"weight" => Comparer<ItemObject>.Create((a, b) =>
 				{
 					int result = a.Weight.CompareTo(b.Weight);
+					return descending ? -result : result;
+				}),
+				"culture" => Comparer<ItemObject>.Create((a, b) =>
+				{
+					string cultureA = a.Culture?.Name?.ToString() ?? "";
+					string cultureB = b.Culture?.Name?.ToString() ?? "";
+					int result = string.Compare(cultureA, cultureB, StringComparison.Ordinal);
+					return descending ? -result : result;
+				}),
+				"loadout" or "civilian" => Comparer<ItemObject>.Create((a, b) =>
+				{
+					int result = a.IsCivilian().CompareTo(b.IsCivilian());
 					return descending ? -result : result;
 				}),
 				_ => Comparer<ItemObject>.Create((a, b) =>  // default: id
@@ -210,15 +246,17 @@ namespace Bannerlord.GameMaster.Items
 				items,
 				i => i.StringId,
 				i => i.Name.ToString(),
+				i => i.Culture?.Name?.ToString() ?? "None",
 				i => $"Type: {i.ItemType}",
-				i => $"Value: {i.Value}",
-				i => $"Weight: {i.Weight}",
 				i =>
 				{
 					// Note: ItemTiers enum values are offset by 1
 					string tier = (int)i.Tier >= -1 ? $"Tier: {(int)i.Tier + 1}" : "Tier: N/A";
 					return tier;
-				}
+				},
+				i => $"Value: {i.Value}",
+				i => $"Weight: {i.Weight}",
+				i => i.IsCivilian() ? "Civilian" : "Battle"
 			);
 		}
 

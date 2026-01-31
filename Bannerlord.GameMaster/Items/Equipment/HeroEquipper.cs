@@ -97,6 +97,9 @@ namespace Bannerlord.GameMaster.Items
             // Generate and apply battle equipment
             if (replaceBattleEquipment)
             {
+                // Clear existing battle equipment slots first to prevent template bleed-through
+                ClearEquipmentSlots(hero.BattleEquipment);
+
                 Equipment battleEquipment = _equipmentBuilder.GetEquipmentSet(
                     hero,
                     hero.Culture,
@@ -116,6 +119,9 @@ namespace Bannerlord.GameMaster.Items
             // Generate and apply civilian equipment
             if (replaceCivilianEquipment)
             {
+                // Clear existing civilian equipment slots first to prevent template bleed-through
+                ClearEquipmentSlots(hero.CivilianEquipment);
+
                 Equipment civilianEquipment = _equipmentBuilder.GetCivilianEquipmentSet(
                     hero,
                     hero.Culture,
@@ -177,6 +183,9 @@ namespace Bannerlord.GameMaster.Items
             // Generate and apply battle equipment
             if (replaceBattleEquipment)
             {
+                // Clear existing battle equipment slots first to prevent template bleed-through
+                ClearEquipmentSlots(hero.BattleEquipment);
+
                 Equipment battleEquipment = _equipmentBuilder.GetEquipmentSet(
                     hero,
                     effectiveCulture,
@@ -196,6 +205,9 @@ namespace Bannerlord.GameMaster.Items
             // Generate and apply civilian equipment
             if (replaceCivilianEquipment)
             {
+                // Clear existing civilian equipment slots first to prevent template bleed-through
+                ClearEquipmentSlots(hero.CivilianEquipment);
+
                 Equipment civilianEquipment = _equipmentBuilder.GetCivilianEquipmentSet(
                     hero,
                     effectiveCulture,
@@ -864,6 +876,25 @@ namespace Bannerlord.GameMaster.Items
                         "SetDefaultFormationClass() failed: Could not find property or backing field",
                         new MissingFieldException("DefaultFormationClass")).Log();
                 }
+            }
+        }
+
+        /// MARK: ClearEquipmentSlots
+        /// <summary>
+        /// Clears all equipment slots by setting them to EquipmentElement.Invalid.
+        /// This prevents template bleed-through where items from the source character template
+        /// persist when no new item is found for a slot during equipment generation.
+        /// </summary>
+        /// <param name="equipment">The equipment object to clear.</param>
+        private static void ClearEquipmentSlots(Equipment equipment)
+        {
+            if (equipment == null)
+                return;
+
+            // Clear all equipment slots (Weapon0-3, ExtraWeaponSlot, Head, Cape, Body, Gloves, Leg, Horse, HorseHarness)
+            for (int i = 0; i < (int)EquipmentIndex.NumEquipmentSetSlots; i++)
+            {
+                equipment[(EquipmentIndex)i] = EquipmentElement.Invalid;
             }
         }
 
