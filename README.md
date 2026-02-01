@@ -7,16 +7,15 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update v1.3.13.14
+## Latest Update v1.3.13.15
 ```
-Fixed BLGMObjectManager not being initialized on New Games, only saved games.
-
-Added command to open System Console gm.show_system_console
-	- The system console will display the results the output of ingame blgm commands and other debug info / errors
-	- The system console can also be used to run any game console command including blgm commands from the windows console window outside the game
-	
-System Console can also be opened on launch by running Bannerlord with /systemconsole command line option with BLGM mod enabled
-Game console is still fully usable and use of the system console is entirely optional.
+Fixed Hero Skills
+Improved Generated Hero Equipment
+	Heroes now get equipment relating to their skills
+	Heroes no longer get any weapon sets that don't make sense
+	Heroes can also be equipped with items added from other mods
+Fixed Load Equipment command not loading modifiers
+Added commands to reequip heroes gm.hero.equip_hero, gm.clan.equip_heroes, gm.kingdom.equip_heroes
 ```  
 
 ## Key Features
