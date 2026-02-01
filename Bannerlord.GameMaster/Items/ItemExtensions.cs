@@ -30,7 +30,7 @@ namespace Bannerlord.GameMaster.Items
         Goods = 524288,
         Bow = 1048576,
         Crossbow = 2097152,
-        Civilian = 4194304,
+        CivilianEquipment = 4194304,
         Combat = 8388608,
         HorseArmor = 16777216
     }
@@ -112,11 +112,11 @@ namespace Bannerlord.GameMaster.Items
 
             // Apply civilian flag based on native ItemFlags.Civilian
             if (hasNativeCivilianFlag)
-                types |= ItemTypes.Civilian;
+                types |= ItemTypes.CivilianEquipment;
 
             // Food items are also considered civilian
             if (item.IsFood)
-                types |= ItemTypes.Civilian;
+                types |= ItemTypes.CivilianEquipment;
 
             return types;
         }
@@ -145,7 +145,7 @@ namespace Bannerlord.GameMaster.Items
         /// Checks if item can be used in civilian loadout using the native ItemFlags.Civilian flag.
         /// This is the same flag the game UI uses to show the civilian equipment icon.
         /// </summary>
-        public static bool IsCivilian(this ItemObject item)
+        public static bool IsCivilianEquipment(this ItemObject item)
         {
             // Use native ItemFlags.Civilian (value 4194304) - same check as game UI
             return (item.ItemFlags & ItemFlags.Civilian) == ItemFlags.Civilian;
@@ -160,7 +160,7 @@ namespace Bannerlord.GameMaster.Items
             // So we add 1 to display the user-friendly tier number
             string tier = (int)item.Tier >= -1 ? $"Tier: {(int)item.Tier + 1}" : "Tier: N/A";
             string culture = item.Culture?.Name?.ToString() ?? "None";
-            string loadout = item.IsCivilian() ? "Civilian" : "Battle";
+            string loadout = item.IsCivilianEquipment() ? "Civilian" : "Battle";
             return $"{item.StringId}\t{item.Name}\t{culture}\tType: {item.ItemType}\t{tier}\tValue: {item.Value}\t{loadout}";
         }
 

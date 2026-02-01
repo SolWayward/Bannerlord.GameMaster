@@ -126,7 +126,7 @@ namespace Bannerlord.GameMaster.Items
 			// Civilian/Battle filter
 			if (civilianFilter.HasValue)
 			{
-				bool itemIsCivilian = item.IsCivilian();
+				bool itemIsCivilian = item.IsCivilianEquipment();
 				if (itemIsCivilian != civilianFilter.Value)
 					return false;
 			}
@@ -181,7 +181,7 @@ namespace Bannerlord.GameMaster.Items
 				}),
 				"loadout" or "civilian" => Comparer<ItemObject>.Create((a, b) =>
 				{
-					int result = a.IsCivilian().CompareTo(b.IsCivilian());
+					int result = a.IsCivilianEquipment().CompareTo(b.IsCivilianEquipment());
 					return descending ? -result : result;
 				}),
 				_ => Comparer<ItemObject>.Create((a, b) =>  // default: id
@@ -256,7 +256,7 @@ namespace Bannerlord.GameMaster.Items
 				},
 				i => $"Value: {i.Value}",
 				i => $"Weight: {i.Weight}",
-				i => i.IsCivilian() ? "Civilian" : "Battle"
+				i => i.IsCivilianEquipment() ? "Civilian" : "Battle"
 			);
 		}
 

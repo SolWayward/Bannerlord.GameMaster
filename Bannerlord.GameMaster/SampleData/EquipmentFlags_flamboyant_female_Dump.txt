@@ -1,0 +1,801 @@
+Equipment Rosters Dump - Flags: Female | Flamboyant
+Requested Flags Value: 1152
+====================================================================================================
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: emp_noncom_template_flamboyant
+  Culture: empire
+  Equipment Sets: 3
+    Set 1 (Civilian):
+      [Body] Toga (ID: imperial_robes)
+          Type: BodyArmor, Tier: Tier1, Value: 365
+          Culture: empire
+          Armor - Head: 0, Body: 8, Arm: 4, Leg: 3
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 2 (Civilian):
+      [Head] Female Rural Headwrap (ID: head_wrapped)
+          Type: HeadArmor, Tier: -1, Value: 77
+          Culture: vlandia
+          Armor - Head: 1, Body: 0, Arm: 0, Leg: 0
+      [Body] Ladies Dress (ID: empire_dress)
+          Type: BodyArmor, Tier: Tier1, Value: 298
+          Culture: empire
+          Armor - Head: 0, Body: 7, Arm: 2, Leg: 4
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 3 (Civilian):
+      [Body] Red Dress (ID: empire_dress_b)
+          Type: BodyArmor, Tier: Tier1, Value: 220
+          Culture: empire
+          Armor - Head: 0, Body: 6, Arm: 2, Leg: 2
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: stu_noncom_template_flamboyant
+  Culture: sturgia
+  Equipment Sets: 2
+    Set 1 (Civilian):
+      [Head] Fur Rimmed Cap (ID: nordic_fur_cap)
+          Type: HeadArmor, Tier: Tier1, Value: 213
+          Culture: sturgia
+          Armor - Head: 8, Body: 0, Arm: 0, Leg: 0
+      [Body] Cold Weather Dress (ID: northern_dress)
+          Type: BodyArmor, Tier: -1, Value: 146
+          Culture: sturgia
+          Armor - Head: 0, Body: 3, Arm: 1, Leg: 2
+      [Leg] Woodland Leg Wrappings (ID: highland_leg_wrappings)
+          Type: LegArmor, Tier: Tier1, Value: 292
+          Culture: battania
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 8
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Tyal Horse (ID: noble_horse_northern)
+          Type: Horse, Tier: Tier6, Value: 28447
+          Culture: sturgia
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 2 (Civilian):
+      [Head] Fur Cap (ID: northern_fur_cap)
+          Type: HeadArmor, Tier: Tier1, Value: 247
+          Culture: sturgia
+          Armor - Head: 9, Body: 0, Arm: 0, Leg: 0
+      [Body] Cold Weather Dress (ID: northern_dress)
+          Type: BodyArmor, Tier: -1, Value: 146
+          Culture: sturgia
+          Armor - Head: 0, Body: 3, Arm: 1, Leg: 2
+      [Leg] Woodland Leg Wrappings (ID: highland_leg_wrappings)
+          Type: LegArmor, Tier: Tier1, Value: 292
+          Culture: battania
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 8
+      [Horse] Tyal Horse (ID: noble_horse_northern)
+          Type: Horse, Tier: Tier6, Value: 28447
+          Culture: sturgia
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: vla_noncom_template_flamboyant
+  Culture: vlandia
+  Equipment Sets: 2
+    Set 1 (Civilian):
+      [Head] Luxurious Head Scarf (ID: headscarf_c)
+          Type: HeadArmor, Tier: -1, Value: 103
+          Culture: vlandia
+          Armor - Head: 3, Body: 0, Arm: 0, Leg: 0
+      [Body] Silken Noble Dress (ID: vlandian_noble_woman_dress)
+          Type: BodyArmor, Tier: -1, Value: 492
+          Culture: vlandia
+          Armor - Head: 0, Body: 2, Arm: 1, Leg: 1
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Horse] Royal Destrier (ID: noble_horse_western)
+          Type: Horse, Tier: Tier6, Value: 37006
+          Culture: vlandia
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 2 (Civilian):
+      [Weapon0] Decorated Arming Sword (ID: vlandia_noble_sword_1_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 18579
+          Culture: vlandia
+      [Head] Loose Head Scarf (ID: headscarf)
+          Type: HeadArmor, Tier: -1, Value: 103
+          Culture: vlandia
+          Armor - Head: 3, Body: 0, Arm: 0, Leg: 0
+      [Body] Silken Noble Dress (ID: vlandian_noble_woman_dress)
+          Type: BodyArmor, Tier: -1, Value: 492
+          Culture: vlandia
+          Armor - Head: 0, Body: 2, Arm: 1, Leg: 1
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Horse] Royal Destrier (ID: noble_horse_western)
+          Type: Horse, Tier: Tier6, Value: 37006
+          Culture: vlandia
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: bat_noncom_template_flamboyant
+  Culture: battania
+  Equipment Sets: 2
+    Set 1 (Civilian):
+      [Body] Plaid Dress (ID: battania_dress_a)
+          Type: BodyArmor, Tier: Tier1, Value: 269
+          Culture: battania
+          Armor - Head: 0, Body: 6, Arm: 3, Leg: 3
+      [Leg] Fur Boots (ID: battania_fur_boots)
+          Type: LegArmor, Tier: Tier1, Value: 211
+          Culture: battania
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 6
+      [Gloves] Leather Gloves (ID: leather_gloves)
+          Type: HandArmor, Tier: -1, Value: 159
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 4, Leg: 0
+      [Cape] Wolf Pelt Cape (ID: wolf_shoulder)
+          Type: Cape, Tier: Tier1, Value: 849
+          Culture: battania
+          Armor - Head: 0, Body: 6, Arm: 3, Leg: 0
+    Set 2 (Civilian):
+      [Head] Bear Head (ID: bearhead)
+          Type: HeadArmor, Tier: Tier3, Value: 2741
+          Culture: battania
+          Armor - Head: 24, Body: 0, Arm: 0, Leg: 0
+      [Body] Villager Thick Dress (ID: battania_female_civil_b)
+          Type: BodyArmor, Tier: -1, Value: 179
+          Culture: battania
+          Armor - Head: 0, Body: 4, Arm: 2, Leg: 2
+      [Leg] Fur Boots (ID: battania_fur_boots)
+          Type: LegArmor, Tier: Tier1, Value: 211
+          Culture: battania
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 6
+      [Gloves] Leather Gloves (ID: leather_gloves)
+          Type: HandArmor, Tier: -1, Value: 159
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 4, Leg: 0
+      [Cape] Woodland Fur Cloak (ID: battania_civil_cape)
+          Type: Cape, Tier: Tier1, Value: 600
+          Culture: battania
+          Armor - Head: 0, Body: 5, Arm: 3, Leg: 0
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: khu_noncom_template_flamboyant
+  Culture: khuzait
+  Equipment Sets: 2
+    Set 1 (Civilian):
+      [Body] Ladies Dress (ID: empire_dress)
+          Type: BodyArmor, Tier: Tier1, Value: 298
+          Culture: empire
+          Armor - Head: 0, Body: 7, Arm: 2, Leg: 4
+      [Leg] Moccasins (ID: southern_moccasins)
+          Type: LegArmor, Tier: -1, Value: 110
+          Culture: aserai
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 2
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Asaligat (ID: noble_horse_eastern)
+          Type: Horse, Tier: Tier6, Value: 33445
+          Culture: khuzait
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 2 (Civilian):
+      [Body] Envelope Dress (ID: steppe_dress)
+          Type: BodyArmor, Tier: Tier1, Value: 403
+          Culture: khuzait
+          Armor - Head: 0, Body: 8, Arm: 4, Leg: 4
+      [Leg] Moccasins (ID: southern_moccasins)
+          Type: LegArmor, Tier: -1, Value: 110
+          Culture: aserai
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 2
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Asaligat (ID: noble_horse_eastern)
+          Type: Horse, Tier: Tier6, Value: 33445
+          Culture: khuzait
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: nord_noncom_template_flamboyant
+  Culture: nord
+  Equipment Sets: 2
+    Set 1 (Civilian):
+      [Body] Northern Knotwork Tunic (ID: dress_norse_lady)
+          Type: BodyArmor, Tier: Tier1, Value: 1346
+          Culture: nord
+          Armor - Head: 0, Body: 6, Arm: 3, Leg: 3
+      [Leg] Strapped Jackboots (ID: strapped_jackboots)
+          Type: LegArmor, Tier: -1, Value: 587
+          Culture: nord
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 5
+      [Cape] Northern Fur Cape (ID: cape_norse_lady)
+          Type: Cape, Tier: Tier1, Value: 1524
+          Culture: nord
+          Armor - Head: 0, Body: 6, Arm: 3, Leg: 0
+    Set 2 (Civilian):
+      [Head] Nordic Civilian Hat with Fur Brim (ID: nordic_civilian_hat_fur_brim)
+          Type: HeadArmor, Tier: Tier1, Value: 184
+          Culture: nord
+          Armor - Head: 7, Body: 0, Arm: 0, Leg: 0
+      [Body] Nordic Dress (ID: nordic_civilian_dress)
+          Type: BodyArmor, Tier: Tier1, Value: 269
+          Culture: nord
+          Armor - Head: 0, Body: 8, Arm: 2, Leg: 2
+      [Leg] Northern Raider Boots (ID: northman_raider_boot)
+          Type: LegArmor, Tier: -1, Value: 414
+          Culture: nord
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 4
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: emp_noncom_template_flamboyant1742
+  Equipment Sets: 1
+    Set 1 (Civilian):
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: stu_noncom_template_flamboyant1756
+  Equipment Sets: 1
+    Set 1 (Civilian):
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: vla_noncom_template_flamboyant1776
+  Equipment Sets: 1
+    Set 1 (Civilian):
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: bat_noncom_template_flamboyant1788
+  Equipment Sets: 1
+    Set 1 (Civilian):
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: khu_noncom_template_flamboyant1799
+  Equipment Sets: 1
+    Set 1 (Civilian):
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: lord_1_10
+  Equipment Sets: 6
+    Set 1 (Battle):
+      [Weapon0] Decorated Short Spatha (ID: empire_noble_sword_1_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 16399
+          Culture: empire
+      [Weapon1] Reinforced Kite Shield (ID: reinforced_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 5900
+      [Head] Iron Nasalhelm over Coif (ID: ironlame_nasalhelm_over_imperial_coif)
+          Type: HeadArmor, Tier: Tier6, Value: 98915
+          Culture: empire
+          Armor - Head: 48, Body: 0, Arm: 0, Leg: 0
+      [Body] Cataphract Lamellar Armor (ID: imperial_lamellar)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 48, Arm: 14, Leg: 24
+      [Leg] Lamellar Plate Boots (ID: lamellar_plate_boots)
+          Type: LegArmor, Tier: Tier3, Value: 2627
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 19
+      [Gloves] Mail Mittens (ID: mail_mitten)
+          Type: HandArmor, Tier: Tier3, Value: 2855
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 20, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 2 (Battle):
+      [Weapon0] Thamaskene Steel Spatha (ID: empire_noble_sword_2_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 20188
+          Culture: empire
+      [Weapon1] Reinforced Kite Shield (ID: reinforced_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 5900
+      [Head] Heavy Nasalhelm over Mail (ID: heavy_nasalhelm_over_imperial_mail)
+          Type: HeadArmor, Tier: Tier6, Value: 134967
+          Culture: empire
+          Armor - Head: 51, Body: 0, Arm: 0, Leg: 0
+      [Body] Heavy Scale Armor over Mail Hauberk (ID: imperial_scale_armor)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 57, Arm: 16, Leg: 20
+      [Leg] Mail Cavalier Boots (ID: mail_cavalier_boots)
+          Type: LegArmor, Tier: Tier2, Value: 558
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 12
+      [Gloves] Reinforced Mail Mittens (ID: reinforced_mail_mitten)
+          Type: HandArmor, Tier: Tier4, Value: 6052
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 23, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 3 (Battle):
+      [Weapon0] Spatha Blade with Ring Pommel (ID: empire_noble_sword_3_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 9463
+          Culture: empire
+      [Weapon1] Reinforced Cavalry Kite Shield (ID: heavy_horsemans_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 3908
+      [Head] Palatine Guard Helmet (ID: empire_lord_helmet)
+          Type: HeadArmor, Tier: Tier6, Value: 98051
+          Culture: empire
+          Armor - Head: 46, Body: 0, Arm: 0, Leg: 0
+      [Body] Lamellar with Scale Skirt (ID: lamellar_with_scale_skirt)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 52, Arm: 16, Leg: 23
+      [Leg] Splint Boots (ID: plated_strip_boots)
+          Type: LegArmor, Tier: Tier3, Value: 3481
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 22
+      [Gloves] Plated Striped Vambraces (ID: plated_strip_gauntlets)
+          Type: HandArmor, Tier: Tier3, Value: 3761
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 22, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 4 (Civilian):
+      [Body] Toga (ID: imperial_robes)
+          Type: BodyArmor, Tier: Tier1, Value: 365
+          Culture: empire
+          Armor - Head: 0, Body: 8, Arm: 4, Leg: 3
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 5 (Civilian):
+      [Head] Female Rural Headwrap (ID: head_wrapped)
+          Type: HeadArmor, Tier: -1, Value: 77
+          Culture: vlandia
+          Armor - Head: 1, Body: 0, Arm: 0, Leg: 0
+      [Body] Ladies Dress (ID: empire_dress)
+          Type: BodyArmor, Tier: Tier1, Value: 298
+          Culture: empire
+          Armor - Head: 0, Body: 7, Arm: 2, Leg: 4
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 6 (Civilian):
+      [Body] Red Dress (ID: empire_dress_b)
+          Type: BodyArmor, Tier: Tier1, Value: 220
+          Culture: empire
+          Armor - Head: 0, Body: 6, Arm: 2, Leg: 2
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: lord_1_31
+  Equipment Sets: 6
+    Set 1 (Battle):
+      [Weapon0] Decorated Short Spatha (ID: empire_noble_sword_1_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 16399
+          Culture: empire
+      [Weapon1] Reinforced Kite Shield (ID: reinforced_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 5900
+      [Head] Iron Nasalhelm over Coif (ID: ironlame_nasalhelm_over_imperial_coif)
+          Type: HeadArmor, Tier: Tier6, Value: 98915
+          Culture: empire
+          Armor - Head: 48, Body: 0, Arm: 0, Leg: 0
+      [Body] Cataphract Lamellar Armor (ID: imperial_lamellar)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 48, Arm: 14, Leg: 24
+      [Leg] Lamellar Plate Boots (ID: lamellar_plate_boots)
+          Type: LegArmor, Tier: Tier3, Value: 2627
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 19
+      [Gloves] Mail Mittens (ID: mail_mitten)
+          Type: HandArmor, Tier: Tier3, Value: 2855
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 20, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 2 (Battle):
+      [Weapon0] Thamaskene Steel Spatha (ID: empire_noble_sword_2_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 20188
+          Culture: empire
+      [Weapon1] Reinforced Kite Shield (ID: reinforced_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 5900
+      [Head] Heavy Nasalhelm over Mail (ID: heavy_nasalhelm_over_imperial_mail)
+          Type: HeadArmor, Tier: Tier6, Value: 134967
+          Culture: empire
+          Armor - Head: 51, Body: 0, Arm: 0, Leg: 0
+      [Body] Heavy Scale Armor over Mail Hauberk (ID: imperial_scale_armor)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 57, Arm: 16, Leg: 20
+      [Leg] Mail Cavalier Boots (ID: mail_cavalier_boots)
+          Type: LegArmor, Tier: Tier2, Value: 558
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 12
+      [Gloves] Reinforced Mail Mittens (ID: reinforced_mail_mitten)
+          Type: HandArmor, Tier: Tier4, Value: 6052
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 23, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 3 (Battle):
+      [Weapon0] Spatha Blade with Ring Pommel (ID: empire_noble_sword_3_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 9463
+          Culture: empire
+      [Weapon1] Reinforced Cavalry Kite Shield (ID: heavy_horsemans_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 3908
+      [Head] Palatine Guard Helmet (ID: empire_lord_helmet)
+          Type: HeadArmor, Tier: Tier6, Value: 98051
+          Culture: empire
+          Armor - Head: 46, Body: 0, Arm: 0, Leg: 0
+      [Body] Lamellar with Scale Skirt (ID: lamellar_with_scale_skirt)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 52, Arm: 16, Leg: 23
+      [Leg] Splint Boots (ID: plated_strip_boots)
+          Type: LegArmor, Tier: Tier3, Value: 3481
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 22
+      [Gloves] Plated Striped Vambraces (ID: plated_strip_gauntlets)
+          Type: HandArmor, Tier: Tier3, Value: 3761
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 22, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 4 (Civilian):
+      [Body] Toga (ID: imperial_robes)
+          Type: BodyArmor, Tier: Tier1, Value: 365
+          Culture: empire
+          Armor - Head: 0, Body: 8, Arm: 4, Leg: 3
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 5 (Civilian):
+      [Head] Female Rural Headwrap (ID: head_wrapped)
+          Type: HeadArmor, Tier: -1, Value: 77
+          Culture: vlandia
+          Armor - Head: 1, Body: 0, Arm: 0, Leg: 0
+      [Body] Ladies Dress (ID: empire_dress)
+          Type: BodyArmor, Tier: Tier1, Value: 298
+          Culture: empire
+          Armor - Head: 0, Body: 7, Arm: 2, Leg: 4
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 6 (Civilian):
+      [Body] Red Dress (ID: empire_dress_b)
+          Type: BodyArmor, Tier: Tier1, Value: 220
+          Culture: empire
+          Armor - Head: 0, Body: 6, Arm: 2, Leg: 2
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: lord_1_33
+  Equipment Sets: 6
+    Set 1 (Battle):
+      [Weapon0] Decorated Short Spatha (ID: empire_noble_sword_1_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 16399
+          Culture: empire
+      [Weapon1] Reinforced Kite Shield (ID: reinforced_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 5900
+      [Head] Iron Nasalhelm over Coif (ID: ironlame_nasalhelm_over_imperial_coif)
+          Type: HeadArmor, Tier: Tier6, Value: 98915
+          Culture: empire
+          Armor - Head: 48, Body: 0, Arm: 0, Leg: 0
+      [Body] Cataphract Lamellar Armor (ID: imperial_lamellar)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 48, Arm: 14, Leg: 24
+      [Leg] Lamellar Plate Boots (ID: lamellar_plate_boots)
+          Type: LegArmor, Tier: Tier3, Value: 2627
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 19
+      [Gloves] Mail Mittens (ID: mail_mitten)
+          Type: HandArmor, Tier: Tier3, Value: 2855
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 20, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 2 (Battle):
+      [Weapon0] Thamaskene Steel Spatha (ID: empire_noble_sword_2_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 20188
+          Culture: empire
+      [Weapon1] Reinforced Kite Shield (ID: reinforced_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 5900
+      [Head] Heavy Nasalhelm over Mail (ID: heavy_nasalhelm_over_imperial_mail)
+          Type: HeadArmor, Tier: Tier6, Value: 134967
+          Culture: empire
+          Armor - Head: 51, Body: 0, Arm: 0, Leg: 0
+      [Body] Heavy Scale Armor over Mail Hauberk (ID: imperial_scale_armor)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 57, Arm: 16, Leg: 20
+      [Leg] Mail Cavalier Boots (ID: mail_cavalier_boots)
+          Type: LegArmor, Tier: Tier2, Value: 558
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 12
+      [Gloves] Reinforced Mail Mittens (ID: reinforced_mail_mitten)
+          Type: HandArmor, Tier: Tier4, Value: 6052
+          Culture: vlandia
+          Armor - Head: 0, Body: 0, Arm: 23, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 3 (Battle):
+      [Weapon0] Spatha Blade with Ring Pommel (ID: empire_noble_sword_3_t5)
+          Type: OneHandedWeapon, Tier: Tier5, Value: 9463
+          Culture: empire
+      [Weapon1] Reinforced Cavalry Kite Shield (ID: heavy_horsemans_kite_shield)
+          Type: Shield, Tier: Tier4, Value: 3908
+      [Head] Palatine Guard Helmet (ID: empire_lord_helmet)
+          Type: HeadArmor, Tier: Tier6, Value: 98051
+          Culture: empire
+          Armor - Head: 46, Body: 0, Arm: 0, Leg: 0
+      [Body] Lamellar with Scale Skirt (ID: lamellar_with_scale_skirt)
+          Type: BodyArmor, Tier: Tier6, Value: 331563
+          Culture: empire
+          Armor - Head: 0, Body: 52, Arm: 16, Leg: 23
+      [Leg] Splint Boots (ID: plated_strip_boots)
+          Type: LegArmor, Tier: Tier3, Value: 3481
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 22
+      [Gloves] Plated Striped Vambraces (ID: plated_strip_gauntlets)
+          Type: HandArmor, Tier: Tier3, Value: 3761
+          Culture: empire
+          Armor - Head: 0, Body: 0, Arm: 22, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Cataphract Scale Barding (ID: imperial_scale_barding)
+          Type: HorseHarness, Tier: Tier6, Value: 118441
+          Culture: empire
+          Armor - Head: 0, Body: 75, Arm: 0, Leg: 0
+    Set 4 (Civilian):
+      [Body] Toga (ID: imperial_robes)
+          Type: BodyArmor, Tier: Tier1, Value: 365
+          Culture: empire
+          Armor - Head: 0, Body: 8, Arm: 4, Leg: 3
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 5 (Civilian):
+      [Head] Female Rural Headwrap (ID: head_wrapped)
+          Type: HeadArmor, Tier: -1, Value: 77
+          Culture: vlandia
+          Armor - Head: 1, Body: 0, Arm: 0, Leg: 0
+      [Body] Ladies Dress (ID: empire_dress)
+          Type: BodyArmor, Tier: Tier1, Value: 298
+          Culture: empire
+          Armor - Head: 0, Body: 7, Arm: 2, Leg: 4
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+    Set 6 (Civilian):
+      [Body] Red Dress (ID: empire_dress_b)
+          Type: BodyArmor, Tier: Tier1, Value: 220
+          Culture: empire
+          Armor - Head: 0, Body: 6, Arm: 2, Leg: 2
+      [Leg] Ladies Shoes (ID: ladys_shoe)
+          Type: LegArmor, Tier: -1, Value: 94
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 0, Arm: 0, Leg: 1
+      [Cape] Scarf (ID: scarf)
+          Type: Cape, Tier: -1, Value: 361
+          Culture: neutral_culture
+          Armor - Head: 0, Body: 3, Arm: 0, Leg: 0
+      [Horse] Cossian (ID: noble_horse_imperial)
+          Type: Horse, Tier: Tier6, Value: 33785
+          Culture: empire
+      [Harness] Light Harness (ID: light_harness)
+          Type: HorseHarness, Tier: Tier1, Value: 183
+          Armor - Head: 0, Body: 10, Arm: 0, Leg: 0
+
+
+Roster Flags: Noncombatant | Noble | Female | Flamboyant (1224)
+--------------------------------------------------------------------------------
+  Roster ID: nord_noncom_template_flamboyant3334
+  Equipment Sets: 1
+    Set 1 (Civilian):
+
+
+====================================================================================================
+Summary: 15 rosters, 179 total item slots
+
+EQUIPMENT FLAGS REFERENCE:
+--------------------------------------------------
+  wanderer        = IsWandererEquipment            (1)
+  gentry          = IsGentryEquipment              (2)
+  rebel           = IsRebelHeroEquipment           (4)
+  noncombatant    = IsNoncombatantTemplate         (8)
+  combatant       = IsCombatantTemplate            (16)
+  civilian        = IsCivilianTemplate             (32)
+  noble           = IsNobleTemplate                (64)
+  female          = IsFemaleTemplate               (128)
+  medium          = IsMediumTemplate               (256)
+  heavy           = IsHeavyTemplate                (512)
+  flamboyant      = IsFlamboyantTemplate           (1024)
+  stoic           = IsStoicTemplate                (2048)
+  nomad           = IsNomadTemplate                (4096)
+  woodland        = IsWoodlandTemplate             (8192)
+  child           = IsChildEquipmentTemplate       (16384)
+  teenager        = IsTeenagerEquipmentTemplate    (32768)

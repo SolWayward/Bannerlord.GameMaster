@@ -1,0 +1,25 @@
+Equipment Rosters Dump - Flags: Gentry | Female
+Requested Flags Value: 130
+====================================================================================================
+
+====================================================================================================
+Summary: 0 rosters, 0 total item slots
+
+EQUIPMENT FLAGS REFERENCE:
+--------------------------------------------------
+  wanderer        = IsWandererEquipment            (1)
+  gentry          = IsGentryEquipment              (2)
+  rebel           = IsRebelHeroEquipment           (4)
+  noncombatant    = IsNoncombatantTemplate         (8)
+  combatant       = IsCombatantTemplate            (16)
+  civilian        = IsCivilianTemplate             (32)
+  noble           = IsNobleTemplate                (64)
+  female          = IsFemaleTemplate               (128)
+  medium          = IsMediumTemplate               (256)
+  heavy           = IsHeavyTemplate                (512)
+  flamboyant      = IsFlamboyantTemplate           (1024)
+  stoic           = IsStoicTemplate                (2048)
+  nomad           = IsNomadTemplate                (4096)
+  woodland        = IsWoodlandTemplate             (8192)
+  child           = IsChildEquipmentTemplate       (16384)
+  teenager        = IsTeenagerEquipmentTemplate    (32768)

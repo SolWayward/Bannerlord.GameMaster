@@ -3,6 +3,7 @@ using Bannerlord.GameMaster.Common;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using Bannerlord.GameMaster.Items;
 
 namespace Bannerlord.GameMaster.Items
 {
