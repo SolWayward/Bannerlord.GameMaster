@@ -61,7 +61,8 @@ namespace Bannerlord.GameMaster.Console.Common.Parsing
 
 				// Bandit cultures
 				"looters" => CultureFlags.Looters,
-				"desert_bandits" => CultureFlags.DesertBandits,
+				"deserters" or "deserter" => CultureFlags.Deserters,
+				"desert_bandits" or "desert" or "desertbandits" => CultureFlags.DesertBandits,
 				"forest_bandits" => CultureFlags.ForestBandits,
 				"mountain_bandits" => CultureFlags.MountainBandits,
 				"steppe_bandits" => CultureFlags.SteppeBandits,

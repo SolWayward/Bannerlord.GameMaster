@@ -84,7 +84,8 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
             return lowerType switch
             {
                 "looters" or "looter" => CultureLookup.Looters,
-                "deserters" or "deserter" or "desert" or "desert_bandits" => CultureLookup.Deserters,
+                "deserters" or "deserter" => CultureLookup.Deserters,
+                "desert" or "desert_bandits" or "desertbandits" => CultureLookup.DesertBandits,
                 "forest" or "forest_bandits" or "forestbandits" => CultureLookup.ForestBandits,
                 "mountain" or "mountain_bandits" or "mountainbandits" => CultureLookup.MountainBandits,
                 "sea" or "sea_raiders" or "searaiders" => CultureLookup.SeaRaiders,
@@ -139,6 +140,7 @@ namespace Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
             sb.AppendLine("By Type:");
             AppendBanditTypeCounts(sb, "Looters", BanditManager.LootersPartyCount, BanditManager.LooterHideoutCount);
             AppendBanditTypeCounts(sb, "Deserters", BanditManager.DeserterPartyCount, BanditManager.DeserterHideoutCount);
+            AppendBanditTypeCounts(sb, "Desert Bandits", BanditManager.DesertBanditPartyCount, BanditManager.DesertBanditHideoutCount);
             AppendBanditTypeCounts(sb, "Forest Bandits", BanditManager.ForestBanditPartyCount, BanditManager.ForestBanditHideoutCount);
             AppendBanditTypeCounts(sb, "Mountain Bandits", BanditManager.MountainBanditPartyCount, BanditManager.MountainBanditHideoutCount);
             AppendBanditTypeCounts(sb, "Sea Raiders", BanditManager.SeaRaiderPartyCount, BanditManager.SeaRaiderHideoutCount);

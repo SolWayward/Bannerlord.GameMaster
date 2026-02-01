@@ -315,9 +315,15 @@ namespace Bannerlord.GameMaster.Characters
 					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
 				}
 	
+				if (cultureFlags.HasFlag(CultureFlags.Deserters))
+				{
+					List<CharacterObject> cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Deserters).ToList();
+					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
+				}
+
 				if (cultureFlags.HasFlag(CultureFlags.DesertBandits))
 				{
-					var cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.Deserters).ToList();
+					List<CharacterObject> cultureChars = CharacterObject.All.Where(c => c.Culture == CultureLookup.DesertBandits).ToList();
 					characters.AddRange(FilterToLordAndWandererCharacters(cultureChars));
 				}
 	
