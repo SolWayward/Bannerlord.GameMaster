@@ -16,6 +16,7 @@ namespace Bannerlord.GameMaster.Items
         #region Fields
 
         private readonly ItemPoolManager _poolManager;
+        private readonly CivilianItemPoolManager _civilianPoolManager;
         private readonly RandomNumberGen _random;
 
         #endregion
@@ -28,6 +29,7 @@ namespace Bannerlord.GameMaster.Items
         public EquipmentBuilder()
         {
             _poolManager = ItemPoolManager.Instance;
+            _civilianPoolManager = CivilianItemPoolManager.Instance;
             _random = RandomNumberGen.Instance;
         }
 
@@ -38,6 +40,7 @@ namespace Bannerlord.GameMaster.Items
         public EquipmentBuilder(ItemPoolManager poolManager)
         {
             _poolManager = poolManager;
+            _civilianPoolManager = CivilianItemPoolManager.Instance;
             _random = RandomNumberGen.Instance;
         }
 
@@ -1821,15 +1824,23 @@ namespace Bannerlord.GameMaster.Items
 
         /// MARK: GetCivilianEquipmentSet
         /// <summary>
-        /// Generates a complete civilian equipment set for a hero.
-        /// Includes dress preference for females, Ladies Shoes pairing when wearing dress,
-        /// and crown restrictions for ruling clan members only.
+        /// Generates a complete civilian equipment set for a hero using roster-based item pools.
+        /// Items are extracted directly from game equipment rosters based on their EquipmentFlags,
+        /// providing more authentic and culture-appropriate civilian outfits.
+        ///
+        /// Slot selection rules:
+        /// - Body: 100% (always equip)
+        /// - Head: Ruling clan = 100% crown; Others = 20% chance, no crowns allowed
+        /// - Cape: 50% chance
+        /// - Gloves: Females 10%, Males 100%
+        /// - Legs: 100% (always equip)
+        /// - Weapon0: Males only (one civilian melee weapon)
         /// </summary>
         /// <param name="hero">The hero to generate equipment for (used for crown eligibility).</param>
-        /// <param name="culture">The culture to use for item selection. If null, uses neutral items.</param>
-        /// <param name="heroLevel">The hero's level used to determine tier range.</param>
-        /// <param name="isFemale">Whether the hero is female (affects dress preference).</param>
-        /// <param name="includeNeutralItems">Whether to also check neutral item pools.</param>
+        /// <param name="culture">The culture to use for item selection. If null, uses fallback items.</param>
+        /// <param name="heroLevel">The hero's level (unused in roster-based selection but kept for API compatibility).</param>
+        /// <param name="isFemale">Whether the hero is female (affects equipment selection and slot chances).</param>
+        /// <param name="includeNeutralItems">Unused in roster-based selection but kept for API compatibility.</param>
         /// <returns>A new Equipment object with civilian equipment.</returns>
         public Equipment GetCivilianEquipmentSet(
             Hero hero,
@@ -1838,664 +1849,85 @@ namespace Bannerlord.GameMaster.Items
             bool isFemale,
             bool includeNeutralItems = true)
         {
-            // Ensure pool manager is initialized
-            if (!_poolManager.IsInitialized)
+            // Ensure civilian pool manager is initialized
+            if (!_civilianPoolManager.IsInitialized)
             {
-                _poolManager.Initialize();
+                _civilianPoolManager.Initialize();
             }
 
             // Create new Equipment object (civilian type)
             Equipment equipment = new(Equipment.EquipmentType.Civilian);
-
-            // Get tier range using ItemValidation
-            (ItemObject.ItemTiers minTier, ItemObject.ItemTiers maxTier) = ItemValidation.GetTierRangeForLevel(heroLevel);
 
             string cultureId = culture?.StringId;
 
             // Check if hero is in ruling clan (affects crown eligibility)
             bool isRulingClanMember = ItemValidation.IsRulingClanMember(hero);
 
-            // Track if wearing dress (affects gloves and shoes selection)
-            bool wearingDress = false;
-
-            // For females: 80% chance to select dress if available
-            if (isFemale && HasDressesForCulture(cultureId, minTier, maxTier, includeNeutralItems))
+            // MARK: Body - 100%
+            ItemObject bodyItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Body);
+            if (bodyItem != null)
             {
-                int dressChance = _random.NextRandomInt(100);
-                if (dressChance < 80)
-                {
-                    ItemObject dress = SelectDress(cultureId, minTier, maxTier, includeNeutralItems);
-                    if (dress != null)
-                    {
-                        equipment[EquipmentIndex.Body] = new EquipmentElement(dress);
-                        wearingDress = true;
-                    }
-                }
+                equipment[EquipmentIndex.Body] = new EquipmentElement(bodyItem);
             }
 
-            // If not wearing dress, select regular civilian body armor
-            if (!wearingDress)
-            {
-                ItemObject bodyArmor = SelectCivilianArmorBySlot(cultureId, minTier, maxTier, EquipmentIndex.Body, isFemale, includeNeutralItems);
-                if (bodyArmor != null)
-                {
-                    equipment[EquipmentIndex.Body] = new EquipmentElement(bodyArmor);
-                }
-            }
-
-            // Head slot: ONLY for ruling clan members with civilian crowns
+            // MARK: Head - Ruling clan = 100% crown; Others = 20% chance, no crowns
             if (isRulingClanMember)
             {
-                ItemObject crown = SelectCivilianCrown(cultureId, minTier, maxTier, isFemale, includeNeutralItems);
+                ItemObject crown = _civilianPoolManager.GetCrown(cultureId, isFemale);
                 if (crown != null)
                 {
                     equipment[EquipmentIndex.Head] = new EquipmentElement(crown);
                 }
             }
-
-            // Cape slot: civilian cape
-            ItemObject cape = SelectCivilianArmorBySlot(cultureId, minTier, maxTier, EquipmentIndex.Cape, isFemale, includeNeutralItems);
-            if (cape != null)
+            else if (_random.NextRandomInt(100) < 20)
             {
-                equipment[EquipmentIndex.Cape] = new EquipmentElement(cape);
-            }
-
-            // Gloves: NO gloves if wearing dress
-            if (!wearingDress)
-            {
-                ItemObject gloves = SelectCivilianArmorBySlot(cultureId, minTier, maxTier, EquipmentIndex.Gloves, isFemale, includeNeutralItems);
-                if (gloves != null)
+                ItemObject headItem = _civilianPoolManager.GetRandomNonCrownHeadItem(cultureId, isFemale);
+                if (headItem != null)
                 {
-                    equipment[EquipmentIndex.Gloves] = new EquipmentElement(gloves);
+                    equipment[EquipmentIndex.Head] = new EquipmentElement(headItem);
                 }
             }
 
-            // Boots: Ladies Shoes if wearing dress, otherwise regular civilian boots
-            if (wearingDress)
+            // MARK: Cape - 50%
+            if (_random.NextRandomInt(100) < 50)
             {
-                ItemObject ladiesShoes = SelectLadiesShoes(cultureId, minTier, maxTier, includeNeutralItems);
-                if (ladiesShoes != null)
+                ItemObject capeItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Cape);
+                if (capeItem != null)
                 {
-                    equipment[EquipmentIndex.Leg] = new EquipmentElement(ladiesShoes);
-                }
-                else
-                {
-                    // Fallback to regular civilian boots if no ladies shoes found
-                    ItemObject boots = SelectCivilianArmorBySlot(cultureId, minTier, maxTier, EquipmentIndex.Leg, isFemale, includeNeutralItems);
-                    if (boots != null)
-                    {
-                        equipment[EquipmentIndex.Leg] = new EquipmentElement(boots);
-                    }
-                }
-            }
-            else
-            {
-                ItemObject boots = SelectCivilianArmorBySlot(cultureId, minTier, maxTier, EquipmentIndex.Leg, isFemale, includeNeutralItems);
-                if (boots != null)
-                {
-                    equipment[EquipmentIndex.Leg] = new EquipmentElement(boots);
+                    equipment[EquipmentIndex.Cape] = new EquipmentElement(capeItem);
                 }
             }
 
-            // Weapon slot 0: civilian one-handed weapon
-            ItemObject weapon = SelectCivilianWeapon(cultureId, minTier, maxTier, includeNeutralItems);
-            if (weapon != null)
+            // MARK: Gloves - Females 10%, Males 100%
+            int gloveChance = isFemale ? 10 : 100;
+            if (_random.NextRandomInt(100) < gloveChance)
             {
-                equipment[EquipmentIndex.Weapon0] = new EquipmentElement(weapon);
+                ItemObject glovesItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Gloves);
+                if (glovesItem != null)
+                {
+                    equipment[EquipmentIndex.Gloves] = new EquipmentElement(glovesItem);
+                }
+            }
+
+            // MARK: Legs - 100%
+            ItemObject legItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Leg);
+            if (legItem != null)
+            {
+                equipment[EquipmentIndex.Leg] = new EquipmentElement(legItem);
+            }
+
+            // MARK: Weapon - Males only
+            if (!isFemale)
+            {
+                ItemObject weaponItem = _civilianPoolManager.GetCivilianWeapon(cultureId);
+                if (weaponItem != null)
+                {
+                    equipment[EquipmentIndex.Weapon0] = new EquipmentElement(weaponItem);
+                }
             }
 
             return equipment;
         }
-
-        #region Civilian Weapon Selection
-
-        /// MARK: SelectCivilianWeapon
-        /// <summary>
-        /// Selects a one-handed civilian weapon from pools.
-        /// </summary>
-        private ItemObject SelectCivilianWeapon(
-            string cultureId,
-            ItemObject.ItemTiers minTier,
-            ItemObject.ItemTiers maxTier,
-            bool includeNeutralItems)
-        {
-            MBList<ItemObject> candidates = new();
-
-            // Collect civilian weapons from appropriate tiers
-            for (int tier = (int)minTier; tier <= (int)maxTier; tier++)
-            {
-                // Try culture-specific pool first
-                if (cultureId != null &&
-                    _poolManager.WeaponPoolsByCulture.TryGetValue(cultureId, out Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> cultureTiers) &&
-                    cultureTiers.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> cultureWeapons))
-                {
-                    CollectCivilianWeapons(cultureWeapons, candidates);
-                }
-
-                // Also check Calradian pool if enabled (generic human items)
-                if (includeNeutralItems && cultureId != "calradian" &&
-                    _poolManager.WeaponPoolsByCulture.TryGetValue("calradian", out Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> calradianTiers) &&
-                    calradianTiers.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> calradianWeapons))
-                {
-                    CollectCivilianWeapons(calradianWeapons, candidates);
-                }
-
-                // Also check neutral pool (Culture=null items) if enabled
-                if (includeNeutralItems &&
-                    _poolManager.NeutralWeaponPools.TryGetValue(tier, out Dictionary<WeaponTypeFlags, MBList<ItemObject>> neutralWeapons))
-                {
-                    CollectCivilianWeapons(neutralWeapons, candidates);
-                }
-            }
-
-            return SelectRandomItem(candidates);
-        }
-
-        /// MARK: CollectCivilianWeapons
-        /// <summary>
-        /// Collects one-handed civilian appropriate weapons into the candidates list.
-        /// </summary>
-        private void CollectCivilianWeapons(
-            Dictionary<WeaponTypeFlags, MBList<ItemObject>> weaponPools,
-            MBList<ItemObject> candidates)
-        {
-            // Only collect one-handed weapons that are civilian appropriate
-            foreach (KeyValuePair<WeaponTypeFlags, MBList<ItemObject>> kvp in weaponPools)
-            {
-                // Only one-handed weapon types
-                if ((kvp.Key & WeaponTypeFlags.AllOneHanded) != 0)
-                {
-                    for (int i = 0; i < kvp.Value.Count; i++)
-                    {
-                        ItemObject item = kvp.Value[i];
-                        if (ItemValidation.IsCivilianAppropriateItem(item))
-                        {
-                            candidates.Add(item);
-                        }
-                    }
-                }
-            }
-        }
-
-        #endregion
-
-        #region Dress Selection
-
-        /// MARK: HasDressesForCulture
-        /// <summary>
-        /// Checks if dresses are available for the specified culture and tier range.
-        /// </summary>
-        private bool HasDressesForCulture(
-            string cultureId,
-            ItemObject.ItemTiers minTier,
-            ItemObject.ItemTiers maxTier,
-            bool includeNeutralItems)
-        {
-            for (int tier = (int)minTier; tier <= (int)maxTier; tier++)
-            {
-                // Check culture-specific pool
-                if (cultureId != null &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue(cultureId, out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> cultureTiers) &&
-                    cultureTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> cultureArmor) &&
-                    cultureArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> cultureBodyItems))
-                {
-                    for (int i = 0; i < cultureBodyItems.Count; i++)
-                    {
-                        if (ItemValidation.IsDressItem(cultureBodyItems[i]))
-                            return true;
-                    }
-                }
-
-                // Check Calradian pool if enabled (generic human items)
-                if (includeNeutralItems && cultureId != "calradian" &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
-                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
-                    calradianArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> calradianBodyItems))
-                {
-                    for (int i = 0; i < calradianBodyItems.Count; i++)
-                    {
-                        if (ItemValidation.IsDressItem(calradianBodyItems[i]))
-                            return true;
-                    }
-                }
-
-                // Check neutral pool (Culture=null items) if enabled
-                if (includeNeutralItems &&
-                    _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
-                    neutralArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> neutralBodyItems))
-                {
-                    for (int i = 0; i < neutralBodyItems.Count; i++)
-                    {
-                        if (ItemValidation.IsDressItem(neutralBodyItems[i]))
-                            return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        /// MARK: SelectDress
-        /// <summary>
-        /// Selects a dress from armor pools for the specified culture and tier range.
-        /// </summary>
-        private ItemObject SelectDress(
-            string cultureId,
-            ItemObject.ItemTiers minTier,
-            ItemObject.ItemTiers maxTier,
-            bool includeNeutralItems)
-        {
-            MBList<ItemObject> candidates = new();
-
-            // First attempt: Try requested tier range
-            CollectDressesFromTierRange(cultureId, (int)minTier, (int)maxTier, includeNeutralItems, candidates);
-            
-            if (candidates.Count > 0)
-            {
-                return SelectRandomItem(candidates);
-            }
-
-            // TIER FALLBACK: No dresses found in requested range
-            // Try one tier lower first
-            int oneTierLower = (int)minTier - 1;
-            if (oneTierLower >= 0)
-            {
-                CollectDressesFromTierRange(cultureId, oneTierLower, oneTierLower, includeNeutralItems, candidates);
-                if (candidates.Count > 0)
-                {
-                    return SelectRandomItem(candidates);
-                }
-            }
-
-            // Try one tier higher
-            int oneTierHigher = (int)maxTier + 1;
-            if (oneTierHigher <= (int)ItemObject.ItemTiers.Tier6)
-            {
-                CollectDressesFromTierRange(cultureId, oneTierHigher, oneTierHigher, includeNeutralItems, candidates);
-                if (candidates.Count > 0)
-                {
-                    return SelectRandomItem(candidates);
-                }
-            }
-
-            // Expand search to remaining lower tiers
-            for (int tier = oneTierLower - 1; tier >= 0; tier--)
-            {
-                CollectDressesFromTierRange(cultureId, tier, tier, includeNeutralItems, candidates);
-                if (candidates.Count > 0)
-                {
-                    return SelectRandomItem(candidates);
-                }
-            }
-
-            // Finally try remaining higher tiers
-            for (int tier = oneTierHigher + 1; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
-            {
-                CollectDressesFromTierRange(cultureId, tier, tier, includeNeutralItems, candidates);
-                if (candidates.Count > 0)
-                {
-                    return SelectRandomItem(candidates);
-                }
-            }
-
-            return null;
-        }
-
-        /// MARK: CollectDressesFromTierRange
-        /// <summary>
-        /// Helper method to collect dresses from a specific tier range.
-        /// </summary>
-        private void CollectDressesFromTierRange(
-            string cultureId,
-            int minTier,
-            int maxTier,
-            bool includeNeutralItems,
-            MBList<ItemObject> candidates)
-        {
-            for (int tier = minTier; tier <= maxTier; tier++)
-            {
-                // Check culture-specific pool
-                if (cultureId != null &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue(cultureId, out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> cultureTiers) &&
-                    cultureTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> cultureArmor) &&
-                    cultureArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> cultureBodyItems))
-                {
-                    for (int i = 0; i < cultureBodyItems.Count; i++)
-                    {
-                        ItemObject item = cultureBodyItems[i];
-                        if (ItemValidation.IsDressItem(item) && ItemValidation.IsCivilianAppropriateItem(item))
-                        {
-                            candidates.Add(item);
-                        }
-                    }
-                }
-
-                // Check Calradian pool if enabled (generic human items)
-                if (includeNeutralItems && cultureId != "calradian" &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
-                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
-                    calradianArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> calradianBodyItems))
-                {
-                    for (int i = 0; i < calradianBodyItems.Count; i++)
-                    {
-                        ItemObject item = calradianBodyItems[i];
-                        if (ItemValidation.IsDressItem(item) && ItemValidation.IsCivilianAppropriateItem(item))
-                        {
-                            candidates.Add(item);
-                        }
-                    }
-                }
-
-                // Check neutral pool (Culture=null items) if enabled
-                if (includeNeutralItems &&
-                    _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
-                    neutralArmor.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> neutralBodyItems))
-                {
-                    for (int i = 0; i < neutralBodyItems.Count; i++)
-                    {
-                        ItemObject item = neutralBodyItems[i];
-                        if (ItemValidation.IsDressItem(item) && ItemValidation.IsCivilianAppropriateItem(item))
-                        {
-                            candidates.Add(item);
-                        }
-                    }
-                }
-            }
-        }
-
-        /// MARK: SelectLadiesShoes
-        /// <summary>
-        /// Selects ladies shoes from armor pools for the specified culture and tier range.
-        /// </summary>
-        private ItemObject SelectLadiesShoes(
-            string cultureId,
-            ItemObject.ItemTiers minTier,
-            ItemObject.ItemTiers maxTier,
-            bool includeNeutralItems)
-        {
-            MBList<ItemObject> candidates = new();
-
-            for (int tier = (int)minTier; tier <= (int)maxTier; tier++)
-            {
-                // Check culture-specific pool
-                if (cultureId != null &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue(cultureId, out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> cultureTiers) &&
-                    cultureTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> cultureArmor) &&
-                    cultureArmor.TryGetValue(EquipmentIndex.Leg, out MBList<ItemObject> cultureLegItems))
-                {
-                    for (int i = 0; i < cultureLegItems.Count; i++)
-                    {
-                        ItemObject item = cultureLegItems[i];
-                        if (ItemValidation.IsLadiesShoes(item))
-                        {
-                            candidates.Add(item);
-                        }
-                    }
-                }
-
-                // Check Calradian pool if enabled (generic human items)
-                if (includeNeutralItems && cultureId != "calradian" &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
-                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
-                    calradianArmor.TryGetValue(EquipmentIndex.Leg, out MBList<ItemObject> calradianLegItems))
-                {
-                    for (int i = 0; i < calradianLegItems.Count; i++)
-                    {
-                        ItemObject item = calradianLegItems[i];
-                        if (ItemValidation.IsLadiesShoes(item))
-                        {
-                            candidates.Add(item);
-                        }
-                    }
-                }
-
-                // Check neutral pool (Culture=null items) if enabled
-                if (includeNeutralItems &&
-                    _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
-                    neutralArmor.TryGetValue(EquipmentIndex.Leg, out MBList<ItemObject> neutralLegItems))
-                {
-                    for (int i = 0; i < neutralLegItems.Count; i++)
-                    {
-                        ItemObject item = neutralLegItems[i];
-                        if (ItemValidation.IsLadiesShoes(item))
-                        {
-                            candidates.Add(item);
-                        }
-                    }
-                }
-            }
-
-            return SelectRandomItem(candidates);
-        }
-
-        #endregion
-
-        #region Civilian Armor Selection
-
-        /// MARK: SelectCivilianArmorBySlot
-        /// <summary>
-        /// Selects civilian armor for a specific slot matching culture and tier criteria.
-        /// Implements tier fallback for required slots (Body, Leg) to ensure they get filled.
-        /// </summary>
-        private ItemObject SelectCivilianArmorBySlot(
-            string cultureId,
-            ItemObject.ItemTiers minTier,
-            ItemObject.ItemTiers maxTier,
-            EquipmentIndex slot,
-            bool isFemale,
-            bool includeNeutralItems)
-        {
-            MBList<ItemObject> candidates = new();
-
-            // First attempt: Try requested tier range
-            CollectCivilianArmorFromTierRange(cultureId, (int)minTier, (int)maxTier, slot, isFemale, includeNeutralItems, candidates);
-
-            if (candidates.Count > 0)
-            {
-                return SelectRandomItem(candidates);
-            }
-
-            // TIER FALLBACK for required slots (Body and Leg/Boots are required for civilian)
-            bool isRequiredSlot = (slot == EquipmentIndex.Body || slot == EquipmentIndex.Leg);
-            
-            if (isRequiredSlot)
-            {
-                // Try lower tiers first (minTier-1 down to 0)
-                for (int tier = (int)minTier - 1; tier >= 0; tier--)
-                {
-                    CollectCivilianArmorFromTierRange(cultureId, tier, tier, slot, isFemale, includeNeutralItems, candidates);
-                    if (candidates.Count > 0)
-                    {
-                        return SelectRandomItem(candidates);
-                    }
-                }
-
-                // Try higher tiers (maxTier+1 up to Tier6)
-                for (int tier = (int)maxTier + 1; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
-                {
-                    CollectCivilianArmorFromTierRange(cultureId, tier, tier, slot, isFemale, includeNeutralItems, candidates);
-                    if (candidates.Count > 0)
-                    {
-                        return SelectRandomItem(candidates);
-                    }
-                }
-
-                // Last resort for required slots: Try ALL armor (not just civilian) to fill the slot
-                for (int tier = 0; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
-                {
-                    CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth: false, includeNeutralItems, candidates);
-                    if (candidates.Count > 0)
-                    {
-                        return SelectRandomItem(candidates);
-                    }
-                }
-            }
-
-            return SelectRandomItem(candidates);
-        }
-
-        /// MARK: CollectCivilianArmorFromTierRange
-        /// <summary>
-        /// Helper method to collect civilian armor from a specific tier range.
-        /// </summary>
-        private void CollectCivilianArmorFromTierRange(
-            string cultureId,
-            int minTier,
-            int maxTier,
-            EquipmentIndex slot,
-            bool isFemale,
-            bool includeNeutralItems,
-            MBList<ItemObject> candidates)
-        {
-            for (int tier = minTier; tier <= maxTier; tier++)
-            {
-                // Try culture-specific pool
-                if (cultureId != null &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue(cultureId, out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> cultureTiers) &&
-                    cultureTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> cultureArmor) &&
-                    cultureArmor.TryGetValue(slot, out MBList<ItemObject> cultureItems))
-                {
-                    CollectCivilianArmor(cultureItems, isFemale, candidates);
-                }
-
-                // Also check Calradian pool if enabled (generic human items)
-                if (includeNeutralItems && cultureId != "calradian" &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
-                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
-                    calradianArmor.TryGetValue(slot, out MBList<ItemObject> calradianItems))
-                {
-                    CollectCivilianArmor(calradianItems, isFemale, candidates);
-                }
-
-                // Also check neutral pool (Culture=null items) if enabled
-                if (includeNeutralItems &&
-                    _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
-                    neutralArmor.TryGetValue(slot, out MBList<ItemObject> neutralItems))
-                {
-                    CollectCivilianArmor(neutralItems, isFemale, candidates);
-                }
-            }
-        }
-
-        /// MARK: CollectCivilianArmor
-        /// <summary>
-        /// Collects civilian armor items applying gender check and civilian filter.
-        /// Uses the native IsCivilian flag as primary filter for accurate civilian item detection.
-        /// Note: Cloth armor is NOT excluded for civilian equipment - most civilian clothes are cloth.
-        /// </summary>
-        private void CollectCivilianArmor(
-            MBList<ItemObject> items,
-            bool isFemale,
-            MBList<ItemObject> candidates)
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                ItemObject item = items[i];
-
-                // Apply gender filter
-                if (!ItemValidation.IsArmorSuitableForGender(item, isFemale))
-                    continue;
-
-                // NO cloth exclusion for civilian - civilian clothes are often cloth
-                // This was causing Vlandia heroes to get leather armor instead of tunics
-
-                // Primary filter: Use native IsCivilian flag as source of truth
-                // This is the most reliable way to determine civilian appropriateness
-                if (item.IsCivilian)
-                {
-                    candidates.Add(item);
-                    continue;
-                }
-
-                // Secondary filter: Also include items identified as civilian by heuristics
-                // (dresses, ladies shoes, civilian crowns, cloth items, etc.)
-                // This catches items that may not have the IsCivilian flag but are clearly civilian
-                if (ItemValidation.IsCivilianAppropriateItem(item))
-                {
-                    candidates.Add(item);
-                }
-            }
-        }
-
-        #endregion
-
-        #region Civilian Crown Selection
-
-        /// MARK: SelectCivilianCrown
-        /// <summary>
-        /// Selects a civilian crown for ruling clan members.
-        /// </summary>
-        private ItemObject SelectCivilianCrown(
-            string cultureId,
-            ItemObject.ItemTiers minTier,
-            ItemObject.ItemTiers maxTier,
-            bool isFemale,
-            bool includeNeutralItems)
-        {
-            MBList<ItemObject> candidates = new();
-
-            for (int tier = (int)minTier; tier <= (int)maxTier; tier++)
-            {
-                // Try culture-specific pool
-                if (cultureId != null &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue(cultureId, out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> cultureTiers) &&
-                    cultureTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> cultureArmor) &&
-                    cultureArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> cultureItems))
-                {
-                    CollectCivilianCrowns(cultureItems, isFemale, candidates);
-                }
-
-                // Also check Calradian pool if enabled (generic human items)
-                if (includeNeutralItems && cultureId != "calradian" &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
-                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
-                    calradianArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> calradianItems))
-                {
-                    CollectCivilianCrowns(calradianItems, isFemale, candidates);
-                }
-
-                // Also check neutral pool (Culture=null items) if enabled
-                if (includeNeutralItems &&
-                    _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
-                    neutralArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> neutralItems))
-                {
-                    CollectCivilianCrowns(neutralItems, isFemale, candidates);
-                }
-            }
-
-            return SelectRandomItem(candidates);
-        }
-
-        /// MARK: CollectCivilianCrowns
-        /// <summary>
-        /// Collects civilian crown items applying gender check and Jeweled Crown female-only check.
-        /// </summary>
-        private void CollectCivilianCrowns(
-            MBList<ItemObject> items,
-            bool isFemale,
-            MBList<ItemObject> candidates)
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                ItemObject item = items[i];
-
-                // Must be a civilian crown
-                if (!ItemValidation.IsCivilianCrown(item))
-                    continue;
-
-                // Apply gender filter
-                if (!ItemValidation.IsArmorSuitableForGender(item, isFemale))
-                    continue;
-
-                // Jeweled Crown is female-only
-                if (!isFemale && ItemValidation.IsJeweledCrown(item))
-                    continue;
-
-                candidates.Add(item);
-            }
-        }
-
-        #endregion
 
         #endregion
     }
