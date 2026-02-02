@@ -1294,6 +1294,7 @@ namespace Bannerlord.GameMaster.Items
         /// Uses WEIGHTED selection favoring higher tiers within the range.
         /// Implements tier fallback logic: if no items found in requested tier range,
         /// tries lower tiers first, then higher tiers to ensure slot gets filled.
+        /// Also applies appearance filtering with fallback to no appearance filter.
         /// </summary>
         private ItemObject SelectArmorBySlot(
             string cultureId,
@@ -1307,10 +1308,18 @@ namespace Bannerlord.GameMaster.Items
             MBList<ItemObject> candidates = new();
             bool excludeCloth = ItemValidation.ShouldExcludeClothArmor(heroLevel, slot);
 
-            // First attempt: Try requested tier range
-            CollectArmorFromTierRange(cultureId, (int)minTier, (int)maxTier, slot, isFemale, excludeCloth, includeNeutralItems, candidates);
+            // STEP 1: Try requested tier range WITH appearance filter
+            CollectArmorFromTierRange(cultureId, (int)minTier, (int)maxTier, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: true);
 
-            // If items found, return random selection (equal probability for all items in tier range)
+            if (candidates.Count > 0)
+            {
+                return SelectRandomItem(candidates);
+            }
+
+            // STEP 2: Try requested tier range WITHOUT appearance filter (fallback)
+            candidates.Clear();
+            CollectArmorFromTierRange(cultureId, (int)minTier, (int)maxTier, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: false);
+
             if (candidates.Count > 0)
             {
                 return SelectRandomItem(candidates);
@@ -1320,22 +1329,38 @@ namespace Bannerlord.GameMaster.Items
             // First, try 1 tier lower (minTier-1), then 1 tier higher (maxTier+1)
             // This prevents jumping from expected Tier3-4 to Tier6 when Tier2 items exist
             
-            // Try one tier lower first
+            // STEP 3: Try one tier lower first WITH appearance filter
             int oneTierLower = (int)minTier - 1;
             if (oneTierLower >= 0)
             {
-                CollectArmorFromTierRange(cultureId, oneTierLower, oneTierLower, slot, isFemale, excludeCloth, includeNeutralItems, candidates);
+                CollectArmorFromTierRange(cultureId, oneTierLower, oneTierLower, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: true);
+                if (candidates.Count > 0)
+                {
+                    return SelectRandomItem(candidates);
+                }
+
+                // Appearance fallback for this tier
+                candidates.Clear();
+                CollectArmorFromTierRange(cultureId, oneTierLower, oneTierLower, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: false);
                 if (candidates.Count > 0)
                 {
                     return SelectRandomItem(candidates);
                 }
             }
 
-            // Try one tier higher
+            // STEP 4: Try one tier higher WITH appearance filter
             int oneTierHigher = (int)maxTier + 1;
             if (oneTierHigher <= (int)ItemObject.ItemTiers.Tier6)
             {
-                CollectArmorFromTierRange(cultureId, oneTierHigher, oneTierHigher, slot, isFemale, excludeCloth, includeNeutralItems, candidates);
+                CollectArmorFromTierRange(cultureId, oneTierHigher, oneTierHigher, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: true);
+                if (candidates.Count > 0)
+                {
+                    return SelectRandomItem(candidates);
+                }
+
+                // Appearance fallback for this tier
+                candidates.Clear();
+                CollectArmorFromTierRange(cultureId, oneTierHigher, oneTierHigher, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: false);
                 if (candidates.Count > 0)
                 {
                     return SelectRandomItem(candidates);
@@ -1345,7 +1370,16 @@ namespace Bannerlord.GameMaster.Items
             // If still nothing found, expand search further - try remaining lower tiers
             for (int tier = oneTierLower - 1; tier >= 0; tier--)
             {
-                CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth, includeNeutralItems, candidates);
+                // Try with appearance filter first
+                CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: true);
+                if (candidates.Count > 0)
+                {
+                    return SelectRandomItem(candidates);
+                }
+
+                // Fallback without appearance filter
+                candidates.Clear();
+                CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: false);
                 if (candidates.Count > 0)
                 {
                     return SelectRandomItem(candidates);
@@ -1355,7 +1389,16 @@ namespace Bannerlord.GameMaster.Items
             // Finally try remaining higher tiers
             for (int tier = oneTierHigher + 1; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
             {
-                CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth, includeNeutralItems, candidates);
+                // Try with appearance filter first
+                CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: true);
+                if (candidates.Count > 0)
+                {
+                    return SelectRandomItem(candidates);
+                }
+
+                // Fallback without appearance filter
+                candidates.Clear();
+                CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth, includeNeutralItems, candidates, requireAppearance: false);
                 if (candidates.Count > 0)
                 {
                     return SelectRandomItem(candidates);
@@ -1365,10 +1408,17 @@ namespace Bannerlord.GameMaster.Items
             // Last resort: Try without cloth exclusion if we had it enabled
             if (excludeCloth)
             {
-                // Try all tiers without cloth exclusion
+                // Try all tiers without cloth exclusion (with appearance filter first)
                 for (int tier = 0; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
                 {
-                    CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth: false, includeNeutralItems, candidates);
+                    CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth: false, includeNeutralItems, candidates, requireAppearance: true);
+                    if (candidates.Count > 0)
+                    {
+                        return SelectRandomItem(candidates);
+                    }
+
+                    candidates.Clear();
+                    CollectArmorFromTierRange(cultureId, tier, tier, slot, isFemale, excludeCloth: false, includeNeutralItems, candidates, requireAppearance: false);
                     if (candidates.Count > 0)
                     {
                         return SelectRandomItem(candidates);
@@ -1384,6 +1434,15 @@ namespace Bannerlord.GameMaster.Items
         /// Helper method to collect armor from a specific tier range into candidates list.
         /// When includeNeutralItems is true, also includes Calradian (generic) items and Culture=null items.
         /// </summary>
+        /// <param name="cultureId">The culture ID for item selection.</param>
+        /// <param name="minTier">The minimum item tier.</param>
+        /// <param name="maxTier">The maximum item tier.</param>
+        /// <param name="slot">The equipment slot being filled.</param>
+        /// <param name="isFemale">Whether the hero is female.</param>
+        /// <param name="excludeCloth">Whether to exclude cloth armor.</param>
+        /// <param name="includeNeutralItems">Whether to include neutral items.</param>
+        /// <param name="candidates">The output list to add valid items to.</param>
+        /// <param name="requireAppearance">Whether to apply battle armor appearance filter.</param>
         private void CollectArmorFromTierRange(
             string cultureId,
             int minTier,
@@ -1392,7 +1451,8 @@ namespace Bannerlord.GameMaster.Items
             bool isFemale,
             bool excludeCloth,
             bool includeNeutralItems,
-            MBList<ItemObject> candidates)
+            MBList<ItemObject> candidates,
+            bool requireAppearance = true)
         {
             for (int tier = minTier; tier <= maxTier; tier++)
             {
@@ -1402,7 +1462,7 @@ namespace Bannerlord.GameMaster.Items
                     cultureTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> cultureArmor) &&
                     cultureArmor.TryGetValue(slot, out MBList<ItemObject> cultureItems))
                 {
-                    CollectValidArmor(cultureItems, isFemale, excludeCloth, candidates);
+                    CollectValidArmor(cultureItems, isFemale, excludeCloth, candidates, requireAppearance);
                 }
 
                 // Also check Calradian pool if enabled (generic human items) - treated equally with hero's culture
@@ -1411,7 +1471,7 @@ namespace Bannerlord.GameMaster.Items
                     calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
                     calradianArmor.TryGetValue(slot, out MBList<ItemObject> calradianItems))
                 {
-                    CollectValidArmor(calradianItems, isFemale, excludeCloth, candidates);
+                    CollectValidArmor(calradianItems, isFemale, excludeCloth, candidates, requireAppearance);
                 }
 
                 // Also check neutral pool (Culture=null items) if enabled
@@ -1419,16 +1479,17 @@ namespace Bannerlord.GameMaster.Items
                     _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
                     neutralArmor.TryGetValue(slot, out MBList<ItemObject> neutralItems))
                 {
-                    CollectValidArmor(neutralItems, isFemale, excludeCloth, candidates);
+                    CollectValidArmor(neutralItems, isFemale, excludeCloth, candidates, requireAppearance);
                 }
             }
         }
 
         /// MARK: SelectBattleHeadArmor
         /// <summary>
-        /// Selects head armor for battle equipment with crown restrictions.
+        /// Selects head armor for battle equipment with crown restrictions and appearance filtering.
         /// Only ruling clan members can wear crowns in battle, and battle crowns must have
         /// "battle" or "helmet" in name (or be Jeweled Crown which works in both contexts).
+        /// Applies appearance filtering with fallback to no appearance filter.
         /// </summary>
         /// <param name="cultureId">The culture ID for item selection.</param>
         /// <param name="minTier">The minimum item tier.</param>
@@ -1450,42 +1511,129 @@ namespace Bannerlord.GameMaster.Items
             MBList<ItemObject> candidates = new();
             bool excludeCloth = ItemValidation.ShouldExcludeClothArmor(heroLevel, EquipmentIndex.Head);
 
-            // Collect items from appropriate tiers
+            // STEP 1: Collect items from appropriate tiers WITH appearance filter
             for (int tier = (int)minTier; tier <= (int)maxTier; tier++)
             {
-                // Try culture-specific pool
-                if (cultureId != null &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue(cultureId, out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> cultureTiers) &&
-                    cultureTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> cultureArmor) &&
-                    cultureArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> cultureItems))
-                {
-                    CollectBattleHeadArmor(cultureItems, isFemale, excludeCloth, isRulingClan, candidates);
-                }
-
-                // Also check Calradian pool if enabled (generic human items)
-                if (includeNeutralItems && cultureId != "calradian" &&
-                    _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
-                    calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
-                    calradianArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> calradianItems))
-                {
-                    CollectBattleHeadArmor(calradianItems, isFemale, excludeCloth, isRulingClan, candidates);
-                }
-
-                // Also check neutral pool (Culture=null items) if enabled
-                if (includeNeutralItems &&
-                    _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
-                    neutralArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> neutralItems))
-                {
-                    CollectBattleHeadArmor(neutralItems, isFemale, excludeCloth, isRulingClan, candidates);
-                }
+                CollectBattleHeadArmorFromTier(cultureId, tier, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: true);
             }
 
-            return SelectRandomItem(candidates);
+            if (candidates.Count > 0)
+            {
+                return SelectRandomItem(candidates);
+            }
+
+            // STEP 2: Try same tiers WITHOUT appearance filter (fallback)
+            candidates.Clear();
+            for (int tier = (int)minTier; tier <= (int)maxTier; tier++)
+            {
+                CollectBattleHeadArmorFromTier(cultureId, tier, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: false);
+            }
+
+            if (candidates.Count > 0)
+            {
+                return SelectRandomItem(candidates);
+            }
+
+            // STEP 3: Tier fallback - try lower tiers with appearance then without
+            int oneTierLower = (int)minTier - 1;
+            if (oneTierLower >= 0)
+            {
+                CollectBattleHeadArmorFromTier(cultureId, oneTierLower, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: true);
+                if (candidates.Count > 0)
+                    return SelectRandomItem(candidates);
+
+                candidates.Clear();
+                CollectBattleHeadArmorFromTier(cultureId, oneTierLower, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: false);
+                if (candidates.Count > 0)
+                    return SelectRandomItem(candidates);
+            }
+
+            // STEP 4: Tier fallback - try higher tiers with appearance then without
+            int oneTierHigher = (int)maxTier + 1;
+            if (oneTierHigher <= (int)ItemObject.ItemTiers.Tier6)
+            {
+                CollectBattleHeadArmorFromTier(cultureId, oneTierHigher, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: true);
+                if (candidates.Count > 0)
+                    return SelectRandomItem(candidates);
+
+                candidates.Clear();
+                CollectBattleHeadArmorFromTier(cultureId, oneTierHigher, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: false);
+                if (candidates.Count > 0)
+                    return SelectRandomItem(candidates);
+            }
+
+            // Continue searching remaining tiers
+            for (int tier = oneTierLower - 1; tier >= 0; tier--)
+            {
+                CollectBattleHeadArmorFromTier(cultureId, tier, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: true);
+                if (candidates.Count > 0)
+                    return SelectRandomItem(candidates);
+
+                candidates.Clear();
+                CollectBattleHeadArmorFromTier(cultureId, tier, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: false);
+                if (candidates.Count > 0)
+                    return SelectRandomItem(candidates);
+            }
+
+            for (int tier = oneTierHigher + 1; tier <= (int)ItemObject.ItemTiers.Tier6; tier++)
+            {
+                CollectBattleHeadArmorFromTier(cultureId, tier, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: true);
+                if (candidates.Count > 0)
+                    return SelectRandomItem(candidates);
+
+                candidates.Clear();
+                CollectBattleHeadArmorFromTier(cultureId, tier, isFemale, excludeCloth, isRulingClan, includeNeutralItems, candidates, requireAppearance: false);
+                if (candidates.Count > 0)
+                    return SelectRandomItem(candidates);
+            }
+
+            return null;
+        }
+
+        /// MARK: CollectBattleHeadArmorFromTier
+        /// <summary>
+        /// Helper method to collect battle head armor from a specific tier.
+        /// </summary>
+        private void CollectBattleHeadArmorFromTier(
+            string cultureId,
+            int tier,
+            bool isFemale,
+            bool excludeCloth,
+            bool isRulingClan,
+            bool includeNeutralItems,
+            MBList<ItemObject> candidates,
+            bool requireAppearance)
+        {
+            // Try culture-specific pool
+            if (cultureId != null &&
+                _poolManager.ArmorPoolsBySlot.TryGetValue(cultureId, out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> cultureTiers) &&
+                cultureTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> cultureArmor) &&
+                cultureArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> cultureItems))
+            {
+                CollectBattleHeadArmor(cultureItems, isFemale, excludeCloth, isRulingClan, candidates, requireAppearance);
+            }
+
+            // Also check Calradian pool if enabled (generic human items)
+            if (includeNeutralItems && cultureId != "calradian" &&
+                _poolManager.ArmorPoolsBySlot.TryGetValue("calradian", out Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> calradianTiers) &&
+                calradianTiers.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> calradianArmor) &&
+                calradianArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> calradianItems))
+            {
+                CollectBattleHeadArmor(calradianItems, isFemale, excludeCloth, isRulingClan, candidates, requireAppearance);
+            }
+
+            // Also check neutral pool (Culture=null items) if enabled
+            if (includeNeutralItems &&
+                _poolManager.NeutralArmorPools.TryGetValue(tier, out Dictionary<EquipmentIndex, MBList<ItemObject>> neutralArmor) &&
+                neutralArmor.TryGetValue(EquipmentIndex.Head, out MBList<ItemObject> neutralItems))
+            {
+                CollectBattleHeadArmor(neutralItems, isFemale, excludeCloth, isRulingClan, candidates, requireAppearance);
+            }
         }
 
         /// MARK: CollectBattleHeadArmor
         /// <summary>
-        /// Collects valid head armor items for battle equipment applying gender, cloth, and crown filters.
+        /// Collects valid head armor items for battle equipment applying gender, cloth, appearance, and crown filters.
         /// Crown handling:
         /// - Non-ruling clan members cannot wear crowns
         /// - Ruling clan members can only wear battle crowns (with "battle" or "helmet" in name) or Jeweled Crown
@@ -1496,12 +1644,14 @@ namespace Bannerlord.GameMaster.Items
         /// <param name="excludeCloth">Whether to exclude cloth armor.</param>
         /// <param name="isRulingClan">Whether the hero is a member of the ruling clan.</param>
         /// <param name="candidates">The output list to add valid items to.</param>
+        /// <param name="requireAppearance">Whether to apply battle armor appearance filter.</param>
         private void CollectBattleHeadArmor(
             MBList<ItemObject> items,
             bool isFemale,
             bool excludeCloth,
             bool isRulingClan,
-            MBList<ItemObject> candidates)
+            MBList<ItemObject> candidates,
+            bool requireAppearance = true)
         {
             for (int i = 0; i < items.Count; i++)
             {
@@ -1515,7 +1665,7 @@ namespace Bannerlord.GameMaster.Items
                 if (excludeCloth && ItemValidation.IsClothArmor(item))
                     continue;
 
-                // Handle crown items specially
+                // Handle crown items specially (crowns are exempt from appearance filter)
                 if (ItemValidation.IsCrownItem(item))
                 {
                     // Non-ruling clan members cannot wear crowns in battle
@@ -1529,7 +1679,15 @@ namespace Bannerlord.GameMaster.Items
                     // Jeweled Crown is female-only
                     if (ItemValidation.IsJeweledCrown(item) && !isFemale)
                         continue;
+
+                    // Crowns pass - no appearance filter for crowns
+                    candidates.Add(item);
+                    continue;
                 }
+
+                // Apply battle armor appearance filter (excludes crowns which are handled above)
+                if (requireAppearance && !ItemValidation.MeetsBattleArmorAppearanceRequirement(item))
+                    continue;
 
                 candidates.Add(item);
             }
@@ -1537,13 +1695,19 @@ namespace Bannerlord.GameMaster.Items
 
         /// MARK: CollectValidArmor
         /// <summary>
-        /// Collects valid armor items applying gender and cloth filters.
+        /// Collects valid armor items applying gender, cloth, and appearance filters.
         /// </summary>
+        /// <param name="items">The source list of armor items.</param>
+        /// <param name="isFemale">Whether the hero is female.</param>
+        /// <param name="excludeCloth">Whether to exclude cloth armor.</param>
+        /// <param name="candidates">The output list to add valid items to.</param>
+        /// <param name="requireAppearance">Whether to apply battle armor appearance filter.</param>
         private void CollectValidArmor(
             MBList<ItemObject> items,
             bool isFemale,
             bool excludeCloth,
-            MBList<ItemObject> candidates)
+            MBList<ItemObject> candidates,
+            bool requireAppearance = true)
         {
             for (int i = 0; i < items.Count; i++)
             {
@@ -1555,6 +1719,10 @@ namespace Bannerlord.GameMaster.Items
 
                 // Apply cloth filter
                 if (excludeCloth && ItemValidation.IsClothArmor(item))
+                    continue;
+
+                // Apply battle armor appearance filter
+                if (requireAppearance && !ItemValidation.MeetsBattleArmorAppearanceRequirement(item))
                     continue;
 
                 candidates.Add(item);
@@ -1864,13 +2032,14 @@ namespace Bannerlord.GameMaster.Items
             bool isRulingClanMember = ItemValidation.IsRulingClanMember(hero);
 
             // MARK: Body - 100%
-            ItemObject bodyItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Body);
+            ItemObject bodyItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Body, isRulingClanMember);
             if (bodyItem != null)
             {
                 equipment[EquipmentIndex.Body] = new EquipmentElement(bodyItem);
             }
 
             // MARK: Head - Ruling clan = 100% crown; Others = 20% chance, no crowns
+            // Crowns exempt from appearance check
             if (isRulingClanMember)
             {
                 ItemObject crown = _civilianPoolManager.GetCrown(cultureId, isFemale);
@@ -1881,7 +2050,7 @@ namespace Bannerlord.GameMaster.Items
             }
             else if (_random.NextRandomInt(100) < 20)
             {
-                ItemObject headItem = _civilianPoolManager.GetRandomNonCrownHeadItem(cultureId, isFemale);
+                ItemObject headItem = _civilianPoolManager.GetRandomNonCrownHeadItem(cultureId, isFemale, isRulingClanMember);
                 if (headItem != null)
                 {
                     equipment[EquipmentIndex.Head] = new EquipmentElement(headItem);
@@ -1891,7 +2060,7 @@ namespace Bannerlord.GameMaster.Items
             // MARK: Cape - 50%
             if (_random.NextRandomInt(100) < 50)
             {
-                ItemObject capeItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Cape);
+                ItemObject capeItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Cape, isRulingClanMember);
                 if (capeItem != null)
                 {
                     equipment[EquipmentIndex.Cape] = new EquipmentElement(capeItem);
@@ -1902,7 +2071,7 @@ namespace Bannerlord.GameMaster.Items
             int gloveChance = isFemale ? 10 : 100;
             if (_random.NextRandomInt(100) < gloveChance)
             {
-                ItemObject glovesItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Gloves);
+                ItemObject glovesItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Gloves, isRulingClanMember);
                 if (glovesItem != null)
                 {
                     equipment[EquipmentIndex.Gloves] = new EquipmentElement(glovesItem);
@@ -1910,13 +2079,13 @@ namespace Bannerlord.GameMaster.Items
             }
 
             // MARK: Legs - 100%
-            ItemObject legItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Leg);
+            ItemObject legItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Leg, isRulingClanMember);
             if (legItem != null)
             {
                 equipment[EquipmentIndex.Leg] = new EquipmentElement(legItem);
             }
 
-            // MARK: Weapon - Males only
+            // MARK: Weapon - Males only (no appearance check needed for weapons)
             if (!isFemale)
             {
                 ItemObject weaponItem = _civilianPoolManager.GetCivilianWeapon(cultureId);

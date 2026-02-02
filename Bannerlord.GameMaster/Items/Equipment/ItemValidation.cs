@@ -39,7 +39,17 @@ namespace Bannerlord.GameMaster.Items
             "sling",
             "practice",
             "tournament",
-            "tourney"
+            "tourney",
+            "dummy"
+        };
+
+        /// <summary>
+        /// Specific weapon StringIds to exclude from equipment pools.
+        /// </summary>
+        private static readonly string[] BlacklistedWeaponStringIds = new[]
+        {
+            "push_fork",
+            "hook"
         };
 
         /// <summary>
@@ -57,6 +67,28 @@ namespace Bannerlord.GameMaster.Items
         {
             "imperial_jeweled_band"
         };
+
+        #region Appearance Thresholds
+
+        /// <summary>
+        /// Minimum appearance value for standard civilian items.
+        /// Items with Appearance > this value are considered suitable.
+        /// </summary>
+        public const float MinimumCivilianAppearance = 0.49f;
+
+        /// <summary>
+        /// Minimum appearance value for ruling clan members' civilian items.
+        /// Items with Appearance > this value are considered suitable for royalty.
+        /// </summary>
+        public const float MinimumRoyalAppearance = 0.99f;
+
+        /// <summary>
+        /// Minimum appearance value for battle armor items.
+        /// Items with Appearance > this value are considered suitable for battle.
+        /// </summary>
+        public const float MinimumBattleArmorAppearance = 0.49f;
+
+        #endregion
 
         #region Blacklist Methods
 
@@ -95,6 +127,29 @@ namespace Bannerlord.GameMaster.Items
             return false;
         }
 
+        /// MARK: IsBlacklistedWeaponStringId
+        /// <summary>
+        /// Determines if a weapon item is blacklisted by StringId.
+        /// Checks for specific weapon StringIds that should be excluded.
+        /// </summary>
+        /// <param name="item">The item to check.</param>
+        /// <returns>True if the weapon StringId is blacklisted; false otherwise.</returns>
+        public static bool IsBlacklistedWeaponStringId(ItemObject item)
+        {
+            if (item == null || !item.HasWeaponComponent)
+                return false;
+
+            string itemStringId = item.StringId ?? string.Empty;
+
+            for (int i = 0; i < BlacklistedWeaponStringIds.Length; i++)
+            {
+                if (itemStringId.Equals(BlacklistedWeaponStringIds[i], System.StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+
+            return false;
+        }
+
         #endregion
 
         /// MARK: IsValidItem
@@ -126,6 +181,10 @@ namespace Bannerlord.GameMaster.Items
             if (item.HasWeaponComponent)
             {
                 if (!IsValidWeapon(item))
+                    return false;
+
+                // Check weapon-specific StringId blacklist
+                if (IsBlacklistedWeaponStringId(item))
                     return false;
             }
 
@@ -657,6 +716,55 @@ namespace Bannerlord.GameMaster.Items
                 return false;
 
             return herosClan == rulingClan;
+        }
+
+        #endregion
+
+        #region Appearance Validation Methods
+
+        /// MARK: MeetsAppearanceThreshold
+        /// <summary>
+        /// Checks if an item meets the specified appearance threshold.
+        /// </summary>
+        /// <param name="item">The item to check.</param>
+        /// <param name="minAppearance">The minimum appearance value (exclusive).</param>
+        /// <returns>True if item.Appearance > minAppearance; false otherwise.</returns>
+        public static bool MeetsAppearanceThreshold(ItemObject item, float minAppearance)
+        {
+            if (item == null)
+                return false;
+
+            return item.Appearance > minAppearance;
+        }
+
+        /// MARK: MeetsCivilianAppearance
+        /// <summary>
+        /// Checks if an item meets civilian appearance requirements based on hero status.
+        /// </summary>
+        /// <param name="item">The item to check.</param>
+        /// <param name="isRulingClanMember">Whether the hero is a member of a ruling clan.</param>
+        /// <returns>True if item meets appearance requirements; false otherwise.</returns>
+        public static bool MeetsCivilianAppearanceRequirement(ItemObject item, bool isRulingClanMember)
+        {
+            if (item == null)
+                return false;
+
+            float threshold = isRulingClanMember ? MinimumRoyalAppearance : MinimumCivilianAppearance;
+            return item.Appearance > threshold;
+        }
+
+        /// MARK: MeetsBattleArmorAppearance
+        /// <summary>
+        /// Checks if an armor item meets battle appearance requirements.
+        /// </summary>
+        /// <param name="item">The item to check.</param>
+        /// <returns>True if item.Appearance > MinimumBattleArmorAppearance; false otherwise.</returns>
+        public static bool MeetsBattleArmorAppearanceRequirement(ItemObject item)
+        {
+            if (item == null)
+                return false;
+
+            return item.Appearance > MinimumBattleArmorAppearance;
         }
 
         #endregion

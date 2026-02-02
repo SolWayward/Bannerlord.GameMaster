@@ -481,35 +481,49 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: GetRandomItem
         /// <summary>
         /// Gets a random item from the appropriate civilian pool for the specified slot.
+        /// Applies appearance filtering based on hero status (ruling clan members get higher appearance items).
         /// Falls back to other cultures if the specific culture has no items.
         /// </summary>
         /// <param name="cultureId">The culture ID to select from.</param>
         /// <param name="isFemale">Whether the hero is female.</param>
         /// <param name="slot">The equipment slot.</param>
-        /// <returns>A random item from the pool, or null if no items available.</returns>
-        public ItemObject GetRandomItem(string cultureId, bool isFemale, EquipmentIndex slot)
+        /// <param name="isRulingClanMember">Whether the hero is a member of a ruling clan.</param>
+        /// <returns>A random item from the pool that meets appearance requirements, or null if none available.</returns>
+        public ItemObject GetRandomItem(string cultureId, bool isFemale, EquipmentIndex slot, bool isRulingClanMember = false)
         {
             EnsureInitialized();
 
-            Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> pools = 
+            Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> pools =
                 isFemale ? _femaleCivilianPools : _maleCivilianPools;
 
             // Try culture-specific pool first
-            if (cultureId != null && 
+            if (cultureId != null &&
                 pools.TryGetValue(cultureId, out Dictionary<EquipmentIndex, MBList<ItemObject>> culturePools) &&
                 culturePools.TryGetValue(slot, out MBList<ItemObject> items) &&
                 items.Count > 0)
             {
+                // Filter by appearance
+                MBList<ItemObject> filteredItems = FilterByAppearance(items, isRulingClanMember);
+                if (filteredItems.Count > 0)
+                    return SelectRandomItem(filteredItems);
+
+                // Fallback: no appearance filter
                 return SelectRandomItem(items);
             }
 
             // Fallback to generic pool
-            Dictionary<EquipmentIndex, MBList<ItemObject>> fallbackPools = 
+            Dictionary<EquipmentIndex, MBList<ItemObject>> fallbackPools =
                 isFemale ? _fallbackFemalePools : _fallbackMalePools;
             
-            if (fallbackPools.TryGetValue(slot, out MBList<ItemObject> fallbackItems) && 
+            if (fallbackPools.TryGetValue(slot, out MBList<ItemObject> fallbackItems) &&
                 fallbackItems.Count > 0)
             {
+                // Filter by appearance
+                MBList<ItemObject> filteredFallback = FilterByAppearance(fallbackItems, isRulingClanMember);
+                if (filteredFallback.Count > 0)
+                    return SelectRandomItem(filteredFallback);
+
+                // Fallback: no appearance filter
                 return SelectRandomItem(fallbackItems);
             }
 
@@ -521,10 +535,14 @@ namespace Bannerlord.GameMaster.Items
         /// Gets a random head item that is NOT a crown.
         /// Used for non-ruling clan members who should not wear crowns.
         /// </summary>
-        public ItemObject GetRandomNonCrownHeadItem(string cultureId, bool isFemale)
+        /// <param name="cultureId">The culture ID to select from.</param>
+        /// <param name="isFemale">Whether the hero is female.</param>
+        /// <param name="isRulingClanMember">Whether the hero is a member of a ruling clan.</param>
+        /// <returns>A random non-crown head item meeting appearance requirements, or null if none available.</returns>
+        public ItemObject GetRandomNonCrownHeadItem(string cultureId, bool isFemale, bool isRulingClanMember = false)
         {
             // Regular head items are already filtered to exclude crowns
-            return GetRandomItem(cultureId, isFemale, EquipmentIndex.Head);
+            return GetRandomItem(cultureId, isFemale, EquipmentIndex.Head, isRulingClanMember);
         }
 
         /// MARK: GetCrown
@@ -666,6 +684,24 @@ namespace Bannerlord.GameMaster.Items
 
             int index = RandomNumberGen.Instance.NextRandomInt(items.Count);
             return items[index];
+        }
+
+        /// MARK: FilterByAppearance
+        /// <summary>
+        /// Filters items by civilian appearance requirements.
+        /// </summary>
+        /// <param name="items">The list of items to filter.</param>
+        /// <param name="isRulingClanMember">Whether the hero is a member of a ruling clan.</param>
+        /// <returns>A new list containing only items meeting appearance requirements.</returns>
+        private MBList<ItemObject> FilterByAppearance(MBList<ItemObject> items, bool isRulingClanMember)
+        {
+            MBList<ItemObject> filtered = new();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (ItemValidation.MeetsCivilianAppearanceRequirement(items[i], isRulingClanMember))
+                    filtered.Add(items[i]);
+            }
+            return filtered;
         }
 
         #endregion

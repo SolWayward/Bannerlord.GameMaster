@@ -52,7 +52,7 @@ public static class QueryItemCommand
                        "Tier keywords: tier0, tier1, tier2, tier3, tier4, tier5, tier6\n" +
                        "Culture: culture:vlandia, culture:empire, culture:sturgia, etc.\n" +
                        "Loadout: civilian (can use in civilian loadout), battle (battle only)\n" +
-                       "Sort: sort:name, sort:tier, sort:value, sort:type, sort:culture, sort:loadout (add :desc for descending)\n" +
+                       "Sort: sort:name, sort:tier, sort:value, sort:type, sort:culture, sort:loadout, sort:appearance (add :desc for descending)\n" +
                        "Example: gm.query.item sword weapon 1h tier3 sort:value:desc\n" +
                        "Example: gm.query.item armor culture:empire civilian\n").Message;
             }

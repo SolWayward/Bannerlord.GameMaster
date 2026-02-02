@@ -184,6 +184,11 @@ namespace Bannerlord.GameMaster.Items
 					int result = a.IsCivilianEquipment().CompareTo(b.IsCivilianEquipment());
 					return descending ? -result : result;
 				}),
+				"appearance" => Comparer<ItemObject>.Create((a, b) =>
+				{
+					int result = a.Appearance.CompareTo(b.Appearance);
+					return descending ? -result : result;
+				}),
 				_ => Comparer<ItemObject>.Create((a, b) =>  // default: id
 				{
 					int result = string.Compare(a.StringId, b.StringId, StringComparison.Ordinal);
@@ -256,7 +261,8 @@ namespace Bannerlord.GameMaster.Items
 				},
 				i => $"Value: {i.Value}",
 				i => $"Weight: {i.Weight}",
-				i => i.IsCivilianEquipment() ? "Civilian" : "Battle"
+				i => i.IsCivilianEquipment() ? "Civilian" : "Battle",
+				i => $"Appearance: {i.Appearance:F2}"
 			);
 		}
 

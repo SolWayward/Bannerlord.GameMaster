@@ -161,7 +161,7 @@ namespace Bannerlord.GameMaster.Items
             string tier = (int)item.Tier >= -1 ? $"Tier: {(int)item.Tier + 1}" : "Tier: N/A";
             string culture = item.Culture?.Name?.ToString() ?? "None";
             string loadout = item.IsCivilianEquipment() ? "Civilian" : "Battle";
-            return $"{item.StringId}\t{item.Name}\t{culture}\tType: {item.ItemType}\t{tier}\tValue: {item.Value}\t{loadout}";
+            return $"{item.StringId}\t{item.Name}\t{culture}\tType: {item.ItemType}\t{tier}\tValue: {item.Value}\t{loadout}\tAppearance: {item.Appearance:F2}";
         }
 
         /// <summary>
