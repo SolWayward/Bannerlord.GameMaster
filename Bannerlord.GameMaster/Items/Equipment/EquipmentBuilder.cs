@@ -21,6 +21,16 @@ namespace Bannerlord.GameMaster.Items
 
         #endregion
 
+        #region Battle Gear Constants
+
+        /// <summary>Chance for males to equip cape in battle gear (80%).</summary>
+        private const int MaleBattleCapeEquipChance = 80;
+
+        /// <summary>Chance for females to equip cape in battle gear (50%).</summary>
+        private const int FemaleBattleCapeEquipChance = 50;
+
+        #endregion
+
         #region Constructors
 
         /// <summary>
@@ -398,6 +408,7 @@ namespace Bannerlord.GameMaster.Items
         /// Fills weapon slots 0-3 based on the loadout plan.
         /// Slot 0: Primary weapon (NEVER throwing/shields/ammo)
         /// Slots 1-3: Secondary weapons, ammo, shields, throwing
+        /// Each weapon slot gets independent tier expansion roll (70% no change, 20% +/-1, 10% +/-2).
         ///
         /// Key loadout rules enforced:
         /// - Polearms ALWAYS require a sidearm (sword/axe/mace)
@@ -422,7 +433,9 @@ namespace Bannerlord.GameMaster.Items
             if (loadout.RangedIsPrimary)
             {
                 // Ranged weapon in slot 0 (Bow or Crossbow)
-                ItemObject rangedWeapon = SelectWeaponByType(cultureId, minTier, maxTier, loadout.RangedType, isMounted, includeNeutralItems);
+                (ItemObject.ItemTiers rangedMinTier, ItemObject.ItemTiers rangedMaxTier) =
+                    CalculateExpandedTierRange(minTier, maxTier);
+                ItemObject rangedWeapon = SelectWeaponByType(cultureId, rangedMinTier, rangedMaxTier, loadout.RangedType, isMounted, includeNeutralItems);
                 if (rangedWeapon != null)
                 {
                     equipment[EquipmentIndex.Weapon0] = new EquipmentElement(rangedWeapon);
@@ -442,16 +455,20 @@ namespace Bannerlord.GameMaster.Items
                     {
                         // Bow + Polearm layout: bow, arrow, polearm, sidearm
                         // Slot 2 - Polearm (use specialized selection for mounted vs infantry)
+                        (ItemObject.ItemTiers polearmMinTier, ItemObject.ItemTiers polearmMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
                         ItemObject polearm = isMounted
-                            ? SelectPolearmForMounted(cultureId, minTier, maxTier, includeNeutralItems)
-                            : SelectPolearmForInfantry(cultureId, minTier, maxTier, includeNeutralItems);
+                            ? SelectPolearmForMounted(cultureId, polearmMinTier, polearmMaxTier, includeNeutralItems)
+                            : SelectPolearmForInfantry(cultureId, polearmMinTier, polearmMaxTier, includeNeutralItems);
                         if (polearm != null)
                         {
                             equipment[EquipmentIndex.Weapon2] = new EquipmentElement(polearm);
                         }
                         
                         // Slot 3 - SIDEARM (required with polearm)
-                        ItemObject sidearm = SelectSidearmWeapon(cultureId, minTier, maxTier, isMounted, includeNeutralItems);
+                        (ItemObject.ItemTiers sidearmMinTier, ItemObject.ItemTiers sidearmMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
+                        ItemObject sidearm = SelectSidearmWeapon(cultureId, sidearmMinTier, sidearmMaxTier, isMounted, includeNeutralItems);
                         if (sidearm != null)
                         {
                             equipment[EquipmentIndex.Weapon3] = new EquipmentElement(sidearm);
@@ -461,7 +478,9 @@ namespace Bannerlord.GameMaster.Items
                     {
                         // Bow + No Polearm layout: bow, arrow, sidearm, arrow OR shield
                         // Slot 2 - Melee weapon (sidearm)
-                        ItemObject meleeWeapon = SelectWeaponByType(cultureId, minTier, maxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
+                        (ItemObject.ItemTiers meleeMinTier, ItemObject.ItemTiers meleeMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
+                        ItemObject meleeWeapon = SelectWeaponByType(cultureId, meleeMinTier, meleeMaxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
                         if (meleeWeapon != null)
                         {
                             equipment[EquipmentIndex.Weapon2] = new EquipmentElement(meleeWeapon);
@@ -478,7 +497,9 @@ namespace Bannerlord.GameMaster.Items
                         }
                         else if (loadout.RangedType == WeaponTypeFlags.Crossbow && loadout.IncludeShield)
                         {
-                            ItemObject shield = SelectShield(cultureId, minTier, maxTier, includeNeutralItems);
+                            (ItemObject.ItemTiers shieldMinTier, ItemObject.ItemTiers shieldMaxTier) =
+                                CalculateExpandedTierRange(minTier, maxTier);
+                            ItemObject shield = SelectShield(cultureId, shieldMinTier, shieldMaxTier, includeNeutralItems);
                             if (shield != null)
                             {
                                 equipment[EquipmentIndex.Weapon3] = new EquipmentElement(shield);
@@ -501,16 +522,18 @@ namespace Bannerlord.GameMaster.Items
                 bool hasPolearm = (loadout.PrimaryMeleeType & WeaponTypeFlags.AllPolearms) != 0;
 
                 // Slot 0 - Primary melee weapon (use specialized polearm selection if polearm is primary)
+                (ItemObject.ItemTiers primaryMinTier, ItemObject.ItemTiers primaryMaxTier) =
+                    CalculateExpandedTierRange(minTier, maxTier);
                 ItemObject meleeWeapon;
                 if (hasPolearm)
                 {
                     meleeWeapon = isMounted
-                        ? SelectPolearmForMounted(cultureId, minTier, maxTier, includeNeutralItems)
-                        : SelectPolearmForInfantry(cultureId, minTier, maxTier, includeNeutralItems);
+                        ? SelectPolearmForMounted(cultureId, primaryMinTier, primaryMaxTier, includeNeutralItems)
+                        : SelectPolearmForInfantry(cultureId, primaryMinTier, primaryMaxTier, includeNeutralItems);
                 }
                 else
                 {
-                    meleeWeapon = SelectWeaponByType(cultureId, minTier, maxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
+                    meleeWeapon = SelectWeaponByType(cultureId, primaryMinTier, primaryMaxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
                 }
 
                 if (meleeWeapon != null)
@@ -524,21 +547,27 @@ namespace Bannerlord.GameMaster.Items
                     if (loadout.IncludeShield)
                     {
                         // Slot 1 - Shield
-                        ItemObject shield = SelectShield(cultureId, minTier, maxTier, includeNeutralItems);
+                        (ItemObject.ItemTiers shieldMinTier, ItemObject.ItemTiers shieldMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
+                        ItemObject shield = SelectShield(cultureId, shieldMinTier, shieldMaxTier, includeNeutralItems);
                         if (shield != null)
                         {
                             equipment[EquipmentIndex.Weapon1] = new EquipmentElement(shield);
                         }
                         
                         // Slot 2 - Throwing weapon
-                        ItemObject throwing1 = SelectWeaponByType(cultureId, minTier, maxTier, loadout.ThrowingType, isMounted, includeNeutralItems);
+                        (ItemObject.ItemTiers throwingMinTier, ItemObject.ItemTiers throwingMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
+                        ItemObject throwing1 = SelectWeaponByType(cultureId, throwingMinTier, throwingMaxTier, loadout.ThrowingType, isMounted, includeNeutralItems);
                         if (throwing1 != null)
                         {
                             equipment[EquipmentIndex.Weapon2] = new EquipmentElement(throwing1);
                         }
                         
                         // Slot 3 - SIDEARM (required with polearm)
-                        ItemObject sidearm = SelectSidearmWeapon(cultureId, minTier, maxTier, isMounted, includeNeutralItems);
+                        (ItemObject.ItemTiers sidearmMinTier, ItemObject.ItemTiers sidearmMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
+                        ItemObject sidearm = SelectSidearmWeapon(cultureId, sidearmMinTier, sidearmMaxTier, isMounted, includeNeutralItems);
                         if (sidearm != null)
                         {
                             equipment[EquipmentIndex.Weapon3] = new EquipmentElement(sidearm);
@@ -547,14 +576,18 @@ namespace Bannerlord.GameMaster.Items
                     else
                     {
                         // Slot 1 - SIDEARM (required with polearm, no shield)
-                        ItemObject sidearm = SelectSidearmWeapon(cultureId, minTier, maxTier, isMounted, includeNeutralItems);
+                        (ItemObject.ItemTiers sidearmMinTier, ItemObject.ItemTiers sidearmMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
+                        ItemObject sidearm = SelectSidearmWeapon(cultureId, sidearmMinTier, sidearmMaxTier, isMounted, includeNeutralItems);
                         if (sidearm != null)
                         {
                             equipment[EquipmentIndex.Weapon1] = new EquipmentElement(sidearm);
                         }
                         
                         // Slot 2-3 - Throwing weapons (MUST be same type for both slots)
-                        ItemObject throwing1 = SelectWeaponByType(cultureId, minTier, maxTier, loadout.ThrowingType, isMounted, includeNeutralItems);
+                        (ItemObject.ItemTiers throwingMinTier, ItemObject.ItemTiers throwingMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
+                        ItemObject throwing1 = SelectWeaponByType(cultureId, throwingMinTier, throwingMaxTier, loadout.ThrowingType, isMounted, includeNeutralItems);
                         if (throwing1 != null)
                         {
                             equipment[EquipmentIndex.Weapon2] = new EquipmentElement(throwing1);
@@ -568,7 +601,9 @@ namespace Bannerlord.GameMaster.Items
                     // Slot 1 - Shield if allowed
                     if (loadout.IncludeShield)
                     {
-                        ItemObject shield = SelectShield(cultureId, minTier, maxTier, includeNeutralItems);
+                        (ItemObject.ItemTiers shieldMinTier, ItemObject.ItemTiers shieldMaxTier) =
+                            CalculateExpandedTierRange(minTier, maxTier);
+                        ItemObject shield = SelectShield(cultureId, shieldMinTier, shieldMaxTier, includeNeutralItems);
                         if (shield != null)
                         {
                             equipment[EquipmentIndex.Weapon1] = new EquipmentElement(shield);
@@ -576,7 +611,9 @@ namespace Bannerlord.GameMaster.Items
                     }
 
                     // Slot 2-3 - Throwing weapons (MUST be same type for both slots)
-                    ItemObject throwing1 = SelectWeaponByType(cultureId, minTier, maxTier, loadout.ThrowingType, isMounted, includeNeutralItems);
+                    (ItemObject.ItemTiers throwingMinTier, ItemObject.ItemTiers throwingMaxTier) =
+                        CalculateExpandedTierRange(minTier, maxTier);
+                    ItemObject throwing1 = SelectWeaponByType(cultureId, throwingMinTier, throwingMaxTier, loadout.ThrowingType, isMounted, includeNeutralItems);
                     if (throwing1 != null)
                     {
                         equipment[EquipmentIndex.Weapon2] = new EquipmentElement(throwing1);
@@ -600,6 +637,7 @@ namespace Bannerlord.GameMaster.Items
         /// Enforces sidearm requirement when polearm is primary.
         /// Uses specialized polearm selection to ensure mounted heroes get couchable polearms
         /// and infantry heroes get braceable polearms.
+        /// Each weapon slot gets independent tier expansion roll (70% no change, 20% +/-1, 10% +/-2).
         /// </summary>
         private void FillMeleeOnlyLoadout(
             Equipment equipment,
@@ -616,16 +654,18 @@ namespace Bannerlord.GameMaster.Items
 
             // Slot 0 - Primary melee weapon
             // For polearms, use specialized selection based on mounted vs infantry
+            (ItemObject.ItemTiers primaryMinTier, ItemObject.ItemTiers primaryMaxTier) =
+                CalculateExpandedTierRange(minTier, maxTier);
             ItemObject primaryMelee;
             if (isPolearmPrimary)
             {
                 primaryMelee = isMounted
-                    ? SelectPolearmForMounted(cultureId, minTier, maxTier, includeNeutralItems)
-                    : SelectPolearmForInfantry(cultureId, minTier, maxTier, includeNeutralItems);
+                    ? SelectPolearmForMounted(cultureId, primaryMinTier, primaryMaxTier, includeNeutralItems)
+                    : SelectPolearmForInfantry(cultureId, primaryMinTier, primaryMaxTier, includeNeutralItems);
             }
             else
             {
-                primaryMelee = SelectWeaponByType(cultureId, minTier, maxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
+                primaryMelee = SelectWeaponByType(cultureId, primaryMinTier, primaryMaxTier, loadout.PrimaryMeleeType, isMounted, includeNeutralItems);
             }
 
             bool hasPrimaryWeapon = false;
@@ -642,7 +682,9 @@ namespace Bannerlord.GameMaster.Items
             else
             {
                 // FALLBACK: If no primary weapon found, try to get ANY one-handed weapon as fallback
-                ItemObject fallbackWeapon = SelectSidearmWeapon(cultureId, minTier, maxTier, isMounted, includeNeutralItems);
+                (ItemObject.ItemTiers fallbackMinTier, ItemObject.ItemTiers fallbackMaxTier) =
+                    CalculateExpandedTierRange(minTier, maxTier);
+                ItemObject fallbackWeapon = SelectSidearmWeapon(cultureId, fallbackMinTier, fallbackMaxTier, isMounted, includeNeutralItems);
                 if (fallbackWeapon != null)
                 {
                     equipment[EquipmentIndex.Weapon0] = new EquipmentElement(fallbackWeapon);
@@ -656,7 +698,9 @@ namespace Bannerlord.GameMaster.Items
             // Sidearm is handled separately - shield and sidearm are NOT mutually exclusive for polearm users
             if (hasPrimaryWeapon && loadout.IncludeShield && !loadout.IsTwoHanded)
             {
-                ItemObject shield = SelectShield(cultureId, minTier, maxTier, includeNeutralItems);
+                (ItemObject.ItemTiers shieldMinTier, ItemObject.ItemTiers shieldMaxTier) =
+                    CalculateExpandedTierRange(minTier, maxTier);
+                ItemObject shield = SelectShield(cultureId, shieldMinTier, shieldMaxTier, includeNeutralItems);
                 if (shield != null)
                 {
                     equipment[EquipmentIndex.Weapon1] = new EquipmentElement(shield);
@@ -667,7 +711,9 @@ namespace Bannerlord.GameMaster.Items
             // Or if no shield was added in slot 1, put sidearm there instead
             if (hasPrimaryWeapon && isPolearmPrimary)
             {
-                ItemObject sidearm = SelectSidearmWeapon(cultureId, minTier, maxTier, isMounted, includeNeutralItems);
+                (ItemObject.ItemTiers sidearmMinTier, ItemObject.ItemTiers sidearmMaxTier) =
+                    CalculateExpandedTierRange(minTier, maxTier);
+                ItemObject sidearm = SelectSidearmWeapon(cultureId, sidearmMinTier, sidearmMaxTier, isMounted, includeNeutralItems);
                 if (sidearm != null)
                 {
                     // Put sidearm in slot 2 if we have a shield in slot 1, otherwise slot 1
@@ -685,16 +731,20 @@ namespace Bannerlord.GameMaster.Items
             {
                 // Non-polearm primary - add a polearm as backup in slot 2
                 // Use specialized polearm selection based on mounted vs infantry
+                (ItemObject.ItemTiers polearmMinTier, ItemObject.ItemTiers polearmMaxTier) =
+                    CalculateExpandedTierRange(minTier, maxTier);
                 ItemObject polearm = isMounted
-                    ? SelectPolearmForMounted(cultureId, minTier, maxTier, includeNeutralItems)
-                    : SelectPolearmForInfantry(cultureId, minTier, maxTier, includeNeutralItems);
+                    ? SelectPolearmForMounted(cultureId, polearmMinTier, polearmMaxTier, includeNeutralItems)
+                    : SelectPolearmForInfantry(cultureId, polearmMinTier, polearmMaxTier, includeNeutralItems);
 
                 if (polearm != null)
                 {
                     equipment[EquipmentIndex.Weapon2] = new EquipmentElement(polearm);
 
                     // Slot 3 - SIDEARM REQUIRED since we added a polearm
-                    ItemObject sidearm = SelectSidearmWeapon(cultureId, minTier, maxTier, isMounted, includeNeutralItems);
+                    (ItemObject.ItemTiers sidearmMinTier, ItemObject.ItemTiers sidearmMaxTier) =
+                        CalculateExpandedTierRange(minTier, maxTier);
+                    ItemObject sidearm = SelectSidearmWeapon(cultureId, sidearmMinTier, sidearmMaxTier, isMounted, includeNeutralItems);
                     if (sidearm != null)
                     {
                         equipment[EquipmentIndex.Weapon3] = new EquipmentElement(sidearm);
@@ -1001,10 +1051,74 @@ namespace Bannerlord.GameMaster.Items
 
         #endregion
 
+        /// MARK: CalculateExpandedTierRange
+        /// <summary>
+        /// Calculates expanded tier range for a single equipment slot.
+        /// Performs one roll to determine tier expansion:
+        /// - 70% chance: no change
+        /// - 20% chance: expand max tier by +1, expand min tier by -1
+        /// - 10% chance: expand max tier by +2, expand min tier by -2
+        ///
+        /// Max tier of 6 is treated as unlimited (no cap).
+        /// Min tier cannot go below 0 (Tier0).
+        /// </summary>
+        /// <param name="baseMinTier">The base minimum tier from level calculation.</param>
+        /// <param name="baseMaxTier">The base maximum tier from level calculation.</param>
+        /// <returns>Tuple of (expandedMinTier, expandedMaxTier).</returns>
+        private (ItemObject.ItemTiers expandedMinTier, ItemObject.ItemTiers expandedMaxTier) CalculateExpandedTierRange(
+            ItemObject.ItemTiers baseMinTier,
+            ItemObject.ItemTiers baseMaxTier)
+        {
+            int roll = _random.NextRandomInt(100);
+
+            int tierExpansion;
+            if (roll < 70)
+            {
+                // 70% chance: no expansion
+                tierExpansion = 0;
+            }
+            else if (roll < 90)
+            {
+                // 20% chance: expand by 1
+                tierExpansion = 1;
+            }
+            else
+            {
+                // 10% chance: expand by 2
+                tierExpansion = 2;
+            }
+
+            // Calculate expanded max tier
+            // If base max tier is Tier6, treat as no limit (use Tier6 as max regardless)
+            int newMaxTier;
+            if (baseMaxTier == ItemObject.ItemTiers.Tier6)
+            {
+                // No limit - keep at Tier6 (highest native tier, mods may add higher)
+                newMaxTier = (int)ItemObject.ItemTiers.Tier6;
+            }
+            else
+            {
+                newMaxTier = (int)baseMaxTier + tierExpansion;
+                // Cap at Tier6 for native items (mods may exceed this)
+                if (newMaxTier > (int)ItemObject.ItemTiers.Tier6)
+                    newMaxTier = (int)ItemObject.ItemTiers.Tier6;
+            }
+
+            // Calculate expanded min tier
+            int newMinTier = (int)baseMinTier - tierExpansion;
+            // Cannot go below Tier0
+            if (newMinTier < 0)
+                newMinTier = 0;
+
+            return ((ItemObject.ItemTiers)newMinTier, (ItemObject.ItemTiers)newMaxTier);
+        }
+
         /// MARK: FillArmorSlots
         /// <summary>
         /// Fills armor slots 5-9 (Head, Cape, Body, Gloves, Boots).
         /// For the Head slot, applies crown restrictions based on ruling clan membership.
+        /// Cape slot has gender-specific empty chance (80% male, 50% female).
+        /// Each slot gets independent tier expansion roll (70% no change, 20% +/-1, 10% +/-2).
         /// </summary>
         /// <param name="equipment">The equipment to fill.</param>
         /// <param name="culture">The culture to use for item selection.</param>
@@ -1039,18 +1153,32 @@ namespace Bannerlord.GameMaster.Items
 
             foreach (EquipmentIndex slot in armorSlots)
             {
+                // STEP 1: Cape empty chance check (before tier expansion)
+                if (slot == EquipmentIndex.Cape)
+                {
+                    int capeEquipChance = isFemale ? FemaleBattleCapeEquipChance : MaleBattleCapeEquipChance;
+                    if (_random.NextRandomInt(100) >= capeEquipChance)
+                    {
+                        continue; // Leave cape slot empty
+                    }
+                }
+
+                // STEP 2: Calculate expanded tier range for this slot
+                (ItemObject.ItemTiers slotMinTier, ItemObject.ItemTiers slotMaxTier) =
+                    CalculateExpandedTierRange(minTier, maxTier);
+
+                // STEP 3: Select armor using expanded tiers
                 ItemObject armor;
-                
                 if (slot == EquipmentIndex.Head)
                 {
                     // Use specialized head armor selection with crown restrictions
-                    armor = SelectBattleHeadArmor(cultureId, minTier, maxTier, heroLevel, isFemale, isRulingClanMember, includeNeutralItems);
+                    armor = SelectBattleHeadArmor(cultureId, slotMinTier, slotMaxTier, heroLevel, isFemale, isRulingClanMember, includeNeutralItems);
                 }
                 else
                 {
-                    armor = SelectArmorBySlot(cultureId, minTier, maxTier, slot, heroLevel, isFemale, includeNeutralItems);
+                    armor = SelectArmorBySlot(cultureId, slotMinTier, slotMaxTier, slot, heroLevel, isFemale, includeNeutralItems);
                 }
-                
+
                 if (armor != null)
                 {
                     equipment[slot] = new EquipmentElement(armor);
@@ -1995,6 +2123,7 @@ namespace Bannerlord.GameMaster.Items
         /// Generates a complete civilian equipment set for a hero using roster-based item pools.
         /// Items are extracted directly from game equipment rosters based on their EquipmentFlags,
         /// providing more authentic and culture-appropriate civilian outfits.
+        /// Each armor slot has a 20% chance to get +1 appearance bonus for higher quality items.
         ///
         /// Slot selection rules:
         /// - Body: 100% (always equip)
@@ -2002,7 +2131,7 @@ namespace Bannerlord.GameMaster.Items
         /// - Cape: 50% chance
         /// - Gloves: Females 10%, Males 100%
         /// - Legs: 100% (always equip)
-        /// - Weapon0: Males only (one civilian melee weapon)
+        /// - Weapon0: Males only (one civilian melee weapon, no appearance bonus)
         /// </summary>
         /// <param name="hero">The hero to generate equipment for (used for crown eligibility).</param>
         /// <param name="culture">The culture to use for item selection. If null, uses fallback items.</param>
@@ -2031,8 +2160,9 @@ namespace Bannerlord.GameMaster.Items
             // Check if hero is in ruling clan (affects crown eligibility)
             bool isRulingClanMember = ItemValidation.IsRulingClanMember(hero);
 
-            // MARK: Body - 100%
-            ItemObject bodyItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Body, isRulingClanMember);
+            // MARK: Body - 100% (with 20% chance for +1 appearance bonus)
+            int bodyAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
+            ItemObject bodyItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Body, isRulingClanMember, bodyAppearanceBonus);
             if (bodyItem != null)
             {
                 equipment[EquipmentIndex.Body] = new EquipmentElement(bodyItem);
@@ -2050,42 +2180,47 @@ namespace Bannerlord.GameMaster.Items
             }
             else if (_random.NextRandomInt(100) < 20)
             {
-                ItemObject headItem = _civilianPoolManager.GetRandomNonCrownHeadItem(cultureId, isFemale, isRulingClanMember);
+                // 20% chance for +1 appearance bonus on head items
+                int headAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
+                ItemObject headItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Head, isRulingClanMember, headAppearanceBonus);
                 if (headItem != null)
                 {
                     equipment[EquipmentIndex.Head] = new EquipmentElement(headItem);
                 }
             }
 
-            // MARK: Cape - 50%
+            // MARK: Cape - 50% (with 20% chance for +1 appearance bonus)
             if (_random.NextRandomInt(100) < 50)
             {
-                ItemObject capeItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Cape, isRulingClanMember);
+                int capeAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
+                ItemObject capeItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Cape, isRulingClanMember, capeAppearanceBonus);
                 if (capeItem != null)
                 {
                     equipment[EquipmentIndex.Cape] = new EquipmentElement(capeItem);
                 }
             }
 
-            // MARK: Gloves - Females 10%, Males 100%
+            // MARK: Gloves - Females 10%, Males 100% (with 20% chance for +1 appearance bonus)
             int gloveChance = isFemale ? 10 : 100;
             if (_random.NextRandomInt(100) < gloveChance)
             {
-                ItemObject glovesItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Gloves, isRulingClanMember);
+                int glovesAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
+                ItemObject glovesItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Gloves, isRulingClanMember, glovesAppearanceBonus);
                 if (glovesItem != null)
                 {
                     equipment[EquipmentIndex.Gloves] = new EquipmentElement(glovesItem);
                 }
             }
 
-            // MARK: Legs - 100%
-            ItemObject legItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Leg, isRulingClanMember);
+            // MARK: Legs - 100% (with 20% chance for +1 appearance bonus)
+            int legAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
+            ItemObject legItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Leg, isRulingClanMember, legAppearanceBonus);
             if (legItem != null)
             {
                 equipment[EquipmentIndex.Leg] = new EquipmentElement(legItem);
             }
 
-            // MARK: Weapon - Males only (no appearance check needed for weapons)
+            // MARK: Weapon - Males only (no appearance bonus for weapons)
             if (!isFemale)
             {
                 ItemObject weaponItem = _civilianPoolManager.GetCivilianWeapon(cultureId);

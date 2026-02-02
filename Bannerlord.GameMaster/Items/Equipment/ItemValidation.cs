@@ -82,13 +82,13 @@ namespace Bannerlord.GameMaster.Items
         /// Minimum appearance value for standard civilian items.
         /// Items with Appearance > this value are considered suitable.
         /// </summary>
-        public const float MinimumCivilianAppearance = 0.49f;
+        public const float MinimumCivilianAppearance = 0.99f;
 
         /// <summary>
         /// Minimum appearance value for ruling clan members' civilian items.
         /// Items with Appearance > this value are considered suitable for royalty.
         /// </summary>
-        public const float MinimumRoyalAppearance = 0.99f;
+        public const float MinimumRoyalAppearance = 1.99f;
 
         /// <summary>
         /// Minimum appearance value for battle armor items.

@@ -495,8 +495,9 @@ namespace Bannerlord.GameMaster.Items
         /// <param name="isFemale">Whether the hero is female.</param>
         /// <param name="slot">The equipment slot.</param>
         /// <param name="isRulingClanMember">Whether the hero is a member of a ruling clan.</param>
+        /// <param name="appearanceBonus">Additional appearance requirement (0 or 1) for higher quality items.</param>
         /// <returns>A random item from the pool that meets appearance requirements, or null if none available.</returns>
-        public ItemObject GetRandomItem(string cultureId, bool isFemale, EquipmentIndex slot, bool isRulingClanMember = false)
+        public ItemObject GetRandomItem(string cultureId, bool isFemale, EquipmentIndex slot, bool isRulingClanMember = false, int appearanceBonus = 0)
         {
             EnsureInitialized();
 
@@ -509,10 +510,20 @@ namespace Bannerlord.GameMaster.Items
                 culturePools.TryGetValue(slot, out MBList<ItemObject> items) &&
                 items.Count > 0)
             {
-                // Filter by appearance
-                MBList<ItemObject> filteredItems = FilterByAppearance(items, isRulingClanMember);
+                // Filter by appearance with optional bonus
+                MBList<ItemObject> filteredItems = appearanceBonus > 0
+                    ? FilterByAppearanceWithBonus(items, isRulingClanMember, appearanceBonus)
+                    : FilterByAppearance(items, isRulingClanMember);
                 if (filteredItems.Count > 0)
                     return SelectRandomItem(filteredItems);
+
+                // Fallback: standard appearance filter (without bonus)
+                if (appearanceBonus > 0)
+                {
+                    filteredItems = FilterByAppearance(items, isRulingClanMember);
+                    if (filteredItems.Count > 0)
+                        return SelectRandomItem(filteredItems);
+                }
 
                 // Fallback: no appearance filter
                 return SelectRandomItem(items);
@@ -525,10 +536,20 @@ namespace Bannerlord.GameMaster.Items
             if (fallbackPools.TryGetValue(slot, out MBList<ItemObject> fallbackItems) &&
                 fallbackItems.Count > 0)
             {
-                // Filter by appearance
-                MBList<ItemObject> filteredFallback = FilterByAppearance(fallbackItems, isRulingClanMember);
+                // Filter by appearance with optional bonus
+                MBList<ItemObject> filteredFallback = appearanceBonus > 0
+                    ? FilterByAppearanceWithBonus(fallbackItems, isRulingClanMember, appearanceBonus)
+                    : FilterByAppearance(fallbackItems, isRulingClanMember);
                 if (filteredFallback.Count > 0)
                     return SelectRandomItem(filteredFallback);
+
+                // Fallback: standard appearance filter (without bonus)
+                if (appearanceBonus > 0)
+                {
+                    filteredFallback = FilterByAppearance(fallbackItems, isRulingClanMember);
+                    if (filteredFallback.Count > 0)
+                        return SelectRandomItem(filteredFallback);
+                }
 
                 // Fallback: no appearance filter
                 return SelectRandomItem(fallbackItems);
@@ -706,6 +727,29 @@ namespace Bannerlord.GameMaster.Items
             for (int i = 0; i < items.Count; i++)
             {
                 if (ItemValidation.MeetsCivilianAppearanceRequirement(items[i], isRulingClanMember))
+                    filtered.Add(items[i]);
+            }
+            return filtered;
+        }
+
+        /// MARK: FilterByAppearanceWithBonus
+        /// <summary>
+        /// Filters items by civilian appearance requirements with an optional appearance bonus.
+        /// Used to select higher quality items (20% chance per slot in civilian equipment).
+        /// </summary>
+        /// <param name="items">The list of items to filter.</param>
+        /// <param name="isRulingClanMember">Whether the hero is a member of a ruling clan.</param>
+        /// <param name="appearanceBonus">Additional appearance requirement (0 or 1).</param>
+        /// <returns>A new list containing only items meeting the boosted appearance requirements.</returns>
+        private MBList<ItemObject> FilterByAppearanceWithBonus(MBList<ItemObject> items, bool isRulingClanMember, int appearanceBonus)
+        {
+            float baseThreshold = isRulingClanMember ? ItemValidation.MinimumRoyalAppearance : ItemValidation.MinimumCivilianAppearance;
+            float effectiveThreshold = baseThreshold + appearanceBonus;
+
+            MBList<ItemObject> filtered = new();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Appearance > effectiveThreshold)
                     filtered.Add(items[i]);
             }
             return filtered;
