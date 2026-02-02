@@ -346,7 +346,7 @@ namespace Bannerlord.GameMaster.Items
                     continue;
 
                 // Extract armor items
-                ExtractArmorFromEquipment(equipment, cultureId, targetPools, targetCrownPools, fallbackPools, fallbackCrowns);
+                ExtractArmorFromEquipment(equipment, cultureId, isFemale, targetPools, targetCrownPools, fallbackPools, fallbackCrowns);
 
                 // Extract weapons (only for male pools since females don't carry civilian weapons)
                 if (!isFemale)
@@ -359,10 +359,13 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: ExtractArmorFromEquipment
         /// <summary>
         /// Extracts armor items from a single equipment set.
+        /// Filters items by gender suitability to prevent female-only items (e.g., "Ladies Shoes")
+        /// from being added to male pools.
         /// </summary>
         private void ExtractArmorFromEquipment(
             Equipment equipment,
             string cultureId,
+            bool isFemale,
             Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> targetPools,
             Dictionary<string, MBList<ItemObject>> crownPools,
             Dictionary<EquipmentIndex, MBList<ItemObject>> fallbackPools,
@@ -386,6 +389,10 @@ namespace Bannerlord.GameMaster.Items
 
                 ItemObject item = element.Item;
                 if (item == null)
+                    continue;
+
+                // Filter out gender-inappropriate items (e.g., "Ladies Shoes" from male pools)
+                if (!ItemValidation.IsArmorSuitableForGender(item, isFemale))
                     continue;
 
                 // Check if this is a crown

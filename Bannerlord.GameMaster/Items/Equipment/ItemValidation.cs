@@ -10,6 +10,14 @@ namespace Bannerlord.GameMaster.Items
     public static class ItemValidation
     {
         /// <summary>
+        /// StringIds that should be except from gender check and is compatibile for all genders
+        /// </summary>
+        private static readonly string[] genderExceptionStringIds = new[]
+        {
+            "desert_headdress",
+        };
+
+        /// <summary>
         /// Keywords that identify female-only items (case insensitive).
         /// Males cannot wear items containing these keywords in Name or StringId.
         /// </summary>
@@ -216,6 +224,13 @@ namespace Bannerlord.GameMaster.Items
         {
             if (item == null)
                 return false;
+
+            // Check gender exception item list
+            foreach (string genderException in genderExceptionStringIds)
+            {
+                if (item.StringId == genderException)
+                    return true;
+            }
 
             // Females can wear anything
             if (isFemale)
