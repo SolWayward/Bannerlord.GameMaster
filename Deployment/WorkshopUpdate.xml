@@ -5,13 +5,8 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.13.15
-Improved Generated Hero Equipment
-	Heroes now get equipment relating to their skills
-	Heroes no longer get any weapon sets that dont make sense
-    Heroes can also be equiped with items added from other mods
-Fixed Load Equipment command not loading modifiers
-Added commands to requip heroes gm.hero.equip_hero, gm.clan.equip_heroes, gm.kingdom.equip_heroes"
+"v1.3.13.16
+Improved Hero Gear Selection"
         />
         <Tags>
             <Tag Value="Utility" />
