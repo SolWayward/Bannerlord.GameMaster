@@ -7,7 +7,7 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update v1.3.13.15
+## Latest Update v1.3.13.16
 ```
 Fixed Hero Skills
 Improved Generated Hero Equipment
