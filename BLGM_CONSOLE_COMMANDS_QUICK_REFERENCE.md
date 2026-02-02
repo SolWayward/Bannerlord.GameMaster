@@ -1,4 +1,4 @@
-# BLGM Console Commands Reference
+# BLGM Console Commands Reference (Out of date by a few versions)
 
 A comprehensive reference for BLGM's 100+ console commands with 3-level path structure (gm.category.command). This document covers command infrastructure, all available commands organized by category, common patterns, and practical examples.
 

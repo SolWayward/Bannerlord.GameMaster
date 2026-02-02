@@ -1,4 +1,4 @@
-# Bannerlord.GameMaster - API Quick Reference
+# Bannerlord.GameMaster - API Quick Reference (Out of date by a few versions)
 
 Complete API documentation for the BLGM framework. This reference covers all major systems, extensions, and utilities for interacting with and managing game state in Mount & Blade II: Bannerlord.
 
