@@ -16,6 +16,10 @@
 # Mono auto generated files
 mono_crash.*
 
+# DocFX generated files
+.docfx/api/
+.docfx/API_Docs/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

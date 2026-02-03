@@ -1,0 +1,6 @@
+- name: Home
+  href: index.md
+- name: Developer API Reference
+  href: api/
+- name: User Command Documentation
+  href: https://github.com/SolWayward/Bannerlord.GameMaster/wiki

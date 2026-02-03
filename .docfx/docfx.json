@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "..", 
+          "files": [
+            "**/*.csproj"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "Examples/**",
+            ".docfx/**" 
+          ]
+        }
+      ],
+      "output": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md",
+          "*.md",
+          "toc.yml"
+        ],
+        "exclude": [
+          "_site/**",
+          "API_Docs/**",
+          "Examples/**",
+          "**/bin/**",
+          "**/obj/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**",
+          "logo.svg"
+        ]
+      }
+    ],
+  "output": "API_Docs",
+  "template": [
+  "default",
+  "modern",
+  "templates/custom"
+    ],
+    "globalMetadata": {
+      "_appName": "Bannerlord GameMaster",
+      "_appTitle": "Bannerlord GameMaster Docs",
+      "_enableSearch": true,
+      "pdf": false
+    }
+  }
+}
