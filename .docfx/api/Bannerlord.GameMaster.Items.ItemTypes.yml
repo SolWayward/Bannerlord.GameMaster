@@ -1,0 +1,778 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.ItemTypes
+  commentId: T:Bannerlord.GameMaster.Items.ItemTypes
+  id: ItemTypes
+  parent: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.ItemTypes.Armor
+  - Bannerlord.GameMaster.Items.ItemTypes.Arrows
+  - Bannerlord.GameMaster.Items.ItemTypes.Banner
+  - Bannerlord.GameMaster.Items.ItemTypes.BodyArmor
+  - Bannerlord.GameMaster.Items.ItemTypes.Bolts
+  - Bannerlord.GameMaster.Items.ItemTypes.Bow
+  - Bannerlord.GameMaster.Items.ItemTypes.Cape
+  - Bannerlord.GameMaster.Items.ItemTypes.CivilianEquipment
+  - Bannerlord.GameMaster.Items.ItemTypes.Combat
+  - Bannerlord.GameMaster.Items.ItemTypes.Crossbow
+  - Bannerlord.GameMaster.Items.ItemTypes.Food
+  - Bannerlord.GameMaster.Items.ItemTypes.Goods
+  - Bannerlord.GameMaster.Items.ItemTypes.HandArmor
+  - Bannerlord.GameMaster.Items.ItemTypes.HeadArmor
+  - Bannerlord.GameMaster.Items.ItemTypes.HorseArmor
+  - Bannerlord.GameMaster.Items.ItemTypes.LegArmor
+  - Bannerlord.GameMaster.Items.ItemTypes.Mount
+  - Bannerlord.GameMaster.Items.ItemTypes.None
+  - Bannerlord.GameMaster.Items.ItemTypes.OneHanded
+  - Bannerlord.GameMaster.Items.ItemTypes.Polearm
+  - Bannerlord.GameMaster.Items.ItemTypes.Ranged
+  - Bannerlord.GameMaster.Items.ItemTypes.Shield
+  - Bannerlord.GameMaster.Items.ItemTypes.Thrown
+  - Bannerlord.GameMaster.Items.ItemTypes.Trade
+  - Bannerlord.GameMaster.Items.ItemTypes.TwoHanded
+  - Bannerlord.GameMaster.Items.ItemTypes.Weapon
+  langs:
+  - csharp
+  - vb
+  name: ItemTypes
+  nameWithType: ItemTypes
+  fullName: Bannerlord.GameMaster.Items.ItemTypes
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ItemTypes
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 6
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum ItemTypes
+    content.vb: >-
+      <Flags>
+
+      Public Enum ItemTypes
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Items.ItemTypes.None
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.None
+  id: None
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ItemTypes.None
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Weapon
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Weapon
+  id: Weapon
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Weapon
+  nameWithType: ItemTypes.Weapon
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Weapon
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Weapon
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Weapon = 1
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Armor
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Armor
+  id: Armor
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Armor
+  nameWithType: ItemTypes.Armor
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Armor
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Armor
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Armor = 2
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Mount
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Mount
+  id: Mount
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Mount
+  nameWithType: ItemTypes.Mount
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Mount
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Mount
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Mount = 4
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Food
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Food
+  id: Food
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Food
+  nameWithType: ItemTypes.Food
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Food
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Food
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Food = 8
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Trade
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Trade
+  id: Trade
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Trade
+  nameWithType: ItemTypes.Trade
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Trade
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Trade
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Trade = 16
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.OneHanded
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.OneHanded
+  id: OneHanded
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: OneHanded
+  nameWithType: ItemTypes.OneHanded
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.OneHanded
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OneHanded
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: OneHanded = 32
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.TwoHanded
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.TwoHanded
+  id: TwoHanded
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: TwoHanded
+  nameWithType: ItemTypes.TwoHanded
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.TwoHanded
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TwoHanded
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: TwoHanded = 64
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Ranged
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Ranged
+  id: Ranged
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Ranged
+  nameWithType: ItemTypes.Ranged
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Ranged
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Ranged
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Ranged = 128
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Shield
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Shield
+  id: Shield
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Shield
+  nameWithType: ItemTypes.Shield
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Shield
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Shield
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Shield = 256
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.HeadArmor
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.HeadArmor
+  id: HeadArmor
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: HeadArmor
+  nameWithType: ItemTypes.HeadArmor
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.HeadArmor
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeadArmor
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: HeadArmor = 512
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.BodyArmor
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.BodyArmor
+  id: BodyArmor
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: BodyArmor
+  nameWithType: ItemTypes.BodyArmor
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.BodyArmor
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BodyArmor
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: BodyArmor = 1024
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.LegArmor
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.LegArmor
+  id: LegArmor
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: LegArmor
+  nameWithType: ItemTypes.LegArmor
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.LegArmor
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LegArmor
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: LegArmor = 2048
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.HandArmor
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.HandArmor
+  id: HandArmor
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: HandArmor
+  nameWithType: ItemTypes.HandArmor
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.HandArmor
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HandArmor
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: HandArmor = 4096
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Cape
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Cape
+  id: Cape
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Cape
+  nameWithType: ItemTypes.Cape
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Cape
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Cape
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Cape = 8192
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Thrown
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Thrown
+  id: Thrown
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Thrown
+  nameWithType: ItemTypes.Thrown
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Thrown
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Thrown
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Thrown = 16384
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Arrows
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Arrows
+  id: Arrows
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Arrows
+  nameWithType: ItemTypes.Arrows
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Arrows
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Arrows
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Arrows = 32768
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Bolts
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Bolts
+  id: Bolts
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Bolts
+  nameWithType: ItemTypes.Bolts
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Bolts
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bolts
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Bolts = 65536
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Polearm
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Polearm
+  id: Polearm
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Polearm
+  nameWithType: ItemTypes.Polearm
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Polearm
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Polearm
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Polearm = 131072
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Banner
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Banner
+  id: Banner
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Banner
+  nameWithType: ItemTypes.Banner
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Banner
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Banner
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Banner = 262144
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Goods
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Goods
+  id: Goods
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Goods
+  nameWithType: ItemTypes.Goods
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Goods
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Goods
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Goods = 524288
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Bow
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Bow
+  id: Bow
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Bow
+  nameWithType: ItemTypes.Bow
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Bow
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bow
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Bow = 1048576
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Crossbow
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Crossbow
+  id: Crossbow
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Crossbow
+  nameWithType: ItemTypes.Crossbow
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Crossbow
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Crossbow
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Crossbow = 2097152
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.CivilianEquipment
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.CivilianEquipment
+  id: CivilianEquipment
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: CivilianEquipment
+  nameWithType: ItemTypes.CivilianEquipment
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.CivilianEquipment
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CivilianEquipment
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: CivilianEquipment = 4194304
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.Combat
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.Combat
+  id: Combat
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: Combat
+  nameWithType: ItemTypes.Combat
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.Combat
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Combat
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: Combat = 8388608
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemTypes.HorseArmor
+  commentId: F:Bannerlord.GameMaster.Items.ItemTypes.HorseArmor
+  id: HorseArmor
+  parent: Bannerlord.GameMaster.Items.ItemTypes
+  langs:
+  - csharp
+  - vb
+  name: HorseArmor
+  nameWithType: ItemTypes.HorseArmor
+  fullName: Bannerlord.GameMaster.Items.ItemTypes.HorseArmor
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HorseArmor
+    path: ../Bannerlord.GameMaster/Items/ItemExtensions.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: HorseArmor = 16777216
+    return:
+      type: Bannerlord.GameMaster.Items.ItemTypes
+references:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: Bannerlord.GameMaster.Items.ItemTypes
+  commentId: T:Bannerlord.GameMaster.Items.ItemTypes
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.ItemTypes.html
+  name: ItemTypes
+  nameWithType: ItemTypes
+  fullName: Bannerlord.GameMaster.Items.ItemTypes

@@ -1,0 +1,597 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  commentId: T:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  id: LoggingManager
+  parent: Bannerlord.GameMaster.Console.Common.Execution
+  children:
+  - Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.AutoStartEnabled
+  - Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.CurrentLogFilePath
+  - Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.DisableLogging
+  - Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging(System.String)
+  - Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.IsLoggingEnabled
+  - Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.TryAutoStart
+  langs:
+  - csharp
+  - vb
+  name: LoggingManager
+  nameWithType: LoggingManager
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoggingManager
+    path: ../Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Execution
+  summary: >-
+    Manages command logging lifecycle including auto-start configuration and enable/disable operations.
+
+    Provides a centralized interface for controlling the CommandLogger.
+  example: []
+  syntax:
+    content: public static class LoggingManager
+    content.vb: Public Module LoggingManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.AutoStartEnabled
+  commentId: P:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.AutoStartEnabled
+  id: AutoStartEnabled
+  parent: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  langs:
+  - csharp
+  - vb
+  name: AutoStartEnabled
+  nameWithType: LoggingManager.AutoStartEnabled
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.AutoStartEnabled
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AutoStartEnabled
+    path: ../Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Execution
+  summary: >-
+    Controls whether logging should automatically start when a campaign is loaded.
+
+    Set to true for auto-start, false to require manual enable via console command.
+  example: []
+  syntax:
+    content: public static bool AutoStartEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Property AutoStartEnabled As Boolean
+  overload: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.AutoStartEnabled*
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging(System.String)
+  commentId: M:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging(System.String)
+  id: EnableLogging(System.String)
+  parent: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  langs:
+  - csharp
+  - vb
+  name: EnableLogging(string)
+  nameWithType: LoggingManager.EnableLogging(string)
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EnableLogging
+    path: ../Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Execution
+  summary: >-
+    Enables command logging with optional custom path.
+
+    Initializes the CommandLogger if not already initialized.
+  example: []
+  syntax:
+    content: public static LoggingResult EnableLogging(string customPath = null)
+    parameters:
+    - id: customPath
+      type: System.String
+      description: Optional custom directory path for log files
+    return:
+      type: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+      description: Result containing success status and message
+    content.vb: Public Shared Function EnableLogging(customPath As String = Nothing) As LoggingResult
+  overload: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging*
+  nameWithType.vb: LoggingManager.EnableLogging(String)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging(String)
+  name.vb: EnableLogging(String)
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.DisableLogging
+  commentId: M:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.DisableLogging
+  id: DisableLogging
+  parent: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  langs:
+  - csharp
+  - vb
+  name: DisableLogging()
+  nameWithType: LoggingManager.DisableLogging()
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.DisableLogging()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DisableLogging
+    path: ../Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+    startLine: 53
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Execution
+  summary: Disables command logging and flushes any pending entries.
+  example: []
+  syntax:
+    content: public static LoggingResult DisableLogging()
+    return:
+      type: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+      description: Result containing success status and message
+    content.vb: Public Shared Function DisableLogging() As LoggingResult
+  overload: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.DisableLogging*
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.TryAutoStart
+  commentId: M:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.TryAutoStart
+  id: TryAutoStart
+  parent: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  langs:
+  - csharp
+  - vb
+  name: TryAutoStart()
+  nameWithType: LoggingManager.TryAutoStart()
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.TryAutoStart()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TryAutoStart
+    path: ../Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+    startLine: 79
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Execution
+  summary: >-
+    Attempts to auto-start logging if AutoStartEnabled is true.
+
+    Should be called during campaign load (OnGameLoaded or OnSessionLaunched).
+  example: []
+  syntax:
+    content: public static void TryAutoStart()
+    content.vb: Public Shared Sub TryAutoStart()
+  overload: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.TryAutoStart*
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.IsLoggingEnabled
+  commentId: P:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.IsLoggingEnabled
+  id: IsLoggingEnabled
+  parent: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  langs:
+  - csharp
+  - vb
+  name: IsLoggingEnabled
+  nameWithType: LoggingManager.IsLoggingEnabled
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.IsLoggingEnabled
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsLoggingEnabled
+    path: ../Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+    startLine: 103
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Execution
+  summary: Gets whether logging is currently enabled.
+  example: []
+  syntax:
+    content: public static bool IsLoggingEnabled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared ReadOnly Property IsLoggingEnabled As Boolean
+  overload: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.IsLoggingEnabled*
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.CurrentLogFilePath
+  commentId: P:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.CurrentLogFilePath
+  id: CurrentLogFilePath
+  parent: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  langs:
+  - csharp
+  - vb
+  name: CurrentLogFilePath
+  nameWithType: LoggingManager.CurrentLogFilePath
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.CurrentLogFilePath
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CurrentLogFilePath
+    path: ../Bannerlord.GameMaster/Console/Common/Execution/LoggingManager.cs
+    startLine: 108
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Execution
+  summary: Gets the current log file path, or null if not initialized.
+  example: []
+  syntax:
+    content: public static string CurrentLogFilePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property CurrentLogFilePath As String
+  overload: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.CurrentLogFilePath*
+references:
+- uid: Bannerlord.GameMaster.Console.Common.Execution
+  commentId: N:Bannerlord.GameMaster.Console.Common.Execution
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.Execution
+  nameWithType: Bannerlord.GameMaster.Console.Common.Execution
+  fullName: Bannerlord.GameMaster.Console.Common.Execution
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Execution
+    name: Execution
+    href: Bannerlord.GameMaster.Console.Common.Execution.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Execution
+    name: Execution
+    href: Bannerlord.GameMaster.Console.Common.Execution.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.AutoStartEnabled*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.AutoStartEnabled
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.html#Bannerlord_GameMaster_Console_Common_Execution_LoggingManager_AutoStartEnabled
+  name: AutoStartEnabled
+  nameWithType: LoggingManager.AutoStartEnabled
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.AutoStartEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.html#Bannerlord_GameMaster_Console_Common_Execution_LoggingManager_EnableLogging_System_String_
+  name: EnableLogging
+  nameWithType: LoggingManager.EnableLogging
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.EnableLogging
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+  commentId: T:Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+  parent: Bannerlord.GameMaster.Console.Common.Execution
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult.html
+  name: LoggingResult
+  nameWithType: LoggingResult
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.DisableLogging*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.DisableLogging
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.html#Bannerlord_GameMaster_Console_Common_Execution_LoggingManager_DisableLogging
+  name: DisableLogging
+  nameWithType: LoggingManager.DisableLogging
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.DisableLogging
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.TryAutoStart*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.TryAutoStart
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.html#Bannerlord_GameMaster_Console_Common_Execution_LoggingManager_TryAutoStart
+  name: TryAutoStart
+  nameWithType: LoggingManager.TryAutoStart
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.TryAutoStart
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.IsLoggingEnabled*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.IsLoggingEnabled
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.html#Bannerlord_GameMaster_Console_Common_Execution_LoggingManager_IsLoggingEnabled
+  name: IsLoggingEnabled
+  nameWithType: LoggingManager.IsLoggingEnabled
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.IsLoggingEnabled
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.CurrentLogFilePath*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.CurrentLogFilePath
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.html#Bannerlord_GameMaster_Console_Common_Execution_LoggingManager_CurrentLogFilePath
+  name: CurrentLogFilePath
+  nameWithType: LoggingManager.CurrentLogFilePath
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.CurrentLogFilePath

@@ -1,0 +1,1998 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager
+  commentId: T:Bannerlord.GameMaster.Items.ItemPoolManager
+  id: ItemPoolManager
+  parent: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.ItemPoolManager.AmmoPools
+  - Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsByCulture
+  - Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsBySlot
+  - Bannerlord.GameMaster.Items.ItemPoolManager.BannerPoolsByCulture
+  - Bannerlord.GameMaster.Items.ItemPoolManager.Clear
+  - Bannerlord.GameMaster.Items.ItemPoolManager.HarnessPoolsByCulture
+  - Bannerlord.GameMaster.Items.ItemPoolManager.HorsePoolsByCulture
+  - Bannerlord.GameMaster.Items.ItemPoolManager.Initialize
+  - Bannerlord.GameMaster.Items.ItemPoolManager.Instance
+  - Bannerlord.GameMaster.Items.ItemPoolManager.IsInitialized
+  - Bannerlord.GameMaster.Items.ItemPoolManager.NeutralArmorPools
+  - Bannerlord.GameMaster.Items.ItemPoolManager.NeutralBannerPool
+  - Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHarnessPools
+  - Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHorsePools
+  - Bannerlord.GameMaster.Items.ItemPoolManager.NeutralShieldPools
+  - Bannerlord.GameMaster.Items.ItemPoolManager.NeutralWeaponPools
+  - Bannerlord.GameMaster.Items.ItemPoolManager.Reinitialize
+  - Bannerlord.GameMaster.Items.ItemPoolManager.ShieldPoolsByCulture
+  - Bannerlord.GameMaster.Items.ItemPoolManager.TotalItemsProcessed
+  - Bannerlord.GameMaster.Items.ItemPoolManager.ValidItemsAdded
+  - Bannerlord.GameMaster.Items.ItemPoolManager.WeaponPoolsByCulture
+  langs:
+  - csharp
+  - vb
+  name: ItemPoolManager
+  nameWithType: ItemPoolManager
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ItemPoolManager
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Singleton manager that maintains categorized pools of game items for equipment generation.
+
+    Pools are organized by culture, tier, weapon type, armor type, and other relevant categories.
+  example: []
+  syntax:
+    content: public sealed class ItemPoolManager
+    content.vb: Public NotInheritable Class ItemPoolManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.Instance
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.Instance
+  id: Instance
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: ItemPoolManager.Instance
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.Instance
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Instance
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the singleton instance of the ItemPoolManager.
+  example: []
+  syntax:
+    content: public static ItemPoolManager Instance { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Items.ItemPoolManager
+    content.vb: Public Shared ReadOnly Property Instance As ItemPoolManager
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.Instance*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.IsInitialized
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.IsInitialized
+  id: IsInitialized
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: IsInitialized
+  nameWithType: ItemPoolManager.IsInitialized
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.IsInitialized
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsInitialized
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets whether the item pools have been initialized.
+  example: []
+  syntax:
+    content: public bool IsInitialized { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInitialized As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.IsInitialized*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.TotalItemsProcessed
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.TotalItemsProcessed
+  id: TotalItemsProcessed
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: TotalItemsProcessed
+  nameWithType: ItemPoolManager.TotalItemsProcessed
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.TotalItemsProcessed
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TotalItemsProcessed
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 107
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the total number of items processed during initialization.
+  example: []
+  syntax:
+    content: public int TotalItemsProcessed { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TotalItemsProcessed As Integer
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.TotalItemsProcessed*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.ValidItemsAdded
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.ValidItemsAdded
+  id: ValidItemsAdded
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: ValidItemsAdded
+  nameWithType: ItemPoolManager.ValidItemsAdded
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.ValidItemsAdded
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ValidItemsAdded
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 112
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the number of valid items added to pools.
+  example: []
+  syntax:
+    content: public int ValidItemsAdded { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ValidItemsAdded As Integer
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.ValidItemsAdded*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.WeaponPoolsByCulture
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.WeaponPoolsByCulture
+  id: WeaponPoolsByCulture
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: WeaponPoolsByCulture
+  nameWithType: ItemPoolManager.WeaponPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.WeaponPoolsByCulture
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: WeaponPoolsByCulture
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 117
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the weapon pools organized by culture, tier, and weapon type.
+  example: []
+  syntax:
+    content: public Dictionary<string, Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>>> WeaponPoolsByCulture { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+    content.vb: Public ReadOnly Property WeaponPoolsByCulture As Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject))))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.WeaponPoolsByCulture*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralWeaponPools
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralWeaponPools
+  id: NeutralWeaponPools
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: NeutralWeaponPools
+  nameWithType: ItemPoolManager.NeutralWeaponPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralWeaponPools
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NeutralWeaponPools
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 122
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the neutral weapon pools (no culture restriction) organized by tier and weapon type.
+  example: []
+  syntax:
+    content: public Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>> NeutralWeaponPools { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+    content.vb: Public ReadOnly Property NeutralWeaponPools As Dictionary(Of Integer, Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject)))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralWeaponPools*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsByCulture
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsByCulture
+  id: ArmorPoolsByCulture
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: ArmorPoolsByCulture
+  nameWithType: ItemPoolManager.ArmorPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsByCulture
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ArmorPoolsByCulture
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 127
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the armor pools organized by culture, tier, and material type.
+  example: []
+  syntax:
+    content: public Dictionary<string, Dictionary<int, Dictionary<ArmorComponent.ArmorMaterialTypes, MBList<ItemObject>>>> ArmorPoolsByCulture { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.ArmorComponent.ArmorMaterialTypes,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+    content.vb: Public ReadOnly Property ArmorPoolsByCulture As Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of ArmorComponent.ArmorMaterialTypes, MBList(Of ItemObject))))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsByCulture*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsBySlot
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsBySlot
+  id: ArmorPoolsBySlot
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: ArmorPoolsBySlot
+  nameWithType: ItemPoolManager.ArmorPoolsBySlot
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsBySlot
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ArmorPoolsBySlot
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 132
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the armor pools organized by culture, tier, and equipment slot.
+  example: []
+  syntax:
+    content: public Dictionary<string, Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>>> ArmorPoolsBySlot { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.EquipmentIndex,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+    content.vb: Public ReadOnly Property ArmorPoolsBySlot As Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of EquipmentIndex, MBList(Of ItemObject))))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsBySlot*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralArmorPools
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralArmorPools
+  id: NeutralArmorPools
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: NeutralArmorPools
+  nameWithType: ItemPoolManager.NeutralArmorPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralArmorPools
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NeutralArmorPools
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 137
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the neutral armor pools (no culture restriction) organized by tier and slot.
+  example: []
+  syntax:
+    content: public Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>> NeutralArmorPools { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.EquipmentIndex,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+    content.vb: Public ReadOnly Property NeutralArmorPools As Dictionary(Of Integer, Dictionary(Of EquipmentIndex, MBList(Of ItemObject)))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralArmorPools*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.HorsePoolsByCulture
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.HorsePoolsByCulture
+  id: HorsePoolsByCulture
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: HorsePoolsByCulture
+  nameWithType: ItemPoolManager.HorsePoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.HorsePoolsByCulture
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HorsePoolsByCulture
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 142
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the horse pools organized by culture and tier.
+  example: []
+  syntax:
+    content: public Dictionary<string, Dictionary<int, MBList<ItemObject>>> HorsePoolsByCulture { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+    content.vb: Public ReadOnly Property HorsePoolsByCulture As Dictionary(Of String, Dictionary(Of Integer, MBList(Of ItemObject)))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.HorsePoolsByCulture*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.HarnessPoolsByCulture
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.HarnessPoolsByCulture
+  id: HarnessPoolsByCulture
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: HarnessPoolsByCulture
+  nameWithType: ItemPoolManager.HarnessPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.HarnessPoolsByCulture
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HarnessPoolsByCulture
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 147
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the harness pools organized by culture and tier.
+  example: []
+  syntax:
+    content: public Dictionary<string, Dictionary<int, MBList<ItemObject>>> HarnessPoolsByCulture { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+    content.vb: Public ReadOnly Property HarnessPoolsByCulture As Dictionary(Of String, Dictionary(Of Integer, MBList(Of ItemObject)))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.HarnessPoolsByCulture*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHorsePools
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHorsePools
+  id: NeutralHorsePools
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: NeutralHorsePools
+  nameWithType: ItemPoolManager.NeutralHorsePools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHorsePools
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NeutralHorsePools
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 152
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the neutral horse pools organized by tier.
+  example: []
+  syntax:
+    content: public Dictionary<int, MBList<ItemObject>> NeutralHorsePools { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+    content.vb: Public ReadOnly Property NeutralHorsePools As Dictionary(Of Integer, MBList(Of ItemObject))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHorsePools*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHarnessPools
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHarnessPools
+  id: NeutralHarnessPools
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: NeutralHarnessPools
+  nameWithType: ItemPoolManager.NeutralHarnessPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHarnessPools
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NeutralHarnessPools
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 157
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the neutral harness pools organized by tier.
+  example: []
+  syntax:
+    content: public Dictionary<int, MBList<ItemObject>> NeutralHarnessPools { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+    content.vb: Public ReadOnly Property NeutralHarnessPools As Dictionary(Of Integer, MBList(Of ItemObject))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHarnessPools*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.ShieldPoolsByCulture
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.ShieldPoolsByCulture
+  id: ShieldPoolsByCulture
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: ShieldPoolsByCulture
+  nameWithType: ItemPoolManager.ShieldPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.ShieldPoolsByCulture
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ShieldPoolsByCulture
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 162
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the shield pools organized by culture and tier.
+  example: []
+  syntax:
+    content: public Dictionary<string, Dictionary<int, MBList<ItemObject>>> ShieldPoolsByCulture { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+    content.vb: Public ReadOnly Property ShieldPoolsByCulture As Dictionary(Of String, Dictionary(Of Integer, MBList(Of ItemObject)))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.ShieldPoolsByCulture*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralShieldPools
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralShieldPools
+  id: NeutralShieldPools
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: NeutralShieldPools
+  nameWithType: ItemPoolManager.NeutralShieldPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralShieldPools
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NeutralShieldPools
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 167
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the neutral shield pools organized by tier.
+  example: []
+  syntax:
+    content: public Dictionary<int, MBList<ItemObject>> NeutralShieldPools { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+    content.vb: Public ReadOnly Property NeutralShieldPools As Dictionary(Of Integer, MBList(Of ItemObject))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralShieldPools*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.AmmoPools
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.AmmoPools
+  id: AmmoPools
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: AmmoPools
+  nameWithType: ItemPoolManager.AmmoPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.AmmoPools
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AmmoPools
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 172
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the ammunition pools organized by ammo type.
+  example: []
+  syntax:
+    content: public Dictionary<WeaponTypeFlags, MBList<ItemObject>> AmmoPools { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+    content.vb: Public ReadOnly Property AmmoPools As Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.AmmoPools*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.BannerPoolsByCulture
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.BannerPoolsByCulture
+  id: BannerPoolsByCulture
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: BannerPoolsByCulture
+  nameWithType: ItemPoolManager.BannerPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.BannerPoolsByCulture
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BannerPoolsByCulture
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 177
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the banner pools organized by culture.
+  example: []
+  syntax:
+    content: public Dictionary<string, MBList<ItemObject>> BannerPoolsByCulture { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+    content.vb: Public ReadOnly Property BannerPoolsByCulture As Dictionary(Of String, MBList(Of ItemObject))
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.BannerPoolsByCulture*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralBannerPool
+  commentId: P:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralBannerPool
+  id: NeutralBannerPool
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: NeutralBannerPool
+  nameWithType: ItemPoolManager.NeutralBannerPool
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralBannerPool
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NeutralBannerPool
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 182
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the neutral banner pool.
+  example: []
+  syntax:
+    content: public MBList<ItemObject> NeutralBannerPool { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}
+    content.vb: Public ReadOnly Property NeutralBannerPool As MBList(Of ItemObject)
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralBannerPool*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.Initialize
+  commentId: M:Bannerlord.GameMaster.Items.ItemPoolManager.Initialize
+  id: Initialize
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: ItemPoolManager.Initialize()
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.Initialize()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Initialize
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 191
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Initializes or reinitializes all item pools by scanning game items.
+
+    Call this after game data is fully loaded.
+  example: []
+  syntax:
+    content: public void Initialize()
+    content.vb: Public Sub Initialize()
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.Initialize*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.Clear
+  commentId: M:Bannerlord.GameMaster.Items.ItemPoolManager.Clear
+  id: Clear
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ItemPoolManager.Clear()
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.Clear()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Clear
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 234
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Clears all item pools and resets initialization state.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.Clear*
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.Reinitialize
+  commentId: M:Bannerlord.GameMaster.Items.ItemPoolManager.Reinitialize
+  id: Reinitialize
+  parent: Bannerlord.GameMaster.Items.ItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: Reinitialize()
+  nameWithType: ItemPoolManager.Reinitialize()
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.Reinitialize()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Reinitialize
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemPoolManager.cs
+    startLine: 249
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Reinitializes the item pools by clearing and rebuilding them.
+  example: []
+  syntax:
+    content: public void Reinitialize()
+    content.vb: Public Sub Reinitialize()
+  overload: Bannerlord.GameMaster.Items.ItemPoolManager.Reinitialize*
+references:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.Instance*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.Instance
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_Instance
+  name: Instance
+  nameWithType: ItemPoolManager.Instance
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.Instance
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager
+  commentId: T:Bannerlord.GameMaster.Items.ItemPoolManager
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html
+  name: ItemPoolManager
+  nameWithType: ItemPoolManager
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.IsInitialized*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.IsInitialized
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_IsInitialized
+  name: IsInitialized
+  nameWithType: ItemPoolManager.IsInitialized
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.IsInitialized
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.TotalItemsProcessed*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.TotalItemsProcessed
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_TotalItemsProcessed
+  name: TotalItemsProcessed
+  nameWithType: ItemPoolManager.TotalItemsProcessed
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.TotalItemsProcessed
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.ValidItemsAdded*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.ValidItemsAdded
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_ValidItemsAdded
+  name: ValidItemsAdded
+  nameWithType: ItemPoolManager.ValidItemsAdded
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.ValidItemsAdded
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.WeaponPoolsByCulture*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.WeaponPoolsByCulture
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_WeaponPoolsByCulture
+  name: WeaponPoolsByCulture
+  nameWithType: ItemPoolManager.WeaponPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.WeaponPoolsByCulture
+- uid: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>>>
+  nameWithType: Dictionary<string, Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>>>
+  fullName: System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<Bannerlord.GameMaster.Items.WeaponTypeFlags, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>>>
+  nameWithType.vb: Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject))))
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, System.Collections.Generic.Dictionary(Of Integer, System.Collections.Generic.Dictionary(Of Bannerlord.GameMaster.Items.WeaponTypeFlags, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject))))
+  name.vb: Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject))))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    name: WeaponTypeFlags
+    href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    name: WeaponTypeFlags
+    href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralWeaponPools*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralWeaponPools
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_NeutralWeaponPools
+  name: NeutralWeaponPools
+  nameWithType: ItemPoolManager.NeutralWeaponPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralWeaponPools
+- uid: System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>>
+  nameWithType: Dictionary<int, Dictionary<WeaponTypeFlags, MBList<ItemObject>>>
+  fullName: System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<Bannerlord.GameMaster.Items.WeaponTypeFlags, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>>
+  nameWithType.vb: Dictionary(Of Integer, Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject)))
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, System.Collections.Generic.Dictionary(Of Bannerlord.GameMaster.Items.WeaponTypeFlags, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject)))
+  name.vb: Dictionary(Of Integer, Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject)))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    name: WeaponTypeFlags
+    href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    name: WeaponTypeFlags
+    href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsByCulture*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsByCulture
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_ArmorPoolsByCulture
+  name: ArmorPoolsByCulture
+  nameWithType: ItemPoolManager.ArmorPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsByCulture
+- uid: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.ArmorComponent.ArmorMaterialTypes,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.ArmorComponent.ArmorMaterialTypes,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, Dictionary<int, Dictionary<ArmorComponent.ArmorMaterialTypes, MBList<ItemObject>>>>
+  nameWithType: Dictionary<string, Dictionary<int, Dictionary<ArmorComponent.ArmorMaterialTypes, MBList<ItemObject>>>>
+  fullName: System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<TaleWorlds.Core.ArmorComponent.ArmorMaterialTypes, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>>>
+  nameWithType.vb: Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of ArmorComponent.ArmorMaterialTypes, MBList(Of ItemObject))))
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, System.Collections.Generic.Dictionary(Of Integer, System.Collections.Generic.Dictionary(Of TaleWorlds.Core.ArmorComponent.ArmorMaterialTypes, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject))))
+  name.vb: Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of ArmorComponent.ArmorMaterialTypes, MBList(Of ItemObject))))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: TaleWorlds.Core.ArmorComponent
+    name: ArmorComponent
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ArmorComponent.ArmorMaterialTypes
+    name: ArmorMaterialTypes
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ArmorComponent
+    name: ArmorComponent
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ArmorComponent.ArmorMaterialTypes
+    name: ArmorMaterialTypes
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+  - name: )
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsBySlot*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsBySlot
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_ArmorPoolsBySlot
+  name: ArmorPoolsBySlot
+  nameWithType: ItemPoolManager.ArmorPoolsBySlot
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.ArmorPoolsBySlot
+- uid: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.EquipmentIndex,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.EquipmentIndex,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>>>
+  nameWithType: Dictionary<string, Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>>>
+  fullName: System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<TaleWorlds.Core.EquipmentIndex, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>>>
+  nameWithType.vb: Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of EquipmentIndex, MBList(Of ItemObject))))
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, System.Collections.Generic.Dictionary(Of Integer, System.Collections.Generic.Dictionary(Of TaleWorlds.Core.EquipmentIndex, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject))))
+  name.vb: Dictionary(Of String, Dictionary(Of Integer, Dictionary(Of EquipmentIndex, MBList(Of ItemObject))))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: TaleWorlds.Core.EquipmentIndex
+    name: EquipmentIndex
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.EquipmentIndex
+    name: EquipmentIndex
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+  - name: )
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralArmorPools*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralArmorPools
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_NeutralArmorPools
+  name: NeutralArmorPools
+  nameWithType: ItemPoolManager.NeutralArmorPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralArmorPools
+- uid: System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.EquipmentIndex,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.Dictionary{TaleWorlds.Core.EquipmentIndex,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>>
+  nameWithType: Dictionary<int, Dictionary<EquipmentIndex, MBList<ItemObject>>>
+  fullName: System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<TaleWorlds.Core.EquipmentIndex, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>>
+  nameWithType.vb: Dictionary(Of Integer, Dictionary(Of EquipmentIndex, MBList(Of ItemObject)))
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, System.Collections.Generic.Dictionary(Of TaleWorlds.Core.EquipmentIndex, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject)))
+  name.vb: Dictionary(Of Integer, Dictionary(Of EquipmentIndex, MBList(Of ItemObject)))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: TaleWorlds.Core.EquipmentIndex
+    name: EquipmentIndex
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.EquipmentIndex
+    name: EquipmentIndex
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.HorsePoolsByCulture*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.HorsePoolsByCulture
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_HorsePoolsByCulture
+  name: HorsePoolsByCulture
+  nameWithType: ItemPoolManager.HorsePoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.HorsePoolsByCulture
+- uid: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, Dictionary<int, MBList<ItemObject>>>
+  nameWithType: Dictionary<string, Dictionary<int, MBList<ItemObject>>>
+  fullName: System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<int, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>>
+  nameWithType.vb: Dictionary(Of String, Dictionary(Of Integer, MBList(Of ItemObject)))
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, System.Collections.Generic.Dictionary(Of Integer, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject)))
+  name.vb: Dictionary(Of String, Dictionary(Of Integer, MBList(Of ItemObject)))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.HarnessPoolsByCulture*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.HarnessPoolsByCulture
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_HarnessPoolsByCulture
+  name: HarnessPoolsByCulture
+  nameWithType: ItemPoolManager.HarnessPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.HarnessPoolsByCulture
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHorsePools*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHorsePools
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_NeutralHorsePools
+  name: NeutralHorsePools
+  nameWithType: ItemPoolManager.NeutralHorsePools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHorsePools
+- uid: System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, MBList<ItemObject>>
+  nameWithType: Dictionary<int, MBList<ItemObject>>
+  fullName: System.Collections.Generic.Dictionary<int, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>
+  nameWithType.vb: Dictionary(Of Integer, MBList(Of ItemObject))
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject))
+  name.vb: Dictionary(Of Integer, MBList(Of ItemObject))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHarnessPools*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHarnessPools
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_NeutralHarnessPools
+  name: NeutralHarnessPools
+  nameWithType: ItemPoolManager.NeutralHarnessPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralHarnessPools
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.ShieldPoolsByCulture*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.ShieldPoolsByCulture
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_ShieldPoolsByCulture
+  name: ShieldPoolsByCulture
+  nameWithType: ItemPoolManager.ShieldPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.ShieldPoolsByCulture
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralShieldPools*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralShieldPools
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_NeutralShieldPools
+  name: NeutralShieldPools
+  nameWithType: ItemPoolManager.NeutralShieldPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralShieldPools
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.AmmoPools*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.AmmoPools
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_AmmoPools
+  name: AmmoPools
+  nameWithType: ItemPoolManager.AmmoPools
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.AmmoPools
+- uid: System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+  commentId: T:System.Collections.Generic.Dictionary{Bannerlord.GameMaster.Items.WeaponTypeFlags,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<WeaponTypeFlags, MBList<ItemObject>>
+  nameWithType: Dictionary<WeaponTypeFlags, MBList<ItemObject>>
+  fullName: System.Collections.Generic.Dictionary<Bannerlord.GameMaster.Items.WeaponTypeFlags, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>
+  nameWithType.vb: Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject))
+  fullName.vb: System.Collections.Generic.Dictionary(Of Bannerlord.GameMaster.Items.WeaponTypeFlags, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject))
+  name.vb: Dictionary(Of WeaponTypeFlags, MBList(Of ItemObject))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    name: WeaponTypeFlags
+    href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    name: WeaponTypeFlags
+    href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.BannerPoolsByCulture*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.BannerPoolsByCulture
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_BannerPoolsByCulture
+  name: BannerPoolsByCulture
+  nameWithType: ItemPoolManager.BannerPoolsByCulture
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.BannerPoolsByCulture
+- uid: System.Collections.Generic.Dictionary{System.String,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, MBList<ItemObject>>
+  nameWithType: Dictionary<string, MBList<ItemObject>>
+  fullName: System.Collections.Generic.Dictionary<string, TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>>
+  nameWithType.vb: Dictionary(Of String, MBList(Of ItemObject))
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject))
+  name.vb: Dictionary(Of String, MBList(Of ItemObject))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralBannerPool*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.NeutralBannerPool
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_NeutralBannerPool
+  name: NeutralBannerPool
+  nameWithType: ItemPoolManager.NeutralBannerPool
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.NeutralBannerPool
+- uid: TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}
+  commentId: T:TaleWorlds.Library.MBList{TaleWorlds.Core.ItemObject}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBList`1
+  name: MBList<ItemObject>
+  nameWithType: MBList<ItemObject>
+  fullName: TaleWorlds.Library.MBList<TaleWorlds.Core.ItemObject>
+  nameWithType.vb: MBList(Of ItemObject)
+  fullName.vb: TaleWorlds.Library.MBList(Of TaleWorlds.Core.ItemObject)
+  name.vb: MBList(Of ItemObject)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.Library.MBList`1
+  commentId: T:TaleWorlds.Library.MBList`1
+  isExternal: true
+  name: MBList<T>
+  nameWithType: MBList<T>
+  fullName: TaleWorlds.Library.MBList<T>
+  nameWithType.vb: MBList(Of T)
+  fullName.vb: TaleWorlds.Library.MBList(Of T)
+  name.vb: MBList(Of T)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.Initialize*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.Initialize
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_Initialize
+  name: Initialize
+  nameWithType: ItemPoolManager.Initialize
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.Initialize
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.Clear*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.Clear
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_Clear
+  name: Clear
+  nameWithType: ItemPoolManager.Clear
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.Clear
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager.Reinitialize*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemPoolManager.Reinitialize
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html#Bannerlord_GameMaster_Items_ItemPoolManager_Reinitialize
+  name: Reinitialize
+  nameWithType: ItemPoolManager.Reinitialize
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager.Reinitialize

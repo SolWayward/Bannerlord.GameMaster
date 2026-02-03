@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
+  id: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
+  children:
+  - Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.BanditCommandHelpers
+  - Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.ClearHideoutsCommand
+  - Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.CountCommand
+  - Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.DestroyBanditPartiesCommand
+  - Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.RemoveAllBanditsCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
+  fullName: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.BanditCommandHelpers
+  commentId: T:Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.BanditCommandHelpers
+  href: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.BanditCommandHelpers.html
+  name: BanditCommandHelpers
+  nameWithType: BanditCommandHelpers
+  fullName: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.BanditCommandHelpers
+- uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.ClearHideoutsCommand
+  commentId: T:Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.ClearHideoutsCommand
+  href: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.ClearHideoutsCommand.html
+  name: ClearHideoutsCommand
+  nameWithType: ClearHideoutsCommand
+  fullName: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.ClearHideoutsCommand
+- uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.CountCommand
+  commentId: T:Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.CountCommand
+  href: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.CountCommand.html
+  name: CountCommand
+  nameWithType: CountCommand
+  fullName: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.CountCommand
+- uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.DestroyBanditPartiesCommand
+  commentId: T:Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.DestroyBanditPartiesCommand
+  href: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.DestroyBanditPartiesCommand.html
+  name: DestroyBanditPartiesCommand
+  nameWithType: DestroyBanditPartiesCommand
+  fullName: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.DestroyBanditPartiesCommand
+- uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.RemoveAllBanditsCommand
+  commentId: T:Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.RemoveAllBanditsCommand
+  href: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.RemoveAllBanditsCommand.html
+  name: RemoveAllBanditsCommand
+  nameWithType: RemoveAllBanditsCommand
+  fullName: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.RemoveAllBanditsCommand

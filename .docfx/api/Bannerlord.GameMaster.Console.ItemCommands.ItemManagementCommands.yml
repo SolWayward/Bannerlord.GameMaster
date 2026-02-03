@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
+  id: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
+  children:
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.AddItemCommand
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveAllItemsCommand
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveItemCommand
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.SetInventoryModifierCommand
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.TransferItemCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.AddItemCommand
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.AddItemCommand
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.AddItemCommand.html
+  name: AddItemCommand
+  nameWithType: AddItemCommand
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.AddItemCommand
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveAllItemsCommand
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveAllItemsCommand
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveAllItemsCommand.html
+  name: RemoveAllItemsCommand
+  nameWithType: RemoveAllItemsCommand
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveAllItemsCommand
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveItemCommand
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveItemCommand
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveItemCommand.html
+  name: RemoveItemCommand
+  nameWithType: RemoveItemCommand
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveItemCommand
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.SetInventoryModifierCommand
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.SetInventoryModifierCommand
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.SetInventoryModifierCommand.html
+  name: SetInventoryModifierCommand
+  nameWithType: SetInventoryModifierCommand
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.SetInventoryModifierCommand
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.TransferItemCommand
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.TransferItemCommand
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.TransferItemCommand.html
+  name: TransferItemCommand
+  nameWithType: TransferItemCommand
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.TransferItemCommand

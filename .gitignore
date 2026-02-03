@@ -17,7 +17,6 @@
 mono_crash.*
 
 # DocFX generated files
-.docfx/api/
 .docfx/API_Docs/
 
 # Build results

@@ -1,0 +1,1384 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  commentId: T:Bannerlord.GameMaster.Party.MobilePartyGenerator
+  id: MobilePartyGenerator
+  parent: Bannerlord.GameMaster.Party
+  children:
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanPartyWithNewLeader(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLooterParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single,System.Int32,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMilitiaParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateNavalPatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreatePatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSettlementParty(TaleWorlds.CampaignSystem.Settlements.Settlement,Bannerlord.GameMaster.Party.SettlementPartyType,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Village)
+  langs:
+  - csharp
+  - vb
+  name: MobilePartyGenerator
+  nameWithType: MobilePartyGenerator
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MobilePartyGenerator
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Centralized party generation system with layered architecture.
+  example: []
+  syntax:
+    content: public static class MobilePartyGenerator
+    content.vb: Public Module MobilePartyGenerator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single,System.Int32,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single,System.Int32,System.Boolean)
+  id: CreateLordParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single,System.Int32,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateLordParty(Hero, Settlement, float, int, bool)
+  nameWithType: MobilePartyGenerator.CreateLordParty(Hero, Settlement, float, int, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement, float, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateLordParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 70
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: >-
+    Creates a lord party for a hero using native LordPartyComponent.
+
+    This is the standard way to create noble/lord parties.
+  example: []
+  syntax:
+    content: public static MobileParty CreateLordParty(Hero hero, Settlement spawnSettlement = null, float spawnRadius = 0.5, int partyTradeGold = 20000, bool enableAi = true)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero who will own and lead the party
+    - id: spawnSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Settlement to spawn at (uses hero's home if null)
+    - id: spawnRadius
+      type: System.Single
+      description: Radius around settlement to spawn within
+    - id: partyTradeGold
+      type: System.Int32
+      description: 'Initial trade gold (default: 20000)'
+    - id: enableAi
+      type: System.Boolean
+      description: Whether to enable AI control
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+      description: The created MobileParty
+    content.vb: Public Shared Function CreateLordParty(hero As Hero, spawnSettlement As Settlement = Nothing, spawnRadius As Single = 0.5, partyTradeGold As Integer = 20000, enableAi As Boolean = True) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty*
+  nameWithType.vb: MobilePartyGenerator.CreateLordParty(Hero, Settlement, Single, Integer, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement, Single, Integer, Boolean)
+  name.vb: CreateLordParty(Hero, Settlement, Single, Integer, Boolean)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  id: CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateBanditParty(Hideout, Clan, bool, PartyTemplateObject)
+  nameWithType: MobilePartyGenerator.CreateBanditParty(Hideout, Clan, bool, PartyTemplateObject)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.Clan, bool, TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateBanditParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 117
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a bandit party at a hideout using native BanditPartyComponent. Recommended to use one of the convenience methods for specific bandit type, or CreateBanditPartyForCulture unless you want to use a non bandit party template.
+  example: []
+  syntax:
+    content: public static MobileParty CreateBanditParty(Hideout hideout, Clan banditClan = null, bool isBossParty = false, PartyTemplateObject partyTemplate = null)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: banditClan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: The bandit clan (if null, uses hideout's owning clan)
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    - id: partyTemplate
+      type: TaleWorlds.CampaignSystem.Party.PartyTemplateObject
+      description: Party template to use (if null, uses culture default)
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateBanditParty(hideout As Hideout, banditClan As Clan = Nothing, isBossParty As Boolean = False, partyTemplate As PartyTemplateObject = Nothing) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty*
+  nameWithType.vb: MobilePartyGenerator.CreateBanditParty(Hideout, Clan, Boolean, PartyTemplateObject)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.Clan, Boolean, TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  name.vb: CreateBanditParty(Hideout, Clan, Boolean, PartyTemplateObject)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLooterParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLooterParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  id: CreateLooterParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateLooterParty(Settlement, PartyTemplateObject)
+  nameWithType: MobilePartyGenerator.CreateLooterParty(Settlement, PartyTemplateObject)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLooterParty(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateLooterParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 162
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a looter party near a settlement. Looters are bandits without a hideout.
+  example: []
+  syntax:
+    content: public static MobileParty CreateLooterParty(Settlement relatedSettlement, PartyTemplateObject partyTemplate = null)
+    parameters:
+    - id: relatedSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Settlement the looters spawn near
+    - id: partyTemplate
+      type: TaleWorlds.CampaignSystem.Party.PartyTemplateObject
+      description: Party template (if null, uses looters template)
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateLooterParty(relatedSettlement As Settlement, partyTemplate As PartyTemplateObject = Nothing) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLooterParty*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSettlementParty(TaleWorlds.CampaignSystem.Settlements.Settlement,Bannerlord.GameMaster.Party.SettlementPartyType,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSettlementParty(TaleWorlds.CampaignSystem.Settlements.Settlement,Bannerlord.GameMaster.Party.SettlementPartyType,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  id: CreateSettlementParty(TaleWorlds.CampaignSystem.Settlements.Settlement,Bannerlord.GameMaster.Party.SettlementPartyType,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateSettlementParty(Settlement, SettlementPartyType, PartyTemplateObject)
+  nameWithType: MobilePartyGenerator.CreateSettlementParty(Settlement, SettlementPartyType, PartyTemplateObject)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSettlementParty(TaleWorlds.CampaignSystem.Settlements.Settlement, Bannerlord.GameMaster.Party.SettlementPartyType, TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateSettlementParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 203
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a settlement-based party (villagers, patrol, militia). Recommended to use one of the convenience methods for either Patrol, Militia, Villager, or Caravan parties
+  example: []
+  syntax:
+    content: public static MobileParty CreateSettlementParty(Settlement settlement, SettlementPartyType partyType, PartyTemplateObject partyTemplate = null)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement this party belongs to
+    - id: partyType
+      type: Bannerlord.GameMaster.Party.SettlementPartyType
+      description: Type of settlement party to create
+    - id: partyTemplate
+      type: TaleWorlds.CampaignSystem.Party.PartyTemplateObject
+      description: Optional custom party template
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateSettlementParty(settlement As Settlement, partyType As SettlementPartyType, partyTemplate As PartyTemplateObject = Nothing) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSettlementParty*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: CreateClanParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateClanParty(Hero, Settlement)
+  nameWithType: MobilePartyGenerator.CreateClanParty(Hero, Settlement)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanParty(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateClanParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 292
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: >-
+    Creates a party for a clan member (convenience wrapper for CreateLordParty).
+
+    If the hero doesn't have a clan, throws an exception.
+  example: []
+  syntax:
+    content: public static MobileParty CreateClanParty(Hero hero, Settlement spawnSettlement = null)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    - id: spawnSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateClanParty(hero As Hero, spawnSettlement As Settlement = Nothing) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanParty*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanPartyWithNewLeader(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanPartyWithNewLeader(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: CreateClanPartyWithNewLeader(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateClanPartyWithNewLeader(Clan, Settlement)
+  nameWithType: MobilePartyGenerator.CreateClanPartyWithNewLeader(Clan, Settlement)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanPartyWithNewLeader(TaleWorlds.CampaignSystem.Clan, TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateClanPartyWithNewLeader
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 314
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Randomly generates a new lord for the specified clan and creates a party for that hero.
+  example: []
+  syntax:
+    content: public static MobileParty CreateClanPartyWithNewLeader(Clan clan, Settlement spawnSettlement = null)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: The clan this party belongs to
+    - id: spawnSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Settlement to spawn at
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateClanPartyWithNewLeader(clan As Clan, spawnSettlement As Settlement = Nothing) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanPartyWithNewLeader*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  id: CreateCaravanParty(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateCaravanParty(Hero, Settlement, Hero, bool)
+  nameWithType: MobilePartyGenerator.CreateCaravanParty(Hero, Settlement, Hero, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Hero, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateCaravanParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 355
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a caravan party for the specified owner.
+  example: []
+  syntax:
+    content: public static MobileParty CreateCaravanParty(Hero owner, Settlement homeSettlement, Hero caravanLeader = null, bool isElite = false)
+    parameters:
+    - id: owner
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero who owns the caravan
+    - id: homeSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Settlement the caravan is based at (must be a town)
+    - id: caravanLeader
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Optional leader hero
+    - id: isElite
+      type: System.Boolean
+      description: Whether this is an armed/elite caravan
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateCaravanParty(owner As Hero, homeSettlement As Settlement, caravanLeader As Hero = Nothing, isElite As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty*
+  nameWithType.vb: MobilePartyGenerator.CreateCaravanParty(Hero, Settlement, Hero, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Hero, Boolean)
+  name.vb: CreateCaravanParty(Hero, Settlement, Hero, Boolean)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Village)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Village)
+  id: CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Village)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateVillagerParty(Village)
+  nameWithType: MobilePartyGenerator.CreateVillagerParty(Village)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Village)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateVillagerParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 401
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a villager party from a village.
+  example: []
+  syntax:
+    content: public static MobileParty CreateVillagerParty(Village village)
+    parameters:
+    - id: village
+      type: TaleWorlds.CampaignSystem.Settlements.Village
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateVillagerParty(village As Village) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateVillagerParty(Settlement)
+  nameWithType: MobilePartyGenerator.CreateVillagerParty(Settlement)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateVillagerParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 415
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a villager party from a settlement (must be a village). Will fail if settlement is not a village
+  example: []
+  syntax:
+    content: public static MobileParty CreateVillagerParty(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateVillagerParty(settlement As Settlement) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreatePatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreatePatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  id: CreatePatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreatePatrolParty(Settlement, PartyTemplateObject)
+  nameWithType: MobilePartyGenerator.CreatePatrolParty(Settlement, PartyTemplateObject)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreatePatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreatePatrolParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 433
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: >-
+    Creates a patrol party (guard party) for a fortification.
+
+    Uses strong patrol party template by default if no template is specified
+  example: []
+  syntax:
+    content: public static MobileParty CreatePatrolParty(Settlement settlement, PartyTemplateObject template = null)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Town or Castle
+    - id: template
+      type: TaleWorlds.CampaignSystem.Party.PartyTemplateObject
+      description: Template to use for patrol party, defaults to strong patrol party template of settlement culture if none specified
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreatePatrolParty(settlement As Settlement, template As PartyTemplateObject = Nothing) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreatePatrolParty*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateNavalPatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateNavalPatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  id: CreateNavalPatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateNavalPatrolParty(Settlement, PartyTemplateObject)
+  nameWithType: MobilePartyGenerator.CreateNavalPatrolParty(Settlement, PartyTemplateObject)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateNavalPatrolParty(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.PartyTemplateObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateNavalPatrolParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 450
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: >-
+    Creates a naval party at the specified port town. If no template is provided, the default culture Naval patrol template is used.
+
+    Requires settlement to be a port town and also requires War Sails to be loaded, returns null if neither condition is met.
+  example: []
+  syntax:
+    content: public static MobileParty CreateNavalPatrolParty(Settlement settlement, PartyTemplateObject template = null)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Port Town
+    - id: template
+      type: TaleWorlds.CampaignSystem.Party.PartyTemplateObject
+      description: Template to use for party creation, recommended to leave as default null, which will use the Naval patrol template
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateNavalPatrolParty(settlement As Settlement, template As PartyTemplateObject = Nothing) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateNavalPatrolParty*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMilitiaParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMilitiaParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: CreateMilitiaParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateMilitiaParty(Settlement)
+  nameWithType: MobilePartyGenerator.CreateMilitiaParty(Settlement)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMilitiaParty(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateMilitiaParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 488
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a militia party for a fortification.
+  example: []
+  syntax:
+    content: public static MobileParty CreateMilitiaParty(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateMilitiaParty(settlement As Settlement) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMilitiaParty*
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  id: CreateDeserterParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateDeserterParty(Hideout, CultureObject, bool)
+  nameWithType: MobilePartyGenerator.CreateDeserterParty(Hideout, CultureObject, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.CultureObject, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateDeserterParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 507
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: >-
+    Creates a deserter party with troops from the specified main culture.
+
+    Deserters are bandits composed of troops that "deserted" from a main faction.
+  example: []
+  syntax:
+    content: public static MobileParty CreateDeserterParty(Hideout hideout, CultureObject sourceCulture, bool isBossParty = false)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: sourceCulture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: The main culture to draw troops from (e.g., Vlandia, Empire)
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateDeserterParty(hideout As Hideout, sourceCulture As CultureObject, isBossParty As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty*
+  nameWithType.vb: MobilePartyGenerator.CreateDeserterParty(Hideout, CultureObject, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.CultureObject, Boolean)
+  name.vb: CreateDeserterParty(Hideout, CultureObject, Boolean)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  id: CreateDesertBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateDesertBanditParty(Hideout, bool)
+  nameWithType: MobilePartyGenerator.CreateDesertBanditParty(Hideout, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateDesertBanditParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 560
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a desert bandit party at a hideout.
+  example: []
+  syntax:
+    content: public static MobileParty CreateDesertBanditParty(Hideout hideout, bool isBossParty = false)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateDesertBanditParty(hideout As Hideout, isBossParty As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty*
+  nameWithType.vb: MobilePartyGenerator.CreateDesertBanditParty(Hideout, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, Boolean)
+  name.vb: CreateDesertBanditParty(Hideout, Boolean)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  id: CreateForestBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateForestBanditParty(Hideout, bool)
+  nameWithType: MobilePartyGenerator.CreateForestBanditParty(Hideout, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateForestBanditParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 570
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a forest bandit party at a hideout.
+  example: []
+  syntax:
+    content: public static MobileParty CreateForestBanditParty(Hideout hideout, bool isBossParty = false)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateForestBanditParty(hideout As Hideout, isBossParty As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty*
+  nameWithType.vb: MobilePartyGenerator.CreateForestBanditParty(Hideout, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, Boolean)
+  name.vb: CreateForestBanditParty(Hideout, Boolean)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  id: CreateMountainBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateMountainBanditParty(Hideout, bool)
+  nameWithType: MobilePartyGenerator.CreateMountainBanditParty(Hideout, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateMountainBanditParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 580
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a mountain bandit party at a hideout.
+  example: []
+  syntax:
+    content: public static MobileParty CreateMountainBanditParty(Hideout hideout, bool isBossParty = false)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateMountainBanditParty(hideout As Hideout, isBossParty As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty*
+  nameWithType.vb: MobilePartyGenerator.CreateMountainBanditParty(Hideout, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, Boolean)
+  name.vb: CreateMountainBanditParty(Hideout, Boolean)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  id: CreateSeaRaiderParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateSeaRaiderParty(Hideout, bool)
+  nameWithType: MobilePartyGenerator.CreateSeaRaiderParty(Hideout, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty(TaleWorlds.CampaignSystem.Settlements.Hideout, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateSeaRaiderParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 590
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a sea raider party at a hideout.
+  example: []
+  syntax:
+    content: public static MobileParty CreateSeaRaiderParty(Hideout hideout, bool isBossParty = false)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateSeaRaiderParty(hideout As Hideout, isBossParty As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty*
+  nameWithType.vb: MobilePartyGenerator.CreateSeaRaiderParty(Hideout, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty(TaleWorlds.CampaignSystem.Settlements.Hideout, Boolean)
+  name.vb: CreateSeaRaiderParty(Hideout, Boolean)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  id: CreateSteppeBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateSteppeBanditParty(Hideout, bool)
+  nameWithType: MobilePartyGenerator.CreateSteppeBanditParty(Hideout, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateSteppeBanditParty
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 600
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Creates a steppe bandit party at a hideout.
+  example: []
+  syntax:
+    content: public static MobileParty CreateSteppeBanditParty(Hideout hideout, bool isBossParty = false)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateSteppeBanditParty(hideout As Hideout, isBossParty As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty*
+  nameWithType.vb: MobilePartyGenerator.CreateSteppeBanditParty(Hideout, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, Boolean)
+  name.vb: CreateSteppeBanditParty(Hideout, Boolean)
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  id: CreateBanditPartyForCulture(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  parent: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateBanditPartyForCulture(Hideout, CultureObject, bool)
+  nameWithType: MobilePartyGenerator.CreateBanditPartyForCulture(Hideout, CultureObject, bool)
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.CultureObject, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateBanditPartyForCulture
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 614
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: >-
+    Creates a bandit party for the specified culture.
+
+    If a non-bandit (main) culture is provided, creates a deserter party instead.
+  example: []
+  syntax:
+    content: public static MobileParty CreateBanditPartyForCulture(Hideout hideout, CultureObject culture = null, bool isBossParty = false)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: >-
+        The bandit type that will be used for the party. If culture is a main cuture instead of a bandit culture, a deserter party will be created using troops from the specified culture. 
+            If culture is null or not specified, the party will use the same cultures of any bandit parties residing inside the hideout, or 
+            if the hideout is empty, the bandit culture for the terrain type of the hideout will be used.
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateBanditPartyForCulture(hideout As Hideout, culture As CultureObject = Nothing, isBossParty As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture*
+  nameWithType.vb: MobilePartyGenerator.CreateBanditPartyForCulture(Hideout, CultureObject, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.CultureObject, Boolean)
+  name.vb: CreateBanditPartyForCulture(Hideout, CultureObject, Boolean)
+references:
+- uid: Bannerlord.GameMaster.Party
+  commentId: N:Bannerlord.GameMaster.Party
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Party
+  nameWithType: Bannerlord.GameMaster.Party
+  fullName: Bannerlord.GameMaster.Party
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Party
+    name: Party
+    href: Bannerlord.GameMaster.Party.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Party
+    name: Party
+    href: Bannerlord.GameMaster.Party.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateLordParty_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Single_System_Int32_System_Boolean_
+  name: CreateLordParty
+  nameWithType: MobilePartyGenerator.CreateLordParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLordParty
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TaleWorlds.CampaignSystem.Party.MobileParty
+  commentId: T:TaleWorlds.CampaignSystem.Party.MobileParty
+  parent: TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: MobileParty
+  nameWithType: MobileParty
+  fullName: TaleWorlds.CampaignSystem.Party.MobileParty
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: TaleWorlds.CampaignSystem.Party
+  commentId: N:TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Party
+  nameWithType: TaleWorlds.CampaignSystem.Party
+  fullName: TaleWorlds.CampaignSystem.Party
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateBanditParty_TaleWorlds_CampaignSystem_Settlements_Hideout_TaleWorlds_CampaignSystem_Clan_System_Boolean_TaleWorlds_CampaignSystem_Party_PartyTemplateObject_
+  name: CreateBanditParty
+  nameWithType: MobilePartyGenerator.CreateBanditParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditParty
+- uid: TaleWorlds.CampaignSystem.Settlements.Hideout
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Hideout
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Hideout
+  nameWithType: Hideout
+  fullName: TaleWorlds.CampaignSystem.Settlements.Hideout
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
+- uid: TaleWorlds.CampaignSystem.Party.PartyTemplateObject
+  commentId: T:TaleWorlds.CampaignSystem.Party.PartyTemplateObject
+  parent: TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: PartyTemplateObject
+  nameWithType: PartyTemplateObject
+  fullName: TaleWorlds.CampaignSystem.Party.PartyTemplateObject
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLooterParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLooterParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateLooterParty_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_PartyTemplateObject_
+  name: CreateLooterParty
+  nameWithType: MobilePartyGenerator.CreateLooterParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateLooterParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSettlementParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSettlementParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateSettlementParty_TaleWorlds_CampaignSystem_Settlements_Settlement_Bannerlord_GameMaster_Party_SettlementPartyType_TaleWorlds_CampaignSystem_Party_PartyTemplateObject_
+  name: CreateSettlementParty
+  nameWithType: MobilePartyGenerator.CreateSettlementParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSettlementParty
+- uid: Bannerlord.GameMaster.Party.SettlementPartyType
+  commentId: T:Bannerlord.GameMaster.Party.SettlementPartyType
+  parent: Bannerlord.GameMaster.Party
+  href: Bannerlord.GameMaster.Party.SettlementPartyType.html
+  name: SettlementPartyType
+  nameWithType: SettlementPartyType
+  fullName: Bannerlord.GameMaster.Party.SettlementPartyType
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateClanParty_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: CreateClanParty
+  nameWithType: MobilePartyGenerator.CreateClanParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanPartyWithNewLeader*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanPartyWithNewLeader
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateClanPartyWithNewLeader_TaleWorlds_CampaignSystem_Clan_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: CreateClanPartyWithNewLeader
+  nameWithType: MobilePartyGenerator.CreateClanPartyWithNewLeader
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateClanPartyWithNewLeader
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateCaravanParty_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Hero_System_Boolean_
+  name: CreateCaravanParty
+  nameWithType: MobilePartyGenerator.CreateCaravanParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateCaravanParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateVillagerParty_TaleWorlds_CampaignSystem_Settlements_Village_
+  name: CreateVillagerParty
+  nameWithType: MobilePartyGenerator.CreateVillagerParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateVillagerParty
+- uid: TaleWorlds.CampaignSystem.Settlements.Village
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Village
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Village
+  nameWithType: Village
+  fullName: TaleWorlds.CampaignSystem.Settlements.Village
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreatePatrolParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreatePatrolParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreatePatrolParty_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_PartyTemplateObject_
+  name: CreatePatrolParty
+  nameWithType: MobilePartyGenerator.CreatePatrolParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreatePatrolParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateNavalPatrolParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateNavalPatrolParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateNavalPatrolParty_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_PartyTemplateObject_
+  name: CreateNavalPatrolParty
+  nameWithType: MobilePartyGenerator.CreateNavalPatrolParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateNavalPatrolParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMilitiaParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMilitiaParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateMilitiaParty_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: CreateMilitiaParty
+  nameWithType: MobilePartyGenerator.CreateMilitiaParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMilitiaParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateDeserterParty_TaleWorlds_CampaignSystem_Settlements_Hideout_TaleWorlds_CampaignSystem_CultureObject_System_Boolean_
+  name: CreateDeserterParty
+  nameWithType: MobilePartyGenerator.CreateDeserterParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDeserterParty
+- uid: TaleWorlds.CampaignSystem.CultureObject
+  commentId: T:TaleWorlds.CampaignSystem.CultureObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CultureObject
+  nameWithType: CultureObject
+  fullName: TaleWorlds.CampaignSystem.CultureObject
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateDesertBanditParty_TaleWorlds_CampaignSystem_Settlements_Hideout_System_Boolean_
+  name: CreateDesertBanditParty
+  nameWithType: MobilePartyGenerator.CreateDesertBanditParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateDesertBanditParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateForestBanditParty_TaleWorlds_CampaignSystem_Settlements_Hideout_System_Boolean_
+  name: CreateForestBanditParty
+  nameWithType: MobilePartyGenerator.CreateForestBanditParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateForestBanditParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateMountainBanditParty_TaleWorlds_CampaignSystem_Settlements_Hideout_System_Boolean_
+  name: CreateMountainBanditParty
+  nameWithType: MobilePartyGenerator.CreateMountainBanditParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateMountainBanditParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateSeaRaiderParty_TaleWorlds_CampaignSystem_Settlements_Hideout_System_Boolean_
+  name: CreateSeaRaiderParty
+  nameWithType: MobilePartyGenerator.CreateSeaRaiderParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSeaRaiderParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateSteppeBanditParty_TaleWorlds_CampaignSystem_Settlements_Hideout_System_Boolean_
+  name: CreateSteppeBanditParty
+  nameWithType: MobilePartyGenerator.CreateSteppeBanditParty
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateSteppeBanditParty
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture*
+  commentId: Overload:Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html#Bannerlord_GameMaster_Party_MobilePartyGenerator_CreateBanditPartyForCulture_TaleWorlds_CampaignSystem_Settlements_Hideout_TaleWorlds_CampaignSystem_CultureObject_System_Boolean_
+  name: CreateBanditPartyForCulture
+  nameWithType: MobilePartyGenerator.CreateBanditPartyForCulture
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator.CreateBanditPartyForCulture

@@ -1,0 +1,1004 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker
+  commentId: T:Bannerlord.GameMaster.Banners.BannerColorPicker
+  id: BannerColorPicker
+  parent: Bannerlord.GameMaster.Banners
+  children:
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(System.Int32,System.Int32,System.Single)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(System.UInt32,System.UInt32,System.Single)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo(System.Int32)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor(System.Int32,System.Boolean,System.Single)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor(System.Int32,System.Single)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor(System.Int32,System.Single)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: BannerColorPicker
+  nameWithType: BannerColorPicker
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BannerColorPicker
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Provides methods for selecting banner colors from the game's palette
+
+    and finding complementary colors for banner design.
+  example: []
+  syntax:
+    content: public static class BannerColorPicker
+    content.vb: Public Module BannerColorPicker
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId
+  id: GetRandomColorId
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetRandomColorId()
+  nameWithType: BannerColorPicker.GetRandomColorId()
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomColorId
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: Gets a random color ID from the banner palette.
+  example: []
+  syntax:
+    content: public static int GetRandomColorId()
+    return:
+      type: System.Int32
+      description: A valid color ID that exists in the palette.
+    content.vb: Public Shared Function GetRandomColorId() As Integer
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId*
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor(System.Int32,System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor(System.Int32,System.Single)
+  id: GetLighterComplementaryColor(System.Int32,System.Single)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetLighterComplementaryColor(int, float)
+  nameWithType: BannerColorPicker.GetLighterComplementaryColor(int, float)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor(int, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetLighterComplementaryColor
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: Finds a lighter complementary color from the palette based on the given color ID.
+  example: []
+  syntax:
+    content: public static int GetLighterComplementaryColor(int baseColorId, float minLuminanceDifference = 0.15)
+    parameters:
+    - id: baseColorId
+      type: System.Int32
+      description: The base color ID to find a lighter complement for.
+    - id: minLuminanceDifference
+      type: System.Single
+      description: Minimum brightness difference (0.0 to 1.0). Default is 0.15.
+    return:
+      type: System.Int32
+      description: A color ID for a lighter color, or the base color if no suitable lighter color exists.
+    content.vb: Public Shared Function GetLighterComplementaryColor(baseColorId As Integer, minLuminanceDifference As Single = 0.15) As Integer
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor*
+  nameWithType.vb: BannerColorPicker.GetLighterComplementaryColor(Integer, Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor(Integer, Single)
+  name.vb: GetLighterComplementaryColor(Integer, Single)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor(System.Int32,System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor(System.Int32,System.Single)
+  id: GetDarkerComplementaryColor(System.Int32,System.Single)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetDarkerComplementaryColor(int, float)
+  nameWithType: BannerColorPicker.GetDarkerComplementaryColor(int, float)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor(int, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetDarkerComplementaryColor
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 76
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: Finds a darker complementary color from the palette based on the given color ID.
+  example: []
+  syntax:
+    content: public static int GetDarkerComplementaryColor(int baseColorId, float minLuminanceDifference = 0.15)
+    parameters:
+    - id: baseColorId
+      type: System.Int32
+      description: The base color ID to find a darker complement for.
+    - id: minLuminanceDifference
+      type: System.Single
+      description: Minimum brightness difference (0.0 to 1.0). Default is 0.15.
+    return:
+      type: System.Int32
+      description: A color ID for a darker color, or the base color if no suitable darker color exists.
+    content.vb: Public Shared Function GetDarkerComplementaryColor(baseColorId As Integer, minLuminanceDifference As Single = 0.15) As Integer
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor*
+  nameWithType.vb: BannerColorPicker.GetDarkerComplementaryColor(Integer, Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor(Integer, Single)
+  name.vb: GetDarkerComplementaryColor(Integer, Single)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor(System.Int32,System.Boolean,System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor(System.Int32,System.Boolean,System.Single)
+  id: GetContrastingColor(System.Int32,System.Boolean,System.Single)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetContrastingColor(int, bool, float)
+  nameWithType: BannerColorPicker.GetContrastingColor(int, bool, float)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor(int, bool, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetContrastingColor
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 119
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Finds a contrasting color from the palette that provides maximum visibility against the base color.
+
+    Prefers colors with high luminance difference and complementary hues for better emblem visibility.
+  example: []
+  syntax:
+    content: public static int GetContrastingColor(int baseColorId, bool preferLighter, float minLuminanceDifference = 0.3)
+    parameters:
+    - id: baseColorId
+      type: System.Int32
+      description: The base color ID to find a contrasting color for.
+    - id: preferLighter
+      type: System.Boolean
+      description: If true, returns a lighter color; if false, returns a darker color.
+    - id: minLuminanceDifference
+      type: System.Single
+      description: Minimum brightness difference (0.0 to 1.0). Default is 0.3 for stronger contrast.
+    return:
+      type: System.Int32
+      description: A color ID for a contrasting color, or the base color if no suitable contrasting color exists.
+    content.vb: Public Shared Function GetContrastingColor(baseColorId As Integer, preferLighter As Boolean, minLuminanceDifference As Single = 0.3) As Integer
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor*
+  nameWithType.vb: BannerColorPicker.GetContrastingColor(Integer, Boolean, Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor(Integer, Boolean, Single)
+  name.vb: GetContrastingColor(Integer, Boolean, Single)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
+  id: GetBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetBannerColorScheme(out int, out int, out int)
+  nameWithType: BannerColorPicker.GetBannerColorScheme(out int, out int, out int)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(out int, out int, out int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetBannerColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 184
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Gets a complete banner color scheme with main background, secondary background, and emblem colors.
+
+    Automatically selects the best theme (standard or alternative) based on the main color's luminance.
+
+    For lighter main colors, uses darker secondary and emblem. For darker main colors, uses lighter emblem.
+  example: []
+  syntax:
+    content: public static void GetBannerColorScheme(out int mainBackgroundId, out int secondaryBackgroundId, out int emblemColorId)
+    parameters:
+    - id: mainBackgroundId
+      type: System.Int32
+      description: 'Output: The main background color ID.'
+    - id: secondaryBackgroundId
+      type: System.Int32
+      description: 'Output: The secondary background color ID.'
+    - id: emblemColorId
+      type: System.Int32
+      description: 'Output: The emblem color ID (high contrast).'
+    content.vb: Public Shared Sub GetBannerColorScheme(mainBackgroundId As Integer, secondaryBackgroundId As Integer, emblemColorId As Integer)
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme*
+  nameWithType.vb: BannerColorPicker.GetBannerColorScheme(Integer, Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(Integer, Integer, Integer)
+  name.vb: GetBannerColorScheme(Integer, Integer, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  id: GetBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetBannerColorScheme(int, out int, out int)
+  nameWithType: BannerColorPicker.GetBannerColorScheme(int, out int, out int)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(int, out int, out int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetBannerColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 203
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Gets a complete banner color scheme with main background, secondary background, and emblem colors
+
+    for a specific main color. Automatically selects the best theme based on the main color's luminance.
+
+    For lighter main colors (luminance &gt; 0.6), uses lighter secondary and darker emblem.
+
+    For darker main colors (luminance &lt;= 0.6), uses darker secondary and lighter emblem.
+  example: []
+  syntax:
+    content: public static void GetBannerColorScheme(int mainBackgroundId, out int secondaryBackgroundId, out int emblemColorId)
+    parameters:
+    - id: mainBackgroundId
+      type: System.Int32
+      description: The main background color ID to use.
+    - id: secondaryBackgroundId
+      type: System.Int32
+      description: 'Output: The secondary background color ID.'
+    - id: emblemColorId
+      type: System.Int32
+      description: 'Output: The emblem color ID (high contrast).'
+    content.vb: Public Shared Sub GetBannerColorScheme(mainBackgroundId As Integer, secondaryBackgroundId As Integer, emblemColorId As Integer)
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme*
+  nameWithType.vb: BannerColorPicker.GetBannerColorScheme(Integer, Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(Integer, Integer, Integer)
+  name.vb: GetBannerColorScheme(Integer, Integer, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
+  id: GetAlternativeBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetAlternativeBannerColorScheme(out int, out int, out int)
+  nameWithType: BannerColorPicker.GetAlternativeBannerColorScheme(out int, out int, out int)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(out int, out int, out int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetAlternativeBannerColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 241
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Gets an alternative banner color scheme with lighter secondary background and darker emblem.
+
+    Automatically selects a random main color and applies the alternative theme.
+
+    Best for creating banners with lighter overall appearance.
+  example: []
+  syntax:
+    content: public static void GetAlternativeBannerColorScheme(out int mainBackgroundId, out int secondaryBackgroundId, out int emblemColorId)
+    parameters:
+    - id: mainBackgroundId
+      type: System.Int32
+      description: 'Output: The main background color ID.'
+    - id: secondaryBackgroundId
+      type: System.Int32
+      description: 'Output: The secondary background color ID (lighter).'
+    - id: emblemColorId
+      type: System.Int32
+      description: 'Output: The emblem color ID (darker, high contrast).'
+    content.vb: Public Shared Sub GetAlternativeBannerColorScheme(mainBackgroundId As Integer, secondaryBackgroundId As Integer, emblemColorId As Integer)
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme*
+  nameWithType.vb: BannerColorPicker.GetAlternativeBannerColorScheme(Integer, Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(Integer, Integer, Integer)
+  name.vb: GetAlternativeBannerColorScheme(Integer, Integer, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  id: GetAlternativeBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetAlternativeBannerColorScheme(int, out int, out int)
+  nameWithType: BannerColorPicker.GetAlternativeBannerColorScheme(int, out int, out int)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(int, out int, out int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetAlternativeBannerColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 259
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Gets an alternative banner color scheme with lighter secondary background and darker emblem
+
+    for a specific main color. Always uses the alternative theme regardless of luminance.
+
+    Best for creating banners with lighter overall appearance.
+  example: []
+  syntax:
+    content: public static void GetAlternativeBannerColorScheme(int mainBackgroundId, out int secondaryBackgroundId, out int emblemColorId)
+    parameters:
+    - id: mainBackgroundId
+      type: System.Int32
+      description: The main background color ID to use.
+    - id: secondaryBackgroundId
+      type: System.Int32
+      description: 'Output: The secondary background color ID (lighter).'
+    - id: emblemColorId
+      type: System.Int32
+      description: 'Output: The emblem color ID (darker, high contrast).'
+    content.vb: Public Shared Sub GetAlternativeBannerColorScheme(mainBackgroundId As Integer, secondaryBackgroundId As Integer, emblemColorId As Integer)
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme*
+  nameWithType.vb: BannerColorPicker.GetAlternativeBannerColorScheme(Integer, Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(Integer, Integer, Integer)
+  name.vb: GetAlternativeBannerColorScheme(Integer, Integer, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  id: GetStandardBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetStandardBannerColorScheme(int, out int, out int)
+  nameWithType: BannerColorPicker.GetStandardBannerColorScheme(int, out int, out int)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme(int, out int, out int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetStandardBannerColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 285
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Gets a standard banner color scheme with darker secondary background and lighter emblem
+
+    for a specific main color. Always uses the standard theme regardless of luminance.
+
+    Best for creating banners with darker overall appearance.
+  example: []
+  syntax:
+    content: public static void GetStandardBannerColorScheme(int mainBackgroundId, out int secondaryBackgroundId, out int emblemColorId)
+    parameters:
+    - id: mainBackgroundId
+      type: System.Int32
+      description: The main background color ID to use.
+    - id: secondaryBackgroundId
+      type: System.Int32
+      description: 'Output: The secondary background color ID (darker).'
+    - id: emblemColorId
+      type: System.Int32
+      description: 'Output: The emblem color ID (lighter, high contrast).'
+    content.vb: Public Shared Sub GetStandardBannerColorScheme(mainBackgroundId As Integer, secondaryBackgroundId As Integer, emblemColorId As Integer)
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme*
+  nameWithType.vb: BannerColorPicker.GetStandardBannerColorScheme(Integer, Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme(Integer, Integer, Integer)
+  name.vb: GetStandardBannerColorScheme(Integer, Integer, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo(System.Int32)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo(System.Int32)
+  id: GetColorInfo(System.Int32)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetColorInfo(int)
+  nameWithType: BannerColorPicker.GetColorInfo(int)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo(int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetColorInfo
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 493
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: Gets color information for debugging purposes.
+  example: []
+  syntax:
+    content: public static string GetColorInfo(int colorId)
+    parameters:
+    - id: colorId
+      type: System.Int32
+      description: The color ID to get information for.
+    return:
+      type: System.String
+      description: A string containing color information, or null if the color doesn't exist.
+    content.vb: Public Shared Function GetColorInfo(colorId As Integer) As String
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo*
+  nameWithType.vb: BannerColorPicker.GetColorInfo(Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo(Integer)
+  name.vb: GetColorInfo(Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(System.Int32,System.Int32,System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(System.Int32,System.Int32,System.Single)
+  id: AreColorsSimilar(System.Int32,System.Int32,System.Single)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: AreColorsSimilar(int, int, float)
+  nameWithType: BannerColorPicker.AreColorsSimilar(int, int, float)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(int, int, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AreColorsSimilar
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 522
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Determines if two colors are similar based on perceptual difference.
+
+    Uses luminance, hue, and saturation to calculate color similarity.
+  example: []
+  syntax:
+    content: public static bool AreColorsSimilar(int colorId1, int colorId2, float threshold = 0.2)
+    parameters:
+    - id: colorId1
+      type: System.Int32
+      description: First color ID from banner palette.
+    - id: colorId2
+      type: System.Int32
+      description: Second color ID from banner palette.
+    - id: threshold
+      type: System.Single
+      description: Perceptual similarity threshold (0.0-1.0). Lower values mean more strict matching. Default is 0.2.
+    return:
+      type: System.Boolean
+      description: True if colors are perceptually similar, false otherwise.
+    content.vb: Public Shared Function AreColorsSimilar(colorId1 As Integer, colorId2 As Integer, threshold As Single = 0.2) As Boolean
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar*
+  nameWithType.vb: BannerColorPicker.AreColorsSimilar(Integer, Integer, Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(Integer, Integer, Single)
+  name.vb: AreColorsSimilar(Integer, Integer, Single)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(System.UInt32,System.UInt32,System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(System.UInt32,System.UInt32,System.Single)
+  id: AreColorsSimilar(System.UInt32,System.UInt32,System.Single)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: AreColorsSimilar(uint, uint, float)
+  nameWithType: BannerColorPicker.AreColorsSimilar(uint, uint, float)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(uint, uint, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AreColorsSimilar
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 566
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Determines if two colors (by uint value) are similar based on perceptual difference.
+
+    This overload is for compatibility with existing code using raw color values.
+  example: []
+  syntax:
+    content: public static bool AreColorsSimilar(uint color1, uint color2, float threshold = 0.2)
+    parameters:
+    - id: color1
+      type: System.UInt32
+      description: First color as uint value.
+    - id: color2
+      type: System.UInt32
+      description: Second color as uint value.
+    - id: threshold
+      type: System.Single
+      description: Perceptual similarity threshold (0.0-1.0). Lower values mean more strict matching. Default is 0.2.
+    return:
+      type: System.Boolean
+      description: True if colors are perceptually similar, false otherwise.
+    content.vb: Public Shared Function AreColorsSimilar(color1 As UInteger, color2 As UInteger, threshold As Single = 0.2) As Boolean
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar*
+  nameWithType.vb: BannerColorPicker.AreColorsSimilar(UInteger, UInteger, Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(UInteger, UInteger, Single)
+  name.vb: AreColorsSimilar(UInteger, UInteger, Single)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId(System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId(System.Single)
+  id: GetUniqueClanColorId(System.Single)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetUniqueClanColorId(float)
+  nameWithType: BannerColorPicker.GetUniqueClanColorId(float)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId(float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetUniqueClanColorId
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 596
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Gets the most unique color ID from the banner palette compared to existing clans.
+
+    Ensures the selected color is perceptually distinct from all existing clan colors.
+  example: []
+  syntax:
+    content: public static int GetUniqueClanColorId(float minimumThreshold = 0.15)
+    parameters:
+    - id: minimumThreshold
+      type: System.Single
+      description: Minimum perceptual difference threshold (0.0-1.0). Default is 0.15 for good distinction.
+    return:
+      type: System.Int32
+      description: A banner palette color ID that is maximally distinct from existing clan colors.
+    content.vb: Public Shared Function GetUniqueClanColorId(minimumThreshold As Single = 0.15) As Integer
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId*
+  nameWithType.vb: BannerColorPicker.GetUniqueClanColorId(Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId(Single)
+  name.vb: GetUniqueClanColorId(Single)
+references:
+- uid: Bannerlord.GameMaster.Banners
+  commentId: N:Bannerlord.GameMaster.Banners
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Banners
+  nameWithType: Bannerlord.GameMaster.Banners
+  fullName: Bannerlord.GameMaster.Banners
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetRandomColorId
+  name: GetRandomColorId
+  nameWithType: BannerColorPicker.GetRandomColorId
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetLighterComplementaryColor_System_Int32_System_Single_
+  name: GetLighterComplementaryColor
+  nameWithType: BannerColorPicker.GetLighterComplementaryColor
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetLighterComplementaryColor
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetDarkerComplementaryColor_System_Int32_System_Single_
+  name: GetDarkerComplementaryColor
+  nameWithType: BannerColorPicker.GetDarkerComplementaryColor
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetDarkerComplementaryColor
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetContrastingColor_System_Int32_System_Boolean_System_Single_
+  name: GetContrastingColor
+  nameWithType: BannerColorPicker.GetContrastingColor
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetContrastingColor
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetBannerColorScheme_System_Int32__System_Int32__System_Int32__
+  name: GetBannerColorScheme
+  nameWithType: BannerColorPicker.GetBannerColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetAlternativeBannerColorScheme_System_Int32__System_Int32__System_Int32__
+  name: GetAlternativeBannerColorScheme
+  nameWithType: BannerColorPicker.GetAlternativeBannerColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetStandardBannerColorScheme_System_Int32_System_Int32__System_Int32__
+  name: GetStandardBannerColorScheme
+  nameWithType: BannerColorPicker.GetStandardBannerColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetColorInfo_System_Int32_
+  name: GetColorInfo
+  nameWithType: BannerColorPicker.GetColorInfo
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_AreColorsSimilar_System_Int32_System_Int32_System_Single_
+  name: AreColorsSimilar
+  nameWithType: BannerColorPicker.AreColorsSimilar
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetUniqueClanColorId_System_Single_
+  name: GetUniqueClanColorId
+  nameWithType: BannerColorPicker.GetUniqueClanColorId
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId

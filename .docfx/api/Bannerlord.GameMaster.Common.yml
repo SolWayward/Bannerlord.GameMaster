@@ -1,0 +1,80 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  id: Bannerlord.GameMaster.Common
+  children:
+  - Bannerlord.GameMaster.Common.BLGMResult
+  - Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common.ResultBase`1
+  commentId: T:Bannerlord.GameMaster.Common.ResultBase`1
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  name: ResultBase<TSelf>
+  nameWithType: ResultBase<TSelf>
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>
+  nameWithType.vb: ResultBase(Of TSelf)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf)
+  name.vb: ResultBase(Of TSelf)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1
+    name: ResultBase
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  - name: <
+  - name: TSelf
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1
+    name: ResultBase
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: )
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html

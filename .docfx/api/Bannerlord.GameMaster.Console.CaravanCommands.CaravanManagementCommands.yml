@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands
+  id: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands
+  children:
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.CountCaravansCommand
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandCaravansCommand
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNotableCaravansCommand
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNpcLordCaravansCommand
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandPlayerCaravansCommand
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.ForceDestroyDisbandingCaravansCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.CountCaravansCommand
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.CountCaravansCommand
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.CountCaravansCommand.html
+  name: CountCaravansCommand
+  nameWithType: CountCaravansCommand
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.CountCaravansCommand
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandCaravansCommand
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandCaravansCommand
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandCaravansCommand.html
+  name: DisbandCaravansCommand
+  nameWithType: DisbandCaravansCommand
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandCaravansCommand
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNotableCaravansCommand
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNotableCaravansCommand
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNotableCaravansCommand.html
+  name: DisbandNotableCaravansCommand
+  nameWithType: DisbandNotableCaravansCommand
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNotableCaravansCommand
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNpcLordCaravansCommand
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNpcLordCaravansCommand
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNpcLordCaravansCommand.html
+  name: DisbandNpcLordCaravansCommand
+  nameWithType: DisbandNpcLordCaravansCommand
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNpcLordCaravansCommand
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandPlayerCaravansCommand
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandPlayerCaravansCommand
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandPlayerCaravansCommand.html
+  name: DisbandPlayerCaravansCommand
+  nameWithType: DisbandPlayerCaravansCommand
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandPlayerCaravansCommand
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.ForceDestroyDisbandingCaravansCommand
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.ForceDestroyDisbandingCaravansCommand
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.ForceDestroyDisbandingCaravansCommand.html
+  name: ForceDestroyDisbandingCaravansCommand
+  nameWithType: ForceDestroyDisbandingCaravansCommand
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.ForceDestroyDisbandingCaravansCommand

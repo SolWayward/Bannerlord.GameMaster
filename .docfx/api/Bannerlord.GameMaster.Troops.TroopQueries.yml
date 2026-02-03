@@ -1,0 +1,1023 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Troops.TroopQueries
+  commentId: T:Bannerlord.GameMaster.Troops.TroopQueries
+  id: TroopQueries
+  parent: Bannerlord.GameMaster.Troops
+  children:
+  - Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CharacterObject})
+  - Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById(System.String)
+  - Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer(System.String,System.Boolean)
+  - Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters(TaleWorlds.CampaignSystem.CharacterObject,System.String,System.Boolean,Bannerlord.GameMaster.Troops.TroopTypes,System.Boolean,System.Boolean,System.Int32,System.Boolean)
+  - Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType(System.String)
+  - Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes(System.Collections.Generic.IEnumerable{System.String})
+  - Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops(System.String,Bannerlord.GameMaster.Troops.TroopTypes,System.Boolean,System.Int32,System.String,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: TroopQueries
+  nameWithType: TroopQueries
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TroopQueries
+    path: ../Bannerlord.GameMaster/Troops/TroopQueries.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: >-
+    Provides query methods for searching, finding, filtering, or sorting troop entities.
+
+    CRITICAL: Heroes/Lords are NEVER troops - they are automatically excluded.
+  example: []
+  syntax:
+    content: public static class TroopQueries
+    content.vb: Public Module TroopQueries
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById(System.String)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById(System.String)
+  id: GetTroopById(System.String)
+  parent: Bannerlord.GameMaster.Troops.TroopQueries
+  langs:
+  - csharp
+  - vb
+  name: GetTroopById(string)
+  nameWithType: TroopQueries.GetTroopById(string)
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTroopById
+    path: ../Bannerlord.GameMaster/Troops/TroopQueries.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: >-
+    Finds a troop with the specified troopId, Fast but case sensitive (all string ids SHOULD be lower case) <br />
+
+    Use QueryTroops().FirstOrDefault() to find troop with case insensitive partial name or partial stringIds <br />
+
+    Example: QueryTroops("henry").FirstOrDefault()
+  example: []
+  syntax:
+    content: public static CharacterObject GetTroopById(string troopId)
+    parameters:
+    - id: troopId
+      type: System.String
+    return:
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    content.vb: Public Shared Function GetTroopById(troopId As String) As CharacterObject
+  overload: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById*
+  nameWithType.vb: TroopQueries.GetTroopById(String)
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById(String)
+  name.vb: GetTroopById(String)
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops(System.String,Bannerlord.GameMaster.Troops.TroopTypes,System.Boolean,System.Int32,System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops(System.String,Bannerlord.GameMaster.Troops.TroopTypes,System.Boolean,System.Int32,System.String,System.Boolean)
+  id: QueryTroops(System.String,Bannerlord.GameMaster.Troops.TroopTypes,System.Boolean,System.Int32,System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Troops.TroopQueries
+  langs:
+  - csharp
+  - vb
+  name: QueryTroops(string, TroopTypes, bool, int, string, bool)
+  nameWithType: TroopQueries.QueryTroops(string, TroopTypes, bool, int, string, bool)
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops(string, Bannerlord.GameMaster.Troops.TroopTypes, bool, int, string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: QueryTroops
+    path: ../Bannerlord.GameMaster/Troops/TroopQueries.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: >-
+    Performance focused method to find troops matching multiple parameters. All parameters are optional and can be used with none, one or a combination of any parameters<br />
+
+    Note: <code class="paramref">query</code> parameter is a string used that will match partial troop names or partial stringIds
+
+    CRITICAL: This method only returns actual combat troops (via IsActualTroop check), excluding NPCs, templates, and other non-troops.
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<CharacterObject> QueryTroops(string query = "", TroopTypes requiredTypes = TroopTypes.None, bool matchAll = true, int tierFilter = -1, string sortBy = "id", bool sortDescending = false)
+    parameters:
+    - id: query
+      type: System.String
+      description: Optional case-insensitive substring to filter by name or ID
+    - id: requiredTypes
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+      description: Troop type flags that ALL must match (AND logic)
+    - id: matchAll
+      type: System.Boolean
+      description: If true, troop must have ALL flags. If false, troop must have ANY flag
+    - id: tierFilter
+      type: System.Int32
+      description: Optional tier filter (0-6+, -1 for no filter)
+    - id: sortBy
+      type: System.String
+      description: Sort field (id, name, tier, level, culture, formation, or any TroopTypes flag)
+    - id: sortDescending
+      type: System.Boolean
+      description: True for descending, false for ascending
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.CharacterObject}
+      description: List of troops matching all criteria
+    content.vb: Public Shared Function QueryTroops(query As String = "", requiredTypes As TroopTypes = TroopTypes.None, matchAll As Boolean = True, tierFilter As Integer = -1, sortBy As String = "id", sortDescending As Boolean = False) As MBReadOnlyList(Of CharacterObject)
+  overload: Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops*
+  nameWithType.vb: TroopQueries.QueryTroops(String, TroopTypes, Boolean, Integer, String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops(String, Bannerlord.GameMaster.Troops.TroopTypes, Boolean, Integer, String, Boolean)
+  name.vb: QueryTroops(String, TroopTypes, Boolean, Integer, String, Boolean)
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters(TaleWorlds.CampaignSystem.CharacterObject,System.String,System.Boolean,Bannerlord.GameMaster.Troops.TroopTypes,System.Boolean,System.Boolean,System.Int32,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters(TaleWorlds.CampaignSystem.CharacterObject,System.String,System.Boolean,Bannerlord.GameMaster.Troops.TroopTypes,System.Boolean,System.Boolean,System.Int32,System.Boolean)
+  id: MatchesFilters(TaleWorlds.CampaignSystem.CharacterObject,System.String,System.Boolean,Bannerlord.GameMaster.Troops.TroopTypes,System.Boolean,System.Boolean,System.Int32,System.Boolean)
+  parent: Bannerlord.GameMaster.Troops.TroopQueries
+  langs:
+  - csharp
+  - vb
+  name: MatchesFilters(CharacterObject, string, bool, TroopTypes, bool, bool, int, bool)
+  nameWithType: TroopQueries.MatchesFilters(CharacterObject, string, bool, TroopTypes, bool, bool, int, bool)
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters(TaleWorlds.CampaignSystem.CharacterObject, string, bool, Bannerlord.GameMaster.Troops.TroopTypes, bool, bool, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MatchesFilters
+    path: ../Bannerlord.GameMaster/Troops/TroopQueries.cs
+    startLine: 81
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Check if troop matches all filter criteria
+  example: []
+  syntax:
+    content: public static bool MatchesFilters(CharacterObject troop, string query, bool hasQuery, TroopTypes requiredTypes, bool hasTypes, bool matchAll, int tierFilter, bool hasTierFilter)
+    parameters:
+    - id: troop
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    - id: query
+      type: System.String
+    - id: hasQuery
+      type: System.Boolean
+    - id: requiredTypes
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+    - id: hasTypes
+      type: System.Boolean
+    - id: matchAll
+      type: System.Boolean
+    - id: tierFilter
+      type: System.Int32
+    - id: hasTierFilter
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function MatchesFilters(troop As CharacterObject, query As String, hasQuery As Boolean, requiredTypes As TroopTypes, hasTypes As Boolean, matchAll As Boolean, tierFilter As Integer, hasTierFilter As Boolean) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters*
+  nameWithType.vb: TroopQueries.MatchesFilters(CharacterObject, String, Boolean, TroopTypes, Boolean, Boolean, Integer, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters(TaleWorlds.CampaignSystem.CharacterObject, String, Boolean, Bannerlord.GameMaster.Troops.TroopTypes, Boolean, Boolean, Integer, Boolean)
+  name.vb: MatchesFilters(CharacterObject, String, Boolean, TroopTypes, Boolean, Boolean, Integer, Boolean)
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer(System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer(System.String,System.Boolean)
+  id: GetTroopComparer(System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Troops.TroopQueries
+  langs:
+  - csharp
+  - vb
+  name: GetTroopComparer(string, bool)
+  nameWithType: TroopQueries.GetTroopComparer(string, bool)
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTroopComparer
+    path: ../Bannerlord.GameMaster/Troops/TroopQueries.cs
+    startLine: 121
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Get comparer for troop sorting (uses case-insensitive comparison, no string allocation)
+  example: []
+  syntax:
+    content: public static IComparer<CharacterObject> GetTroopComparer(string sortBy, bool descending)
+    parameters:
+    - id: sortBy
+      type: System.String
+    - id: descending
+      type: System.Boolean
+    return:
+      type: System.Collections.Generic.IComparer{TaleWorlds.CampaignSystem.CharacterObject}
+    content.vb: Public Shared Function GetTroopComparer(sortBy As String, descending As Boolean) As IComparer(Of CharacterObject)
+  overload: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer*
+  nameWithType.vb: TroopQueries.GetTroopComparer(String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer(String, Boolean)
+  name.vb: GetTroopComparer(String, Boolean)
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType(System.String)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType(System.String)
+  id: ParseTroopType(System.String)
+  parent: Bannerlord.GameMaster.Troops.TroopQueries
+  langs:
+  - csharp
+  - vb
+  name: ParseTroopType(string)
+  nameWithType: TroopQueries.ParseTroopType(string)
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseTroopType
+    path: ../Bannerlord.GameMaster/Troops/TroopQueries.cs
+    startLine: 199
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Parse a string into TroopTypes enum value
+  example: []
+  syntax:
+    content: public static TroopTypes ParseTroopType(string typeString)
+    parameters:
+    - id: typeString
+      type: System.String
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+    content.vb: Public Shared Function ParseTroopType(typeString As String) As TroopTypes
+  overload: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType*
+  nameWithType.vb: TroopQueries.ParseTroopType(String)
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType(String)
+  name.vb: ParseTroopType(String)
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes(System.Collections.Generic.IEnumerable{System.String})
+  id: ParseTroopTypes(System.Collections.Generic.IEnumerable{System.String})
+  parent: Bannerlord.GameMaster.Troops.TroopQueries
+  langs:
+  - csharp
+  - vb
+  name: ParseTroopTypes(IEnumerable<string>)
+  nameWithType: TroopQueries.ParseTroopTypes(IEnumerable<string>)
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseTroopTypes
+    path: ../Bannerlord.GameMaster/Troops/TroopQueries.cs
+    startLine: 209
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Parse multiple strings and combine into TroopTypes flags
+  example: []
+  syntax:
+    content: public static TroopTypes ParseTroopTypes(IEnumerable<string> typeStrings)
+    parameters:
+    - id: typeStrings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+    content.vb: Public Shared Function ParseTroopTypes(typeStrings As IEnumerable(Of String)) As TroopTypes
+  overload: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes*
+  nameWithType.vb: TroopQueries.ParseTroopTypes(IEnumerable(Of String))
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: ParseTroopTypes(IEnumerable(Of String))
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CharacterObject})
+  commentId: M:Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CharacterObject})
+  id: GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CharacterObject})
+  parent: Bannerlord.GameMaster.Troops.TroopQueries
+  langs:
+  - csharp
+  - vb
+  name: GetFormattedDetails(List<CharacterObject>)
+  nameWithType: TroopQueries.GetFormattedDetails(List<CharacterObject>)
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails(System.Collections.Generic.List<TaleWorlds.CampaignSystem.CharacterObject>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFormattedDetails
+    path: ../Bannerlord.GameMaster/Troops/TroopQueries.cs
+    startLine: 225
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Returns a formatted string listing troop details with aligned columns
+  example: []
+  syntax:
+    content: public static string GetFormattedDetails(List<CharacterObject> troops)
+    parameters:
+    - id: troops
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CharacterObject}
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetFormattedDetails(troops As List(Of CharacterObject)) As String
+  overload: Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails*
+  nameWithType.vb: TroopQueries.GetFormattedDetails(List(Of CharacterObject))
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails(System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.CharacterObject))
+  name.vb: GetFormattedDetails(List(Of CharacterObject))
+references:
+- uid: Bannerlord.GameMaster.Troops
+  commentId: N:Bannerlord.GameMaster.Troops
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Troops
+  nameWithType: Bannerlord.GameMaster.Troops
+  fullName: Bannerlord.GameMaster.Troops
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById
+  href: Bannerlord.GameMaster.Troops.TroopQueries.html#Bannerlord_GameMaster_Troops_TroopQueries_GetTroopById_System_String_
+  name: GetTroopById
+  nameWithType: TroopQueries.GetTroopById
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopById
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: TaleWorlds.CampaignSystem.CharacterObject
+  commentId: T:TaleWorlds.CampaignSystem.CharacterObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CharacterObject
+  nameWithType: CharacterObject
+  fullName: TaleWorlds.CampaignSystem.CharacterObject
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops
+  href: Bannerlord.GameMaster.Troops.TroopQueries.html#Bannerlord_GameMaster_Troops_TroopQueries_QueryTroops_System_String_Bannerlord_GameMaster_Troops_TroopTypes_System_Boolean_System_Int32_System_String_System_Boolean_
+  name: QueryTroops
+  nameWithType: TroopQueries.QueryTroops
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.QueryTroops
+- uid: Bannerlord.GameMaster.Troops.TroopTypes
+  commentId: T:Bannerlord.GameMaster.Troops.TroopTypes
+  parent: Bannerlord.GameMaster.Troops
+  href: Bannerlord.GameMaster.Troops.TroopTypes.html
+  name: TroopTypes
+  nameWithType: TroopTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.CharacterObject}
+  commentId: T:TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.CharacterObject}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBReadOnlyList`1
+  name: MBReadOnlyList<CharacterObject>
+  nameWithType: MBReadOnlyList<CharacterObject>
+  fullName: TaleWorlds.Library.MBReadOnlyList<TaleWorlds.CampaignSystem.CharacterObject>
+  nameWithType.vb: MBReadOnlyList(Of CharacterObject)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of TaleWorlds.CampaignSystem.CharacterObject)
+  name.vb: MBReadOnlyList(Of CharacterObject)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.CharacterObject
+    name: CharacterObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.CharacterObject
+    name: CharacterObject
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.Library.MBReadOnlyList`1
+  commentId: T:TaleWorlds.Library.MBReadOnlyList`1
+  isExternal: true
+  name: MBReadOnlyList<T>
+  nameWithType: MBReadOnlyList<T>
+  fullName: TaleWorlds.Library.MBReadOnlyList<T>
+  nameWithType.vb: MBReadOnlyList(Of T)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of T)
+  name.vb: MBReadOnlyList(Of T)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters
+  href: Bannerlord.GameMaster.Troops.TroopQueries.html#Bannerlord_GameMaster_Troops_TroopQueries_MatchesFilters_TaleWorlds_CampaignSystem_CharacterObject_System_String_System_Boolean_Bannerlord_GameMaster_Troops_TroopTypes_System_Boolean_System_Boolean_System_Int32_System_Boolean_
+  name: MatchesFilters
+  nameWithType: TroopQueries.MatchesFilters
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.MatchesFilters
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer
+  href: Bannerlord.GameMaster.Troops.TroopQueries.html#Bannerlord_GameMaster_Troops_TroopQueries_GetTroopComparer_System_String_System_Boolean_
+  name: GetTroopComparer
+  nameWithType: TroopQueries.GetTroopComparer
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.GetTroopComparer
+- uid: System.Collections.Generic.IComparer{TaleWorlds.CampaignSystem.CharacterObject}
+  commentId: T:System.Collections.Generic.IComparer{TaleWorlds.CampaignSystem.CharacterObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IComparer`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  name: IComparer<CharacterObject>
+  nameWithType: IComparer<CharacterObject>
+  fullName: System.Collections.Generic.IComparer<TaleWorlds.CampaignSystem.CharacterObject>
+  nameWithType.vb: IComparer(Of CharacterObject)
+  fullName.vb: System.Collections.Generic.IComparer(Of TaleWorlds.CampaignSystem.CharacterObject)
+  name.vb: IComparer(Of CharacterObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.IComparer`1
+    name: IComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.CharacterObject
+    name: CharacterObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IComparer`1
+    name: IComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.CharacterObject
+    name: CharacterObject
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.IComparer`1
+  commentId: T:System.Collections.Generic.IComparer`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  name: IComparer<T>
+  nameWithType: IComparer<T>
+  fullName: System.Collections.Generic.IComparer<T>
+  nameWithType.vb: IComparer(Of T)
+  fullName.vb: System.Collections.Generic.IComparer(Of T)
+  name.vb: IComparer(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IComparer`1
+    name: IComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IComparer`1
+    name: IComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType
+  href: Bannerlord.GameMaster.Troops.TroopQueries.html#Bannerlord_GameMaster_Troops_TroopQueries_ParseTroopType_System_String_
+  name: ParseTroopType
+  nameWithType: TroopQueries.ParseTroopType
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopType
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes
+  href: Bannerlord.GameMaster.Troops.TroopQueries.html#Bannerlord_GameMaster_Troops_TroopQueries_ParseTroopTypes_System_Collections_Generic_IEnumerable_System_String__
+  name: ParseTroopTypes
+  nameWithType: TroopQueries.ParseTroopTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.ParseTroopTypes
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails
+  href: Bannerlord.GameMaster.Troops.TroopQueries.html#Bannerlord_GameMaster_Troops_TroopQueries_GetFormattedDetails_System_Collections_Generic_List_TaleWorlds_CampaignSystem_CharacterObject__
+  name: GetFormattedDetails
+  nameWithType: TroopQueries.GetFormattedDetails
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries.GetFormattedDetails
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CharacterObject}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.CharacterObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<CharacterObject>
+  nameWithType: List<CharacterObject>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.CharacterObject>
+  nameWithType.vb: List(Of CharacterObject)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.CharacterObject)
+  name.vb: List(Of CharacterObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.CharacterObject
+    name: CharacterObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.CharacterObject
+    name: CharacterObject
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

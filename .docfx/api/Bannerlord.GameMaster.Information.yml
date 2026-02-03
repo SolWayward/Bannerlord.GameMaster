@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Information
+  commentId: N:Bannerlord.GameMaster.Information
+  id: Bannerlord.GameMaster.Information
+  children:
+  - Bannerlord.GameMaster.Information.GameEnvironment
+  - Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Information
+  nameWithType: Bannerlord.GameMaster.Information
+  fullName: Bannerlord.GameMaster.Information
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Information.GameEnvironment
+  commentId: T:Bannerlord.GameMaster.Information.GameEnvironment
+  href: Bannerlord.GameMaster.Information.GameEnvironment.html
+  name: GameEnvironment
+  nameWithType: GameEnvironment
+  fullName: Bannerlord.GameMaster.Information.GameEnvironment
+- uid: Bannerlord.GameMaster.Information.InfoMessage
+  commentId: T:Bannerlord.GameMaster.Information.InfoMessage
+  href: Bannerlord.GameMaster.Information.InfoMessage.html
+  name: InfoMessage
+  nameWithType: InfoMessage
+  fullName: Bannerlord.GameMaster.Information.InfoMessage

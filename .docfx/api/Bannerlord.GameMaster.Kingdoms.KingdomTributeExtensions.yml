@@ -1,0 +1,454 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+  id: KingdomTributeExtensions
+  parent: Bannerlord.GameMaster.Kingdoms
+  children:
+  - Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.GetTributeInfo(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: KingdomTributeExtensions
+  nameWithType: KingdomTributeExtensions
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomTributeExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: KingdomTributeExtensions
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomTributeExtensions.cs
+    startLine: 4
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: public static class KingdomTributeExtensions
+    content.vb: Public Module KingdomTributeExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Int32,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Int32,System.Int32)
+  id: PayTribute(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+  langs:
+  - csharp
+  - vb
+  name: PayTribute(Kingdom, Kingdom, int, int)
+  nameWithType: KingdomTributeExtensions.PayTribute(Kingdom, Kingdom, int, int)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute(TaleWorlds.CampaignSystem.Kingdom, TaleWorlds.CampaignSystem.Kingdom, int, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomTributeExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: PayTribute
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomTributeExtensions.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: >-
+    Makes the kingdom pay the specified kingdom a daily tribute. Tributes between 2 kingdoms override eachother and do not accumulate<br />
+
+    There can be multiple tributes between different kingdom, just not the same 2 kingdoms <br />
+
+    A tribute can be canceled by setting a new tribute between the two kingdoms of 0 or by making the receiver pay the payer
+  example: []
+  syntax:
+    content: public static TributeInfo PayTribute(this Kingdom kingdom, Kingdom otherKingdom, int dailyAmount, int days)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: otherKingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: dailyAmount
+      type: System.Int32
+    - id: days
+      type: System.Int32
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.TributeInfo
+    content.vb: Public Shared Function PayTribute(kingdom As Kingdom, otherKingdom As Kingdom, dailyAmount As Integer, days As Integer) As TributeInfo
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute*
+  nameWithType.vb: KingdomTributeExtensions.PayTribute(Kingdom, Kingdom, Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute(TaleWorlds.CampaignSystem.Kingdom, TaleWorlds.CampaignSystem.Kingdom, Integer, Integer)
+  name.vb: PayTribute(Kingdom, Kingdom, Integer, Integer)
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.GetTributeInfo(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.GetTributeInfo(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
+  id: GetTributeInfo(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetTributeInfo(Kingdom, Kingdom)
+  nameWithType: KingdomTributeExtensions.GetTributeInfo(Kingdom, Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.GetTributeInfo(TaleWorlds.CampaignSystem.Kingdom, TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomTributeExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTributeInfo
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomTributeExtensions.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Returns a TributeInfo object containing information relating to any existing tributes between the two kingdoms
+  example: []
+  syntax:
+    content: public static TributeInfo GetTributeInfo(this Kingdom kingdom, Kingdom otherKingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: ''
+    - id: otherKingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: ''
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.TributeInfo
+      description: ''
+    content.vb: Public Shared Function GetTributeInfo(kingdom As Kingdom, otherKingdom As Kingdom) As TributeInfo
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.GetTributeInfo*
+references:
+- uid: Bannerlord.GameMaster.Kingdoms
+  commentId: N:Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Kingdoms
+  nameWithType: Bannerlord.GameMaster.Kingdoms
+  fullName: Bannerlord.GameMaster.Kingdoms
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomTributeExtensions_PayTribute_TaleWorlds_CampaignSystem_Kingdom_TaleWorlds_CampaignSystem_Kingdom_System_Int32_System_Int32_
+  name: PayTribute
+  nameWithType: KingdomTributeExtensions.PayTribute
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.PayTribute
+- uid: TaleWorlds.CampaignSystem.Kingdom
+  commentId: T:TaleWorlds.CampaignSystem.Kingdom
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Kingdom
+  nameWithType: Kingdom
+  fullName: TaleWorlds.CampaignSystem.Kingdom
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Kingdoms.TributeInfo
+  commentId: T:Bannerlord.GameMaster.Kingdoms.TributeInfo
+  parent: Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.GameMaster.Kingdoms.TributeInfo.html
+  name: TributeInfo
+  nameWithType: TributeInfo
+  fullName: Bannerlord.GameMaster.Kingdoms.TributeInfo
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.GetTributeInfo*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.GetTributeInfo
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomTributeExtensions_GetTributeInfo_TaleWorlds_CampaignSystem_Kingdom_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetTributeInfo
+  nameWithType: KingdomTributeExtensions.GetTributeInfo
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.GetTributeInfo

@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
+  commentId: N:Bannerlord.GameMaster.Console.Query.ClanQueryCommands
+  id: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
+  children:
+  - Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanAnyCommand
+  - Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanCommand
+  - Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanInfoCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
+  nameWithType: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
+  fullName: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanAnyCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanAnyCommand
+  href: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanAnyCommand.html
+  name: QueryClanAnyCommand
+  nameWithType: QueryClanAnyCommand
+  fullName: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanAnyCommand
+- uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanCommand
+  href: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanCommand.html
+  name: QueryClanCommand
+  nameWithType: QueryClanCommand
+  fullName: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanCommand
+- uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanInfoCommand
+  href: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanInfoCommand.html
+  name: QueryClanInfoCommand
+  nameWithType: QueryClanInfoCommand
+  fullName: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanInfoCommand

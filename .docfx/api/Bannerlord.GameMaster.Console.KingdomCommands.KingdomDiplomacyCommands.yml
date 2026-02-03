@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands
+  commentId: N:Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands
+  id: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands
+  children:
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.CallAllyToWarCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareAllianceCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareWarCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.GetTributeInfoCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.MakePeaceCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.PayTributeCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.TradeAgreementCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands
+  nameWithType: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.CallAllyToWarCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.CallAllyToWarCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.CallAllyToWarCommand.html
+  name: CallAllyToWarCommand
+  nameWithType: CallAllyToWarCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.CallAllyToWarCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareAllianceCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareAllianceCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareAllianceCommand.html
+  name: DeclareAllianceCommand
+  nameWithType: DeclareAllianceCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareAllianceCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareWarCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareWarCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareWarCommand.html
+  name: DeclareWarCommand
+  nameWithType: DeclareWarCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareWarCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.GetTributeInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.GetTributeInfoCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.GetTributeInfoCommand.html
+  name: GetTributeInfoCommand
+  nameWithType: GetTributeInfoCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.GetTributeInfoCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.MakePeaceCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.MakePeaceCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.MakePeaceCommand.html
+  name: MakePeaceCommand
+  nameWithType: MakePeaceCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.MakePeaceCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.PayTributeCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.PayTributeCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.PayTributeCommand.html
+  name: PayTributeCommand
+  nameWithType: PayTributeCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.PayTributeCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.TradeAgreementCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.TradeAgreementCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.TradeAgreementCommand.html
+  name: TradeAgreementCommand
+  nameWithType: TradeAgreementCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.TradeAgreementCommand

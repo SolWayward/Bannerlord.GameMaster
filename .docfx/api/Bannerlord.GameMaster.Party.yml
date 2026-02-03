@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Party
+  commentId: N:Bannerlord.GameMaster.Party
+  id: Bannerlord.GameMaster.Party
+  children:
+  - Bannerlord.GameMaster.Party.MobilePartyExtensions
+  - Bannerlord.GameMaster.Party.MobilePartyGenerator
+  - Bannerlord.GameMaster.Party.SettlementPartyType
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Party
+  nameWithType: Bannerlord.GameMaster.Party
+  fullName: Bannerlord.GameMaster.Party
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Party.MobilePartyExtensions
+  commentId: T:Bannerlord.GameMaster.Party.MobilePartyExtensions
+  href: Bannerlord.GameMaster.Party.MobilePartyExtensions.html
+  name: MobilePartyExtensions
+  nameWithType: MobilePartyExtensions
+  fullName: Bannerlord.GameMaster.Party.MobilePartyExtensions
+- uid: Bannerlord.GameMaster.Party.MobilePartyGenerator
+  commentId: T:Bannerlord.GameMaster.Party.MobilePartyGenerator
+  href: Bannerlord.GameMaster.Party.MobilePartyGenerator.html
+  name: MobilePartyGenerator
+  nameWithType: MobilePartyGenerator
+  fullName: Bannerlord.GameMaster.Party.MobilePartyGenerator
+- uid: Bannerlord.GameMaster.Party.SettlementPartyType
+  commentId: T:Bannerlord.GameMaster.Party.SettlementPartyType
+  parent: Bannerlord.GameMaster.Party
+  href: Bannerlord.GameMaster.Party.SettlementPartyType.html
+  name: SettlementPartyType
+  nameWithType: SettlementPartyType
+  fullName: Bannerlord.GameMaster.Party.SettlementPartyType
+- uid: Bannerlord.GameMaster.Party
+  commentId: N:Bannerlord.GameMaster.Party
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Party
+  nameWithType: Bannerlord.GameMaster.Party
+  fullName: Bannerlord.GameMaster.Party
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Party
+    name: Party
+    href: Bannerlord.GameMaster.Party.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Party
+    name: Party
+    href: Bannerlord.GameMaster.Party.html

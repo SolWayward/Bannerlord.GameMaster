@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Banners
+  commentId: N:Bannerlord.GameMaster.Banners
+  id: Bannerlord.GameMaster.Banners
+  children:
+  - Bannerlord.GameMaster.Banners.BannerColorPicker
+  - Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Banners
+  nameWithType: Bannerlord.GameMaster.Banners
+  fullName: Bannerlord.GameMaster.Banners
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker
+  commentId: T:Bannerlord.GameMaster.Banners.BannerColorPicker
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html
+  name: BannerColorPicker
+  nameWithType: BannerColorPicker
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions
+  commentId: T:Bannerlord.GameMaster.Banners.BannerExtensions
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html
+  name: BannerExtensions
+  nameWithType: BannerExtensions
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions

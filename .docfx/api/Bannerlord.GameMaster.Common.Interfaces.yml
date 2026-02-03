@@ -1,0 +1,80 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Common.Interfaces
+  commentId: N:Bannerlord.GameMaster.Common.Interfaces
+  id: Bannerlord.GameMaster.Common.Interfaces
+  children:
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Common.Interfaces
+  nameWithType: Bannerlord.GameMaster.Common.Interfaces
+  fullName: Bannerlord.GameMaster.Common.Interfaces
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  commentId: T:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  name: IEntityExtensions<TEntity, TTypes>
+  nameWithType: IEntityExtensions<TEntity, TTypes>
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes)
+  name.vb: IEntityExtensions(Of TEntity, TTypes)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+    name: IEntityExtensions
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+    name: IEntityExtensions
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: )
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  commentId: T:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries-2.html
+  name: IEntityQueries<TEntity, TTypes>
+  nameWithType: IEntityQueries<TEntity, TTypes>
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes)
+  name.vb: IEntityQueries(Of TEntity, TTypes)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+    name: IEntityQueries
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+    name: IEntityQueries
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: )

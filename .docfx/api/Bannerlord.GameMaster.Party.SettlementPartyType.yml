@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Party.SettlementPartyType
+  commentId: T:Bannerlord.GameMaster.Party.SettlementPartyType
+  id: SettlementPartyType
+  parent: Bannerlord.GameMaster.Party
+  children:
+  - Bannerlord.GameMaster.Party.SettlementPartyType.Militia
+  - Bannerlord.GameMaster.Party.SettlementPartyType.Patrol
+  - Bannerlord.GameMaster.Party.SettlementPartyType.Villager
+  langs:
+  - csharp
+  - vb
+  name: SettlementPartyType
+  nameWithType: SettlementPartyType
+  fullName: Bannerlord.GameMaster.Party.SettlementPartyType
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SettlementPartyType
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 656
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Types of parties that can be created from settlements.
+  example: []
+  syntax:
+    content: public enum SettlementPartyType
+    content.vb: Public Enum SettlementPartyType
+- uid: Bannerlord.GameMaster.Party.SettlementPartyType.Villager
+  commentId: F:Bannerlord.GameMaster.Party.SettlementPartyType.Villager
+  id: Villager
+  parent: Bannerlord.GameMaster.Party.SettlementPartyType
+  langs:
+  - csharp
+  - vb
+  name: Villager
+  nameWithType: SettlementPartyType.Villager
+  fullName: Bannerlord.GameMaster.Party.SettlementPartyType.Villager
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Villager
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 659
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Villager party from a village
+  example: []
+  syntax:
+    content: Villager = 0
+    return:
+      type: Bannerlord.GameMaster.Party.SettlementPartyType
+- uid: Bannerlord.GameMaster.Party.SettlementPartyType.Patrol
+  commentId: F:Bannerlord.GameMaster.Party.SettlementPartyType.Patrol
+  id: Patrol
+  parent: Bannerlord.GameMaster.Party.SettlementPartyType
+  langs:
+  - csharp
+  - vb
+  name: Patrol
+  nameWithType: SettlementPartyType.Patrol
+  fullName: Bannerlord.GameMaster.Party.SettlementPartyType.Patrol
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Patrol
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 662
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Patrol/guard party from a fortification
+  example: []
+  syntax:
+    content: Patrol = 1
+    return:
+      type: Bannerlord.GameMaster.Party.SettlementPartyType
+- uid: Bannerlord.GameMaster.Party.SettlementPartyType.Militia
+  commentId: F:Bannerlord.GameMaster.Party.SettlementPartyType.Militia
+  id: Militia
+  parent: Bannerlord.GameMaster.Party.SettlementPartyType
+  langs:
+  - csharp
+  - vb
+  name: Militia
+  nameWithType: SettlementPartyType.Militia
+  fullName: Bannerlord.GameMaster.Party.SettlementPartyType.Militia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Militia
+    path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
+    startLine: 665
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Party
+  summary: Militia party from a fortification
+  example: []
+  syntax:
+    content: Militia = 2
+    return:
+      type: Bannerlord.GameMaster.Party.SettlementPartyType
+references:
+- uid: Bannerlord.GameMaster.Party
+  commentId: N:Bannerlord.GameMaster.Party
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Party
+  nameWithType: Bannerlord.GameMaster.Party
+  fullName: Bannerlord.GameMaster.Party
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Party
+    name: Party
+    href: Bannerlord.GameMaster.Party.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Party
+    name: Party
+    href: Bannerlord.GameMaster.Party.html
+- uid: Bannerlord.GameMaster.Party.SettlementPartyType
+  commentId: T:Bannerlord.GameMaster.Party.SettlementPartyType
+  parent: Bannerlord.GameMaster.Party
+  href: Bannerlord.GameMaster.Party.SettlementPartyType.html
+  name: SettlementPartyType
+  nameWithType: SettlementPartyType
+  fullName: Bannerlord.GameMaster.Party.SettlementPartyType

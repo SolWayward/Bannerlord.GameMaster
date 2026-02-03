@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands
+  commentId: N:Bannerlord.GameMaster.Console.Query.TroopQueryCommands
+  id: Bannerlord.GameMaster.Console.Query.TroopQueryCommands
+  children:
+  - Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsAnyCommand
+  - Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsCommand
+  - Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsInfoCommand
+  - Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopAnyCommand
+  - Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopCommand
+  - Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopInfoCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Query.TroopQueryCommands
+  nameWithType: Bannerlord.GameMaster.Console.Query.TroopQueryCommands
+  fullName: Bannerlord.GameMaster.Console.Query.TroopQueryCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsAnyCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsAnyCommand
+  href: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsAnyCommand.html
+  name: QueryCharacterObjectsAnyCommand
+  nameWithType: QueryCharacterObjectsAnyCommand
+  fullName: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsAnyCommand
+- uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsCommand
+  href: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsCommand.html
+  name: QueryCharacterObjectsCommand
+  nameWithType: QueryCharacterObjectsCommand
+  fullName: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsCommand
+- uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsInfoCommand
+  href: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsInfoCommand.html
+  name: QueryCharacterObjectsInfoCommand
+  nameWithType: QueryCharacterObjectsInfoCommand
+  fullName: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsInfoCommand
+- uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopAnyCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopAnyCommand
+  href: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopAnyCommand.html
+  name: QueryTroopAnyCommand
+  nameWithType: QueryTroopAnyCommand
+  fullName: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopAnyCommand
+- uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopCommand
+  href: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopCommand.html
+  name: QueryTroopCommand
+  nameWithType: QueryTroopCommand
+  fullName: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopCommand
+- uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopInfoCommand
+  href: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopInfoCommand.html
+  name: QueryTroopInfoCommand
+  nameWithType: QueryTroopInfoCommand
+  fullName: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopInfoCommand

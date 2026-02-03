@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Troops
+  commentId: N:Bannerlord.GameMaster.Troops
+  id: Bannerlord.GameMaster.Troops
+  children:
+  - Bannerlord.GameMaster.Troops.TroopExtensions
+  - Bannerlord.GameMaster.Troops.TroopExtensionsWrapper
+  - Bannerlord.GameMaster.Troops.TroopQueries
+  - Bannerlord.GameMaster.Troops.TroopTypes
+  - Bannerlord.GameMaster.Troops.TroopUpgrader
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Troops
+  nameWithType: Bannerlord.GameMaster.Troops
+  fullName: Bannerlord.GameMaster.Troops
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Troops.TroopTypes
+  commentId: T:Bannerlord.GameMaster.Troops.TroopTypes
+  parent: Bannerlord.GameMaster.Troops
+  href: Bannerlord.GameMaster.Troops.TroopTypes.html
+  name: TroopTypes
+  nameWithType: TroopTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions
+  commentId: T:Bannerlord.GameMaster.Troops.TroopExtensions
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html
+  name: TroopExtensions
+  nameWithType: TroopExtensions
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions
+- uid: Bannerlord.GameMaster.Troops.TroopExtensionsWrapper
+  commentId: T:Bannerlord.GameMaster.Troops.TroopExtensionsWrapper
+  href: Bannerlord.GameMaster.Troops.TroopExtensionsWrapper.html
+  name: TroopExtensionsWrapper
+  nameWithType: TroopExtensionsWrapper
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensionsWrapper
+- uid: Bannerlord.GameMaster.Troops.TroopQueries
+  commentId: T:Bannerlord.GameMaster.Troops.TroopQueries
+  href: Bannerlord.GameMaster.Troops.TroopQueries.html
+  name: TroopQueries
+  nameWithType: TroopQueries
+  fullName: Bannerlord.GameMaster.Troops.TroopQueries
+- uid: Bannerlord.GameMaster.Troops.TroopUpgrader
+  commentId: T:Bannerlord.GameMaster.Troops.TroopUpgrader
+  href: Bannerlord.GameMaster.Troops.TroopUpgrader.html
+  name: TroopUpgrader
+  nameWithType: TroopUpgrader
+  fullName: Bannerlord.GameMaster.Troops.TroopUpgrader
+- uid: Bannerlord.GameMaster.Troops
+  commentId: N:Bannerlord.GameMaster.Troops
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Troops
+  nameWithType: Bannerlord.GameMaster.Troops
+  fullName: Bannerlord.GameMaster.Troops
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html

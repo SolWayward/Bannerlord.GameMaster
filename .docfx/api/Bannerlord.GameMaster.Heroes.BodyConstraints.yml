@@ -1,0 +1,593 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+  commentId: T:Bannerlord.GameMaster.Heroes.BodyConstraints
+  id: BodyConstraints
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.#ctor
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.Build
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.FemaleConstraints
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints(System.Boolean)
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.Height
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.MaleConstraints
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.Weight
+  langs:
+  - csharp
+  - vb
+  name: BodyConstraints
+  nameWithType: BodyConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints
+  type: Struct
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BodyConstraints
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 4
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public struct BodyConstraints
+    content.vb: Public Structure BodyConstraints
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Height
+  commentId: F:Bannerlord.GameMaster.Heroes.BodyConstraints.Height
+  id: Height
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: BodyConstraints.Height
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Height
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Height
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 7
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Min and Max Height values ranging from 0 to 1
+  example: []
+  syntax:
+    content: public BodyConstraints.Constraint Height
+    return:
+      type: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+    content.vb: Public Height As BodyConstraints.Constraint
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Weight
+  commentId: F:Bannerlord.GameMaster.Heroes.BodyConstraints.Weight
+  id: Weight
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints
+  langs:
+  - csharp
+  - vb
+  name: Weight
+  nameWithType: BodyConstraints.Weight
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Weight
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Weight
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Min and Max Weight values ranging from 0 to 1
+  example: []
+  syntax:
+    content: public BodyConstraints.Constraint Weight
+    return:
+      type: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+    content.vb: Public Weight As BodyConstraints.Constraint
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Build
+  commentId: F:Bannerlord.GameMaster.Heroes.BodyConstraints.Build
+  id: Build
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints
+  langs:
+  - csharp
+  - vb
+  name: Build
+  nameWithType: BodyConstraints.Build
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Build
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Build
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Min and Max Build (Muscle Mass/Tone) values ranging from 0 to 1
+  example: []
+  syntax:
+    content: public BodyConstraints.Constraint Build
+    return:
+      type: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+    content.vb: Public Build As BodyConstraints.Constraint
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.#ctor
+  commentId: M:Bannerlord.GameMaster.Heroes.BodyConstraints.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints
+  langs:
+  - csharp
+  - vb
+  name: BodyConstraints()
+  nameWithType: BodyConstraints.BodyConstraints()
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.BodyConstraints()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public BodyConstraints()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.Heroes.BodyConstraints.#ctor*
+  nameWithType.vb: BodyConstraints.New()
+  fullName.vb: Bannerlord.GameMaster.Heroes.BodyConstraints.New()
+  name.vb: New()
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints(System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints(System.Boolean)
+  id: GenderConstraints(System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints
+  langs:
+  - csharp
+  - vb
+  name: GenderConstraints(bool)
+  nameWithType: BodyConstraints.GenderConstraints(bool)
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints(bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GenderConstraints
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Returns constraints optimized for specified gender <br />
+
+    FemaleHeight: 0.3 to 0.8 - MaleHeight: 0.5 to 1 <br />
+
+    FemaleWeight: 0 to 0.5 --- MaleWeight: 0 to 1 <br />
+
+    FemaleBuild: 0 to 0.5 ---- MaleBuild: 0 to 1 <br />
+  example: []
+  syntax:
+    content: public static BodyConstraints GenderConstraints(bool isFemale)
+    parameters:
+    - id: isFemale
+      type: System.Boolean
+    return:
+      type: Bannerlord.GameMaster.Heroes.BodyConstraints
+    content.vb: Public Shared Function GenderConstraints(isFemale As Boolean) As BodyConstraints
+  overload: Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints*
+  nameWithType.vb: BodyConstraints.GenderConstraints(Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints(Boolean)
+  name.vb: GenderConstraints(Boolean)
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.FemaleConstraints
+  commentId: P:Bannerlord.GameMaster.Heroes.BodyConstraints.FemaleConstraints
+  id: FemaleConstraints
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints
+  langs:
+  - csharp
+  - vb
+  name: FemaleConstraints
+  nameWithType: BodyConstraints.FemaleConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.FemaleConstraints
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FemaleConstraints
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Returns constraints optimized for females <br />
+
+    Height: 0.3 to 0.8 <br />
+
+    Weight: 0 to 0.5 <br />
+
+    Build: 0 to 0.5 <br />
+  example: []
+  syntax:
+    content: public static BodyConstraints FemaleConstraints { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Heroes.BodyConstraints
+    content.vb: Public Shared ReadOnly Property FemaleConstraints As BodyConstraints
+  overload: Bannerlord.GameMaster.Heroes.BodyConstraints.FemaleConstraints*
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.MaleConstraints
+  commentId: P:Bannerlord.GameMaster.Heroes.BodyConstraints.MaleConstraints
+  id: MaleConstraints
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints
+  langs:
+  - csharp
+  - vb
+  name: MaleConstraints
+  nameWithType: BodyConstraints.MaleConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.MaleConstraints
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MaleConstraints
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 61
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Returns constraints optimized for males <br />
+
+    Height: 0.5 to 1 <br />
+
+    Weight: 0 to 1 <br />
+
+    Build: 0 to 1 <br />
+  example: []
+  syntax:
+    content: public static BodyConstraints MaleConstraints { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Heroes.BodyConstraints
+    content.vb: Public Shared ReadOnly Property MaleConstraints As BodyConstraints
+  overload: Bannerlord.GameMaster.Heroes.BodyConstraints.MaleConstraints*
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  commentId: T:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  name: BodyConstraints.Constraint
+  nameWithType: BodyConstraints.Constraint
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+    name: BodyConstraints
+    href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+    name: Constraint
+    href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+    name: BodyConstraints
+    href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+    name: Constraint
+    href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.BodyConstraints.#ctor
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html#Bannerlord_GameMaster_Heroes_BodyConstraints__ctor
+  name: BodyConstraints
+  nameWithType: BodyConstraints.BodyConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.BodyConstraints
+  nameWithType.vb: BodyConstraints.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.BodyConstraints.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html#Bannerlord_GameMaster_Heroes_BodyConstraints_GenderConstraints_System_Boolean_
+  name: GenderConstraints
+  nameWithType: BodyConstraints.GenderConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.GenderConstraints
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+  commentId: T:Bannerlord.GameMaster.Heroes.BodyConstraints
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  name: BodyConstraints
+  nameWithType: BodyConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.FemaleConstraints*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.BodyConstraints.FemaleConstraints
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html#Bannerlord_GameMaster_Heroes_BodyConstraints_FemaleConstraints
+  name: FemaleConstraints
+  nameWithType: BodyConstraints.FemaleConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.FemaleConstraints
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.MaleConstraints*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.BodyConstraints.MaleConstraints
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html#Bannerlord_GameMaster_Heroes_BodyConstraints_MaleConstraints
+  name: MaleConstraints
+  nameWithType: BodyConstraints.MaleConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.MaleConstraints

@@ -1,0 +1,111 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
+  id: Bannerlord.GameMaster.Characters
+  children:
+  - Bannerlord.GameMaster.Characters.BeardTags
+  - Bannerlord.GameMaster.Characters.CharacterExtensions
+  - Bannerlord.GameMaster.Characters.CharacterQueries
+  - Bannerlord.GameMaster.Characters.CharacterTemplatePooler
+  - Bannerlord.GameMaster.Characters.CharacterTypes
+  - Bannerlord.GameMaster.Characters.GenderFlags
+  - Bannerlord.GameMaster.Characters.HairCoveringType
+  - Bannerlord.GameMaster.Characters.HairTags
+  - Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Characters.BeardTags
+  commentId: T:Bannerlord.GameMaster.Characters.BeardTags
+  href: Bannerlord.GameMaster.Characters.BeardTags.html
+  name: BeardTags
+  nameWithType: BeardTags
+  fullName: Bannerlord.GameMaster.Characters.BeardTags
+- uid: Bannerlord.GameMaster.Characters.CharacterExtensions
+  commentId: T:Bannerlord.GameMaster.Characters.CharacterExtensions
+  href: Bannerlord.GameMaster.Characters.CharacterExtensions.html
+  name: CharacterExtensions
+  nameWithType: CharacterExtensions
+  fullName: Bannerlord.GameMaster.Characters.CharacterExtensions
+- uid: Bannerlord.GameMaster.Characters.CharacterQueries
+  commentId: T:Bannerlord.GameMaster.Characters.CharacterQueries
+  href: Bannerlord.GameMaster.Characters.CharacterQueries.html
+  name: CharacterQueries
+  nameWithType: CharacterQueries
+  fullName: Bannerlord.GameMaster.Characters.CharacterQueries
+- uid: Bannerlord.GameMaster.Characters.CharacterTemplatePooler
+  commentId: T:Bannerlord.GameMaster.Characters.CharacterTemplatePooler
+  href: Bannerlord.GameMaster.Characters.CharacterTemplatePooler.html
+  name: CharacterTemplatePooler
+  nameWithType: CharacterTemplatePooler
+  fullName: Bannerlord.GameMaster.Characters.CharacterTemplatePooler
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes
+  commentId: T:Bannerlord.GameMaster.Characters.CharacterTypes
+  parent: Bannerlord.GameMaster.Characters
+  href: Bannerlord.GameMaster.Characters.CharacterTypes.html
+  name: CharacterTypes
+  nameWithType: CharacterTypes
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.GenderFlags
+  commentId: T:Bannerlord.GameMaster.Characters.GenderFlags
+  parent: Bannerlord.GameMaster.Characters
+  href: Bannerlord.GameMaster.Characters.GenderFlags.html
+  name: GenderFlags
+  nameWithType: GenderFlags
+  fullName: Bannerlord.GameMaster.Characters.GenderFlags
+- uid: Bannerlord.GameMaster.Characters.HairCoveringType
+  commentId: T:Bannerlord.GameMaster.Characters.HairCoveringType
+  href: Bannerlord.GameMaster.Characters.HairCoveringType.html
+  name: HairCoveringType
+  nameWithType: HairCoveringType
+  fullName: Bannerlord.GameMaster.Characters.HairCoveringType
+- uid: Bannerlord.GameMaster.Characters.HairTags
+  commentId: T:Bannerlord.GameMaster.Characters.HairTags
+  href: Bannerlord.GameMaster.Characters.HairTags.html
+  name: HairTags
+  nameWithType: HairTags
+  fullName: Bannerlord.GameMaster.Characters.HairTags
+- uid: Bannerlord.GameMaster.Characters.TattooTags
+  commentId: T:Bannerlord.GameMaster.Characters.TattooTags
+  href: Bannerlord.GameMaster.Characters.TattooTags.html
+  name: TattooTags
+  nameWithType: TattooTags
+  fullName: Bannerlord.GameMaster.Characters.TattooTags
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html

@@ -1,0 +1,839 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes
+  commentId: T:Bannerlord.GameMaster.Characters.CharacterTypes
+  id: CharacterTypes
+  parent: Bannerlord.GameMaster.Characters
+  children:
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Aserai
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Bandit
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Battania
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Empire
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsBlgmCreated
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsChild
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsFemale
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsHero
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsLord
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsMale
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsNPC
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsNotable
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsOriginalCharacter
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsTemplate
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsTroop
+  - Bannerlord.GameMaster.Characters.CharacterTypes.IsWanderer
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Khuzait
+  - Bannerlord.GameMaster.Characters.CharacterTypes.None
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Nord
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Sturgia
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Tier0
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Tier1
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Tier2
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Tier3
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Tier4
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Tier5
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Tier6Plus
+  - Bannerlord.GameMaster.Characters.CharacterTypes.Vlandia
+  langs:
+  - csharp
+  - vb
+  name: CharacterTypes
+  nameWithType: CharacterTypes
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CharacterTypes
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: >-
+    Flags enum for categorizing ALL CharacterObject types across multiple dimensions.
+
+    Unlike TroopTypes which is focused on combat troops only, CharacterTypes covers
+
+    EVERYTHING: heroes, troops, templates, NPCs, etc.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum CharacterTypes : long
+    content.vb: >-
+      <Flags>
+
+      Public Enum CharacterTypes As Long
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.None
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.None
+  id: None
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CharacterTypes.None
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsHero
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsHero
+  id: IsHero
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsHero
+  nameWithType: CharacterTypes.IsHero
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsHero
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsHero
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsHero = 1
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsTroop
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsTroop
+  id: IsTroop
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsTroop
+  nameWithType: CharacterTypes.IsTroop
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsTroop
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsTroop
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsTroop = 2
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsTemplate
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsTemplate
+  id: IsTemplate
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsTemplate
+  nameWithType: CharacterTypes.IsTemplate
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsTemplate
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsTemplate
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsTemplate = 4
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsNPC
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsNPC
+  id: IsNPC
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsNPC
+  nameWithType: CharacterTypes.IsNPC
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsNPC
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsNPC
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsNPC = 8
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsLord
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsLord
+  id: IsLord
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsLord
+  nameWithType: CharacterTypes.IsLord
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsLord
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsLord
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsLord = 16
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsWanderer
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsWanderer
+  id: IsWanderer
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsWanderer
+  nameWithType: CharacterTypes.IsWanderer
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsWanderer
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsWanderer
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsWanderer = 32
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsNotable
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsNotable
+  id: IsNotable
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsNotable
+  nameWithType: CharacterTypes.IsNotable
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsNotable
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsNotable
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsNotable = 64
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsChild
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsChild
+  id: IsChild
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsChild
+  nameWithType: CharacterTypes.IsChild
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsChild
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsChild
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsChild = 128
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsFemale
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsFemale
+  id: IsFemale
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsFemale
+  nameWithType: CharacterTypes.IsFemale
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsFemale
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsFemale
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsFemale = 256
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsMale
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsMale
+  id: IsMale
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsMale
+  nameWithType: CharacterTypes.IsMale
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsMale
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsMale
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsMale = 512
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsOriginalCharacter
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsOriginalCharacter
+  id: IsOriginalCharacter
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsOriginalCharacter
+  nameWithType: CharacterTypes.IsOriginalCharacter
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsOriginalCharacter
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsOriginalCharacter
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsOriginalCharacter = 1024
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.IsBlgmCreated
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.IsBlgmCreated
+  id: IsBlgmCreated
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: IsBlgmCreated
+  nameWithType: CharacterTypes.IsBlgmCreated
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.IsBlgmCreated
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsBlgmCreated
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: IsBlgmCreated = 2048
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Tier0
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Tier0
+  id: Tier0
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier0
+  nameWithType: CharacterTypes.Tier0
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Tier0
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier0
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Tier0 = 4096
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Tier1
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Tier1
+  id: Tier1
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier1
+  nameWithType: CharacterTypes.Tier1
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Tier1
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier1
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Tier1 = 8192
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Tier2
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Tier2
+  id: Tier2
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier2
+  nameWithType: CharacterTypes.Tier2
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Tier2
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier2
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 37
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Tier2 = 16384
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Tier3
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Tier3
+  id: Tier3
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier3
+  nameWithType: CharacterTypes.Tier3
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Tier3
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier3
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Tier3 = 32768
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Tier4
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Tier4
+  id: Tier4
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier4
+  nameWithType: CharacterTypes.Tier4
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Tier4
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier4
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 39
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Tier4 = 65536
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Tier5
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Tier5
+  id: Tier5
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier5
+  nameWithType: CharacterTypes.Tier5
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Tier5
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier5
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 40
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Tier5 = 131072
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Tier6Plus
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Tier6Plus
+  id: Tier6Plus
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier6Plus
+  nameWithType: CharacterTypes.Tier6Plus
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Tier6Plus
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier6Plus
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Tier6Plus = 262144
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Empire
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Empire
+  id: Empire
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Empire
+  nameWithType: CharacterTypes.Empire
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Empire
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Empire
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 44
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Empire = 524288
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Vlandia
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Vlandia
+  id: Vlandia
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Vlandia
+  nameWithType: CharacterTypes.Vlandia
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Vlandia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Vlandia
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 45
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Vlandia = 1048576
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Sturgia
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Sturgia
+  id: Sturgia
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Sturgia
+  nameWithType: CharacterTypes.Sturgia
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Sturgia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sturgia
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 46
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Sturgia = 2097152
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Aserai
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Aserai
+  id: Aserai
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Aserai
+  nameWithType: CharacterTypes.Aserai
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Aserai
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Aserai
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 47
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Aserai = 4194304
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Khuzait
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Khuzait
+  id: Khuzait
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Khuzait
+  nameWithType: CharacterTypes.Khuzait
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Khuzait
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Khuzait
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 48
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Khuzait = 8388608
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Battania
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Battania
+  id: Battania
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Battania
+  nameWithType: CharacterTypes.Battania
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Battania
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Battania
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 49
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Battania = 16777216
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Nord
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Nord
+  id: Nord
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Nord
+  nameWithType: CharacterTypes.Nord
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Nord
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Nord
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 50
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Nord = 33554432
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes.Bandit
+  commentId: F:Bannerlord.GameMaster.Characters.CharacterTypes.Bandit
+  id: Bandit
+  parent: Bannerlord.GameMaster.Characters.CharacterTypes
+  langs:
+  - csharp
+  - vb
+  name: Bandit
+  nameWithType: CharacterTypes.Bandit
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes.Bandit
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/CharacterTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bandit
+    path: ../Bannerlord.GameMaster/Characters/CharacterTypes.cs
+    startLine: 51
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Bandit = 67108864
+    return:
+      type: Bannerlord.GameMaster.Characters.CharacterTypes
+references:
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+- uid: Bannerlord.GameMaster.Characters.CharacterTypes
+  commentId: T:Bannerlord.GameMaster.Characters.CharacterTypes
+  parent: Bannerlord.GameMaster.Characters
+  href: Bannerlord.GameMaster.Characters.CharacterTypes.html
+  name: CharacterTypes
+  nameWithType: CharacterTypes
+  fullName: Bannerlord.GameMaster.Characters.CharacterTypes

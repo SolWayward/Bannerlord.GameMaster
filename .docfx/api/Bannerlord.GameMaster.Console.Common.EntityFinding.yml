@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding
+  commentId: N:Bannerlord.GameMaster.Console.Common.EntityFinding
+  id: Bannerlord.GameMaster.Console.Common.EntityFinding
+  children:
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.CharacterObjectFinder
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.ClanFinder
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinder
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.HeroFinder
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.ItemFinder
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.KingdomFinder
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.SettlementFinder
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.TroopFinder
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Common.EntityFinding
+  nameWithType: Bannerlord.GameMaster.Console.Common.EntityFinding
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.CharacterObjectFinder
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.CharacterObjectFinder
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.CharacterObjectFinder.html
+  name: CharacterObjectFinder
+  nameWithType: CharacterObjectFinder
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.CharacterObjectFinder
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.ClanFinder
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.ClanFinder
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.ClanFinder.html
+  name: ClanFinder
+  nameWithType: ClanFinder
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.ClanFinder
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinder
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinder
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinder.html
+  name: EntityFinder
+  nameWithType: EntityFinder
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinder
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html
+  name: EntityFinderResult<T>
+  nameWithType: EntityFinderResult<T>
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>
+  nameWithType.vb: EntityFinderResult(Of T)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T)
+  name.vb: EntityFinderResult(Of T)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+    name: EntityFinderResult
+    href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+    name: EntityFinderResult
+    href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.HeroFinder
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.HeroFinder
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.HeroFinder.html
+  name: HeroFinder
+  nameWithType: HeroFinder
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.HeroFinder
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.ItemFinder
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.ItemFinder
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.ItemFinder.html
+  name: ItemFinder
+  nameWithType: ItemFinder
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.ItemFinder
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.KingdomFinder
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.KingdomFinder
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.KingdomFinder.html
+  name: KingdomFinder
+  nameWithType: KingdomFinder
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.KingdomFinder
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.SettlementFinder
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.SettlementFinder
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.SettlementFinder.html
+  name: SettlementFinder
+  nameWithType: SettlementFinder
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.SettlementFinder
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.TroopFinder
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.TroopFinder
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.TroopFinder.html
+  name: TroopFinder
+  nameWithType: TroopFinder
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.TroopFinder
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding
+  commentId: N:Bannerlord.GameMaster.Console.Common.EntityFinding
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.EntityFinding
+  nameWithType: Bannerlord.GameMaster.Console.Common.EntityFinding
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding
+    name: EntityFinding
+    href: Bannerlord.GameMaster.Console.Common.EntityFinding.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding
+    name: EntityFinding
+    href: Bannerlord.GameMaster.Console.Common.EntityFinding.html

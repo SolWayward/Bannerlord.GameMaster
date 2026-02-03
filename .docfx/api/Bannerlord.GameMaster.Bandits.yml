@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Bandits
+  commentId: N:Bannerlord.GameMaster.Bandits
+  id: Bannerlord.GameMaster.Bandits
+  children:
+  - Bannerlord.GameMaster.Bandits.BanditHelpers
+  - Bannerlord.GameMaster.Bandits.BanditManager
+  - Bannerlord.GameMaster.Bandits.HideoutExtensions
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Bandits
+  nameWithType: Bannerlord.GameMaster.Bandits
+  fullName: Bannerlord.GameMaster.Bandits
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Bandits.BanditHelpers
+  commentId: T:Bannerlord.GameMaster.Bandits.BanditHelpers
+  href: Bannerlord.GameMaster.Bandits.BanditHelpers.html
+  name: BanditHelpers
+  nameWithType: BanditHelpers
+  fullName: Bannerlord.GameMaster.Bandits.BanditHelpers
+- uid: Bannerlord.GameMaster.Bandits.BanditManager
+  commentId: T:Bannerlord.GameMaster.Bandits.BanditManager
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html
+  name: BanditManager
+  nameWithType: BanditManager
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager
+- uid: Bannerlord.GameMaster.Bandits.HideoutExtensions
+  commentId: T:Bannerlord.GameMaster.Bandits.HideoutExtensions
+  href: Bannerlord.GameMaster.Bandits.HideoutExtensions.html
+  name: HideoutExtensions
+  nameWithType: HideoutExtensions
+  fullName: Bannerlord.GameMaster.Bandits.HideoutExtensions

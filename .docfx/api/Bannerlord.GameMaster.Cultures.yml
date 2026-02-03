@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Cultures
+  commentId: N:Bannerlord.GameMaster.Cultures
+  id: Bannerlord.GameMaster.Cultures
+  children:
+  - Bannerlord.GameMaster.Cultures.CultureExtensions
+  - Bannerlord.GameMaster.Cultures.CultureFlags
+  - Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Cultures
+  nameWithType: Bannerlord.GameMaster.Cultures
+  fullName: Bannerlord.GameMaster.Cultures
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Cultures.CultureExtensions
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureExtensions
+  href: Bannerlord.GameMaster.Cultures.CultureExtensions.html
+  name: CultureExtensions
+  nameWithType: CultureExtensions
+  fullName: Bannerlord.GameMaster.Cultures.CultureExtensions
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureFlags
+  parent: Bannerlord.GameMaster.Cultures
+  href: Bannerlord.GameMaster.Cultures.CultureFlags.html
+  name: CultureFlags
+  nameWithType: CultureFlags
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureLookup
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html
+  name: CultureLookup
+  nameWithType: CultureLookup
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup
+- uid: Bannerlord.GameMaster.Cultures
+  commentId: N:Bannerlord.GameMaster.Cultures
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Cultures
+  nameWithType: Bannerlord.GameMaster.Cultures
+  fullName: Bannerlord.GameMaster.Cultures
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html

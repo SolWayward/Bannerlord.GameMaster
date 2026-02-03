@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands
+  commentId: N:Bannerlord.GameMaster.Console.Query.KingdomQueryCommands
+  id: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands
+  children:
+  - Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomAnyCommand
+  - Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomCommand
+  - Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomInfoCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands
+  nameWithType: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands
+  fullName: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomAnyCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomAnyCommand
+  href: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomAnyCommand.html
+  name: QueryKingdomAnyCommand
+  nameWithType: QueryKingdomAnyCommand
+  fullName: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomAnyCommand
+- uid: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomCommand
+  href: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomCommand.html
+  name: QueryKingdomCommand
+  nameWithType: QueryKingdomCommand
+  fullName: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomCommand
+- uid: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomInfoCommand
+  href: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomInfoCommand.html
+  name: QueryKingdomInfoCommand
+  nameWithType: QueryKingdomInfoCommand
+  fullName: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomInfoCommand

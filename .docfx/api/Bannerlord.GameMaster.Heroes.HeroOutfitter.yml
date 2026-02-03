@@ -1,0 +1,729 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroOutfitter
+  id: HeroOutfitter
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroOutfitter.DeriveWeaponPreferences(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats(TaleWorlds.CampaignSystem.Hero,System.Int32,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero(TaleWorlds.CampaignSystem.Hero,System.Int32,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroOutfitter.GetTierForHero(TaleWorlds.CampaignSystem.Hero)
+  langs:
+  - csharp
+  - vb
+  name: HeroOutfitter
+  nameWithType: HeroOutfitter
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroOutfitter
+    path: ../Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Provides methods for equipping heroes intelligently with appropriate gear.
+  example: []
+  syntax:
+    content: public class HeroOutfitter
+    content.vb: Public Class HeroOutfitter
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats(TaleWorlds.CampaignSystem.Hero,System.Int32,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats(TaleWorlds.CampaignSystem.Hero,System.Int32,System.Boolean)
+  id: EquipHeroByStats(TaleWorlds.CampaignSystem.Hero,System.Int32,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroOutfitter
+  langs:
+  - csharp
+  - vb
+  name: EquipHeroByStats(Hero, int, bool)
+  nameWithType: HeroOutfitter.EquipHeroByStats(Hero, int, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats(TaleWorlds.CampaignSystem.Hero, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EquipHeroByStats
+    path: ../Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Equips a hero with stat-based equipment using the new equipment generation system.
+
+    Analyzes hero skills to determine optimal weapon loadout.
+
+    This is the recommended method for equipping heroes.
+  example: []
+  syntax:
+    content: public static BLGMResult EquipHeroByStats(Hero hero, int tier = -1, bool replaceCivilianEquipment = false)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to equip.
+    - id: tier
+      type: System.Int32
+      description: Equipment tier (0-6). Use -1 for auto-calculation from hero level.
+    - id: replaceCivilianEquipment
+      type: System.Boolean
+      description: Whether to also replace civilian equipment.
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure.
+    content.vb: Public Shared Function EquipHeroByStats(hero As Hero, tier As Integer = -1, replaceCivilianEquipment As Boolean = False) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats*
+  nameWithType.vb: HeroOutfitter.EquipHeroByStats(Hero, Integer, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats(TaleWorlds.CampaignSystem.Hero, Integer, Boolean)
+  name.vb: EquipHeroByStats(Hero, Integer, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean)
+  id: EquipHeroWithOptions(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroOutfitter
+  langs:
+  - csharp
+  - vb
+  name: EquipHeroWithOptions(Hero, CultureObject, int, WeaponTypeFlags, bool, bool, bool)
+  nameWithType: HeroOutfitter.EquipHeroWithOptions(Hero, CultureObject, int, WeaponTypeFlags, bool, bool, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.CultureObject, int, Bannerlord.GameMaster.Items.WeaponTypeFlags, bool, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EquipHeroWithOptions
+    path: ../Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+    startLine: 52
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Equips a hero with equipment using explicit configuration options.
+
+    Use this when you need full control over the equipment generation.
+  example: []
+  syntax:
+    content: public static BLGMResult EquipHeroWithOptions(Hero hero, CultureObject culture, int tier, WeaponTypeFlags weaponPreferences, bool isMounted = false, bool replaceBattleEquipment = true, bool replaceCivilianEquipment = false)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to equip.
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: Culture for item selection (null = use hero's culture).
+    - id: tier
+      type: System.Int32
+      description: Equipment tier (0-6).
+    - id: weaponPreferences
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+      description: Explicit weapon type preferences.
+    - id: isMounted
+      type: System.Boolean
+      description: Whether to include horse equipment.
+    - id: replaceBattleEquipment
+      type: System.Boolean
+      description: Whether to replace battle equipment.
+    - id: replaceCivilianEquipment
+      type: System.Boolean
+      description: Whether to replace civilian equipment.
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure.
+    content.vb: Public Shared Function EquipHeroWithOptions(hero As Hero, culture As CultureObject, tier As Integer, weaponPreferences As WeaponTypeFlags, isMounted As Boolean = False, replaceBattleEquipment As Boolean = True, replaceCivilianEquipment As Boolean = False) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions*
+  nameWithType.vb: HeroOutfitter.EquipHeroWithOptions(Hero, CultureObject, Integer, WeaponTypeFlags, Boolean, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.CultureObject, Integer, Bannerlord.GameMaster.Items.WeaponTypeFlags, Boolean, Boolean, Boolean)
+  name.vb: EquipHeroWithOptions(Hero, CultureObject, Integer, WeaponTypeFlags, Boolean, Boolean, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero(TaleWorlds.CampaignSystem.Hero,System.Int32,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero(TaleWorlds.CampaignSystem.Hero,System.Int32,System.Boolean)
+  id: GenerateEquipmentForHero(TaleWorlds.CampaignSystem.Hero,System.Int32,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroOutfitter
+  langs:
+  - csharp
+  - vb
+  name: GenerateEquipmentForHero(Hero, int, bool)
+  nameWithType: HeroOutfitter.GenerateEquipmentForHero(Hero, int, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero(TaleWorlds.CampaignSystem.Hero, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GenerateEquipmentForHero
+    path: ../Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+    startLine: 84
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Generates equipment for a hero without applying it.
+
+    Useful for preview or manual modification before assignment.
+  example: []
+  syntax:
+    content: public static Equipment GenerateEquipmentForHero(Hero hero, int tier = -1, bool isCivilian = false)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to generate equipment for.
+    - id: tier
+      type: System.Int32
+      description: Equipment tier (0-6). Use -1 for auto-calculation.
+    - id: isCivilian
+      type: System.Boolean
+      description: Whether to generate civilian equipment.
+    return:
+      type: TaleWorlds.Core.Equipment
+      description: Generated Equipment object, or null if hero is null.
+    content.vb: Public Shared Function GenerateEquipmentForHero(hero As Hero, tier As Integer = -1, isCivilian As Boolean = False) As Equipment
+  overload: Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero*
+  nameWithType.vb: HeroOutfitter.GenerateEquipmentForHero(Hero, Integer, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero(TaleWorlds.CampaignSystem.Hero, Integer, Boolean)
+  name.vb: GenerateEquipmentForHero(Hero, Integer, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.GetTierForHero(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroOutfitter.GetTierForHero(TaleWorlds.CampaignSystem.Hero)
+  id: GetTierForHero(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.HeroOutfitter
+  langs:
+  - csharp
+  - vb
+  name: GetTierForHero(Hero)
+  nameWithType: HeroOutfitter.GetTierForHero(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.GetTierForHero(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTierForHero
+    path: ../Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets the appropriate equipment tier for a hero based on their level.
+  example: []
+  syntax:
+    content: public static int GetTierForHero(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to evaluate.
+    return:
+      type: System.Int32
+      description: Equipment tier (0-6).
+    content.vb: Public Shared Function GetTierForHero(hero As Hero) As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroOutfitter.GetTierForHero*
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.DeriveWeaponPreferences(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroOutfitter.DeriveWeaponPreferences(TaleWorlds.CampaignSystem.Hero)
+  id: DeriveWeaponPreferences(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.HeroOutfitter
+  langs:
+  - csharp
+  - vb
+  name: DeriveWeaponPreferences(Hero)
+  nameWithType: HeroOutfitter.DeriveWeaponPreferences(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.DeriveWeaponPreferences(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DeriveWeaponPreferences
+    path: ../Bannerlord.GameMaster/Heroes/HeroOutfitter.cs
+    startLine: 114
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Derives weapon type preferences from a hero's combat skills.
+  example: []
+  syntax:
+    content: public static WeaponTypeFlags DeriveWeaponPreferences(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to analyze.
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+      description: WeaponTypeFlags representing preferred weapon types.
+    content.vb: Public Shared Function DeriveWeaponPreferences(hero As Hero) As WeaponTypeFlags
+  overload: Bannerlord.GameMaster.Heroes.HeroOutfitter.DeriveWeaponPreferences*
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats
+  href: Bannerlord.GameMaster.Heroes.HeroOutfitter.html#Bannerlord_GameMaster_Heroes_HeroOutfitter_EquipHeroByStats_TaleWorlds_CampaignSystem_Hero_System_Int32_System_Boolean_
+  name: EquipHeroByStats
+  nameWithType: HeroOutfitter.EquipHeroByStats
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroByStats
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions
+  href: Bannerlord.GameMaster.Heroes.HeroOutfitter.html#Bannerlord_GameMaster_Heroes_HeroOutfitter_EquipHeroWithOptions_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_CultureObject_System_Int32_Bannerlord_GameMaster_Items_WeaponTypeFlags_System_Boolean_System_Boolean_System_Boolean_
+  name: EquipHeroWithOptions
+  nameWithType: HeroOutfitter.EquipHeroWithOptions
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.EquipHeroWithOptions
+- uid: TaleWorlds.CampaignSystem.CultureObject
+  commentId: T:TaleWorlds.CampaignSystem.CultureObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CultureObject
+  nameWithType: CultureObject
+  fullName: TaleWorlds.CampaignSystem.CultureObject
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  commentId: T:Bannerlord.GameMaster.Items.WeaponTypeFlags
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  name: WeaponTypeFlags
+  nameWithType: WeaponTypeFlags
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero
+  href: Bannerlord.GameMaster.Heroes.HeroOutfitter.html#Bannerlord_GameMaster_Heroes_HeroOutfitter_GenerateEquipmentForHero_TaleWorlds_CampaignSystem_Hero_System_Int32_System_Boolean_
+  name: GenerateEquipmentForHero
+  nameWithType: HeroOutfitter.GenerateEquipmentForHero
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.GenerateEquipmentForHero
+- uid: TaleWorlds.Core.Equipment
+  commentId: T:TaleWorlds.Core.Equipment
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: Equipment
+  nameWithType: Equipment
+  fullName: TaleWorlds.Core.Equipment
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.GetTierForHero*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroOutfitter.GetTierForHero
+  href: Bannerlord.GameMaster.Heroes.HeroOutfitter.html#Bannerlord_GameMaster_Heroes_HeroOutfitter_GetTierForHero_TaleWorlds_CampaignSystem_Hero_
+  name: GetTierForHero
+  nameWithType: HeroOutfitter.GetTierForHero
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.GetTierForHero
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter.DeriveWeaponPreferences*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroOutfitter.DeriveWeaponPreferences
+  href: Bannerlord.GameMaster.Heroes.HeroOutfitter.html#Bannerlord_GameMaster_Heroes_HeroOutfitter_DeriveWeaponPreferences_TaleWorlds_CampaignSystem_Hero_
+  name: DeriveWeaponPreferences
+  nameWithType: HeroOutfitter.DeriveWeaponPreferences
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter.DeriveWeaponPreferences

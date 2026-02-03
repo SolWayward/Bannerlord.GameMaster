@@ -1,0 +1,490 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Settlements.VillageManager
+  commentId: T:Bannerlord.GameMaster.Settlements.VillageManager
+  id: VillageManager
+  parent: Bannerlord.GameMaster.Settlements
+  children:
+  - Bannerlord.GameMaster.Settlements.VillageManager.SetBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.VillageManager.SetTradeBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  langs:
+  - csharp
+  - vb
+  name: VillageManager
+  nameWithType: VillageManager
+  fullName: Bannerlord.GameMaster.Settlements.VillageManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/VillageManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: VillageManager
+    path: ../Bannerlord.GameMaster/Settlements/VillageManager.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Manages Villages for BLGM actions.<br />
+
+    Remaining Village logic should be refactored out of commands to here or similar classes
+  example: []
+  syntax:
+    content: public static class VillageManager
+    content.vb: Public Module VillageManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Settlements.VillageManager.SetBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.VillageManager.SetBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: SetBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.VillageManager
+  langs:
+  - csharp
+  - vb
+  name: SetBoundSettlement(Village, Settlement)
+  nameWithType: VillageManager.SetBoundSettlement(Village, Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.VillageManager.SetBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village, TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/VillageManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetBoundSettlement
+    path: ../Bannerlord.GameMaster/Settlements/VillageManager.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Attempts to Change which settlement (castle/town) a village is bound to. <br />
+
+    If the bound settlement is a town, the village is also tradebound to the town as the game will ignore the tradebound anyway for town bound villages<br />
+
+    If the bound settlment is a castle, the village will automatically be trade bound to a town recommened by native bannerlord, as castles dont have trade markets<br />
+
+    Changes persist automatically due to [SaveableField] attributes.
+  example: []
+  syntax:
+    content: public static BLGMResult SetBoundSettlement(Village village, Settlement boundSettlement)
+    parameters:
+    - id: village
+      type: TaleWorlds.CampaignSystem.Settlements.Village
+    - id: boundSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult containing a bool wasSuccessful, and a string message
+    content.vb: Public Shared Function SetBoundSettlement(village As Village, boundSettlement As Settlement) As BLGMResult
+  overload: Bannerlord.GameMaster.Settlements.VillageManager.SetBoundSettlement*
+- uid: Bannerlord.GameMaster.Settlements.VillageManager.SetTradeBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.VillageManager.SetTradeBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: SetTradeBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.VillageManager
+  langs:
+  - csharp
+  - vb
+  name: SetTradeBoundSettlement(Village, Settlement)
+  nameWithType: VillageManager.SetTradeBoundSettlement(Village, Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.VillageManager.SetTradeBoundSettlement(TaleWorlds.CampaignSystem.Settlements.Village, TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/VillageManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetTradeBoundSettlement
+    path: ../Bannerlord.GameMaster/Settlements/VillageManager.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Attempts to change which settlement (must be town not castle) the village is TradeBound to<br />
+
+    If the village is already regular bound to a town, then it ignores the trade bound settlement and should be set the same as the regular binding<br />
+
+    If the village is regular bound to a castle, then it needs to be trade bound to a town as castes dont have trade markets. (SetBoundSettlment() tries to do this automatically)
+  example: []
+  syntax:
+    content: public static BLGMResult SetTradeBoundSettlement(Village village, Settlement tradeBoundSettlement)
+    parameters:
+    - id: village
+      type: TaleWorlds.CampaignSystem.Settlements.Village
+    - id: tradeBoundSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult containing a bool wasSuccessful, and a string message
+    content.vb: Public Shared Function SetTradeBoundSettlement(village As Village, tradeBoundSettlement As Settlement) As BLGMResult
+  overload: Bannerlord.GameMaster.Settlements.VillageManager.SetTradeBoundSettlement*
+references:
+- uid: Bannerlord.GameMaster.Settlements
+  commentId: N:Bannerlord.GameMaster.Settlements
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Settlements
+  nameWithType: Bannerlord.GameMaster.Settlements
+  fullName: Bannerlord.GameMaster.Settlements
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Settlements.VillageManager.SetBoundSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.VillageManager.SetBoundSettlement
+  href: Bannerlord.GameMaster.Settlements.VillageManager.html#Bannerlord_GameMaster_Settlements_VillageManager_SetBoundSettlement_TaleWorlds_CampaignSystem_Settlements_Village_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: SetBoundSettlement
+  nameWithType: VillageManager.SetBoundSettlement
+  fullName: Bannerlord.GameMaster.Settlements.VillageManager.SetBoundSettlement
+- uid: TaleWorlds.CampaignSystem.Settlements.Village
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Village
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Village
+  nameWithType: Village
+  fullName: TaleWorlds.CampaignSystem.Settlements.Village
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Settlements.VillageManager.SetTradeBoundSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.VillageManager.SetTradeBoundSettlement
+  href: Bannerlord.GameMaster.Settlements.VillageManager.html#Bannerlord_GameMaster_Settlements_VillageManager_SetTradeBoundSettlement_TaleWorlds_CampaignSystem_Settlements_Village_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: SetTradeBoundSettlement
+  nameWithType: VillageManager.SetTradeBoundSettlement
+  fullName: Bannerlord.GameMaster.Settlements.VillageManager.SetTradeBoundSettlement

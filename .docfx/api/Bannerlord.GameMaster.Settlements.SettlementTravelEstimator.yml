@@ -1,0 +1,1117 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  id: SettlementTravelEstimator
+  parent: Bannerlord.GameMaster.Settlements
+  children:
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: SettlementTravelEstimator
+  nameWithType: SettlementTravelEstimator
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SettlementTravelEstimator
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Provides methods for estimating travel time to nearest settlements of specific types.
+
+    Uses pathing distance calculations that account for terrain obstacles.
+  example: []
+  syntax:
+    content: public static class SettlementTravelEstimator
+    content.vb: Public Module SettlementTravelEstimator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeHoursToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeHoursToNearestHideout(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeHoursToNearestHideout
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in hours to the nearest hideout from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeHoursToNearestHideout(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated hours to travel to nearest hideout, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeHoursToNearestHideout(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeHoursToNearestHideout(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeHoursToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeHoursToNearestTown(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeHoursToNearestTown
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 40
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in hours to the nearest town from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeHoursToNearestTown(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated hours to travel to nearest town, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeHoursToNearestTown(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeHoursToNearestTown(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeHoursToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeHoursToNearestCastle(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeHoursToNearestCastle
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 59
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in hours to the nearest castle from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeHoursToNearestCastle(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated hours to travel to nearest castle, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeHoursToNearestCastle(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeHoursToNearestCastle(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeHoursToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeHoursToNearestVillage(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeHoursToNearestVillage
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 78
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in hours to the nearest village from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeHoursToNearestVillage(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated hours to travel to nearest village, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeHoursToNearestVillage(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeHoursToNearestVillage(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeHoursToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeHoursToNearestFortification(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeHoursToNearestFortification
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 97
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in hours to the nearest fortification (castle or town) from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeHoursToNearestFortification(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated hours to travel to nearest fortification, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeHoursToNearestFortification(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeHoursToNearestFortification(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestHideout(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestHideout
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 120
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest hideout from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestHideout(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest hideout, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestHideout(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeDaysToNearestHideout(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestTown(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestTown
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 136
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest town from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestTown(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest town, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestTown(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeDaysToNearestTown(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestCastle(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestCastle
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 152
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest castle from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestCastle(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest castle, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestCastle(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeDaysToNearestCastle(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestVillage(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestVillage
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 168
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest village from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestVillage(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest village, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestVillage(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeDaysToNearestVillage(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  id: EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType,System.Single)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestFortification(Settlement, NavigationType, float)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(Settlement, MobileParty.NavigationType, float)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestFortification
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 184
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest fortification (castle or town) from the specified settlement.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestFortification(Settlement from, MobileParty.NavigationType navigationType, float partySpeed)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    - id: partySpeed
+      type: System.Single
+      description: Party speed (use mobileParty.Speed or Campaign.Current.EstimatedAverageLordPartySpeed)
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest fortification, or float.MaxValue if unreachable or invalid parameters
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestFortification(from As Settlement, navigationType As MobileParty.NavigationType, partySpeed As Single) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification*
+  nameWithType.vb: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(Settlement, MobileParty.NavigationType, Single)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType, Single)
+  name.vb: EstimateTravelTimeDaysToNearestFortification(Settlement, NavigationType, Single)
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestHideout(Settlement, NavigationType)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestHideout
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 199
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest hideout using average lord party speed.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestHideout(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest hideout, or float.MaxValue if unreachable
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestHideout(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout*
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestTown(Settlement, NavigationType)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestTown
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 210
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest town using average lord party speed.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestTown(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest town, or float.MaxValue if unreachable
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestTown(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown*
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestCastle(Settlement, NavigationType)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestCastle
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 221
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest castle using average lord party speed.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestCastle(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest castle, or float.MaxValue if unreachable
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestCastle(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle*
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestVillage(Settlement, NavigationType)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestVillage
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 232
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest village using average lord party speed.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestVillage(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest village, or float.MaxValue if unreachable
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestVillage(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage*
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  langs:
+  - csharp
+  - vb
+  name: EstimateTravelTimeDaysToNearestFortification(Settlement, NavigationType)
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EstimateTravelTimeDaysToNearestFortification
+    path: ../Bannerlord.GameMaster/Settlements/SettlementTravelEstimator.cs
+    startLine: 243
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Estimates travel time in days to the nearest fortification (castle or town) using average lord party speed.
+  example: []
+  syntax:
+    content: public static float EstimateTravelTimeDaysToNearestFortification(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to travel from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: System.Single
+      description: Estimated days to travel to nearest fortification, or float.MaxValue if unreachable
+    content.vb: Public Shared Function EstimateTravelTimeDaysToNearestFortification(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Single
+  overload: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification*
+references:
+- uid: Bannerlord.GameMaster.Settlements
+  commentId: N:Bannerlord.GameMaster.Settlements
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Settlements
+  nameWithType: Bannerlord.GameMaster.Settlements
+  fullName: Bannerlord.GameMaster.Settlements
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeHoursToNearestHideout_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeHoursToNearestHideout
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestHideout
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+  commentId: T:TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+  parent: TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: MobileParty.NavigationType
+  nameWithType: MobileParty.NavigationType
+  fullName: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+  spec.csharp:
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+    name: NavigationType
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+    name: NavigationType
+    isExternal: true
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: TaleWorlds.CampaignSystem.Party
+  commentId: N:TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Party
+  nameWithType: TaleWorlds.CampaignSystem.Party
+  fullName: TaleWorlds.CampaignSystem.Party
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeHoursToNearestTown_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeHoursToNearestTown
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestTown
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeHoursToNearestCastle_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeHoursToNearestCastle
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestCastle
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeHoursToNearestVillage_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeHoursToNearestVillage
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestVillage
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeHoursToNearestFortification_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeHoursToNearestFortification
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeHoursToNearestFortification
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeDaysToNearestHideout_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeDaysToNearestHideout
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestHideout
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeDaysToNearestTown_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeDaysToNearestTown
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestTown
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeDaysToNearestCastle_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeDaysToNearestCastle
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestCastle
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeDaysToNearestVillage_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeDaysToNearestVillage
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestVillage
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html#Bannerlord_GameMaster_Settlements_SettlementTravelEstimator_EstimateTravelTimeDaysToNearestFortification_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_System_Single_
+  name: EstimateTravelTimeDaysToNearestFortification
+  nameWithType: SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.EstimateTravelTimeDaysToNearestFortification

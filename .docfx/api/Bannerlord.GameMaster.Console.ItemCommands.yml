@@ -1,0 +1,90 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.ItemCommands
+  commentId: N:Bannerlord.GameMaster.Console.ItemCommands
+  id: Bannerlord.GameMaster.Console.ItemCommands
+  children:
+  - Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo
+  - Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+  - Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  - Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.ItemCommands
+  nameWithType: Bannerlord.GameMaster.Console.ItemCommands
+  fullName: Bannerlord.GameMaster.Console.ItemCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+  parent: Bannerlord.GameMaster.Console.ItemCommands
+  href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData.html
+  name: EquipmentSetData
+  nameWithType: EquipmentSetData
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.html
+  name: EquipmentSlotData
+  nameWithType: EquipmentSlotData
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo
+  href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo.html
+  name: EquipmentItemInfo
+  nameWithType: EquipmentItemInfo
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo
+- uid: Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo
+  href: Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo.html
+  name: SkippedItemInfo
+  nameWithType: SkippedItemInfo
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.html
+  name: ItemCommandHelpers
+  nameWithType: ItemCommandHelpers
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+- uid: Bannerlord.GameMaster.Console.ItemCommands
+  commentId: N:Bannerlord.GameMaster.Console.ItemCommands
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.ItemCommands
+  nameWithType: Bannerlord.GameMaster.Console.ItemCommands
+  fullName: Bannerlord.GameMaster.Console.ItemCommands
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html

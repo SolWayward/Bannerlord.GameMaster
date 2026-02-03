@@ -1,0 +1,471 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  id: EquipmentSlotData
+  parent: Bannerlord.GameMaster.Console.ItemCommands
+  children:
+  - Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ItemId
+  - Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ModifierId
+  - Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.Slot
+  langs:
+  - csharp
+  - vb
+  name: EquipmentSlotData
+  nameWithType: EquipmentSlotData
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/ItemCommands/EquipmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EquipmentSlotData
+    path: ../Bannerlord.GameMaster/Console/ItemCommands/EquipmentSerializationModels.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.ItemCommands
+  summary: Data class for individual equipment slot serialization
+  example: []
+  syntax:
+    content: public class EquipmentSlotData
+    content.vb: Public Class EquipmentSlotData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.Slot
+  commentId: P:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.Slot
+  id: Slot
+  parent: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  langs:
+  - csharp
+  - vb
+  name: Slot
+  nameWithType: EquipmentSlotData.Slot
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.Slot
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/ItemCommands/EquipmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Slot
+    path: ../Bannerlord.GameMaster/Console/ItemCommands/EquipmentSerializationModels.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.ItemCommands
+  syntax:
+    content: >-
+      [JsonProperty("Slot")]
+
+      public string Slot { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("Slot")>
+
+      Public Property Slot As String
+  overload: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.Slot*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Slot
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ItemId
+  commentId: P:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ItemId
+  id: ItemId
+  parent: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  langs:
+  - csharp
+  - vb
+  name: ItemId
+  nameWithType: EquipmentSlotData.ItemId
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ItemId
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/ItemCommands/EquipmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ItemId
+    path: ../Bannerlord.GameMaster/Console/ItemCommands/EquipmentSerializationModels.cs
+    startLine: 39
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.ItemCommands
+  syntax:
+    content: >-
+      [JsonProperty("ItemId")]
+
+      public string ItemId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("ItemId")>
+
+      Public Property ItemId As String
+  overload: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ItemId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ItemId
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ModifierId
+  commentId: P:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ModifierId
+  id: ModifierId
+  parent: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+  langs:
+  - csharp
+  - vb
+  name: ModifierId
+  nameWithType: EquipmentSlotData.ModifierId
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ModifierId
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/ItemCommands/EquipmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ModifierId
+    path: ../Bannerlord.GameMaster/Console/ItemCommands/EquipmentSerializationModels.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.ItemCommands
+  syntax:
+    content: >-
+      [JsonProperty("ModifierId")]
+
+      public string ModifierId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("ModifierId")>
+
+      Public Property ModifierId As String
+  overload: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ModifierId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ModifierId
+references:
+- uid: Bannerlord.GameMaster.Console.ItemCommands
+  commentId: N:Bannerlord.GameMaster.Console.ItemCommands
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.ItemCommands
+  nameWithType: Bannerlord.GameMaster.Console.ItemCommands
+  fullName: Bannerlord.GameMaster.Console.ItemCommands
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.Slot*
+  commentId: Overload:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.Slot
+  href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.html#Bannerlord_GameMaster_Console_ItemCommands_EquipmentSlotData_Slot
+  name: Slot
+  nameWithType: EquipmentSlotData.Slot
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.Slot
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ItemId*
+  commentId: Overload:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ItemId
+  href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.html#Bannerlord_GameMaster_Console_ItemCommands_EquipmentSlotData_ItemId
+  name: ItemId
+  nameWithType: EquipmentSlotData.ItemId
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ItemId
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ModifierId*
+  commentId: Overload:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ModifierId
+  href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.html#Bannerlord_GameMaster_Console_ItemCommands_EquipmentSlotData_ModifierId
+  name: ModifierId
+  nameWithType: EquipmentSlotData.ModifierId
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData.ModifierId

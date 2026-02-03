@@ -1,0 +1,1177 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager
+  commentId: T:Bannerlord.GameMaster.Items.EquipmentFileManager
+  id: EquipmentFileManager
+  parent: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.#ctor(System.String)
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.Default
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists(System.String,System.Boolean)
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory(System.Boolean)
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath(System.String,System.Boolean)
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles(System.Boolean)
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData(System.String)
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean)
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.ModFolder
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets(TaleWorlds.CampaignSystem.Hero,System.String,TaleWorlds.Core.Equipment,TaleWorlds.Core.Equipment)
+  - Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,System.String,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: EquipmentFileManager
+  nameWithType: EquipmentFileManager
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EquipmentFileManager
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Manages equipment file I/O operations for saving and loading hero equipment sets.
+
+    Supports configurable mod folder names for use by different mods.
+  example: []
+  syntax:
+    content: public class EquipmentFileManager
+    content.vb: Public Class EquipmentFileManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.ModFolder
+  commentId: P:Bannerlord.GameMaster.Items.EquipmentFileManager.ModFolder
+  id: ModFolder
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: ModFolder
+  nameWithType: EquipmentFileManager.ModFolder
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.ModFolder
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ModFolder
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: The mod-specific folder name used in the configuration path.
+  example: []
+  syntax:
+    content: public string ModFolder { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ModFolder As String
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.ModFolder*
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.Default
+  commentId: P:Bannerlord.GameMaster.Items.EquipmentFileManager.Default
+  id: Default
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: EquipmentFileManager.Default
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.Default
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Default
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Default instance using "GameMaster" folder for backwards compatibility.
+  example: []
+  syntax:
+    content: public static EquipmentFileManager Default { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Items.EquipmentFileManager
+    content.vb: Public Shared ReadOnly Property [Default] As EquipmentFileManager
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.Default*
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.#ctor(System.String)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: EquipmentFileManager(string)
+  nameWithType: EquipmentFileManager.EquipmentFileManager(string)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileManager(string)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 37
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Creates a new EquipmentFileManager with the specified mod folder name.
+  example: []
+  syntax:
+    content: public EquipmentFileManager(string modFolder)
+    parameters:
+    - id: modFolder
+      type: System.String
+      description: The mod folder name to use in the configuration path.
+    content.vb: Public Sub New(modFolder As String)
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.#ctor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when modFolder is null or whitespace.
+  nameWithType.vb: EquipmentFileManager.New(String)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.New(String)
+  name.vb: New(String)
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath(System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath(System.String,System.Boolean)
+  id: GetEquipmentFilePath(System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: GetEquipmentFilePath(string, bool)
+  nameWithType: EquipmentFileManager.GetEquipmentFilePath(string, bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetEquipmentFilePath
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 52
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the full file path for equipment files
+  example: []
+  syntax:
+    content: public string GetEquipmentFilePath(string filename, bool isCivilian)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename without extension
+    - id: isCivilian
+      type: System.Boolean
+      description: Whether this is civilian equipment
+    return:
+      type: System.String
+      description: The full file path
+    content.vb: Public Function GetEquipmentFilePath(filename As String, isCivilian As Boolean) As String
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath*
+  nameWithType.vb: EquipmentFileManager.GetEquipmentFilePath(String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath(String, Boolean)
+  name.vb: GetEquipmentFilePath(String, Boolean)
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory(System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory(System.Boolean)
+  id: GetEquipmentDirectory(System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: GetEquipmentDirectory(bool)
+  nameWithType: EquipmentFileManager.GetEquipmentDirectory(bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory(bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetEquipmentDirectory
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 82
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Gets the equipment sets directory path
+  example: []
+  syntax:
+    content: public string GetEquipmentDirectory(bool isCivilian)
+    parameters:
+    - id: isCivilian
+      type: System.Boolean
+      description: Whether to get the civilian equipment folder
+    return:
+      type: System.String
+      description: The directory path
+    content.vb: Public Function GetEquipmentDirectory(isCivilian As Boolean) As String
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory*
+  nameWithType.vb: EquipmentFileManager.GetEquipmentDirectory(Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory(Boolean)
+  name.vb: GetEquipmentDirectory(Boolean)
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,System.String,System.Boolean)
+  id: SaveEquipmentToFile(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveEquipmentToFile(Hero, Equipment, string, bool)
+  nameWithType: EquipmentFileManager.SaveEquipmentToFile(Hero, Equipment, string, bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.Equipment, string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SaveEquipmentToFile
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 106
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Saves equipment to a JSON file
+  example: []
+  syntax:
+    content: public void SaveEquipmentToFile(Hero hero, Equipment equipment, string filepath, bool isCivilian)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose equipment is being saved
+    - id: equipment
+      type: TaleWorlds.Core.Equipment
+      description: The equipment set to save
+    - id: filepath
+      type: System.String
+      description: The full file path to save to
+    - id: isCivilian
+      type: System.Boolean
+      description: Whether this is civilian equipment
+    content.vb: Public Sub SaveEquipmentToFile(hero As Hero, equipment As Equipment, filepath As String, isCivilian As Boolean)
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile*
+  nameWithType.vb: EquipmentFileManager.SaveEquipmentToFile(Hero, Equipment, String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.Equipment, String, Boolean)
+  name.vb: SaveEquipmentToFile(Hero, Equipment, String, Boolean)
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets(TaleWorlds.CampaignSystem.Hero,System.String,TaleWorlds.Core.Equipment,TaleWorlds.Core.Equipment)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets(TaleWorlds.CampaignSystem.Hero,System.String,TaleWorlds.Core.Equipment,TaleWorlds.Core.Equipment)
+  id: SaveBothEquipmentSets(TaleWorlds.CampaignSystem.Hero,System.String,TaleWorlds.Core.Equipment,TaleWorlds.Core.Equipment)
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveBothEquipmentSets(Hero, string, Equipment, Equipment)
+  nameWithType: EquipmentFileManager.SaveBothEquipmentSets(Hero, string, Equipment, Equipment)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets(TaleWorlds.CampaignSystem.Hero, string, TaleWorlds.Core.Equipment, TaleWorlds.Core.Equipment)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SaveBothEquipmentSets
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 149
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Saves both battle and civilian equipment to separate files
+  example: []
+  syntax:
+    content: public (string battlePath, string civilianPath) SaveBothEquipmentSets(Hero hero, string filename, Equipment battleEquipment, Equipment civilianEquipment)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose equipment is being saved
+    - id: filename
+      type: System.String
+      description: The base filename (without extension)
+    - id: battleEquipment
+      type: TaleWorlds.Core.Equipment
+      description: The battle equipment set
+    - id: civilianEquipment
+      type: TaleWorlds.Core.Equipment
+      description: The civilian equipment set
+    return:
+      type: System.ValueTuple{System.String,System.String}
+      description: Tuple with battle and civilian file paths
+    content.vb: Public Function SaveBothEquipmentSets(hero As Hero, filename As String, battleEquipment As Equipment, civilianEquipment As Equipment) As (battlePath As String, civilianPath As String)
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets*
+  nameWithType.vb: EquipmentFileManager.SaveBothEquipmentSets(Hero, String, Equipment, Equipment)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets(TaleWorlds.CampaignSystem.Hero, String, TaleWorlds.Core.Equipment, TaleWorlds.Core.Equipment)
+  name.vb: SaveBothEquipmentSets(Hero, String, Equipment, Equipment)
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData(System.String)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData(System.String)
+  id: LoadEquipmentData(System.String)
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadEquipmentData(string)
+  nameWithType: EquipmentFileManager.LoadEquipmentData(string)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadEquipmentData
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 173
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Loads equipment data from a JSON file without applying to a hero
+  example: []
+  syntax:
+    content: public EquipmentSetData LoadEquipmentData(string filepath)
+    parameters:
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    return:
+      type: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+      description: The deserialized equipment set data
+    content.vb: Public Function LoadEquipmentData(filepath As String) As EquipmentSetData
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData*
+  nameWithType.vb: EquipmentFileManager.LoadEquipmentData(String)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData(String)
+  name.vb: LoadEquipmentData(String)
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean)
+  id: LoadEquipmentFromFile(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadEquipmentFromFile(Hero, string, bool)
+  nameWithType: EquipmentFileManager.LoadEquipmentFromFile(Hero, string, bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile(TaleWorlds.CampaignSystem.Hero, string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadEquipmentFromFile
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 193
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Loads equipment from a JSON file and applies it to a hero
+  example: []
+  syntax:
+    content: public (int loadedCount, int skippedCount, List<SkippedItemInfo> skippedItems) LoadEquipmentFromFile(Hero hero, string filepath, bool isCivilian)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to apply equipment to
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    - id: isCivilian
+      type: System.Boolean
+      description: Whether to load to civilian equipment
+    return:
+      type: System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}
+      description: Tuple with (loadedCount, skippedCount, skippedItems)
+    content.vb: Public Function LoadEquipmentFromFile(hero As Hero, filepath As String, isCivilian As Boolean) As (loadedCount As Integer, skippedCount As Integer, skippedItems As List(Of SkippedItemInfo))
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile*
+  nameWithType.vb: EquipmentFileManager.LoadEquipmentFromFile(Hero, String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile(TaleWorlds.CampaignSystem.Hero, String, Boolean)
+  name.vb: LoadEquipmentFromFile(Hero, String, Boolean)
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists(System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists(System.String,System.Boolean)
+  id: EquipmentFileExists(System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: EquipmentFileExists(string, bool)
+  nameWithType: EquipmentFileManager.EquipmentFileExists(string, bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EquipmentFileExists
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 268
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Checks if an equipment file exists
+  example: []
+  syntax:
+    content: public bool EquipmentFileExists(string filename, bool isCivilian)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename to check
+    - id: isCivilian
+      type: System.Boolean
+      description: Whether to check civilian equipment folder
+    return:
+      type: System.Boolean
+      description: True if the file exists
+    content.vb: Public Function EquipmentFileExists(filename As String, isCivilian As Boolean) As Boolean
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists*
+  nameWithType.vb: EquipmentFileManager.EquipmentFileExists(String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists(String, Boolean)
+  name.vb: EquipmentFileExists(String, Boolean)
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles(System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles(System.Boolean)
+  id: ListEquipmentFiles(System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: ListEquipmentFiles(bool)
+  nameWithType: EquipmentFileManager.ListEquipmentFiles(bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles(bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ListEquipmentFiles
+    path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
+    startLine: 279
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Lists all equipment files in the specified folder
+  example: []
+  syntax:
+    content: public string[] ListEquipmentFiles(bool isCivilian)
+    parameters:
+    - id: isCivilian
+      type: System.Boolean
+      description: Whether to list civilian equipment files
+    return:
+      type: System.String[]
+      description: Array of file names without paths
+    content.vb: Public Function ListEquipmentFiles(isCivilian As Boolean) As String()
+  overload: Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles*
+  nameWithType.vb: EquipmentFileManager.ListEquipmentFiles(Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles(Boolean)
+  name.vb: ListEquipmentFiles(Boolean)
+references:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.ModFolder*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.ModFolder
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_ModFolder
+  name: ModFolder
+  nameWithType: EquipmentFileManager.ModFolder
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.ModFolder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.Default*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.Default
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_Default
+  name: Default
+  nameWithType: EquipmentFileManager.Default
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.Default
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager
+  commentId: T:Bannerlord.GameMaster.Items.EquipmentFileManager
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html
+  name: EquipmentFileManager
+  nameWithType: EquipmentFileManager
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.#ctor
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager__ctor_System_String_
+  name: EquipmentFileManager
+  nameWithType: EquipmentFileManager.EquipmentFileManager
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileManager
+  nameWithType.vb: EquipmentFileManager.New
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentFileManager.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_GetEquipmentFilePath_System_String_System_Boolean_
+  name: GetEquipmentFilePath
+  nameWithType: EquipmentFileManager.GetEquipmentFilePath
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentFilePath
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_GetEquipmentDirectory_System_Boolean_
+  name: GetEquipmentDirectory
+  nameWithType: EquipmentFileManager.GetEquipmentDirectory
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.GetEquipmentDirectory
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_SaveEquipmentToFile_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_Equipment_System_String_System_Boolean_
+  name: SaveEquipmentToFile
+  nameWithType: EquipmentFileManager.SaveEquipmentToFile
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveEquipmentToFile
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.Core.Equipment
+  commentId: T:TaleWorlds.Core.Equipment
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: Equipment
+  nameWithType: Equipment
+  fullName: TaleWorlds.Core.Equipment
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_SaveBothEquipmentSets_TaleWorlds_CampaignSystem_Hero_System_String_TaleWorlds_Core_Equipment_TaleWorlds_Core_Equipment_
+  name: SaveBothEquipmentSets
+  nameWithType: EquipmentFileManager.SaveBothEquipmentSets
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.SaveBothEquipmentSets
+- uid: System.ValueTuple{System.String,System.String}
+  commentId: T:System.ValueTuple{System.String,System.String}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: (string battlePath, string civilianPath)
+  nameWithType: (string battlePath, string civilianPath)
+  fullName: (string battlePath, string civilianPath)
+  nameWithType.vb: (battlePath As String, civilianPath As String)
+  fullName.vb: (battlePath As String, civilianPath As String)
+  name.vb: (battlePath As String, civilianPath As String)
+  spec.csharp:
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.battlePath
+    name: battlePath
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.battlepath
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.civilianPath
+    name: civilianPath
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.civilianpath
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String}.battlePath
+    name: battlePath
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.battlepath
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.civilianPath
+    name: civilianPath
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.civilianpath
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_LoadEquipmentData_System_String_
+  name: LoadEquipmentData
+  nameWithType: EquipmentFileManager.LoadEquipmentData
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentData
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+  parent: Bannerlord.GameMaster.Console.ItemCommands
+  href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData.html
+  name: EquipmentSetData
+  nameWithType: EquipmentSetData
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+- uid: Bannerlord.GameMaster.Console.ItemCommands
+  commentId: N:Bannerlord.GameMaster.Console.ItemCommands
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.ItemCommands
+  nameWithType: Bannerlord.GameMaster.Console.ItemCommands
+  fullName: Bannerlord.GameMaster.Console.ItemCommands
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_LoadEquipmentFromFile_TaleWorlds_CampaignSystem_Hero_System_String_System_Boolean_
+  name: LoadEquipmentFromFile
+  nameWithType: EquipmentFileManager.LoadEquipmentFromFile
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.LoadEquipmentFromFile
+- uid: System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}
+  commentId: T:System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}
+  parent: System
+  definition: System.ValueTuple`3
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: (int loadedCount, int skippedCount, List<SkippedItemInfo> skippedItems)
+  nameWithType: (int loadedCount, int skippedCount, List<SkippedItemInfo> skippedItems)
+  fullName: (int loadedCount, int skippedCount, System.Collections.Generic.List<Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo> skippedItems)
+  nameWithType.vb: (loadedCount As Integer, skippedCount As Integer, skippedItems As List(Of SkippedItemInfo))
+  fullName.vb: (loadedCount As Integer, skippedCount As Integer, skippedItems As System.Collections.Generic.List(Of Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo))
+  name.vb: (loadedCount As Integer, skippedCount As Integer, skippedItems As List(Of SkippedItemInfo))
+  spec.csharp:
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}.loadedCount
+    name: loadedCount
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.collections.generic.list-bannerlord.gamemaster.console.itemcommands.skippediteminfo--.loadedcount
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}.skippedCount
+    name: skippedCount
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.collections.generic.list-bannerlord.gamemaster.console.itemcommands.skippediteminfo--.skippedcount
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo
+    name: SkippedItemInfo
+    href: Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo.html
+  - name: '>'
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}.skippedItems
+    name: skippedItems
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.collections.generic.list-bannerlord.gamemaster.console.itemcommands.skippediteminfo--.skippeditems
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}.loadedCount
+    name: loadedCount
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.collections.generic.list-bannerlord.gamemaster.console.itemcommands.skippediteminfo--.loadedcount
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}.skippedCount
+    name: skippedCount
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.collections.generic.list-bannerlord.gamemaster.console.itemcommands.skippediteminfo--.skippedcount
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32,System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo}}.skippedItems
+    name: skippedItems
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.collections.generic.list-bannerlord.gamemaster.console.itemcommands.skippediteminfo--.skippeditems
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo
+    name: SkippedItemInfo
+    href: Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo.html
+  - name: )
+  - name: )
+- uid: System.ValueTuple`3
+  commentId: T:System.ValueTuple`3
+  name: (T1, T2, T3)
+  nameWithType: (T1, T2, T3)
+  fullName: (T1, T2, T3)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_EquipmentFileExists_System_String_System_Boolean_
+  name: EquipmentFileExists
+  nameWithType: EquipmentFileManager.EquipmentFileExists
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.EquipmentFileExists
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html#Bannerlord_GameMaster_Items_EquipmentFileManager_ListEquipmentFiles_System_Boolean_
+  name: ListEquipmentFiles
+  nameWithType: EquipmentFileManager.ListEquipmentFiles
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager.ListEquipmentFiles
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )

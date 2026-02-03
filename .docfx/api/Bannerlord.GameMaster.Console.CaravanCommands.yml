@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.CaravanCommands
+  commentId: N:Bannerlord.GameMaster.Console.CaravanCommands
+  id: Bannerlord.GameMaster.Console.CaravanCommands
+  children:
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanCommandHelpers
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.CaravanCommands
+  nameWithType: Bannerlord.GameMaster.Console.CaravanCommands
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCommandHelpers
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanCommandHelpers
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCommandHelpers.html
+  name: CaravanCommandHelpers
+  nameWithType: CaravanCommandHelpers
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCommandHelpers

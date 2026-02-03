@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands
+  commentId: N:Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands
+  id: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands
+  children:
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.CreateKingdomCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.GenerateKingdomsCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands
+  nameWithType: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.CreateKingdomCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.CreateKingdomCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.CreateKingdomCommand.html
+  name: CreateKingdomCommand
+  nameWithType: CreateKingdomCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.CreateKingdomCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.GenerateKingdomsCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.GenerateKingdomsCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.GenerateKingdomsCommand.html
+  name: GenerateKingdomsCommand
+  nameWithType: GenerateKingdomsCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.GenerateKingdomsCommand

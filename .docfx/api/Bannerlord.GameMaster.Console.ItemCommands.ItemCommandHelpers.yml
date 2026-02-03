@@ -1,0 +1,611 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  id: ItemCommandHelpers
+  parent: Bannerlord.GameMaster.Console.ItemCommands
+  children:
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetAppropriateSlotForItem(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetEquipmentList(TaleWorlds.Core.Equipment)
+  - Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot(System.String,TaleWorlds.Core.EquipmentIndex@)
+  langs:
+  - csharp
+  - vb
+  name: ItemCommandHelpers
+  nameWithType: ItemCommandHelpers
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/ItemCommands/ItemCommandHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ItemCommandHelpers
+    path: ../Bannerlord.GameMaster/Console/ItemCommands/ItemCommandHelpers.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.ItemCommands
+  summary: Helper methods for item commands - equipment slot mapping and parsing
+  example: []
+  syntax:
+    content: public static class ItemCommandHelpers
+    content.vb: Public Module ItemCommandHelpers
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetAppropriateSlotForItem(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetAppropriateSlotForItem(TaleWorlds.Core.ItemObject)
+  id: GetAppropriateSlotForItem(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetAppropriateSlotForItem(ItemObject)
+  nameWithType: ItemCommandHelpers.GetAppropriateSlotForItem(ItemObject)
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetAppropriateSlotForItem(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/ItemCommands/ItemCommandHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetAppropriateSlotForItem
+    path: ../Bannerlord.GameMaster/Console/ItemCommands/ItemCommandHelpers.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.ItemCommands
+  summary: Determines the appropriate equipment slot for an item based on its type
+  example: []
+  syntax:
+    content: public static EquipmentIndex GetAppropriateSlotForItem(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to find a slot for
+    return:
+      type: TaleWorlds.Core.EquipmentIndex
+      description: The appropriate EquipmentIndex, or EquipmentIndex.None if no slot is available
+    content.vb: Public Shared Function GetAppropriateSlotForItem(item As ItemObject) As EquipmentIndex
+  overload: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetAppropriateSlotForItem*
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot(System.String,TaleWorlds.Core.EquipmentIndex@)
+  commentId: M:Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot(System.String,TaleWorlds.Core.EquipmentIndex@)
+  id: TryParseEquipmentSlot(System.String,TaleWorlds.Core.EquipmentIndex@)
+  parent: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  langs:
+  - csharp
+  - vb
+  name: TryParseEquipmentSlot(string, out EquipmentIndex)
+  nameWithType: ItemCommandHelpers.TryParseEquipmentSlot(string, out EquipmentIndex)
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot(string, out TaleWorlds.Core.EquipmentIndex)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/ItemCommands/ItemCommandHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TryParseEquipmentSlot
+    path: ../Bannerlord.GameMaster/Console/ItemCommands/ItemCommandHelpers.cs
+    startLine: 57
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.ItemCommands
+  summary: Parses equipment slot name to EquipmentIndex enum
+  example: []
+  syntax:
+    content: public static bool TryParseEquipmentSlot(string slotName, out EquipmentIndex slot)
+    parameters:
+    - id: slotName
+      type: System.String
+      description: The slot name string (e.g., "Head", "Weapon0", "Body")
+    - id: slot
+      type: TaleWorlds.Core.EquipmentIndex
+      description: The parsed EquipmentIndex output
+    return:
+      type: System.Boolean
+      description: True if parsing was successful, false otherwise
+    content.vb: Public Shared Function TryParseEquipmentSlot(slotName As String, slot As EquipmentIndex) As Boolean
+  overload: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot*
+  nameWithType.vb: ItemCommandHelpers.TryParseEquipmentSlot(String, EquipmentIndex)
+  fullName.vb: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot(String, TaleWorlds.Core.EquipmentIndex)
+  name.vb: TryParseEquipmentSlot(String, EquipmentIndex)
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetEquipmentList(TaleWorlds.Core.Equipment)
+  commentId: M:Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetEquipmentList(TaleWorlds.Core.Equipment)
+  id: GetEquipmentList(TaleWorlds.Core.Equipment)
+  parent: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetEquipmentList(Equipment)
+  nameWithType: ItemCommandHelpers.GetEquipmentList(Equipment)
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetEquipmentList(TaleWorlds.Core.Equipment)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/ItemCommands/ItemCommandHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetEquipmentList
+    path: ../Bannerlord.GameMaster/Console/ItemCommands/ItemCommandHelpers.cs
+    startLine: 94
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.ItemCommands
+  summary: Gets a list of equipment items for display purposes
+  example: []
+  syntax:
+    content: public static List<EquipmentItemInfo> GetEquipmentList(Equipment equipment)
+    parameters:
+    - id: equipment
+      type: TaleWorlds.Core.Equipment
+      description: The equipment set to list
+    return:
+      type: System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo}
+      description: List of EquipmentItemInfo for display
+    content.vb: Public Shared Function GetEquipmentList(equipment As Equipment) As List(Of EquipmentItemInfo)
+  overload: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetEquipmentList*
+references:
+- uid: Bannerlord.GameMaster.Console.ItemCommands
+  commentId: N:Bannerlord.GameMaster.Console.ItemCommands
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.ItemCommands
+  nameWithType: Bannerlord.GameMaster.Console.ItemCommands
+  fullName: Bannerlord.GameMaster.Console.ItemCommands
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetAppropriateSlotForItem*
+  commentId: Overload:Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetAppropriateSlotForItem
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.html#Bannerlord_GameMaster_Console_ItemCommands_ItemCommandHelpers_GetAppropriateSlotForItem_TaleWorlds_Core_ItemObject_
+  name: GetAppropriateSlotForItem
+  nameWithType: ItemCommandHelpers.GetAppropriateSlotForItem
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetAppropriateSlotForItem
+- uid: TaleWorlds.Core.ItemObject
+  commentId: T:TaleWorlds.Core.ItemObject
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: ItemObject
+  nameWithType: ItemObject
+  fullName: TaleWorlds.Core.ItemObject
+- uid: TaleWorlds.Core.EquipmentIndex
+  commentId: T:TaleWorlds.Core.EquipmentIndex
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: EquipmentIndex
+  nameWithType: EquipmentIndex
+  fullName: TaleWorlds.Core.EquipmentIndex
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot*
+  commentId: Overload:Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.html#Bannerlord_GameMaster_Console_ItemCommands_ItemCommandHelpers_TryParseEquipmentSlot_System_String_TaleWorlds_Core_EquipmentIndex__
+  name: TryParseEquipmentSlot
+  nameWithType: ItemCommandHelpers.TryParseEquipmentSlot
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.TryParseEquipmentSlot
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetEquipmentList*
+  commentId: Overload:Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetEquipmentList
+  href: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.html#Bannerlord_GameMaster_Console_ItemCommands_ItemCommandHelpers_GetEquipmentList_TaleWorlds_Core_Equipment_
+  name: GetEquipmentList
+  nameWithType: ItemCommandHelpers.GetEquipmentList
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers.GetEquipmentList
+- uid: TaleWorlds.Core.Equipment
+  commentId: T:TaleWorlds.Core.Equipment
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: Equipment
+  nameWithType: Equipment
+  fullName: TaleWorlds.Core.Equipment
+- uid: System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo}
+  commentId: T:System.Collections.Generic.List{Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<EquipmentItemInfo>
+  nameWithType: List<EquipmentItemInfo>
+  fullName: System.Collections.Generic.List<Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo>
+  nameWithType.vb: List(Of EquipmentItemInfo)
+  fullName.vb: System.Collections.Generic.List(Of Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo)
+  name.vb: List(Of EquipmentItemInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo
+    name: EquipmentItemInfo
+    href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo
+    name: EquipmentItemInfo
+    href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

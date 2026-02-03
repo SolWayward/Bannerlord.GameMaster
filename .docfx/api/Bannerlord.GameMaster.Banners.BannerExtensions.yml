@@ -1,0 +1,671 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions
+  commentId: T:Bannerlord.GameMaster.Banners.BannerExtensions
+  id: BannerExtensions
+  parent: Bannerlord.GameMaster.Banners
+  children:
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme(TaleWorlds.Core.Banner)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme(TaleWorlds.Core.Banner,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: BannerExtensions
+  nameWithType: BannerExtensions
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BannerExtensions
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 7
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: Extension methods for Banner objects.
+  example: []
+  syntax:
+    content: public static class BannerExtensions
+    content.vb: Public Module BannerExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme(TaleWorlds.Core.Banner)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme(TaleWorlds.Core.Banner)
+  id: ApplyRandomColorScheme(TaleWorlds.Core.Banner)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ApplyRandomColorScheme(Banner)
+  nameWithType: BannerExtensions.ApplyRandomColorScheme(Banner)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme(TaleWorlds.Core.Banner)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyRandomColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Applies a random color scheme to the banner with high-contrast emblem.
+
+    Automatically selects the best theme based on the randomly chosen main color's luminance.
+
+    For lighter main colors, uses lighter secondary and darker emblem.
+
+    For darker main colors, uses darker secondary and lighter emblem.
+  example: []
+  syntax:
+    content: public static Banner ApplyRandomColorScheme(this Banner banner)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to apply colors to.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function ApplyRandomColorScheme(banner As Banner) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme*
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  id: ApplyColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ApplyColorScheme(Banner, int)
+  nameWithType: BannerExtensions.ApplyColorScheme(Banner, int)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme(TaleWorlds.Core.Banner, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Applies a color scheme to the banner using a specific primary color with high-contrast emblem.
+
+    Automatically selects the best theme based on the provided main color's luminance.
+
+    For lighter main colors (luminance &gt; 0.6), uses lighter secondary and darker emblem.
+
+    For darker main colors (luminance &lt;= 0.6), uses darker secondary and lighter emblem.
+  example: []
+  syntax:
+    content: public static Banner ApplyColorScheme(this Banner banner, int primaryColorId)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to apply colors to.
+    - id: primaryColorId
+      type: System.Int32
+      description: The primary (main background) color ID to use.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function ApplyColorScheme(banner As Banner, primaryColorId As Integer) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme*
+  nameWithType.vb: BannerExtensions.ApplyColorScheme(Banner, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme(TaleWorlds.Core.Banner, Integer)
+  name.vb: ApplyColorScheme(Banner, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner)
+  id: ApplyAlternativeColorScheme(TaleWorlds.Core.Banner)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ApplyAlternativeColorScheme(Banner)
+  nameWithType: BannerExtensions.ApplyAlternativeColorScheme(Banner)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyAlternativeColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 64
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Applies an alternative random color scheme to the banner with high-contrast emblem.
+
+    Always uses lighter secondary background and darker emblem regardless of main color luminance.
+
+    Best for creating banners with lighter overall appearance.
+  example: []
+  syntax:
+    content: public static Banner ApplyAlternativeColorScheme(this Banner banner)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to apply colors to.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function ApplyAlternativeColorScheme(banner As Banner) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme*
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  id: ApplyAlternativeColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ApplyAlternativeColorScheme(Banner, int)
+  nameWithType: BannerExtensions.ApplyAlternativeColorScheme(Banner, int)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyAlternativeColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 87
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Applies an alternative color scheme to the banner using a specific primary color with high-contrast emblem.
+
+    Always uses lighter secondary background and darker emblem regardless of main color luminance.
+
+    Best for creating banners with lighter overall appearance.
+  example: []
+  syntax:
+    content: public static Banner ApplyAlternativeColorScheme(this Banner banner, int primaryColorId)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to apply colors to.
+    - id: primaryColorId
+      type: System.Int32
+      description: The primary (main background) color ID to use.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function ApplyAlternativeColorScheme(banner As Banner, primaryColorId As Integer) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme*
+  nameWithType.vb: BannerExtensions.ApplyAlternativeColorScheme(Banner, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme(TaleWorlds.Core.Banner, Integer)
+  name.vb: ApplyAlternativeColorScheme(Banner, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  id: ApplyStandardColorScheme(TaleWorlds.Core.Banner,System.Int32)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ApplyStandardColorScheme(Banner, int)
+  nameWithType: BannerExtensions.ApplyStandardColorScheme(Banner, int)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme(TaleWorlds.Core.Banner, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyStandardColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 110
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Applies a standard color scheme to the banner using a specific primary color with high-contrast emblem.
+
+    Always uses darker secondary background and lighter emblem regardless of main color luminance.
+
+    Best for creating banners with darker overall appearance.
+  example: []
+  syntax:
+    content: public static Banner ApplyStandardColorScheme(this Banner banner, int primaryColorId)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to apply colors to.
+    - id: primaryColorId
+      type: System.Int32
+      description: The primary (main background) color ID to use.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function ApplyStandardColorScheme(banner As Banner, primaryColorId As Integer) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme*
+  nameWithType.vb: BannerExtensions.ApplyStandardColorScheme(Banner, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme(TaleWorlds.Core.Banner, Integer)
+  name.vb: ApplyStandardColorScheme(Banner, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme(TaleWorlds.Core.Banner,System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme(TaleWorlds.Core.Banner,System.Single)
+  id: ApplyUniqueColorScheme(TaleWorlds.Core.Banner,System.Single)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ApplyUniqueColorScheme(Banner, float)
+  nameWithType: BannerExtensions.ApplyUniqueColorScheme(Banner, float)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme(TaleWorlds.Core.Banner, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyUniqueColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 134
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Applies a unique color scheme to the banner that is distinct from existing clan colors.
+
+    Automatically finds a unique primary color from the banner palette that differs from all existing clans,
+
+    then applies the best theme (standard or alternative) based on that color's luminance.
+
+    Ideal for creating new clans with visually distinct banners.
+  example: []
+  syntax:
+    content: public static Banner ApplyUniqueColorScheme(this Banner banner, float minimumThreshold = 0.15)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to apply colors to.
+    - id: minimumThreshold
+      type: System.Single
+      description: Minimum perceptual difference from existing clans (0.0-1.0). Default is 0.15 for good distinction.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function ApplyUniqueColorScheme(banner As Banner, minimumThreshold As Single = 0.15) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme*
+  nameWithType.vb: BannerExtensions.ApplyUniqueColorScheme(Banner, Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme(TaleWorlds.Core.Banner, Single)
+  name.vb: ApplyUniqueColorScheme(Banner, Single)
+references:
+- uid: Bannerlord.GameMaster.Banners
+  commentId: N:Bannerlord.GameMaster.Banners
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Banners
+  nameWithType: Bannerlord.GameMaster.Banners
+  fullName: Bannerlord.GameMaster.Banners
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyRandomColorScheme_TaleWorlds_Core_Banner_
+  name: ApplyRandomColorScheme
+  nameWithType: BannerExtensions.ApplyRandomColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme
+- uid: TaleWorlds.Core.Banner
+  commentId: T:TaleWorlds.Core.Banner
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: Banner
+  nameWithType: Banner
+  fullName: TaleWorlds.Core.Banner
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyColorScheme_TaleWorlds_Core_Banner_System_Int32_
+  name: ApplyColorScheme
+  nameWithType: BannerExtensions.ApplyColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyAlternativeColorScheme_TaleWorlds_Core_Banner_
+  name: ApplyAlternativeColorScheme
+  nameWithType: BannerExtensions.ApplyAlternativeColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyStandardColorScheme_TaleWorlds_Core_Banner_System_Int32_
+  name: ApplyStandardColorScheme
+  nameWithType: BannerExtensions.ApplyStandardColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyUniqueColorScheme_TaleWorlds_Core_Banner_System_Single_
+  name: ApplyUniqueColorScheme
+  nameWithType: BannerExtensions.ApplyUniqueColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

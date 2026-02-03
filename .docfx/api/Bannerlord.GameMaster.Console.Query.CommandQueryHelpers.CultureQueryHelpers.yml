@@ -1,0 +1,619 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  id: CultureQueryHelpers
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  children:
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject})
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject},System.String,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: CultureQueryHelpers
+  nameWithType: CultureQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/CultureQueryHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CultureQueryHelpers
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/CultureQueryHelpers.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  summary: Helper methods for culture query commands
+  example: []
+  syntax:
+    content: public static class CultureQueryHelpers
+    content.vb: Public Module CultureQueryHelpers
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments(System.Collections.Generic.List{System.String})
+  id: ParseCultureQueryArguments(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  langs:
+  - csharp
+  - vb
+  name: ParseCultureQueryArguments(List<string>)
+  nameWithType: CultureQueryHelpers.ParseCultureQueryArguments(List<string>)
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/CultureQueryHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseCultureQueryArguments
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/CultureQueryHelpers.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  summary: Parse command arguments into CultureQueryArguments struct
+  example: []
+  syntax:
+    content: public static CultureQueryArguments ParseCultureQueryArguments(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+    content.vb: Public Shared Function ParseCultureQueryArguments(args As List(Of String)) As CultureQueryArguments
+  overload: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments*
+  nameWithType.vb: CultureQueryHelpers.ParseCultureQueryArguments(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments(System.Collections.Generic.List(Of String))
+  name.vb: ParseCultureQueryArguments(List(Of String))
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject},System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject},System.String,System.Boolean)
+  id: SortCultures(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject},System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  langs:
+  - csharp
+  - vb
+  name: SortCultures(List<CultureObject>, string, bool)
+  nameWithType: CultureQueryHelpers.SortCultures(List<CultureObject>, string, bool)
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures(System.Collections.Generic.List<TaleWorlds.CampaignSystem.CultureObject>, string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/CultureQueryHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SortCultures
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/CultureQueryHelpers.cs
+    startLine: 65
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  summary: Sort cultures based on the specified criteria
+  example: []
+  syntax:
+    content: public static List<CultureObject> SortCultures(List<CultureObject> cultures, string sortBy, bool descending)
+    parameters:
+    - id: cultures
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+    - id: sortBy
+      type: System.String
+    - id: descending
+      type: System.Boolean
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+    content.vb: Public Shared Function SortCultures(cultures As List(Of CultureObject), sortBy As String, descending As Boolean) As List(Of CultureObject)
+  overload: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures*
+  nameWithType.vb: CultureQueryHelpers.SortCultures(List(Of CultureObject), String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures(System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.CultureObject), String, Boolean)
+  name.vb: SortCultures(List(Of CultureObject), String, Boolean)
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject})
+  commentId: M:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject})
+  id: GetFormattedCultureList(System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject})
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetFormattedCultureList(List<CultureObject>)
+  nameWithType: CultureQueryHelpers.GetFormattedCultureList(List<CultureObject>)
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList(System.Collections.Generic.List<TaleWorlds.CampaignSystem.CultureObject>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/CultureQueryHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFormattedCultureList
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/CultureQueryHelpers.cs
+    startLine: 86
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  summary: Format culture list for display
+  example: []
+  syntax:
+    content: public static string GetFormattedCultureList(List<CultureObject> cultures)
+    parameters:
+    - id: cultures
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetFormattedCultureList(cultures As List(Of CultureObject)) As String
+  overload: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList*
+  nameWithType.vb: CultureQueryHelpers.GetFormattedCultureList(List(Of CultureObject))
+  fullName.vb: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList(System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.CultureObject))
+  name.vb: GetFormattedCultureList(List(Of CultureObject))
+references:
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  commentId: N:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  nameWithType: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query
+    name: Query
+    href: Bannerlord.GameMaster.Console.Query.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+    name: CommandQueryHelpers
+    href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query
+    name: Query
+    href: Bannerlord.GameMaster.Console.Query.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+    name: CommandQueryHelpers
+    href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments*
+  commentId: Overload:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.html#Bannerlord_GameMaster_Console_Query_CommandQueryHelpers_CultureQueryHelpers_ParseCultureQueryArguments_System_Collections_Generic_List_System_String__
+  name: ParseCultureQueryArguments
+  nameWithType: CultureQueryHelpers.ParseCultureQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.ParseCultureQueryArguments
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments.html
+  name: CultureQueryArguments
+  nameWithType: CultureQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures*
+  commentId: Overload:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.html#Bannerlord_GameMaster_Console_Query_CommandQueryHelpers_CultureQueryHelpers_SortCultures_System_Collections_Generic_List_TaleWorlds_CampaignSystem_CultureObject__System_String_System_Boolean_
+  name: SortCultures
+  nameWithType: CultureQueryHelpers.SortCultures
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.SortCultures
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<CultureObject>
+  nameWithType: List<CultureObject>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.CultureObject>
+  nameWithType.vb: List(Of CultureObject)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.CultureObject)
+  name.vb: List(Of CultureObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.CultureObject
+    name: CultureObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.CultureObject
+    name: CultureObject
+    isExternal: true
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList*
+  commentId: Overload:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.html#Bannerlord_GameMaster_Console_Query_CommandQueryHelpers_CultureQueryHelpers_GetFormattedCultureList_System_Collections_Generic_List_TaleWorlds_CampaignSystem_CultureObject__
+  name: GetFormattedCultureList
+  nameWithType: CultureQueryHelpers.GetFormattedCultureList
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.GetFormattedCultureList

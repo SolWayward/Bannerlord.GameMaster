@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands
+  id: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands
+  children:
+  - Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddBasicTroopsCommand
+  - Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddEliteTroopsCommand
+  - Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMercenaryTroopsCommand
+  - Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMixedTroopsCommand
+  - Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveHeroTroopsCommand
+  - Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveXpCommand
+  - Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.UpgradeTroopsCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands
+  fullName: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddBasicTroopsCommand
+  commentId: T:Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddBasicTroopsCommand
+  href: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddBasicTroopsCommand.html
+  name: AddBasicTroopsCommand
+  nameWithType: AddBasicTroopsCommand
+  fullName: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddBasicTroopsCommand
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddEliteTroopsCommand
+  commentId: T:Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddEliteTroopsCommand
+  href: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddEliteTroopsCommand.html
+  name: AddEliteTroopsCommand
+  nameWithType: AddEliteTroopsCommand
+  fullName: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddEliteTroopsCommand
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMercenaryTroopsCommand
+  commentId: T:Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMercenaryTroopsCommand
+  href: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMercenaryTroopsCommand.html
+  name: AddMercenaryTroopsCommand
+  nameWithType: AddMercenaryTroopsCommand
+  fullName: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMercenaryTroopsCommand
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMixedTroopsCommand
+  commentId: T:Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMixedTroopsCommand
+  href: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMixedTroopsCommand.html
+  name: AddMixedTroopsCommand
+  nameWithType: AddMixedTroopsCommand
+  fullName: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMixedTroopsCommand
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveHeroTroopsCommand
+  commentId: T:Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveHeroTroopsCommand
+  href: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveHeroTroopsCommand.html
+  name: GiveHeroTroopsCommand
+  nameWithType: GiveHeroTroopsCommand
+  fullName: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveHeroTroopsCommand
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveXpCommand
+  commentId: T:Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveXpCommand
+  href: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveXpCommand.html
+  name: GiveXpCommand
+  nameWithType: GiveXpCommand
+  fullName: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveXpCommand
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.UpgradeTroopsCommand
+  commentId: T:Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.UpgradeTroopsCommand
+  href: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.UpgradeTroopsCommand.html
+  name: UpgradeTroopsCommand
+  nameWithType: UpgradeTroopsCommand
+  fullName: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.UpgradeTroopsCommand

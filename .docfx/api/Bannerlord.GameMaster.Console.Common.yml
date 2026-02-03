@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common
+  commentId: N:Bannerlord.GameMaster.Console.Common
+  id: Bannerlord.GameMaster.Console.Common
+  children:
+  - Bannerlord.GameMaster.Console.Common.CommandResult
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Common
+  nameWithType: Bannerlord.GameMaster.Console.Common
+  fullName: Bannerlord.GameMaster.Console.Common
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Common.CommandResult
+  commentId: T:Bannerlord.GameMaster.Console.Common.CommandResult
+  parent: Bannerlord.GameMaster.Console.Common
+  href: Bannerlord.GameMaster.Console.Common.CommandResult.html
+  name: CommandResult
+  nameWithType: CommandResult
+  fullName: Bannerlord.GameMaster.Console.Common.CommandResult
+- uid: Bannerlord.GameMaster.Console.Common
+  commentId: N:Bannerlord.GameMaster.Console.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common
+  nameWithType: Bannerlord.GameMaster.Console.Common
+  fullName: Bannerlord.GameMaster.Console.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html

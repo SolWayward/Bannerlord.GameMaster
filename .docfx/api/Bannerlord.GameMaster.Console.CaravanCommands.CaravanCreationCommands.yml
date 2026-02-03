@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
+  commentId: N:Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
+  id: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
+  children:
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreateNotableCaravanCommand
+  - Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreatePlayerCaravanCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
+  nameWithType: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreateNotableCaravanCommand
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreateNotableCaravanCommand
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreateNotableCaravanCommand.html
+  name: CreateNotableCaravanCommand
+  nameWithType: CreateNotableCaravanCommand
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreateNotableCaravanCommand
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreatePlayerCaravanCommand
+  commentId: T:Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreatePlayerCaravanCommand
+  href: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreatePlayerCaravanCommand.html
+  name: CreatePlayerCaravanCommand
+  nameWithType: CreatePlayerCaravanCommand
+  fullName: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreatePlayerCaravanCommand

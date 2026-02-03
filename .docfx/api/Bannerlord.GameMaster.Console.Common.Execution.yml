@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.Execution
+  commentId: N:Bannerlord.GameMaster.Console.Common.Execution
+  id: Bannerlord.GameMaster.Console.Common.Execution
+  children:
+  - Bannerlord.GameMaster.Console.Common.Execution.Cmd
+  - Bannerlord.GameMaster.Console.Common.Execution.CommandExecutor
+  - Bannerlord.GameMaster.Console.Common.Execution.CommandLogger
+  - Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  - Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Common.Execution
+  nameWithType: Bannerlord.GameMaster.Console.Common.Execution
+  fullName: Bannerlord.GameMaster.Console.Common.Execution
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Common.Execution.CommandExecutor
+  commentId: T:Bannerlord.GameMaster.Console.Common.Execution.CommandExecutor
+  href: Bannerlord.GameMaster.Console.Common.Execution.CommandExecutor.html
+  name: CommandExecutor
+  nameWithType: CommandExecutor
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.CommandExecutor
+- uid: Bannerlord.GameMaster.Console.Common.Execution.Cmd
+  commentId: T:Bannerlord.GameMaster.Console.Common.Execution.Cmd
+  href: Bannerlord.GameMaster.Console.Common.Execution.Cmd.html
+  name: Cmd
+  nameWithType: Cmd
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.Cmd
+- uid: Bannerlord.GameMaster.Console.Common.Execution.CommandLogger
+  commentId: T:Bannerlord.GameMaster.Console.Common.Execution.CommandLogger
+  href: Bannerlord.GameMaster.Console.Common.Execution.CommandLogger.html
+  name: CommandLogger
+  nameWithType: CommandLogger
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.CommandLogger
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  commentId: T:Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager.html
+  name: LoggingManager
+  nameWithType: LoggingManager
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+- uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+  commentId: T:Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+  parent: Bannerlord.GameMaster.Console.Common.Execution
+  href: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult.html
+  name: LoggingResult
+  nameWithType: LoggingResult
+  fullName: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+- uid: Bannerlord.GameMaster.Console.Common.Execution
+  commentId: N:Bannerlord.GameMaster.Console.Common.Execution
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.Execution
+  nameWithType: Bannerlord.GameMaster.Console.Common.Execution
+  fullName: Bannerlord.GameMaster.Console.Common.Execution
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Execution
+    name: Execution
+    href: Bannerlord.GameMaster.Console.Common.Execution.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Execution
+    name: Execution
+    href: Bannerlord.GameMaster.Console.Common.Execution.html

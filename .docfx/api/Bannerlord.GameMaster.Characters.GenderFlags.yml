@@ -1,0 +1,185 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Characters.GenderFlags
+  commentId: T:Bannerlord.GameMaster.Characters.GenderFlags
+  id: GenderFlags
+  parent: Bannerlord.GameMaster.Characters
+  children:
+  - Bannerlord.GameMaster.Characters.GenderFlags.Either
+  - Bannerlord.GameMaster.Characters.GenderFlags.Female
+  - Bannerlord.GameMaster.Characters.GenderFlags.Male
+  - Bannerlord.GameMaster.Characters.GenderFlags.None
+  langs:
+  - csharp
+  - vb
+  name: GenderFlags
+  nameWithType: GenderFlags
+  fullName: Bannerlord.GameMaster.Characters.GenderFlags
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/GenderFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GenderFlags
+    path: ../Bannerlord.GameMaster/Characters/GenderFlags.cs
+    startLine: 4
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum GenderFlags
+    content.vb: >-
+      <Flags>
+
+      Public Enum GenderFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Characters.GenderFlags.None
+  commentId: F:Bannerlord.GameMaster.Characters.GenderFlags.None
+  id: None
+  parent: Bannerlord.GameMaster.Characters.GenderFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: GenderFlags.None
+  fullName: Bannerlord.GameMaster.Characters.GenderFlags.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/GenderFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Characters/GenderFlags.cs
+    startLine: 7
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+- uid: Bannerlord.GameMaster.Characters.GenderFlags.Female
+  commentId: F:Bannerlord.GameMaster.Characters.GenderFlags.Female
+  id: Female
+  parent: Bannerlord.GameMaster.Characters.GenderFlags
+  langs:
+  - csharp
+  - vb
+  name: Female
+  nameWithType: GenderFlags.Female
+  fullName: Bannerlord.GameMaster.Characters.GenderFlags.Female
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/GenderFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Female
+    path: ../Bannerlord.GameMaster/Characters/GenderFlags.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Female = 1
+    return:
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+- uid: Bannerlord.GameMaster.Characters.GenderFlags.Male
+  commentId: F:Bannerlord.GameMaster.Characters.GenderFlags.Male
+  id: Male
+  parent: Bannerlord.GameMaster.Characters.GenderFlags
+  langs:
+  - csharp
+  - vb
+  name: Male
+  nameWithType: GenderFlags.Male
+  fullName: Bannerlord.GameMaster.Characters.GenderFlags.Male
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/GenderFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Male
+    path: ../Bannerlord.GameMaster/Characters/GenderFlags.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Male = 2
+    return:
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+- uid: Bannerlord.GameMaster.Characters.GenderFlags.Either
+  commentId: F:Bannerlord.GameMaster.Characters.GenderFlags.Either
+  id: Either
+  parent: Bannerlord.GameMaster.Characters.GenderFlags
+  langs:
+  - csharp
+  - vb
+  name: Either
+  nameWithType: GenderFlags.Either
+  fullName: Bannerlord.GameMaster.Characters.GenderFlags.Either
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/GenderFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Either
+    path: ../Bannerlord.GameMaster/Characters/GenderFlags.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  syntax:
+    content: Either = Female | Male
+    return:
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+    content.vb: Either = Female Or Male
+references:
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+- uid: Bannerlord.GameMaster.Characters.GenderFlags
+  commentId: T:Bannerlord.GameMaster.Characters.GenderFlags
+  parent: Bannerlord.GameMaster.Characters
+  href: Bannerlord.GameMaster.Characters.GenderFlags.html
+  name: GenderFlags
+  nameWithType: GenderFlags
+  fullName: Bannerlord.GameMaster.Characters.GenderFlags

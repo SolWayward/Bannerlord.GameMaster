@@ -1,0 +1,1313 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  commentId: T:Bannerlord.GameMaster.Items.WeaponTypeFlags
+  id: WeaponTypeFlags
+  parent: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.All
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllAmmo
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllAxes
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllDistance
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllFirearms
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllMaces
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllMelee
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllOneHanded
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllPolearms
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllRanged
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllSiegeAmmo
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllSwords
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllThrowing
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.AllTwoHanded
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Arrow
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.BallistaBolt
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Banner
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Bolt
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Boulder
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Bow
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Bullet
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Crossbow
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Dagger
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Javelin
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Musket
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.None
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedAxe
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedMace
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedPolearm
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedSword
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Pistol
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Rifle
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Shield
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Sling
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.SlingStone
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.Stone
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.ThrowingAxe
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.ThrowingKnife
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedAxe
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedMace
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedPolearm
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedSword
+  langs:
+  - csharp
+  - vb
+  name: WeaponTypeFlags
+  nameWithType: WeaponTypeFlags
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: WeaponTypeFlags
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Flags enum representing weapon types and weapon groups for equipment generation.
+
+    Used by the HeroOutfitter system to specify weapon preferences when building equipment pools.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum WeaponTypeFlags : long
+    content.vb: >-
+      <Flags>
+
+      Public Enum WeaponTypeFlags As Long
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.None
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.None
+  id: None
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: WeaponTypeFlags.None
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: No weapon type specified.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedSword
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedSword
+  id: OneHandedSword
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: OneHandedSword
+  nameWithType: WeaponTypeFlags.OneHandedSword
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedSword
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OneHandedSword
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: One-handed swords.
+  example: []
+  syntax:
+    content: OneHandedSword = 1
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedSword
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedSword
+  id: TwoHandedSword
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: TwoHandedSword
+  nameWithType: WeaponTypeFlags.TwoHandedSword
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedSword
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TwoHandedSword
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Two-handed swords.
+  example: []
+  syntax:
+    content: TwoHandedSword = 2
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedAxe
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedAxe
+  id: OneHandedAxe
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: OneHandedAxe
+  nameWithType: WeaponTypeFlags.OneHandedAxe
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedAxe
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OneHandedAxe
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: One-handed axes.
+  example: []
+  syntax:
+    content: OneHandedAxe = 4
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedAxe
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedAxe
+  id: TwoHandedAxe
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: TwoHandedAxe
+  nameWithType: WeaponTypeFlags.TwoHandedAxe
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedAxe
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TwoHandedAxe
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Two-handed axes.
+  example: []
+  syntax:
+    content: TwoHandedAxe = 8
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedMace
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedMace
+  id: OneHandedMace
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: OneHandedMace
+  nameWithType: WeaponTypeFlags.OneHandedMace
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedMace
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OneHandedMace
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: One-handed maces.
+  example: []
+  syntax:
+    content: OneHandedMace = 16
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedMace
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedMace
+  id: TwoHandedMace
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: TwoHandedMace
+  nameWithType: WeaponTypeFlags.TwoHandedMace
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedMace
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TwoHandedMace
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Two-handed maces.
+  example: []
+  syntax:
+    content: TwoHandedMace = 32
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedPolearm
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedPolearm
+  id: OneHandedPolearm
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: OneHandedPolearm
+  nameWithType: WeaponTypeFlags.OneHandedPolearm
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.OneHandedPolearm
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OneHandedPolearm
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: One-handed polearms (short spears, javelins used as melee).
+  example: []
+  syntax:
+    content: OneHandedPolearm = 64
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedPolearm
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedPolearm
+  id: TwoHandedPolearm
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: TwoHandedPolearm
+  nameWithType: WeaponTypeFlags.TwoHandedPolearm
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.TwoHandedPolearm
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TwoHandedPolearm
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Two-handed polearms (pikes, lances, long spears).
+  example: []
+  syntax:
+    content: TwoHandedPolearm = 128
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Dagger
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Dagger
+  id: Dagger
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Dagger
+  nameWithType: WeaponTypeFlags.Dagger
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Dagger
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Dagger
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Daggers and knives.
+  example: []
+  syntax:
+    content: Dagger = 256
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.ThrowingAxe
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.ThrowingAxe
+  id: ThrowingAxe
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: ThrowingAxe
+  nameWithType: WeaponTypeFlags.ThrowingAxe
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.ThrowingAxe
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ThrowingAxe
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 44
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Throwing axes.
+  example: []
+  syntax:
+    content: ThrowingAxe = 512
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.ThrowingKnife
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.ThrowingKnife
+  id: ThrowingKnife
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: ThrowingKnife
+  nameWithType: WeaponTypeFlags.ThrowingKnife
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.ThrowingKnife
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ThrowingKnife
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 47
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Throwing knives.
+  example: []
+  syntax:
+    content: ThrowingKnife = 1024
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Javelin
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Javelin
+  id: Javelin
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Javelin
+  nameWithType: WeaponTypeFlags.Javelin
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Javelin
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Javelin
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 50
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Javelins and throwing spears.
+  example: []
+  syntax:
+    content: Javelin = 2048
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Bow
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Bow
+  id: Bow
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Bow
+  nameWithType: WeaponTypeFlags.Bow
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Bow
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bow
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 53
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Bows (standard bows, longbows).
+  example: []
+  syntax:
+    content: Bow = 4096
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Crossbow
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Crossbow
+  id: Crossbow
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Crossbow
+  nameWithType: WeaponTypeFlags.Crossbow
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Crossbow
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Crossbow
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 56
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Crossbows.
+  example: []
+  syntax:
+    content: Crossbow = 8192
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Arrow
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Arrow
+  id: Arrow
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Arrow
+  nameWithType: WeaponTypeFlags.Arrow
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Arrow
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Arrow
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 59
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Arrows for bows.
+  example: []
+  syntax:
+    content: Arrow = 16384
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Bolt
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Bolt
+  id: Bolt
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Bolt
+  nameWithType: WeaponTypeFlags.Bolt
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Bolt
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bolt
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 62
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Bolts for crossbows.
+  example: []
+  syntax:
+    content: Bolt = 32768
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Shield
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Shield
+  id: Shield
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Shield
+  nameWithType: WeaponTypeFlags.Shield
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Shield
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Shield
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 65
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Shields (all types).
+  example: []
+  syntax:
+    content: Shield = 65536
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Stone
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Stone
+  id: Stone
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Stone
+  nameWithType: WeaponTypeFlags.Stone
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Stone
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Stone
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 68
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Stones (throwing).
+  example: []
+  syntax:
+    content: Stone = 131072
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Musket
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Musket
+  id: Musket
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Musket
+  nameWithType: WeaponTypeFlags.Musket
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Musket
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Musket
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 71
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Muskets and firearms.
+  example: []
+  syntax:
+    content: Musket = 262144
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Pistol
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Pistol
+  id: Pistol
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Pistol
+  nameWithType: WeaponTypeFlags.Pistol
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Pistol
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Pistol
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 74
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Pistols.
+  example: []
+  syntax:
+    content: Pistol = 524288
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Bullet
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Bullet
+  id: Bullet
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Bullet
+  nameWithType: WeaponTypeFlags.Bullet
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Bullet
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bullet
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 77
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Bullets for firearms.
+  example: []
+  syntax:
+    content: Bullet = 1048576
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Banner
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Banner
+  id: Banner
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Banner
+  nameWithType: WeaponTypeFlags.Banner
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Banner
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Banner
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 80
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Banner items.
+  example: []
+  syntax:
+    content: Banner = 2097152
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Sling
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Sling
+  id: Sling
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Sling
+  nameWithType: WeaponTypeFlags.Sling
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Sling
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sling
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 85
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Slings (ranged weapon type in native).
+  example: []
+  syntax:
+    content: Sling = 4194304
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.SlingStone
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.SlingStone
+  id: SlingStone
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: SlingStone
+  nameWithType: WeaponTypeFlags.SlingStone
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.SlingStone
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SlingStone
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 88
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Sling stones (ammo for slings).
+  example: []
+  syntax:
+    content: SlingStone = 8388608
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Rifle
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Rifle
+  id: Rifle
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Rifle
+  nameWithType: WeaponTypeFlags.Rifle
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Rifle
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Rifle
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 91
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Rifles (for mods with firearms).
+  example: []
+  syntax:
+    content: Rifle = 16777216
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.Boulder
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.Boulder
+  id: Boulder
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Boulder
+  nameWithType: WeaponTypeFlags.Boulder
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.Boulder
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Boulder
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 94
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Siege boulders (siege weapon ammo).
+  example: []
+  syntax:
+    content: Boulder = 33554432
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.BallistaBolt
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.BallistaBolt
+  id: BallistaBolt
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: BallistaBolt
+  nameWithType: WeaponTypeFlags.BallistaBolt
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.BallistaBolt
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BallistaBolt
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 97
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Ballista bolts (siege weapon ammo).
+  example: []
+  syntax:
+    content: BallistaBolt = 67108864
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllOneHanded
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllOneHanded
+  id: AllOneHanded
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllOneHanded
+  nameWithType: WeaponTypeFlags.AllOneHanded
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllOneHanded
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllOneHanded
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All one-handed melee weapons (swords, axes, maces, polearms, daggers).
+  example: []
+  syntax:
+    content: AllOneHanded = OneHandedSword | OneHandedAxe | OneHandedMace | OneHandedPolearm | Dagger
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllOneHanded = OneHandedSword Or OneHandedAxe Or OneHandedMace Or OneHandedPolearm Or Dagger
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllTwoHanded
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllTwoHanded
+  id: AllTwoHanded
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllTwoHanded
+  nameWithType: WeaponTypeFlags.AllTwoHanded
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllTwoHanded
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllTwoHanded
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 105
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All two-handed melee weapons (swords, axes, maces, polearms).
+  example: []
+  syntax:
+    content: AllTwoHanded = TwoHandedSword | TwoHandedAxe | TwoHandedMace | TwoHandedPolearm
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllTwoHanded = TwoHandedSword Or TwoHandedAxe Or TwoHandedMace Or TwoHandedPolearm
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllSwords
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllSwords
+  id: AllSwords
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllSwords
+  nameWithType: WeaponTypeFlags.AllSwords
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllSwords
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllSwords
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 108
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All swords (one-handed and two-handed).
+  example: []
+  syntax:
+    content: AllSwords = OneHandedSword | TwoHandedSword
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllSwords = OneHandedSword Or TwoHandedSword
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllAxes
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllAxes
+  id: AllAxes
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllAxes
+  nameWithType: WeaponTypeFlags.AllAxes
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllAxes
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllAxes
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 111
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All axes (one-handed and two-handed, not throwing).
+  example: []
+  syntax:
+    content: AllAxes = OneHandedAxe | TwoHandedAxe
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllAxes = OneHandedAxe Or TwoHandedAxe
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllMaces
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllMaces
+  id: AllMaces
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllMaces
+  nameWithType: WeaponTypeFlags.AllMaces
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllMaces
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllMaces
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 114
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All maces (one-handed and two-handed).
+  example: []
+  syntax:
+    content: AllMaces = OneHandedMace | TwoHandedMace
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllMaces = OneHandedMace Or TwoHandedMace
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllPolearms
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllPolearms
+  id: AllPolearms
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllPolearms
+  nameWithType: WeaponTypeFlags.AllPolearms
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllPolearms
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllPolearms
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 117
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All polearms (one-handed and two-handed).
+  example: []
+  syntax:
+    content: AllPolearms = OneHandedPolearm | TwoHandedPolearm
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllPolearms = OneHandedPolearm Or TwoHandedPolearm
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllThrowing
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllThrowing
+  id: AllThrowing
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllThrowing
+  nameWithType: WeaponTypeFlags.AllThrowing
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllThrowing
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllThrowing
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 120
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All throwing weapons (axes, knives, javelins, stones).
+  example: []
+  syntax:
+    content: AllThrowing = ThrowingAxe | ThrowingKnife | Javelin | Stone
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllThrowing = ThrowingAxe Or ThrowingKnife Or Javelin Or Stone
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllRanged
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllRanged
+  id: AllRanged
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllRanged
+  nameWithType: WeaponTypeFlags.AllRanged
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllRanged
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllRanged
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 123
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All ranged weapons (bows, crossbows, slings).
+  example: []
+  syntax:
+    content: AllRanged = Bow | Crossbow | Sling
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllRanged = Bow Or Crossbow Or Sling
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllAmmo
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllAmmo
+  id: AllAmmo
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllAmmo
+  nameWithType: WeaponTypeFlags.AllAmmo
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllAmmo
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllAmmo
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 126
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All ammunition (arrows, bolts, bullets, sling stones).
+  example: []
+  syntax:
+    content: AllAmmo = Arrow | Bolt | Bullet | SlingStone
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllAmmo = Arrow Or Bolt Or Bullet Or SlingStone
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllSiegeAmmo
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllSiegeAmmo
+  id: AllSiegeAmmo
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllSiegeAmmo
+  nameWithType: WeaponTypeFlags.AllSiegeAmmo
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllSiegeAmmo
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllSiegeAmmo
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 129
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All siege weapon ammo (boulders, ballista bolts).
+  example: []
+  syntax:
+    content: AllSiegeAmmo = Boulder | BallistaBolt
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllSiegeAmmo = Boulder Or BallistaBolt
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllFirearms
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllFirearms
+  id: AllFirearms
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllFirearms
+  nameWithType: WeaponTypeFlags.AllFirearms
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllFirearms
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllFirearms
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 132
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All firearms (muskets, pistols, rifles).
+  example: []
+  syntax:
+    content: AllFirearms = Musket | Pistol | Rifle
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllFirearms = Musket Or Pistol Or Rifle
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllMelee
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllMelee
+  id: AllMelee
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllMelee
+  nameWithType: WeaponTypeFlags.AllMelee
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllMelee
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllMelee
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 135
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All melee weapons (one-handed and two-handed).
+  example: []
+  syntax:
+    content: AllMelee = AllTwoHanded | AllOneHanded
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllMelee = AllTwoHanded Or AllOneHanded
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllDistance
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.AllDistance
+  id: AllDistance
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: AllDistance
+  nameWithType: WeaponTypeFlags.AllDistance
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.AllDistance
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllDistance
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 138
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All distance weapons (ranged, throwing, firearms).
+  example: []
+  syntax:
+    content: AllDistance = AllThrowing | AllRanged | AllFirearms
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: AllDistance = AllThrowing Or AllRanged Or AllFirearms
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags.All
+  commentId: F:Bannerlord.GameMaster.Items.WeaponTypeFlags.All
+  id: All
+  parent: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: WeaponTypeFlags.All
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags.All
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: All
+    path: ../Bannerlord.GameMaster/Items/Equipment/WeaponTypeFlags.cs
+    startLine: 141
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: All weapon types combined.
+  example: []
+  syntax:
+    content: All = AllMelee | Shield | Banner | AllAmmo | AllDistance
+    return:
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    content.vb: All = AllMelee Or Shield Or Banner Or AllAmmo Or AllDistance
+references:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  commentId: T:Bannerlord.GameMaster.Items.WeaponTypeFlags
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  name: WeaponTypeFlags
+  nameWithType: WeaponTypeFlags
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags

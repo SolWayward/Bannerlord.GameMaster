@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.CultureQueryCommands
+  commentId: N:Bannerlord.GameMaster.Console.Query.CultureQueryCommands
+  id: Bannerlord.GameMaster.Console.Query.CultureQueryCommands
+  children:
+  - Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureCommand
+  - Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureInfoCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Query.CultureQueryCommands
+  nameWithType: Bannerlord.GameMaster.Console.Query.CultureQueryCommands
+  fullName: Bannerlord.GameMaster.Console.Query.CultureQueryCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureCommand
+  href: Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureCommand.html
+  name: QueryCultureCommand
+  nameWithType: QueryCultureCommand
+  fullName: Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureCommand
+- uid: Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureInfoCommand
+  href: Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureInfoCommand.html
+  name: QueryCultureInfoCommand
+  nameWithType: QueryCultureInfoCommand
+  fullName: Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureInfoCommand

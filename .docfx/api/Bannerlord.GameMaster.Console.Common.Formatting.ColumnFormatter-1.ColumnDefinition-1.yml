@@ -1,0 +1,544 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+  id: ColumnFormatter`1.ColumnDefinition`1
+  parent: Bannerlord.GameMaster.Console.Common.Formatting
+  children:
+  - Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.#ctor(System.Func{`1,System.String})
+  - Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.MaxWidth
+  - Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.ValueExtractor
+  langs:
+  - csharp
+  - vb
+  name: ColumnFormatter<T>.ColumnDefinition<TEntity>
+  nameWithType: ColumnFormatter<T>.ColumnDefinition<TEntity>
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.ColumnDefinition<TEntity>
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ColumnDefinition
+    path: ../Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Formatting
+  summary: Defines a column with its extractor function
+  example: []
+  syntax:
+    content: public class ColumnFormatter<T>.ColumnDefinition<TEntity>
+    typeParameters:
+    - id: TEntity
+    content.vb: Public Class ColumnFormatter(Of T).ColumnDefinition(Of TEntity)
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  nameWithType.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).ColumnDefinition(Of TEntity)
+  name.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity)
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.ValueExtractor
+  commentId: P:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.ValueExtractor
+  id: ValueExtractor
+  parent: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+  langs:
+  - csharp
+  - vb
+  name: ValueExtractor
+  nameWithType: ColumnFormatter<T>.ColumnDefinition<TEntity>.ValueExtractor
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.ColumnDefinition<TEntity>.ValueExtractor
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ValueExtractor
+    path: ../Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Formatting
+  summary: Gets or sets the function that extracts the column value from an entity.
+  example: []
+  syntax:
+    content: public Func<TEntity, string> ValueExtractor { get; set; }
+    parameters: []
+    return:
+      type: System.Func{{TEntity},System.String}
+    content.vb: Public Property ValueExtractor As Func(Of TEntity, String)
+  overload: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.ValueExtractor*
+  nameWithType.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity).ValueExtractor
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).ColumnDefinition(Of TEntity).ValueExtractor
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.MaxWidth
+  commentId: P:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.MaxWidth
+  id: MaxWidth
+  parent: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+  langs:
+  - csharp
+  - vb
+  name: MaxWidth
+  nameWithType: ColumnFormatter<T>.ColumnDefinition<TEntity>.MaxWidth
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.ColumnDefinition<TEntity>.MaxWidth
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MaxWidth
+    path: ../Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Formatting
+  summary: Gets or sets the maximum width of values in this column.
+  example: []
+  syntax:
+    content: public int MaxWidth { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxWidth As Integer
+  overload: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.MaxWidth*
+  nameWithType.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity).MaxWidth
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).ColumnDefinition(Of TEntity).MaxWidth
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.#ctor(System.Func{`1,System.String})
+  commentId: M:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.#ctor(System.Func{`1,System.String})
+  id: '#ctor(System.Func{`1,System.String})'
+  parent: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+  langs:
+  - csharp
+  - vb
+  name: ColumnDefinition(Func<TEntity, string>)
+  nameWithType: ColumnFormatter<T>.ColumnDefinition<TEntity>.ColumnDefinition(Func<TEntity, string>)
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.ColumnDefinition<TEntity>.ColumnDefinition(System.Func<TEntity, string>)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Formatting
+  summary: Creates a new column definition with the specified value extractor.
+  example: []
+  syntax:
+    content: public ColumnDefinition(Func<TEntity, string> valueExtractor)
+    parameters:
+    - id: valueExtractor
+      type: System.Func{{TEntity},System.String}
+      description: Function that extracts the column value from an entity.
+    content.vb: Public Sub New(valueExtractor As Func(Of TEntity, String))
+  overload: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.#ctor*
+  nameWithType.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity).New(Func(Of TEntity, String))
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).ColumnDefinition(Of TEntity).New(System.Func(Of TEntity, String))
+  name.vb: New(Func(Of TEntity, String))
+references:
+- uid: Bannerlord.GameMaster.Console.Common.Formatting
+  commentId: N:Bannerlord.GameMaster.Console.Common.Formatting
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.Formatting
+  nameWithType: Bannerlord.GameMaster.Console.Common.Formatting
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting
+    name: Formatting
+    href: Bannerlord.GameMaster.Console.Common.Formatting.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting
+    name: Formatting
+    href: Bannerlord.GameMaster.Console.Common.Formatting.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.ValueExtractor*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.ValueExtractor
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.ColumnDefinition-1.html#Bannerlord_GameMaster_Console_Common_Formatting_ColumnFormatter_1_ColumnDefinition_1_ValueExtractor
+  name: ValueExtractor
+  nameWithType: ColumnFormatter<T>.ColumnDefinition<TEntity>.ValueExtractor
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.ColumnDefinition<TEntity>.ValueExtractor
+  nameWithType.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity).ValueExtractor
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).ColumnDefinition(Of TEntity).ValueExtractor
+- uid: System.Func{{TEntity},System.String}
+  commentId: T:System.Func{`1,System.String}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<TEntity, string>
+  nameWithType: Func<TEntity, string>
+  fullName: System.Func<TEntity, string>
+  nameWithType.vb: Func(Of TEntity, String)
+  fullName.vb: System.Func(Of TEntity, String)
+  name.vb: Func(Of TEntity, String)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.MaxWidth*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.MaxWidth
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.ColumnDefinition-1.html#Bannerlord_GameMaster_Console_Common_Formatting_ColumnFormatter_1_ColumnDefinition_1_MaxWidth
+  name: MaxWidth
+  nameWithType: ColumnFormatter<T>.ColumnDefinition<TEntity>.MaxWidth
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.ColumnDefinition<TEntity>.MaxWidth
+  nameWithType.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity).MaxWidth
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).ColumnDefinition(Of TEntity).MaxWidth
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1.#ctor
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.ColumnDefinition-1.html#Bannerlord_GameMaster_Console_Common_Formatting_ColumnFormatter_1_ColumnDefinition_1__ctor_System_Func__1_System_String__
+  name: ColumnDefinition
+  nameWithType: ColumnFormatter<T>.ColumnDefinition<TEntity>.ColumnDefinition
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.ColumnDefinition<TEntity>.ColumnDefinition
+  nameWithType.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity).New
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).ColumnDefinition(Of TEntity).New
+  name.vb: New

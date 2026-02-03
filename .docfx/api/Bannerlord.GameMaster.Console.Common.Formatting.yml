@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.Formatting
+  commentId: N:Bannerlord.GameMaster.Console.Common.Formatting
+  id: Bannerlord.GameMaster.Console.Common.Formatting
+  children:
+  - Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  - Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+  - Bannerlord.GameMaster.Console.Common.Formatting.MessageFormatter
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Common.Formatting
+  nameWithType: Bannerlord.GameMaster.Console.Common.Formatting
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  parent: Bannerlord.GameMaster.Console.Common.Formatting
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  name: ColumnFormatter<T>
+  nameWithType: ColumnFormatter<T>
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>
+  nameWithType.vb: ColumnFormatter(Of T)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T)
+  name.vb: ColumnFormatter(Of T)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+    name: ColumnFormatter
+    href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+    name: ColumnFormatter
+    href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  name: ColumnFormatter<T>.ColumnDefinition<TEntity>
+  nameWithType: ColumnFormatter<T>.ColumnDefinition<TEntity>
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.ColumnDefinition<TEntity>
+  nameWithType.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).ColumnDefinition(Of TEntity)
+  name.vb: ColumnFormatter(Of T).ColumnDefinition(Of TEntity)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+    name: ColumnFormatter
+    href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+    name: ColumnDefinition
+    href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.ColumnDefinition-1.html
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+    name: ColumnFormatter
+    href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+    name: ColumnDefinition
+    href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.ColumnDefinition-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.MessageFormatter
+  commentId: T:Bannerlord.GameMaster.Console.Common.Formatting.MessageFormatter
+  href: Bannerlord.GameMaster.Console.Common.Formatting.MessageFormatter.html
+  name: MessageFormatter
+  nameWithType: MessageFormatter
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.MessageFormatter
+- uid: Bannerlord.GameMaster.Console.Common.Formatting
+  commentId: N:Bannerlord.GameMaster.Console.Common.Formatting
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.Formatting
+  nameWithType: Bannerlord.GameMaster.Console.Common.Formatting
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting
+    name: Formatting
+    href: Bannerlord.GameMaster.Console.Common.Formatting.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting
+    name: Formatting
+    href: Bannerlord.GameMaster.Console.Common.Formatting.html

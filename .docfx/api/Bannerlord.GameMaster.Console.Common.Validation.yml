@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.Validation
+  commentId: N:Bannerlord.GameMaster.Console.Common.Validation
+  id: Bannerlord.GameMaster.Console.Common.Validation
+  children:
+  - Bannerlord.GameMaster.Console.Common.Validation.CommandValidator
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Common.Validation
+  nameWithType: Bannerlord.GameMaster.Console.Common.Validation
+  fullName: Bannerlord.GameMaster.Console.Common.Validation
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Common.Validation.CommandValidator
+  commentId: T:Bannerlord.GameMaster.Console.Common.Validation.CommandValidator
+  href: Bannerlord.GameMaster.Console.Common.Validation.CommandValidator.html
+  name: CommandValidator
+  nameWithType: CommandValidator
+  fullName: Bannerlord.GameMaster.Console.Common.Validation.CommandValidator

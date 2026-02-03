@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.BLGMDebug
+  commentId: N:Bannerlord.GameMaster.BLGMDebug
+  id: Bannerlord.GameMaster.BLGMDebug
+  children:
+  - Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.BLGMDebug
+  nameWithType: Bannerlord.GameMaster.BLGMDebug
+  fullName: Bannerlord.GameMaster.BLGMDebug
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  commentId: T:Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  href: Bannerlord.GameMaster.BLGMDebug.HeroDebug.html
+  name: HeroDebug
+  nameWithType: HeroDebug
+  fullName: Bannerlord.GameMaster.BLGMDebug.HeroDebug

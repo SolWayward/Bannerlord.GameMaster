@@ -1,0 +1,633 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  id: EntityFinderResult`1
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding
+  children:
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor(`0,System.Boolean,System.String)
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Entity
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Error(System.String)
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.IsSuccess
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Message
+  - Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Success(`0)
+  langs:
+  - csharp
+  - vb
+  name: EntityFinderResult<T>
+  nameWithType: EntityFinderResult<T>
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>
+  type: Struct
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EntityFinderResult
+    path: ../Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.EntityFinding
+  summary: >-
+    Result struct for entity finder operations.
+
+    Replaces tuple returns with a cleaner, more expressive struct.
+  example: []
+  syntax:
+    content: 'public struct EntityFinderResult<T> where T : MBObjectBase'
+    typeParameters:
+    - id: T
+      description: The entity type (must inherit from MBObjectBase)
+    content.vb: Public Structure EntityFinderResult(Of T As MBObjectBase)
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  nameWithType.vb: EntityFinderResult(Of T)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T)
+  name.vb: EntityFinderResult(Of T)
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Entity
+  commentId: F:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Entity
+  id: Entity
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  langs:
+  - csharp
+  - vb
+  name: Entity
+  nameWithType: EntityFinderResult<T>.Entity
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.Entity
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Entity
+    path: ../Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.EntityFinding
+  summary: The found entity, or null if not found or error occurred.
+  example: []
+  syntax:
+    content: public T Entity
+    return:
+      type: '{T}'
+    content.vb: Public Entity As T
+  nameWithType.vb: EntityFinderResult(Of T).Entity
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).Entity
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.IsSuccess
+  commentId: F:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.IsSuccess
+  id: IsSuccess
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  langs:
+  - csharp
+  - vb
+  name: IsSuccess
+  nameWithType: EntityFinderResult<T>.IsSuccess
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.IsSuccess
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsSuccess
+    path: ../Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.EntityFinding
+  summary: Indicates whether the find operation was successful.
+  example: []
+  syntax:
+    content: public bool IsSuccess
+    return:
+      type: System.Boolean
+    content.vb: Public IsSuccess As Boolean
+  nameWithType.vb: EntityFinderResult(Of T).IsSuccess
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).IsSuccess
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Message
+  commentId: F:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Message
+  id: Message
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: EntityFinderResult<T>.Message
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.Message
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Message
+    path: ../Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.EntityFinding
+  summary: Error or status message. Null when successful.
+  example: []
+  syntax:
+    content: public string Message
+    return:
+      type: System.String
+    content.vb: Public Message As String
+  nameWithType.vb: EntityFinderResult(Of T).Message
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).Message
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor
+  commentId: M:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  langs:
+  - csharp
+  - vb
+  name: EntityFinderResult()
+  nameWithType: EntityFinderResult<T>.EntityFinderResult()
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.EntityFinderResult()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.EntityFinding
+  summary: Creates a default failed result.
+  example: []
+  syntax:
+    content: public EntityFinderResult()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor*
+  nameWithType.vb: EntityFinderResult(Of T).New()
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).New()
+  name.vb: New()
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor(`0,System.Boolean,System.String)
+  commentId: M:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor(`0,System.Boolean,System.String)
+  id: '#ctor(`0,System.Boolean,System.String)'
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  langs:
+  - csharp
+  - vb
+  name: EntityFinderResult(T, bool, string)
+  nameWithType: EntityFinderResult<T>.EntityFinderResult(T, bool, string)
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.EntityFinderResult(T, bool, string)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+    startLine: 39
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.EntityFinding
+  summary: Creates a result with specified values.
+  example: []
+  syntax:
+    content: public EntityFinderResult(T entity, bool isSuccess, string message)
+    parameters:
+    - id: entity
+      type: '{T}'
+    - id: isSuccess
+      type: System.Boolean
+    - id: message
+      type: System.String
+    content.vb: Public Sub New(entity As T, isSuccess As Boolean, message As String)
+  overload: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor*
+  nameWithType.vb: EntityFinderResult(Of T).New(T, Boolean, String)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).New(T, Boolean, String)
+  name.vb: New(T, Boolean, String)
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Success(`0)
+  commentId: M:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Success(`0)
+  id: Success(`0)
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  langs:
+  - csharp
+  - vb
+  name: Success(T)
+  nameWithType: EntityFinderResult<T>.Success(T)
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.Success(T)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Success
+    path: ../Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+    startLine: 49
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.EntityFinding
+  summary: Creates a successful result with the found entity.
+  example: []
+  syntax:
+    content: public static EntityFinderResult<T> Success(T entity)
+    parameters:
+    - id: entity
+      type: '{T}'
+    return:
+      type: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+    content.vb: Public Shared Function Success(entity As T) As EntityFinderResult(Of T)
+  overload: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Success*
+  nameWithType.vb: EntityFinderResult(Of T).Success(T)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).Success(T)
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Error(System.String)
+  commentId: M:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Error(System.String)
+  id: Error(System.String)
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  langs:
+  - csharp
+  - vb
+  name: Error(string)
+  nameWithType: EntityFinderResult<T>.Error(string)
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.Error(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Error
+    path: ../Bannerlord.GameMaster/Console/Common/EntityFinding/EntityFinderResult.cs
+    startLine: 57
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.EntityFinding
+  summary: Creates a failed result with an error message.
+  example: []
+  syntax:
+    content: public static EntityFinderResult<T> Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+    content.vb: Public Shared Function [Error](message As String) As EntityFinderResult(Of T)
+  overload: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Error*
+  nameWithType.vb: EntityFinderResult(Of T).Error(String)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).Error(String)
+  name.vb: Error(String)
+references:
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding
+  commentId: N:Bannerlord.GameMaster.Console.Common.EntityFinding
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.EntityFinding
+  nameWithType: Bannerlord.GameMaster.Console.Common.EntityFinding
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding
+    name: EntityFinding
+    href: Bannerlord.GameMaster.Console.Common.EntityFinding.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding
+    name: EntityFinding
+    href: Bannerlord.GameMaster.Console.Common.EntityFinding.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.#ctor
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html#Bannerlord_GameMaster_Console_Common_EntityFinding_EntityFinderResult_1__ctor
+  name: EntityFinderResult
+  nameWithType: EntityFinderResult<T>.EntityFinderResult
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.EntityFinderResult
+  nameWithType.vb: EntityFinderResult(Of T).New
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Success*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Success
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html#Bannerlord_GameMaster_Console_Common_EntityFinding_EntityFinderResult_1_Success__0_
+  name: Success
+  nameWithType: EntityFinderResult<T>.Success
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.Success
+  nameWithType.vb: EntityFinderResult(Of T).Success
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).Success
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+  parent: Bannerlord.GameMaster.Console.Common.EntityFinding
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html
+  name: EntityFinderResult<T>
+  nameWithType: EntityFinderResult<T>
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>
+  nameWithType.vb: EntityFinderResult(Of T)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T)
+  name.vb: EntityFinderResult(Of T)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+    name: EntityFinderResult
+    href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+    name: EntityFinderResult
+    href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Error*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1.Error
+  href: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult-1.html#Bannerlord_GameMaster_Console_Common_EntityFinding_EntityFinderResult_1_Error_System_String_
+  name: Error
+  nameWithType: EntityFinderResult<T>.Error
+  fullName: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult<T>.Error
+  nameWithType.vb: EntityFinderResult(Of T).Error
+  fullName.vb: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult(Of T).Error

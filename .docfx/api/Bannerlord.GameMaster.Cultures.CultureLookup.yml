@@ -1,0 +1,1524 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureLookup
+  id: CultureLookup
+  parent: Bannerlord.GameMaster.Cultures
+  children:
+  - Bannerlord.GameMaster.Cultures.CultureLookup.AllCultures
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Aserai
+  - Bannerlord.GameMaster.Cultures.CultureLookup.BanditCultures
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Battania
+  - Bannerlord.GameMaster.Cultures.CultureLookup.CalradianNeutral
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Corsairs
+  - Bannerlord.GameMaster.Cultures.CultureLookup.DarshiSpecial
+  - Bannerlord.GameMaster.Cultures.CultureLookup.DesertBandits
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Deserters
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Empire
+  - Bannerlord.GameMaster.Cultures.CultureLookup.ForestBandits
+  - Bannerlord.GameMaster.Cultures.CultureLookup.GetCultureFlag(TaleWorlds.CampaignSystem.CultureObject)
+  - Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomClanName(TaleWorlds.CampaignSystem.CultureObject)
+  - Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName(TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  - Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomKingdomName(TaleWorlds.CampaignSystem.CultureObject)
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Khuzait
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Looters
+  - Bannerlord.GameMaster.Cultures.CultureLookup.MainCultures
+  - Bannerlord.GameMaster.Cultures.CultureLookup.MountainBandits
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Nord
+  - Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture(System.Boolean)
+  - Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture(System.Boolean)
+  - Bannerlord.GameMaster.Cultures.CultureLookup.RandomMainCulture
+  - Bannerlord.GameMaster.Cultures.CultureLookup.SeaRaiders
+  - Bannerlord.GameMaster.Cultures.CultureLookup.SteppeBandits
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Sturgia
+  - Bannerlord.GameMaster.Cultures.CultureLookup.VakkenSpecial
+  - Bannerlord.GameMaster.Cultures.CultureLookup.Vlandia
+  langs:
+  - csharp
+  - vb
+  name: CultureLookup
+  nameWithType: CultureLookup
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CultureLookup
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static class CultureLookup
+    content.vb: Public Module CultureLookup
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Aserai
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Aserai
+  id: Aserai
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Aserai
+  nameWithType: CultureLookup.Aserai
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Aserai
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Aserai
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  example: []
+  syntax:
+    content: public static CultureObject Aserai { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Aserai As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Aserai*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Battania
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Battania
+  id: Battania
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Battania
+  nameWithType: CultureLookup.Battania
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Battania
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Battania
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject Battania { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Battania As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Battania*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Empire
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Empire
+  id: Empire
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Empire
+  nameWithType: CultureLookup.Empire
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Empire
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Empire
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject Empire { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Empire As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Empire*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Khuzait
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Khuzait
+  id: Khuzait
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Khuzait
+  nameWithType: CultureLookup.Khuzait
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Khuzait
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Khuzait
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject Khuzait { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Khuzait As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Khuzait*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Sturgia
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Sturgia
+  id: Sturgia
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Sturgia
+  nameWithType: CultureLookup.Sturgia
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Sturgia
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sturgia
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject Sturgia { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Sturgia As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Sturgia*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Vlandia
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Vlandia
+  id: Vlandia
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Vlandia
+  nameWithType: CultureLookup.Vlandia
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Vlandia
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Vlandia
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject Vlandia { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Vlandia As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Vlandia*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Nord
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Nord
+  id: Nord
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Nord
+  nameWithType: CultureLookup.Nord
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Nord
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Nord
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: Returns Nord if War Sails is active, other wise returns Sturgia
+  example: []
+  syntax:
+    content: public static CultureObject Nord { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Nord As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Nord*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Deserters
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Deserters
+  id: Deserters
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Deserters
+  nameWithType: CultureLookup.Deserters
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Deserters
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Deserters
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject Deserters { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Deserters As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Deserters*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.DesertBandits
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.DesertBandits
+  id: DesertBandits
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: DesertBandits
+  nameWithType: CultureLookup.DesertBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.DesertBandits
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DesertBandits
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 37
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject DesertBandits { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property DesertBandits As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.DesertBandits*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.ForestBandits
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.ForestBandits
+  id: ForestBandits
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: ForestBandits
+  nameWithType: CultureLookup.ForestBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.ForestBandits
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ForestBandits
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject ForestBandits { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property ForestBandits As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.ForestBandits*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Looters
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Looters
+  id: Looters
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Looters
+  nameWithType: CultureLookup.Looters
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Looters
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Looters
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 39
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject Looters { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Looters As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Looters*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.MountainBandits
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.MountainBandits
+  id: MountainBandits
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: MountainBandits
+  nameWithType: CultureLookup.MountainBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.MountainBandits
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MountainBandits
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 40
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject MountainBandits { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property MountainBandits As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.MountainBandits*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.SeaRaiders
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.SeaRaiders
+  id: SeaRaiders
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: SeaRaiders
+  nameWithType: CultureLookup.SeaRaiders
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.SeaRaiders
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SeaRaiders
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject SeaRaiders { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property SeaRaiders As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.SeaRaiders*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.SteppeBandits
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.SteppeBandits
+  id: SteppeBandits
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: SteppeBandits
+  nameWithType: CultureLookup.SteppeBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.SteppeBandits
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SteppeBandits
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject SteppeBandits { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property SteppeBandits As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.SteppeBandits*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Corsairs
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.Corsairs
+  id: Corsairs
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: Corsairs
+  nameWithType: CultureLookup.Corsairs
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Corsairs
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Corsairs
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 47
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: Returns Corsairs (southern_pirates) if War Sails is active, other wise returns Sea Raiders (sea_raiders)
+  example: []
+  syntax:
+    content: public static CultureObject Corsairs { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property Corsairs As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.Corsairs*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.DarshiSpecial
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.DarshiSpecial
+  id: DarshiSpecial
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: DarshiSpecial
+  nameWithType: CultureLookup.DarshiSpecial
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.DarshiSpecial
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DarshiSpecial
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 58
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject DarshiSpecial { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property DarshiSpecial As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.DarshiSpecial*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.VakkenSpecial
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.VakkenSpecial
+  id: VakkenSpecial
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: VakkenSpecial
+  nameWithType: CultureLookup.VakkenSpecial
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.VakkenSpecial
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: VakkenSpecial
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 59
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject VakkenSpecial { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property VakkenSpecial As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.VakkenSpecial*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.CalradianNeutral
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.CalradianNeutral
+  id: CalradianNeutral
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: CalradianNeutral
+  nameWithType: CultureLookup.CalradianNeutral
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.CalradianNeutral
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CalradianNeutral
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 61
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static CultureObject CalradianNeutral { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared ReadOnly Property CalradianNeutral As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.CalradianNeutral*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.AllCultures
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.AllCultures
+  id: AllCultures
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: AllCultures
+  nameWithType: CultureLookup.AllCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.AllCultures
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllCultures
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 63
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static List<CultureObject> AllCultures { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+    content.vb: Public Shared ReadOnly Property AllCultures As List(Of CultureObject)
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.AllCultures*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.MainCultures
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.MainCultures
+  id: MainCultures
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: MainCultures
+  nameWithType: CultureLookup.MainCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.MainCultures
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MainCultures
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 65
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static List<CultureObject> MainCultures { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+    content.vb: Public Shared ReadOnly Property MainCultures As List(Of CultureObject)
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.MainCultures*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.BanditCultures
+  commentId: P:Bannerlord.GameMaster.Cultures.CultureLookup.BanditCultures
+  id: BanditCultures
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: BanditCultures
+  nameWithType: CultureLookup.BanditCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.BanditCultures
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BanditCultures
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 80
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: public static List<CultureObject> BanditCultures { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+    content.vb: Public Shared ReadOnly Property BanditCultures As List(Of CultureObject)
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.BanditCultures*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.RandomMainCulture
+  commentId: M:Bannerlord.GameMaster.Cultures.CultureLookup.RandomMainCulture
+  id: RandomMainCulture
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: RandomMainCulture()
+  nameWithType: CultureLookup.RandomMainCulture()
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.RandomMainCulture()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RandomMainCulture
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 98
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: Get a random main culture
+  example: []
+  syntax:
+    content: public static CultureObject RandomMainCulture()
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared Function RandomMainCulture() As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.RandomMainCulture*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture(System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture(System.Boolean)
+  id: RandomBanditCulture(System.Boolean)
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: RandomBanditCulture(bool)
+  nameWithType: CultureLookup.RandomBanditCulture(bool)
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture(bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RandomBanditCulture
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 107
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: Get a random bandit culture
+  example: []
+  syntax:
+    content: public static CultureObject RandomBanditCulture(bool includeLooters)
+    parameters:
+    - id: includeLooters
+      type: System.Boolean
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+    content.vb: Public Shared Function RandomBanditCulture(includeLooters As Boolean) As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture*
+  nameWithType.vb: CultureLookup.RandomBanditCulture(Boolean)
+  fullName.vb: Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture(Boolean)
+  name.vb: RandomBanditCulture(Boolean)
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture(System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture(System.Boolean)
+  id: RandomHideoutBanditCulture(System.Boolean)
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: RandomHideoutBanditCulture(bool)
+  nameWithType: CultureLookup.RandomHideoutBanditCulture(bool)
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture(bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RandomHideoutBanditCulture
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 121
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: Returns a random bandit culture appropriate for hideouts (excludes looters and optionally deserters).
+  example: []
+  syntax:
+    content: public static CultureObject RandomHideoutBanditCulture(bool includeDeserters = false)
+    parameters:
+    - id: includeDeserters
+      type: System.Boolean
+      description: If true, includes deserters in the selection pool.
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: A random hideout-appropriate bandit culture.
+    content.vb: Public Shared Function RandomHideoutBanditCulture(includeDeserters As Boolean = False) As CultureObject
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture*
+  nameWithType.vb: CultureLookup.RandomHideoutBanditCulture(Boolean)
+  fullName.vb: Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture(Boolean)
+  name.vb: RandomHideoutBanditCulture(Boolean)
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName(TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName(TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  id: GetUniqueRandomHeroName(TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: GetUniqueRandomHeroName(CultureObject, bool)
+  nameWithType: CultureLookup.GetUniqueRandomHeroName(CultureObject, bool)
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName(TaleWorlds.CampaignSystem.CultureObject, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetUniqueRandomHeroName
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 137
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: >-
+    Gets a random hero name from the culture's gender-specific name list.
+
+    Uses custom names only, then adds a suffix if all are exhausted.
+  example: []
+  syntax:
+    content: public static string GetUniqueRandomHeroName(CultureObject culture, bool isFemale)
+    parameters:
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+    - id: isFemale
+      type: System.Boolean
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetUniqueRandomHeroName(culture As CultureObject, isFemale As Boolean) As String
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName*
+  nameWithType.vb: CultureLookup.GetUniqueRandomHeroName(CultureObject, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName(TaleWorlds.CampaignSystem.CultureObject, Boolean)
+  name.vb: GetUniqueRandomHeroName(CultureObject, Boolean)
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomClanName(TaleWorlds.CampaignSystem.CultureObject)
+  commentId: M:Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomClanName(TaleWorlds.CampaignSystem.CultureObject)
+  id: GetUniqueRandomClanName(TaleWorlds.CampaignSystem.CultureObject)
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: GetUniqueRandomClanName(CultureObject)
+  nameWithType: CultureLookup.GetUniqueRandomClanName(CultureObject)
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomClanName(TaleWorlds.CampaignSystem.CultureObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetUniqueRandomClanName
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 209
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: >-
+    Gets a random clan name from the culture's clan name list.
+
+    Uses custom names only, then adds a suffix if all are exhausted.
+  example: []
+  syntax:
+    content: public static string GetUniqueRandomClanName(CultureObject culture)
+    parameters:
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetUniqueRandomClanName(culture As CultureObject) As String
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomClanName*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomKingdomName(TaleWorlds.CampaignSystem.CultureObject)
+  commentId: M:Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomKingdomName(TaleWorlds.CampaignSystem.CultureObject)
+  id: GetUniqueRandomKingdomName(TaleWorlds.CampaignSystem.CultureObject)
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: GetUniqueRandomKingdomName(CultureObject)
+  nameWithType: CultureLookup.GetUniqueRandomKingdomName(CultureObject)
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomKingdomName(TaleWorlds.CampaignSystem.CultureObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetUniqueRandomKingdomName
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 280
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: >-
+    Gets a random kingdom name appropriate to the specified culture.
+
+    First tries custom names, then adds a suffix if all are exhausted.
+  example: []
+  syntax:
+    content: public static string GetUniqueRandomKingdomName(CultureObject culture)
+    parameters:
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetUniqueRandomKingdomName(culture As CultureObject) As String
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomKingdomName*
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.GetCultureFlag(TaleWorlds.CampaignSystem.CultureObject)
+  commentId: M:Bannerlord.GameMaster.Cultures.CultureLookup.GetCultureFlag(TaleWorlds.CampaignSystem.CultureObject)
+  id: GetCultureFlag(TaleWorlds.CampaignSystem.CultureObject)
+  parent: Bannerlord.GameMaster.Cultures.CultureLookup
+  langs:
+  - csharp
+  - vb
+  name: GetCultureFlag(CultureObject)
+  nameWithType: CultureLookup.GetCultureFlag(CultureObject)
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.GetCultureFlag(TaleWorlds.CampaignSystem.CultureObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureLookup.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCultureFlag
+    path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
+    startLine: 352
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  summary: Gets the CultureFlag enum value that corresponds to the provided culture object.
+  example: []
+  syntax:
+    content: public static CultureFlags GetCultureFlag(CultureObject culture)
+    parameters:
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: The culture object to convert.
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: The corresponding CultureFlag value, or CultureFlags.None if not found or null.
+    content.vb: Public Shared Function GetCultureFlag(culture As CultureObject) As CultureFlags
+  overload: Bannerlord.GameMaster.Cultures.CultureLookup.GetCultureFlag*
+references:
+- uid: Bannerlord.GameMaster.Cultures
+  commentId: N:Bannerlord.GameMaster.Cultures
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Cultures
+  nameWithType: Bannerlord.GameMaster.Cultures
+  fullName: Bannerlord.GameMaster.Cultures
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Aserai*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Aserai
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Aserai
+  name: Aserai
+  nameWithType: CultureLookup.Aserai
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Aserai
+- uid: TaleWorlds.CampaignSystem.CultureObject
+  commentId: T:TaleWorlds.CampaignSystem.CultureObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CultureObject
+  nameWithType: CultureObject
+  fullName: TaleWorlds.CampaignSystem.CultureObject
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Battania*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Battania
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Battania
+  name: Battania
+  nameWithType: CultureLookup.Battania
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Battania
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Empire*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Empire
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Empire
+  name: Empire
+  nameWithType: CultureLookup.Empire
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Empire
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Khuzait*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Khuzait
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Khuzait
+  name: Khuzait
+  nameWithType: CultureLookup.Khuzait
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Khuzait
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Sturgia*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Sturgia
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Sturgia
+  name: Sturgia
+  nameWithType: CultureLookup.Sturgia
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Sturgia
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Vlandia*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Vlandia
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Vlandia
+  name: Vlandia
+  nameWithType: CultureLookup.Vlandia
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Vlandia
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Nord*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Nord
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Nord
+  name: Nord
+  nameWithType: CultureLookup.Nord
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Nord
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Deserters*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Deserters
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Deserters
+  name: Deserters
+  nameWithType: CultureLookup.Deserters
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Deserters
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.DesertBandits*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.DesertBandits
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_DesertBandits
+  name: DesertBandits
+  nameWithType: CultureLookup.DesertBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.DesertBandits
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.ForestBandits*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.ForestBandits
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_ForestBandits
+  name: ForestBandits
+  nameWithType: CultureLookup.ForestBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.ForestBandits
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Looters*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Looters
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Looters
+  name: Looters
+  nameWithType: CultureLookup.Looters
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Looters
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.MountainBandits*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.MountainBandits
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_MountainBandits
+  name: MountainBandits
+  nameWithType: CultureLookup.MountainBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.MountainBandits
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.SeaRaiders*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.SeaRaiders
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_SeaRaiders
+  name: SeaRaiders
+  nameWithType: CultureLookup.SeaRaiders
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.SeaRaiders
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.SteppeBandits*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.SteppeBandits
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_SteppeBandits
+  name: SteppeBandits
+  nameWithType: CultureLookup.SteppeBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.SteppeBandits
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.Corsairs*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.Corsairs
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_Corsairs
+  name: Corsairs
+  nameWithType: CultureLookup.Corsairs
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.Corsairs
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.DarshiSpecial*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.DarshiSpecial
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_DarshiSpecial
+  name: DarshiSpecial
+  nameWithType: CultureLookup.DarshiSpecial
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.DarshiSpecial
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.VakkenSpecial*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.VakkenSpecial
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_VakkenSpecial
+  name: VakkenSpecial
+  nameWithType: CultureLookup.VakkenSpecial
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.VakkenSpecial
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.CalradianNeutral*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.CalradianNeutral
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_CalradianNeutral
+  name: CalradianNeutral
+  nameWithType: CultureLookup.CalradianNeutral
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.CalradianNeutral
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.AllCultures*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.AllCultures
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_AllCultures
+  name: AllCultures
+  nameWithType: CultureLookup.AllCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.AllCultures
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.CultureObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<CultureObject>
+  nameWithType: List<CultureObject>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.CultureObject>
+  nameWithType.vb: List(Of CultureObject)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.CultureObject)
+  name.vb: List(Of CultureObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.CultureObject
+    name: CultureObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.CultureObject
+    name: CultureObject
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.MainCultures*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.MainCultures
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_MainCultures
+  name: MainCultures
+  nameWithType: CultureLookup.MainCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.MainCultures
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.BanditCultures*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.BanditCultures
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_BanditCultures
+  name: BanditCultures
+  nameWithType: CultureLookup.BanditCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.BanditCultures
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.RandomMainCulture*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.RandomMainCulture
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_RandomMainCulture
+  name: RandomMainCulture
+  nameWithType: CultureLookup.RandomMainCulture
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.RandomMainCulture
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_RandomBanditCulture_System_Boolean_
+  name: RandomBanditCulture
+  nameWithType: CultureLookup.RandomBanditCulture
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.RandomBanditCulture
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_RandomHideoutBanditCulture_System_Boolean_
+  name: RandomHideoutBanditCulture
+  nameWithType: CultureLookup.RandomHideoutBanditCulture
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.RandomHideoutBanditCulture
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_GetUniqueRandomHeroName_TaleWorlds_CampaignSystem_CultureObject_System_Boolean_
+  name: GetUniqueRandomHeroName
+  nameWithType: CultureLookup.GetUniqueRandomHeroName
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomHeroName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomClanName*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomClanName
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_GetUniqueRandomClanName_TaleWorlds_CampaignSystem_CultureObject_
+  name: GetUniqueRandomClanName
+  nameWithType: CultureLookup.GetUniqueRandomClanName
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomClanName
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomKingdomName*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomKingdomName
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_GetUniqueRandomKingdomName_TaleWorlds_CampaignSystem_CultureObject_
+  name: GetUniqueRandomKingdomName
+  nameWithType: CultureLookup.GetUniqueRandomKingdomName
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.GetUniqueRandomKingdomName
+- uid: Bannerlord.GameMaster.Cultures.CultureLookup.GetCultureFlag*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.CultureLookup.GetCultureFlag
+  href: Bannerlord.GameMaster.Cultures.CultureLookup.html#Bannerlord_GameMaster_Cultures_CultureLookup_GetCultureFlag_TaleWorlds_CampaignSystem_CultureObject_
+  name: GetCultureFlag
+  nameWithType: CultureLookup.GetCultureFlag
+  fullName: Bannerlord.GameMaster.Cultures.CultureLookup.GetCultureFlag
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureFlags
+  parent: Bannerlord.GameMaster.Cultures
+  href: Bannerlord.GameMaster.Cultures.CultureFlags.html
+  name: CultureFlags
+  nameWithType: CultureFlags
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags

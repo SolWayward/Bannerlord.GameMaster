@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands
+  id: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands
+  children:
+  - Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetHearthsCommand
+  - Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageBoundSettlementCommand
+  - Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageTradeBoundSettlementCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetHearthsCommand
+  commentId: T:Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetHearthsCommand
+  href: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetHearthsCommand.html
+  name: SetHearthsCommand
+  nameWithType: SetHearthsCommand
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetHearthsCommand
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageBoundSettlementCommand
+  commentId: T:Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageBoundSettlementCommand
+  href: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageBoundSettlementCommand.html
+  name: SetVillageBoundSettlementCommand
+  nameWithType: SetVillageBoundSettlementCommand
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageBoundSettlementCommand
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageTradeBoundSettlementCommand
+  commentId: T:Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageTradeBoundSettlementCommand
+  href: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageTradeBoundSettlementCommand.html
+  name: SetVillageTradeBoundSettlementCommand
+  nameWithType: SetVillageTradeBoundSettlementCommand
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageTradeBoundSettlementCommand

@@ -1,0 +1,1050 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Troops.TroopTypes
+  commentId: T:Bannerlord.GameMaster.Troops.TroopTypes
+  id: TroopTypes
+  parent: Bannerlord.GameMaster.Troops
+  children:
+  - Bannerlord.GameMaster.Troops.TroopTypes.Aserai
+  - Bannerlord.GameMaster.Troops.TroopTypes.Bandit
+  - Bannerlord.GameMaster.Troops.TroopTypes.Battania
+  - Bannerlord.GameMaster.Troops.TroopTypes.Bow
+  - Bannerlord.GameMaster.Troops.TroopTypes.Caravan
+  - Bannerlord.GameMaster.Troops.TroopTypes.Cavalry
+  - Bannerlord.GameMaster.Troops.TroopTypes.Crossbow
+  - Bannerlord.GameMaster.Troops.TroopTypes.Empire
+  - Bannerlord.GameMaster.Troops.TroopTypes.Female
+  - Bannerlord.GameMaster.Troops.TroopTypes.HorseArcher
+  - Bannerlord.GameMaster.Troops.TroopTypes.Infantry
+  - Bannerlord.GameMaster.Troops.TroopTypes.Khuzait
+  - Bannerlord.GameMaster.Troops.TroopTypes.Male
+  - Bannerlord.GameMaster.Troops.TroopTypes.Mercenary
+  - Bannerlord.GameMaster.Troops.TroopTypes.Militia
+  - Bannerlord.GameMaster.Troops.TroopTypes.MinorFaction
+  - Bannerlord.GameMaster.Troops.TroopTypes.Mounted
+  - Bannerlord.GameMaster.Troops.TroopTypes.Noble
+  - Bannerlord.GameMaster.Troops.TroopTypes.None
+  - Bannerlord.GameMaster.Troops.TroopTypes.Nord
+  - Bannerlord.GameMaster.Troops.TroopTypes.Peasant
+  - Bannerlord.GameMaster.Troops.TroopTypes.Polearm
+  - Bannerlord.GameMaster.Troops.TroopTypes.Ranged
+  - Bannerlord.GameMaster.Troops.TroopTypes.Regular
+  - Bannerlord.GameMaster.Troops.TroopTypes.Shield
+  - Bannerlord.GameMaster.Troops.TroopTypes.Sturgia
+  - Bannerlord.GameMaster.Troops.TroopTypes.ThrowingWeapon
+  - Bannerlord.GameMaster.Troops.TroopTypes.Tier0
+  - Bannerlord.GameMaster.Troops.TroopTypes.Tier1
+  - Bannerlord.GameMaster.Troops.TroopTypes.Tier2
+  - Bannerlord.GameMaster.Troops.TroopTypes.Tier3
+  - Bannerlord.GameMaster.Troops.TroopTypes.Tier4
+  - Bannerlord.GameMaster.Troops.TroopTypes.Tier5
+  - Bannerlord.GameMaster.Troops.TroopTypes.Tier6Plus
+  - Bannerlord.GameMaster.Troops.TroopTypes.TwoHanded
+  - Bannerlord.GameMaster.Troops.TroopTypes.Vlandia
+  langs:
+  - csharp
+  - vb
+  name: TroopTypes
+  nameWithType: TroopTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TroopTypes
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Flags enum for categorizing troop types across multiple dimensions
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum TroopTypes : long
+    content.vb: >-
+      <Flags>
+
+      Public Enum TroopTypes As Long
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.None
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.None
+  id: None
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: TroopTypes.None
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Infantry
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Infantry
+  id: Infantry
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Infantry
+  nameWithType: TroopTypes.Infantry
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Infantry
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Infantry
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Infantry = 1
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Ranged
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Ranged
+  id: Ranged
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Ranged
+  nameWithType: TroopTypes.Ranged
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Ranged
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Ranged
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Ranged = 2
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Cavalry
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Cavalry
+  id: Cavalry
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Cavalry
+  nameWithType: TroopTypes.Cavalry
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Cavalry
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Cavalry
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Cavalry = 4
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.HorseArcher
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.HorseArcher
+  id: HorseArcher
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: HorseArcher
+  nameWithType: TroopTypes.HorseArcher
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.HorseArcher
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HorseArcher
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: HorseArcher = 8
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Mounted
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Mounted
+  id: Mounted
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Mounted
+  nameWithType: TroopTypes.Mounted
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Mounted
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Mounted
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Mounted = 16
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Regular
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Regular
+  id: Regular
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Regular
+  nameWithType: TroopTypes.Regular
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Regular
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Regular
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Regular = 32
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Noble
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Noble
+  id: Noble
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Noble
+  nameWithType: TroopTypes.Noble
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Noble
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Noble
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Noble = 64
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Militia
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Militia
+  id: Militia
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Militia
+  nameWithType: TroopTypes.Militia
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Militia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Militia
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Militia = 128
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Mercenary
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Mercenary
+  id: Mercenary
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Mercenary
+  nameWithType: TroopTypes.Mercenary
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Mercenary
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Mercenary
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Mercenary = 256
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Caravan
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Caravan
+  id: Caravan
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Caravan
+  nameWithType: TroopTypes.Caravan
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Caravan
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Caravan
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Caravan = 512
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Peasant
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Peasant
+  id: Peasant
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Peasant
+  nameWithType: TroopTypes.Peasant
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Peasant
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Peasant
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Peasant = 1024
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.MinorFaction
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.MinorFaction
+  id: MinorFaction
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: MinorFaction
+  nameWithType: TroopTypes.MinorFaction
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.MinorFaction
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MinorFaction
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: MinorFaction = 2048
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Shield
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Shield
+  id: Shield
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Shield
+  nameWithType: TroopTypes.Shield
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Shield
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Shield
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Shield = 4096
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.TwoHanded
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.TwoHanded
+  id: TwoHanded
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: TwoHanded
+  nameWithType: TroopTypes.TwoHanded
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.TwoHanded
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TwoHanded
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: TwoHanded = 8192
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Polearm
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Polearm
+  id: Polearm
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Polearm
+  nameWithType: TroopTypes.Polearm
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Polearm
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Polearm
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Polearm = 16384
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Bow
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Bow
+  id: Bow
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Bow
+  nameWithType: TroopTypes.Bow
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Bow
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bow
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Bow = 32768
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Crossbow
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Crossbow
+  id: Crossbow
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Crossbow
+  nameWithType: TroopTypes.Crossbow
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Crossbow
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Crossbow
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Crossbow = 65536
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.ThrowingWeapon
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.ThrowingWeapon
+  id: ThrowingWeapon
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: ThrowingWeapon
+  nameWithType: TroopTypes.ThrowingWeapon
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.ThrowingWeapon
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ThrowingWeapon
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 37
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: ThrowingWeapon = 131072
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Tier0
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Tier0
+  id: Tier0
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier0
+  nameWithType: TroopTypes.Tier0
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Tier0
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier0
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 40
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Tier0 = 262144
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Tier1
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Tier1
+  id: Tier1
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier1
+  nameWithType: TroopTypes.Tier1
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Tier1
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier1
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Tier1 = 524288
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Tier2
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Tier2
+  id: Tier2
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier2
+  nameWithType: TroopTypes.Tier2
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Tier2
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier2
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Tier2 = 1048576
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Tier3
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Tier3
+  id: Tier3
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier3
+  nameWithType: TroopTypes.Tier3
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Tier3
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier3
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 43
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Tier3 = 2097152
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Tier4
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Tier4
+  id: Tier4
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier4
+  nameWithType: TroopTypes.Tier4
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Tier4
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier4
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 44
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Tier4 = 4194304
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Tier5
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Tier5
+  id: Tier5
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier5
+  nameWithType: TroopTypes.Tier5
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Tier5
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier5
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 45
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Tier5 = 8388608
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Tier6Plus
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Tier6Plus
+  id: Tier6Plus
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Tier6Plus
+  nameWithType: TroopTypes.Tier6Plus
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Tier6Plus
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tier6Plus
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 46
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Tier6Plus = 16777216
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Empire
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Empire
+  id: Empire
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Empire
+  nameWithType: TroopTypes.Empire
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Empire
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Empire
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 49
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Empire = 33554432
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Vlandia
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Vlandia
+  id: Vlandia
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Vlandia
+  nameWithType: TroopTypes.Vlandia
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Vlandia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Vlandia
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 50
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Vlandia = 67108864
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Sturgia
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Sturgia
+  id: Sturgia
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Sturgia
+  nameWithType: TroopTypes.Sturgia
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Sturgia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sturgia
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 51
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Sturgia = 134217728
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Aserai
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Aserai
+  id: Aserai
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Aserai
+  nameWithType: TroopTypes.Aserai
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Aserai
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Aserai
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 52
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Aserai = 268435456
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Khuzait
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Khuzait
+  id: Khuzait
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Khuzait
+  nameWithType: TroopTypes.Khuzait
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Khuzait
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Khuzait
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 53
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Khuzait = 536870912
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Battania
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Battania
+  id: Battania
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Battania
+  nameWithType: TroopTypes.Battania
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Battania
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Battania
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 54
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Battania = 1073741824
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Nord
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Nord
+  id: Nord
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Nord
+  nameWithType: TroopTypes.Nord
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Nord
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Nord
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 55
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Nord = 2147483648
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Bandit
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Bandit
+  id: Bandit
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Bandit
+  nameWithType: TroopTypes.Bandit
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Bandit
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bandit
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 56
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Bandit = 4294967296
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Female
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Female
+  id: Female
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Female
+  nameWithType: TroopTypes.Female
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Female
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Female
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 59
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Female = 8589934592
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: Bannerlord.GameMaster.Troops.TroopTypes.Male
+  commentId: F:Bannerlord.GameMaster.Troops.TroopTypes.Male
+  id: Male
+  parent: Bannerlord.GameMaster.Troops.TroopTypes
+  langs:
+  - csharp
+  - vb
+  name: Male
+  nameWithType: TroopTypes.Male
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes.Male
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Male
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 60
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: Male = 17179869184
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+references:
+- uid: Bannerlord.GameMaster.Troops
+  commentId: N:Bannerlord.GameMaster.Troops
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Troops
+  nameWithType: Bannerlord.GameMaster.Troops
+  fullName: Bannerlord.GameMaster.Troops
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+- uid: Bannerlord.GameMaster.Troops.TroopTypes
+  commentId: T:Bannerlord.GameMaster.Troops.TroopTypes
+  parent: Bannerlord.GameMaster.Troops
+  href: Bannerlord.GameMaster.Troops.TroopTypes.html
+  name: TroopTypes
+  nameWithType: TroopTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes

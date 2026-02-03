@@ -1,0 +1,715 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.RandomNumberGen
+  commentId: T:Bannerlord.GameMaster.RandomNumberGen
+  id: RandomNumberGen
+  parent: Bannerlord.GameMaster
+  children:
+  - Bannerlord.GameMaster.RandomNumberGen.#ctor
+  - Bannerlord.GameMaster.RandomNumberGen.Instance
+  - Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes(System.Byte[])
+  - Bannerlord.GameMaster.RandomNumberGen.NextRandomDouble
+  - Bannerlord.GameMaster.RandomNumberGen.NextRandomFloat
+  - Bannerlord.GameMaster.RandomNumberGen.NextRandomInt
+  - Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(System.Int32)
+  - Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(System.Int32,System.Int32)
+  - Bannerlord.GameMaster.RandomNumberGen.NextRandomRGBColor
+  langs:
+  - csharp
+  - vb
+  name: RandomNumberGen
+  nameWithType: RandomNumberGen
+  fullName: Bannerlord.GameMaster.RandomNumberGen
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RandomNumberGen
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Singleton Wrapper for System.Random, ensuring the same Random instance is used to prevent issues of constantly instantiating new Random
+  example: []
+  syntax:
+    content: public class RandomNumberGen
+    content.vb: Public Class RandomNumberGen
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.RandomNumberGen.Instance
+  commentId: P:Bannerlord.GameMaster.RandomNumberGen.Instance
+  id: Instance
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: RandomNumberGen.Instance
+  fullName: Bannerlord.GameMaster.RandomNumberGen.Instance
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Instance
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static RandomNumberGen Instance { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.RandomNumberGen
+    content.vb: Public Shared ReadOnly Property Instance As RandomNumberGen
+  overload: Bannerlord.GameMaster.RandomNumberGen.Instance*
+- uid: Bannerlord.GameMaster.RandomNumberGen.#ctor
+  commentId: M:Bannerlord.GameMaster.RandomNumberGen.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: RandomNumberGen()
+  nameWithType: RandomNumberGen.RandomNumberGen()
+  fullName: Bannerlord.GameMaster.RandomNumberGen.RandomNumberGen()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public RandomNumberGen()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.RandomNumberGen.#ctor*
+  nameWithType.vb: RandomNumberGen.New()
+  fullName.vb: Bannerlord.GameMaster.RandomNumberGen.New()
+  name.vb: New()
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt
+  commentId: M:Bannerlord.GameMaster.RandomNumberGen.NextRandomInt
+  id: NextRandomInt
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: NextRandomInt()
+  nameWithType: RandomNumberGen.NextRandomInt()
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NextRandomInt
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Returns a non-negative random integer.
+  example: []
+  syntax:
+    content: public int NextRandomInt()
+    return:
+      type: System.Int32
+    content.vb: Public Function NextRandomInt() As Integer
+  overload: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt*
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(System.Int32)
+  commentId: M:Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(System.Int32)
+  id: NextRandomInt(System.Int32)
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: NextRandomInt(int)
+  nameWithType: RandomNumberGen.NextRandomInt(int)
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NextRandomInt
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Returns a non-negative random integer that is less, but not equal to the specified maximum.
+  example: []
+  syntax:
+    content: public int NextRandomInt(int max)
+    parameters:
+    - id: max
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function NextRandomInt(max As Integer) As Integer
+  overload: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt*
+  nameWithType.vb: RandomNumberGen.NextRandomInt(Integer)
+  fullName.vb: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(Integer)
+  name.vb: NextRandomInt(Integer)
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(System.Int32,System.Int32)
+  commentId: M:Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(System.Int32,System.Int32)
+  id: NextRandomInt(System.Int32,System.Int32)
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: NextRandomInt(int, int)
+  nameWithType: RandomNumberGen.NextRandomInt(int, int)
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(int, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NextRandomInt
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Returns a signed integer greater than or equal to min Value and less than max Value
+  example: []
+  syntax:
+    content: public int NextRandomInt(int min, int max)
+    parameters:
+    - id: min
+      type: System.Int32
+    - id: max
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function NextRandomInt(min As Integer, max As Integer) As Integer
+  overload: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt*
+  nameWithType.vb: RandomNumberGen.NextRandomInt(Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt(Integer, Integer)
+  name.vb: NextRandomInt(Integer, Integer)
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomFloat
+  commentId: M:Bannerlord.GameMaster.RandomNumberGen.NextRandomFloat
+  id: NextRandomFloat
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: NextRandomFloat()
+  nameWithType: RandomNumberGen.NextRandomFloat()
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomFloat()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NextRandomFloat
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: A floating point number that is greater than or equal to 0f, and less than 1f.
+  example: []
+  syntax:
+    content: public float NextRandomFloat()
+    return:
+      type: System.Single
+    content.vb: Public Function NextRandomFloat() As Single
+  overload: Bannerlord.GameMaster.RandomNumberGen.NextRandomFloat*
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomDouble
+  commentId: M:Bannerlord.GameMaster.RandomNumberGen.NextRandomDouble
+  id: NextRandomDouble
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: NextRandomDouble()
+  nameWithType: RandomNumberGen.NextRandomDouble()
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomDouble()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NextRandomDouble
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: A double-precision floating point number that is greater than or equal to 0.0, and less than 1.0.
+  example: []
+  syntax:
+    content: public double NextRandomDouble()
+    return:
+      type: System.Double
+    content.vb: Public Function NextRandomDouble() As Double
+  overload: Bannerlord.GameMaster.RandomNumberGen.NextRandomDouble*
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes(System.Byte[])
+  commentId: M:Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes(System.Byte[])
+  id: NextRandomBytes(System.Byte[])
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: NextRandomBytes(byte[])
+  nameWithType: RandomNumberGen.NextRandomBytes(byte[])
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes(byte[])
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NextRandomBytes
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Fills the elements of a specified array of bytes with random numbers.
+  example: []
+  syntax:
+    content: public void NextRandomBytes(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    content.vb: Public Sub NextRandomBytes(buffer As Byte())
+  overload: Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes*
+  nameWithType.vb: RandomNumberGen.NextRandomBytes(Byte())
+  fullName.vb: Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes(Byte())
+  name.vb: NextRandomBytes(Byte())
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomRGBColor
+  commentId: P:Bannerlord.GameMaster.RandomNumberGen.NextRandomRGBColor
+  id: NextRandomRGBColor
+  parent: Bannerlord.GameMaster.RandomNumberGen
+  langs:
+  - csharp
+  - vb
+  name: NextRandomRGBColor
+  nameWithType: RandomNumberGen.NextRandomRGBColor
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomRGBColor
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RandomNumberGen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NextRandomRGBColor
+    path: ../Bannerlord.GameMaster/RandomNumberGen.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Returns an unsigned integer representing a random color with full opacity
+  example: []
+  syntax:
+    content: public uint NextRandomRGBColor { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property NextRandomRGBColor As UInteger
+  overload: Bannerlord.GameMaster.RandomNumberGen.NextRandomRGBColor*
+references:
+- uid: Bannerlord.GameMaster
+  commentId: N:Bannerlord.GameMaster
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster
+  nameWithType: Bannerlord.GameMaster
+  fullName: Bannerlord.GameMaster
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.RandomNumberGen.Instance*
+  commentId: Overload:Bannerlord.GameMaster.RandomNumberGen.Instance
+  href: Bannerlord.GameMaster.RandomNumberGen.html#Bannerlord_GameMaster_RandomNumberGen_Instance
+  name: Instance
+  nameWithType: RandomNumberGen.Instance
+  fullName: Bannerlord.GameMaster.RandomNumberGen.Instance
+- uid: Bannerlord.GameMaster.RandomNumberGen
+  commentId: T:Bannerlord.GameMaster.RandomNumberGen
+  parent: Bannerlord.GameMaster
+  href: Bannerlord.GameMaster.RandomNumberGen.html
+  name: RandomNumberGen
+  nameWithType: RandomNumberGen
+  fullName: Bannerlord.GameMaster.RandomNumberGen
+- uid: Bannerlord.GameMaster.RandomNumberGen.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.RandomNumberGen.#ctor
+  href: Bannerlord.GameMaster.RandomNumberGen.html#Bannerlord_GameMaster_RandomNumberGen__ctor
+  name: RandomNumberGen
+  nameWithType: RandomNumberGen.RandomNumberGen
+  fullName: Bannerlord.GameMaster.RandomNumberGen.RandomNumberGen
+  nameWithType.vb: RandomNumberGen.New
+  fullName.vb: Bannerlord.GameMaster.RandomNumberGen.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt*
+  commentId: Overload:Bannerlord.GameMaster.RandomNumberGen.NextRandomInt
+  href: Bannerlord.GameMaster.RandomNumberGen.html#Bannerlord_GameMaster_RandomNumberGen_NextRandomInt
+  name: NextRandomInt
+  nameWithType: RandomNumberGen.NextRandomInt
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomInt
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomFloat*
+  commentId: Overload:Bannerlord.GameMaster.RandomNumberGen.NextRandomFloat
+  href: Bannerlord.GameMaster.RandomNumberGen.html#Bannerlord_GameMaster_RandomNumberGen_NextRandomFloat
+  name: NextRandomFloat
+  nameWithType: RandomNumberGen.NextRandomFloat
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomFloat
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomDouble*
+  commentId: Overload:Bannerlord.GameMaster.RandomNumberGen.NextRandomDouble
+  href: Bannerlord.GameMaster.RandomNumberGen.html#Bannerlord_GameMaster_RandomNumberGen_NextRandomDouble
+  name: NextRandomDouble
+  nameWithType: RandomNumberGen.NextRandomDouble
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomDouble
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes*
+  commentId: Overload:Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes
+  href: Bannerlord.GameMaster.RandomNumberGen.html#Bannerlord_GameMaster_RandomNumberGen_NextRandomBytes_System_Byte___
+  name: NextRandomBytes
+  nameWithType: RandomNumberGen.NextRandomBytes
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomBytes
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.RandomNumberGen.NextRandomRGBColor*
+  commentId: Overload:Bannerlord.GameMaster.RandomNumberGen.NextRandomRGBColor
+  href: Bannerlord.GameMaster.RandomNumberGen.html#Bannerlord_GameMaster_RandomNumberGen_NextRandomRGBColor
+  name: NextRandomRGBColor
+  nameWithType: RandomNumberGen.NextRandomRGBColor
+  fullName: Bannerlord.GameMaster.RandomNumberGen.NextRandomRGBColor
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger

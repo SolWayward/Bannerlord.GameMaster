@@ -1,0 +1,470 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  commentId: T:Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  id: HeroDebug
+  parent: Bannerlord.GameMaster.BLGMDebug
+  children:
+  - Bannerlord.GameMaster.BLGMDebug.HeroDebug.AllCaptainOnFootPerks
+  - Bannerlord.GameMaster.BLGMDebug.HeroDebug.CaptainOnFootPerks(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.BLGMDebug.HeroDebug.CheckHeroesCharacterStringId
+  langs:
+  - csharp
+  - vb
+  name: HeroDebug
+  nameWithType: HeroDebug
+  fullName: Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMDebug/HeroDebug.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroDebug
+    path: ../Bannerlord.GameMaster/BLGMDebug/HeroDebug.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.BLGMDebug
+  syntax:
+    content: public static class HeroDebug
+    content.vb: Public Module HeroDebug
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CheckHeroesCharacterStringId
+  commentId: M:Bannerlord.GameMaster.BLGMDebug.HeroDebug.CheckHeroesCharacterStringId
+  id: CheckHeroesCharacterStringId
+  parent: Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  langs:
+  - csharp
+  - vb
+  name: CheckHeroesCharacterStringId()
+  nameWithType: HeroDebug.CheckHeroesCharacterStringId()
+  fullName: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CheckHeroesCharacterStringId()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMDebug/HeroDebug.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CheckHeroesCharacterStringId
+    path: ../Bannerlord.GameMaster/BLGMDebug/HeroDebug.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.BLGMDebug
+  summary: >-
+    Compares all Heroes stringIds with their linked CharacterObject stringIds checking if they match within the BLGMObjectManager <br />
+
+    Automatically writes to log and returns the result as well
+  example: []
+  syntax:
+    content: public static string CheckHeroesCharacterStringId()
+    return:
+      type: System.String
+    content.vb: Public Shared Function CheckHeroesCharacterStringId() As String
+  overload: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CheckHeroesCharacterStringId*
+- uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug.AllCaptainOnFootPerks
+  commentId: M:Bannerlord.GameMaster.BLGMDebug.HeroDebug.AllCaptainOnFootPerks
+  id: AllCaptainOnFootPerks
+  parent: Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  langs:
+  - csharp
+  - vb
+  name: AllCaptainOnFootPerks()
+  nameWithType: HeroDebug.AllCaptainOnFootPerks()
+  fullName: Bannerlord.GameMaster.BLGMDebug.HeroDebug.AllCaptainOnFootPerks()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMDebug/HeroDebug.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllCaptainOnFootPerks
+    path: ../Bannerlord.GameMaster/BLGMDebug/HeroDebug.cs
+    startLine: 48
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.BLGMDebug
+  summary: >-
+    Prints a list of all perks that effect on foot troops <br />
+
+    Automatically writes to log and returns the result as well
+  example: []
+  syntax:
+    content: public static string AllCaptainOnFootPerks()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Shared Function AllCaptainOnFootPerks() As String
+  overload: Bannerlord.GameMaster.BLGMDebug.HeroDebug.AllCaptainOnFootPerks*
+- uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CaptainOnFootPerks(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.BLGMDebug.HeroDebug.CaptainOnFootPerks(TaleWorlds.CampaignSystem.Hero)
+  id: CaptainOnFootPerks(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.BLGMDebug.HeroDebug
+  langs:
+  - csharp
+  - vb
+  name: CaptainOnFootPerks(Hero)
+  nameWithType: HeroDebug.CaptainOnFootPerks(Hero)
+  fullName: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CaptainOnFootPerks(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMDebug/HeroDebug.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CaptainOnFootPerks
+    path: ../Bannerlord.GameMaster/BLGMDebug/HeroDebug.cs
+    startLine: 66
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.BLGMDebug
+  summary: >-
+    Get a debug formated string of perk bonuses and ratings for Hero <br />
+
+    Automatically writes to log and returns the result as well
+  example: []
+  syntax:
+    content: public static string CaptainOnFootPerks(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    return:
+      type: System.String
+    content.vb: Public Shared Function CaptainOnFootPerks(hero As Hero) As String
+  overload: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CaptainOnFootPerks*
+references:
+- uid: Bannerlord.GameMaster.BLGMDebug
+  commentId: N:Bannerlord.GameMaster.BLGMDebug
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.BLGMDebug
+  nameWithType: Bannerlord.GameMaster.BLGMDebug
+  fullName: Bannerlord.GameMaster.BLGMDebug
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.BLGMDebug
+    name: BLGMDebug
+    href: Bannerlord.GameMaster.BLGMDebug.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.BLGMDebug
+    name: BLGMDebug
+    href: Bannerlord.GameMaster.BLGMDebug.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CheckHeroesCharacterStringId*
+  commentId: Overload:Bannerlord.GameMaster.BLGMDebug.HeroDebug.CheckHeroesCharacterStringId
+  href: Bannerlord.GameMaster.BLGMDebug.HeroDebug.html#Bannerlord_GameMaster_BLGMDebug_HeroDebug_CheckHeroesCharacterStringId
+  name: CheckHeroesCharacterStringId
+  nameWithType: HeroDebug.CheckHeroesCharacterStringId
+  fullName: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CheckHeroesCharacterStringId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug.AllCaptainOnFootPerks*
+  commentId: Overload:Bannerlord.GameMaster.BLGMDebug.HeroDebug.AllCaptainOnFootPerks
+  href: Bannerlord.GameMaster.BLGMDebug.HeroDebug.html#Bannerlord_GameMaster_BLGMDebug_HeroDebug_AllCaptainOnFootPerks
+  name: AllCaptainOnFootPerks
+  nameWithType: HeroDebug.AllCaptainOnFootPerks
+  fullName: Bannerlord.GameMaster.BLGMDebug.HeroDebug.AllCaptainOnFootPerks
+- uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CaptainOnFootPerks*
+  commentId: Overload:Bannerlord.GameMaster.BLGMDebug.HeroDebug.CaptainOnFootPerks
+  href: Bannerlord.GameMaster.BLGMDebug.HeroDebug.html#Bannerlord_GameMaster_BLGMDebug_HeroDebug_CaptainOnFootPerks_TaleWorlds_CampaignSystem_Hero_
+  name: CaptainOnFootPerks
+  nameWithType: HeroDebug.CaptainOnFootPerks
+  fullName: Bannerlord.GameMaster.BLGMDebug.HeroDebug.CaptainOnFootPerks
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true

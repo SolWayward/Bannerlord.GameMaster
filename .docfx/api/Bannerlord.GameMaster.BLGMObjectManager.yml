@@ -1,0 +1,1998 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.BLGMObjectManager
+  commentId: T:Bannerlord.GameMaster.BLGMObjectManager
+  id: BLGMObjectManager
+  parent: Bannerlord.GameMaster
+  children:
+  - Bannerlord.GameMaster.BLGMObjectManager.AssignClanMBGUID(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.BLGMObjectManager.AssignHeroMBGUIDs(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.BLGMObjectManager.AssignKingdomMBGUID(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.BLGMObjectManager.BlgmClanCount
+  - Bannerlord.GameMaster.BLGMObjectManager.BlgmClans
+  - Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroCount
+  - Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroes
+  - Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdomCount
+  - Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdoms
+  - Bannerlord.GameMaster.BLGMObjectManager.BlgmParties
+  - Bannerlord.GameMaster.BLGMObjectManager.BlgmPartyCount
+  - Bannerlord.GameMaster.BLGMObjectManager.CampaignFullyLoaded
+  - Bannerlord.GameMaster.BLGMObjectManager.GenerateCharacterMBGUID
+  - Bannerlord.GameMaster.BLGMObjectManager.GenerateClanMBGUID
+  - Bannerlord.GameMaster.BLGMObjectManager.GenerateHeroMBGUID
+  - Bannerlord.GameMaster.BLGMObjectManager.GenerateKingdomMBGUID
+  - Bannerlord.GameMaster.BLGMObjectManager.GetObjectIds
+  - Bannerlord.GameMaster.BLGMObjectManager.GetObjects``1
+  - Bannerlord.GameMaster.BLGMObjectManager.IgnoreLimits
+  - Bannerlord.GameMaster.BLGMObjectManager.Instance
+  - Bannerlord.GameMaster.BLGMObjectManager.ObjectCount
+  - Bannerlord.GameMaster.BLGMObjectManager.RegisterClan(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.BLGMObjectManager.RegisterHero(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.BLGMObjectManager.RegisterKingdom(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.BLGMObjectManager.RegisterParty(TaleWorlds.CampaignSystem.Party.MobileParty,System.String,System.String)
+  - Bannerlord.GameMaster.BLGMObjectManager.TryGetObject``1(System.String,``0@)
+  - Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan(System.String)
+  - Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero(System.String)
+  - Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom(System.String)
+  - Bannerlord.GameMaster.BLGMObjectManager.UnregisterParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+  - Bannerlord.GameMaster.BLGMObjectManager.maxBlgmClans
+  - Bannerlord.GameMaster.BLGMObjectManager.maxBlgmHeroes
+  - Bannerlord.GameMaster.BLGMObjectManager.maxBlgmKingdoms
+  langs:
+  - csharp
+  - vb
+  name: BLGMObjectManager
+  nameWithType: BLGMObjectManager
+  fullName: Bannerlord.GameMaster.BLGMObjectManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BLGMObjectManager
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Singleton manager for generating unique identifiers for and manager game objects created with BLGM
+  example: []
+  syntax:
+    content: public class BLGMObjectManager
+    content.vb: Public Class BLGMObjectManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.BLGMObjectManager.CampaignFullyLoaded
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.CampaignFullyLoaded
+  id: CampaignFullyLoaded
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: CampaignFullyLoaded
+  nameWithType: BLGMObjectManager.CampaignFullyLoaded
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.CampaignFullyLoaded
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CampaignFullyLoaded
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: True when game is fully loaded
+  example: []
+  syntax:
+    content: public static bool CampaignFullyLoaded { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared ReadOnly Property CampaignFullyLoaded As Boolean
+  overload: Bannerlord.GameMaster.BLGMObjectManager.CampaignFullyLoaded*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.maxBlgmHeroes
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.maxBlgmHeroes
+  id: maxBlgmHeroes
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: maxBlgmHeroes
+  nameWithType: BLGMObjectManager.maxBlgmHeroes
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.maxBlgmHeroes
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: maxBlgmHeroes
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 37
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static readonly int maxBlgmHeroes
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly maxBlgmHeroes As Integer
+- uid: Bannerlord.GameMaster.BLGMObjectManager.maxBlgmClans
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.maxBlgmClans
+  id: maxBlgmClans
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: maxBlgmClans
+  nameWithType: BLGMObjectManager.maxBlgmClans
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.maxBlgmClans
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: maxBlgmClans
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static readonly int maxBlgmClans
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly maxBlgmClans As Integer
+- uid: Bannerlord.GameMaster.BLGMObjectManager.maxBlgmKingdoms
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.maxBlgmKingdoms
+  id: maxBlgmKingdoms
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: maxBlgmKingdoms
+  nameWithType: BLGMObjectManager.maxBlgmKingdoms
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.maxBlgmKingdoms
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: maxBlgmKingdoms
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 39
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static readonly int maxBlgmKingdoms
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly maxBlgmKingdoms As Integer
+- uid: Bannerlord.GameMaster.BLGMObjectManager.IgnoreLimits
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.IgnoreLimits
+  id: IgnoreLimits
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: IgnoreLimits
+  nameWithType: BLGMObjectManager.IgnoreLimits
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.IgnoreLimits
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IgnoreLimits
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 45
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Limits to prevent performance decline <br />
+
+    Use gm.ignore_limits true to disable the limits
+  example: []
+  syntax:
+    content: public static bool IgnoreLimits { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Property IgnoreLimits As Boolean
+  overload: Bannerlord.GameMaster.BLGMObjectManager.IgnoreLimits*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.Instance
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.Instance
+  id: Instance
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: BLGMObjectManager.Instance
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.Instance
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Instance
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 120
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static BLGMObjectManager Instance { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.BLGMObjectManager
+    content.vb: Public Shared ReadOnly Property Instance As BLGMObjectManager
+  overload: Bannerlord.GameMaster.BLGMObjectManager.Instance*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroes
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroes
+  id: BlgmHeroes
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: BlgmHeroes
+  nameWithType: BLGMObjectManager.BlgmHeroes
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroes
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BlgmHeroes
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 122
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static MBList<Hero> BlgmHeroes { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Hero}
+    content.vb: Public Shared ReadOnly Property BlgmHeroes As MBList(Of Hero)
+  overload: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroes*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmClans
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.BlgmClans
+  id: BlgmClans
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: BlgmClans
+  nameWithType: BLGMObjectManager.BlgmClans
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmClans
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BlgmClans
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 123
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static MBList<Clan> BlgmClans { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Clan}
+    content.vb: Public Shared ReadOnly Property BlgmClans As MBList(Of Clan)
+  overload: Bannerlord.GameMaster.BLGMObjectManager.BlgmClans*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdoms
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdoms
+  id: BlgmKingdoms
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: BlgmKingdoms
+  nameWithType: BLGMObjectManager.BlgmKingdoms
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdoms
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BlgmKingdoms
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 124
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static MBList<Kingdom> BlgmKingdoms { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Kingdom}
+    content.vb: Public Shared ReadOnly Property BlgmKingdoms As MBList(Of Kingdom)
+  overload: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdoms*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmParties
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.BlgmParties
+  id: BlgmParties
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: BlgmParties
+  nameWithType: BLGMObjectManager.BlgmParties
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmParties
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BlgmParties
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 129
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Gets all BLGM-tracked MobileParties with caching.
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<MobileParty> BlgmParties { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Party.MobileParty}
+    content.vb: Public Shared ReadOnly Property BlgmParties As MBReadOnlyList(Of MobileParty)
+  overload: Bannerlord.GameMaster.BLGMObjectManager.BlgmParties*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.ObjectCount
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.ObjectCount
+  id: ObjectCount
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: ObjectCount
+  nameWithType: BLGMObjectManager.ObjectCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.ObjectCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ObjectCount
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 154
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public int ObjectCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ObjectCount As Integer
+  overload: Bannerlord.GameMaster.BLGMObjectManager.ObjectCount*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroCount
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroCount
+  id: BlgmHeroCount
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: BlgmHeroCount
+  nameWithType: BLGMObjectManager.BlgmHeroCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BlgmHeroCount
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 156
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static int BlgmHeroCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property BlgmHeroCount As Integer
+  overload: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroCount*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmClanCount
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.BlgmClanCount
+  id: BlgmClanCount
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: BlgmClanCount
+  nameWithType: BLGMObjectManager.BlgmClanCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmClanCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BlgmClanCount
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 157
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static int BlgmClanCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property BlgmClanCount As Integer
+  overload: Bannerlord.GameMaster.BLGMObjectManager.BlgmClanCount*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdomCount
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdomCount
+  id: BlgmKingdomCount
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: BlgmKingdomCount
+  nameWithType: BLGMObjectManager.BlgmKingdomCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdomCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BlgmKingdomCount
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 158
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static int BlgmKingdomCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property BlgmKingdomCount As Integer
+  overload: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdomCount*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmPartyCount
+  commentId: P:Bannerlord.GameMaster.BLGMObjectManager.BlgmPartyCount
+  id: BlgmPartyCount
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: BlgmPartyCount
+  nameWithType: BLGMObjectManager.BlgmPartyCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BlgmPartyCount
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 159
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static int BlgmPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property BlgmPartyCount As Integer
+  overload: Bannerlord.GameMaster.BLGMObjectManager.BlgmPartyCount*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GetObjects``1
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.GetObjects``1
+  id: GetObjects``1
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: GetObjects<T>()
+  nameWithType: BLGMObjectManager.GetObjects<T>()
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GetObjects<T>()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetObjects
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 206
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Get all BLGM objects of a specific type with caching for better performance, Only type of Heroes, Clans, and Kingdoms are cached, other types will be non cached access.
+  example: []
+  syntax:
+    content: 'public MBList<T> GetObjects<T>() where T : MBObjectBase'
+    typeParameters:
+    - id: T
+    return:
+      type: TaleWorlds.Library.MBList{{T}}
+    content.vb: Public Function GetObjects(Of T As MBObjectBase)() As MBList(Of T)
+  overload: Bannerlord.GameMaster.BLGMObjectManager.GetObjects*
+  nameWithType.vb: BLGMObjectManager.GetObjects(Of T)()
+  fullName.vb: Bannerlord.GameMaster.BLGMObjectManager.GetObjects(Of T)()
+  name.vb: GetObjects(Of T)()
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GetObjectIds
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.GetObjectIds
+  id: GetObjectIds
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: GetObjectIds()
+  nameWithType: BLGMObjectManager.GetObjectIds()
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GetObjectIds()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetObjectIds
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 242
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Retrieve all registered BLGM created object stringIds
+  example: []
+  syntax:
+    content: public string[] GetObjectIds()
+    return:
+      type: System.String[]
+    content.vb: Public Function GetObjectIds() As String()
+  overload: Bannerlord.GameMaster.BLGMObjectManager.GetObjectIds*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.TryGetObject``1(System.String,``0@)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.TryGetObject``1(System.String,``0@)
+  id: TryGetObject``1(System.String,``0@)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: TryGetObject<T>(string, out T)
+  nameWithType: BLGMObjectManager.TryGetObject<T>(string, out T)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.TryGetObject<T>(string, out T)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TryGetObject
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 255
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Try to retrieve an object by its stringID with type safety
+  example: []
+  syntax:
+    content: 'public bool TryGetObject<T>(string stringId, out T mbObject) where T : MBObjectBase'
+    parameters:
+    - id: stringId
+      type: System.String
+    - id: mbObject
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetObject(Of T As MBObjectBase)(stringId As String, mbObject As T) As Boolean
+  overload: Bannerlord.GameMaster.BLGMObjectManager.TryGetObject*
+  nameWithType.vb: BLGMObjectManager.TryGetObject(Of T)(String, T)
+  fullName.vb: Bannerlord.GameMaster.BLGMObjectManager.TryGetObject(Of T)(String, T)
+  name.vb: TryGetObject(Of T)(String, T)
+- uid: Bannerlord.GameMaster.BLGMObjectManager.RegisterHero(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.RegisterHero(TaleWorlds.CampaignSystem.Hero)
+  id: RegisterHero(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: RegisterHero(Hero)
+  nameWithType: BLGMObjectManager.RegisterHero(Hero)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.RegisterHero(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RegisterHero
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 276
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br />
+
+    stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId, otherwise name will be randomly assigned
+  example: []
+  syntax:
+    content: public static string RegisterHero(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    return:
+      type: System.String
+      description: stringId of registered Object
+    content.vb: Public Shared Function RegisterHero(hero As Hero) As String
+  overload: Bannerlord.GameMaster.BLGMObjectManager.RegisterHero*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.RegisterClan(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.RegisterClan(TaleWorlds.CampaignSystem.Clan)
+  id: RegisterClan(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: RegisterClan(Clan)
+  nameWithType: BLGMObjectManager.RegisterClan(Clan)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.RegisterClan(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RegisterClan
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 336
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br />
+
+    stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId, otherwise name will be randomly assigned
+  example: []
+  syntax:
+    content: public static string RegisterClan(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: System.String
+      description: stringId of registered Object
+    content.vb: Public Shared Function RegisterClan(clan As Clan) As String
+  overload: Bannerlord.GameMaster.BLGMObjectManager.RegisterClan*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.RegisterKingdom(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.RegisterKingdom(TaleWorlds.CampaignSystem.Kingdom)
+  id: RegisterKingdom(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: RegisterKingdom(Kingdom)
+  nameWithType: BLGMObjectManager.RegisterKingdom(Kingdom)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.RegisterKingdom(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RegisterKingdom
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 373
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Assign an object a unique stringID prefixed with "blgm_type_name_xxx" and register it in BLGMObjectManager and register with game as well<br />
+
+    stringId will be overwritten on object if already assigned. Assign name before calling method to include name in stringId, otherwise name will be randomly assigned
+  example: []
+  syntax:
+    content: public static string RegisterKingdom(Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: System.String
+      description: stringId of registered Object
+    content.vb: Public Shared Function RegisterKingdom(kingdom As Kingdom) As String
+  overload: Bannerlord.GameMaster.BLGMObjectManager.RegisterKingdom*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.RegisterParty(TaleWorlds.CampaignSystem.Party.MobileParty,System.String,System.String)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.RegisterParty(TaleWorlds.CampaignSystem.Party.MobileParty,System.String,System.String)
+  id: RegisterParty(TaleWorlds.CampaignSystem.Party.MobileParty,System.String,System.String)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: RegisterParty(MobileParty, string, string)
+  nameWithType: BLGMObjectManager.RegisterParty(MobileParty, string, string)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.RegisterParty(TaleWorlds.CampaignSystem.Party.MobileParty, string, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RegisterParty
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 414
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Registers a MobileParty with BLGMObjectManager, assigning a BLGM StringId.
+
+    Works like RegisterHero/RegisterClan - changes StringId after creation.
+
+    Called automatically by MobilePartyGenerator, but available for external use.
+  example: []
+  syntax:
+    content: public static string RegisterParty(MobileParty party, string partyType, string contextId = null)
+    parameters:
+    - id: party
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+      description: The MobileParty to register
+    - id: partyType
+      type: System.String
+      description: Type of party (use PartyTypeNames constants)
+    - id: contextId
+      type: System.String
+      description: Optional context identifier (e.g., settlement StringId)
+    return:
+      type: System.String
+      description: The new BLGM StringId, or null on failure
+    content.vb: Public Shared Function RegisterParty(party As MobileParty, partyType As String, contextId As String = Nothing) As String
+  overload: Bannerlord.GameMaster.BLGMObjectManager.RegisterParty*
+  nameWithType.vb: BLGMObjectManager.RegisterParty(MobileParty, String, String)
+  fullName.vb: Bannerlord.GameMaster.BLGMObjectManager.RegisterParty(TaleWorlds.CampaignSystem.Party.MobileParty, String, String)
+  name.vb: RegisterParty(MobileParty, String, String)
+- uid: Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero(System.String)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero(System.String)
+  id: UnregisterHero(System.String)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: UnregisterHero(string)
+  nameWithType: BLGMObjectManager.UnregisterHero(string)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: UnregisterHero
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 444
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Unregister a hero from BLGMObjectManager
+  example: []
+  syntax:
+    content: public static bool UnregisterHero(string stringId)
+    parameters:
+    - id: stringId
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function UnregisterHero(stringId As String) As Boolean
+  overload: Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero*
+  nameWithType.vb: BLGMObjectManager.UnregisterHero(String)
+  fullName.vb: Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero(String)
+  name.vb: UnregisterHero(String)
+- uid: Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan(System.String)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan(System.String)
+  id: UnregisterClan(System.String)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: UnregisterClan(string)
+  nameWithType: BLGMObjectManager.UnregisterClan(string)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: UnregisterClan
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 457
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Unregister a clan from BLGMObjectManager
+  example: []
+  syntax:
+    content: public static bool UnregisterClan(string stringId)
+    parameters:
+    - id: stringId
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function UnregisterClan(stringId As String) As Boolean
+  overload: Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan*
+  nameWithType.vb: BLGMObjectManager.UnregisterClan(String)
+  fullName.vb: Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan(String)
+  name.vb: UnregisterClan(String)
+- uid: Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom(System.String)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom(System.String)
+  id: UnregisterKingdom(System.String)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: UnregisterKingdom(string)
+  nameWithType: BLGMObjectManager.UnregisterKingdom(string)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: UnregisterKingdom
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 470
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Unregister a kingdom from BLGMObjectManager
+  example: []
+  syntax:
+    content: public static bool UnregisterKingdom(string stringId)
+    parameters:
+    - id: stringId
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function UnregisterKingdom(stringId As String) As Boolean
+  overload: Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom*
+  nameWithType.vb: BLGMObjectManager.UnregisterKingdom(String)
+  fullName.vb: Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom(String)
+  name.vb: UnregisterKingdom(String)
+- uid: Bannerlord.GameMaster.BLGMObjectManager.UnregisterParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.UnregisterParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+  id: UnregisterParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: UnregisterParty(MobileParty)
+  nameWithType: BLGMObjectManager.UnregisterParty(MobileParty)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.UnregisterParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: UnregisterParty
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 486
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Unregisters a MobileParty from BLGMObjectManager tracking.
+
+    Called automatically by destruction event handlers.
+  example: []
+  syntax:
+    content: public static bool UnregisterParty(MobileParty party)
+    parameters:
+    - id: party
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+      description: The MobileParty to unregister
+    return:
+      type: System.Boolean
+      description: True if unregistered successfully
+    content.vb: Public Shared Function UnregisterParty(party As MobileParty) As Boolean
+  overload: Bannerlord.GameMaster.BLGMObjectManager.UnregisterParty*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GenerateClanMBGUID
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.GenerateClanMBGUID
+  id: GenerateClanMBGUID
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: GenerateClanMBGUID()
+  nameWithType: BLGMObjectManager.GenerateClanMBGUID()
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GenerateClanMBGUID()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GenerateClanMBGUID
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 820
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Generate a unique MBGUID for a Clan object. Thread-safe.
+
+    Call this immediately after creating a new Clan with new Clan().
+  example: []
+  syntax:
+    content: public static MBGUID GenerateClanMBGUID()
+    return:
+      type: TaleWorlds.ObjectSystem.MBGUID
+    content.vb: Public Shared Function GenerateClanMBGUID() As MBGUID
+  overload: Bannerlord.GameMaster.BLGMObjectManager.GenerateClanMBGUID*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GenerateKingdomMBGUID
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.GenerateKingdomMBGUID
+  id: GenerateKingdomMBGUID
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: GenerateKingdomMBGUID()
+  nameWithType: BLGMObjectManager.GenerateKingdomMBGUID()
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GenerateKingdomMBGUID()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GenerateKingdomMBGUID
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 841
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Generate a unique MBGUID for a Kingdom object. Thread-safe.
+
+    Call this immediately after creating a new Kingdom with new Kingdom().
+  example: []
+  syntax:
+    content: public static MBGUID GenerateKingdomMBGUID()
+    return:
+      type: TaleWorlds.ObjectSystem.MBGUID
+    content.vb: Public Shared Function GenerateKingdomMBGUID() As MBGUID
+  overload: Bannerlord.GameMaster.BLGMObjectManager.GenerateKingdomMBGUID*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GenerateHeroMBGUID
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.GenerateHeroMBGUID
+  id: GenerateHeroMBGUID
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: GenerateHeroMBGUID()
+  nameWithType: BLGMObjectManager.GenerateHeroMBGUID()
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GenerateHeroMBGUID()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GenerateHeroMBGUID
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 863
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Generate a unique MBGUID for a Hero object. Thread-safe.
+
+    Note: Heroes created via HeroCreator.CreateSpecialHero() already have valid MBGUIDs.
+
+    This is for manually created heroes only.
+  example: []
+  syntax:
+    content: public static MBGUID GenerateHeroMBGUID()
+    return:
+      type: TaleWorlds.ObjectSystem.MBGUID
+    content.vb: Public Shared Function GenerateHeroMBGUID() As MBGUID
+  overload: Bannerlord.GameMaster.BLGMObjectManager.GenerateHeroMBGUID*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GenerateCharacterMBGUID
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.GenerateCharacterMBGUID
+  id: GenerateCharacterMBGUID
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: GenerateCharacterMBGUID()
+  nameWithType: BLGMObjectManager.GenerateCharacterMBGUID()
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GenerateCharacterMBGUID()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GenerateCharacterMBGUID
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 884
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Generate a unique MBGUID for a CharacterObject. Thread-safe.
+
+    Call this for CharacterObjects that need unique MBGUIDs.
+  example: []
+  syntax:
+    content: public static MBGUID GenerateCharacterMBGUID()
+    return:
+      type: TaleWorlds.ObjectSystem.MBGUID
+    content.vb: Public Shared Function GenerateCharacterMBGUID() As MBGUID
+  overload: Bannerlord.GameMaster.BLGMObjectManager.GenerateCharacterMBGUID*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.AssignClanMBGUID(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.AssignClanMBGUID(TaleWorlds.CampaignSystem.Clan)
+  id: AssignClanMBGUID(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: AssignClanMBGUID(Clan)
+  nameWithType: BLGMObjectManager.AssignClanMBGUID(Clan)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.AssignClanMBGUID(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AssignClanMBGUID
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 917
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Assign a unique MBGUID to a Clan if it doesn't already have one.
+
+    Call this immediately after new Clan() and before any game systems process the clan.
+  example: []
+  syntax:
+    content: public static void AssignClanMBGUID(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    content.vb: Public Shared Sub AssignClanMBGUID(clan As Clan)
+  overload: Bannerlord.GameMaster.BLGMObjectManager.AssignClanMBGUID*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.AssignKingdomMBGUID(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.AssignKingdomMBGUID(TaleWorlds.CampaignSystem.Kingdom)
+  id: AssignKingdomMBGUID(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: AssignKingdomMBGUID(Kingdom)
+  nameWithType: BLGMObjectManager.AssignKingdomMBGUID(Kingdom)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.AssignKingdomMBGUID(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AssignKingdomMBGUID
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 933
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Assign a unique MBGUID to a Kingdom if it doesn't already have one.
+
+    Call this immediately after new Kingdom() and before any game systems process the kingdom.
+  example: []
+  syntax:
+    content: public static void AssignKingdomMBGUID(Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    content.vb: Public Shared Sub AssignKingdomMBGUID(kingdom As Kingdom)
+  overload: Bannerlord.GameMaster.BLGMObjectManager.AssignKingdomMBGUID*
+- uid: Bannerlord.GameMaster.BLGMObjectManager.AssignHeroMBGUIDs(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.BLGMObjectManager.AssignHeroMBGUIDs(TaleWorlds.CampaignSystem.Hero)
+  id: AssignHeroMBGUIDs(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.BLGMObjectManager
+  langs:
+  - csharp
+  - vb
+  name: AssignHeroMBGUIDs(Hero)
+  nameWithType: BLGMObjectManager.AssignHeroMBGUIDs(Hero)
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.AssignHeroMBGUIDs(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AssignHeroMBGUIDs
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 949
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: >-
+    Assign unique MBGUIDs to a Hero and its CharacterObject if they don't already have them.
+
+    Heroes created via HeroCreator typically already have valid MBGUIDs.
+  example: []
+  syntax:
+    content: public static void AssignHeroMBGUIDs(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    content.vb: Public Shared Sub AssignHeroMBGUIDs(hero As Hero)
+  overload: Bannerlord.GameMaster.BLGMObjectManager.AssignHeroMBGUIDs*
+references:
+- uid: Bannerlord.GameMaster
+  commentId: N:Bannerlord.GameMaster
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster
+  nameWithType: Bannerlord.GameMaster
+  fullName: Bannerlord.GameMaster
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.BLGMObjectManager.CampaignFullyLoaded*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.CampaignFullyLoaded
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_CampaignFullyLoaded
+  name: CampaignFullyLoaded
+  nameWithType: BLGMObjectManager.CampaignFullyLoaded
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.CampaignFullyLoaded
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.BLGMObjectManager.IgnoreLimits*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.IgnoreLimits
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_IgnoreLimits
+  name: IgnoreLimits
+  nameWithType: BLGMObjectManager.IgnoreLimits
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.IgnoreLimits
+- uid: Bannerlord.GameMaster.BLGMObjectManager.Instance*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.Instance
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_Instance
+  name: Instance
+  nameWithType: BLGMObjectManager.Instance
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.Instance
+- uid: Bannerlord.GameMaster.BLGMObjectManager
+  commentId: T:Bannerlord.GameMaster.BLGMObjectManager
+  parent: Bannerlord.GameMaster
+  href: Bannerlord.GameMaster.BLGMObjectManager.html
+  name: BLGMObjectManager
+  nameWithType: BLGMObjectManager
+  fullName: Bannerlord.GameMaster.BLGMObjectManager
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroes*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroes
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_BlgmHeroes
+  name: BlgmHeroes
+  nameWithType: BLGMObjectManager.BlgmHeroes
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroes
+- uid: TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Hero}
+  commentId: T:TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Hero}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBList`1
+  name: MBList<Hero>
+  nameWithType: MBList<Hero>
+  fullName: TaleWorlds.Library.MBList<TaleWorlds.CampaignSystem.Hero>
+  nameWithType.vb: MBList(Of Hero)
+  fullName.vb: TaleWorlds.Library.MBList(Of TaleWorlds.CampaignSystem.Hero)
+  name.vb: MBList(Of Hero)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.Library.MBList`1
+  commentId: T:TaleWorlds.Library.MBList`1
+  isExternal: true
+  name: MBList<T>
+  nameWithType: MBList<T>
+  fullName: TaleWorlds.Library.MBList<T>
+  nameWithType.vb: MBList(Of T)
+  fullName.vb: TaleWorlds.Library.MBList(Of T)
+  name.vb: MBList(Of T)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmClans*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.BlgmClans
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_BlgmClans
+  name: BlgmClans
+  nameWithType: BLGMObjectManager.BlgmClans
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmClans
+- uid: TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Clan}
+  commentId: T:TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Clan}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBList`1
+  name: MBList<Clan>
+  nameWithType: MBList<Clan>
+  fullName: TaleWorlds.Library.MBList<TaleWorlds.CampaignSystem.Clan>
+  nameWithType.vb: MBList(Of Clan)
+  fullName.vb: TaleWorlds.Library.MBList(Of TaleWorlds.CampaignSystem.Clan)
+  name.vb: MBList(Of Clan)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Clan
+    name: Clan
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Clan
+    name: Clan
+    isExternal: true
+  - name: )
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdoms*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdoms
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_BlgmKingdoms
+  name: BlgmKingdoms
+  nameWithType: BLGMObjectManager.BlgmKingdoms
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdoms
+- uid: TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Kingdom}
+  commentId: T:TaleWorlds.Library.MBList{TaleWorlds.CampaignSystem.Kingdom}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBList`1
+  name: MBList<Kingdom>
+  nameWithType: MBList<Kingdom>
+  fullName: TaleWorlds.Library.MBList<TaleWorlds.CampaignSystem.Kingdom>
+  nameWithType.vb: MBList(Of Kingdom)
+  fullName.vb: TaleWorlds.Library.MBList(Of TaleWorlds.CampaignSystem.Kingdom)
+  name.vb: MBList(Of Kingdom)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: )
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmParties*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.BlgmParties
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_BlgmParties
+  name: BlgmParties
+  nameWithType: BLGMObjectManager.BlgmParties
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmParties
+- uid: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Party.MobileParty}
+  commentId: T:TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Party.MobileParty}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBReadOnlyList`1
+  name: MBReadOnlyList<MobileParty>
+  nameWithType: MBReadOnlyList<MobileParty>
+  fullName: TaleWorlds.Library.MBReadOnlyList<TaleWorlds.CampaignSystem.Party.MobileParty>
+  nameWithType.vb: MBReadOnlyList(Of MobileParty)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of TaleWorlds.CampaignSystem.Party.MobileParty)
+  name.vb: MBReadOnlyList(Of MobileParty)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.Library.MBReadOnlyList`1
+  commentId: T:TaleWorlds.Library.MBReadOnlyList`1
+  isExternal: true
+  name: MBReadOnlyList<T>
+  nameWithType: MBReadOnlyList<T>
+  fullName: TaleWorlds.Library.MBReadOnlyList<T>
+  nameWithType.vb: MBReadOnlyList(Of T)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of T)
+  name.vb: MBReadOnlyList(Of T)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.BLGMObjectManager.ObjectCount*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.ObjectCount
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_ObjectCount
+  name: ObjectCount
+  nameWithType: BLGMObjectManager.ObjectCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.ObjectCount
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroCount*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroCount
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_BlgmHeroCount
+  name: BlgmHeroCount
+  nameWithType: BLGMObjectManager.BlgmHeroCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmHeroCount
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmClanCount*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.BlgmClanCount
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_BlgmClanCount
+  name: BlgmClanCount
+  nameWithType: BLGMObjectManager.BlgmClanCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmClanCount
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdomCount*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdomCount
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_BlgmKingdomCount
+  name: BlgmKingdomCount
+  nameWithType: BLGMObjectManager.BlgmKingdomCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmKingdomCount
+- uid: Bannerlord.GameMaster.BLGMObjectManager.BlgmPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.BlgmPartyCount
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_BlgmPartyCount
+  name: BlgmPartyCount
+  nameWithType: BLGMObjectManager.BlgmPartyCount
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.BlgmPartyCount
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GetObjects*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.GetObjects
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_GetObjects__1
+  name: GetObjects
+  nameWithType: BLGMObjectManager.GetObjects
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GetObjects
+- uid: TaleWorlds.Library.MBList{{T}}
+  commentId: T:TaleWorlds.Library.MBList{``0}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBList`1
+  name: MBList<T>
+  nameWithType: MBList<T>
+  fullName: TaleWorlds.Library.MBList<T>
+  nameWithType.vb: MBList(Of T)
+  fullName.vb: TaleWorlds.Library.MBList(Of T)
+  name.vb: MBList(Of T)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBList`1
+    name: MBList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GetObjectIds*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.GetObjectIds
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_GetObjectIds
+  name: GetObjectIds
+  nameWithType: BLGMObjectManager.GetObjectIds
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GetObjectIds
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.BLGMObjectManager.TryGetObject*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.TryGetObject
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_TryGetObject__1_System_String___0__
+  name: TryGetObject
+  nameWithType: BLGMObjectManager.TryGetObject
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.TryGetObject
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Bannerlord.GameMaster.BLGMObjectManager.RegisterHero*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.RegisterHero
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_RegisterHero_TaleWorlds_CampaignSystem_Hero_
+  name: RegisterHero
+  nameWithType: BLGMObjectManager.RegisterHero
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.RegisterHero
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.BLGMObjectManager.RegisterClan*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.RegisterClan
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_RegisterClan_TaleWorlds_CampaignSystem_Clan_
+  name: RegisterClan
+  nameWithType: BLGMObjectManager.RegisterClan
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.RegisterClan
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
+- uid: Bannerlord.GameMaster.BLGMObjectManager.RegisterKingdom*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.RegisterKingdom
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_RegisterKingdom_TaleWorlds_CampaignSystem_Kingdom_
+  name: RegisterKingdom
+  nameWithType: BLGMObjectManager.RegisterKingdom
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.RegisterKingdom
+- uid: TaleWorlds.CampaignSystem.Kingdom
+  commentId: T:TaleWorlds.CampaignSystem.Kingdom
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Kingdom
+  nameWithType: Kingdom
+  fullName: TaleWorlds.CampaignSystem.Kingdom
+- uid: Bannerlord.GameMaster.BLGMObjectManager.RegisterParty*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.RegisterParty
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_RegisterParty_TaleWorlds_CampaignSystem_Party_MobileParty_System_String_System_String_
+  name: RegisterParty
+  nameWithType: BLGMObjectManager.RegisterParty
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.RegisterParty
+- uid: TaleWorlds.CampaignSystem.Party.MobileParty
+  commentId: T:TaleWorlds.CampaignSystem.Party.MobileParty
+  parent: TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: MobileParty
+  nameWithType: MobileParty
+  fullName: TaleWorlds.CampaignSystem.Party.MobileParty
+- uid: TaleWorlds.CampaignSystem.Party
+  commentId: N:TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Party
+  nameWithType: TaleWorlds.CampaignSystem.Party
+  fullName: TaleWorlds.CampaignSystem.Party
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+- uid: Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_UnregisterHero_System_String_
+  name: UnregisterHero
+  nameWithType: BLGMObjectManager.UnregisterHero
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.UnregisterHero
+- uid: Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_UnregisterClan_System_String_
+  name: UnregisterClan
+  nameWithType: BLGMObjectManager.UnregisterClan
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.UnregisterClan
+- uid: Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_UnregisterKingdom_System_String_
+  name: UnregisterKingdom
+  nameWithType: BLGMObjectManager.UnregisterKingdom
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.UnregisterKingdom
+- uid: Bannerlord.GameMaster.BLGMObjectManager.UnregisterParty*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.UnregisterParty
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_UnregisterParty_TaleWorlds_CampaignSystem_Party_MobileParty_
+  name: UnregisterParty
+  nameWithType: BLGMObjectManager.UnregisterParty
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.UnregisterParty
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GenerateClanMBGUID*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.GenerateClanMBGUID
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_GenerateClanMBGUID
+  name: GenerateClanMBGUID
+  nameWithType: BLGMObjectManager.GenerateClanMBGUID
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GenerateClanMBGUID
+- uid: TaleWorlds.ObjectSystem.MBGUID
+  commentId: T:TaleWorlds.ObjectSystem.MBGUID
+  parent: TaleWorlds.ObjectSystem
+  isExternal: true
+  name: MBGUID
+  nameWithType: MBGUID
+  fullName: TaleWorlds.ObjectSystem.MBGUID
+- uid: TaleWorlds.ObjectSystem
+  commentId: N:TaleWorlds.ObjectSystem
+  isExternal: true
+  name: TaleWorlds.ObjectSystem
+  nameWithType: TaleWorlds.ObjectSystem
+  fullName: TaleWorlds.ObjectSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.ObjectSystem
+    name: ObjectSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.ObjectSystem
+    name: ObjectSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GenerateKingdomMBGUID*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.GenerateKingdomMBGUID
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_GenerateKingdomMBGUID
+  name: GenerateKingdomMBGUID
+  nameWithType: BLGMObjectManager.GenerateKingdomMBGUID
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GenerateKingdomMBGUID
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GenerateHeroMBGUID*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.GenerateHeroMBGUID
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_GenerateHeroMBGUID
+  name: GenerateHeroMBGUID
+  nameWithType: BLGMObjectManager.GenerateHeroMBGUID
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GenerateHeroMBGUID
+- uid: Bannerlord.GameMaster.BLGMObjectManager.GenerateCharacterMBGUID*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.GenerateCharacterMBGUID
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_GenerateCharacterMBGUID
+  name: GenerateCharacterMBGUID
+  nameWithType: BLGMObjectManager.GenerateCharacterMBGUID
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.GenerateCharacterMBGUID
+- uid: Bannerlord.GameMaster.BLGMObjectManager.AssignClanMBGUID*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.AssignClanMBGUID
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_AssignClanMBGUID_TaleWorlds_CampaignSystem_Clan_
+  name: AssignClanMBGUID
+  nameWithType: BLGMObjectManager.AssignClanMBGUID
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.AssignClanMBGUID
+- uid: Bannerlord.GameMaster.BLGMObjectManager.AssignKingdomMBGUID*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.AssignKingdomMBGUID
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_AssignKingdomMBGUID_TaleWorlds_CampaignSystem_Kingdom_
+  name: AssignKingdomMBGUID
+  nameWithType: BLGMObjectManager.AssignKingdomMBGUID
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.AssignKingdomMBGUID
+- uid: Bannerlord.GameMaster.BLGMObjectManager.AssignHeroMBGUIDs*
+  commentId: Overload:Bannerlord.GameMaster.BLGMObjectManager.AssignHeroMBGUIDs
+  href: Bannerlord.GameMaster.BLGMObjectManager.html#Bannerlord_GameMaster_BLGMObjectManager_AssignHeroMBGUIDs_TaleWorlds_CampaignSystem_Hero_
+  name: AssignHeroMBGUIDs
+  nameWithType: BLGMObjectManager.AssignHeroMBGUIDs
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.AssignHeroMBGUIDs

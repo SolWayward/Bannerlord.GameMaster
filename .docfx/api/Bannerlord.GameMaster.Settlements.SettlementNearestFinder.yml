@@ -1,0 +1,851 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  id: SettlementNearestFinder
+  parent: Bannerlord.GameMaster.Settlements
+  children:
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastleByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortificationByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideoutByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTownByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillageByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  langs:
+  - csharp
+  - vb
+  name: SettlementNearestFinder
+  nameWithType: SettlementNearestFinder
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SettlementNearestFinder
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Provides methods for finding the nearest settlement of specific types.
+
+    Supports both map distance (straight-line, fast) and path distance (terrain-aware, slower) calculations.
+  example: []
+  syntax:
+    content: public static class SettlementNearestFinder
+    content.vb: Public Module SettlementNearestFinder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: FindNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestHideout(Settlement)
+  nameWithType: SettlementNearestFinder.FindNearestHideout(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideout(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestHideout
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Finds the nearest hideout to the specified settlement using map distance (straight-line).
+  example: []
+  syntax:
+    content: public static Settlement FindNearestHideout(Settlement from)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest hideout, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestHideout(from As Settlement) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideout*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: FindNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestTown(Settlement)
+  nameWithType: SettlementNearestFinder.FindNearestTown(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTown(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestTown
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Finds the nearest town to the specified settlement using map distance (straight-line).
+  example: []
+  syntax:
+    content: public static Settlement FindNearestTown(Settlement from)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest town, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestTown(from As Settlement) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTown*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: FindNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestCastle(Settlement)
+  nameWithType: SettlementNearestFinder.FindNearestCastle(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastle(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestCastle
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Finds the nearest castle to the specified settlement using map distance (straight-line).
+  example: []
+  syntax:
+    content: public static Settlement FindNearestCastle(Settlement from)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest castle, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestCastle(from As Settlement) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastle*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: FindNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestVillage(Settlement)
+  nameWithType: SettlementNearestFinder.FindNearestVillage(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillage(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestVillage
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 52
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Finds the nearest village to the specified settlement using map distance (straight-line).
+  example: []
+  syntax:
+    content: public static Settlement FindNearestVillage(Settlement from)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest village, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestVillage(from As Settlement) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillage*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: FindNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestFortification(Settlement)
+  nameWithType: SettlementNearestFinder.FindNearestFortification(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortification(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestFortification
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 62
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Finds the nearest fortification (castle or town) to the specified settlement using map distance (straight-line).
+  example: []
+  syntax:
+    content: public static Settlement FindNearestFortification(Settlement from)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest castle or town, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestFortification(from As Settlement) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortification*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideoutByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideoutByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: FindNearestHideoutByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestHideoutByPath(Settlement, NavigationType)
+  nameWithType: SettlementNearestFinder.FindNearestHideoutByPath(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideoutByPath(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestHideoutByPath
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 78
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Finds the nearest hideout to the specified settlement using path distance (terrain-aware).
+
+    Slower than map distance but accounts for rivers, mountains, and other terrain obstacles.
+  example: []
+  syntax:
+    content: public static Settlement FindNearestHideoutByPath(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest hideout by path, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestHideoutByPath(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideoutByPath*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTownByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTownByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: FindNearestTownByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestTownByPath(Settlement, NavigationType)
+  nameWithType: SettlementNearestFinder.FindNearestTownByPath(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTownByPath(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestTownByPath
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 90
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Finds the nearest town to the specified settlement using path distance (terrain-aware).
+
+    Slower than map distance but accounts for rivers, mountains, and other terrain obstacles.
+  example: []
+  syntax:
+    content: public static Settlement FindNearestTownByPath(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest town by path, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestTownByPath(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTownByPath*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastleByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastleByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: FindNearestCastleByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestCastleByPath(Settlement, NavigationType)
+  nameWithType: SettlementNearestFinder.FindNearestCastleByPath(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastleByPath(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestCastleByPath
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Finds the nearest castle to the specified settlement using path distance (terrain-aware).
+
+    Slower than map distance but accounts for rivers, mountains, and other terrain obstacles.
+  example: []
+  syntax:
+    content: public static Settlement FindNearestCastleByPath(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest castle by path, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestCastleByPath(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastleByPath*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillageByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillageByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: FindNearestVillageByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestVillageByPath(Settlement, NavigationType)
+  nameWithType: SettlementNearestFinder.FindNearestVillageByPath(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillageByPath(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestVillageByPath
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 114
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Finds the nearest village to the specified settlement using path distance (terrain-aware).
+
+    Slower than map distance but accounts for rivers, mountains, and other terrain obstacles.
+  example: []
+  syntax:
+    content: public static Settlement FindNearestVillageByPath(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest village by path, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestVillageByPath(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillageByPath*
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortificationByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortificationByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  id: FindNearestFortificationByPath(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  parent: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  langs:
+  - csharp
+  - vb
+  name: FindNearestFortificationByPath(Settlement, NavigationType)
+  nameWithType: SettlementNearestFinder.FindNearestFortificationByPath(Settlement, MobileParty.NavigationType)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortificationByPath(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestFortificationByPath
+    path: ../Bannerlord.GameMaster/Settlements/SettlementNearestFinder.cs
+    startLine: 126
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Finds the nearest fortification (castle or town) to the specified settlement using path distance (terrain-aware).
+
+    Slower than map distance but accounts for rivers, mountains, and other terrain obstacles.
+  example: []
+  syntax:
+    content: public static Settlement FindNearestFortificationByPath(Settlement from, MobileParty.NavigationType navigationType = NavigationType.Default)
+    parameters:
+    - id: from
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The source settlement to measure from
+    - id: navigationType
+      type: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+      description: 'Navigation capability: Default (land), Naval (sea), or All (both)'
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest castle or town by path, or null if none found or from is null
+    content.vb: Public Shared Function FindNearestFortificationByPath(from As Settlement, navigationType As MobileParty.NavigationType = NavigationType.Default) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortificationByPath*
+references:
+- uid: Bannerlord.GameMaster.Settlements
+  commentId: N:Bannerlord.GameMaster.Settlements
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Settlements
+  nameWithType: Bannerlord.GameMaster.Settlements
+  fullName: Bannerlord.GameMaster.Settlements
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideout*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideout
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestHideout_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: FindNearestHideout
+  nameWithType: SettlementNearestFinder.FindNearestHideout
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideout
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTown*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTown
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestTown_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: FindNearestTown
+  nameWithType: SettlementNearestFinder.FindNearestTown
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTown
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastle*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastle
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestCastle_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: FindNearestCastle
+  nameWithType: SettlementNearestFinder.FindNearestCastle
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastle
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillage*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillage
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestVillage_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: FindNearestVillage
+  nameWithType: SettlementNearestFinder.FindNearestVillage
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillage
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortification*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortification
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestFortification_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: FindNearestFortification
+  nameWithType: SettlementNearestFinder.FindNearestFortification
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortification
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideoutByPath*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideoutByPath
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestHideoutByPath_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_
+  name: FindNearestHideoutByPath
+  nameWithType: SettlementNearestFinder.FindNearestHideoutByPath
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestHideoutByPath
+- uid: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+  commentId: T:TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+  parent: TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: MobileParty.NavigationType
+  nameWithType: MobileParty.NavigationType
+  fullName: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+  spec.csharp:
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+    name: NavigationType
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty.NavigationType
+    name: NavigationType
+    isExternal: true
+- uid: TaleWorlds.CampaignSystem.Party
+  commentId: N:TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Party
+  nameWithType: TaleWorlds.CampaignSystem.Party
+  fullName: TaleWorlds.CampaignSystem.Party
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTownByPath*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTownByPath
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestTownByPath_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_
+  name: FindNearestTownByPath
+  nameWithType: SettlementNearestFinder.FindNearestTownByPath
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestTownByPath
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastleByPath*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastleByPath
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestCastleByPath_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_
+  name: FindNearestCastleByPath
+  nameWithType: SettlementNearestFinder.FindNearestCastleByPath
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestCastleByPath
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillageByPath*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillageByPath
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestVillageByPath_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_
+  name: FindNearestVillageByPath
+  nameWithType: SettlementNearestFinder.FindNearestVillageByPath
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestVillageByPath
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortificationByPath*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortificationByPath
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html#Bannerlord_GameMaster_Settlements_SettlementNearestFinder_FindNearestFortificationByPath_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Party_MobileParty_NavigationType_
+  name: FindNearestFortificationByPath
+  nameWithType: SettlementNearestFinder.FindNearestFortificationByPath
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.FindNearestFortificationByPath

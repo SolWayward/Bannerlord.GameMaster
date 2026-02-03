@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  id: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  children:
+  - Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
+  - Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetAllSettlementNamesCommand
+  - Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetSettlementNameCommand
+  - Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.SetSettlementCultureCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
+  commentId: T:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
+  href: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.html
+  name: RenameSettlementCommand
+  nameWithType: RenameSettlementCommand
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetAllSettlementNamesCommand
+  commentId: T:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetAllSettlementNamesCommand
+  href: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetAllSettlementNamesCommand.html
+  name: ResetAllSettlementNamesCommand
+  nameWithType: ResetAllSettlementNamesCommand
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetAllSettlementNamesCommand
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetSettlementNameCommand
+  commentId: T:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetSettlementNameCommand
+  href: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetSettlementNameCommand.html
+  name: ResetSettlementNameCommand
+  nameWithType: ResetSettlementNameCommand
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetSettlementNameCommand
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.SetSettlementCultureCommand
+  commentId: T:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.SetSettlementCultureCommand
+  href: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.SetSettlementCultureCommand.html
+  name: SetSettlementCultureCommand
+  nameWithType: SetSettlementCultureCommand
+  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.SetSettlementCultureCommand

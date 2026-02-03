@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.DevCommands
+  commentId: N:Bannerlord.GameMaster.Console.DevCommands
+  id: Bannerlord.GameMaster.Console.DevCommands
+  children:
+  - Bannerlord.GameMaster.Console.DevCommands.CheckHeroesMatchesCharactersStringIdCommand
+  - Bannerlord.GameMaster.Console.DevCommands.DevCommandHelpers
+  - Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand
+  - Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
+  - Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
+  - Bannerlord.GameMaster.Console.DevCommands.GetPlayerCaptainPerksCommand
+  - Bannerlord.GameMaster.Console.DevCommands.ReinitializeBlgmObjectManagerCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.DevCommands
+  nameWithType: Bannerlord.GameMaster.Console.DevCommands
+  fullName: Bannerlord.GameMaster.Console.DevCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.DevCommands.CheckHeroesMatchesCharactersStringIdCommand
+  commentId: T:Bannerlord.GameMaster.Console.DevCommands.CheckHeroesMatchesCharactersStringIdCommand
+  href: Bannerlord.GameMaster.Console.DevCommands.CheckHeroesMatchesCharactersStringIdCommand.html
+  name: CheckHeroesMatchesCharactersStringIdCommand
+  nameWithType: CheckHeroesMatchesCharactersStringIdCommand
+  fullName: Bannerlord.GameMaster.Console.DevCommands.CheckHeroesMatchesCharactersStringIdCommand
+- uid: Bannerlord.GameMaster.Console.DevCommands.DevCommandHelpers
+  commentId: T:Bannerlord.GameMaster.Console.DevCommands.DevCommandHelpers
+  href: Bannerlord.GameMaster.Console.DevCommands.DevCommandHelpers.html
+  name: DevCommandHelpers
+  nameWithType: DevCommandHelpers
+  fullName: Bannerlord.GameMaster.Console.DevCommands.DevCommandHelpers
+- uid: Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand
+  commentId: T:Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand
+  href: Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand.html
+  name: DumpBannerColorsCommand
+  nameWithType: DumpBannerColorsCommand
+  fullName: Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand
+- uid: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
+  commentId: T:Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
+  href: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand.html
+  name: DumpEquipmentForFlagsCommand
+  nameWithType: DumpEquipmentForFlagsCommand
+  fullName: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
+- uid: Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
+  commentId: T:Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
+  href: Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand.html
+  name: DumpHotkeyCategoriesCommand
+  nameWithType: DumpHotkeyCategoriesCommand
+  fullName: Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
+- uid: Bannerlord.GameMaster.Console.DevCommands.GetPlayerCaptainPerksCommand
+  commentId: T:Bannerlord.GameMaster.Console.DevCommands.GetPlayerCaptainPerksCommand
+  href: Bannerlord.GameMaster.Console.DevCommands.GetPlayerCaptainPerksCommand.html
+  name: GetPlayerCaptainPerksCommand
+  nameWithType: GetPlayerCaptainPerksCommand
+  fullName: Bannerlord.GameMaster.Console.DevCommands.GetPlayerCaptainPerksCommand
+- uid: Bannerlord.GameMaster.Console.DevCommands.ReinitializeBlgmObjectManagerCommand
+  commentId: T:Bannerlord.GameMaster.Console.DevCommands.ReinitializeBlgmObjectManagerCommand
+  href: Bannerlord.GameMaster.Console.DevCommands.ReinitializeBlgmObjectManagerCommand.html
+  name: ReinitializeBlgmObjectManagerCommand
+  nameWithType: ReinitializeBlgmObjectManagerCommand
+  fullName: Bannerlord.GameMaster.Console.DevCommands.ReinitializeBlgmObjectManagerCommand

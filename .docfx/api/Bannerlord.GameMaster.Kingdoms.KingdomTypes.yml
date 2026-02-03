@@ -1,0 +1,239 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  id: KingdomTypes
+  parent: Bannerlord.GameMaster.Kingdoms
+  children:
+  - Bannerlord.GameMaster.Kingdoms.KingdomTypes.Active
+  - Bannerlord.GameMaster.Kingdoms.KingdomTypes.AtWar
+  - Bannerlord.GameMaster.Kingdoms.KingdomTypes.Eliminated
+  - Bannerlord.GameMaster.Kingdoms.KingdomTypes.Empty
+  - Bannerlord.GameMaster.Kingdoms.KingdomTypes.None
+  - Bannerlord.GameMaster.Kingdoms.KingdomTypes.PlayerKingdom
+  langs:
+  - csharp
+  - vb
+  name: KingdomTypes
+  nameWithType: KingdomTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: KingdomTypes
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum KingdomTypes
+    content.vb: >-
+      <Flags>
+
+      Public Enum KingdomTypes
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes.None
+  commentId: F:Bannerlord.GameMaster.Kingdoms.KingdomTypes.None
+  id: None
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: KingdomTypes.None
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes.Active
+  commentId: F:Bannerlord.GameMaster.Kingdoms.KingdomTypes.Active
+  id: Active
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  langs:
+  - csharp
+  - vb
+  name: Active
+  nameWithType: KingdomTypes.Active
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes.Active
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Active
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: Active = 1
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes.Eliminated
+  commentId: F:Bannerlord.GameMaster.Kingdoms.KingdomTypes.Eliminated
+  id: Eliminated
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  langs:
+  - csharp
+  - vb
+  name: Eliminated
+  nameWithType: KingdomTypes.Eliminated
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes.Eliminated
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Eliminated
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: Eliminated = 2
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes.Empty
+  commentId: F:Bannerlord.GameMaster.Kingdoms.KingdomTypes.Empty
+  id: Empty
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: KingdomTypes.Empty
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes.Empty
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Empty
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: Empty = 4
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes.PlayerKingdom
+  commentId: F:Bannerlord.GameMaster.Kingdoms.KingdomTypes.PlayerKingdom
+  id: PlayerKingdom
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  langs:
+  - csharp
+  - vb
+  name: PlayerKingdom
+  nameWithType: KingdomTypes.PlayerKingdom
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes.PlayerKingdom
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: PlayerKingdom
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: PlayerKingdom = 8
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes.AtWar
+  commentId: F:Bannerlord.GameMaster.Kingdoms.KingdomTypes.AtWar
+  id: AtWar
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  langs:
+  - csharp
+  - vb
+  name: AtWar
+  nameWithType: KingdomTypes.AtWar
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes.AtWar
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AtWar
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: AtWar = 16
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+references:
+- uid: Bannerlord.GameMaster.Kingdoms
+  commentId: N:Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Kingdoms
+  nameWithType: Bannerlord.GameMaster.Kingdoms
+  fullName: Bannerlord.GameMaster.Kingdoms
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  parent: Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  name: KingdomTypes
+  nameWithType: KingdomTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes

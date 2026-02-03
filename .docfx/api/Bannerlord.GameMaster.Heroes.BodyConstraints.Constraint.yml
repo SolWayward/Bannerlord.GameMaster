@@ -1,0 +1,440 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  commentId: T:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  id: BodyConstraints.Constraint
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor(System.Single,System.Single)
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Maximum
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Minimum
+  langs:
+  - csharp
+  - vb
+  name: BodyConstraints.Constraint
+  nameWithType: BodyConstraints.Constraint
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  type: Struct
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Constraint
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 75
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public struct BodyConstraints.Constraint
+    content.vb: Public Structure BodyConstraints.Constraint
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Minimum
+  commentId: P:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Minimum
+  id: Minimum
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  langs:
+  - csharp
+  - vb
+  name: Minimum
+  nameWithType: BodyConstraints.Constraint.Minimum
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Minimum
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Minimum
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 80
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public float Minimum { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Minimum As Single
+  overload: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Minimum*
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Maximum
+  commentId: P:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Maximum
+  id: Maximum
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  langs:
+  - csharp
+  - vb
+  name: Maximum
+  nameWithType: BodyConstraints.Constraint.Maximum
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Maximum
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Maximum
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 86
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public float Maximum { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Maximum As Single
+  overload: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Maximum*
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor
+  commentId: M:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  langs:
+  - csharp
+  - vb
+  name: Constraint()
+  nameWithType: BodyConstraints.Constraint.Constraint()
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Constraint()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 92
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public Constraint()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor*
+  nameWithType.vb: BodyConstraints.Constraint.New()
+  fullName.vb: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.New()
+  name.vb: New()
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor(System.Single,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor(System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single)'
+  parent: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  langs:
+  - csharp
+  - vb
+  name: Constraint(float, float)
+  nameWithType: BodyConstraints.Constraint.Constraint(float, float)
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Constraint(float, float)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/BodyConstraints.cs
+    startLine: 98
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public Constraint(float min, float max)
+    parameters:
+    - id: min
+      type: System.Single
+    - id: max
+      type: System.Single
+    content.vb: Public Sub New(min As Single, max As Single)
+  overload: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor*
+  nameWithType.vb: BodyConstraints.Constraint.New(Single, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.New(Single, Single)
+  name.vb: New(Single, Single)
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Minimum*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Minimum
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html#Bannerlord_GameMaster_Heroes_BodyConstraints_Constraint_Minimum
+  name: Minimum
+  nameWithType: BodyConstraints.Constraint.Minimum
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Minimum
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Maximum*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Maximum
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html#Bannerlord_GameMaster_Heroes_BodyConstraints_Constraint_Maximum
+  name: Maximum
+  nameWithType: BodyConstraints.Constraint.Maximum
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Maximum
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.#ctor
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html#Bannerlord_GameMaster_Heroes_BodyConstraints_Constraint__ctor
+  name: Constraint
+  nameWithType: BodyConstraints.Constraint.Constraint
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.Constraint
+  nameWithType.vb: BodyConstraints.Constraint.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.New
+  name.vb: New

@@ -1,0 +1,1481 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.SubModule
+  commentId: T:Bannerlord.GameMaster.SubModule
+  id: SubModule
+  parent: Bannerlord.GameMaster
+  children:
+  - Bannerlord.GameMaster.SubModule.OnApplicationTick(System.Single)
+  - Bannerlord.GameMaster.SubModule.OnBeforeInitialModuleScreenSetAsRoot
+  - Bannerlord.GameMaster.SubModule.OnGameEnd(TaleWorlds.Core.Game)
+  - Bannerlord.GameMaster.SubModule.OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  - Bannerlord.GameMaster.SubModule.OnSubModuleLoad
+  - Bannerlord.GameMaster.SubModule.OnSubModuleUnloaded
+  langs:
+  - csharp
+  - vb
+  name: SubModule
+  nameWithType: SubModule
+  fullName: Bannerlord.GameMaster.SubModule
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SubModule.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SubModule
+    path: ../Bannerlord.GameMaster/SubModule.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: 'public class SubModule : MBSubModuleBase'
+    content.vb: Public Class SubModule Inherits MBSubModuleBase
+  inheritance:
+  - System.Object
+  - TaleWorlds.MountAndBlade.MBSubModuleBase
+  inheritedMembers:
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleTypes
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewModuleLoad
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnConfigChanged
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeGameStart(TaleWorlds.MountAndBlade.MBGameManager,System.Collections.Generic.List{System.String})
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.AfterAsyncTickTick(System.Single)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeGameStarter(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameLoaded(TaleWorlds.Core.Game,System.Object)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameLoaded(TaleWorlds.Core.Game)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewGameCreated(TaleWorlds.Core.Game,System.Object)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.BeginGameStart(TaleWorlds.Core.Game)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnCampaignStart(TaleWorlds.Core.Game,System.Object)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleObjects(System.Boolean)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.AfterRegisterSubModuleObjects(System.Boolean)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnMultiplayerGameStart(TaleWorlds.Core.Game,System.Object)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameInitializationFinished(TaleWorlds.Core.Game)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameInitializationFinished(TaleWorlds.Core.Game,System.Object)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.DoLoading(TaleWorlds.Core.Game)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnInitialState
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnNetworkTick(System.Single)
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleActivated
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleDeactivated
+  - TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeSubModuleGameObjects(TaleWorlds.Core.Game)
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.SubModule.OnSubModuleLoad
+  commentId: M:Bannerlord.GameMaster.SubModule.OnSubModuleLoad
+  id: OnSubModuleLoad
+  parent: Bannerlord.GameMaster.SubModule
+  langs:
+  - csharp
+  - vb
+  name: OnSubModuleLoad()
+  nameWithType: SubModule.OnSubModuleLoad()
+  fullName: Bannerlord.GameMaster.SubModule.OnSubModuleLoad()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SubModule.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnSubModuleLoad
+    path: ../Bannerlord.GameMaster/SubModule.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  example: []
+  syntax:
+    content: protected override void OnSubModuleLoad()
+    content.vb: Protected Overrides Sub OnSubModuleLoad()
+  overridden: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleLoad
+  overload: Bannerlord.GameMaster.SubModule.OnSubModuleLoad*
+- uid: Bannerlord.GameMaster.SubModule.OnSubModuleUnloaded
+  commentId: M:Bannerlord.GameMaster.SubModule.OnSubModuleUnloaded
+  id: OnSubModuleUnloaded
+  parent: Bannerlord.GameMaster.SubModule
+  langs:
+  - csharp
+  - vb
+  name: OnSubModuleUnloaded()
+  nameWithType: SubModule.OnSubModuleUnloaded()
+  fullName: Bannerlord.GameMaster.SubModule.OnSubModuleUnloaded()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SubModule.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnSubModuleUnloaded
+    path: ../Bannerlord.GameMaster/SubModule.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  example: []
+  syntax:
+    content: protected override void OnSubModuleUnloaded()
+    content.vb: Protected Overrides Sub OnSubModuleUnloaded()
+  overridden: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleUnloaded
+  overload: Bannerlord.GameMaster.SubModule.OnSubModuleUnloaded*
+- uid: Bannerlord.GameMaster.SubModule.OnBeforeInitialModuleScreenSetAsRoot
+  commentId: M:Bannerlord.GameMaster.SubModule.OnBeforeInitialModuleScreenSetAsRoot
+  id: OnBeforeInitialModuleScreenSetAsRoot
+  parent: Bannerlord.GameMaster.SubModule
+  langs:
+  - csharp
+  - vb
+  name: OnBeforeInitialModuleScreenSetAsRoot()
+  nameWithType: SubModule.OnBeforeInitialModuleScreenSetAsRoot()
+  fullName: Bannerlord.GameMaster.SubModule.OnBeforeInitialModuleScreenSetAsRoot()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SubModule.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnBeforeInitialModuleScreenSetAsRoot
+    path: ../Bannerlord.GameMaster/SubModule.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  example: []
+  syntax:
+    content: protected override void OnBeforeInitialModuleScreenSetAsRoot()
+    content.vb: Protected Overrides Sub OnBeforeInitialModuleScreenSetAsRoot()
+  overridden: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeInitialModuleScreenSetAsRoot
+  overload: Bannerlord.GameMaster.SubModule.OnBeforeInitialModuleScreenSetAsRoot*
+- uid: Bannerlord.GameMaster.SubModule.OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  commentId: M:Bannerlord.GameMaster.SubModule.OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  id: OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  parent: Bannerlord.GameMaster.SubModule
+  langs:
+  - csharp
+  - vb
+  name: OnGameStart(Game, IGameStarter)
+  nameWithType: SubModule.OnGameStart(Game, IGameStarter)
+  fullName: Bannerlord.GameMaster.SubModule.OnGameStart(TaleWorlds.Core.Game, TaleWorlds.Core.IGameStarter)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SubModule.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnGameStart
+    path: ../Bannerlord.GameMaster/SubModule.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  example: []
+  syntax:
+    content: protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+    parameters:
+    - id: game
+      type: TaleWorlds.Core.Game
+    - id: gameStarterObject
+      type: TaleWorlds.Core.IGameStarter
+    content.vb: Protected Overrides Sub OnGameStart(game As Game, gameStarterObject As IGameStarter)
+  overridden: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  overload: Bannerlord.GameMaster.SubModule.OnGameStart*
+- uid: Bannerlord.GameMaster.SubModule.OnGameEnd(TaleWorlds.Core.Game)
+  commentId: M:Bannerlord.GameMaster.SubModule.OnGameEnd(TaleWorlds.Core.Game)
+  id: OnGameEnd(TaleWorlds.Core.Game)
+  parent: Bannerlord.GameMaster.SubModule
+  langs:
+  - csharp
+  - vb
+  name: OnGameEnd(Game)
+  nameWithType: SubModule.OnGameEnd(Game)
+  fullName: Bannerlord.GameMaster.SubModule.OnGameEnd(TaleWorlds.Core.Game)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SubModule.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnGameEnd
+    path: ../Bannerlord.GameMaster/SubModule.cs
+    startLine: 52
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  example: []
+  syntax:
+    content: public override void OnGameEnd(Game game)
+    parameters:
+    - id: game
+      type: TaleWorlds.Core.Game
+    content.vb: Public Overrides Sub OnGameEnd(game As Game)
+  overridden: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameEnd(TaleWorlds.Core.Game)
+  overload: Bannerlord.GameMaster.SubModule.OnGameEnd*
+- uid: Bannerlord.GameMaster.SubModule.OnApplicationTick(System.Single)
+  commentId: M:Bannerlord.GameMaster.SubModule.OnApplicationTick(System.Single)
+  id: OnApplicationTick(System.Single)
+  parent: Bannerlord.GameMaster.SubModule
+  langs:
+  - csharp
+  - vb
+  name: OnApplicationTick(float)
+  nameWithType: SubModule.OnApplicationTick(float)
+  fullName: Bannerlord.GameMaster.SubModule.OnApplicationTick(float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SubModule.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnApplicationTick
+    path: ../Bannerlord.GameMaster/SubModule.cs
+    startLine: 67
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Executes every frame
+  example: []
+  syntax:
+    content: protected override void OnApplicationTick(float dt)
+    parameters:
+    - id: dt
+      type: System.Single
+      description: 'Delta Time: Time since last frame'
+    content.vb: Protected Overrides Sub OnApplicationTick(dt As Single)
+  overridden: TaleWorlds.MountAndBlade.MBSubModuleBase.OnApplicationTick(System.Single)
+  overload: Bannerlord.GameMaster.SubModule.OnApplicationTick*
+  nameWithType.vb: SubModule.OnApplicationTick(Single)
+  fullName.vb: Bannerlord.GameMaster.SubModule.OnApplicationTick(Single)
+  name.vb: OnApplicationTick(Single)
+references:
+- uid: Bannerlord.GameMaster
+  commentId: N:Bannerlord.GameMaster
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster
+  nameWithType: Bannerlord.GameMaster
+  fullName: Bannerlord.GameMaster
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase
+  commentId: T:TaleWorlds.MountAndBlade.MBSubModuleBase
+  parent: TaleWorlds.MountAndBlade
+  isExternal: true
+  name: MBSubModuleBase
+  nameWithType: MBSubModuleBase
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleTypes
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleTypes
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: RegisterSubModuleTypes()
+  nameWithType: MBSubModuleBase.RegisterSubModuleTypes()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleTypes()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleTypes
+    name: RegisterSubModuleTypes
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleTypes
+    name: RegisterSubModuleTypes
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewModuleLoad
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewModuleLoad
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnNewModuleLoad()
+  nameWithType: MBSubModuleBase.OnNewModuleLoad()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewModuleLoad()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewModuleLoad
+    name: OnNewModuleLoad
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewModuleLoad
+    name: OnNewModuleLoad
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnConfigChanged
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnConfigChanged
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnConfigChanged()
+  nameWithType: MBSubModuleBase.OnConfigChanged()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnConfigChanged()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnConfigChanged
+    name: OnConfigChanged
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnConfigChanged
+    name: OnConfigChanged
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeGameStart(TaleWorlds.MountAndBlade.MBGameManager,System.Collections.Generic.List{System.String})
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeGameStart(TaleWorlds.MountAndBlade.MBGameManager,System.Collections.Generic.List{System.String})
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: OnBeforeGameStart(MBGameManager, List<string>)
+  nameWithType: MBSubModuleBase.OnBeforeGameStart(MBGameManager, List<string>)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeGameStart(TaleWorlds.MountAndBlade.MBGameManager, System.Collections.Generic.List<string>)
+  nameWithType.vb: MBSubModuleBase.OnBeforeGameStart(MBGameManager, List(Of String))
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeGameStart(TaleWorlds.MountAndBlade.MBGameManager, System.Collections.Generic.List(Of String))
+  name.vb: OnBeforeGameStart(MBGameManager, List(Of String))
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeGameStart(TaleWorlds.MountAndBlade.MBGameManager,System.Collections.Generic.List{System.String})
+    name: OnBeforeGameStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.MountAndBlade.MBGameManager
+    name: MBGameManager
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeGameStart(TaleWorlds.MountAndBlade.MBGameManager,System.Collections.Generic.List{System.String})
+    name: OnBeforeGameStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.MountAndBlade.MBGameManager
+    name: MBGameManager
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterAsyncTickTick(System.Single)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.AfterAsyncTickTick(System.Single)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: AfterAsyncTickTick(float)
+  nameWithType: MBSubModuleBase.AfterAsyncTickTick(float)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterAsyncTickTick(float)
+  nameWithType.vb: MBSubModuleBase.AfterAsyncTickTick(Single)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterAsyncTickTick(Single)
+  name.vb: AfterAsyncTickTick(Single)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterAsyncTickTick(System.Single)
+    name: AfterAsyncTickTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterAsyncTickTick(System.Single)
+    name: AfterAsyncTickTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeGameStarter(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeGameStarter(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: InitializeGameStarter(Game, IGameStarter)
+  nameWithType: MBSubModuleBase.InitializeGameStarter(Game, IGameStarter)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeGameStarter(TaleWorlds.Core.Game, TaleWorlds.Core.IGameStarter)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeGameStarter(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+    name: InitializeGameStarter
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Core.IGameStarter
+    name: IGameStarter
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeGameStarter(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+    name: InitializeGameStarter
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Core.IGameStarter
+    name: IGameStarter
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameLoaded(TaleWorlds.Core.Game,System.Object)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameLoaded(TaleWorlds.Core.Game,System.Object)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: OnGameLoaded(Game, object)
+  nameWithType: MBSubModuleBase.OnGameLoaded(Game, object)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameLoaded(TaleWorlds.Core.Game, object)
+  nameWithType.vb: MBSubModuleBase.OnGameLoaded(Game, Object)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameLoaded(TaleWorlds.Core.Game, Object)
+  name.vb: OnGameLoaded(Game, Object)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameLoaded(TaleWorlds.Core.Game,System.Object)
+    name: OnGameLoaded
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameLoaded(TaleWorlds.Core.Game,System.Object)
+    name: OnGameLoaded
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameLoaded(TaleWorlds.Core.Game)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameLoaded(TaleWorlds.Core.Game)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnAfterGameLoaded(Game)
+  nameWithType: MBSubModuleBase.OnAfterGameLoaded(Game)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameLoaded(TaleWorlds.Core.Game)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameLoaded(TaleWorlds.Core.Game)
+    name: OnAfterGameLoaded
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameLoaded(TaleWorlds.Core.Game)
+    name: OnAfterGameLoaded
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewGameCreated(TaleWorlds.Core.Game,System.Object)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewGameCreated(TaleWorlds.Core.Game,System.Object)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: OnNewGameCreated(Game, object)
+  nameWithType: MBSubModuleBase.OnNewGameCreated(Game, object)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewGameCreated(TaleWorlds.Core.Game, object)
+  nameWithType.vb: MBSubModuleBase.OnNewGameCreated(Game, Object)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewGameCreated(TaleWorlds.Core.Game, Object)
+  name.vb: OnNewGameCreated(Game, Object)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewGameCreated(TaleWorlds.Core.Game,System.Object)
+    name: OnNewGameCreated
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNewGameCreated(TaleWorlds.Core.Game,System.Object)
+    name: OnNewGameCreated
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.BeginGameStart(TaleWorlds.Core.Game)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.BeginGameStart(TaleWorlds.Core.Game)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: BeginGameStart(Game)
+  nameWithType: MBSubModuleBase.BeginGameStart(Game)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.BeginGameStart(TaleWorlds.Core.Game)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.BeginGameStart(TaleWorlds.Core.Game)
+    name: BeginGameStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.BeginGameStart(TaleWorlds.Core.Game)
+    name: BeginGameStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnCampaignStart(TaleWorlds.Core.Game,System.Object)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnCampaignStart(TaleWorlds.Core.Game,System.Object)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: OnCampaignStart(Game, object)
+  nameWithType: MBSubModuleBase.OnCampaignStart(Game, object)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnCampaignStart(TaleWorlds.Core.Game, object)
+  nameWithType.vb: MBSubModuleBase.OnCampaignStart(Game, Object)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.OnCampaignStart(TaleWorlds.Core.Game, Object)
+  name.vb: OnCampaignStart(Game, Object)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnCampaignStart(TaleWorlds.Core.Game,System.Object)
+    name: OnCampaignStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnCampaignStart(TaleWorlds.Core.Game,System.Object)
+    name: OnCampaignStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleObjects(System.Boolean)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleObjects(System.Boolean)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: RegisterSubModuleObjects(bool)
+  nameWithType: MBSubModuleBase.RegisterSubModuleObjects(bool)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleObjects(bool)
+  nameWithType.vb: MBSubModuleBase.RegisterSubModuleObjects(Boolean)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleObjects(Boolean)
+  name.vb: RegisterSubModuleObjects(Boolean)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleObjects(System.Boolean)
+    name: RegisterSubModuleObjects
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.RegisterSubModuleObjects(System.Boolean)
+    name: RegisterSubModuleObjects
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterRegisterSubModuleObjects(System.Boolean)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.AfterRegisterSubModuleObjects(System.Boolean)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: AfterRegisterSubModuleObjects(bool)
+  nameWithType: MBSubModuleBase.AfterRegisterSubModuleObjects(bool)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterRegisterSubModuleObjects(bool)
+  nameWithType.vb: MBSubModuleBase.AfterRegisterSubModuleObjects(Boolean)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterRegisterSubModuleObjects(Boolean)
+  name.vb: AfterRegisterSubModuleObjects(Boolean)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterRegisterSubModuleObjects(System.Boolean)
+    name: AfterRegisterSubModuleObjects
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.AfterRegisterSubModuleObjects(System.Boolean)
+    name: AfterRegisterSubModuleObjects
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMultiplayerGameStart(TaleWorlds.Core.Game,System.Object)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnMultiplayerGameStart(TaleWorlds.Core.Game,System.Object)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: OnMultiplayerGameStart(Game, object)
+  nameWithType: MBSubModuleBase.OnMultiplayerGameStart(Game, object)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMultiplayerGameStart(TaleWorlds.Core.Game, object)
+  nameWithType.vb: MBSubModuleBase.OnMultiplayerGameStart(Game, Object)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMultiplayerGameStart(TaleWorlds.Core.Game, Object)
+  name.vb: OnMultiplayerGameStart(Game, Object)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMultiplayerGameStart(TaleWorlds.Core.Game,System.Object)
+    name: OnMultiplayerGameStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMultiplayerGameStart(TaleWorlds.Core.Game,System.Object)
+    name: OnMultiplayerGameStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameInitializationFinished(TaleWorlds.Core.Game)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameInitializationFinished(TaleWorlds.Core.Game)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnGameInitializationFinished(Game)
+  nameWithType: MBSubModuleBase.OnGameInitializationFinished(Game)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameInitializationFinished(TaleWorlds.Core.Game)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameInitializationFinished(TaleWorlds.Core.Game)
+    name: OnGameInitializationFinished
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameInitializationFinished(TaleWorlds.Core.Game)
+    name: OnGameInitializationFinished
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameInitializationFinished(TaleWorlds.Core.Game,System.Object)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameInitializationFinished(TaleWorlds.Core.Game,System.Object)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: OnAfterGameInitializationFinished(Game, object)
+  nameWithType: MBSubModuleBase.OnAfterGameInitializationFinished(Game, object)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameInitializationFinished(TaleWorlds.Core.Game, object)
+  nameWithType.vb: MBSubModuleBase.OnAfterGameInitializationFinished(Game, Object)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameInitializationFinished(TaleWorlds.Core.Game, Object)
+  name.vb: OnAfterGameInitializationFinished(Game, Object)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameInitializationFinished(TaleWorlds.Core.Game,System.Object)
+    name: OnAfterGameInitializationFinished
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnAfterGameInitializationFinished(TaleWorlds.Core.Game,System.Object)
+    name: OnAfterGameInitializationFinished
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.DoLoading(TaleWorlds.Core.Game)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.DoLoading(TaleWorlds.Core.Game)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: DoLoading(Game)
+  nameWithType: MBSubModuleBase.DoLoading(Game)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.DoLoading(TaleWorlds.Core.Game)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.DoLoading(TaleWorlds.Core.Game)
+    name: DoLoading
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.DoLoading(TaleWorlds.Core.Game)
+    name: DoLoading
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnMissionBehaviorInitialize(Mission)
+  nameWithType: MBSubModuleBase.OnMissionBehaviorInitialize(Mission)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+    name: OnMissionBehaviorInitialize
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.MountAndBlade.Mission
+    name: Mission
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+    name: OnMissionBehaviorInitialize
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.MountAndBlade.Mission
+    name: Mission
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnBeforeMissionBehaviorInitialize(Mission)
+  nameWithType: MBSubModuleBase.OnBeforeMissionBehaviorInitialize(Mission)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+    name: OnBeforeMissionBehaviorInitialize
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.MountAndBlade.Mission
+    name: Mission
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeMissionBehaviorInitialize(TaleWorlds.MountAndBlade.Mission)
+    name: OnBeforeMissionBehaviorInitialize
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.MountAndBlade.Mission
+    name: Mission
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnInitialState
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnInitialState
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnInitialState()
+  nameWithType: MBSubModuleBase.OnInitialState()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnInitialState()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnInitialState
+    name: OnInitialState
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnInitialState
+    name: OnInitialState
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNetworkTick(System.Single)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnNetworkTick(System.Single)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: OnNetworkTick(float)
+  nameWithType: MBSubModuleBase.OnNetworkTick(float)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNetworkTick(float)
+  nameWithType.vb: MBSubModuleBase.OnNetworkTick(Single)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNetworkTick(Single)
+  name.vb: OnNetworkTick(Single)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNetworkTick(System.Single)
+    name: OnNetworkTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnNetworkTick(System.Single)
+    name: OnNetworkTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleActivated
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleActivated
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnSubModuleActivated()
+  nameWithType: MBSubModuleBase.OnSubModuleActivated()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleActivated()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleActivated
+    name: OnSubModuleActivated
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleActivated
+    name: OnSubModuleActivated
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleDeactivated
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleDeactivated
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnSubModuleDeactivated()
+  nameWithType: MBSubModuleBase.OnSubModuleDeactivated()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleDeactivated()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleDeactivated
+    name: OnSubModuleDeactivated
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleDeactivated
+    name: OnSubModuleDeactivated
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeSubModuleGameObjects(TaleWorlds.Core.Game)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeSubModuleGameObjects(TaleWorlds.Core.Game)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: InitializeSubModuleGameObjects(Game)
+  nameWithType: MBSubModuleBase.InitializeSubModuleGameObjects(Game)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeSubModuleGameObjects(TaleWorlds.Core.Game)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeSubModuleGameObjects(TaleWorlds.Core.Game)
+    name: InitializeSubModuleGameObjects
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.InitializeSubModuleGameObjects(TaleWorlds.Core.Game)
+    name: InitializeSubModuleGameObjects
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TaleWorlds.MountAndBlade
+  commentId: N:TaleWorlds.MountAndBlade
+  isExternal: true
+  name: TaleWorlds.MountAndBlade
+  nameWithType: TaleWorlds.MountAndBlade
+  fullName: TaleWorlds.MountAndBlade
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.MountAndBlade
+    name: MountAndBlade
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.MountAndBlade
+    name: MountAndBlade
+    isExternal: true
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleLoad
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleLoad
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnSubModuleLoad()
+  nameWithType: MBSubModuleBase.OnSubModuleLoad()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleLoad()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleLoad
+    name: OnSubModuleLoad
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleLoad
+    name: OnSubModuleLoad
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.SubModule.OnSubModuleLoad*
+  commentId: Overload:Bannerlord.GameMaster.SubModule.OnSubModuleLoad
+  href: Bannerlord.GameMaster.SubModule.html#Bannerlord_GameMaster_SubModule_OnSubModuleLoad
+  name: OnSubModuleLoad
+  nameWithType: SubModule.OnSubModuleLoad
+  fullName: Bannerlord.GameMaster.SubModule.OnSubModuleLoad
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleUnloaded
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleUnloaded
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnSubModuleUnloaded()
+  nameWithType: MBSubModuleBase.OnSubModuleUnloaded()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleUnloaded()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleUnloaded
+    name: OnSubModuleUnloaded
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnSubModuleUnloaded
+    name: OnSubModuleUnloaded
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.SubModule.OnSubModuleUnloaded*
+  commentId: Overload:Bannerlord.GameMaster.SubModule.OnSubModuleUnloaded
+  href: Bannerlord.GameMaster.SubModule.html#Bannerlord_GameMaster_SubModule_OnSubModuleUnloaded
+  name: OnSubModuleUnloaded
+  nameWithType: SubModule.OnSubModuleUnloaded
+  fullName: Bannerlord.GameMaster.SubModule.OnSubModuleUnloaded
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeInitialModuleScreenSetAsRoot
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeInitialModuleScreenSetAsRoot
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnBeforeInitialModuleScreenSetAsRoot()
+  nameWithType: MBSubModuleBase.OnBeforeInitialModuleScreenSetAsRoot()
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeInitialModuleScreenSetAsRoot()
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeInitialModuleScreenSetAsRoot
+    name: OnBeforeInitialModuleScreenSetAsRoot
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnBeforeInitialModuleScreenSetAsRoot
+    name: OnBeforeInitialModuleScreenSetAsRoot
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.SubModule.OnBeforeInitialModuleScreenSetAsRoot*
+  commentId: Overload:Bannerlord.GameMaster.SubModule.OnBeforeInitialModuleScreenSetAsRoot
+  href: Bannerlord.GameMaster.SubModule.html#Bannerlord_GameMaster_SubModule_OnBeforeInitialModuleScreenSetAsRoot
+  name: OnBeforeInitialModuleScreenSetAsRoot
+  nameWithType: SubModule.OnBeforeInitialModuleScreenSetAsRoot
+  fullName: Bannerlord.GameMaster.SubModule.OnBeforeInitialModuleScreenSetAsRoot
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnGameStart(Game, IGameStarter)
+  nameWithType: MBSubModuleBase.OnGameStart(Game, IGameStarter)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameStart(TaleWorlds.Core.Game, TaleWorlds.Core.IGameStarter)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+    name: OnGameStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Core.IGameStarter
+    name: IGameStarter
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameStart(TaleWorlds.Core.Game,TaleWorlds.Core.IGameStarter)
+    name: OnGameStart
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Core.IGameStarter
+    name: IGameStarter
+    isExternal: true
+  - name: )
+- uid: Bannerlord.GameMaster.SubModule.OnGameStart*
+  commentId: Overload:Bannerlord.GameMaster.SubModule.OnGameStart
+  href: Bannerlord.GameMaster.SubModule.html#Bannerlord_GameMaster_SubModule_OnGameStart_TaleWorlds_Core_Game_TaleWorlds_Core_IGameStarter_
+  name: OnGameStart
+  nameWithType: SubModule.OnGameStart
+  fullName: Bannerlord.GameMaster.SubModule.OnGameStart
+- uid: TaleWorlds.Core.Game
+  commentId: T:TaleWorlds.Core.Game
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: Game
+  nameWithType: Game
+  fullName: TaleWorlds.Core.Game
+- uid: TaleWorlds.Core.IGameStarter
+  commentId: T:TaleWorlds.Core.IGameStarter
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: IGameStarter
+  nameWithType: IGameStarter
+  fullName: TaleWorlds.Core.IGameStarter
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameEnd(TaleWorlds.Core.Game)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameEnd(TaleWorlds.Core.Game)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  name: OnGameEnd(Game)
+  nameWithType: MBSubModuleBase.OnGameEnd(Game)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameEnd(TaleWorlds.Core.Game)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameEnd(TaleWorlds.Core.Game)
+    name: OnGameEnd
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnGameEnd(TaleWorlds.Core.Game)
+    name: OnGameEnd
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.Core.Game
+    name: Game
+    isExternal: true
+  - name: )
+- uid: Bannerlord.GameMaster.SubModule.OnGameEnd*
+  commentId: Overload:Bannerlord.GameMaster.SubModule.OnGameEnd
+  href: Bannerlord.GameMaster.SubModule.html#Bannerlord_GameMaster_SubModule_OnGameEnd_TaleWorlds_Core_Game_
+  name: OnGameEnd
+  nameWithType: SubModule.OnGameEnd
+  fullName: Bannerlord.GameMaster.SubModule.OnGameEnd
+- uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnApplicationTick(System.Single)
+  commentId: M:TaleWorlds.MountAndBlade.MBSubModuleBase.OnApplicationTick(System.Single)
+  parent: TaleWorlds.MountAndBlade.MBSubModuleBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: OnApplicationTick(float)
+  nameWithType: MBSubModuleBase.OnApplicationTick(float)
+  fullName: TaleWorlds.MountAndBlade.MBSubModuleBase.OnApplicationTick(float)
+  nameWithType.vb: MBSubModuleBase.OnApplicationTick(Single)
+  fullName.vb: TaleWorlds.MountAndBlade.MBSubModuleBase.OnApplicationTick(Single)
+  name.vb: OnApplicationTick(Single)
+  spec.csharp:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnApplicationTick(System.Single)
+    name: OnApplicationTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.MountAndBlade.MBSubModuleBase.OnApplicationTick(System.Single)
+    name: OnApplicationTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Bannerlord.GameMaster.SubModule.OnApplicationTick*
+  commentId: Overload:Bannerlord.GameMaster.SubModule.OnApplicationTick
+  href: Bannerlord.GameMaster.SubModule.html#Bannerlord_GameMaster_SubModule_OnApplicationTick_System_Single_
+  name: OnApplicationTick
+  nameWithType: SubModule.OnApplicationTick
+  fullName: Bannerlord.GameMaster.SubModule.OnApplicationTick
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

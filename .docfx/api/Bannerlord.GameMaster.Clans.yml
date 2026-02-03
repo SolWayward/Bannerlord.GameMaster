@@ -1,0 +1,89 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Clans
+  commentId: N:Bannerlord.GameMaster.Clans
+  id: Bannerlord.GameMaster.Clans
+  children:
+  - Bannerlord.GameMaster.Clans.ClanCreationHelpers
+  - Bannerlord.GameMaster.Clans.ClanExtensions
+  - Bannerlord.GameMaster.Clans.ClanExtensionsWrapper
+  - Bannerlord.GameMaster.Clans.ClanGenerator
+  - Bannerlord.GameMaster.Clans.ClanQueries
+  - Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Clans
+  nameWithType: Bannerlord.GameMaster.Clans
+  fullName: Bannerlord.GameMaster.Clans
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Clans.ClanCreationHelpers
+  commentId: T:Bannerlord.GameMaster.Clans.ClanCreationHelpers
+  href: Bannerlord.GameMaster.Clans.ClanCreationHelpers.html
+  name: ClanCreationHelpers
+  nameWithType: ClanCreationHelpers
+  fullName: Bannerlord.GameMaster.Clans.ClanCreationHelpers
+- uid: Bannerlord.GameMaster.Clans.ClanTypes
+  commentId: T:Bannerlord.GameMaster.Clans.ClanTypes
+  parent: Bannerlord.GameMaster.Clans
+  href: Bannerlord.GameMaster.Clans.ClanTypes.html
+  name: ClanTypes
+  nameWithType: ClanTypes
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions
+  commentId: T:Bannerlord.GameMaster.Clans.ClanExtensions
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html
+  name: ClanExtensions
+  nameWithType: ClanExtensions
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions
+- uid: Bannerlord.GameMaster.Clans.ClanExtensionsWrapper
+  commentId: T:Bannerlord.GameMaster.Clans.ClanExtensionsWrapper
+  href: Bannerlord.GameMaster.Clans.ClanExtensionsWrapper.html
+  name: ClanExtensionsWrapper
+  nameWithType: ClanExtensionsWrapper
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensionsWrapper
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator
+  commentId: T:Bannerlord.GameMaster.Clans.ClanGenerator
+  href: Bannerlord.GameMaster.Clans.ClanGenerator.html
+  name: ClanGenerator
+  nameWithType: ClanGenerator
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator
+- uid: Bannerlord.GameMaster.Clans.ClanQueries
+  commentId: T:Bannerlord.GameMaster.Clans.ClanQueries
+  href: Bannerlord.GameMaster.Clans.ClanQueries.html
+  name: ClanQueries
+  nameWithType: ClanQueries
+  fullName: Bannerlord.GameMaster.Clans.ClanQueries
+- uid: Bannerlord.GameMaster.Clans
+  commentId: N:Bannerlord.GameMaster.Clans
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Clans
+  nameWithType: Bannerlord.GameMaster.Clans
+  fullName: Bannerlord.GameMaster.Clans
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Clans
+    name: Clans
+    href: Bannerlord.GameMaster.Clans.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Clans
+    name: Clans
+    href: Bannerlord.GameMaster.Clans.html

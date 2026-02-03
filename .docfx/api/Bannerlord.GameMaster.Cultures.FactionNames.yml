@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Cultures.FactionNames
+  commentId: N:Bannerlord.GameMaster.Cultures.FactionNames
+  id: Bannerlord.GameMaster.Cultures.FactionNames
+  children:
+  - Bannerlord.GameMaster.Cultures.FactionNames.AseraiFactionNames
+  - Bannerlord.GameMaster.Cultures.FactionNames.BattaniaFactionNames
+  - Bannerlord.GameMaster.Cultures.FactionNames.EmpireFactionNames
+  - Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames
+  - Bannerlord.GameMaster.Cultures.FactionNames.NordFactionNames
+  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+  - Bannerlord.GameMaster.Cultures.FactionNames.VlandiaFactionNames
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Cultures.FactionNames
+  nameWithType: Bannerlord.GameMaster.Cultures.FactionNames
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Cultures.FactionNames.AseraiFactionNames
+  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.AseraiFactionNames
+  href: Bannerlord.GameMaster.Cultures.FactionNames.AseraiFactionNames.html
+  name: AseraiFactionNames
+  nameWithType: AseraiFactionNames
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames.AseraiFactionNames
+- uid: Bannerlord.GameMaster.Cultures.FactionNames.BattaniaFactionNames
+  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.BattaniaFactionNames
+  href: Bannerlord.GameMaster.Cultures.FactionNames.BattaniaFactionNames.html
+  name: BattaniaFactionNames
+  nameWithType: BattaniaFactionNames
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames.BattaniaFactionNames
+- uid: Bannerlord.GameMaster.Cultures.FactionNames.EmpireFactionNames
+  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.EmpireFactionNames
+  href: Bannerlord.GameMaster.Cultures.FactionNames.EmpireFactionNames.html
+  name: EmpireFactionNames
+  nameWithType: EmpireFactionNames
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames.EmpireFactionNames
+- uid: Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames
+  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames
+  href: Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames.html
+  name: KhuzaitFactionNames
+  nameWithType: KhuzaitFactionNames
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames
+- uid: Bannerlord.GameMaster.Cultures.FactionNames.NordFactionNames
+  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.NordFactionNames
+  href: Bannerlord.GameMaster.Cultures.FactionNames.NordFactionNames.html
+  name: NordFactionNames
+  nameWithType: NordFactionNames
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames.NordFactionNames
+- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+  href: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.html
+  name: SturgiaFactionNames
+  nameWithType: SturgiaFactionNames
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+- uid: Bannerlord.GameMaster.Cultures.FactionNames.VlandiaFactionNames
+  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.VlandiaFactionNames
+  href: Bannerlord.GameMaster.Cultures.FactionNames.VlandiaFactionNames.html
+  name: VlandiaFactionNames
+  nameWithType: VlandiaFactionNames
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames.VlandiaFactionNames

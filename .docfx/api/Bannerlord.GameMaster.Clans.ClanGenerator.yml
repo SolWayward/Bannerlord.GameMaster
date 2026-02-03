@@ -1,0 +1,709 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator
+  commentId: T:Bannerlord.GameMaster.Clans.ClanGenerator
+  id: ClanGenerator
+  parent: Bannerlord.GameMaster.Clans
+  children:
+  - Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
+  - Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
+  - Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: ClanGenerator
+  nameWithType: ClanGenerator
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClanGenerator
+    path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: >-
+    Provides functionality for creating and configuring clans with customizable options.
+
+    Uses the new HeroGenerator architecture for reliable hero creation.
+  example: []
+  syntax:
+    content: public static class ClanGenerator
+    content.vb: Public Module ClanGenerator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
+  id: CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
+  parent: Bannerlord.GameMaster.Clans.ClanGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateNobleClan(string, Hero, Kingdom, bool, int, CultureFlags)
+  nameWithType: ClanGenerator.CreateNobleClan(string, Hero, Kingdom, bool, int, CultureFlags)
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(string, TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Kingdom, bool, int, Bannerlord.GameMaster.Cultures.CultureFlags)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateNobleClan
+    path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: >-
+    Create a new clan with the specified name. The clan will have a party created for its leader filled with troops and companions.<br />
+
+    Optional specify a hero to be moved to the clan and be its leader, defaults to null.
+
+    A new hero will be created if hero is null<br />
+
+    Optionally assign clan to kingdom, Kingdom defaults to null (Independent)
+  example: []
+  syntax:
+    content: public static Clan CreateNobleClan(string name = null, Hero leader = null, Kingdom kingdom = null, bool createParty = true, int companionCount = 2, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+    parameters:
+    - id: name
+      type: System.String
+      description: Name of clan (if null, generates random name from culture)
+    - id: leader
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Hero to be moved to clan and assigned as it's leader (if null, creates new hero)
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: 'Optional: Kingdom to assign clan to, defaults to null (Independent)'
+    - id: createParty
+      type: System.Boolean
+      description: 'If true, creates a party for the clan leader (default: true)'
+    - id: companionCount
+      type: System.Int32
+      description: "Number of companions to add to leader's party (default: 2, 0 to skip)"
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: 'Culture pool for leader creation if leader is null (default: AllMainCultures)'
+    return:
+      type: TaleWorlds.CampaignSystem.Clan
+      description: The created clan
+    content.vb: Public Shared Function CreateNobleClan(name As String = Nothing, leader As Hero = Nothing, kingdom As Kingdom = Nothing, createParty As Boolean = True, companionCount As Integer = 2, cultureFlags As CultureFlags = CultureFlags.AllMainCultures) As Clan
+  overload: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan*
+  nameWithType.vb: ClanGenerator.CreateNobleClan(String, Hero, Kingdom, Boolean, Integer, CultureFlags)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(String, TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Kingdom, Boolean, Integer, Bannerlord.GameMaster.Cultures.CultureFlags)
+  name.vb: CreateNobleClan(String, Hero, Kingdom, Boolean, Integer, CultureFlags)
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32)
+  id: GenerateClans(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32)
+  parent: Bannerlord.GameMaster.Clans.ClanGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateClans(int, CultureFlags, Kingdom, bool, int)
+  nameWithType: ClanGenerator.GenerateClans(int, CultureFlags, Kingdom, bool, int)
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans(int, Bannerlord.GameMaster.Cultures.CultureFlags, TaleWorlds.CampaignSystem.Kingdom, bool, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GenerateClans
+    path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
+    startLine: 63
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: >-
+    Generate multiple clans with random names from culture lists.
+
+    Uses the new hero creation architecture to prevent crashes from state conflicts.
+  example: []
+  syntax:
+    content: public static List<Clan> GenerateClans(int count, CultureFlags cultureFlags = CultureFlags.AllMainCultures, Kingdom kingdom = null, bool createParties = true, int companionCount = 2)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: Number of clans to generate
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: 'Culture pool to select from (default: AllMainCultures)'
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: 'Optional kingdom for all clans to join (default: null/Independent)'
+    - id: createParties
+      type: System.Boolean
+      description: 'If true, creates parties for clan leaders (default: true)'
+    - id: companionCount
+      type: System.Int32
+      description: 'Number of companions per clan (default: 2)'
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Clan}
+      description: List of created clans
+    content.vb: Public Shared Function GenerateClans(count As Integer, cultureFlags As CultureFlags = CultureFlags.AllMainCultures, kingdom As Kingdom = Nothing, createParties As Boolean = True, companionCount As Integer = 2) As List(Of Clan)
+  overload: Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans*
+  nameWithType.vb: ClanGenerator.GenerateClans(Integer, CultureFlags, Kingdom, Boolean, Integer)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans(Integer, Bannerlord.GameMaster.Cultures.CultureFlags, TaleWorlds.CampaignSystem.Kingdom, Boolean, Integer)
+  name.vb: GenerateClans(Integer, CultureFlags, Kingdom, Boolean, Integer)
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
+  id: CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
+  parent: Bannerlord.GameMaster.Clans.ClanGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateMinorClan(string, Hero, CultureFlags, bool, int)
+  nameWithType: ClanGenerator.CreateMinorClan(string, Hero, CultureFlags, bool, int)
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(string, TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Cultures.CultureFlags, bool, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateMinorClan
+    path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
+    startLine: 90
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: >-
+    Creates a minor faction clan (not a noble house).
+
+    Useful for creating mercenary companies, bandit factions, or other minor groups.
+  example: []
+  syntax:
+    content: public static Clan CreateMinorClan(string name = null, Hero leader = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool createParty = true, int companionCount = 0)
+    parameters:
+    - id: name
+      type: System.String
+      description: Name of the minor clan (if null, generates random name)
+    - id: leader
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Optional leader hero (creates one if null)
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: 'Culture for the clan (default: AllMainCultures)'
+    - id: createParty
+      type: System.Boolean
+      description: 'If true, creates a party for the leader (default: true)'
+    - id: companionCount
+      type: System.Int32
+      description: "Number of companions to add to leader's party (default: 0)"
+    return:
+      type: TaleWorlds.CampaignSystem.Clan
+      description: The created minor clan
+    content.vb: Public Shared Function CreateMinorClan(name As String = Nothing, leader As Hero = Nothing, cultureFlags As CultureFlags = CultureFlags.AllMainCultures, createParty As Boolean = True, companionCount As Integer = 0) As Clan
+  overload: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan*
+  nameWithType.vb: ClanGenerator.CreateMinorClan(String, Hero, CultureFlags, Boolean, Integer)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(String, TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Cultures.CultureFlags, Boolean, Integer)
+  name.vb: CreateMinorClan(String, Hero, CultureFlags, Boolean, Integer)
+references:
+- uid: Bannerlord.GameMaster.Clans
+  commentId: N:Bannerlord.GameMaster.Clans
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Clans
+  nameWithType: Bannerlord.GameMaster.Clans
+  fullName: Bannerlord.GameMaster.Clans
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Clans
+    name: Clans
+    href: Bannerlord.GameMaster.Clans.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Clans
+    name: Clans
+    href: Bannerlord.GameMaster.Clans.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan
+  href: Bannerlord.GameMaster.Clans.ClanGenerator.html#Bannerlord_GameMaster_Clans_ClanGenerator_CreateNobleClan_System_String_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Kingdom_System_Boolean_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_
+  name: CreateNobleClan
+  nameWithType: ClanGenerator.CreateNobleClan
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem.Kingdom
+  commentId: T:TaleWorlds.CampaignSystem.Kingdom
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Kingdom
+  nameWithType: Kingdom
+  fullName: TaleWorlds.CampaignSystem.Kingdom
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureFlags
+  parent: Bannerlord.GameMaster.Cultures
+  href: Bannerlord.GameMaster.Cultures.CultureFlags.html
+  name: CultureFlags
+  nameWithType: CultureFlags
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Cultures
+  commentId: N:Bannerlord.GameMaster.Cultures
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Cultures
+  nameWithType: Bannerlord.GameMaster.Cultures
+  fullName: Bannerlord.GameMaster.Cultures
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans
+  href: Bannerlord.GameMaster.Clans.ClanGenerator.html#Bannerlord_GameMaster_Clans_ClanGenerator_GenerateClans_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_TaleWorlds_CampaignSystem_Kingdom_System_Boolean_System_Int32_
+  name: GenerateClans
+  nameWithType: ClanGenerator.GenerateClans
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Clan}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.Clan}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Clan>
+  nameWithType: List<Clan>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.Clan>
+  nameWithType.vb: List(Of Clan)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.Clan)
+  name.vb: List(Of Clan)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Clan
+    name: Clan
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Clan
+    name: Clan
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan
+  href: Bannerlord.GameMaster.Clans.ClanGenerator.html#Bannerlord_GameMaster_Clans_ClanGenerator_CreateMinorClan_System_String_TaleWorlds_CampaignSystem_Hero_Bannerlord_GameMaster_Cultures_CultureFlags_System_Boolean_System_Int32_
+  name: CreateMinorClan
+  nameWithType: ClanGenerator.CreateMinorClan
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan

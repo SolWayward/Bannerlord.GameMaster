@@ -1,0 +1,967 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions
+  commentId: T:Bannerlord.GameMaster.Troops.TroopExtensions
+  id: TroopExtensions
+  parent: Bannerlord.GameMaster.Troops
+  children:
+  - Bannerlord.GameMaster.Troops.TroopExtensions.FormattedDetails(TaleWorlds.CampaignSystem.CharacterObject)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopCategory(TaleWorlds.CampaignSystem.CharacterObject)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.GetTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.HasAllTypes(TaleWorlds.CampaignSystem.CharacterObject,Bannerlord.GameMaster.Troops.TroopTypes)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.HasAnyType(TaleWorlds.CampaignSystem.CharacterObject,Bannerlord.GameMaster.Troops.TroopTypes)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.HasPolearm(TaleWorlds.CampaignSystem.CharacterObject)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.HasShield(TaleWorlds.CampaignSystem.CharacterObject)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.HasTwoHandedWeapon(TaleWorlds.CampaignSystem.CharacterObject)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponClass(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Core.WeaponClass)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponType(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Core.ItemObject.ItemTypeEnum)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.IsActualTroop(TaleWorlds.CampaignSystem.CharacterObject)
+  - Bannerlord.GameMaster.Troops.TroopExtensions.IsMounted(TaleWorlds.CampaignSystem.CharacterObject)
+  langs:
+  - csharp
+  - vb
+  name: TroopExtensions
+  nameWithType: TroopExtensions
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TroopExtensions
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 66
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Extension methods for CharacterObject (troops) providing type categorization and formatting
+  example: []
+  syntax:
+    content: public static class TroopExtensions
+    content.vb: Public Module TroopExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  id: GetTroopTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetTroopTypes(CharacterObject)
+  nameWithType: TroopExtensions.GetTroopTypes(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTroopTypes
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 72
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: >-
+    Gets all troop type flags for this character
+
+    CRITICAL: Heroes/Lords are NEVER troops - returns None immediately if IsHero is true
+  example: []
+  syntax:
+    content: public static TroopTypes GetTroopTypes(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+    content.vb: Public Shared Function GetTroopTypes(character As CharacterObject) As TroopTypes
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopTypes*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasAllTypes(TaleWorlds.CampaignSystem.CharacterObject,Bannerlord.GameMaster.Troops.TroopTypes)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.HasAllTypes(TaleWorlds.CampaignSystem.CharacterObject,Bannerlord.GameMaster.Troops.TroopTypes)
+  id: HasAllTypes(TaleWorlds.CampaignSystem.CharacterObject,Bannerlord.GameMaster.Troops.TroopTypes)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasAllTypes(CharacterObject, TroopTypes)
+  nameWithType: TroopExtensions.HasAllTypes(CharacterObject, TroopTypes)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasAllTypes(TaleWorlds.CampaignSystem.CharacterObject, Bannerlord.GameMaster.Troops.TroopTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAllTypes
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 220
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Checks if character has ALL specified flags (AND logic)
+  example: []
+  syntax:
+    content: public static bool HasAllTypes(this CharacterObject character, TroopTypes types)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    - id: types
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasAllTypes(character As CharacterObject, types As TroopTypes) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.HasAllTypes*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasAnyType(TaleWorlds.CampaignSystem.CharacterObject,Bannerlord.GameMaster.Troops.TroopTypes)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.HasAnyType(TaleWorlds.CampaignSystem.CharacterObject,Bannerlord.GameMaster.Troops.TroopTypes)
+  id: HasAnyType(TaleWorlds.CampaignSystem.CharacterObject,Bannerlord.GameMaster.Troops.TroopTypes)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasAnyType(CharacterObject, TroopTypes)
+  nameWithType: TroopExtensions.HasAnyType(CharacterObject, TroopTypes)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasAnyType(TaleWorlds.CampaignSystem.CharacterObject, Bannerlord.GameMaster.Troops.TroopTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAnyType
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 230
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Checks if character has ANY of the specified flags (OR logic)
+  example: []
+  syntax:
+    content: public static bool HasAnyType(this CharacterObject character, TroopTypes types)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    - id: types
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasAnyType(character As CharacterObject, types As TroopTypes) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.HasAnyType*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.IsActualTroop(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.IsActualTroop(TaleWorlds.CampaignSystem.CharacterObject)
+  id: IsActualTroop(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsActualTroop(CharacterObject)
+  nameWithType: TroopExtensions.IsActualTroop(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.IsActualTroop(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsActualTroop
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 242
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: >-
+    Checks if this character is an actual troop (not a template, NPC, child, etc.)
+
+    Uses specific exclusion patterns to filter out non-combat NPCs while preserving combat troops.
+
+    IMPORTANT: villager_*, fighter_*, and caravan_leader_* are combat troops and should NOT be excluded.
+  example: []
+  syntax:
+    content: public static bool IsActualTroop(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsActualTroop(character As CharacterObject) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.IsActualTroop*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopCategory(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopCategory(TaleWorlds.CampaignSystem.CharacterObject)
+  id: GetTroopCategory(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetTroopCategory(CharacterObject)
+  nameWithType: TroopExtensions.GetTroopCategory(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopCategory(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTroopCategory
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 393
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Gets the primary category for this troop
+  example: []
+  syntax:
+    content: public static string GetTroopCategory(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetTroopCategory(character As CharacterObject) As String
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopCategory*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.FormattedDetails(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.FormattedDetails(TaleWorlds.CampaignSystem.CharacterObject)
+  id: FormattedDetails(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: FormattedDetails(CharacterObject)
+  nameWithType: TroopExtensions.FormattedDetails(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.FormattedDetails(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FormattedDetails
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 432
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Returns a formatted string containing the troop's details
+  example: []
+  syntax:
+    content: public static string FormattedDetails(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: System.String
+    content.vb: Public Shared Function FormattedDetails(character As CharacterObject) As String
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.FormattedDetails*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.GetTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.GetTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  id: GetTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetTypes(CharacterObject)
+  nameWithType: TroopExtensions.GetTypes(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.GetTypes(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTypes
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 443
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Alias for GetTroopTypes to match IEntityExtensions interface
+  example: []
+  syntax:
+    content: public static TroopTypes GetTypes(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: Bannerlord.GameMaster.Troops.TroopTypes
+    content.vb: Public Shared Function GetTypes(character As CharacterObject) As TroopTypes
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.GetTypes*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasShield(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.HasShield(TaleWorlds.CampaignSystem.CharacterObject)
+  id: HasShield(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasShield(CharacterObject)
+  nameWithType: TroopExtensions.HasShield(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasShield(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasShield
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 448
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Check if character has a shield in equipment
+  example: []
+  syntax:
+    content: public static bool HasShield(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasShield(character As CharacterObject) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.HasShield*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponType(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Core.ItemObject.ItemTypeEnum)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponType(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Core.ItemObject.ItemTypeEnum)
+  id: HasWeaponType(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Core.ItemObject.ItemTypeEnum)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasWeaponType(CharacterObject, ItemTypeEnum)
+  nameWithType: TroopExtensions.HasWeaponType(CharacterObject, ItemObject.ItemTypeEnum)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponType(TaleWorlds.CampaignSystem.CharacterObject, TaleWorlds.Core.ItemObject.ItemTypeEnum)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasWeaponType
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 469
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Check if character has a specific weapon item type
+  example: []
+  syntax:
+    content: public static bool HasWeaponType(this CharacterObject character, ItemObject.ItemTypeEnum weaponType)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    - id: weaponType
+      type: TaleWorlds.Core.ItemObject.ItemTypeEnum
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasWeaponType(character As CharacterObject, weaponType As ItemObject.ItemTypeEnum) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponType*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponClass(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Core.WeaponClass)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponClass(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Core.WeaponClass)
+  id: HasWeaponClass(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Core.WeaponClass)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasWeaponClass(CharacterObject, WeaponClass)
+  nameWithType: TroopExtensions.HasWeaponClass(CharacterObject, WeaponClass)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponClass(TaleWorlds.CampaignSystem.CharacterObject, TaleWorlds.Core.WeaponClass)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasWeaponClass
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 489
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Check if character has a specific weapon class
+  example: []
+  syntax:
+    content: public static bool HasWeaponClass(this CharacterObject character, WeaponClass weaponClass)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    - id: weaponClass
+      type: TaleWorlds.Core.WeaponClass
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasWeaponClass(character As CharacterObject, weaponClass As WeaponClass) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponClass*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasTwoHandedWeapon(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.HasTwoHandedWeapon(TaleWorlds.CampaignSystem.CharacterObject)
+  id: HasTwoHandedWeapon(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasTwoHandedWeapon(CharacterObject)
+  nameWithType: TroopExtensions.HasTwoHandedWeapon(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasTwoHandedWeapon(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasTwoHandedWeapon
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 512
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Check if character has a two-handed weapon
+  example: []
+  syntax:
+    content: public static bool HasTwoHandedWeapon(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasTwoHandedWeapon(character As CharacterObject) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.HasTwoHandedWeapon*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasPolearm(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.HasPolearm(TaleWorlds.CampaignSystem.CharacterObject)
+  id: HasPolearm(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasPolearm(CharacterObject)
+  nameWithType: TroopExtensions.HasPolearm(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasPolearm(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasPolearm
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 520
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Check if character has a polearm weapon
+  example: []
+  syntax:
+    content: public static bool HasPolearm(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasPolearm(character As CharacterObject) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.HasPolearm*
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.IsMounted(TaleWorlds.CampaignSystem.CharacterObject)
+  commentId: M:Bannerlord.GameMaster.Troops.TroopExtensions.IsMounted(TaleWorlds.CampaignSystem.CharacterObject)
+  id: IsMounted(TaleWorlds.CampaignSystem.CharacterObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Troops.TroopExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsMounted(CharacterObject)
+  nameWithType: TroopExtensions.IsMounted(CharacterObject)
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.IsMounted(TaleWorlds.CampaignSystem.CharacterObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsMounted
+    path: ../Bannerlord.GameMaster/Troops/TroopExtensions.cs
+    startLine: 528
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Check if character is mounted (cavalry or horse archer)
+  example: []
+  syntax:
+    content: public static bool IsMounted(this CharacterObject character)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsMounted(character As CharacterObject) As Boolean
+  overload: Bannerlord.GameMaster.Troops.TroopExtensions.IsMounted*
+references:
+- uid: Bannerlord.GameMaster.Troops
+  commentId: N:Bannerlord.GameMaster.Troops
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Troops
+  nameWithType: Bannerlord.GameMaster.Troops
+  fullName: Bannerlord.GameMaster.Troops
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopTypes*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopTypes
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_GetTroopTypes_TaleWorlds_CampaignSystem_CharacterObject_
+  name: GetTroopTypes
+  nameWithType: TroopExtensions.GetTroopTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopTypes
+- uid: TaleWorlds.CampaignSystem.CharacterObject
+  commentId: T:TaleWorlds.CampaignSystem.CharacterObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CharacterObject
+  nameWithType: CharacterObject
+  fullName: TaleWorlds.CampaignSystem.CharacterObject
+- uid: Bannerlord.GameMaster.Troops.TroopTypes
+  commentId: T:Bannerlord.GameMaster.Troops.TroopTypes
+  parent: Bannerlord.GameMaster.Troops
+  href: Bannerlord.GameMaster.Troops.TroopTypes.html
+  name: TroopTypes
+  nameWithType: TroopTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopTypes
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasAllTypes*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.HasAllTypes
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_HasAllTypes_TaleWorlds_CampaignSystem_CharacterObject_Bannerlord_GameMaster_Troops_TroopTypes_
+  name: HasAllTypes
+  nameWithType: TroopExtensions.HasAllTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasAllTypes
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasAnyType*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.HasAnyType
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_HasAnyType_TaleWorlds_CampaignSystem_CharacterObject_Bannerlord_GameMaster_Troops_TroopTypes_
+  name: HasAnyType
+  nameWithType: TroopExtensions.HasAnyType
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasAnyType
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.IsActualTroop*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.IsActualTroop
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_IsActualTroop_TaleWorlds_CampaignSystem_CharacterObject_
+  name: IsActualTroop
+  nameWithType: TroopExtensions.IsActualTroop
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.IsActualTroop
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopCategory*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopCategory
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_GetTroopCategory_TaleWorlds_CampaignSystem_CharacterObject_
+  name: GetTroopCategory
+  nameWithType: TroopExtensions.GetTroopCategory
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.GetTroopCategory
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.FormattedDetails*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.FormattedDetails
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_FormattedDetails_TaleWorlds_CampaignSystem_CharacterObject_
+  name: FormattedDetails
+  nameWithType: TroopExtensions.FormattedDetails
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.FormattedDetails
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.GetTypes*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.GetTypes
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_GetTypes_TaleWorlds_CampaignSystem_CharacterObject_
+  name: GetTypes
+  nameWithType: TroopExtensions.GetTypes
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.GetTypes
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasShield*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.HasShield
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_HasShield_TaleWorlds_CampaignSystem_CharacterObject_
+  name: HasShield
+  nameWithType: TroopExtensions.HasShield
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasShield
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponType*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponType
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_HasWeaponType_TaleWorlds_CampaignSystem_CharacterObject_TaleWorlds_Core_ItemObject_ItemTypeEnum_
+  name: HasWeaponType
+  nameWithType: TroopExtensions.HasWeaponType
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponType
+- uid: TaleWorlds.Core.ItemObject.ItemTypeEnum
+  commentId: T:TaleWorlds.Core.ItemObject.ItemTypeEnum
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: ItemObject.ItemTypeEnum
+  nameWithType: ItemObject.ItemTypeEnum
+  fullName: TaleWorlds.Core.ItemObject.ItemTypeEnum
+  spec.csharp:
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ItemObject.ItemTypeEnum
+    name: ItemTypeEnum
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ItemObject.ItemTypeEnum
+    name: ItemTypeEnum
+    isExternal: true
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponClass*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponClass
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_HasWeaponClass_TaleWorlds_CampaignSystem_CharacterObject_TaleWorlds_Core_WeaponClass_
+  name: HasWeaponClass
+  nameWithType: TroopExtensions.HasWeaponClass
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasWeaponClass
+- uid: TaleWorlds.Core.WeaponClass
+  commentId: T:TaleWorlds.Core.WeaponClass
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: WeaponClass
+  nameWithType: WeaponClass
+  fullName: TaleWorlds.Core.WeaponClass
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasTwoHandedWeapon*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.HasTwoHandedWeapon
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_HasTwoHandedWeapon_TaleWorlds_CampaignSystem_CharacterObject_
+  name: HasTwoHandedWeapon
+  nameWithType: TroopExtensions.HasTwoHandedWeapon
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasTwoHandedWeapon
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.HasPolearm*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.HasPolearm
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_HasPolearm_TaleWorlds_CampaignSystem_CharacterObject_
+  name: HasPolearm
+  nameWithType: TroopExtensions.HasPolearm
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.HasPolearm
+- uid: Bannerlord.GameMaster.Troops.TroopExtensions.IsMounted*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopExtensions.IsMounted
+  href: Bannerlord.GameMaster.Troops.TroopExtensions.html#Bannerlord_GameMaster_Troops_TroopExtensions_IsMounted_TaleWorlds_CampaignSystem_CharacterObject_
+  name: IsMounted
+  nameWithType: TroopExtensions.IsMounted
+  fullName: Bannerlord.GameMaster.Troops.TroopExtensions.IsMounted

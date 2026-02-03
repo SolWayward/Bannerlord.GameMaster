@@ -1,0 +1,294 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  commentId: T:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  id: IEntityExtensions`2
+  parent: Bannerlord.GameMaster.Common.Interfaces
+  children:
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails(`0)
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes(`0)
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes(`0,`1)
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType(`0,`1)
+  langs:
+  - csharp
+  - vb
+  name: IEntityExtensions<TEntity, TTypes>
+  nameWithType: IEntityExtensions<TEntity, TTypes>
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>
+  type: Interface
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IEntityExtensions
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+    startLine: 4
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: 'public interface IEntityExtensions<TEntity, TTypes> where TTypes : struct, Enum'
+    typeParameters:
+    - id: TEntity
+    - id: TTypes
+    content.vb: Public Interface IEntityExtensions(Of TEntity, TTypes As {Structure, [Enum]})
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes)
+  name.vb: IEntityExtensions(Of TEntity, TTypes)
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes(`0)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes(`0)
+  id: GetTypes(`0)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  langs:
+  - csharp
+  - vb
+  name: GetTypes(TEntity)
+  nameWithType: IEntityExtensions<TEntity, TTypes>.GetTypes(TEntity)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.GetTypes(TEntity)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTypes
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+    startLine: 7
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: TTypes GetTypes(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+    return:
+      type: '{TTypes}'
+    content.vb: Function GetTypes(entity As TEntity) As TTypes
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes*
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).GetTypes(TEntity)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).GetTypes(TEntity)
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes(`0,`1)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes(`0,`1)
+  id: HasAllTypes(`0,`1)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  langs:
+  - csharp
+  - vb
+  name: HasAllTypes(TEntity, TTypes)
+  nameWithType: IEntityExtensions<TEntity, TTypes>.HasAllTypes(TEntity, TTypes)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.HasAllTypes(TEntity, TTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAllTypes
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: bool HasAllTypes(TEntity entity, TTypes types)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+    - id: types
+      type: '{TTypes}'
+    return:
+      type: System.Boolean
+    content.vb: Function HasAllTypes(entity As TEntity, types As TTypes) As Boolean
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes*
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).HasAllTypes(TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).HasAllTypes(TEntity, TTypes)
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType(`0,`1)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType(`0,`1)
+  id: HasAnyType(`0,`1)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  langs:
+  - csharp
+  - vb
+  name: HasAnyType(TEntity, TTypes)
+  nameWithType: IEntityExtensions<TEntity, TTypes>.HasAnyType(TEntity, TTypes)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.HasAnyType(TEntity, TTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAnyType
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: bool HasAnyType(TEntity entity, TTypes types)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+    - id: types
+      type: '{TTypes}'
+    return:
+      type: System.Boolean
+    content.vb: Function HasAnyType(entity As TEntity, types As TTypes) As Boolean
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType*
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).HasAnyType(TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).HasAnyType(TEntity, TTypes)
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails(`0)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails(`0)
+  id: FormattedDetails(`0)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  langs:
+  - csharp
+  - vb
+  name: FormattedDetails(TEntity)
+  nameWithType: IEntityExtensions<TEntity, TTypes>.FormattedDetails(TEntity)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.FormattedDetails(TEntity)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FormattedDetails
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityExtensions.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: string FormattedDetails(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+    return:
+      type: System.String
+    content.vb: Function FormattedDetails(entity As TEntity) As String
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails*
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).FormattedDetails(TEntity)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).FormattedDetails(TEntity)
+references:
+- uid: Bannerlord.GameMaster.Common.Interfaces
+  commentId: N:Bannerlord.GameMaster.Common.Interfaces
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common.Interfaces
+  nameWithType: Bannerlord.GameMaster.Common.Interfaces
+  fullName: Bannerlord.GameMaster.Common.Interfaces
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common.Interfaces
+    name: Interfaces
+    href: Bannerlord.GameMaster.Common.Interfaces.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common.Interfaces
+    name: Interfaces
+    href: Bannerlord.GameMaster.Common.Interfaces.html
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_GetTypes__0_
+  name: GetTypes
+  nameWithType: IEntityExtensions<TEntity, TTypes>.GetTypes
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.GetTypes
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).GetTypes
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).GetTypes
+- uid: '{TEntity}'
+  commentId: '!:TEntity'
+  definition: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: '{TTypes}'
+  commentId: '!:TTypes'
+  definition: TTypes
+  name: TTypes
+  nameWithType: TTypes
+  fullName: TTypes
+- uid: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: TTypes
+  name: TTypes
+  nameWithType: TTypes
+  fullName: TTypes
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAllTypes__0__1_
+  name: HasAllTypes
+  nameWithType: IEntityExtensions<TEntity, TTypes>.HasAllTypes
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.HasAllTypes
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).HasAllTypes
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).HasAllTypes
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAnyType__0__1_
+  name: HasAnyType
+  nameWithType: IEntityExtensions<TEntity, TTypes>.HasAnyType
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.HasAnyType
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).HasAnyType
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).HasAnyType
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_FormattedDetails__0_
+  name: FormattedDetails
+  nameWithType: IEntityExtensions<TEntity, TTypes>.FormattedDetails
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.FormattedDetails
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).FormattedDetails
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).FormattedDetails
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  commentId: N:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  id: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  children:
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateLordCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  nameWithType: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.html
+  name: CreateCompanionsCommand
+  nameWithType: CreateCompanionsCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateLordCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateLordCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateLordCommand.html
+  name: CreateLordCommand
+  nameWithType: CreateLordCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateLordCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand.html
+  name: GenerateLordsCommand
+  nameWithType: GenerateLordsCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand

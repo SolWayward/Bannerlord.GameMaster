@@ -1,0 +1,646 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer
+  commentId: T:Bannerlord.GameMaster.Items.EquipmentTransfer
+  id: EquipmentTransfer
+  parent: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.EquipmentTransfer.SwapEquipment(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.EquipmentIndex,TaleWorlds.Core.EquipmentIndex)
+  - Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemFromTemporaryStorage(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.ItemObject,TaleWorlds.Core.EquipmentIndex,TaleWorlds.Core.ItemModifier)
+  - Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemToTemporaryStorage(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.EquipmentIndex)
+  - Bannerlord.GameMaster.Items.EquipmentTransfer.ValidateEquipmentSlot(TaleWorlds.Core.ItemObject,TaleWorlds.Core.EquipmentIndex)
+  langs:
+  - csharp
+  - vb
+  name: EquipmentTransfer
+  nameWithType: EquipmentTransfer
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EquipmentTransfer
+    path: ../Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Provides equipment transfer and validation methods for Hero inventory management.
+
+    Used by Commander's Hero Editor for popup inventory system.
+  example: []
+  syntax:
+    content: public static class EquipmentTransfer
+    content.vb: Public Module EquipmentTransfer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemToTemporaryStorage(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.EquipmentIndex)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemToTemporaryStorage(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.EquipmentIndex)
+  id: TransferItemToTemporaryStorage(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.EquipmentIndex)
+  parent: Bannerlord.GameMaster.Items.EquipmentTransfer
+  langs:
+  - csharp
+  - vb
+  name: TransferItemToTemporaryStorage(Hero, Equipment, EquipmentIndex)
+  nameWithType: EquipmentTransfer.TransferItemToTemporaryStorage(Hero, Equipment, EquipmentIndex)
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemToTemporaryStorage(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.Equipment, TaleWorlds.Core.EquipmentIndex)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TransferItemToTemporaryStorage
+    path: ../Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Removes an item from the specified equipment slot and returns it for temporary storage.
+  example:
+  - >-
+    var removedItem = EquipmentTransfer.TransferItemToTemporaryStorage(hero, hero.BattleEquipment, EquipmentIndex.Head);
+
+    if (!removedItem.IsEmpty)
+
+    {
+        // Store in temporary inventory
+        temporaryStorage.Add(removedItem);
+    }
+  syntax:
+    content: public static EquipmentElement TransferItemToTemporaryStorage(Hero hero, Equipment equipment, EquipmentIndex slot)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose equipment is being modified
+    - id: equipment
+      type: TaleWorlds.Core.Equipment
+      description: The equipment set (hero.BattleEquipment or hero.CivilianEquipment)
+    - id: slot
+      type: TaleWorlds.Core.EquipmentIndex
+      description: The slot to remove the item from
+    return:
+      type: TaleWorlds.Core.EquipmentElement
+      description: The EquipmentElement containing item and modifier, or EquipmentElement.Invalid if slot is empty
+    content.vb: Public Shared Function TransferItemToTemporaryStorage(hero As Hero, equipment As Equipment, slot As EquipmentIndex) As EquipmentElement
+  overload: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemToTemporaryStorage*
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemFromTemporaryStorage(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.ItemObject,TaleWorlds.Core.EquipmentIndex,TaleWorlds.Core.ItemModifier)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemFromTemporaryStorage(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.ItemObject,TaleWorlds.Core.EquipmentIndex,TaleWorlds.Core.ItemModifier)
+  id: TransferItemFromTemporaryStorage(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.ItemObject,TaleWorlds.Core.EquipmentIndex,TaleWorlds.Core.ItemModifier)
+  parent: Bannerlord.GameMaster.Items.EquipmentTransfer
+  langs:
+  - csharp
+  - vb
+  name: TransferItemFromTemporaryStorage(Hero, Equipment, ItemObject, EquipmentIndex, ItemModifier)
+  nameWithType: EquipmentTransfer.TransferItemFromTemporaryStorage(Hero, Equipment, ItemObject, EquipmentIndex, ItemModifier)
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemFromTemporaryStorage(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.Equipment, TaleWorlds.Core.ItemObject, TaleWorlds.Core.EquipmentIndex, TaleWorlds.Core.ItemModifier)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TransferItemFromTemporaryStorage
+    path: ../Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+    startLine: 70
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Equips an item from temporary storage to the specified slot with validation.
+  example:
+  - >-
+    bool success = EquipmentTransfer.TransferItemFromTemporaryStorage(
+        hero,
+        hero.BattleEquipment,
+        selectedItem,
+        EquipmentIndex.Head,
+        itemModifier
+    );
+  syntax:
+    content: public static bool TransferItemFromTemporaryStorage(Hero hero, Equipment equipment, ItemObject item, EquipmentIndex slot, ItemModifier modifier = null)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose equipment is being modified
+    - id: equipment
+      type: TaleWorlds.Core.Equipment
+      description: The equipment set to modify
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to equip
+    - id: slot
+      type: TaleWorlds.Core.EquipmentIndex
+      description: The target equipment slot
+    - id: modifier
+      type: TaleWorlds.Core.ItemModifier
+      description: Optional item modifier (masterwork, legendary, etc.)
+    return:
+      type: System.Boolean
+      description: True if successfully equipped, false if validation failed
+    content.vb: Public Shared Function TransferItemFromTemporaryStorage(hero As Hero, equipment As Equipment, item As ItemObject, slot As EquipmentIndex, modifier As ItemModifier = Nothing) As Boolean
+  overload: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemFromTemporaryStorage*
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer.SwapEquipment(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.EquipmentIndex,TaleWorlds.Core.EquipmentIndex)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentTransfer.SwapEquipment(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.EquipmentIndex,TaleWorlds.Core.EquipmentIndex)
+  id: SwapEquipment(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.Equipment,TaleWorlds.Core.EquipmentIndex,TaleWorlds.Core.EquipmentIndex)
+  parent: Bannerlord.GameMaster.Items.EquipmentTransfer
+  langs:
+  - csharp
+  - vb
+  name: SwapEquipment(Hero, Equipment, EquipmentIndex, EquipmentIndex)
+  nameWithType: EquipmentTransfer.SwapEquipment(Hero, Equipment, EquipmentIndex, EquipmentIndex)
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer.SwapEquipment(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.Equipment, TaleWorlds.Core.EquipmentIndex, TaleWorlds.Core.EquipmentIndex)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SwapEquipment
+    path: ../Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+    startLine: 117
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Atomically swaps items between two equipment slots.
+
+    Handles empty slots gracefully.
+  example:
+  - >-
+    // Swap weapon slots via drag-drop
+
+    bool swapped = EquipmentTransfer.SwapEquipment(
+        hero,
+        hero.BattleEquipment,
+        EquipmentIndex.Weapon0,
+        EquipmentIndex.Weapon1
+    );
+  syntax:
+    content: public static bool SwapEquipment(Hero hero, Equipment equipment, EquipmentIndex slot1, EquipmentIndex slot2)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose equipment is being modified
+    - id: equipment
+      type: TaleWorlds.Core.Equipment
+      description: The equipment set to modify
+    - id: slot1
+      type: TaleWorlds.Core.EquipmentIndex
+      description: First equipment slot
+    - id: slot2
+      type: TaleWorlds.Core.EquipmentIndex
+      description: Second equipment slot
+    return:
+      type: System.Boolean
+      description: True if swap was successful
+    content.vb: Public Shared Function SwapEquipment(hero As Hero, equipment As Equipment, slot1 As EquipmentIndex, slot2 As EquipmentIndex) As Boolean
+  overload: Bannerlord.GameMaster.Items.EquipmentTransfer.SwapEquipment*
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer.ValidateEquipmentSlot(TaleWorlds.Core.ItemObject,TaleWorlds.Core.EquipmentIndex)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentTransfer.ValidateEquipmentSlot(TaleWorlds.Core.ItemObject,TaleWorlds.Core.EquipmentIndex)
+  id: ValidateEquipmentSlot(TaleWorlds.Core.ItemObject,TaleWorlds.Core.EquipmentIndex)
+  parent: Bannerlord.GameMaster.Items.EquipmentTransfer
+  langs:
+  - csharp
+  - vb
+  name: ValidateEquipmentSlot(ItemObject, EquipmentIndex)
+  nameWithType: EquipmentTransfer.ValidateEquipmentSlot(ItemObject, EquipmentIndex)
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer.ValidateEquipmentSlot(TaleWorlds.Core.ItemObject, TaleWorlds.Core.EquipmentIndex)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ValidateEquipmentSlot
+    path: ../Bannerlord.GameMaster/Items/EquipmentTransfer.cs
+    startLine: 157
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Validates if an item type is compatible with an equipment slot.
+
+    Performs basic type matching only (HeadArmor → Head slot, etc.).
+
+    Weapon slots (Weapon0-3) accept any weapon or shield type.
+  example:
+  - >-
+    if (EquipmentTransfer.ValidateEquipmentSlot(helmItem, EquipmentIndex.Head))
+
+    {
+        // Can equip helm to head slot
+    }
+  syntax:
+    content: public static bool ValidateEquipmentSlot(ItemObject item, EquipmentIndex slot)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to validate
+    - id: slot
+      type: TaleWorlds.Core.EquipmentIndex
+      description: The target equipment slot
+    return:
+      type: System.Boolean
+      description: True if item type matches slot type, false otherwise
+    content.vb: Public Shared Function ValidateEquipmentSlot(item As ItemObject, slot As EquipmentIndex) As Boolean
+  overload: Bannerlord.GameMaster.Items.EquipmentTransfer.ValidateEquipmentSlot*
+references:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemToTemporaryStorage*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemToTemporaryStorage
+  href: Bannerlord.GameMaster.Items.EquipmentTransfer.html#Bannerlord_GameMaster_Items_EquipmentTransfer_TransferItemToTemporaryStorage_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_Equipment_TaleWorlds_Core_EquipmentIndex_
+  name: TransferItemToTemporaryStorage
+  nameWithType: EquipmentTransfer.TransferItemToTemporaryStorage
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemToTemporaryStorage
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.Core.Equipment
+  commentId: T:TaleWorlds.Core.Equipment
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: Equipment
+  nameWithType: Equipment
+  fullName: TaleWorlds.Core.Equipment
+- uid: TaleWorlds.Core.EquipmentIndex
+  commentId: T:TaleWorlds.Core.EquipmentIndex
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: EquipmentIndex
+  nameWithType: EquipmentIndex
+  fullName: TaleWorlds.Core.EquipmentIndex
+- uid: TaleWorlds.Core.EquipmentElement
+  commentId: T:TaleWorlds.Core.EquipmentElement
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: EquipmentElement
+  nameWithType: EquipmentElement
+  fullName: TaleWorlds.Core.EquipmentElement
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemFromTemporaryStorage*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemFromTemporaryStorage
+  href: Bannerlord.GameMaster.Items.EquipmentTransfer.html#Bannerlord_GameMaster_Items_EquipmentTransfer_TransferItemFromTemporaryStorage_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_Equipment_TaleWorlds_Core_ItemObject_TaleWorlds_Core_EquipmentIndex_TaleWorlds_Core_ItemModifier_
+  name: TransferItemFromTemporaryStorage
+  nameWithType: EquipmentTransfer.TransferItemFromTemporaryStorage
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer.TransferItemFromTemporaryStorage
+- uid: TaleWorlds.Core.ItemObject
+  commentId: T:TaleWorlds.Core.ItemObject
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: ItemObject
+  nameWithType: ItemObject
+  fullName: TaleWorlds.Core.ItemObject
+- uid: TaleWorlds.Core.ItemModifier
+  commentId: T:TaleWorlds.Core.ItemModifier
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: ItemModifier
+  nameWithType: ItemModifier
+  fullName: TaleWorlds.Core.ItemModifier
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer.SwapEquipment*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentTransfer.SwapEquipment
+  href: Bannerlord.GameMaster.Items.EquipmentTransfer.html#Bannerlord_GameMaster_Items_EquipmentTransfer_SwapEquipment_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_Equipment_TaleWorlds_Core_EquipmentIndex_TaleWorlds_Core_EquipmentIndex_
+  name: SwapEquipment
+  nameWithType: EquipmentTransfer.SwapEquipment
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer.SwapEquipment
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer.ValidateEquipmentSlot*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentTransfer.ValidateEquipmentSlot
+  href: Bannerlord.GameMaster.Items.EquipmentTransfer.html#Bannerlord_GameMaster_Items_EquipmentTransfer_ValidateEquipmentSlot_TaleWorlds_Core_ItemObject_TaleWorlds_Core_EquipmentIndex_
+  name: ValidateEquipmentSlot
+  nameWithType: EquipmentTransfer.ValidateEquipmentSlot
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer.ValidateEquipmentSlot

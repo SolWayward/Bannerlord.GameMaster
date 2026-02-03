@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.GeneralCommands
+  commentId: N:Bannerlord.GameMaster.Console.GeneralCommands
+  id: Bannerlord.GameMaster.Console.GeneralCommands
+  children:
+  - Bannerlord.GameMaster.Console.GeneralCommands.GeneralCommandHelpers
+  - Bannerlord.GameMaster.Console.GeneralCommands.IgnoreLimitsCommand
+  - Bannerlord.GameMaster.Console.GeneralCommands.ShowSystemConsoleCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.GeneralCommands
+  nameWithType: Bannerlord.GameMaster.Console.GeneralCommands
+  fullName: Bannerlord.GameMaster.Console.GeneralCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.GeneralCommands.GeneralCommandHelpers
+  commentId: T:Bannerlord.GameMaster.Console.GeneralCommands.GeneralCommandHelpers
+  href: Bannerlord.GameMaster.Console.GeneralCommands.GeneralCommandHelpers.html
+  name: GeneralCommandHelpers
+  nameWithType: GeneralCommandHelpers
+  fullName: Bannerlord.GameMaster.Console.GeneralCommands.GeneralCommandHelpers
+- uid: Bannerlord.GameMaster.Console.GeneralCommands.IgnoreLimitsCommand
+  commentId: T:Bannerlord.GameMaster.Console.GeneralCommands.IgnoreLimitsCommand
+  href: Bannerlord.GameMaster.Console.GeneralCommands.IgnoreLimitsCommand.html
+  name: IgnoreLimitsCommand
+  nameWithType: IgnoreLimitsCommand
+  fullName: Bannerlord.GameMaster.Console.GeneralCommands.IgnoreLimitsCommand
+- uid: Bannerlord.GameMaster.Console.GeneralCommands.ShowSystemConsoleCommand
+  commentId: T:Bannerlord.GameMaster.Console.GeneralCommands.ShowSystemConsoleCommand
+  href: Bannerlord.GameMaster.Console.GeneralCommands.ShowSystemConsoleCommand.html
+  name: ShowSystemConsoleCommand
+  nameWithType: ShowSystemConsoleCommand
+  fullName: Bannerlord.GameMaster.Console.GeneralCommands.ShowSystemConsoleCommand

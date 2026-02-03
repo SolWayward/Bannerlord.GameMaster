@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Factions
+  commentId: N:Bannerlord.GameMaster.Factions
+  id: Bannerlord.GameMaster.Factions
+  children:
+  - Bannerlord.GameMaster.Factions.FactionExtensions
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Factions
+  nameWithType: Bannerlord.GameMaster.Factions
+  fullName: Bannerlord.GameMaster.Factions
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Factions.FactionExtensions
+  commentId: T:Bannerlord.GameMaster.Factions.FactionExtensions
+  href: Bannerlord.GameMaster.Factions.FactionExtensions.html
+  name: FactionExtensions
+  nameWithType: FactionExtensions
+  fullName: Bannerlord.GameMaster.Factions.FactionExtensions

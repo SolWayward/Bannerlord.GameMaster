@@ -1,0 +1,105 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster
+  commentId: N:Bannerlord.GameMaster
+  id: Bannerlord.GameMaster
+  children:
+  - Bannerlord.GameMaster.BLGMObjectManager
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  - Bannerlord.GameMaster.RandomNumberGen
+  - Bannerlord.GameMaster.SubModule
+  - Bannerlord.GameMaster.SystemConsoleCommands
+  - Bannerlord.GameMaster.SystemConsoleHelper
+  - Bannerlord.GameMaster.SystemConsoleManager
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster
+  nameWithType: Bannerlord.GameMaster
+  fullName: Bannerlord.GameMaster
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.BLGMObjectManager
+  commentId: T:Bannerlord.GameMaster.BLGMObjectManager
+  parent: Bannerlord.GameMaster
+  href: Bannerlord.GameMaster.BLGMObjectManager.html
+  name: BLGMObjectManager
+  nameWithType: BLGMObjectManager
+  fullName: Bannerlord.GameMaster.BLGMObjectManager
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  commentId: T:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  href: Bannerlord.GameMaster.BLGMObjectManager.html
+  name: BLGMObjectManager.PartyTypeNames
+  nameWithType: BLGMObjectManager.PartyTypeNames
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.BLGMObjectManager
+    name: BLGMObjectManager
+    href: Bannerlord.GameMaster.BLGMObjectManager.html
+  - name: .
+  - uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+    name: PartyTypeNames
+    href: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.html
+  spec.vb:
+  - uid: Bannerlord.GameMaster.BLGMObjectManager
+    name: BLGMObjectManager
+    href: Bannerlord.GameMaster.BLGMObjectManager.html
+  - name: .
+  - uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+    name: PartyTypeNames
+    href: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.html
+- uid: Bannerlord.GameMaster.RandomNumberGen
+  commentId: T:Bannerlord.GameMaster.RandomNumberGen
+  parent: Bannerlord.GameMaster
+  href: Bannerlord.GameMaster.RandomNumberGen.html
+  name: RandomNumberGen
+  nameWithType: RandomNumberGen
+  fullName: Bannerlord.GameMaster.RandomNumberGen
+- uid: Bannerlord.GameMaster.SubModule
+  commentId: T:Bannerlord.GameMaster.SubModule
+  href: Bannerlord.GameMaster.SubModule.html
+  name: SubModule
+  nameWithType: SubModule
+  fullName: Bannerlord.GameMaster.SubModule
+- uid: Bannerlord.GameMaster.SystemConsoleCommands
+  commentId: T:Bannerlord.GameMaster.SystemConsoleCommands
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html
+  name: SystemConsoleCommands
+  nameWithType: SystemConsoleCommands
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands
+- uid: Bannerlord.GameMaster.SystemConsoleHelper
+  commentId: T:Bannerlord.GameMaster.SystemConsoleHelper
+  href: Bannerlord.GameMaster.SystemConsoleHelper.html
+  name: SystemConsoleHelper
+  nameWithType: SystemConsoleHelper
+  fullName: Bannerlord.GameMaster.SystemConsoleHelper
+- uid: Bannerlord.GameMaster.SystemConsoleManager
+  commentId: T:Bannerlord.GameMaster.SystemConsoleManager
+  href: Bannerlord.GameMaster.SystemConsoleManager.html
+  name: SystemConsoleManager
+  nameWithType: SystemConsoleManager
+  fullName: Bannerlord.GameMaster.SystemConsoleManager
+- uid: Bannerlord.GameMaster
+  commentId: N:Bannerlord.GameMaster
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster
+  nameWithType: Bannerlord.GameMaster
+  fullName: Bannerlord.GameMaster
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html

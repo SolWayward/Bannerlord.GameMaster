@@ -1,0 +1,1003 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroQueries
+  id: HeroQueries
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero})
+  - Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById(System.String)
+  - Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer(System.String,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean,Bannerlord.GameMaster.Heroes.HeroTypes,System.Boolean,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType(System.String)
+  - Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes(System.Collections.Generic.IEnumerable{System.String})
+  - Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes(System.String,Bannerlord.GameMaster.Heroes.HeroTypes,System.Boolean,System.Boolean,System.String,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: HeroQueries
+  nameWithType: HeroQueries
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroQueries
+    path: ../Bannerlord.GameMaster/Heroes/HeroQueries.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Provides query methods for searching, finding, filtering, or sorting hero entities.
+  example: []
+  syntax:
+    content: public static class HeroQueries
+    content.vb: Public Module HeroQueries
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById(System.String)
+  id: GetHeroById(System.String)
+  parent: Bannerlord.GameMaster.Heroes.HeroQueries
+  langs:
+  - csharp
+  - vb
+  name: GetHeroById(string)
+  nameWithType: HeroQueries.GetHeroById(string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetHeroById
+    path: ../Bannerlord.GameMaster/Heroes/HeroQueries.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Finds a hero with the specified heroId, Fast but case sensitive (all string ids SHOULD be lower case) <br />
+
+    Use QueryHeroes().FirstOrDefault() to find hero with case insensitive partial name or partial stringIds <br />
+
+    Example: QueryHeroes("Henry").FirstOrDefault()
+  example: []
+  syntax:
+    content: public static Hero GetHeroById(string heroId)
+    parameters:
+    - id: heroId
+      type: System.String
+    return:
+      type: TaleWorlds.CampaignSystem.Hero
+    content.vb: Public Shared Function GetHeroById(heroId As String) As Hero
+  overload: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById*
+  nameWithType.vb: HeroQueries.GetHeroById(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById(String)
+  name.vb: GetHeroById(String)
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes(System.String,Bannerlord.GameMaster.Heroes.HeroTypes,System.Boolean,System.Boolean,System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes(System.String,Bannerlord.GameMaster.Heroes.HeroTypes,System.Boolean,System.Boolean,System.String,System.Boolean)
+  id: QueryHeroes(System.String,Bannerlord.GameMaster.Heroes.HeroTypes,System.Boolean,System.Boolean,System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroQueries
+  langs:
+  - csharp
+  - vb
+  name: QueryHeroes(string, HeroTypes, bool, bool, string, bool)
+  nameWithType: HeroQueries.QueryHeroes(string, HeroTypes, bool, bool, string, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes(string, Bannerlord.GameMaster.Heroes.HeroTypes, bool, bool, string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: QueryHeroes
+    path: ../Bannerlord.GameMaster/Heroes/HeroQueries.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Performance focused method to find heroes matching multiple parameters. All parameters are optional and can be used with none, one or a combination of any parameters<br />
+
+    Note: <code class="paramref">query</code> parameter is a string used that will match partial hero names or partial stringIds
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Hero> QueryHeroes(string query = "", HeroTypes requiredTypes = HeroTypes.None, bool matchAll = true, bool includeDead = false, string sortBy = "id", bool sortDescending = false)
+    parameters:
+    - id: query
+      type: System.String
+      description: Optional case-insensitive substring to filter by name or ID
+    - id: requiredTypes
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+      description: Hero type flags that ALL must match (AND logic)
+    - id: matchAll
+      type: System.Boolean
+      description: If true, hero must have ALL flags. If false, hero must have ANY flag
+    - id: includeDead
+      type: System.Boolean
+      description: If true, searches dead heroes instead of alive ones
+    - id: sortBy
+      type: System.String
+      description: Sort field (id, name, age, clan, kingdom, or any HeroType flag)
+    - id: sortDescending
+      type: System.Boolean
+      description: True for descending, false for ascending
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Hero}
+      description: List of heroes matching all criteria
+    content.vb: Public Shared Function QueryHeroes(query As String = "", requiredTypes As HeroTypes = HeroTypes.None, matchAll As Boolean = True, includeDead As Boolean = False, sortBy As String = "id", sortDescending As Boolean = False) As MBReadOnlyList(Of Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes*
+  nameWithType.vb: HeroQueries.QueryHeroes(String, HeroTypes, Boolean, Boolean, String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes(String, Bannerlord.GameMaster.Heroes.HeroTypes, Boolean, Boolean, String, Boolean)
+  name.vb: QueryHeroes(String, HeroTypes, Boolean, Boolean, String, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean,Bannerlord.GameMaster.Heroes.HeroTypes,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean,Bannerlord.GameMaster.Heroes.HeroTypes,System.Boolean,System.Boolean)
+  id: MatchesFilters(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean,Bannerlord.GameMaster.Heroes.HeroTypes,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroQueries
+  langs:
+  - csharp
+  - vb
+  name: MatchesFilters(Hero, string, bool, HeroTypes, bool, bool)
+  nameWithType: HeroQueries.MatchesFilters(Hero, string, bool, HeroTypes, bool, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters(TaleWorlds.CampaignSystem.Hero, string, bool, Bannerlord.GameMaster.Heroes.HeroTypes, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MatchesFilters
+    path: ../Bannerlord.GameMaster/Heroes/HeroQueries.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Check if hero matches all filter criteria
+  example: []
+  syntax:
+    content: public static bool MatchesFilters(Hero h, string query, bool hasQuery, HeroTypes requiredTypes, bool hasTypes, bool matchAll)
+    parameters:
+    - id: h
+      type: TaleWorlds.CampaignSystem.Hero
+    - id: query
+      type: System.String
+    - id: hasQuery
+      type: System.Boolean
+    - id: requiredTypes
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+    - id: hasTypes
+      type: System.Boolean
+    - id: matchAll
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function MatchesFilters(h As Hero, query As String, hasQuery As Boolean, requiredTypes As HeroTypes, hasTypes As Boolean, matchAll As Boolean) As Boolean
+  overload: Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters*
+  nameWithType.vb: HeroQueries.MatchesFilters(Hero, String, Boolean, HeroTypes, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters(TaleWorlds.CampaignSystem.Hero, String, Boolean, Bannerlord.GameMaster.Heroes.HeroTypes, Boolean, Boolean)
+  name.vb: MatchesFilters(Hero, String, Boolean, HeroTypes, Boolean, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer(System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer(System.String,System.Boolean)
+  id: GetHeroComparer(System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroQueries
+  langs:
+  - csharp
+  - vb
+  name: GetHeroComparer(string, bool)
+  nameWithType: HeroQueries.GetHeroComparer(string, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetHeroComparer
+    path: ../Bannerlord.GameMaster/Heroes/HeroQueries.cs
+    startLine: 133
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Get comparer for hero sorting
+  example: []
+  syntax:
+    content: public static IComparer<Hero> GetHeroComparer(string sortBy, bool descending)
+    parameters:
+    - id: sortBy
+      type: System.String
+    - id: descending
+      type: System.Boolean
+    return:
+      type: System.Collections.Generic.IComparer{TaleWorlds.CampaignSystem.Hero}
+    content.vb: Public Shared Function GetHeroComparer(sortBy As String, descending As Boolean) As IComparer(Of Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer*
+  nameWithType.vb: HeroQueries.GetHeroComparer(String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer(String, Boolean)
+  name.vb: GetHeroComparer(String, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType(System.String)
+  id: ParseHeroType(System.String)
+  parent: Bannerlord.GameMaster.Heroes.HeroQueries
+  langs:
+  - csharp
+  - vb
+  name: ParseHeroType(string)
+  nameWithType: HeroQueries.ParseHeroType(string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseHeroType
+    path: ../Bannerlord.GameMaster/Heroes/HeroQueries.cs
+    startLine: 194
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Parse a string into HeroTypes enum value
+  example: []
+  syntax:
+    content: public static HeroTypes ParseHeroType(string typeString)
+    parameters:
+    - id: typeString
+      type: System.String
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+    content.vb: Public Shared Function ParseHeroType(typeString As String) As HeroTypes
+  overload: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType*
+  nameWithType.vb: HeroQueries.ParseHeroType(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType(String)
+  name.vb: ParseHeroType(String)
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes(System.Collections.Generic.IEnumerable{System.String})
+  id: ParseHeroTypes(System.Collections.Generic.IEnumerable{System.String})
+  parent: Bannerlord.GameMaster.Heroes.HeroQueries
+  langs:
+  - csharp
+  - vb
+  name: ParseHeroTypes(IEnumerable<string>)
+  nameWithType: HeroQueries.ParseHeroTypes(IEnumerable<string>)
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseHeroTypes
+    path: ../Bannerlord.GameMaster/Heroes/HeroQueries.cs
+    startLine: 204
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Parse multiple strings and combine into HeroTypes flags
+  example: []
+  syntax:
+    content: public static HeroTypes ParseHeroTypes(IEnumerable<string> typeStrings)
+    parameters:
+    - id: typeStrings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+    content.vb: Public Shared Function ParseHeroTypes(typeStrings As IEnumerable(Of String)) As HeroTypes
+  overload: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes*
+  nameWithType.vb: HeroQueries.ParseHeroTypes(IEnumerable(Of String))
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: ParseHeroTypes(IEnumerable(Of String))
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero})
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero})
+  id: GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero})
+  parent: Bannerlord.GameMaster.Heroes.HeroQueries
+  langs:
+  - csharp
+  - vb
+  name: GetFormattedDetails(List<Hero>)
+  nameWithType: HeroQueries.GetFormattedDetails(List<Hero>)
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails(System.Collections.Generic.List<TaleWorlds.CampaignSystem.Hero>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFormattedDetails
+    path: ../Bannerlord.GameMaster/Heroes/HeroQueries.cs
+    startLine: 220
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Returns a formatted string listing hero details with aligned columns
+  example: []
+  syntax:
+    content: public static string GetFormattedDetails(List<Hero> heroes)
+    parameters:
+    - id: heroes
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetFormattedDetails(heroes As List(Of Hero)) As String
+  overload: Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails*
+  nameWithType.vb: HeroQueries.GetFormattedDetails(List(Of Hero))
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails(System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.Hero))
+  name.vb: GetFormattedDetails(List(Of Hero))
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById
+  href: Bannerlord.GameMaster.Heroes.HeroQueries.html#Bannerlord_GameMaster_Heroes_HeroQueries_GetHeroById_System_String_
+  name: GetHeroById
+  nameWithType: HeroQueries.GetHeroById
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroById
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes
+  href: Bannerlord.GameMaster.Heroes.HeroQueries.html#Bannerlord_GameMaster_Heroes_HeroQueries_QueryHeroes_System_String_Bannerlord_GameMaster_Heroes_HeroTypes_System_Boolean_System_Boolean_System_String_System_Boolean_
+  name: QueryHeroes
+  nameWithType: HeroQueries.QueryHeroes
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.QueryHeroes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroTypes
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.HeroTypes.html
+  name: HeroTypes
+  nameWithType: HeroTypes
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Hero}
+  commentId: T:TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Hero}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBReadOnlyList`1
+  name: MBReadOnlyList<Hero>
+  nameWithType: MBReadOnlyList<Hero>
+  fullName: TaleWorlds.Library.MBReadOnlyList<TaleWorlds.CampaignSystem.Hero>
+  nameWithType.vb: MBReadOnlyList(Of Hero)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of TaleWorlds.CampaignSystem.Hero)
+  name.vb: MBReadOnlyList(Of Hero)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.Library.MBReadOnlyList`1
+  commentId: T:TaleWorlds.Library.MBReadOnlyList`1
+  isExternal: true
+  name: MBReadOnlyList<T>
+  nameWithType: MBReadOnlyList<T>
+  fullName: TaleWorlds.Library.MBReadOnlyList<T>
+  nameWithType.vb: MBReadOnlyList(Of T)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of T)
+  name.vb: MBReadOnlyList(Of T)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters
+  href: Bannerlord.GameMaster.Heroes.HeroQueries.html#Bannerlord_GameMaster_Heroes_HeroQueries_MatchesFilters_TaleWorlds_CampaignSystem_Hero_System_String_System_Boolean_Bannerlord_GameMaster_Heroes_HeroTypes_System_Boolean_System_Boolean_
+  name: MatchesFilters
+  nameWithType: HeroQueries.MatchesFilters
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.MatchesFilters
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer
+  href: Bannerlord.GameMaster.Heroes.HeroQueries.html#Bannerlord_GameMaster_Heroes_HeroQueries_GetHeroComparer_System_String_System_Boolean_
+  name: GetHeroComparer
+  nameWithType: HeroQueries.GetHeroComparer
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.GetHeroComparer
+- uid: System.Collections.Generic.IComparer{TaleWorlds.CampaignSystem.Hero}
+  commentId: T:System.Collections.Generic.IComparer{TaleWorlds.CampaignSystem.Hero}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IComparer`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  name: IComparer<Hero>
+  nameWithType: IComparer<Hero>
+  fullName: System.Collections.Generic.IComparer<TaleWorlds.CampaignSystem.Hero>
+  nameWithType.vb: IComparer(Of Hero)
+  fullName.vb: System.Collections.Generic.IComparer(Of TaleWorlds.CampaignSystem.Hero)
+  name.vb: IComparer(Of Hero)
+  spec.csharp:
+  - uid: System.Collections.Generic.IComparer`1
+    name: IComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IComparer`1
+    name: IComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.IComparer`1
+  commentId: T:System.Collections.Generic.IComparer`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  name: IComparer<T>
+  nameWithType: IComparer<T>
+  fullName: System.Collections.Generic.IComparer<T>
+  nameWithType.vb: IComparer(Of T)
+  fullName.vb: System.Collections.Generic.IComparer(Of T)
+  name.vb: IComparer(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IComparer`1
+    name: IComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IComparer`1
+    name: IComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType
+  href: Bannerlord.GameMaster.Heroes.HeroQueries.html#Bannerlord_GameMaster_Heroes_HeroQueries_ParseHeroType_System_String_
+  name: ParseHeroType
+  nameWithType: HeroQueries.ParseHeroType
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroType
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes
+  href: Bannerlord.GameMaster.Heroes.HeroQueries.html#Bannerlord_GameMaster_Heroes_HeroQueries_ParseHeroTypes_System_Collections_Generic_IEnumerable_System_String__
+  name: ParseHeroTypes
+  nameWithType: HeroQueries.ParseHeroTypes
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.ParseHeroTypes
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails
+  href: Bannerlord.GameMaster.Heroes.HeroQueries.html#Bannerlord_GameMaster_Heroes_HeroQueries_GetFormattedDetails_System_Collections_Generic_List_TaleWorlds_CampaignSystem_Hero__
+  name: GetFormattedDetails
+  nameWithType: HeroQueries.GetFormattedDetails
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries.GetFormattedDetails
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Hero>
+  nameWithType: List<Hero>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.Hero>
+  nameWithType.vb: List(Of Hero)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.Hero)
+  name.vb: List(Of Hero)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

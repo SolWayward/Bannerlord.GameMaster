@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
+  commentId: N:Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
+  id: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
+  children:
+  - Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateClanCommand
+  - Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateMinorClanCommand
+  - Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.GenerateClansCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
+  nameWithType: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
+  fullName: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateClanCommand
+  commentId: T:Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateClanCommand
+  href: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateClanCommand.html
+  name: CreateClanCommand
+  nameWithType: CreateClanCommand
+  fullName: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateClanCommand
+- uid: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateMinorClanCommand
+  commentId: T:Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateMinorClanCommand
+  href: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateMinorClanCommand.html
+  name: CreateMinorClanCommand
+  nameWithType: CreateMinorClanCommand
+  fullName: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateMinorClanCommand
+- uid: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.GenerateClansCommand
+  commentId: T:Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.GenerateClansCommand
+  href: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.GenerateClansCommand.html
+  name: GenerateClansCommand
+  nameWithType: GenerateClansCommand
+  fullName: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.GenerateClansCommand

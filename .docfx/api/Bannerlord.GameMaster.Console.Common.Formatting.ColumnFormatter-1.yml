@@ -1,0 +1,759 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  id: ColumnFormatter`1
+  parent: Bannerlord.GameMaster.Console.Common.Formatting
+  children:
+  - Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.AddColumn(System.Func{`0,System.String})
+  - Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.Format(System.Collections.Generic.List{`0})
+  - Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.FormatList``1(System.Collections.Generic.List{``0},System.Func{``0,System.String}[])
+  langs:
+  - csharp
+  - vb
+  name: ColumnFormatter<T>
+  nameWithType: ColumnFormatter<T>
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ColumnFormatter
+    path: ../Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Formatting
+  summary: >-
+    Utility class for formatting query results into aligned columns.
+
+    Since the game console treats tabs as fixed spaces, this uses calculated spacing
+
+    to ensure proper column alignment.
+  example: []
+  syntax:
+    content: public class ColumnFormatter<T>
+    typeParameters:
+    - id: T
+    content.vb: Public Class ColumnFormatter(Of T)
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  nameWithType.vb: ColumnFormatter(Of T)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T)
+  name.vb: ColumnFormatter(Of T)
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.AddColumn(System.Func{`0,System.String})
+  commentId: M:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.AddColumn(System.Func{`0,System.String})
+  id: AddColumn(System.Func{`0,System.String})
+  parent: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  langs:
+  - csharp
+  - vb
+  name: AddColumn(Func<T, string>)
+  nameWithType: ColumnFormatter<T>.AddColumn(Func<T, string>)
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.AddColumn(System.Func<T, string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AddColumn
+    path: ../Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+    startLine: 47
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Formatting
+  summary: Adds a column to the formatter.
+  example: []
+  syntax:
+    content: public ColumnFormatter<T> AddColumn(Func<T, string> valueExtractor)
+    parameters:
+    - id: valueExtractor
+      type: System.Func{{T},System.String}
+      description: Function that extracts the column value from an entity.
+    return:
+      type: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+      description: The formatter instance for fluent chaining.
+    content.vb: Public Function AddColumn(valueExtractor As Func(Of T, String)) As ColumnFormatter(Of T)
+  overload: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.AddColumn*
+  nameWithType.vb: ColumnFormatter(Of T).AddColumn(Func(Of T, String))
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).AddColumn(System.Func(Of T, String))
+  name.vb: AddColumn(Func(Of T, String))
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.Format(System.Collections.Generic.List{`0})
+  commentId: M:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.Format(System.Collections.Generic.List{`0})
+  id: Format(System.Collections.Generic.List{`0})
+  parent: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  langs:
+  - csharp
+  - vb
+  name: Format(List<T>)
+  nameWithType: ColumnFormatter<T>.Format(List<T>)
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.Format(System.Collections.Generic.List<T>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Format
+    path: ../Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+    startLine: 58
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Formatting
+  summary: Formats a list of entities into aligned columns.
+  example: []
+  syntax:
+    content: public string Format(List<T> entities)
+    parameters:
+    - id: entities
+      type: System.Collections.Generic.List{{T}}
+      description: The entities to format.
+    return:
+      type: System.String
+      description: Formatted string with aligned columns.
+    content.vb: Public Function Format(entities As List(Of T)) As String
+  overload: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.Format*
+  nameWithType.vb: ColumnFormatter(Of T).Format(List(Of T))
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).Format(System.Collections.Generic.List(Of T))
+  name.vb: Format(List(Of T))
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.FormatList``1(System.Collections.Generic.List{``0},System.Func{``0,System.String}[])
+  commentId: M:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.FormatList``1(System.Collections.Generic.List{``0},System.Func{``0,System.String}[])
+  id: FormatList``1(System.Collections.Generic.List{``0},System.Func{``0,System.String}[])
+  parent: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  langs:
+  - csharp
+  - vb
+  name: FormatList<TEntity>(List<TEntity>, params Func<TEntity, string>[])
+  nameWithType: ColumnFormatter<T>.FormatList<TEntity>(List<TEntity>, params Func<TEntity, string>[])
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.FormatList<TEntity>(System.Collections.Generic.List<TEntity>, params System.Func<TEntity, string>[])
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FormatList
+    path: ../Bannerlord.GameMaster/Console/Common/Formatting/ColumnFormatter.cs
+    startLine: 130
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Formatting
+  summary: Static helper method for quick single-use formatting.
+  example: []
+  syntax:
+    content: public static string FormatList<TEntity>(List<TEntity> entities, params Func<TEntity, string>[] columnExtractors)
+    parameters:
+    - id: entities
+      type: System.Collections.Generic.List{{TEntity}}
+      description: The entities to format.
+    - id: columnExtractors
+      type: System.Func{{TEntity},System.String}[]
+      description: Functions that extract column values from entities.
+    typeParameters:
+    - id: TEntity
+      description: The type of entities to format.
+    return:
+      type: System.String
+      description: Formatted string with aligned columns.
+    content.vb: Public Shared Function FormatList(Of TEntity)(entities As List(Of TEntity), ParamArray columnExtractors As Func(Of TEntity, String)()) As String
+  overload: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.FormatList*
+  nameWithType.vb: ColumnFormatter(Of T).FormatList(Of TEntity)(List(Of TEntity), ParamArray Func(Of TEntity, String)())
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).FormatList(Of TEntity)(System.Collections.Generic.List(Of TEntity), ParamArray System.Func(Of TEntity, String)())
+  name.vb: FormatList(Of TEntity)(List(Of TEntity), ParamArray Func(Of TEntity, String)())
+references:
+- uid: Bannerlord.GameMaster.Console.Common.Formatting
+  commentId: N:Bannerlord.GameMaster.Console.Common.Formatting
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.Formatting
+  nameWithType: Bannerlord.GameMaster.Console.Common.Formatting
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting
+    name: Formatting
+    href: Bannerlord.GameMaster.Console.Common.Formatting.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting
+    name: Formatting
+    href: Bannerlord.GameMaster.Console.Common.Formatting.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.AddColumn*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.AddColumn
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html#Bannerlord_GameMaster_Console_Common_Formatting_ColumnFormatter_1_AddColumn_System_Func__0_System_String__
+  name: AddColumn
+  nameWithType: ColumnFormatter<T>.AddColumn
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.AddColumn
+  nameWithType.vb: ColumnFormatter(Of T).AddColumn
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).AddColumn
+- uid: System.Func{{T},System.String}
+  commentId: T:System.Func{`0,System.String}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, string>
+  nameWithType: Func<T, string>
+  fullName: System.Func<T, string>
+  nameWithType.vb: Func(Of T, String)
+  fullName.vb: System.Func(Of T, String)
+  name.vb: Func(Of T, String)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+  parent: Bannerlord.GameMaster.Console.Common.Formatting
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  name: ColumnFormatter<T>
+  nameWithType: ColumnFormatter<T>
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>
+  nameWithType.vb: ColumnFormatter(Of T)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T)
+  name.vb: ColumnFormatter(Of T)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+    name: ColumnFormatter
+    href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+    name: ColumnFormatter
+    href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.Format*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.Format
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html#Bannerlord_GameMaster_Console_Common_Formatting_ColumnFormatter_1_Format_System_Collections_Generic_List__0__
+  name: Format
+  nameWithType: ColumnFormatter<T>.Format
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.Format
+  nameWithType.vb: ColumnFormatter(Of T).Format
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).Format
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.FormatList*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.FormatList
+  href: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter-1.html#Bannerlord_GameMaster_Console_Common_Formatting_ColumnFormatter_1_FormatList__1_System_Collections_Generic_List___0__System_Func___0_System_String____
+  name: FormatList
+  nameWithType: ColumnFormatter<T>.FormatList
+  fullName: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter<T>.FormatList
+  nameWithType.vb: ColumnFormatter(Of T).FormatList
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter(Of T).FormatList
+- uid: System.Collections.Generic.List{{TEntity}}
+  commentId: T:System.Collections.Generic.List{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TEntity>
+  nameWithType: List<TEntity>
+  fullName: System.Collections.Generic.List<TEntity>
+  nameWithType.vb: List(Of TEntity)
+  fullName.vb: System.Collections.Generic.List(Of TEntity)
+  name.vb: List(Of TEntity)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: System.Func{{TEntity},System.String}[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<TEntity, string>[]
+  nameWithType: Func<TEntity, string>[]
+  fullName: System.Func<TEntity, string>[]
+  nameWithType.vb: Func(Of TEntity, String)()
+  fullName.vb: System.Func(Of TEntity, String)()
+  name.vb: Func(Of TEntity, String)()
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: (
+  - name: )

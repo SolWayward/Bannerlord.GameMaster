@@ -1,0 +1,878 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  id: KingdomExtensionsWrapper
+  parent: Bannerlord.GameMaster.Kingdoms
+  children:
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  langs:
+  - csharp
+  - vb
+  name: KingdomExtensionsWrapper
+  nameWithType: KingdomExtensionsWrapper
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: KingdomExtensionsWrapper
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 155
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Wrapper class implementing IEntityExtensions interface for Kingdom entities
+  example: []
+  syntax:
+    content: 'public class KingdomExtensionsWrapper : IEntityExtensions<Kingdom, KingdomTypes>'
+    content.vb: Public Class KingdomExtensionsWrapper Implements IEntityExtensions(Of Kingdom, KingdomTypes)
+  inheritance:
+  - System.Object
+  implements:
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  langs:
+  - csharp
+  - vb
+  name: GetTypes(Kingdom)
+  nameWithType: KingdomExtensionsWrapper.GetTypes(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTypes
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 157
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  example: []
+  syntax:
+    content: public KingdomTypes GetTypes(Kingdom entity)
+    parameters:
+    - id: entity
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    content.vb: Public Function GetTypes(entity As Kingdom) As KingdomTypes
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.GetTypes*
+  implements:
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  id: HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  langs:
+  - csharp
+  - vb
+  name: HasAllTypes(Kingdom, KingdomTypes)
+  nameWithType: KingdomExtensionsWrapper.HasAllTypes(Kingdom, KingdomTypes)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAllTypes
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 158
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  example: []
+  syntax:
+    content: public bool HasAllTypes(Kingdom entity, KingdomTypes types)
+    parameters:
+    - id: entity
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: types
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasAllTypes(entity As Kingdom, types As KingdomTypes) As Boolean
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAllTypes*
+  implements:
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  id: HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  langs:
+  - csharp
+  - vb
+  name: HasAnyType(Kingdom, KingdomTypes)
+  nameWithType: KingdomExtensionsWrapper.HasAnyType(Kingdom, KingdomTypes)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType(TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAnyType
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 159
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  example: []
+  syntax:
+    content: public bool HasAnyType(Kingdom entity, KingdomTypes types)
+    parameters:
+    - id: entity
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: types
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasAnyType(entity As Kingdom, types As KingdomTypes) As Boolean
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType*
+  implements:
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  id: FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  langs:
+  - csharp
+  - vb
+  name: FormattedDetails(Kingdom)
+  nameWithType: KingdomExtensionsWrapper.FormattedDetails(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FormattedDetails
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 160
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  example: []
+  syntax:
+    content: public string FormattedDetails(Kingdom entity)
+    parameters:
+    - id: entity
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: System.String
+    content.vb: Public Function FormattedDetails(entity As Kingdom) As String
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.FormattedDetails*
+  implements:
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+references:
+- uid: Bannerlord.GameMaster.Kingdoms
+  commentId: N:Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Kingdoms
+  nameWithType: Bannerlord.GameMaster.Kingdoms
+  fullName: Bannerlord.GameMaster.Kingdoms
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}
+  commentId: T:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}
+  parent: Bannerlord.GameMaster.Common.Interfaces
+  definition: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  name: IEntityExtensions<Kingdom, KingdomTypes>
+  nameWithType: IEntityExtensions<Kingdom, KingdomTypes>
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes>
+  nameWithType.vb: IEntityExtensions(Of Kingdom, KingdomTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  name.vb: IEntityExtensions(Of Kingdom, KingdomTypes)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+    name: IEntityExtensions
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    name: KingdomTypes
+    href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+    name: IEntityExtensions
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    name: KingdomTypes
+    href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  commentId: T:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  name: IEntityExtensions<TEntity, TTypes>
+  nameWithType: IEntityExtensions<TEntity, TTypes>
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes)
+  name.vb: IEntityExtensions(Of TEntity, TTypes)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+    name: IEntityExtensions
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+    name: IEntityExtensions
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: )
+- uid: Bannerlord.GameMaster.Common.Interfaces
+  commentId: N:Bannerlord.GameMaster.Common.Interfaces
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common.Interfaces
+  nameWithType: Bannerlord.GameMaster.Common.Interfaces
+  fullName: Bannerlord.GameMaster.Common.Interfaces
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common.Interfaces
+    name: Interfaces
+    href: Bannerlord.GameMaster.Common.Interfaces.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common.Interfaces
+    name: Interfaces
+    href: Bannerlord.GameMaster.Common.Interfaces.html
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.GetTypes*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.GetTypes
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensionsWrapper_GetTypes_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetTypes
+  nameWithType: KingdomExtensionsWrapper.GetTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.GetTypes
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}
+  definition: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes(`0)
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_GetTypes__0_
+  name: GetTypes(Kingdom)
+  nameWithType: IEntityExtensions<Kingdom, KingdomTypes>.GetTypes(Kingdom)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes>.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  nameWithType.vb: IEntityExtensions(Of Kingdom, KingdomTypes).GetTypes(Kingdom)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes).GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+    name: GetTypes
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_GetTypes__0_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+    name: GetTypes
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_GetTypes__0_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.CampaignSystem.Kingdom
+  commentId: T:TaleWorlds.CampaignSystem.Kingdom
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Kingdom
+  nameWithType: Kingdom
+  fullName: TaleWorlds.CampaignSystem.Kingdom
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  parent: Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  name: KingdomTypes
+  nameWithType: KingdomTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes(`0)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes(`0)
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_GetTypes__0_
+  name: GetTypes(TEntity)
+  nameWithType: IEntityExtensions<TEntity, TTypes>.GetTypes(TEntity)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.GetTypes(TEntity)
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).GetTypes(TEntity)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).GetTypes(TEntity)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes(`0)
+    name: GetTypes
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_GetTypes__0_
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.GetTypes(`0)
+    name: GetTypes
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_GetTypes__0_
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAllTypes*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAllTypes
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensionsWrapper_HasAllTypes_TaleWorlds_CampaignSystem_Kingdom_Bannerlord_GameMaster_Kingdoms_KingdomTypes_
+  name: HasAllTypes
+  nameWithType: KingdomExtensionsWrapper.HasAllTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAllTypes
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}
+  definition: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes(`0,`1)
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAllTypes__0__1_
+  name: HasAllTypes(Kingdom, KingdomTypes)
+  nameWithType: IEntityExtensions<Kingdom, KingdomTypes>.HasAllTypes(Kingdom, KingdomTypes)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes>.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  nameWithType.vb: IEntityExtensions(Of Kingdom, KingdomTypes).HasAllTypes(Kingdom, KingdomTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes).HasAllTypes(TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+    name: HasAllTypes
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAllTypes__0__1_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    name: KingdomTypes
+    href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+    name: HasAllTypes
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAllTypes__0__1_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    name: KingdomTypes
+    href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes(`0,`1)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes(`0,`1)
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAllTypes__0__1_
+  name: HasAllTypes(TEntity, TTypes)
+  nameWithType: IEntityExtensions<TEntity, TTypes>.HasAllTypes(TEntity, TTypes)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.HasAllTypes(TEntity, TTypes)
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).HasAllTypes(TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).HasAllTypes(TEntity, TTypes)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes(`0,`1)
+    name: HasAllTypes
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAllTypes__0__1_
+  - name: (
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAllTypes(`0,`1)
+    name: HasAllTypes
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAllTypes__0__1_
+  - name: (
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: )
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensionsWrapper_HasAnyType_TaleWorlds_CampaignSystem_Kingdom_Bannerlord_GameMaster_Kingdoms_KingdomTypes_
+  name: HasAnyType
+  nameWithType: KingdomExtensionsWrapper.HasAnyType
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}
+  definition: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType(`0,`1)
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAnyType__0__1_
+  name: HasAnyType(Kingdom, KingdomTypes)
+  nameWithType: IEntityExtensions<Kingdom, KingdomTypes>.HasAnyType(Kingdom, KingdomTypes)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes>.HasAnyType(TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  nameWithType.vb: IEntityExtensions(Of Kingdom, KingdomTypes).HasAnyType(Kingdom, KingdomTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes).HasAnyType(TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+    name: HasAnyType
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAnyType__0__1_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    name: KingdomTypes
+    href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+    name: HasAnyType
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAnyType__0__1_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    name: KingdomTypes
+    href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  - name: )
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType(`0,`1)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType(`0,`1)
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAnyType__0__1_
+  name: HasAnyType(TEntity, TTypes)
+  nameWithType: IEntityExtensions<TEntity, TTypes>.HasAnyType(TEntity, TTypes)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.HasAnyType(TEntity, TTypes)
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).HasAnyType(TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).HasAnyType(TEntity, TTypes)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType(`0,`1)
+    name: HasAnyType
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAnyType__0__1_
+  - name: (
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.HasAnyType(`0,`1)
+    name: HasAnyType
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_HasAnyType__0__1_
+  - name: (
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TTypes
+  - name: )
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.FormattedDetails*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.FormattedDetails
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensionsWrapper_FormattedDetails_TaleWorlds_CampaignSystem_Kingdom_
+  name: FormattedDetails
+  nameWithType: KingdomExtensionsWrapper.FormattedDetails
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.FormattedDetails
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}
+  definition: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails(`0)
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_FormattedDetails__0_
+  name: FormattedDetails(Kingdom)
+  nameWithType: IEntityExtensions<Kingdom, KingdomTypes>.FormattedDetails(Kingdom)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes>.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  nameWithType.vb: IEntityExtensions(Of Kingdom, KingdomTypes).FormattedDetails(Kingdom)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes).FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+    name: FormattedDetails
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_FormattedDetails__0_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions{TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes}.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+    name: FormattedDetails
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_FormattedDetails__0_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Kingdom
+    name: Kingdom
+    isExternal: true
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails(`0)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails(`0)
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_FormattedDetails__0_
+  name: FormattedDetails(TEntity)
+  nameWithType: IEntityExtensions<TEntity, TTypes>.FormattedDetails(TEntity)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions<TEntity, TTypes>.FormattedDetails(TEntity)
+  nameWithType.vb: IEntityExtensions(Of TEntity, TTypes).FormattedDetails(TEntity)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions(Of TEntity, TTypes).FormattedDetails(TEntity)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails(`0)
+    name: FormattedDetails
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_FormattedDetails__0_
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2.FormattedDetails(`0)
+    name: FormattedDetails
+    href: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityExtensions_2_FormattedDetails__0_
+  - name: (
+  - name: TEntity
+  - name: )

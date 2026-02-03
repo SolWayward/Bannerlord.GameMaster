@@ -1,0 +1,673 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureFlags
+  id: CultureFlags
+  parent: Bannerlord.GameMaster.Cultures
+  children:
+  - Bannerlord.GameMaster.Cultures.CultureFlags.AllBanditCultures
+  - Bannerlord.GameMaster.Cultures.CultureFlags.AllCultures
+  - Bannerlord.GameMaster.Cultures.CultureFlags.AllMainCultures
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Aserai
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Battania
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Calradian
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Corsairs
+  - Bannerlord.GameMaster.Cultures.CultureFlags.DarshiSpecial
+  - Bannerlord.GameMaster.Cultures.CultureFlags.DesertBandits
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Deserters
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Empire
+  - Bannerlord.GameMaster.Cultures.CultureFlags.ForestBandits
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Khuzait
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Looters
+  - Bannerlord.GameMaster.Cultures.CultureFlags.MountainBandits
+  - Bannerlord.GameMaster.Cultures.CultureFlags.None
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Nord
+  - Bannerlord.GameMaster.Cultures.CultureFlags.SeaRaiders
+  - Bannerlord.GameMaster.Cultures.CultureFlags.SteppeBandits
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Sturgia
+  - Bannerlord.GameMaster.Cultures.CultureFlags.VakkenSpecial
+  - Bannerlord.GameMaster.Cultures.CultureFlags.Vlandia
+  langs:
+  - csharp
+  - vb
+  name: CultureFlags
+  nameWithType: CultureFlags
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CultureFlags
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 4
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum CultureFlags
+    content.vb: >-
+      <Flags>
+
+      Public Enum CultureFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.None
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.None
+  id: None
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CultureFlags.None
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 7
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Calradian
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Calradian
+  id: Calradian
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Calradian
+  nameWithType: CultureFlags.Calradian
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Calradian
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Calradian
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Calradian = 1
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Aserai
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Aserai
+  id: Aserai
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Aserai
+  nameWithType: CultureFlags.Aserai
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Aserai
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Aserai
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Aserai = 2
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Battania
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Battania
+  id: Battania
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Battania
+  nameWithType: CultureFlags.Battania
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Battania
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Battania
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Battania = 4
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Empire
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Empire
+  id: Empire
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Empire
+  nameWithType: CultureFlags.Empire
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Empire
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Empire
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Empire = 8
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Khuzait
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Khuzait
+  id: Khuzait
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Khuzait
+  nameWithType: CultureFlags.Khuzait
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Khuzait
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Khuzait
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Khuzait = 16
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Nord
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Nord
+  id: Nord
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Nord
+  nameWithType: CultureFlags.Nord
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Nord
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Nord
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Nord = 32
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Sturgia
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Sturgia
+  id: Sturgia
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Sturgia
+  nameWithType: CultureFlags.Sturgia
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Sturgia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sturgia
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Sturgia = 64
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Vlandia
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Vlandia
+  id: Vlandia
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Vlandia
+  nameWithType: CultureFlags.Vlandia
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Vlandia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Vlandia
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Vlandia = 128
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.AllMainCultures
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.AllMainCultures
+  id: AllMainCultures
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: AllMainCultures
+  nameWithType: CultureFlags.AllMainCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.AllMainCultures
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllMainCultures
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: AllMainCultures = Calradian | Aserai | Battania | Empire | Khuzait | Nord | Sturgia | Vlandia
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+    content.vb: AllMainCultures = Calradian Or Aserai Or Battania Or Empire Or Khuzait Or Nord Or Sturgia Or Vlandia
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Looters
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Looters
+  id: Looters
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Looters
+  nameWithType: CultureFlags.Looters
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Looters
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Looters
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Looters = 256
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Deserters
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Deserters
+  id: Deserters
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Deserters
+  nameWithType: CultureFlags.Deserters
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Deserters
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Deserters
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Deserters = 512
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.DesertBandits
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.DesertBandits
+  id: DesertBandits
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: DesertBandits
+  nameWithType: CultureFlags.DesertBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.DesertBandits
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DesertBandits
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: DesertBandits = 1024
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.ForestBandits
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.ForestBandits
+  id: ForestBandits
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: ForestBandits
+  nameWithType: CultureFlags.ForestBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.ForestBandits
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ForestBandits
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: ForestBandits = 2048
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.MountainBandits
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.MountainBandits
+  id: MountainBandits
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: MountainBandits
+  nameWithType: CultureFlags.MountainBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.MountainBandits
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MountainBandits
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: MountainBandits = 4096
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.SteppeBandits
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.SteppeBandits
+  id: SteppeBandits
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: SteppeBandits
+  nameWithType: CultureFlags.SteppeBandits
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.SteppeBandits
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SteppeBandits
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: SteppeBandits = 8192
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.SeaRaiders
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.SeaRaiders
+  id: SeaRaiders
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: SeaRaiders
+  nameWithType: CultureFlags.SeaRaiders
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.SeaRaiders
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SeaRaiders
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: SeaRaiders = 16384
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.Corsairs
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.Corsairs
+  id: Corsairs
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: Corsairs
+  nameWithType: CultureFlags.Corsairs
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.Corsairs
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Corsairs
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: Corsairs = 32768
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.AllBanditCultures
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.AllBanditCultures
+  id: AllBanditCultures
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: AllBanditCultures
+  nameWithType: CultureFlags.AllBanditCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.AllBanditCultures
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllBanditCultures
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: AllBanditCultures = Looters | Deserters | DesertBandits | ForestBandits | MountainBandits | SteppeBandits | SeaRaiders | Corsairs
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+    content.vb: AllBanditCultures = Looters Or Deserters Or DesertBandits Or ForestBandits Or MountainBandits Or SteppeBandits Or SeaRaiders Or Corsairs
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.DarshiSpecial
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.DarshiSpecial
+  id: DarshiSpecial
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: DarshiSpecial
+  nameWithType: CultureFlags.DarshiSpecial
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.DarshiSpecial
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DarshiSpecial
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: DarshiSpecial = 65536
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.VakkenSpecial
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.VakkenSpecial
+  id: VakkenSpecial
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: VakkenSpecial
+  nameWithType: CultureFlags.VakkenSpecial
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.VakkenSpecial
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: VakkenSpecial
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: VakkenSpecial = 131072
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags.AllCultures
+  commentId: F:Bannerlord.GameMaster.Cultures.CultureFlags.AllCultures
+  id: AllCultures
+  parent: Bannerlord.GameMaster.Cultures.CultureFlags
+  langs:
+  - csharp
+  - vb
+  name: AllCultures
+  nameWithType: CultureFlags.AllCultures
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags.AllCultures
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/CultureFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllCultures
+    path: ../Bannerlord.GameMaster/Cultures/CultureFlags.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures
+  syntax:
+    content: AllCultures = AllMainCultures | AllBanditCultures | DarshiSpecial | VakkenSpecial
+    return:
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+    content.vb: AllCultures = AllMainCultures Or AllBanditCultures Or DarshiSpecial Or VakkenSpecial
+references:
+- uid: Bannerlord.GameMaster.Cultures
+  commentId: N:Bannerlord.GameMaster.Cultures
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Cultures
+  nameWithType: Bannerlord.GameMaster.Cultures
+  fullName: Bannerlord.GameMaster.Cultures
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureFlags
+  parent: Bannerlord.GameMaster.Cultures
+  href: Bannerlord.GameMaster.Cultures.CultureFlags.html
+  name: CultureFlags
+  nameWithType: CultureFlags
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags

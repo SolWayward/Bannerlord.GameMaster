@@ -1,0 +1,2151 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Bandits.BanditManager
+  commentId: T:Bannerlord.GameMaster.Bandits.BanditManager
+  id: BanditManager
+  parent: Bannerlord.GameMaster.Bandits
+  children:
+  - Bannerlord.GameMaster.Bandits.BanditManager.ActivateHideout(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject)
+  - Bannerlord.GameMaster.Bandits.BanditManager.CorsairHideoutCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.CorsairPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout)
+  - Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  - Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditHideoutCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.DeserterHideoutCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.DeserterPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditHideoutCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.LooterHideoutCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.LootersPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditHideoutCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture(TaleWorlds.CampaignSystem.CultureObject,System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture(TaleWorlds.CampaignSystem.CultureObject,System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderHideoutCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditHideoutCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.TotalBanditPartyCount
+  - Bannerlord.GameMaster.Bandits.BanditManager.TotalHideoutCount
+  langs:
+  - csharp
+  - vb
+  name: BanditManager
+  nameWithType: BanditManager
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BanditManager
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static class BanditManager
+    content.vb: Public Module BanditManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  id: CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject,System.Boolean)
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: CreateBanditParty(Hideout, CultureObject, bool)
+  nameWithType: BanditManager.CreateBanditParty(Hideout, CultureObject, bool)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.CultureObject, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateBanditParty
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Creates bandit party of the specified culture at the specified hideout
+  example: []
+  syntax:
+    content: public static MobileParty CreateBanditParty(Hideout hideout, CultureObject culture = null, bool isBossParty = false)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: >-
+        The bandit type that will be used for the party. If culture is a main cuture instead of a bandit culture, a deserter party will be created using troops from the specified culture. 
+            If culture is null or not specified, the party will use the same cultures of any bandit parties residing inside the hideout, or 
+            if the hideout is empty, the bandit culture for the terrain type of the hideout will be used.
+    - id: isBossParty
+      type: System.Boolean
+      description: BossParty is a stronger party with bandit hero leader and will never leave hideout regardless of how many parties are inside the hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateBanditParty(hideout As Hideout, culture As CultureObject = Nothing, isBossParty As Boolean = False) As MobileParty
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty*
+  nameWithType.vb: BanditManager.CreateBanditParty(Hideout, CultureObject, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.CultureObject, Boolean)
+  name.vb: CreateBanditParty(Hideout, CultureObject, Boolean)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout)
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout)
+  id: CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout)
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: CreateBanditParty(Hideout)
+  nameWithType: BanditManager.CreateBanditParty(Hideout)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty(TaleWorlds.CampaignSystem.Settlements.Hideout)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateBanditParty
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Create a bandit party at a hideout using the apropiate bandit culture for the hideout. If no boss party exists at hideout, the party will be a boss party which will never leave the hideout.
+  example: []
+  syntax:
+    content: public static MobileParty CreateBanditParty(Hideout hideout)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout the party will be attached to. Once a hideout has 2+ parties inside it will become active. Parties will not leave hideout until there is 4+ parties as 3 parties always stay in hideout
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+    content.vb: Public Shared Function CreateBanditParty(hideout As Hideout) As MobileParty
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.ActivateHideout(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject)
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.ActivateHideout(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject)
+  id: ActivateHideout(TaleWorlds.CampaignSystem.Settlements.Hideout,TaleWorlds.CampaignSystem.CultureObject)
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: ActivateHideout(Hideout, CultureObject)
+  nameWithType: BanditManager.ActivateHideout(Hideout, CultureObject)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.ActivateHideout(TaleWorlds.CampaignSystem.Settlements.Hideout, TaleWorlds.CampaignSystem.CultureObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ActivateHideout
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 45
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: >-
+    Activates a hideout by creating parties for the hideout until atleast 3 bandit parties are inside the hideout.
+
+    A hideout is considered activated if two or more bandit parties are inside the hideout, but bandit parties will not leave the hideout until there is more than three parties as three parties always stay in hideout.
+
+    If the hideout doesnt have a boss party, a boss party will be created. If the hideout is already active no regular parties will be created.
+  example: []
+  syntax:
+    content: public static void ActivateHideout(Hideout hideout, CultureObject culture = null)
+    parameters:
+    - id: hideout
+      type: TaleWorlds.CampaignSystem.Settlements.Hideout
+      description: The hideout to activate
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: >-
+        The bandit type that will be used for the party. If culture is a main cuture instead of a bandit culture, a deserter party will be created using troops from the specified culture. 
+            If culture is null or not specified, the party will use the same cultures of any bandit parties residing inside the hideout, or 
+            if the hideout is empty, the bandit culture for the terrain type of the hideout will be used.
+    content.vb: Public Shared Sub ActivateHideout(hideout As Hideout, culture As CultureObject = Nothing)
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.ActivateHideout*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties(System.Nullable{System.Int32})
+  id: RemoveDeserterParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveDeserterParties(int?)
+  nameWithType: BanditManager.RemoveDeserterParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveDeserterParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 70
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes deserter parties. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveDeserterParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveDeserterParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties*
+  nameWithType.vb: BanditManager.RemoveDeserterParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties(Integer?)
+  name.vb: RemoveDeserterParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties(System.Nullable{System.Int32})
+  id: RemoveDesertBanditParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveDesertBanditParties(int?)
+  nameWithType: BanditManager.RemoveDesertBanditParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveDesertBanditParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 78
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes desert bandit parties. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveDesertBanditParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveDesertBanditParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties*
+  nameWithType.vb: BanditManager.RemoveDesertBanditParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties(Integer?)
+  name.vb: RemoveDesertBanditParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties(System.Nullable{System.Int32})
+  id: RemoveForestBanditParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveForestBanditParties(int?)
+  nameWithType: BanditManager.RemoveForestBanditParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveForestBanditParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 86
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes forest bandit parties. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveForestBanditParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveForestBanditParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties*
+  nameWithType.vb: BanditManager.RemoveForestBanditParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties(Integer?)
+  name.vb: RemoveForestBanditParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties(System.Nullable{System.Int32})
+  id: RemoveLooterParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveLooterParties(int?)
+  nameWithType: BanditManager.RemoveLooterParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveLooterParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 94
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes looter parties. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveLooterParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveLooterParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties*
+  nameWithType.vb: BanditManager.RemoveLooterParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties(Integer?)
+  name.vb: RemoveLooterParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties(System.Nullable{System.Int32})
+  id: RemoveMountainBanditParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveMountainBanditParties(int?)
+  nameWithType: BanditManager.RemoveMountainBanditParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveMountainBanditParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes mountain bandit parties. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveMountainBanditParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveMountainBanditParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties*
+  nameWithType.vb: BanditManager.RemoveMountainBanditParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties(Integer?)
+  name.vb: RemoveMountainBanditParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties(System.Nullable{System.Int32})
+  id: RemoveSeaRaiderParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveSeaRaiderParties(int?)
+  nameWithType: BanditManager.RemoveSeaRaiderParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveSeaRaiderParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 110
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes sea raider parties. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveSeaRaiderParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveSeaRaiderParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties*
+  nameWithType.vb: BanditManager.RemoveSeaRaiderParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties(Integer?)
+  name.vb: RemoveSeaRaiderParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties(System.Nullable{System.Int32})
+  id: RemoveCorsairParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveCorsairParties(int?)
+  nameWithType: BanditManager.RemoveCorsairParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveCorsairParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 119
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: >-
+    Removes corsair parties. If count is null, removes all. If count is specified, randomly removes that many.
+
+    Returns 0 if Warsails DLC is not loaded.
+  example: []
+  syntax:
+    content: public static int RemoveCorsairParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveCorsairParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties*
+  nameWithType.vb: BanditManager.RemoveCorsairParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties(Integer?)
+  name.vb: RemoveCorsairParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties(System.Nullable{System.Int32})
+  id: RemoveSteppeBanditParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveSteppeBanditParties(int?)
+  nameWithType: BanditManager.RemoveSteppeBanditParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveSteppeBanditParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 131
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes steppe bandit parties. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveSteppeBanditParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveSteppeBanditParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties*
+  nameWithType.vb: BanditManager.RemoveSteppeBanditParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties(Integer?)
+  name.vb: RemoveSteppeBanditParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties(System.Nullable{System.Int32})
+  id: RemoveAllBanditParties(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveAllBanditParties(int?)
+  nameWithType: BanditManager.RemoveAllBanditParties(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveAllBanditParties
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 140
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: >-
+    Removes all bandit parties. If count is null, removes all. If count is specified, randomly removes that many from all bandit types.
+
+    Note: If all bandit parties linked to a hideout are destroyed the hideout is also considered cleared by the game
+  example: []
+  syntax:
+    content: public static int RemoveAllBanditParties(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveAllBanditParties(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties*
+  nameWithType.vb: BanditManager.RemoveAllBanditParties(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties(Integer?)
+  name.vb: RemoveAllBanditParties(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts(System.Nullable{System.Int32})
+  id: RemoveDeserterHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveDeserterHideouts(int?)
+  nameWithType: BanditManager.RemoveDeserterHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveDeserterHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 168
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes deserter hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveDeserterHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveDeserterHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts*
+  nameWithType.vb: BanditManager.RemoveDeserterHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts(Integer?)
+  name.vb: RemoveDeserterHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts(System.Nullable{System.Int32})
+  id: RemoveDesertBanditHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveDesertBanditHideouts(int?)
+  nameWithType: BanditManager.RemoveDesertBanditHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveDesertBanditHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 176
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes desert bandit hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveDesertBanditHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveDesertBanditHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts*
+  nameWithType.vb: BanditManager.RemoveDesertBanditHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts(Integer?)
+  name.vb: RemoveDesertBanditHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts(System.Nullable{System.Int32})
+  id: RemoveForestBanditHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveForestBanditHideouts(int?)
+  nameWithType: BanditManager.RemoveForestBanditHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveForestBanditHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 184
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes forest bandit hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveForestBanditHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveForestBanditHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts*
+  nameWithType.vb: BanditManager.RemoveForestBanditHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts(Integer?)
+  name.vb: RemoveForestBanditHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts(System.Nullable{System.Int32})
+  id: RemoveLooterHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveLooterHideouts(int?)
+  nameWithType: BanditManager.RemoveLooterHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveLooterHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 193
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: >-
+    Removes looter hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+
+    Looter hideouts do not normally exist, but may exist if player used a command, or someother code added looters to a hideout
+  example: []
+  syntax:
+    content: public static int RemoveLooterHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveLooterHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts*
+  nameWithType.vb: BanditManager.RemoveLooterHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts(Integer?)
+  name.vb: RemoveLooterHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts(System.Nullable{System.Int32})
+  id: RemoveMountainBanditHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveMountainBanditHideouts(int?)
+  nameWithType: BanditManager.RemoveMountainBanditHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveMountainBanditHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 201
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes mountain bandit hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveMountainBanditHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveMountainBanditHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts*
+  nameWithType.vb: BanditManager.RemoveMountainBanditHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts(Integer?)
+  name.vb: RemoveMountainBanditHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts(System.Nullable{System.Int32})
+  id: RemoveSeaRaiderHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveSeaRaiderHideouts(int?)
+  nameWithType: BanditManager.RemoveSeaRaiderHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveSeaRaiderHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 209
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes sea raider hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveSeaRaiderHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveSeaRaiderHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts*
+  nameWithType.vb: BanditManager.RemoveSeaRaiderHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts(Integer?)
+  name.vb: RemoveSeaRaiderHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts(System.Nullable{System.Int32})
+  id: RemoveCorsairHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveCorsairHideouts(int?)
+  nameWithType: BanditManager.RemoveCorsairHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveCorsairHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 218
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: >-
+    Removes corsair hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+
+    Returns 0 if Warsails DLC is not loaded.
+  example: []
+  syntax:
+    content: public static int RemoveCorsairHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveCorsairHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts*
+  nameWithType.vb: BanditManager.RemoveCorsairHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts(Integer?)
+  name.vb: RemoveCorsairHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts(System.Nullable{System.Int32})
+  id: RemoveSteppeBanditHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveSteppeBanditHideouts(int?)
+  nameWithType: BanditManager.RemoveSteppeBanditHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveSteppeBanditHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 230
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes steppe bandit hideouts. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveSteppeBanditHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveSteppeBanditHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts*
+  nameWithType.vb: BanditManager.RemoveSteppeBanditHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts(Integer?)
+  name.vb: RemoveSteppeBanditHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts(System.Nullable{System.Int32})
+  id: RemoveAllHideouts(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveAllHideouts(int?)
+  nameWithType: BanditManager.RemoveAllHideouts(int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveAllHideouts
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 238
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes all hideouts. If count is null, removes all. If count is specified, randomly removes that many from all hideout types.
+  example: []
+  syntax:
+    content: public static int RemoveAllHideouts(int? count = null)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveAllHideouts(count As Integer? = Nothing) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts*
+  nameWithType.vb: BanditManager.RemoveAllHideouts(Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts(Integer?)
+  name.vb: RemoveAllHideouts(Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.LootersPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.LootersPartyCount
+  id: LootersPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: LootersPartyCount
+  nameWithType: BanditManager.LootersPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.LootersPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LootersPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 269
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int LootersPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property LootersPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.LootersPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.DeserterPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.DeserterPartyCount
+  id: DeserterPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: DeserterPartyCount
+  nameWithType: BanditManager.DeserterPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.DeserterPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DeserterPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 270
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int DeserterPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property DeserterPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.DeserterPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditPartyCount
+  id: DesertBanditPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: DesertBanditPartyCount
+  nameWithType: BanditManager.DesertBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DesertBanditPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 271
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int DesertBanditPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property DesertBanditPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditPartyCount
+  id: ForestBanditPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: ForestBanditPartyCount
+  nameWithType: BanditManager.ForestBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ForestBanditPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 272
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int ForestBanditPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property ForestBanditPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditPartyCount
+  id: MountainBanditPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: MountainBanditPartyCount
+  nameWithType: BanditManager.MountainBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MountainBanditPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 273
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int MountainBanditPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property MountainBanditPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderPartyCount
+  id: SeaRaiderPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: SeaRaiderPartyCount
+  nameWithType: BanditManager.SeaRaiderPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SeaRaiderPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 274
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int SeaRaiderPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property SeaRaiderPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditPartyCount
+  id: SteppeBanditPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: SteppeBanditPartyCount
+  nameWithType: BanditManager.SteppeBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SteppeBanditPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 275
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int SteppeBanditPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property SteppeBanditPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.CorsairPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.CorsairPartyCount
+  id: CorsairPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: CorsairPartyCount
+  nameWithType: BanditManager.CorsairPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.CorsairPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CorsairPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 276
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int CorsairPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property CorsairPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.CorsairPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.TotalBanditPartyCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.TotalBanditPartyCount
+  id: TotalBanditPartyCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: TotalBanditPartyCount
+  nameWithType: BanditManager.TotalBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.TotalBanditPartyCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TotalBanditPartyCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 281
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Gets the total count of all bandit parties.
+  example: []
+  syntax:
+    content: public static int TotalBanditPartyCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property TotalBanditPartyCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.TotalBanditPartyCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.LooterHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.LooterHideoutCount
+  id: LooterHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: LooterHideoutCount
+  nameWithType: BanditManager.LooterHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.LooterHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LooterHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 304
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int LooterHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property LooterHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.LooterHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.DeserterHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.DeserterHideoutCount
+  id: DeserterHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: DeserterHideoutCount
+  nameWithType: BanditManager.DeserterHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.DeserterHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DeserterHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 305
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int DeserterHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property DeserterHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.DeserterHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditHideoutCount
+  id: DesertBanditHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: DesertBanditHideoutCount
+  nameWithType: BanditManager.DesertBanditHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DesertBanditHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 306
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int DesertBanditHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property DesertBanditHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditHideoutCount
+  id: ForestBanditHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: ForestBanditHideoutCount
+  nameWithType: BanditManager.ForestBanditHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ForestBanditHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 307
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int ForestBanditHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property ForestBanditHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditHideoutCount
+  id: MountainBanditHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: MountainBanditHideoutCount
+  nameWithType: BanditManager.MountainBanditHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MountainBanditHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 308
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int MountainBanditHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property MountainBanditHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderHideoutCount
+  id: SeaRaiderHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: SeaRaiderHideoutCount
+  nameWithType: BanditManager.SeaRaiderHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SeaRaiderHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 309
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int SeaRaiderHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property SeaRaiderHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditHideoutCount
+  id: SteppeBanditHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: SteppeBanditHideoutCount
+  nameWithType: BanditManager.SteppeBanditHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SteppeBanditHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 310
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int SteppeBanditHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property SteppeBanditHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.CorsairHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.CorsairHideoutCount
+  id: CorsairHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: CorsairHideoutCount
+  nameWithType: BanditManager.CorsairHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.CorsairHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CorsairHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 311
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  syntax:
+    content: public static int CorsairHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property CorsairHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.CorsairHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.TotalHideoutCount
+  commentId: P:Bannerlord.GameMaster.Bandits.BanditManager.TotalHideoutCount
+  id: TotalHideoutCount
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: TotalHideoutCount
+  nameWithType: BanditManager.TotalHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.TotalHideoutCount
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TotalHideoutCount
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 316
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Gets the total count of all hideouts.
+  example: []
+  syntax:
+    content: public static int TotalHideoutCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property TotalHideoutCount As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.TotalHideoutCount*
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture(TaleWorlds.CampaignSystem.CultureObject,System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture(TaleWorlds.CampaignSystem.CultureObject,System.Nullable{System.Int32})
+  id: RemoveBanditPartiesByCulture(TaleWorlds.CampaignSystem.CultureObject,System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveBanditPartiesByCulture(CultureObject, int?)
+  nameWithType: BanditManager.RemoveBanditPartiesByCulture(CultureObject, int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture(TaleWorlds.CampaignSystem.CultureObject, int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveBanditPartiesByCulture
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 342
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: Removes bandit parties of a specific culture. If count is null, removes all. If count is specified, randomly removes that many.
+  example: []
+  syntax:
+    content: public static int RemoveBanditPartiesByCulture(CultureObject cultureObj, int? count)
+    parameters:
+    - id: cultureObj
+      type: TaleWorlds.CampaignSystem.CultureObject
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveBanditPartiesByCulture(cultureObj As CultureObject, count As Integer?) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture*
+  nameWithType.vb: BanditManager.RemoveBanditPartiesByCulture(CultureObject, Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture(TaleWorlds.CampaignSystem.CultureObject, Integer?)
+  name.vb: RemoveBanditPartiesByCulture(CultureObject, Integer?)
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture(TaleWorlds.CampaignSystem.CultureObject,System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture(TaleWorlds.CampaignSystem.CultureObject,System.Nullable{System.Int32})
+  id: RemoveHideoutsByCulture(TaleWorlds.CampaignSystem.CultureObject,System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.Bandits.BanditManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveHideoutsByCulture(CultureObject, int?)
+  nameWithType: BanditManager.RemoveHideoutsByCulture(CultureObject, int?)
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture(TaleWorlds.CampaignSystem.CultureObject, int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Bandits/BanditManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveHideoutsByCulture
+    path: ../Bannerlord.GameMaster/Bandits/BanditManager.cs
+    startLine: 372
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Bandits
+  summary: >-
+    Removes hideouts of a specific culture. If count is null, removes all. If count is specified, randomly removes that many.
+
+    Hideouts are removed by destroying all bandit parties inside them, causing the hideout to deactivate naturally.
+  example: []
+  syntax:
+    content: public static int RemoveHideoutsByCulture(CultureObject cultureObj, int? count)
+    parameters:
+    - id: cultureObj
+      type: TaleWorlds.CampaignSystem.CultureObject
+    - id: count
+      type: System.Nullable{System.Int32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveHideoutsByCulture(cultureObj As CultureObject, count As Integer?) As Integer
+  overload: Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture*
+  nameWithType.vb: BanditManager.RemoveHideoutsByCulture(CultureObject, Integer?)
+  fullName.vb: Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture(TaleWorlds.CampaignSystem.CultureObject, Integer?)
+  name.vb: RemoveHideoutsByCulture(CultureObject, Integer?)
+references:
+- uid: Bannerlord.GameMaster.Bandits
+  commentId: N:Bannerlord.GameMaster.Bandits
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Bandits
+  nameWithType: Bannerlord.GameMaster.Bandits
+  fullName: Bannerlord.GameMaster.Bandits
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Bandits
+    name: Bandits
+    href: Bannerlord.GameMaster.Bandits.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Bandits
+    name: Bandits
+    href: Bannerlord.GameMaster.Bandits.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_CreateBanditParty_TaleWorlds_CampaignSystem_Settlements_Hideout_TaleWorlds_CampaignSystem_CultureObject_System_Boolean_
+  name: CreateBanditParty
+  nameWithType: BanditManager.CreateBanditParty
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.CreateBanditParty
+- uid: TaleWorlds.CampaignSystem.Settlements.Hideout
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Hideout
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Hideout
+  nameWithType: Hideout
+  fullName: TaleWorlds.CampaignSystem.Settlements.Hideout
+- uid: TaleWorlds.CampaignSystem.CultureObject
+  commentId: T:TaleWorlds.CampaignSystem.CultureObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CultureObject
+  nameWithType: CultureObject
+  fullName: TaleWorlds.CampaignSystem.CultureObject
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TaleWorlds.CampaignSystem.Party.MobileParty
+  commentId: T:TaleWorlds.CampaignSystem.Party.MobileParty
+  parent: TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: MobileParty
+  nameWithType: MobileParty
+  fullName: TaleWorlds.CampaignSystem.Party.MobileParty
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.CampaignSystem.Party
+  commentId: N:TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Party
+  nameWithType: TaleWorlds.CampaignSystem.Party
+  fullName: TaleWorlds.CampaignSystem.Party
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.ActivateHideout*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.ActivateHideout
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_ActivateHideout_TaleWorlds_CampaignSystem_Settlements_Hideout_TaleWorlds_CampaignSystem_CultureObject_
+  name: ActivateHideout
+  nameWithType: BanditManager.ActivateHideout
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.ActivateHideout
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveDeserterParties_System_Nullable_System_Int32__
+  name: RemoveDeserterParties
+  nameWithType: BanditManager.RemoveDeserterParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterParties
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveDesertBanditParties_System_Nullable_System_Int32__
+  name: RemoveDesertBanditParties
+  nameWithType: BanditManager.RemoveDesertBanditParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditParties
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveForestBanditParties_System_Nullable_System_Int32__
+  name: RemoveForestBanditParties
+  nameWithType: BanditManager.RemoveForestBanditParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditParties
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveLooterParties_System_Nullable_System_Int32__
+  name: RemoveLooterParties
+  nameWithType: BanditManager.RemoveLooterParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterParties
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveMountainBanditParties_System_Nullable_System_Int32__
+  name: RemoveMountainBanditParties
+  nameWithType: BanditManager.RemoveMountainBanditParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditParties
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveSeaRaiderParties_System_Nullable_System_Int32__
+  name: RemoveSeaRaiderParties
+  nameWithType: BanditManager.RemoveSeaRaiderParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderParties
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveCorsairParties_System_Nullable_System_Int32__
+  name: RemoveCorsairParties
+  nameWithType: BanditManager.RemoveCorsairParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairParties
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveSteppeBanditParties_System_Nullable_System_Int32__
+  name: RemoveSteppeBanditParties
+  nameWithType: BanditManager.RemoveSteppeBanditParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditParties
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveAllBanditParties_System_Nullable_System_Int32__
+  name: RemoveAllBanditParties
+  nameWithType: BanditManager.RemoveAllBanditParties
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllBanditParties
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveDeserterHideouts_System_Nullable_System_Int32__
+  name: RemoveDeserterHideouts
+  nameWithType: BanditManager.RemoveDeserterHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDeserterHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveDesertBanditHideouts_System_Nullable_System_Int32__
+  name: RemoveDesertBanditHideouts
+  nameWithType: BanditManager.RemoveDesertBanditHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveDesertBanditHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveForestBanditHideouts_System_Nullable_System_Int32__
+  name: RemoveForestBanditHideouts
+  nameWithType: BanditManager.RemoveForestBanditHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveForestBanditHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveLooterHideouts_System_Nullable_System_Int32__
+  name: RemoveLooterHideouts
+  nameWithType: BanditManager.RemoveLooterHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveLooterHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveMountainBanditHideouts_System_Nullable_System_Int32__
+  name: RemoveMountainBanditHideouts
+  nameWithType: BanditManager.RemoveMountainBanditHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveMountainBanditHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveSeaRaiderHideouts_System_Nullable_System_Int32__
+  name: RemoveSeaRaiderHideouts
+  nameWithType: BanditManager.RemoveSeaRaiderHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSeaRaiderHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveCorsairHideouts_System_Nullable_System_Int32__
+  name: RemoveCorsairHideouts
+  nameWithType: BanditManager.RemoveCorsairHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveCorsairHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveSteppeBanditHideouts_System_Nullable_System_Int32__
+  name: RemoveSteppeBanditHideouts
+  nameWithType: BanditManager.RemoveSteppeBanditHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveSteppeBanditHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveAllHideouts_System_Nullable_System_Int32__
+  name: RemoveAllHideouts
+  nameWithType: BanditManager.RemoveAllHideouts
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveAllHideouts
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.LootersPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.LootersPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_LootersPartyCount
+  name: LootersPartyCount
+  nameWithType: BanditManager.LootersPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.LootersPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.DeserterPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.DeserterPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_DeserterPartyCount
+  name: DeserterPartyCount
+  nameWithType: BanditManager.DeserterPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.DeserterPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_DesertBanditPartyCount
+  name: DesertBanditPartyCount
+  nameWithType: BanditManager.DesertBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_ForestBanditPartyCount
+  name: ForestBanditPartyCount
+  nameWithType: BanditManager.ForestBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_MountainBanditPartyCount
+  name: MountainBanditPartyCount
+  nameWithType: BanditManager.MountainBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_SeaRaiderPartyCount
+  name: SeaRaiderPartyCount
+  nameWithType: BanditManager.SeaRaiderPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_SteppeBanditPartyCount
+  name: SteppeBanditPartyCount
+  nameWithType: BanditManager.SteppeBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.CorsairPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.CorsairPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_CorsairPartyCount
+  name: CorsairPartyCount
+  nameWithType: BanditManager.CorsairPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.CorsairPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.TotalBanditPartyCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.TotalBanditPartyCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_TotalBanditPartyCount
+  name: TotalBanditPartyCount
+  nameWithType: BanditManager.TotalBanditPartyCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.TotalBanditPartyCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.LooterHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.LooterHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_LooterHideoutCount
+  name: LooterHideoutCount
+  nameWithType: BanditManager.LooterHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.LooterHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.DeserterHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.DeserterHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_DeserterHideoutCount
+  name: DeserterHideoutCount
+  nameWithType: BanditManager.DeserterHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.DeserterHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_DesertBanditHideoutCount
+  name: DesertBanditHideoutCount
+  nameWithType: BanditManager.DesertBanditHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.DesertBanditHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_ForestBanditHideoutCount
+  name: ForestBanditHideoutCount
+  nameWithType: BanditManager.ForestBanditHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.ForestBanditHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_MountainBanditHideoutCount
+  name: MountainBanditHideoutCount
+  nameWithType: BanditManager.MountainBanditHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.MountainBanditHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_SeaRaiderHideoutCount
+  name: SeaRaiderHideoutCount
+  nameWithType: BanditManager.SeaRaiderHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.SeaRaiderHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_SteppeBanditHideoutCount
+  name: SteppeBanditHideoutCount
+  nameWithType: BanditManager.SteppeBanditHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.SteppeBanditHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.CorsairHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.CorsairHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_CorsairHideoutCount
+  name: CorsairHideoutCount
+  nameWithType: BanditManager.CorsairHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.CorsairHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.TotalHideoutCount*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.TotalHideoutCount
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_TotalHideoutCount
+  name: TotalHideoutCount
+  nameWithType: BanditManager.TotalHideoutCount
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.TotalHideoutCount
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveBanditPartiesByCulture_TaleWorlds_CampaignSystem_CultureObject_System_Nullable_System_Int32__
+  name: RemoveBanditPartiesByCulture
+  nameWithType: BanditManager.RemoveBanditPartiesByCulture
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveBanditPartiesByCulture
+- uid: Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture*
+  commentId: Overload:Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture
+  href: Bannerlord.GameMaster.Bandits.BanditManager.html#Bannerlord_GameMaster_Bandits_BanditManager_RemoveHideoutsByCulture_TaleWorlds_CampaignSystem_CultureObject_System_Nullable_System_Int32__
+  name: RemoveHideoutsByCulture
+  nameWithType: BanditManager.RemoveHideoutsByCulture
+  fullName: Bannerlord.GameMaster.Bandits.BanditManager.RemoveHideoutsByCulture

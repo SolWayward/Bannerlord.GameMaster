@@ -1,0 +1,563 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  commentId: T:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  id: BLGMObjectManager.PartyTypeNames
+  parent: Bannerlord.GameMaster
+  children:
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Bandit
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Caravan
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Custom
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Looter
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Lord
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Militia
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.NavalPatrol
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Patrol
+  - Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Villager
+  langs:
+  - csharp
+  - vb
+  name: BLGMObjectManager.PartyTypeNames
+  nameWithType: BLGMObjectManager.PartyTypeNames
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: PartyTypeNames
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 103
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Constants for party type names used in StringId generation
+  example: []
+  syntax:
+    content: public static class BLGMObjectManager.PartyTypeNames
+    content.vb: Public Module BLGMObjectManager.PartyTypeNames
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Lord
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Lord
+  id: Lord
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: Lord
+  nameWithType: BLGMObjectManager.PartyTypeNames.Lord
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Lord
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Lord
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 105
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string Lord = "lord"
+    return:
+      type: System.String
+    content.vb: Public Const Lord As String = "lord"
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Bandit
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Bandit
+  id: Bandit
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: Bandit
+  nameWithType: BLGMObjectManager.PartyTypeNames.Bandit
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Bandit
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bandit
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 106
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string Bandit = "bandit"
+    return:
+      type: System.String
+    content.vb: Public Const Bandit As String = "bandit"
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Villager
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Villager
+  id: Villager
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: Villager
+  nameWithType: BLGMObjectManager.PartyTypeNames.Villager
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Villager
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Villager
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 107
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string Villager = "villager"
+    return:
+      type: System.String
+    content.vb: Public Const Villager As String = "villager"
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Patrol
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Patrol
+  id: Patrol
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: Patrol
+  nameWithType: BLGMObjectManager.PartyTypeNames.Patrol
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Patrol
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Patrol
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 108
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string Patrol = "patrol"
+    return:
+      type: System.String
+    content.vb: Public Const Patrol As String = "patrol"
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.NavalPatrol
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.NavalPatrol
+  id: NavalPatrol
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: NavalPatrol
+  nameWithType: BLGMObjectManager.PartyTypeNames.NavalPatrol
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.NavalPatrol
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NavalPatrol
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 109
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string NavalPatrol = "naval_patrol"
+    return:
+      type: System.String
+    content.vb: Public Const NavalPatrol As String = "naval_patrol"
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Militia
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Militia
+  id: Militia
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: Militia
+  nameWithType: BLGMObjectManager.PartyTypeNames.Militia
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Militia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Militia
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 110
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string Militia = "militia"
+    return:
+      type: System.String
+    content.vb: Public Const Militia As String = "militia"
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Caravan
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Caravan
+  id: Caravan
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: Caravan
+  nameWithType: BLGMObjectManager.PartyTypeNames.Caravan
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Caravan
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Caravan
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 111
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string Caravan = "caravan"
+    return:
+      type: System.String
+    content.vb: Public Const Caravan As String = "caravan"
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Looter
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Looter
+  id: Looter
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: Looter
+  nameWithType: BLGMObjectManager.PartyTypeNames.Looter
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Looter
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Looter
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 112
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string Looter = "looter"
+    return:
+      type: System.String
+    content.vb: Public Const Looter As String = "looter"
+- uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Custom
+  commentId: F:Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Custom
+  id: Custom
+  parent: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+  langs:
+  - csharp
+  - vb
+  name: Custom
+  nameWithType: BLGMObjectManager.PartyTypeNames.Custom
+  fullName: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames.Custom
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/BLGMObjectManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Custom
+    path: ../Bannerlord.GameMaster/BLGMObjectManager.cs
+    startLine: 113
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public const string Custom = "custom"
+    return:
+      type: System.String
+    content.vb: Public Const Custom As String = "custom"
+references:
+- uid: Bannerlord.GameMaster
+  commentId: N:Bannerlord.GameMaster
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster
+  nameWithType: Bannerlord.GameMaster
+  fullName: Bannerlord.GameMaster
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

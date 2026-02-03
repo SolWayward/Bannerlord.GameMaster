@@ -1,0 +1,493 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+  id: CreateCompanionsCommand
+  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  children:
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions(System.Collections.Generic.List{System.String})
+  langs:
+  - csharp
+  - vb
+  name: CreateCompanionsCommand
+  nameWithType: CreateCompanionsCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroGenerationCommands/CreateCompanionsCommand.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateCompanionsCommand
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroGenerationCommands/CreateCompanionsCommand.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  syntax:
+    content: public static class CreateCompanionsCommand
+    content.vb: Public Module CreateCompanionsCommand
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions(System.Collections.Generic.List{System.String})
+  id: CreateCompanions(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+  langs:
+  - csharp
+  - vb
+  name: CreateCompanions(List<string>)
+  nameWithType: CreateCompanionsCommand.CreateCompanions(List<string>)
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroGenerationCommands/CreateCompanionsCommand.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateCompanions
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroGenerationCommands/CreateCompanionsCommand.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  summary: >-
+    Create companions ready to be added to a party
+
+    Usage: gm.hero.create_companions &lt;count&gt; &lt;heroLeader&gt; [cultures] [gender] [randomFactor]
+  example: []
+  syntax:
+    content: >-
+      [CommandLineFunctionality.CommandLineArgumentFunction("create_companions", "gm.hero")]
+
+      public static string CreateCompanions(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.String
+    content.vb: >-
+      <CommandLineFunctionality.CommandLineArgumentFunction("create_companions", "gm.hero")>
+
+      Public Shared Function CreateCompanions(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions*
+  attributes:
+  - type: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction
+    ctor: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: create_companions
+    - type: System.String
+      value: gm.hero
+  nameWithType.vb: CreateCompanionsCommand.CreateCompanions(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions(System.Collections.Generic.List(Of String))
+  name.vb: CreateCompanions(List(Of String))
+references:
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  commentId: N:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  nameWithType: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.HeroCommands
+    name: HeroCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+    name: HeroGenerationCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.HeroCommands
+    name: HeroCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+    name: HeroGenerationCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions*
+  commentId: Overload:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.html#Bannerlord_GameMaster_Console_HeroCommands_HeroGenerationCommands_CreateCompanionsCommand_CreateCompanions_System_Collections_Generic_List_System_String__
+  name: CreateCompanions
+  nameWithType: CreateCompanionsCommand.CreateCompanions
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand.CreateCompanions
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

@@ -1,0 +1,750 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder
+  commentId: T:Bannerlord.GameMaster.Items.EquipmentBuilder
+  id: EquipmentBuilder
+  parent: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor
+  - Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor(Bannerlord.GameMaster.Items.ItemPoolManager)
+  - Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,System.Boolean,System.Boolean)
+  - Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero(TaleWorlds.CampaignSystem.Hero,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: EquipmentBuilder
+  nameWithType: EquipmentBuilder
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EquipmentBuilder
+    path: ../Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Builds equipment sets for heroes by selecting items from categorized pools
+
+    based on culture, tier, stats, and weapon preferences.
+  example: []
+  syntax:
+    content: public class EquipmentBuilder
+    content.vb: Public Class EquipmentBuilder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.Items.EquipmentBuilder
+  langs:
+  - csharp
+  - vb
+  name: EquipmentBuilder()
+  nameWithType: EquipmentBuilder.EquipmentBuilder()
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.EquipmentBuilder()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Initializes a new instance of the EquipmentBuilder class.
+  example: []
+  syntax:
+    content: public EquipmentBuilder()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor*
+  nameWithType.vb: EquipmentBuilder.New()
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentBuilder.New()
+  name.vb: New()
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor(Bannerlord.GameMaster.Items.ItemPoolManager)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor(Bannerlord.GameMaster.Items.ItemPoolManager)
+  id: '#ctor(Bannerlord.GameMaster.Items.ItemPoolManager)'
+  parent: Bannerlord.GameMaster.Items.EquipmentBuilder
+  langs:
+  - csharp
+  - vb
+  name: EquipmentBuilder(ItemPoolManager)
+  nameWithType: EquipmentBuilder.EquipmentBuilder(ItemPoolManager)
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.EquipmentBuilder(Bannerlord.GameMaster.Items.ItemPoolManager)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+    startLine: 49
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Initializes a new instance of the EquipmentBuilder class with a specific pool manager.
+  example: []
+  syntax:
+    content: public EquipmentBuilder(ItemPoolManager poolManager)
+    parameters:
+    - id: poolManager
+      type: Bannerlord.GameMaster.Items.ItemPoolManager
+      description: The item pool manager to use for equipment selection.
+    content.vb: Public Sub New(poolManager As ItemPoolManager)
+  overload: Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor*
+  nameWithType.vb: EquipmentBuilder.New(ItemPoolManager)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentBuilder.New(Bannerlord.GameMaster.Items.ItemPoolManager)
+  name.vb: New(ItemPoolManager)
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: GetEquipmentSet(TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentBuilder
+  langs:
+  - csharp
+  - vb
+  name: GetEquipmentSet(CultureObject, int, WeaponTypeFlags, bool, bool, bool, bool)
+  nameWithType: EquipmentBuilder.GetEquipmentSet(CultureObject, int, WeaponTypeFlags, bool, bool, bool, bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.CultureObject, int, Bannerlord.GameMaster.Items.WeaponTypeFlags, bool, bool, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetEquipmentSet
+    path: ../Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Generates a complete equipment set based on the specified parameters.
+  example: []
+  syntax:
+    content: public Equipment GetEquipmentSet(CultureObject culture, int heroLevel, WeaponTypeFlags weaponPreferences, bool withHorse = false, bool withBanner = false, bool isFemale = false, bool includeNeutralItems = true)
+    parameters:
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: The culture to use for item selection. If null, uses neutral items.
+    - id: heroLevel
+      type: System.Int32
+      description: The hero's level used to determine tier range.
+    - id: weaponPreferences
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+      description: Flags indicating preferred weapon types.
+    - id: withHorse
+      type: System.Boolean
+      description: Whether to include horse and harness equipment.
+    - id: withBanner
+      type: System.Boolean
+      description: Whether to include a banner in slot 4.
+    - id: isFemale
+      type: System.Boolean
+      description: Whether the hero is female (affects armor filtering).
+    - id: includeNeutralItems
+      type: System.Boolean
+      description: Whether to also check neutral item pools.
+    return:
+      type: TaleWorlds.Core.Equipment
+      description: A new Equipment object populated with selected items.
+    content.vb: Public Function GetEquipmentSet(culture As CultureObject, heroLevel As Integer, weaponPreferences As WeaponTypeFlags, withHorse As Boolean = False, withBanner As Boolean = False, isFemale As Boolean = False, includeNeutralItems As Boolean = True) As Equipment
+  overload: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet*
+  nameWithType.vb: EquipmentBuilder.GetEquipmentSet(CultureObject, Integer, WeaponTypeFlags, Boolean, Boolean, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.CultureObject, Integer, Bannerlord.GameMaster.Items.WeaponTypeFlags, Boolean, Boolean, Boolean, Boolean)
+  name.vb: GetEquipmentSet(CultureObject, Integer, WeaponTypeFlags, Boolean, Boolean, Boolean, Boolean)
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: GetEquipmentSet(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentBuilder
+  langs:
+  - csharp
+  - vb
+  name: GetEquipmentSet(Hero, CultureObject, int, WeaponTypeFlags, bool, bool, bool, bool)
+  nameWithType: EquipmentBuilder.GetEquipmentSet(Hero, CultureObject, int, WeaponTypeFlags, bool, bool, bool, bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.CultureObject, int, Bannerlord.GameMaster.Items.WeaponTypeFlags, bool, bool, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetEquipmentSet
+    path: ../Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+    startLine: 162
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Generates a complete equipment set based on the specified parameters.
+
+    Uses the hero's skills to determine ranged vs throwing priority when both are specified.
+
+    For heroes level 10+, selects skill-appropriate banners when withBanner is true.
+  example: []
+  syntax:
+    content: public Equipment GetEquipmentSet(Hero hero, CultureObject culture, int heroLevel, WeaponTypeFlags weaponPreferences, bool withHorse = false, bool withBanner = false, bool isFemale = false, bool includeNeutralItems = true)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to use for skill-based priority determination.
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: The culture to use for item selection. If null, uses neutral items.
+    - id: heroLevel
+      type: System.Int32
+      description: The hero's level used to determine tier range.
+    - id: weaponPreferences
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+      description: Flags indicating preferred weapon types.
+    - id: withHorse
+      type: System.Boolean
+      description: Whether to include horse and harness equipment.
+    - id: withBanner
+      type: System.Boolean
+      description: Whether to include a banner in slot 4 (only for level 10+).
+    - id: isFemale
+      type: System.Boolean
+      description: Whether the hero is female (affects armor filtering).
+    - id: includeNeutralItems
+      type: System.Boolean
+      description: Whether to also check neutral item pools.
+    return:
+      type: TaleWorlds.Core.Equipment
+      description: A new Equipment object populated with selected items.
+    content.vb: Public Function GetEquipmentSet(hero As Hero, culture As CultureObject, heroLevel As Integer, weaponPreferences As WeaponTypeFlags, withHorse As Boolean = False, withBanner As Boolean = False, isFemale As Boolean = False, includeNeutralItems As Boolean = True) As Equipment
+  overload: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet*
+  nameWithType.vb: EquipmentBuilder.GetEquipmentSet(Hero, CultureObject, Integer, WeaponTypeFlags, Boolean, Boolean, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.CultureObject, Integer, Bannerlord.GameMaster.Items.WeaponTypeFlags, Boolean, Boolean, Boolean, Boolean)
+  name.vb: GetEquipmentSet(Hero, CultureObject, Integer, WeaponTypeFlags, Boolean, Boolean, Boolean, Boolean)
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero(TaleWorlds.CampaignSystem.Hero,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero(TaleWorlds.CampaignSystem.Hero,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean)
+  id: GetEquipmentSetForHero(TaleWorlds.CampaignSystem.Hero,System.Int32,Bannerlord.GameMaster.Items.WeaponTypeFlags,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentBuilder
+  langs:
+  - csharp
+  - vb
+  name: GetEquipmentSetForHero(Hero, int, WeaponTypeFlags, bool)
+  nameWithType: EquipmentBuilder.GetEquipmentSetForHero(Hero, int, WeaponTypeFlags, bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero(TaleWorlds.CampaignSystem.Hero, int, Bannerlord.GameMaster.Items.WeaponTypeFlags, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetEquipmentSetForHero
+    path: ../Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+    startLine: 221
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Generates a complete equipment set for a hero based on their stats and culture.
+  example: []
+  syntax:
+    content: public Equipment GetEquipmentSetForHero(Hero hero, int tier = -1, WeaponTypeFlags weaponPreferences = WeaponTypeFlags.None, bool isCivilian = false)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to generate equipment for.
+    - id: tier
+      type: System.Int32
+      description: The target tier for equipment (0-6). If -1, tier is calculated from hero level.
+    - id: weaponPreferences
+      type: Bannerlord.GameMaster.Items.WeaponTypeFlags
+      description: Flags indicating preferred weapon types. If None, preferences are derived from hero skills.
+    - id: isCivilian
+      type: System.Boolean
+      description: Whether to generate civilian equipment (no weapons/armor).
+    return:
+      type: TaleWorlds.Core.Equipment
+      description: A new Equipment object populated with selected items.
+    content.vb: Public Function GetEquipmentSetForHero(hero As Hero, tier As Integer = -1, weaponPreferences As WeaponTypeFlags = WeaponTypeFlags.None, isCivilian As Boolean = False) As Equipment
+  overload: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero*
+  nameWithType.vb: EquipmentBuilder.GetEquipmentSetForHero(Hero, Integer, WeaponTypeFlags, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero(TaleWorlds.CampaignSystem.Hero, Integer, Bannerlord.GameMaster.Items.WeaponTypeFlags, Boolean)
+  name.vb: GetEquipmentSetForHero(Hero, Integer, WeaponTypeFlags, Boolean)
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,System.Boolean,System.Boolean)
+  id: GetCivilianEquipmentSet(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.CultureObject,System.Int32,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.EquipmentBuilder
+  langs:
+  - csharp
+  - vb
+  name: GetCivilianEquipmentSet(Hero, CultureObject, int, bool, bool)
+  nameWithType: EquipmentBuilder.GetCivilianEquipmentSet(Hero, CultureObject, int, bool, bool)
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.CultureObject, int, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCivilianEquipmentSet
+    path: ../Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
+    startLine: 2141
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Generates a complete civilian equipment set for a hero using roster-based item pools.
+
+    Items are extracted directly from game equipment rosters based on their EquipmentFlags,
+
+    providing more authentic and culture-appropriate civilian outfits.
+
+    Each armor slot has a 20% chance to get +1 appearance bonus for higher quality items.
+
+
+    Slot selection rules:
+
+    - Body: 100% (always equip)
+
+    - Head: Ruling clan = 100% crown; Others = 20% chance, no crowns allowed
+
+    - Cape: 50% chance
+
+    - Gloves: Females 10%, Males 100%
+
+    - Legs: 100% (always equip)
+
+    - Weapon0: Males only (one civilian melee weapon, no appearance bonus)
+  example: []
+  syntax:
+    content: public Equipment GetCivilianEquipmentSet(Hero hero, CultureObject culture, int heroLevel, bool isFemale, bool includeNeutralItems = true)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to generate equipment for (used for crown eligibility).
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: The culture to use for item selection. If null, uses fallback items.
+    - id: heroLevel
+      type: System.Int32
+      description: The hero's level (unused in roster-based selection but kept for API compatibility).
+    - id: isFemale
+      type: System.Boolean
+      description: Whether the hero is female (affects equipment selection and slot chances).
+    - id: includeNeutralItems
+      type: System.Boolean
+      description: Unused in roster-based selection but kept for API compatibility.
+    return:
+      type: TaleWorlds.Core.Equipment
+      description: A new Equipment object with civilian equipment.
+    content.vb: Public Function GetCivilianEquipmentSet(hero As Hero, culture As CultureObject, heroLevel As Integer, isFemale As Boolean, includeNeutralItems As Boolean = True) As Equipment
+  overload: Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet*
+  nameWithType.vb: EquipmentBuilder.GetCivilianEquipmentSet(Hero, CultureObject, Integer, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.CultureObject, Integer, Boolean, Boolean)
+  name.vb: GetCivilianEquipmentSet(Hero, CultureObject, Integer, Boolean, Boolean)
+references:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentBuilder.#ctor
+  href: Bannerlord.GameMaster.Items.EquipmentBuilder.html#Bannerlord_GameMaster_Items_EquipmentBuilder__ctor
+  name: EquipmentBuilder
+  nameWithType: EquipmentBuilder.EquipmentBuilder
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.EquipmentBuilder
+  nameWithType.vb: EquipmentBuilder.New
+  fullName.vb: Bannerlord.GameMaster.Items.EquipmentBuilder.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager
+  commentId: T:Bannerlord.GameMaster.Items.ItemPoolManager
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html
+  name: ItemPoolManager
+  nameWithType: ItemPoolManager
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet
+  href: Bannerlord.GameMaster.Items.EquipmentBuilder.html#Bannerlord_GameMaster_Items_EquipmentBuilder_GetEquipmentSet_TaleWorlds_CampaignSystem_CultureObject_System_Int32_Bannerlord_GameMaster_Items_WeaponTypeFlags_System_Boolean_System_Boolean_System_Boolean_System_Boolean_
+  name: GetEquipmentSet
+  nameWithType: EquipmentBuilder.GetEquipmentSet
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSet
+- uid: TaleWorlds.CampaignSystem.CultureObject
+  commentId: T:TaleWorlds.CampaignSystem.CultureObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CultureObject
+  nameWithType: CultureObject
+  fullName: TaleWorlds.CampaignSystem.CultureObject
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  commentId: T:Bannerlord.GameMaster.Items.WeaponTypeFlags
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  name: WeaponTypeFlags
+  nameWithType: WeaponTypeFlags
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TaleWorlds.Core.Equipment
+  commentId: T:TaleWorlds.Core.Equipment
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: Equipment
+  nameWithType: Equipment
+  fullName: TaleWorlds.Core.Equipment
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero
+  href: Bannerlord.GameMaster.Items.EquipmentBuilder.html#Bannerlord_GameMaster_Items_EquipmentBuilder_GetEquipmentSetForHero_TaleWorlds_CampaignSystem_Hero_System_Int32_Bannerlord_GameMaster_Items_WeaponTypeFlags_System_Boolean_
+  name: GetEquipmentSetForHero
+  nameWithType: EquipmentBuilder.GetEquipmentSetForHero
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.GetEquipmentSetForHero
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet*
+  commentId: Overload:Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet
+  href: Bannerlord.GameMaster.Items.EquipmentBuilder.html#Bannerlord_GameMaster_Items_EquipmentBuilder_GetCivilianEquipmentSet_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_CultureObject_System_Int32_System_Boolean_System_Boolean_
+  name: GetCivilianEquipmentSet
+  nameWithType: EquipmentBuilder.GetCivilianEquipmentSet
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.GetCivilianEquipmentSet

@@ -1,0 +1,508 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  id: KingdomQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  children:
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.#ctor(System.String,Bannerlord.GameMaster.Kingdoms.KingdomTypes,System.String,System.Boolean)
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.GetCriteriaString
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.QueryArgs
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.Types
+  langs:
+  - csharp
+  - vb
+  name: KingdomQueryArguments
+  nameWithType: KingdomQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  type: Struct
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: KingdomQueryArguments
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  summary: Query arguments specific to kingdom queries
+  example: []
+  syntax:
+    content: public struct KingdomQueryArguments
+    content.vb: Public Structure KingdomQueryArguments
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.QueryArgs
+  commentId: F:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.QueryArgs
+  id: QueryArgs
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  langs:
+  - csharp
+  - vb
+  name: QueryArgs
+  nameWithType: KingdomQueryArguments.QueryArgs
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.QueryArgs
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: QueryArgs
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  syntax:
+    content: public QueryArguments QueryArgs
+    return:
+      type: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+    content.vb: Public QueryArgs As QueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.Types
+  commentId: F:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.Types
+  id: Types
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  langs:
+  - csharp
+  - vb
+  name: Types
+  nameWithType: KingdomQueryArguments.Types
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.Types
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Types
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  syntax:
+    content: public KingdomTypes Types
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    content.vb: Public Types As KingdomTypes
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.#ctor(System.String,Bannerlord.GameMaster.Kingdoms.KingdomTypes,System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.#ctor(System.String,Bannerlord.GameMaster.Kingdoms.KingdomTypes,System.String,System.Boolean)
+  id: '#ctor(System.String,Bannerlord.GameMaster.Kingdoms.KingdomTypes,System.String,System.Boolean)'
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  langs:
+  - csharp
+  - vb
+  name: KingdomQueryArguments(string, KingdomTypes, string, bool)
+  nameWithType: KingdomQueryArguments.KingdomQueryArguments(string, KingdomTypes, string, bool)
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.KingdomQueryArguments(string, Bannerlord.GameMaster.Kingdoms.KingdomTypes, string, bool)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  syntax:
+    content: public KingdomQueryArguments(string query, KingdomTypes types, string sortBy, bool sortDesc)
+    parameters:
+    - id: query
+      type: System.String
+    - id: types
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    - id: sortBy
+      type: System.String
+    - id: sortDesc
+      type: System.Boolean
+    content.vb: Public Sub New(query As String, types As KingdomTypes, sortBy As String, sortDesc As Boolean)
+  overload: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.#ctor*
+  nameWithType.vb: KingdomQueryArguments.New(String, KingdomTypes, String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.New(String, Bannerlord.GameMaster.Kingdoms.KingdomTypes, String, Boolean)
+  name.vb: New(String, KingdomTypes, String, Boolean)
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.GetCriteriaString
+  commentId: M:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.GetCriteriaString
+  id: GetCriteriaString
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  langs:
+  - csharp
+  - vb
+  name: GetCriteriaString()
+  nameWithType: KingdomQueryArguments.GetCriteriaString()
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.GetCriteriaString()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCriteriaString
+    path: ../Bannerlord.GameMaster/Console/Query/CommandQueryHelpers/KingdomQueryArguments.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  summary: Build a readable criteria string for kingdom queries
+  example: []
+  syntax:
+    content: public string GetCriteriaString()
+    return:
+      type: System.String
+    content.vb: Public Function GetCriteriaString() As String
+  overload: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.GetCriteriaString*
+references:
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  commentId: N:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  nameWithType: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query
+    name: Query
+    href: Bannerlord.GameMaster.Console.Query.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+    name: CommandQueryHelpers
+    href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query
+    name: Query
+    href: Bannerlord.GameMaster.Console.Query.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+    name: CommandQueryHelpers
+    href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments.html
+  name: QueryArguments
+  nameWithType: QueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  parent: Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  name: KingdomTypes
+  nameWithType: KingdomTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: Bannerlord.GameMaster.Kingdoms
+  commentId: N:Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Kingdoms
+  nameWithType: Bannerlord.GameMaster.Kingdoms
+  fullName: Bannerlord.GameMaster.Kingdoms
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.#ctor
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.html#Bannerlord_GameMaster_Console_Query_CommandQueryHelpers_KingdomQueryArguments__ctor_System_String_Bannerlord_GameMaster_Kingdoms_KingdomTypes_System_String_System_Boolean_
+  name: KingdomQueryArguments
+  nameWithType: KingdomQueryArguments.KingdomQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.KingdomQueryArguments
+  nameWithType.vb: KingdomQueryArguments.New
+  fullName.vb: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.GetCriteriaString*
+  commentId: Overload:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.GetCriteriaString
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.html#Bannerlord_GameMaster_Console_Query_CommandQueryHelpers_KingdomQueryArguments_GetCriteriaString
+  name: GetCriteriaString
+  nameWithType: KingdomQueryArguments.GetCriteriaString
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.GetCriteriaString

@@ -1,0 +1,1435 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementManager
+  id: SettlementManager
+  parent: Bannerlord.GameMaster.Settlements
+  children:
+  - Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanFortification(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanSettlement(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanTown(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanVillage(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomFortification
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomCastle(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomFortification(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomSettlement(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomTown(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomVillage(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomSettlement
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount
+  - Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.String)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames
+  - Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: SettlementManager
+  nameWithType: SettlementManager
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SettlementManager
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Manages Settlements for BLGM actions.<br />
+
+    Main entry point for settlement operations including renaming with persistence.
+  example: []
+  syntax:
+    content: public static class SettlementManager
+    content.vb: Public Module SettlementManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomSettlement
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomSettlement
+  id: GetRandomSettlement
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomSettlement()
+  nameWithType: SettlementManager.GetRandomSettlement()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomSettlement()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomSettlement
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Settlement from All settlements. Includes Towns, Castles, and Villages. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomSettlement()
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomSettlement() As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomSettlement*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomFortification
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomFortification
+  id: GetRandomFortification
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomFortification()
+  nameWithType: SettlementManager.GetRandomFortification()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomFortification()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomFortification
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Fortification from All settlements. Includes Towns and Castles. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomFortification()
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomFortification() As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomFortification*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown
+  id: GetRandomTown
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomTown()
+  nameWithType: SettlementManager.GetRandomTown()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomTown
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Town from All settlements. Includes Towns only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomTown()
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomTown() As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle
+  id: GetRandomCastle
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomCastle()
+  nameWithType: SettlementManager.GetRandomCastle()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomCastle
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Castle from All settlements. Includes Castles only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomCastle()
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomCastle() As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage
+  id: GetRandomVillage
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomVillage()
+  nameWithType: SettlementManager.GetRandomVillage()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomVillage
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Village from All settlements. Includes Villages only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomVillage()
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomVillage() As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanSettlement(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanSettlement(TaleWorlds.CampaignSystem.Clan)
+  id: GetRandomClanSettlement(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomClanSettlement(Clan)
+  nameWithType: SettlementManager.GetRandomClanSettlement(Clan)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanSettlement(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomClanSettlement
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 37
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Settlement owned by the provided Clan. Includes Towns, Castles, and Villages. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomClanSettlement(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomClanSettlement(clan As Clan) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanSettlement*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanFortification(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanFortification(TaleWorlds.CampaignSystem.Clan)
+  id: GetRandomClanFortification(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomClanFortification(Clan)
+  nameWithType: SettlementManager.GetRandomClanFortification(Clan)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanFortification(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomClanFortification
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 40
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Fortification owned by the provided Clan. Includes Towns and Castles. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomClanFortification(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomClanFortification(clan As Clan) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanFortification*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanTown(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanTown(TaleWorlds.CampaignSystem.Clan)
+  id: GetRandomClanTown(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomClanTown(Clan)
+  nameWithType: SettlementManager.GetRandomClanTown(Clan)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanTown(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomClanTown
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 43
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Town owned by the provided Clan. Includes Towns only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomClanTown(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomClanTown(clan As Clan) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanTown*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle(TaleWorlds.CampaignSystem.Clan)
+  id: GetRandomClanCastle(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomClanCastle(Clan)
+  nameWithType: SettlementManager.GetRandomClanCastle(Clan)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomClanCastle
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 46
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Castle owned by the provided Clan. Includes Castles only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomClanCastle(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomClanCastle(clan As Clan) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanVillage(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanVillage(TaleWorlds.CampaignSystem.Clan)
+  id: GetRandomClanVillage(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomClanVillage(Clan)
+  nameWithType: SettlementManager.GetRandomClanVillage(Clan)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanVillage(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomClanVillage
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 49
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Village owned by the provided Clan. Includes Villages only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomClanVillage(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomClanVillage(clan As Clan) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanVillage*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomSettlement(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomSettlement(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetRandomKingdomSettlement(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomKingdomSettlement(Kingdom)
+  nameWithType: SettlementManager.GetRandomKingdomSettlement(Kingdom)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomSettlement(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomKingdomSettlement
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 54
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Settlement within the provided Kingdom. Includes Towns, Castles, and Villages. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomKingdomSettlement(Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomKingdomSettlement(kingdom As Kingdom) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomSettlement*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomFortification(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomFortification(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetRandomKingdomFortification(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomKingdomFortification(Kingdom)
+  nameWithType: SettlementManager.GetRandomKingdomFortification(Kingdom)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomFortification(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomKingdomFortification
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 57
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Fortification within the provided Kingdom. Includes Towns and Castles. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomKingdomFortification(Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomKingdomFortification(kingdom As Kingdom) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomFortification*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomTown(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomTown(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetRandomKingdomTown(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomKingdomTown(Kingdom)
+  nameWithType: SettlementManager.GetRandomKingdomTown(Kingdom)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomTown(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomKingdomTown
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 60
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Town within the provided Kingdom. Includes Towns only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomKingdomTown(Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomKingdomTown(kingdom As Kingdom) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomTown*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomCastle(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomCastle(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetRandomKingdomCastle(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomKingdomCastle(Kingdom)
+  nameWithType: SettlementManager.GetRandomKingdomCastle(Kingdom)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomCastle(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomKingdomCastle
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 63
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Castle within the provided Kingdom. Includes Castles only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomKingdomCastle(Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomKingdomCastle(kingdom As Kingdom) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomCastle*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomVillage(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomVillage(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetRandomKingdomVillage(TaleWorlds.CampaignSystem.Kingdom)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomKingdomVillage(Kingdom)
+  nameWithType: SettlementManager.GetRandomKingdomVillage(Kingdom)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomVillage(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomKingdomVillage
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 66
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets a random Village within the provided Kingdom. Includes Villages only. Returns Null if none found
+  example: []
+  syntax:
+    content: public static Settlement GetRandomKingdomVillage(Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    content.vb: Public Shared Function GetRandomKingdomVillage(kingdom As Kingdom) As Settlement
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomVillage*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero)
+  id: ChangeSettlementOwner(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: ChangeSettlementOwner(Settlement, Hero)
+  nameWithType: SettlementManager.ChangeSettlementOwner(Settlement, Hero)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ChangeSettlementOwner
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 73
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Sets new owner of the settlement by calling ChangeOwnerOfSettlementAction
+  example: []
+  syntax:
+    content: public static void ChangeSettlementOwner(Settlement settlement, Hero newOwnerHero)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    - id: newOwnerHero
+      type: TaleWorlds.CampaignSystem.Hero
+    content.vb: Public Shared Sub ChangeSettlementOwner(settlement As Settlement, newOwnerHero As Hero)
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
+  id: SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: SetSettlementCulture(Settlement, CultureObject, bool, bool)
+  nameWithType: SettlementManager.SetSettlementCulture(Settlement, CultureObject, bool, bool)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.CultureObject, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetSettlementCulture
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 87
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Changes the culture of a settlement and optionally its notables and bound villages.
+  example: []
+  syntax:
+    content: public static bool SetSettlementCulture(Settlement settlement, CultureObject culture, bool updateNotables, bool includeBoundVillages)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to change culture for
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: The new culture to apply
+    - id: updateNotables
+      type: System.Boolean
+      description: If true, updates the culture of all notables in the settlement
+    - id: includeBoundVillages
+      type: System.Boolean
+      description: If true and settlement is a town, recursively updates bound villages
+    return:
+      type: System.Boolean
+      description: True if the culture change was successful, false otherwise
+    content.vb: Public Shared Function SetSettlementCulture(settlement As Settlement, culture As CultureObject, updateNotables As Boolean, includeBoundVillages As Boolean) As Boolean
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture*
+  nameWithType.vb: SettlementManager.SetSettlementCulture(Settlement, CultureObject, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.CultureObject, Boolean, Boolean)
+  name.vb: SetSettlementCulture(Settlement, CultureObject, Boolean, Boolean)
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetBoundVillagesCount(Settlement)
+  nameWithType: SettlementManager.GetBoundVillagesCount(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetBoundVillagesCount
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 145
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets the count of bound villages for a settlement.
+  example: []
+  syntax:
+    content: public static int GetBoundVillagesCount(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to check
+    return:
+      type: System.Int32
+      description: The number of bound villages, or 0 if none or settlement is null
+    content.vb: Public Shared Function GetBoundVillagesCount(settlement As Settlement) As Integer
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.String)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.String)
+  id: RenameSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.String)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: RenameSettlement(Settlement, string)
+  nameWithType: SettlementManager.RenameSettlement(Settlement, string)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RenameSettlement
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 169
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Renames Settlement and calls behavior to save the settlement name ensuring persistence
+  example: []
+  syntax:
+    content: public static BLGMResult RenameSettlement(Settlement settlement, string newName)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    - id: newName
+      type: System.String
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with a message
+    content.vb: Public Shared Function RenameSettlement(settlement As Settlement, newName As String) As BLGMResult
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement*
+  nameWithType.vb: SettlementManager.RenameSettlement(Settlement, String)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement, String)
+  name.vb: RenameSettlement(Settlement, String)
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: ResetSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: ResetSettlementName(Settlement)
+  nameWithType: SettlementManager.ResetSettlementName(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetSettlementName
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 182
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Resets a settlement to its original name.
+  example: []
+  syntax:
+    content: public static BLGMResult ResetSettlementName(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with a message
+    content.vb: Public Shared Function ResetSettlementName(settlement As Settlement) As BLGMResult
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames
+  id: ResetAllSettlementNames
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: ResetAllSettlementNames()
+  nameWithType: SettlementManager.ResetAllSettlementNames()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetAllSettlementNames
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 195
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Resets all renamed settlements to their original names.
+  example: []
+  syntax:
+    content: public static BLGMResult ResetAllSettlementNames()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with count of reset settlements
+    content.vb: Public Shared Function ResetAllSettlementNames() As BLGMResult
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: GetOriginalSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetOriginalSettlementName(Settlement)
+  nameWithType: SettlementManager.GetOriginalSettlementName(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetOriginalSettlementName
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 209
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets the original name of a settlement if it was renamed.
+  example: []
+  syntax:
+    content: public static string GetOriginalSettlementName(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to check
+    return:
+      type: System.String
+      description: Original name if renamed, null otherwise
+    content.vb: Public Shared Function GetOriginalSettlementName(settlement As Settlement) As String
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: IsSettlementRenamed(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: IsSettlementRenamed(Settlement)
+  nameWithType: SettlementManager.IsSettlementRenamed(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsSettlementRenamed
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 220
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Checks if a settlement has been renamed.
+  example: []
+  syntax:
+    content: public static bool IsSettlementRenamed(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to check
+    return:
+      type: System.Boolean
+      description: True if the settlement has a custom name
+    content.vb: Public Shared Function IsSettlementRenamed(settlement As Settlement) As Boolean
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount
+  id: GetRenamedSettlementCount
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetRenamedSettlementCount()
+  nameWithType: SettlementManager.GetRenamedSettlementCount()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRenamedSettlementCount
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 229
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets the count of renamed settlements.
+  example: []
+  syntax:
+    content: public static int GetRenamedSettlementCount()
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetRenamedSettlementCount() As Integer
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount*
+references:
+- uid: Bannerlord.GameMaster.Settlements
+  commentId: N:Bannerlord.GameMaster.Settlements
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Settlements
+  nameWithType: Bannerlord.GameMaster.Settlements
+  fullName: Bannerlord.GameMaster.Settlements
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomSettlement
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomSettlement
+  name: GetRandomSettlement
+  nameWithType: SettlementManager.GetRandomSettlement
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomSettlement
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomFortification*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomFortification
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomFortification
+  name: GetRandomFortification
+  nameWithType: SettlementManager.GetRandomFortification
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomFortification
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomTown
+  name: GetRandomTown
+  nameWithType: SettlementManager.GetRandomTown
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomCastle
+  name: GetRandomCastle
+  nameWithType: SettlementManager.GetRandomCastle
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomVillage
+  name: GetRandomVillage
+  nameWithType: SettlementManager.GetRandomVillage
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanSettlement
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomClanSettlement_TaleWorlds_CampaignSystem_Clan_
+  name: GetRandomClanSettlement
+  nameWithType: SettlementManager.GetRandomClanSettlement
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanSettlement
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanFortification*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanFortification
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomClanFortification_TaleWorlds_CampaignSystem_Clan_
+  name: GetRandomClanFortification
+  nameWithType: SettlementManager.GetRandomClanFortification
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanFortification
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanTown*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanTown
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomClanTown_TaleWorlds_CampaignSystem_Clan_
+  name: GetRandomClanTown
+  nameWithType: SettlementManager.GetRandomClanTown
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanTown
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomClanCastle_TaleWorlds_CampaignSystem_Clan_
+  name: GetRandomClanCastle
+  nameWithType: SettlementManager.GetRandomClanCastle
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanVillage*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanVillage
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomClanVillage_TaleWorlds_CampaignSystem_Clan_
+  name: GetRandomClanVillage
+  nameWithType: SettlementManager.GetRandomClanVillage
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanVillage
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomSettlement
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomKingdomSettlement_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetRandomKingdomSettlement
+  nameWithType: SettlementManager.GetRandomKingdomSettlement
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomSettlement
+- uid: TaleWorlds.CampaignSystem.Kingdom
+  commentId: T:TaleWorlds.CampaignSystem.Kingdom
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Kingdom
+  nameWithType: Kingdom
+  fullName: TaleWorlds.CampaignSystem.Kingdom
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomFortification*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomFortification
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomKingdomFortification_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetRandomKingdomFortification
+  nameWithType: SettlementManager.GetRandomKingdomFortification
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomFortification
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomTown*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomTown
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomKingdomTown_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetRandomKingdomTown
+  nameWithType: SettlementManager.GetRandomKingdomTown
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomTown
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomCastle*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomCastle
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomKingdomCastle_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetRandomKingdomCastle
+  nameWithType: SettlementManager.GetRandomKingdomCastle
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomCastle
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomVillage*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomVillage
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRandomKingdomVillage_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetRandomKingdomVillage
+  nameWithType: SettlementManager.GetRandomKingdomVillage
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomKingdomVillage
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_ChangeSettlementOwner_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_Hero_
+  name: ChangeSettlementOwner
+  nameWithType: SettlementManager.ChangeSettlementOwner
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_SetSettlementCulture_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_CultureObject_System_Boolean_System_Boolean_
+  name: SetSettlementCulture
+  nameWithType: SettlementManager.SetSettlementCulture
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture
+- uid: TaleWorlds.CampaignSystem.CultureObject
+  commentId: T:TaleWorlds.CampaignSystem.CultureObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CultureObject
+  nameWithType: CultureObject
+  fullName: TaleWorlds.CampaignSystem.CultureObject
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetBoundVillagesCount_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: GetBoundVillagesCount
+  nameWithType: SettlementManager.GetBoundVillagesCount
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_RenameSettlement_TaleWorlds_CampaignSystem_Settlements_Settlement_System_String_
+  name: RenameSettlement
+  nameWithType: SettlementManager.RenameSettlement
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_ResetSettlementName_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: ResetSettlementName
+  nameWithType: SettlementManager.ResetSettlementName
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_ResetAllSettlementNames
+  name: ResetAllSettlementNames
+  nameWithType: SettlementManager.ResetAllSettlementNames
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetOriginalSettlementName_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: GetOriginalSettlementName
+  nameWithType: SettlementManager.GetOriginalSettlementName
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_IsSettlementRenamed_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: IsSettlementRenamed
+  nameWithType: SettlementManager.IsSettlementRenamed
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetRenamedSettlementCount
+  name: GetRenamedSettlementCount
+  nameWithType: SettlementManager.GetRenamedSettlementCount
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount

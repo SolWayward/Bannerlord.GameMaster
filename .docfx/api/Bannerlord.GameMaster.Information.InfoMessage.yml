@@ -1,0 +1,676 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Information.InfoMessage
+  commentId: T:Bannerlord.GameMaster.Information.InfoMessage
+  id: InfoMessage
+  parent: Bannerlord.GameMaster.Information
+  children:
+  - Bannerlord.GameMaster.Information.InfoMessage.Error(System.String)
+  - Bannerlord.GameMaster.Information.InfoMessage.Important(System.String)
+  - Bannerlord.GameMaster.Information.InfoMessage.Log(System.String)
+  - Bannerlord.GameMaster.Information.InfoMessage.Status(System.String)
+  - Bannerlord.GameMaster.Information.InfoMessage.Status2(System.String)
+  - Bannerlord.GameMaster.Information.InfoMessage.Success(System.String)
+  - Bannerlord.GameMaster.Information.InfoMessage.Warning(System.String)
+  - Bannerlord.GameMaster.Information.InfoMessage.Write(System.String,TaleWorlds.Library.Color)
+  langs:
+  - csharp
+  - vb
+  name: InfoMessage
+  nameWithType: InfoMessage
+  fullName: Bannerlord.GameMaster.Information.InfoMessage
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: InfoMessage
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 4
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  syntax:
+    content: public static class InfoMessage
+    content.vb: Public Module InfoMessage
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Log(System.String)
+  commentId: M:Bannerlord.GameMaster.Information.InfoMessage.Log(System.String)
+  id: Log(System.String)
+  parent: Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Log(string)
+  nameWithType: InfoMessage.Log(string)
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Log(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Log
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Default White information message used as general log messages for BLGM
+  example: []
+  syntax:
+    content: public static void Log(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Shared Sub Log(message As String)
+  overload: Bannerlord.GameMaster.Information.InfoMessage.Log*
+  nameWithType.vb: InfoMessage.Log(String)
+  fullName.vb: Bannerlord.GameMaster.Information.InfoMessage.Log(String)
+  name.vb: Log(String)
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Success(System.String)
+  commentId: M:Bannerlord.GameMaster.Information.InfoMessage.Success(System.String)
+  id: Success(System.String)
+  parent: Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Success(string)
+  nameWithType: InfoMessage.Success(string)
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Success(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Success
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Green information message used as success messages for BLGM
+  example: []
+  syntax:
+    content: public static void Success(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Shared Sub Success(message As String)
+  overload: Bannerlord.GameMaster.Information.InfoMessage.Success*
+  nameWithType.vb: InfoMessage.Success(String)
+  fullName.vb: Bannerlord.GameMaster.Information.InfoMessage.Success(String)
+  name.vb: Success(String)
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Warning(System.String)
+  commentId: M:Bannerlord.GameMaster.Information.InfoMessage.Warning(System.String)
+  id: Warning(System.String)
+  parent: Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Warning(string)
+  nameWithType: InfoMessage.Warning(string)
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Warning(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Warning
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Yellow information message used as warning messages for BLGM
+  example: []
+  syntax:
+    content: public static void Warning(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Shared Sub Warning(message As String)
+  overload: Bannerlord.GameMaster.Information.InfoMessage.Warning*
+  nameWithType.vb: InfoMessage.Warning(String)
+  fullName.vb: Bannerlord.GameMaster.Information.InfoMessage.Warning(String)
+  name.vb: Warning(String)
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Error(System.String)
+  commentId: M:Bannerlord.GameMaster.Information.InfoMessage.Error(System.String)
+  id: Error(System.String)
+  parent: Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Error(string)
+  nameWithType: InfoMessage.Error(string)
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Error(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Error
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Red information message used as Error messages for BLGM
+  example: []
+  syntax:
+    content: public static void Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Shared Sub [Error](message As String)
+  overload: Bannerlord.GameMaster.Information.InfoMessage.Error*
+  nameWithType.vb: InfoMessage.Error(String)
+  fullName.vb: Bannerlord.GameMaster.Information.InfoMessage.Error(String)
+  name.vb: Error(String)
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Important(System.String)
+  commentId: M:Bannerlord.GameMaster.Information.InfoMessage.Important(System.String)
+  id: Important(System.String)
+  parent: Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Important(string)
+  nameWithType: InfoMessage.Important(string)
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Important(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Important
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Magenta information message used for attention grabbing important messages for BLGM
+  example: []
+  syntax:
+    content: public static void Important(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Shared Sub Important(message As String)
+  overload: Bannerlord.GameMaster.Information.InfoMessage.Important*
+  nameWithType.vb: InfoMessage.Important(String)
+  fullName.vb: Bannerlord.GameMaster.Information.InfoMessage.Important(String)
+  name.vb: Important(String)
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Status(System.String)
+  commentId: M:Bannerlord.GameMaster.Information.InfoMessage.Status(System.String)
+  id: Status(System.String)
+  parent: Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Status(string)
+  nameWithType: InfoMessage.Status(string)
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Status(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Status
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 49
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Cyan information message used as status messages for BLGM
+  example: []
+  syntax:
+    content: public static void Status(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Shared Sub Status(message As String)
+  overload: Bannerlord.GameMaster.Information.InfoMessage.Status*
+  nameWithType.vb: InfoMessage.Status(String)
+  fullName.vb: Bannerlord.GameMaster.Information.InfoMessage.Status(String)
+  name.vb: Status(String)
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Status2(System.String)
+  commentId: M:Bannerlord.GameMaster.Information.InfoMessage.Status2(System.String)
+  id: Status2(System.String)
+  parent: Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Status2(string)
+  nameWithType: InfoMessage.Status2(string)
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Status2(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Status2
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 57
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Blue information message used as alternate status messages for BLGM
+  example: []
+  syntax:
+    content: public static void Status2(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Shared Sub Status2(message As String)
+  overload: Bannerlord.GameMaster.Information.InfoMessage.Status2*
+  nameWithType.vb: InfoMessage.Status2(String)
+  fullName.vb: Bannerlord.GameMaster.Information.InfoMessage.Status2(String)
+  name.vb: Status2(String)
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Write(System.String,TaleWorlds.Library.Color)
+  commentId: M:Bannerlord.GameMaster.Information.InfoMessage.Write(System.String,TaleWorlds.Library.Color)
+  id: Write(System.String,TaleWorlds.Library.Color)
+  parent: Bannerlord.GameMaster.Information.InfoMessage
+  langs:
+  - csharp
+  - vb
+  name: Write(string, Color)
+  nameWithType: InfoMessage.Write(string, Color)
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Write(string, TaleWorlds.Library.Color)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/InfoMessage.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Write
+    path: ../Bannerlord.GameMaster/Information/InfoMessage.cs
+    startLine: 65
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Information message allowing for custom color
+  example: []
+  syntax:
+    content: public static void Write(string message, Color color)
+    parameters:
+    - id: message
+      type: System.String
+    - id: color
+      type: TaleWorlds.Library.Color
+    content.vb: Public Shared Sub Write(message As String, color As Color)
+  overload: Bannerlord.GameMaster.Information.InfoMessage.Write*
+  nameWithType.vb: InfoMessage.Write(String, Color)
+  fullName.vb: Bannerlord.GameMaster.Information.InfoMessage.Write(String, TaleWorlds.Library.Color)
+  name.vb: Write(String, Color)
+references:
+- uid: Bannerlord.GameMaster.Information
+  commentId: N:Bannerlord.GameMaster.Information
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Information
+  nameWithType: Bannerlord.GameMaster.Information
+  fullName: Bannerlord.GameMaster.Information
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Information
+    name: Information
+    href: Bannerlord.GameMaster.Information.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Information
+    name: Information
+    href: Bannerlord.GameMaster.Information.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Log*
+  commentId: Overload:Bannerlord.GameMaster.Information.InfoMessage.Log
+  href: Bannerlord.GameMaster.Information.InfoMessage.html#Bannerlord_GameMaster_Information_InfoMessage_Log_System_String_
+  name: Log
+  nameWithType: InfoMessage.Log
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Log
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Success*
+  commentId: Overload:Bannerlord.GameMaster.Information.InfoMessage.Success
+  href: Bannerlord.GameMaster.Information.InfoMessage.html#Bannerlord_GameMaster_Information_InfoMessage_Success_System_String_
+  name: Success
+  nameWithType: InfoMessage.Success
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Success
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Warning*
+  commentId: Overload:Bannerlord.GameMaster.Information.InfoMessage.Warning
+  href: Bannerlord.GameMaster.Information.InfoMessage.html#Bannerlord_GameMaster_Information_InfoMessage_Warning_System_String_
+  name: Warning
+  nameWithType: InfoMessage.Warning
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Warning
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Error*
+  commentId: Overload:Bannerlord.GameMaster.Information.InfoMessage.Error
+  href: Bannerlord.GameMaster.Information.InfoMessage.html#Bannerlord_GameMaster_Information_InfoMessage_Error_System_String_
+  name: Error
+  nameWithType: InfoMessage.Error
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Error
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Important*
+  commentId: Overload:Bannerlord.GameMaster.Information.InfoMessage.Important
+  href: Bannerlord.GameMaster.Information.InfoMessage.html#Bannerlord_GameMaster_Information_InfoMessage_Important_System_String_
+  name: Important
+  nameWithType: InfoMessage.Important
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Important
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Status*
+  commentId: Overload:Bannerlord.GameMaster.Information.InfoMessage.Status
+  href: Bannerlord.GameMaster.Information.InfoMessage.html#Bannerlord_GameMaster_Information_InfoMessage_Status_System_String_
+  name: Status
+  nameWithType: InfoMessage.Status
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Status
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Status2*
+  commentId: Overload:Bannerlord.GameMaster.Information.InfoMessage.Status2
+  href: Bannerlord.GameMaster.Information.InfoMessage.html#Bannerlord_GameMaster_Information_InfoMessage_Status2_System_String_
+  name: Status2
+  nameWithType: InfoMessage.Status2
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Status2
+- uid: Bannerlord.GameMaster.Information.InfoMessage.Write*
+  commentId: Overload:Bannerlord.GameMaster.Information.InfoMessage.Write
+  href: Bannerlord.GameMaster.Information.InfoMessage.html#Bannerlord_GameMaster_Information_InfoMessage_Write_System_String_TaleWorlds_Library_Color_
+  name: Write
+  nameWithType: InfoMessage.Write
+  fullName: Bannerlord.GameMaster.Information.InfoMessage.Write
+- uid: TaleWorlds.Library.Color
+  commentId: T:TaleWorlds.Library.Color
+  parent: TaleWorlds.Library
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: TaleWorlds.Library.Color
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true

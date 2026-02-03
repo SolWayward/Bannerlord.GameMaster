@@ -1,0 +1,1152 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions
+  commentId: T:Bannerlord.GameMaster.Clans.ClanExtensions
+  id: ClanExtensions
+  parent: Bannerlord.GameMaster.Clans
+  children:
+  - Bannerlord.GameMaster.Clans.ClanExtensions.DeclareWar(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.IFaction)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.GetCastles(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.GetClanTypes(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.GetFortifications(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.GetTowns(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.GetTypes(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages(TaleWorlds.CampaignSystem.Clan)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom(TaleWorlds.CampaignSystem.Clan,System.Boolean)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier(TaleWorlds.CampaignSystem.Clan,System.Int32)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName(TaleWorlds.CampaignSystem.Clan,System.String)
+  langs:
+  - csharp
+  - vb
+  name: ClanExtensions
+  nameWithType: ClanExtensions
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClanExtensions
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: public static class ClanExtensions
+    content.vb: Public Module ClanExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetClanTypes(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.GetClanTypes(TaleWorlds.CampaignSystem.Clan)
+  id: GetClanTypes(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetClanTypes(Clan)
+  nameWithType: ClanExtensions.GetClanTypes(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetClanTypes(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetClanTypes
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 43
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Gets all clan type flags for this clan
+  example: []
+  syntax:
+    content: public static ClanTypes GetClanTypes(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+    content.vb: Public Shared Function GetClanTypes(clan As Clan) As ClanTypes
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.GetClanTypes*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  id: HasAllTypes(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasAllTypes(Clan, ClanTypes)
+  nameWithType: ClanExtensions.HasAllTypes(Clan, ClanTypes)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Clan, Bannerlord.GameMaster.Clans.ClanTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAllTypes
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 74
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Checks if clan has ALL specified flags
+  example: []
+  syntax:
+    content: public static bool HasAllTypes(this Clan clan, ClanTypes types)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: types
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasAllTypes(clan As Clan, types As ClanTypes) As Boolean
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  id: HasAnyType(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasAnyType(Clan, ClanTypes)
+  nameWithType: ClanExtensions.HasAnyType(Clan, ClanTypes)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType(TaleWorlds.CampaignSystem.Clan, Bannerlord.GameMaster.Clans.ClanTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAnyType
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 84
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Checks if clan has ANY of the specified flags
+  example: []
+  syntax:
+    content: public static bool HasAnyType(this Clan clan, ClanTypes types)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: types
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasAnyType(clan As Clan, types As ClanTypes) As Boolean
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetTypes(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.GetTypes(TaleWorlds.CampaignSystem.Clan)
+  id: GetTypes(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetTypes(Clan)
+  nameWithType: ClanExtensions.GetTypes(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetTypes(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTypes
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 94
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Alias for GetClanTypes to match IEntityExtensions interface
+  example: []
+  syntax:
+    content: public static ClanTypes GetTypes(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+    content.vb: Public Shared Function GetTypes(clan As Clan) As ClanTypes
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.GetTypes*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetFortifications(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.GetFortifications(TaleWorlds.CampaignSystem.Clan)
+  id: GetFortifications(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetFortifications(Clan)
+  nameWithType: ClanExtensions.GetFortifications(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetFortifications(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFortifications
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 100
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Gets all Fortifications (Towns and Castles) within the Clan
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Settlement> GetFortifications(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+    content.vb: Public Shared Function GetFortifications(clan As Clan) As MBReadOnlyList(Of Settlement)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.GetFortifications*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetTowns(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.GetTowns(TaleWorlds.CampaignSystem.Clan)
+  id: GetTowns(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetTowns(Clan)
+  nameWithType: ClanExtensions.GetTowns(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetTowns(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTowns
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 113
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Gets all Towns within the Clan
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Settlement> GetTowns(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+    content.vb: Public Shared Function GetTowns(clan As Clan) As MBReadOnlyList(Of Settlement)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.GetTowns*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetCastles(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.GetCastles(TaleWorlds.CampaignSystem.Clan)
+  id: GetCastles(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetCastles(Clan)
+  nameWithType: ClanExtensions.GetCastles(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetCastles(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCastles
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 126
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Gets all Castles within the Clan
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Settlement> GetCastles(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+    content.vb: Public Shared Function GetCastles(clan As Clan) As MBReadOnlyList(Of Settlement)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.GetCastles*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages(TaleWorlds.CampaignSystem.Clan)
+  id: GetVillages(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetVillages(Clan)
+  nameWithType: ClanExtensions.GetVillages(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetVillages
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 139
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Gets all Villages within the Clan
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Settlement> GetVillages(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+    content.vb: Public Shared Function GetVillages(clan As Clan) As MBReadOnlyList(Of Settlement)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier(TaleWorlds.CampaignSystem.Clan,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier(TaleWorlds.CampaignSystem.Clan,System.Int32)
+  id: SetClanTier(TaleWorlds.CampaignSystem.Clan,System.Int32)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetClanTier(Clan, int)
+  nameWithType: ClanExtensions.SetClanTier(Clan, int)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier(TaleWorlds.CampaignSystem.Clan, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetClanTier
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 154
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Set clan tier to a specified tier between 0 and 6
+  example: []
+  syntax:
+    content: public static bool SetClanTier(this Clan clan, int targetTier)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: targetTier
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function SetClanTier(clan As Clan, targetTier As Integer) As Boolean
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier*
+  nameWithType.vb: ClanExtensions.SetClanTier(Clan, Integer)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier(TaleWorlds.CampaignSystem.Clan, Integer)
+  name.vb: SetClanTier(Clan, Integer)
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  id: JoinKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: JoinKingdom(Clan, Kingdom, bool)
+  nameWithType: ClanExtensions.JoinKingdom(Clan, Kingdom, bool)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom(TaleWorlds.CampaignSystem.Clan, TaleWorlds.CampaignSystem.Kingdom, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: JoinKingdom
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 177
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Join kingdom default action
+  example: []
+  syntax:
+    content: public static void JoinKingdom(this Clan clan, Kingdom kingdom, bool showNotification = true)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: showNotification
+      type: System.Boolean
+    content.vb: Public Shared Sub JoinKingdom(clan As Clan, kingdom As Kingdom, showNotification As Boolean = True)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom*
+  nameWithType.vb: ClanExtensions.JoinKingdom(Clan, Kingdom, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom(TaleWorlds.CampaignSystem.Clan, TaleWorlds.CampaignSystem.Kingdom, Boolean)
+  name.vb: JoinKingdom(Clan, Kingdom, Boolean)
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  id: JoinKingdomAsMercenary(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: JoinKingdomAsMercenary(Clan, Kingdom, bool)
+  nameWithType: ClanExtensions.JoinKingdomAsMercenary(Clan, Kingdom, bool)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary(TaleWorlds.CampaignSystem.Clan, TaleWorlds.CampaignSystem.Kingdom, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: JoinKingdomAsMercenary
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 185
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Join as a mercenary clan
+  example: []
+  syntax:
+    content: public static void JoinKingdomAsMercenary(this Clan clan, Kingdom kingdom, bool showNotification = true)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: showNotification
+      type: System.Boolean
+    content.vb: Public Shared Sub JoinKingdomAsMercenary(clan As Clan, kingdom As Kingdom, showNotification As Boolean = True)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary*
+  nameWithType.vb: ClanExtensions.JoinKingdomAsMercenary(Clan, Kingdom, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary(TaleWorlds.CampaignSystem.Clan, TaleWorlds.CampaignSystem.Kingdom, Boolean)
+  name.vb: JoinKingdomAsMercenary(Clan, Kingdom, Boolean)
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  id: DefectToKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: DefectToKingdom(Clan, Kingdom, Kingdom, bool)
+  nameWithType: ClanExtensions.DefectToKingdom(Clan, Kingdom, Kingdom, bool)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom(TaleWorlds.CampaignSystem.Clan, TaleWorlds.CampaignSystem.Kingdom, TaleWorlds.CampaignSystem.Kingdom, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DefectToKingdom
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 193
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Defect from one kingdom to another
+  example: []
+  syntax:
+    content: public static void DefectToKingdom(this Clan clan, Kingdom kingdom, Kingdom oldKindom, bool showNotification = true)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: oldKindom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: showNotification
+      type: System.Boolean
+    content.vb: Public Shared Sub DefectToKingdom(clan As Clan, kingdom As Kingdom, oldKindom As Kingdom, showNotification As Boolean = True)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom*
+  nameWithType.vb: ClanExtensions.DefectToKingdom(Clan, Kingdom, Kingdom, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom(TaleWorlds.CampaignSystem.Clan, TaleWorlds.CampaignSystem.Kingdom, TaleWorlds.CampaignSystem.Kingdom, Boolean)
+  name.vb: DefectToKingdom(Clan, Kingdom, Kingdom, Boolean)
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom(TaleWorlds.CampaignSystem.Clan,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom(TaleWorlds.CampaignSystem.Clan,System.Boolean)
+  id: LeaveKingdom(TaleWorlds.CampaignSystem.Clan,System.Boolean)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: LeaveKingdom(Clan, bool)
+  nameWithType: ClanExtensions.LeaveKingdom(Clan, bool)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom(TaleWorlds.CampaignSystem.Clan, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LeaveKingdom
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 201
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Leave kingdom
+  example: []
+  syntax:
+    content: public static void LeaveKingdom(this Clan clan, bool showNotification = true)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: showNotification
+      type: System.Boolean
+    content.vb: Public Shared Sub LeaveKingdom(clan As Clan, showNotification As Boolean = True)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom*
+  nameWithType.vb: ClanExtensions.LeaveKingdom(Clan, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom(TaleWorlds.CampaignSystem.Clan, Boolean)
+  name.vb: LeaveKingdom(Clan, Boolean)
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.DeclareWar(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.IFaction)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.DeclareWar(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.IFaction)
+  id: DeclareWar(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.IFaction)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: DeclareWar(Clan, IFaction)
+  nameWithType: ClanExtensions.DeclareWar(Clan, IFaction)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.DeclareWar(TaleWorlds.CampaignSystem.Clan, TaleWorlds.CampaignSystem.IFaction)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DeclareWar
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 206
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: public static void DeclareWar(this Clan clan, IFaction targetFaction)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: targetFaction
+      type: TaleWorlds.CampaignSystem.IFaction
+    content.vb: Public Shared Sub DeclareWar(clan As Clan, targetFaction As IFaction)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.DeclareWar*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName(TaleWorlds.CampaignSystem.Clan,System.String)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName(TaleWorlds.CampaignSystem.Clan,System.String)
+  id: SetStringName(TaleWorlds.CampaignSystem.Clan,System.String)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetStringName(Clan, string)
+  nameWithType: ClanExtensions.SetStringName(Clan, string)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName(TaleWorlds.CampaignSystem.Clan, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetStringName
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 215
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Renames clan using a string instead of TextObject
+  example: []
+  syntax:
+    content: public static void SetStringName(this Clan clan, string name)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: name
+      type: System.String
+    content.vb: Public Shared Sub SetStringName(clan As Clan, name As String)
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName*
+  nameWithType.vb: ClanExtensions.SetStringName(Clan, String)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName(TaleWorlds.CampaignSystem.Clan, String)
+  name.vb: SetStringName(Clan, String)
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails(TaleWorlds.CampaignSystem.Clan)
+  id: FormattedDetails(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: FormattedDetails(Clan)
+  nameWithType: ClanExtensions.FormattedDetails(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FormattedDetails
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 225
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Returns a formatted string containing the clan's details
+  example: []
+  syntax:
+    content: public static string FormattedDetails(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: System.String
+    content.vb: Public Shared Function FormattedDetails(clan As Clan) As String
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails*
+references:
+- uid: Bannerlord.GameMaster.Clans
+  commentId: N:Bannerlord.GameMaster.Clans
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Clans
+  nameWithType: Bannerlord.GameMaster.Clans
+  fullName: Bannerlord.GameMaster.Clans
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Clans
+    name: Clans
+    href: Bannerlord.GameMaster.Clans.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Clans
+    name: Clans
+    href: Bannerlord.GameMaster.Clans.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetClanTypes*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.GetClanTypes
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_GetClanTypes_TaleWorlds_CampaignSystem_Clan_
+  name: GetClanTypes
+  nameWithType: ClanExtensions.GetClanTypes
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetClanTypes
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
+- uid: Bannerlord.GameMaster.Clans.ClanTypes
+  commentId: T:Bannerlord.GameMaster.Clans.ClanTypes
+  parent: Bannerlord.GameMaster.Clans
+  href: Bannerlord.GameMaster.Clans.ClanTypes.html
+  name: ClanTypes
+  nameWithType: ClanTypes
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_HasAllTypes_TaleWorlds_CampaignSystem_Clan_Bannerlord_GameMaster_Clans_ClanTypes_
+  name: HasAllTypes
+  nameWithType: ClanExtensions.HasAllTypes
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_HasAnyType_TaleWorlds_CampaignSystem_Clan_Bannerlord_GameMaster_Clans_ClanTypes_
+  name: HasAnyType
+  nameWithType: ClanExtensions.HasAnyType
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetTypes*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.GetTypes
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_GetTypes_TaleWorlds_CampaignSystem_Clan_
+  name: GetTypes
+  nameWithType: ClanExtensions.GetTypes
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetTypes
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetFortifications*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.GetFortifications
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_GetFortifications_TaleWorlds_CampaignSystem_Clan_
+  name: GetFortifications
+  nameWithType: ClanExtensions.GetFortifications
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetFortifications
+- uid: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+  commentId: T:TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBReadOnlyList`1
+  name: MBReadOnlyList<Settlement>
+  nameWithType: MBReadOnlyList<Settlement>
+  fullName: TaleWorlds.Library.MBReadOnlyList<TaleWorlds.CampaignSystem.Settlements.Settlement>
+  nameWithType.vb: MBReadOnlyList(Of Settlement)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of TaleWorlds.CampaignSystem.Settlements.Settlement)
+  name.vb: MBReadOnlyList(Of Settlement)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+    name: Settlement
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+    name: Settlement
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.Library.MBReadOnlyList`1
+  commentId: T:TaleWorlds.Library.MBReadOnlyList`1
+  isExternal: true
+  name: MBReadOnlyList<T>
+  nameWithType: MBReadOnlyList<T>
+  fullName: TaleWorlds.Library.MBReadOnlyList<T>
+  nameWithType.vb: MBReadOnlyList(Of T)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of T)
+  name.vb: MBReadOnlyList(Of T)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetTowns*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.GetTowns
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_GetTowns_TaleWorlds_CampaignSystem_Clan_
+  name: GetTowns
+  nameWithType: ClanExtensions.GetTowns
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetTowns
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetCastles*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.GetCastles
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_GetCastles_TaleWorlds_CampaignSystem_Clan_
+  name: GetCastles
+  nameWithType: ClanExtensions.GetCastles
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetCastles
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_GetVillages_TaleWorlds_CampaignSystem_Clan_
+  name: GetVillages
+  nameWithType: ClanExtensions.GetVillages
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_SetClanTier_TaleWorlds_CampaignSystem_Clan_System_Int32_
+  name: SetClanTier
+  nameWithType: ClanExtensions.SetClanTier
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_JoinKingdom_TaleWorlds_CampaignSystem_Clan_TaleWorlds_CampaignSystem_Kingdom_System_Boolean_
+  name: JoinKingdom
+  nameWithType: ClanExtensions.JoinKingdom
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom
+- uid: TaleWorlds.CampaignSystem.Kingdom
+  commentId: T:TaleWorlds.CampaignSystem.Kingdom
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Kingdom
+  nameWithType: Kingdom
+  fullName: TaleWorlds.CampaignSystem.Kingdom
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_JoinKingdomAsMercenary_TaleWorlds_CampaignSystem_Clan_TaleWorlds_CampaignSystem_Kingdom_System_Boolean_
+  name: JoinKingdomAsMercenary
+  nameWithType: ClanExtensions.JoinKingdomAsMercenary
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_DefectToKingdom_TaleWorlds_CampaignSystem_Clan_TaleWorlds_CampaignSystem_Kingdom_TaleWorlds_CampaignSystem_Kingdom_System_Boolean_
+  name: DefectToKingdom
+  nameWithType: ClanExtensions.DefectToKingdom
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.DefectToKingdom
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_LeaveKingdom_TaleWorlds_CampaignSystem_Clan_System_Boolean_
+  name: LeaveKingdom
+  nameWithType: ClanExtensions.LeaveKingdom
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.DeclareWar*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.DeclareWar
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_DeclareWar_TaleWorlds_CampaignSystem_Clan_TaleWorlds_CampaignSystem_IFaction_
+  name: DeclareWar
+  nameWithType: ClanExtensions.DeclareWar
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.DeclareWar
+- uid: TaleWorlds.CampaignSystem.IFaction
+  commentId: T:TaleWorlds.CampaignSystem.IFaction
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: IFaction
+  nameWithType: IFaction
+  fullName: TaleWorlds.CampaignSystem.IFaction
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_SetStringName_TaleWorlds_CampaignSystem_Clan_System_String_
+  name: SetStringName
+  nameWithType: ClanExtensions.SetStringName
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_FormattedDetails_TaleWorlds_CampaignSystem_Clan_
+  name: FormattedDetails
+  nameWithType: ClanExtensions.FormattedDetails
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails

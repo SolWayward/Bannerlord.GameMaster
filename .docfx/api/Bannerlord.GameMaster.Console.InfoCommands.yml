@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.InfoCommands
+  commentId: N:Bannerlord.GameMaster.Console.InfoCommands
+  id: Bannerlord.GameMaster.Console.InfoCommands
+  children:
+  - Bannerlord.GameMaster.Console.InfoCommands.BannerlordVersionCommand
+  - Bannerlord.GameMaster.Console.InfoCommands.BlgmObjectCountCommand
+  - Bannerlord.GameMaster.Console.InfoCommands.BlgmVersionCommand
+  - Bannerlord.GameMaster.Console.InfoCommands.ListModsCommand
+  - Bannerlord.GameMaster.Console.InfoCommands.ListModsLaunchCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.InfoCommands
+  nameWithType: Bannerlord.GameMaster.Console.InfoCommands
+  fullName: Bannerlord.GameMaster.Console.InfoCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.InfoCommands.BannerlordVersionCommand
+  commentId: T:Bannerlord.GameMaster.Console.InfoCommands.BannerlordVersionCommand
+  href: Bannerlord.GameMaster.Console.InfoCommands.BannerlordVersionCommand.html
+  name: BannerlordVersionCommand
+  nameWithType: BannerlordVersionCommand
+  fullName: Bannerlord.GameMaster.Console.InfoCommands.BannerlordVersionCommand
+- uid: Bannerlord.GameMaster.Console.InfoCommands.BlgmObjectCountCommand
+  commentId: T:Bannerlord.GameMaster.Console.InfoCommands.BlgmObjectCountCommand
+  href: Bannerlord.GameMaster.Console.InfoCommands.BlgmObjectCountCommand.html
+  name: BlgmObjectCountCommand
+  nameWithType: BlgmObjectCountCommand
+  fullName: Bannerlord.GameMaster.Console.InfoCommands.BlgmObjectCountCommand
+- uid: Bannerlord.GameMaster.Console.InfoCommands.BlgmVersionCommand
+  commentId: T:Bannerlord.GameMaster.Console.InfoCommands.BlgmVersionCommand
+  href: Bannerlord.GameMaster.Console.InfoCommands.BlgmVersionCommand.html
+  name: BlgmVersionCommand
+  nameWithType: BlgmVersionCommand
+  fullName: Bannerlord.GameMaster.Console.InfoCommands.BlgmVersionCommand
+- uid: Bannerlord.GameMaster.Console.InfoCommands.ListModsCommand
+  commentId: T:Bannerlord.GameMaster.Console.InfoCommands.ListModsCommand
+  href: Bannerlord.GameMaster.Console.InfoCommands.ListModsCommand.html
+  name: ListModsCommand
+  nameWithType: ListModsCommand
+  fullName: Bannerlord.GameMaster.Console.InfoCommands.ListModsCommand
+- uid: Bannerlord.GameMaster.Console.InfoCommands.ListModsLaunchCommand
+  commentId: T:Bannerlord.GameMaster.Console.InfoCommands.ListModsLaunchCommand
+  href: Bannerlord.GameMaster.Console.InfoCommands.ListModsLaunchCommand.html
+  name: ListModsLaunchCommand
+  nameWithType: ListModsLaunchCommand
+  fullName: Bannerlord.GameMaster.Console.InfoCommands.ListModsLaunchCommand

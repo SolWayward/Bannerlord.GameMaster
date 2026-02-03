@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.CleanupCommands
+  commentId: N:Bannerlord.GameMaster.Console.CleanupCommands
+  id: Bannerlord.GameMaster.Console.CleanupCommands
+  children:
+  - Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmClansCommand
+  - Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmKingdomsCommand
+  - Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmPartiesCommand
+  - Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveHeroesCommand
+  - Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmClanCommand
+  - Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmHeroCommand
+  - Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmKingdomCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.CleanupCommands
+  nameWithType: Bannerlord.GameMaster.Console.CleanupCommands
+  fullName: Bannerlord.GameMaster.Console.CleanupCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmClansCommand
+  commentId: T:Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmClansCommand
+  href: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmClansCommand.html
+  name: BatchRemoveBlgmClansCommand
+  nameWithType: BatchRemoveBlgmClansCommand
+  fullName: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmClansCommand
+- uid: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmKingdomsCommand
+  commentId: T:Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmKingdomsCommand
+  href: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmKingdomsCommand.html
+  name: BatchRemoveBlgmKingdomsCommand
+  nameWithType: BatchRemoveBlgmKingdomsCommand
+  fullName: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmKingdomsCommand
+- uid: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmPartiesCommand
+  commentId: T:Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmPartiesCommand
+  href: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmPartiesCommand.html
+  name: BatchRemoveBlgmPartiesCommand
+  nameWithType: BatchRemoveBlgmPartiesCommand
+  fullName: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmPartiesCommand
+- uid: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveHeroesCommand
+  commentId: T:Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveHeroesCommand
+  href: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveHeroesCommand.html
+  name: BatchRemoveHeroesCommand
+  nameWithType: BatchRemoveHeroesCommand
+  fullName: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveHeroesCommand
+- uid: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmClanCommand
+  commentId: T:Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmClanCommand
+  href: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmClanCommand.html
+  name: RemoveBlgmClanCommand
+  nameWithType: RemoveBlgmClanCommand
+  fullName: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmClanCommand
+- uid: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmHeroCommand
+  commentId: T:Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmHeroCommand
+  href: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmHeroCommand.html
+  name: RemoveBlgmHeroCommand
+  nameWithType: RemoveBlgmHeroCommand
+  fullName: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmHeroCommand
+- uid: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmKingdomCommand
+  commentId: T:Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmKingdomCommand
+  href: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmKingdomCommand.html
+  name: RemoveBlgmKingdomCommand
+  nameWithType: RemoveBlgmKingdomCommand
+  fullName: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmKingdomCommand

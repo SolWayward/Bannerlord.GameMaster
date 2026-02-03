@@ -1,0 +1,1095 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  id: BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  children:
+  - Bannerlord.GameMaster.Common.BLGMResult.#ctor
+  - Bannerlord.GameMaster.Common.BLGMResult.#ctor(System.Boolean,System.String)
+  - Bannerlord.GameMaster.Common.BLGMResult.#ctor(System.Boolean,System.String,System.Exception)
+  - Bannerlord.GameMaster.Common.BLGMResult.Prefix
+  - Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/BLGMResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BLGMResult
+    path: ../Bannerlord.GameMaster/Common/BLGMResult.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: >-
+    An object containing a bool indicating if an operation succeeded, a string message with details of the result of the operation,
+
+    and an exception if an exception occured. Also includes convenience methods for logging to game rgl log and system console and or displaying in game.
+  example: []
+  syntax:
+    content: 'public class BLGMResult : ResultBase<BLGMResult>'
+    content.vb: Public Class BLGMResult Inherits ResultBase(Of BLGMResult)
+  inheritance:
+  - System.Object
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  inheritedMembers:
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.IsSuccess
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Message
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Exception
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Success(System.String)
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String)
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String,System.Exception)
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayMessage
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Log
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedMessage
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedLogEntry
+  - Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayAndLog
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Common.BLGMResult.Prefix
+  commentId: P:Bannerlord.GameMaster.Common.BLGMResult.Prefix
+  id: Prefix
+  parent: Bannerlord.GameMaster.Common.BLGMResult
+  langs:
+  - csharp
+  - vb
+  name: Prefix
+  nameWithType: BLGMResult.Prefix
+  fullName: Bannerlord.GameMaster.Common.BLGMResult.Prefix
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/BLGMResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Prefix
+    path: ../Bannerlord.GameMaster/Common/BLGMResult.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Prefix used to indicate result type in Logs(Override this)
+  example: []
+  syntax:
+    content: protected override string Prefix { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Protected Overrides ReadOnly Property Prefix As String
+  overridden: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Prefix
+  overload: Bannerlord.GameMaster.Common.BLGMResult.Prefix*
+- uid: Bannerlord.GameMaster.Common.BLGMResult.#ctor
+  commentId: M:Bannerlord.GameMaster.Common.BLGMResult.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.Common.BLGMResult
+  langs:
+  - csharp
+  - vb
+  name: BLGMResult()
+  nameWithType: BLGMResult.BLGMResult()
+  fullName: Bannerlord.GameMaster.Common.BLGMResult.BLGMResult()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/BLGMResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Common/BLGMResult.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Creates an unhandled failure result, recommended to use one of the other constructors
+  example: []
+  syntax:
+    content: public BLGMResult()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.Common.BLGMResult.#ctor*
+  nameWithType.vb: BLGMResult.New()
+  fullName.vb: Bannerlord.GameMaster.Common.BLGMResult.New()
+  name.vb: New()
+- uid: Bannerlord.GameMaster.Common.BLGMResult.#ctor(System.Boolean,System.String)
+  commentId: M:Bannerlord.GameMaster.Common.BLGMResult.#ctor(System.Boolean,System.String)
+  id: '#ctor(System.Boolean,System.String)'
+  parent: Bannerlord.GameMaster.Common.BLGMResult
+  langs:
+  - csharp
+  - vb
+  name: BLGMResult(bool, string)
+  nameWithType: BLGMResult.BLGMResult(bool, string)
+  fullName: Bannerlord.GameMaster.Common.BLGMResult.BLGMResult(bool, string)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/BLGMResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Common/BLGMResult.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Used for successful results or results that failed without an exception
+  example: []
+  syntax:
+    content: public BLGMResult(bool isSuccess, string message)
+    parameters:
+    - id: isSuccess
+      type: System.Boolean
+    - id: message
+      type: System.String
+    content.vb: Public Sub New(isSuccess As Boolean, message As String)
+  overload: Bannerlord.GameMaster.Common.BLGMResult.#ctor*
+  nameWithType.vb: BLGMResult.New(Boolean, String)
+  fullName.vb: Bannerlord.GameMaster.Common.BLGMResult.New(Boolean, String)
+  name.vb: New(Boolean, String)
+- uid: Bannerlord.GameMaster.Common.BLGMResult.#ctor(System.Boolean,System.String,System.Exception)
+  commentId: M:Bannerlord.GameMaster.Common.BLGMResult.#ctor(System.Boolean,System.String,System.Exception)
+  id: '#ctor(System.Boolean,System.String,System.Exception)'
+  parent: Bannerlord.GameMaster.Common.BLGMResult
+  langs:
+  - csharp
+  - vb
+  name: BLGMResult(bool, string, Exception)
+  nameWithType: BLGMResult.BLGMResult(bool, string, Exception)
+  fullName: Bannerlord.GameMaster.Common.BLGMResult.BLGMResult(bool, string, System.Exception)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/BLGMResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Common/BLGMResult.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Used for results in exception handling blocks
+  example: []
+  syntax:
+    content: public BLGMResult(bool isSuccess, string message, Exception ex)
+    parameters:
+    - id: isSuccess
+      type: System.Boolean
+    - id: message
+      type: System.String
+    - id: ex
+      type: System.Exception
+    content.vb: Public Sub New(isSuccess As Boolean, message As String, ex As Exception)
+  overload: Bannerlord.GameMaster.Common.BLGMResult.#ctor*
+  nameWithType.vb: BLGMResult.New(Boolean, String, Exception)
+  fullName.vb: Bannerlord.GameMaster.Common.BLGMResult.New(Boolean, String, System.Exception)
+  name.vb: New(Boolean, String, Exception)
+- uid: Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole(System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole(System.Boolean)
+  id: PrintToGameConsole(System.Boolean)
+  parent: Bannerlord.GameMaster.Common.BLGMResult
+  langs:
+  - csharp
+  - vb
+  name: PrintToGameConsole(bool)
+  nameWithType: BLGMResult.PrintToGameConsole(bool)
+  fullName: Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole(bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/BLGMResult.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: PrintToGameConsole
+    path: ../Bannerlord.GameMaster/Common/BLGMResult.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Prints to the game console
+  example: []
+  syntax:
+    content: public void PrintToGameConsole(bool includeException = false)
+    parameters:
+    - id: includeException
+      type: System.Boolean
+    content.vb: Public Sub PrintToGameConsole(includeException As Boolean = False)
+  overload: Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole*
+  nameWithType.vb: BLGMResult.PrintToGameConsole(Boolean)
+  fullName.vb: Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole(Boolean)
+  name.vb: PrintToGameConsole(Boolean)
+references:
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  commentId: T:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  parent: Bannerlord.GameMaster.Common
+  definition: Bannerlord.GameMaster.Common.ResultBase`1
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  name: ResultBase<BLGMResult>
+  nameWithType: ResultBase<BLGMResult>
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>
+  nameWithType.vb: ResultBase(Of BLGMResult)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult)
+  name.vb: ResultBase(Of BLGMResult)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1
+    name: ResultBase
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  - name: <
+  - uid: Bannerlord.GameMaster.Common.BLGMResult
+    name: BLGMResult
+    href: Bannerlord.GameMaster.Common.BLGMResult.html
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1
+    name: ResultBase
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Bannerlord.GameMaster.Common.BLGMResult
+    name: BLGMResult
+    href: Bannerlord.GameMaster.Common.BLGMResult.html
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.IsSuccess
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.IsSuccess
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_IsSuccess
+  name: IsSuccess
+  nameWithType: ResultBase<BLGMResult>.IsSuccess
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.IsSuccess
+  nameWithType.vb: ResultBase(Of BLGMResult).IsSuccess
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).IsSuccess
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Message
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Message
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.Message
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Message
+  name: Message
+  nameWithType: ResultBase<BLGMResult>.Message
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.Message
+  nameWithType.vb: ResultBase(Of BLGMResult).Message
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).Message
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Exception
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Exception
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.Exception
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Exception
+  name: Exception
+  nameWithType: ResultBase<BLGMResult>.Exception
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.Exception
+  nameWithType.vb: ResultBase(Of BLGMResult).Exception
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).Exception
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Success(System.String)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Success(System.String)
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.Success(System.String)
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Success_System_String_
+  name: Success(string)
+  nameWithType: ResultBase<BLGMResult>.Success(string)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.Success(string)
+  nameWithType.vb: ResultBase(Of BLGMResult).Success(String)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).Success(String)
+  name.vb: Success(String)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Success(System.String)
+    name: Success
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Success_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Success(System.String)
+    name: Success
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Success_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String)
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String)
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_
+  name: Error(string)
+  nameWithType: ResultBase<BLGMResult>.Error(string)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.Error(string)
+  nameWithType.vb: ResultBase(Of BLGMResult).Error(String)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).Error(String)
+  name.vb: Error(String)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String)
+    name: Error
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String)
+    name: Error
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String,System.Exception)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String,System.Exception)
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String,System.Exception)
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_System_Exception_
+  name: Error(string, Exception)
+  nameWithType: ResultBase<BLGMResult>.Error(string, Exception)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.Error(string, System.Exception)
+  nameWithType.vb: ResultBase(Of BLGMResult).Error(String, Exception)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).Error(String, System.Exception)
+  name.vb: Error(String, Exception)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String,System.Exception)
+    name: Error
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_System_Exception_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Error(System.String,System.Exception)
+    name: Error
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_System_Exception_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayMessage
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayMessage
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayMessage
+  name: DisplayMessage()
+  nameWithType: ResultBase<BLGMResult>.DisplayMessage()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.DisplayMessage()
+  nameWithType.vb: ResultBase(Of BLGMResult).DisplayMessage()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).DisplayMessage()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayMessage
+    name: DisplayMessage
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayMessage
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayMessage
+    name: DisplayMessage
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayMessage
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Log
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Log
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.Log
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Log
+  name: Log()
+  nameWithType: ResultBase<BLGMResult>.Log()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.Log()
+  nameWithType.vb: ResultBase(Of BLGMResult).Log()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).Log()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Log
+    name: Log
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Log
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Log
+    name: Log
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Log
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedMessage
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedMessage
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedMessage
+  name: GetFormattedMessage()
+  nameWithType: ResultBase<BLGMResult>.GetFormattedMessage()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.GetFormattedMessage()
+  nameWithType.vb: ResultBase(Of BLGMResult).GetFormattedMessage()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).GetFormattedMessage()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedMessage
+    name: GetFormattedMessage
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedMessage
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedMessage
+    name: GetFormattedMessage
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedMessage
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedLogEntry
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedLogEntry
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedLogEntry
+  name: GetFormattedLogEntry()
+  nameWithType: ResultBase<BLGMResult>.GetFormattedLogEntry()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.GetFormattedLogEntry()
+  nameWithType.vb: ResultBase(Of BLGMResult).GetFormattedLogEntry()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).GetFormattedLogEntry()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedLogEntry
+    name: GetFormattedLogEntry
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedLogEntry
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.GetFormattedLogEntry
+    name: GetFormattedLogEntry
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedLogEntry
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayAndLog
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayAndLog
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayAndLog
+  name: DisplayAndLog()
+  nameWithType: ResultBase<BLGMResult>.DisplayAndLog()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.DisplayAndLog()
+  nameWithType.vb: ResultBase(Of BLGMResult).DisplayAndLog()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).DisplayAndLog()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayAndLog
+    name: DisplayAndLog
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayAndLog
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.DisplayAndLog
+    name: DisplayAndLog
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayAndLog
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Common.ResultBase`1
+  commentId: T:Bannerlord.GameMaster.Common.ResultBase`1
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  name: ResultBase<TSelf>
+  nameWithType: ResultBase<TSelf>
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>
+  nameWithType.vb: ResultBase(Of TSelf)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf)
+  name.vb: ResultBase(Of TSelf)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1
+    name: ResultBase
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  - name: <
+  - name: TSelf
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1
+    name: ResultBase
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_IsSuccess
+  name: IsSuccess
+  nameWithType: ResultBase<TSelf>.IsSuccess
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.IsSuccess
+  nameWithType.vb: ResultBase(Of TSelf).IsSuccess
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).IsSuccess
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Message
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase`1.Message
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Message
+  name: Message
+  nameWithType: ResultBase<TSelf>.Message
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Message
+  nameWithType.vb: ResultBase(Of TSelf).Message
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Message
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Exception
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase`1.Exception
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Exception
+  name: Exception
+  nameWithType: ResultBase<TSelf>.Exception
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Exception
+  nameWithType.vb: ResultBase(Of TSelf).Exception
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Exception
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Success(System.String)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.Success(System.String)
+  isExternal: true
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Success_System_String_
+  name: Success(string)
+  nameWithType: ResultBase<TSelf>.Success(string)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Success(string)
+  nameWithType.vb: ResultBase(Of TSelf).Success(String)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Success(String)
+  name.vb: Success(String)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.Success(System.String)
+    name: Success
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Success_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.Success(System.String)
+    name: Success
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Success_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String)
+  isExternal: true
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_
+  name: Error(string)
+  nameWithType: ResultBase<TSelf>.Error(string)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Error(string)
+  nameWithType.vb: ResultBase(Of TSelf).Error(String)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Error(String)
+  name.vb: Error(String)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String)
+    name: Error
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String)
+    name: Error
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String,System.Exception)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String,System.Exception)
+  isExternal: true
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_System_Exception_
+  name: Error(string, Exception)
+  nameWithType: ResultBase<TSelf>.Error(string, Exception)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Error(string, System.Exception)
+  nameWithType.vb: ResultBase(Of TSelf).Error(String, Exception)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Error(String, System.Exception)
+  name.vb: Error(String, Exception)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String,System.Exception)
+    name: Error
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_System_Exception_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String,System.Exception)
+    name: Error
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_System_Exception_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayMessage
+  name: DisplayMessage()
+  nameWithType: ResultBase<TSelf>.DisplayMessage()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.DisplayMessage()
+  nameWithType.vb: ResultBase(Of TSelf).DisplayMessage()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).DisplayMessage()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+    name: DisplayMessage
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayMessage
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+    name: DisplayMessage
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayMessage
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Log
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.Log
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Log
+  name: Log()
+  nameWithType: ResultBase<TSelf>.Log()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Log()
+  nameWithType.vb: ResultBase(Of TSelf).Log()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Log()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.Log
+    name: Log
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Log
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.Log
+    name: Log
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Log
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedMessage
+  name: GetFormattedMessage()
+  nameWithType: ResultBase<TSelf>.GetFormattedMessage()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.GetFormattedMessage()
+  nameWithType.vb: ResultBase(Of TSelf).GetFormattedMessage()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).GetFormattedMessage()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+    name: GetFormattedMessage
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedMessage
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+    name: GetFormattedMessage
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedMessage
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedLogEntry
+  name: GetFormattedLogEntry()
+  nameWithType: ResultBase<TSelf>.GetFormattedLogEntry()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.GetFormattedLogEntry()
+  nameWithType.vb: ResultBase(Of TSelf).GetFormattedLogEntry()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).GetFormattedLogEntry()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+    name: GetFormattedLogEntry
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedLogEntry
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+    name: GetFormattedLogEntry
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedLogEntry
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayAndLog
+  name: DisplayAndLog()
+  nameWithType: ResultBase<TSelf>.DisplayAndLog()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.DisplayAndLog()
+  nameWithType.vb: ResultBase(Of TSelf).DisplayAndLog()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).DisplayAndLog()
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+    name: DisplayAndLog
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayAndLog
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+    name: DisplayAndLog
+    href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayAndLog
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Prefix
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}.Prefix
+  parent: Bannerlord.GameMaster.Common.ResultBase{Bannerlord.GameMaster.Common.BLGMResult}
+  definition: Bannerlord.GameMaster.Common.ResultBase`1.Prefix
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Prefix
+  name: Prefix
+  nameWithType: ResultBase<BLGMResult>.Prefix
+  fullName: Bannerlord.GameMaster.Common.ResultBase<Bannerlord.GameMaster.Common.BLGMResult>.Prefix
+  nameWithType.vb: ResultBase(Of BLGMResult).Prefix
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of Bannerlord.GameMaster.Common.BLGMResult).Prefix
+- uid: Bannerlord.GameMaster.Common.BLGMResult.Prefix*
+  commentId: Overload:Bannerlord.GameMaster.Common.BLGMResult.Prefix
+  href: Bannerlord.GameMaster.Common.BLGMResult.html#Bannerlord_GameMaster_Common_BLGMResult_Prefix
+  name: Prefix
+  nameWithType: BLGMResult.Prefix
+  fullName: Bannerlord.GameMaster.Common.BLGMResult.Prefix
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Prefix
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase`1.Prefix
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Prefix
+  name: Prefix
+  nameWithType: ResultBase<TSelf>.Prefix
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Prefix
+  nameWithType.vb: ResultBase(Of TSelf).Prefix
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Prefix
+- uid: Bannerlord.GameMaster.Common.BLGMResult.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Common.BLGMResult.#ctor
+  href: Bannerlord.GameMaster.Common.BLGMResult.html#Bannerlord_GameMaster_Common_BLGMResult__ctor
+  name: BLGMResult
+  nameWithType: BLGMResult.BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult.BLGMResult
+  nameWithType.vb: BLGMResult.New
+  fullName.vb: Bannerlord.GameMaster.Common.BLGMResult.New
+  name.vb: New
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole*
+  commentId: Overload:Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole
+  href: Bannerlord.GameMaster.Common.BLGMResult.html#Bannerlord_GameMaster_Common_BLGMResult_PrintToGameConsole_System_Boolean_
+  name: PrintToGameConsole
+  nameWithType: BLGMResult.PrintToGameConsole
+  fullName: Bannerlord.GameMaster.Common.BLGMResult.PrintToGameConsole

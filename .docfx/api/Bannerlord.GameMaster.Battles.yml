@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Battles
+  commentId: N:Bannerlord.GameMaster.Battles
+  id: Bannerlord.GameMaster.Battles
+  children:
+  - Bannerlord.GameMaster.Battles.BattleStarter
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Battles
+  nameWithType: Bannerlord.GameMaster.Battles
+  fullName: Bannerlord.GameMaster.Battles
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Battles.BattleStarter
+  commentId: T:Bannerlord.GameMaster.Battles.BattleStarter
+  href: Bannerlord.GameMaster.Battles.BattleStarter.html
+  name: BattleStarter
+  nameWithType: BattleStarter
+  fullName: Bannerlord.GameMaster.Battles.BattleStarter

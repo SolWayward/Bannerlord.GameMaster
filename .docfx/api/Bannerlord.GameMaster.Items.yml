@@ -1,0 +1,203 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  id: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.BannerSelector
+  - Bannerlord.GameMaster.Items.CivilianItemPoolManager
+  - Bannerlord.GameMaster.Items.EquipmentBuilder
+  - Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout
+  - Bannerlord.GameMaster.Items.EquipmentFileManager
+  - Bannerlord.GameMaster.Items.EquipmentTransfer
+  - Bannerlord.GameMaster.Items.HeroEquipper
+  - Bannerlord.GameMaster.Items.ItemExtensions
+  - Bannerlord.GameMaster.Items.ItemExtensionsWrapper
+  - Bannerlord.GameMaster.Items.ItemModifierHelper
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  - Bannerlord.GameMaster.Items.ItemPoolManager
+  - Bannerlord.GameMaster.Items.ItemQueries
+  - Bannerlord.GameMaster.Items.ItemTypes
+  - Bannerlord.GameMaster.Items.ItemValidation
+  - Bannerlord.GameMaster.Items.MountCompatibility
+  - Bannerlord.GameMaster.Items.WeaponTypeFlags
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Items.EquipmentFileManager
+  commentId: T:Bannerlord.GameMaster.Items.EquipmentFileManager
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.EquipmentFileManager.html
+  name: EquipmentFileManager
+  nameWithType: EquipmentFileManager
+  fullName: Bannerlord.GameMaster.Items.EquipmentFileManager
+- uid: Bannerlord.GameMaster.Items.EquipmentTransfer
+  commentId: T:Bannerlord.GameMaster.Items.EquipmentTransfer
+  href: Bannerlord.GameMaster.Items.EquipmentTransfer.html
+  name: EquipmentTransfer
+  nameWithType: EquipmentTransfer
+  fullName: Bannerlord.GameMaster.Items.EquipmentTransfer
+- uid: Bannerlord.GameMaster.Items.BannerSelector
+  commentId: T:Bannerlord.GameMaster.Items.BannerSelector
+  href: Bannerlord.GameMaster.Items.BannerSelector.html
+  name: BannerSelector
+  nameWithType: BannerSelector
+  fullName: Bannerlord.GameMaster.Items.BannerSelector
+- uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager
+  commentId: T:Bannerlord.GameMaster.Items.CivilianItemPoolManager
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.CivilianItemPoolManager.html
+  name: CivilianItemPoolManager
+  nameWithType: CivilianItemPoolManager
+  fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder
+  commentId: T:Bannerlord.GameMaster.Items.EquipmentBuilder
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.EquipmentBuilder.html
+  name: EquipmentBuilder
+  nameWithType: EquipmentBuilder
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder
+- uid: Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout
+  commentId: T:Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout
+  href: Bannerlord.GameMaster.Items.EquipmentBuilder.html
+  name: EquipmentBuilder.WeaponLoadout
+  nameWithType: EquipmentBuilder.WeaponLoadout
+  fullName: Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Items.EquipmentBuilder
+    name: EquipmentBuilder
+    href: Bannerlord.GameMaster.Items.EquipmentBuilder.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout
+    name: WeaponLoadout
+    href: Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout.html
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Items.EquipmentBuilder
+    name: EquipmentBuilder
+    href: Bannerlord.GameMaster.Items.EquipmentBuilder.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout
+    name: WeaponLoadout
+    href: Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout.html
+- uid: Bannerlord.GameMaster.Items.HeroEquipper
+  commentId: T:Bannerlord.GameMaster.Items.HeroEquipper
+  href: Bannerlord.GameMaster.Items.HeroEquipper.html
+  name: HeroEquipper
+  nameWithType: HeroEquipper
+  fullName: Bannerlord.GameMaster.Items.HeroEquipper
+- uid: Bannerlord.GameMaster.Items.ItemPoolManager
+  commentId: T:Bannerlord.GameMaster.Items.ItemPoolManager
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.ItemPoolManager.html
+  name: ItemPoolManager
+  nameWithType: ItemPoolManager
+  fullName: Bannerlord.GameMaster.Items.ItemPoolManager
+- uid: Bannerlord.GameMaster.Items.ItemValidation
+  commentId: T:Bannerlord.GameMaster.Items.ItemValidation
+  href: Bannerlord.GameMaster.Items.ItemValidation.html
+  name: ItemValidation
+  nameWithType: ItemValidation
+  fullName: Bannerlord.GameMaster.Items.ItemValidation
+- uid: Bannerlord.GameMaster.Items.MountCompatibility
+  commentId: T:Bannerlord.GameMaster.Items.MountCompatibility
+  href: Bannerlord.GameMaster.Items.MountCompatibility.html
+  name: MountCompatibility
+  nameWithType: MountCompatibility
+  fullName: Bannerlord.GameMaster.Items.MountCompatibility
+- uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+  commentId: T:Bannerlord.GameMaster.Items.WeaponTypeFlags
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.WeaponTypeFlags.html
+  name: WeaponTypeFlags
+  nameWithType: WeaponTypeFlags
+  fullName: Bannerlord.GameMaster.Items.WeaponTypeFlags
+- uid: Bannerlord.GameMaster.Items.ItemTypes
+  commentId: T:Bannerlord.GameMaster.Items.ItemTypes
+  parent: Bannerlord.GameMaster.Items
+  href: Bannerlord.GameMaster.Items.ItemTypes.html
+  name: ItemTypes
+  nameWithType: ItemTypes
+  fullName: Bannerlord.GameMaster.Items.ItemTypes
+- uid: Bannerlord.GameMaster.Items.ItemExtensions
+  commentId: T:Bannerlord.GameMaster.Items.ItemExtensions
+  href: Bannerlord.GameMaster.Items.ItemExtensions.html
+  name: ItemExtensions
+  nameWithType: ItemExtensions
+  fullName: Bannerlord.GameMaster.Items.ItemExtensions
+- uid: Bannerlord.GameMaster.Items.ItemExtensionsWrapper
+  commentId: T:Bannerlord.GameMaster.Items.ItemExtensionsWrapper
+  href: Bannerlord.GameMaster.Items.ItemExtensionsWrapper.html
+  name: ItemExtensionsWrapper
+  nameWithType: ItemExtensionsWrapper
+  fullName: Bannerlord.GameMaster.Items.ItemExtensionsWrapper
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper
+  commentId: T:Bannerlord.GameMaster.Items.ItemModifierHelper
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.html
+  name: ItemModifierHelper
+  nameWithType: ItemModifierHelper
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  commentId: T:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.html
+  name: ItemModifierHelper.CommonModifiers
+  nameWithType: ItemModifierHelper.CommonModifiers
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Items.ItemModifierHelper
+    name: ItemModifierHelper
+    href: Bannerlord.GameMaster.Items.ItemModifierHelper.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+    name: CommonModifiers
+    href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Items.ItemModifierHelper
+    name: ItemModifierHelper
+    href: Bannerlord.GameMaster.Items.ItemModifierHelper.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+    name: CommonModifiers
+    href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html
+- uid: Bannerlord.GameMaster.Items.ItemQueries
+  commentId: T:Bannerlord.GameMaster.Items.ItemQueries
+  href: Bannerlord.GameMaster.Items.ItemQueries.html
+  name: ItemQueries
+  nameWithType: ItemQueries
+  fullName: Bannerlord.GameMaster.Items.ItemQueries
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html

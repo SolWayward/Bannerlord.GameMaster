@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.HeroQueryCommands
+  commentId: N:Bannerlord.GameMaster.Console.Query.HeroQueryCommands
+  id: Bannerlord.GameMaster.Console.Query.HeroQueryCommands
+  children:
+  - Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroAnyCommand
+  - Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroCommand
+  - Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroInfoCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Query.HeroQueryCommands
+  nameWithType: Bannerlord.GameMaster.Console.Query.HeroQueryCommands
+  fullName: Bannerlord.GameMaster.Console.Query.HeroQueryCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroAnyCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroAnyCommand
+  href: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroAnyCommand.html
+  name: QueryHeroAnyCommand
+  nameWithType: QueryHeroAnyCommand
+  fullName: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroAnyCommand
+- uid: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroCommand
+  href: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroCommand.html
+  name: QueryHeroCommand
+  nameWithType: QueryHeroCommand
+  fullName: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroCommand
+- uid: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroInfoCommand
+  href: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroInfoCommand.html
+  name: QueryHeroInfoCommand
+  nameWithType: QueryHeroInfoCommand
+  fullName: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroInfoCommand

@@ -1,0 +1,117 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.Parsing
+  commentId: N:Bannerlord.GameMaster.Console.Common.Parsing
+  id: Bannerlord.GameMaster.Console.Common.Parsing
+  children:
+  - Bannerlord.GameMaster.Console.Common.Parsing.ArgumentDefinition
+  - Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  - Bannerlord.GameMaster.Console.Common.Parsing.FlagParser
+  - Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments
+  - Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser`1
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Common.Parsing
+  nameWithType: Bannerlord.GameMaster.Console.Common.Parsing
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentDefinition
+  commentId: T:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentDefinition
+  href: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentDefinition.html
+  name: ArgumentDefinition
+  nameWithType: ArgumentDefinition
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentDefinition
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  commentId: T:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  href: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.html
+  name: ArgumentParser
+  nameWithType: ArgumentParser
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.FlagParser
+  commentId: T:Bannerlord.GameMaster.Console.Common.Parsing.FlagParser
+  href: Bannerlord.GameMaster.Console.Common.Parsing.FlagParser.html
+  name: FlagParser
+  nameWithType: FlagParser
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.FlagParser
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments
+  commentId: T:Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments
+  parent: Bannerlord.GameMaster.Console.Common.Parsing
+  href: Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments.html
+  name: ParsedArguments
+  nameWithType: ParsedArguments
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser`1
+  commentId: T:Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser`1
+  href: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser-1.html
+  name: QueryArgumentParser<TEnum>
+  nameWithType: QueryArgumentParser<TEnum>
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser<TEnum>
+  nameWithType.vb: QueryArgumentParser(Of TEnum)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser(Of TEnum)
+  name.vb: QueryArgumentParser(Of TEnum)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser`1
+    name: QueryArgumentParser
+    href: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser-1.html
+  - name: <
+  - name: TEnum
+  - name: '>'
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser`1
+    name: QueryArgumentParser
+    href: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnum
+  - name: )
+- uid: Bannerlord.GameMaster.Console.Common.Parsing
+  commentId: N:Bannerlord.GameMaster.Console.Common.Parsing
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.Parsing
+  nameWithType: Bannerlord.GameMaster.Console.Common.Parsing
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing
+    name: Parsing
+    href: Bannerlord.GameMaster.Console.Common.Parsing.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing
+    name: Parsing
+    href: Bannerlord.GameMaster.Console.Common.Parsing.html

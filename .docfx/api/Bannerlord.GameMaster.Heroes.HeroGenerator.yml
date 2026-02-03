@@ -1,0 +1,1167 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroGenerator
+  id: HeroGenerator
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.CleanupHeroState(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Localization.TextObject,System.Int32,TaleWorlds.CampaignSystem.Clan,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsCompanion(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsWanderer(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  langs:
+  - csharp
+  - vb
+  name: HeroGenerator
+  nameWithType: HeroGenerator
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroGenerator
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Central system for creating heroes with flexible initialization options.
+
+    Separates hero creation from role initialization to prevent hidden side effects.
+
+    Now uses only Lord and Wanderer occupation characters to avoid notable occupation conflicts.
+  example: []
+  syntax:
+    content: public static class HeroGenerator
+    content.vb: Public Module HeroGenerator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Localization.TextObject,System.Int32,TaleWorlds.CampaignSystem.Clan,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Localization.TextObject,System.Int32,TaleWorlds.CampaignSystem.Clan,System.Single)
+  id: CreateBasicHero(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Localization.TextObject,System.Int32,TaleWorlds.CampaignSystem.Clan,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateBasicHero(CharacterObject, TextObject, int, Clan, float)
+  nameWithType: HeroGenerator.CreateBasicHero(CharacterObject, TextObject, int, Clan, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero(TaleWorlds.CampaignSystem.CharacterObject, TaleWorlds.Localization.TextObject, int, TaleWorlds.CampaignSystem.Clan, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateBasicHero
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Creates a basic hero from a character object WITHOUT any occupation-specific initialization.
+
+    This is the layer 1 foundation method - it only creates the hero object with basic properties.
+
+    Use Initialize methods afterward to set up role-specific state (Lord, Wanderer, Companion).
+
+    Recommended to use one of the CreateLord, Create Wanderer, etc methods unless you want more control
+
+    <br /><br />
+
+    IMPORTANT: Source characters should only be Lord or Wanderer occupation to avoid conflicts.
+
+    CharacterTemplatePooler.GetAllHeroTemplatesFromFlags() ensures this by filtering out notables.
+  example: []
+  syntax:
+    content: public static Hero CreateBasicHero(CharacterObject sourceCharacter, TextObject nameObj, int age = -1, Clan clan = null, float randomFactor = 0)
+    parameters:
+    - id: sourceCharacter
+      type: TaleWorlds.CampaignSystem.CharacterObject
+      description: Character to create hero from (Lord or Wanderer occupation only)
+    - id: nameObj
+      type: TaleWorlds.Localization.TextObject
+      description: Hero's name as TextObject
+    - id: age
+      type: System.Int32
+      description: Hero's age (defaults to random between 18-30, and is forced to be atleast 18)
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: Hero's clan (can be null for wanderers)
+    - id: randomFactor
+      type: System.Single
+      description: Optional, defaults to 0. How much hero appearance is randomized from its base template constraints
+    return:
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Created hero with occupation to be set by Initialize methods
+    content.vb: Public Shared Function CreateBasicHero(sourceCharacter As CharacterObject, nameObj As TextObject, age As Integer = -1, clan As Clan = Nothing, randomFactor As Single = 0) As Hero
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero*
+  nameWithType.vb: HeroGenerator.CreateBasicHero(CharacterObject, TextObject, Integer, Clan, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero(TaleWorlds.CampaignSystem.CharacterObject, TaleWorlds.Localization.TextObject, Integer, TaleWorlds.CampaignSystem.Clan, Single)
+  name.vb: CreateBasicHero(CharacterObject, TextObject, Integer, Clan, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  id: InitializeAsLord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: InitializeAsLord(Hero, Settlement, bool)
+  nameWithType: HeroGenerator.InitializeAsLord(Hero, Settlement, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: InitializeAsLord
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 85
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    layer 2: Initializes a hero as a Lord with proper occupation, equipment, and optionally creates a party.
+
+    Hero must have a clan assigned before calling this method.
+  example: []
+  syntax:
+    content: public static void InitializeAsLord(Hero hero, Settlement homeSettlement, bool createParty = true)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Hero to initialize as Lord
+    - id: homeSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Settlement for hero's home (used for party spawn if creating party)
+    - id: createParty
+      type: System.Boolean
+      description: 'If true, creates a party for the lord if clan in below commander limit(default: true)'
+    content.vb: Public Shared Sub InitializeAsLord(hero As Hero, homeSettlement As Settlement, createParty As Boolean = True)
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord*
+  nameWithType.vb: HeroGenerator.InitializeAsLord(Hero, Settlement, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement, Boolean)
+  name.vb: InitializeAsLord(Hero, Settlement, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsWanderer(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsWanderer(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: InitializeAsWanderer(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: InitializeAsWanderer(Hero, Settlement)
+  nameWithType: HeroGenerator.InitializeAsWanderer(Hero, Settlement)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsWanderer(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: InitializeAsWanderer
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 134
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    layer 2: Initializes a hero as a Wanderer (recruitable companion in settlement).
+
+    Sets clan to null, equips basic gear, and places hero in specified settlement.
+  example: []
+  syntax:
+    content: public static void InitializeAsWanderer(Hero hero, Settlement settlement)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Hero to initialize as Wanderer
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Settlement where wanderer will wait
+    content.vb: Public Shared Sub InitializeAsWanderer(hero As Hero, settlement As Settlement)
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsWanderer*
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsCompanion(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsCompanion(TaleWorlds.CampaignSystem.Hero)
+  id: InitializeAsCompanion(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: InitializeAsCompanion(Hero)
+  nameWithType: HeroGenerator.InitializeAsCompanion(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsCompanion(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: InitializeAsCompanion
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 167
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    layer 2: Initializes a hero as a Companion ready to be added to a party.
+
+    Does NOT place hero in settlement - hero is in neutral active state ready for party roster.
+
+    Use MobilePartyExtensions.AddCompanionToParty() after calling this method.
+  example: []
+  syntax:
+    content: public static void InitializeAsCompanion(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Hero to initialize as Companion
+    content.vb: Public Shared Sub InitializeAsCompanion(hero As Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsCompanion*
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CleanupHeroState(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.CleanupHeroState(TaleWorlds.CampaignSystem.Hero)
+  id: CleanupHeroState(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: CleanupHeroState(Hero)
+  nameWithType: HeroGenerator.CleanupHeroState(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CleanupHeroState(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CleanupHeroState
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 197
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Cleans up a hero's state by removing them from parties and settlements.
+
+    Useful when moving heroes between roles or clans.
+  example: []
+  syntax:
+    content: public static void CleanupHeroState(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Hero to clean up
+    content.vb: Public Shared Sub CleanupHeroState(hero As Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.CleanupHeroState*
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  id: CreateLord(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateLord(string, CultureFlags, GenderFlags, Clan, bool, Settlement, float)
+  nameWithType: HeroGenerator.CreateLord(string, CultureFlags, GenderFlags, Clan, bool, Settlement, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord(string, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, TaleWorlds.CampaignSystem.Clan, bool, TaleWorlds.CampaignSystem.Settlements.Settlement, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateLord
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 226
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Creates a lord with the specified name and culture, optionally with a party.
+
+    This is a high-level convenience method that combines creation and initialization.
+  example: []
+  syntax:
+    content: public static Hero CreateLord(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParty = true, Settlement settlement = null, float randomFactor = 0.5)
+    parameters:
+    - id: name
+      type: System.String
+      description: Name for the lord
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: Culture pool to select from
+    - id: genderFlags
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+      description: Gender selection
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: Clan for the lord (required)
+    - id: withParty
+      type: System.Boolean
+      description: If true, creates a party for the lord if clan is below commander limit
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    - id: randomFactor
+      type: System.Single
+      description: Appearance randomization factor (0-1)
+    return:
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Created and initialized lord
+    content.vb: Public Shared Function CreateLord(name As String, cultureFlags As CultureFlags, genderFlags As GenderFlags, clan As Clan, withParty As Boolean = True, settlement As Settlement = Nothing, randomFactor As Single = 0.5) As Hero
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord*
+  nameWithType.vb: HeroGenerator.CreateLord(String, CultureFlags, GenderFlags, Clan, Boolean, Settlement, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord(String, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, TaleWorlds.CampaignSystem.Clan, Boolean, TaleWorlds.CampaignSystem.Settlements.Settlement, Single)
+  name.vb: CreateLord(String, CultureFlags, GenderFlags, Clan, Boolean, Settlement, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  id: CreateLords(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateLords(int, CultureFlags, GenderFlags, Clan, bool, Settlement, float)
+  nameWithType: HeroGenerator.CreateLords(int, CultureFlags, GenderFlags, Clan, bool, Settlement, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords(int, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, TaleWorlds.CampaignSystem.Clan, bool, TaleWorlds.CampaignSystem.Settlements.Settlement, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateLords
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 246
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Creates multiple lords with random names from culture.
+
+    <param name="withParty">If true, creates a party for each lord if clan is below commander limit</param>
+  example: []
+  syntax:
+    content: public static List<Hero> CreateLords(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParties = true, Settlement settlement = null, float randomFactor = 0.5)
+    parameters:
+    - id: count
+      type: System.Int32
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+    - id: genderFlags
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    - id: withParties
+      type: System.Boolean
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    - id: randomFactor
+      type: System.Single
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+    content.vb: Public Shared Function CreateLords(count As Integer, cultureFlags As CultureFlags, genderFlags As GenderFlags, clan As Clan, withParties As Boolean = True, settlement As Settlement = Nothing, randomFactor As Single = 0.5) As List(Of Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords*
+  nameWithType.vb: HeroGenerator.CreateLords(Integer, CultureFlags, GenderFlags, Clan, Boolean, Settlement, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords(Integer, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, TaleWorlds.CampaignSystem.Clan, Boolean, TaleWorlds.CampaignSystem.Settlements.Settlement, Single)
+  name.vb: CreateLords(Integer, CultureFlags, GenderFlags, Clan, Boolean, Settlement, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  id: CreateWanderer(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateWanderer(string, CultureFlags, GenderFlags, Settlement, float)
+  nameWithType: HeroGenerator.CreateWanderer(string, CultureFlags, GenderFlags, Settlement, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer(string, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, TaleWorlds.CampaignSystem.Settlements.Settlement, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateWanderer
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 274
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: 'Creates a wanderer (recruitable companion) at the specified settlement. Layer 3: Convenience method, automatically performing layer 1 and 2 operations.'
+  example: []
+  syntax:
+    content: public static Hero CreateWanderer(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor = 0.5)
+    parameters:
+    - id: name
+      type: System.String
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+    - id: genderFlags
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    - id: randomFactor
+      type: System.Single
+    return:
+      type: TaleWorlds.CampaignSystem.Hero
+    content.vb: Public Shared Function CreateWanderer(name As String, cultureFlags As CultureFlags, genderFlags As GenderFlags, settlement As Settlement, randomFactor As Single = 0.5) As Hero
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer*
+  nameWithType.vb: HeroGenerator.CreateWanderer(String, CultureFlags, GenderFlags, Settlement, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer(String, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, TaleWorlds.CampaignSystem.Settlements.Settlement, Single)
+  name.vb: CreateWanderer(String, CultureFlags, GenderFlags, Settlement, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  id: CreateWanderers(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateWanderers(int, CultureFlags, GenderFlags, Settlement, float)
+  nameWithType: HeroGenerator.CreateWanderers(int, CultureFlags, GenderFlags, Settlement, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers(int, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, TaleWorlds.CampaignSystem.Settlements.Settlement, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateWanderers
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 289
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: 'Creates multiple wanderers with random names at the specified settlement. Layer 3: Convenience method, automatically performing layer 1 and 2 operations.'
+  example: []
+  syntax:
+    content: public static List<Hero> CreateWanderers(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor = 0.5)
+    parameters:
+    - id: count
+      type: System.Int32
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+    - id: genderFlags
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+    - id: randomFactor
+      type: System.Single
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+    content.vb: Public Shared Function CreateWanderers(count As Integer, cultureFlags As CultureFlags, genderFlags As GenderFlags, settlement As Settlement, randomFactor As Single = 0.5) As List(Of Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers*
+  nameWithType.vb: HeroGenerator.CreateWanderers(Integer, CultureFlags, GenderFlags, Settlement, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers(Integer, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, TaleWorlds.CampaignSystem.Settlements.Settlement, Single)
+  name.vb: CreateWanderers(Integer, CultureFlags, GenderFlags, Settlement, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,System.Single)
+  id: CreateCompanions(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateCompanions(int, CultureFlags, GenderFlags, float)
+  nameWithType: HeroGenerator.CreateCompanions(int, CultureFlags, GenderFlags, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions(int, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateCompanions
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 315
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Creates heroes ready to be added as party companions (no settlement state). Layer 3: Convenience method, automatically performing layer 1 and 2 operations.
+
+    Use MobilePartyExtensions.AddCompanionsToParty() after calling this method.
+  example: []
+  syntax:
+    content: public static List<Hero> CreateCompanions(int count, CultureFlags cultureFlags, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5)
+    parameters:
+    - id: count
+      type: System.Int32
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+    - id: genderFlags
+      type: Bannerlord.GameMaster.Characters.GenderFlags
+    - id: randomFactor
+      type: System.Single
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+    content.vb: Public Shared Function CreateCompanions(count As Integer, cultureFlags As CultureFlags, genderFlags As GenderFlags = GenderFlags.Either, randomFactor As Single = 0.5) As List(Of Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions*
+  nameWithType.vb: HeroGenerator.CreateCompanions(Integer, CultureFlags, GenderFlags, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions(Integer, Bannerlord.GameMaster.Cultures.CultureFlags, Bannerlord.GameMaster.Characters.GenderFlags, Single)
+  name.vb: CreateCompanions(Integer, CultureFlags, GenderFlags, Single)
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_CreateBasicHero_TaleWorlds_CampaignSystem_CharacterObject_TaleWorlds_Localization_TextObject_System_Int32_TaleWorlds_CampaignSystem_Clan_System_Single_
+  name: CreateBasicHero
+  nameWithType: HeroGenerator.CreateBasicHero
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero
+- uid: TaleWorlds.CampaignSystem.CharacterObject
+  commentId: T:TaleWorlds.CampaignSystem.CharacterObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CharacterObject
+  nameWithType: CharacterObject
+  fullName: TaleWorlds.CampaignSystem.CharacterObject
+- uid: TaleWorlds.Localization.TextObject
+  commentId: T:TaleWorlds.Localization.TextObject
+  parent: TaleWorlds.Localization
+  isExternal: true
+  name: TextObject
+  nameWithType: TextObject
+  fullName: TaleWorlds.Localization.TextObject
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.Localization
+  commentId: N:TaleWorlds.Localization
+  isExternal: true
+  name: TaleWorlds.Localization
+  nameWithType: TaleWorlds.Localization
+  fullName: TaleWorlds.Localization
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Localization
+    name: Localization
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Localization
+    name: Localization
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_InitializeAsLord_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Boolean_
+  name: InitializeAsLord
+  nameWithType: HeroGenerator.InitializeAsLord
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsWanderer*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsWanderer
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_InitializeAsWanderer_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: InitializeAsWanderer
+  nameWithType: HeroGenerator.InitializeAsWanderer
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsWanderer
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsCompanion*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsCompanion
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_InitializeAsCompanion_TaleWorlds_CampaignSystem_Hero_
+  name: InitializeAsCompanion
+  nameWithType: HeroGenerator.InitializeAsCompanion
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsCompanion
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CleanupHeroState*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.CleanupHeroState
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_CleanupHeroState_TaleWorlds_CampaignSystem_Hero_
+  name: CleanupHeroState
+  nameWithType: HeroGenerator.CleanupHeroState
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CleanupHeroState
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_CreateLord_System_String_Bannerlord_GameMaster_Cultures_CultureFlags_Bannerlord_GameMaster_Characters_GenderFlags_TaleWorlds_CampaignSystem_Clan_System_Boolean_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Single_
+  name: CreateLord
+  nameWithType: HeroGenerator.CreateLord
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Cultures.CultureFlags
+  commentId: T:Bannerlord.GameMaster.Cultures.CultureFlags
+  parent: Bannerlord.GameMaster.Cultures
+  href: Bannerlord.GameMaster.Cultures.CultureFlags.html
+  name: CultureFlags
+  nameWithType: CultureFlags
+  fullName: Bannerlord.GameMaster.Cultures.CultureFlags
+- uid: Bannerlord.GameMaster.Characters.GenderFlags
+  commentId: T:Bannerlord.GameMaster.Characters.GenderFlags
+  parent: Bannerlord.GameMaster.Characters
+  href: Bannerlord.GameMaster.Characters.GenderFlags.html
+  name: GenderFlags
+  nameWithType: GenderFlags
+  fullName: Bannerlord.GameMaster.Characters.GenderFlags
+- uid: Bannerlord.GameMaster.Cultures
+  commentId: N:Bannerlord.GameMaster.Cultures
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Cultures
+  nameWithType: Bannerlord.GameMaster.Cultures
+  fullName: Bannerlord.GameMaster.Cultures
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_CreateLords_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_Bannerlord_GameMaster_Characters_GenderFlags_TaleWorlds_CampaignSystem_Clan_System_Boolean_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Single_
+  name: CreateLords
+  nameWithType: HeroGenerator.CreateLords
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Hero>
+  nameWithType: List<Hero>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.Hero>
+  nameWithType.vb: List(Of Hero)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.Hero)
+  name.vb: List(Of Hero)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_CreateWanderer_System_String_Bannerlord_GameMaster_Cultures_CultureFlags_Bannerlord_GameMaster_Characters_GenderFlags_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Single_
+  name: CreateWanderer
+  nameWithType: HeroGenerator.CreateWanderer
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderer
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_CreateWanderers_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_Bannerlord_GameMaster_Characters_GenderFlags_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Single_
+  name: CreateWanderers
+  nameWithType: HeroGenerator.CreateWanderers
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateWanderers
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_CreateCompanions_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_Bannerlord_GameMaster_Characters_GenderFlags_System_Single_
+  name: CreateCompanions
+  nameWithType: HeroGenerator.CreateCompanions
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Caravans
+  commentId: N:Bannerlord.GameMaster.Caravans
+  id: Bannerlord.GameMaster.Caravans
+  children:
+  - Bannerlord.GameMaster.Caravans.CaravanManager
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Caravans
+  nameWithType: Bannerlord.GameMaster.Caravans
+  fullName: Bannerlord.GameMaster.Caravans
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Caravans.CaravanManager
+  commentId: T:Bannerlord.GameMaster.Caravans.CaravanManager
+  href: Bannerlord.GameMaster.Caravans.CaravanManager.html
+  name: CaravanManager
+  nameWithType: CaravanManager
+  fullName: Bannerlord.GameMaster.Caravans.CaravanManager

@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands
+  commentId: N:Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands
+  id: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands
+  children:
+  - Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifierInfoCommand
+  - Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifiersCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands
+  nameWithType: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands
+  fullName: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifierInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifierInfoCommand
+  href: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifierInfoCommand.html
+  name: QueryModifierInfoCommand
+  nameWithType: QueryModifierInfoCommand
+  fullName: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifierInfoCommand
+- uid: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifiersCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifiersCommand
+  href: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifiersCommand.html
+  name: QueryModifiersCommand
+  nameWithType: QueryModifiersCommand
+  fullName: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifiersCommand

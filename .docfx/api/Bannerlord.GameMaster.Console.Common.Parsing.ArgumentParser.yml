@@ -1,0 +1,689 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  commentId: T:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  id: ArgumentParser
+  parent: Bannerlord.GameMaster.Console.Common.Parsing
+  children:
+  - Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument(System.Collections.Generic.List{System.String},System.Int32,System.Boolean)
+  - Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs(System.Collections.Generic.List{System.String},System.Int32)
+  - Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments(System.Collections.Generic.List{System.String})
+  langs:
+  - csharp
+  - vb
+  name: ArgumentParser
+  nameWithType: ArgumentParser
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ArgumentParser
+    path: ../Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Parsing
+  summary: >-
+    Static class providing argument parsing utilities for console commands.
+
+    Handles Bannerlord's console quirk where double quotes are stripped but single quotes are preserved.
+
+    This is the single entry point for all argument parsing operations.
+  example: []
+  syntax:
+    content: public static class ArgumentParser
+    content.vb: Public Module ArgumentParser
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments(System.Collections.Generic.List{System.String})
+  id: ParseQuotedArguments(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  langs:
+  - csharp
+  - vb
+  name: ParseQuotedArguments(List<string>)
+  nameWithType: ArgumentParser.ParseQuotedArguments(List<string>)
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseQuotedArguments
+    path: ../Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Parsing
+  summary: >-
+    Parses arguments to properly handle quoted strings using SINGLE QUOTES.
+
+    TaleWorlds removes double quotes but preserves single quotes.
+
+    Use 'text with spaces' for multi-word arguments.
+  remarks: >-
+    Examples:
+      Input:  ["'vladiv", "castle'", "'castle", "of", "stone'", "example"]
+      Output: ["vladiv castle", "castle of stone", "example"]
+
+      Input:  ["'Castle", "of", "Rocks'"]
+      Output: ["Castle of Rocks"]
+
+      Input:  ["name:'Sir", "Galahad'", "count:5"]
+      Output: ["name:Sir Galahad", "count:5"]
+  example: []
+  syntax:
+    content: public static List<string> ParseQuotedArguments(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+      description: Raw arguments from Bannerlord console
+    return:
+      type: System.Collections.Generic.List{System.String}
+      description: Processed arguments with quoted strings combined
+    content.vb: Public Shared Function ParseQuotedArguments(args As List(Of String)) As List(Of String)
+  overload: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments*
+  nameWithType.vb: ArgumentParser.ParseQuotedArguments(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments(System.Collections.Generic.List(Of String))
+  name.vb: ParseQuotedArguments(List(Of String))
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs(System.Collections.Generic.List{System.String},System.Int32)
+  commentId: M:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs(System.Collections.Generic.List{System.String},System.Int32)
+  id: JoinRemainingArgs(System.Collections.Generic.List{System.String},System.Int32)
+  parent: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  langs:
+  - csharp
+  - vb
+  name: JoinRemainingArgs(List<string>, int)
+  nameWithType: ArgumentParser.JoinRemainingArgs(List<string>, int)
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs(System.Collections.Generic.List<string>, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: JoinRemainingArgs
+    path: ../Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+    startLine: 164
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Parsing
+  summary: >-
+    Joins remaining arguments starting from the specified index into a single string.
+
+    Useful for commands that accept multi-word text as the last parameter.
+  example:
+  - JoinRemainingArgs(args, 2) for "gm.cmd arg1 arg2 word1 word2 word3" returns "word1 word2 word3"
+  syntax:
+    content: public static string JoinRemainingArgs(List<string> args, int startIndex)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+      description: Argument list
+    - id: startIndex
+      type: System.Int32
+      description: Index to start joining from
+    return:
+      type: System.String
+      description: Joined string or empty string if index out of range
+    content.vb: Public Shared Function JoinRemainingArgs(args As List(Of String), startIndex As Integer) As String
+  overload: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs*
+  nameWithType.vb: ArgumentParser.JoinRemainingArgs(List(Of String), Integer)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs(System.Collections.Generic.List(Of String), Integer)
+  name.vb: JoinRemainingArgs(List(Of String), Integer)
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument(System.Collections.Generic.List{System.String},System.Int32,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument(System.Collections.Generic.List{System.String},System.Int32,System.Boolean)
+  id: GetArgument(System.Collections.Generic.List{System.String},System.Int32,System.Boolean)
+  parent: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  langs:
+  - csharp
+  - vb
+  name: GetArgument(List<string>, int, bool)
+  nameWithType: ArgumentParser.GetArgument(List<string>, int, bool)
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument(System.Collections.Generic.List<string>, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetArgument
+    path: ../Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+    startLine: 180
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Parsing
+  summary: >-
+    Gets an argument at the specified index, or returns all remaining arguments joined if consumeRemaining is true.
+
+    This is useful for parameters that should accept multi-word input.
+  example: []
+  syntax:
+    content: public static string GetArgument(List<string> args, int index, bool consumeRemaining = false)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+      description: Argument list
+    - id: index
+      type: System.Int32
+      description: Index of the argument to get
+    - id: consumeRemaining
+      type: System.Boolean
+      description: If true, joins all args from index onwards
+    return:
+      type: System.String
+      description: Argument value or empty string if index out of range
+    content.vb: Public Shared Function GetArgument(args As List(Of String), index As Integer, consumeRemaining As Boolean = False) As String
+  overload: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument*
+  nameWithType.vb: ArgumentParser.GetArgument(List(Of String), Integer, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument(System.Collections.Generic.List(Of String), Integer, Boolean)
+  name.vb: GetArgument(List(Of String), Integer, Boolean)
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments(System.Collections.Generic.List{System.String})
+  id: ParseArguments(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+  langs:
+  - csharp
+  - vb
+  name: ParseArguments(List<string>)
+  nameWithType: ArgumentParser.ParseArguments(List<string>)
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseArguments
+    path: ../Bannerlord.GameMaster/Console/Common/Parsing/ArgumentParser.cs
+    startLine: 206
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Console.Common.Parsing
+  summary: >-
+    Parses arguments with support for both quoted strings and named arguments.
+
+    First handles quoted arguments, then parses named arguments.
+
+    This is the primary entry point for command argument parsing.
+  example:
+  - >-
+    Input: ["count:5", "name:'Sir", "Galahad'", "vlandia"]
+
+    Result: Named: {count: "5", name: "Sir Galahad"}, Positional: ["vlandia"]
+  syntax:
+    content: public static ParsedArguments ParseArguments(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+      description: Raw arguments from Bannerlord console
+    return:
+      type: Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments
+      description: ParsedArguments instance with separated named and positional arguments
+    content.vb: Public Shared Function ParseArguments(args As List(Of String)) As ParsedArguments
+  overload: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments*
+  nameWithType.vb: ArgumentParser.ParseArguments(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments(System.Collections.Generic.List(Of String))
+  name.vb: ParseArguments(List(Of String))
+references:
+- uid: Bannerlord.GameMaster.Console.Common.Parsing
+  commentId: N:Bannerlord.GameMaster.Console.Common.Parsing
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Common.Parsing
+  nameWithType: Bannerlord.GameMaster.Console.Common.Parsing
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing
+    name: Parsing
+    href: Bannerlord.GameMaster.Console.Common.Parsing.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common
+    name: Common
+    href: Bannerlord.GameMaster.Console.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing
+    name: Parsing
+    href: Bannerlord.GameMaster.Console.Common.Parsing.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments
+  href: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.html#Bannerlord_GameMaster_Console_Common_Parsing_ArgumentParser_ParseQuotedArguments_System_Collections_Generic_List_System_String__
+  name: ParseQuotedArguments
+  nameWithType: ArgumentParser.ParseQuotedArguments
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseQuotedArguments
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs
+  href: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.html#Bannerlord_GameMaster_Console_Common_Parsing_ArgumentParser_JoinRemainingArgs_System_Collections_Generic_List_System_String__System_Int32_
+  name: JoinRemainingArgs
+  nameWithType: ArgumentParser.JoinRemainingArgs
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.JoinRemainingArgs
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument
+  href: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.html#Bannerlord_GameMaster_Console_Common_Parsing_ArgumentParser_GetArgument_System_Collections_Generic_List_System_String__System_Int32_System_Boolean_
+  name: GetArgument
+  nameWithType: ArgumentParser.GetArgument
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.GetArgument
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments*
+  commentId: Overload:Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments
+  href: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.html#Bannerlord_GameMaster_Console_Common_Parsing_ArgumentParser_ParseArguments_System_Collections_Generic_List_System_String__
+  name: ParseArguments
+  nameWithType: ArgumentParser.ParseArguments
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser.ParseArguments
+- uid: Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments
+  commentId: T:Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments
+  parent: Bannerlord.GameMaster.Console.Common.Parsing
+  href: Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments.html
+  name: ParsedArguments
+  nameWithType: ParsedArguments
+  fullName: Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments

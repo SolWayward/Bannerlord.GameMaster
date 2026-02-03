@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Settlements
+  commentId: N:Bannerlord.GameMaster.Settlements
+  id: Bannerlord.GameMaster.Settlements
+  children:
+  - Bannerlord.GameMaster.Settlements.SettlementDistanceCalculator
+  - Bannerlord.GameMaster.Settlements.SettlementDistanceHelpers
+  - Bannerlord.GameMaster.Settlements.SettlementExtensions
+  - Bannerlord.GameMaster.Settlements.SettlementExtensionsWrapper
+  - Bannerlord.GameMaster.Settlements.SettlementManager
+  - Bannerlord.GameMaster.Settlements.SettlementNameData
+  - Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  - Bannerlord.GameMaster.Settlements.SettlementQueries
+  - Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  - Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  - Bannerlord.GameMaster.Settlements.SettlementTypes
+  - Bannerlord.GameMaster.Settlements.VillageExtensions
+  - Bannerlord.GameMaster.Settlements.VillageManager
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Settlements
+  nameWithType: Bannerlord.GameMaster.Settlements
+  fullName: Bannerlord.GameMaster.Settlements
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Settlements.SettlementDistanceCalculator
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementDistanceCalculator
+  href: Bannerlord.GameMaster.Settlements.SettlementDistanceCalculator.html
+  name: SettlementDistanceCalculator
+  nameWithType: SettlementDistanceCalculator
+  fullName: Bannerlord.GameMaster.Settlements.SettlementDistanceCalculator
+- uid: Bannerlord.GameMaster.Settlements.SettlementDistanceHelpers
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementDistanceHelpers
+  href: Bannerlord.GameMaster.Settlements.SettlementDistanceHelpers.html
+  name: SettlementDistanceHelpers
+  nameWithType: SettlementDistanceHelpers
+  fullName: Bannerlord.GameMaster.Settlements.SettlementDistanceHelpers
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementTypes
+  parent: Bannerlord.GameMaster.Settlements
+  href: Bannerlord.GameMaster.Settlements.SettlementTypes.html
+  name: SettlementTypes
+  nameWithType: SettlementTypes
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementExtensions
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementExtensions
+  href: Bannerlord.GameMaster.Settlements.SettlementExtensions.html
+  name: SettlementExtensions
+  nameWithType: SettlementExtensions
+  fullName: Bannerlord.GameMaster.Settlements.SettlementExtensions
+- uid: Bannerlord.GameMaster.Settlements.SettlementExtensionsWrapper
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementExtensionsWrapper
+  href: Bannerlord.GameMaster.Settlements.SettlementExtensionsWrapper.html
+  name: SettlementExtensionsWrapper
+  nameWithType: SettlementExtensionsWrapper
+  fullName: Bannerlord.GameMaster.Settlements.SettlementExtensionsWrapper
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementManager
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html
+  name: SettlementManager
+  nameWithType: SettlementManager
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager
+- uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+  href: Bannerlord.GameMaster.Settlements.SettlementNearestFinder.html
+  name: SettlementNearestFinder
+  nameWithType: SettlementNearestFinder
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+- uid: Bannerlord.GameMaster.Settlements.SettlementQueries
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementQueries
+  href: Bannerlord.GameMaster.Settlements.SettlementQueries.html
+  name: SettlementQueries
+  nameWithType: SettlementQueries
+  fullName: Bannerlord.GameMaster.Settlements.SettlementQueries
+- uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  href: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.html
+  name: SettlementSaveDefiner
+  nameWithType: SettlementSaveDefiner
+  fullName: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+- uid: Bannerlord.GameMaster.Settlements.SettlementNameData
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementNameData
+  href: Bannerlord.GameMaster.Settlements.SettlementNameData.html
+  name: SettlementNameData
+  nameWithType: SettlementNameData
+  fullName: Bannerlord.GameMaster.Settlements.SettlementNameData
+- uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+  href: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator.html
+  name: SettlementTravelEstimator
+  nameWithType: SettlementTravelEstimator
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+- uid: Bannerlord.GameMaster.Settlements.VillageExtensions
+  commentId: T:Bannerlord.GameMaster.Settlements.VillageExtensions
+  href: Bannerlord.GameMaster.Settlements.VillageExtensions.html
+  name: VillageExtensions
+  nameWithType: VillageExtensions
+  fullName: Bannerlord.GameMaster.Settlements.VillageExtensions
+- uid: Bannerlord.GameMaster.Settlements.VillageManager
+  commentId: T:Bannerlord.GameMaster.Settlements.VillageManager
+  href: Bannerlord.GameMaster.Settlements.VillageManager.html
+  name: VillageManager
+  nameWithType: VillageManager
+  fullName: Bannerlord.GameMaster.Settlements.VillageManager
+- uid: Bannerlord.GameMaster.Settlements
+  commentId: N:Bannerlord.GameMaster.Settlements
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Settlements
+  nameWithType: Bannerlord.GameMaster.Settlements
+  fullName: Bannerlord.GameMaster.Settlements
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html

@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  id: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.BodyConstraints
+  - Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  - Bannerlord.GameMaster.Heroes.HeroEditor
+  - Bannerlord.GameMaster.Heroes.HeroExtensions
+  - Bannerlord.GameMaster.Heroes.HeroExtensionsWrapper
+  - Bannerlord.GameMaster.Heroes.HeroGenerator
+  - Bannerlord.GameMaster.Heroes.HeroManager
+  - Bannerlord.GameMaster.Heroes.HeroOutfitter
+  - Bannerlord.GameMaster.Heroes.HeroQueries
+  - Bannerlord.GameMaster.Heroes.HeroTypes
+  - Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+  commentId: T:Bannerlord.GameMaster.Heroes.BodyConstraints
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  name: BodyConstraints
+  nameWithType: BodyConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  commentId: T:Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  name: BodyConstraints.Constraint
+  nameWithType: BodyConstraints.Constraint
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+    name: BodyConstraints
+    href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+    name: Constraint
+    href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+    name: BodyConstraints
+    href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+    name: Constraint
+    href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html
+  name: HeroBodyEditor
+  nameWithType: HeroBodyEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroEditor
+  href: Bannerlord.GameMaster.Heroes.HeroEditor.html
+  name: HeroEditor
+  nameWithType: HeroEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroTypes
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.HeroTypes.html
+  name: HeroTypes
+  nameWithType: HeroTypes
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroExtensions
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroExtensions
+  href: Bannerlord.GameMaster.Heroes.HeroExtensions.html
+  name: HeroExtensions
+  nameWithType: HeroExtensions
+  fullName: Bannerlord.GameMaster.Heroes.HeroExtensions
+- uid: Bannerlord.GameMaster.Heroes.HeroExtensionsWrapper
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroExtensionsWrapper
+  href: Bannerlord.GameMaster.Heroes.HeroExtensionsWrapper.html
+  name: HeroExtensionsWrapper
+  nameWithType: HeroExtensionsWrapper
+  fullName: Bannerlord.GameMaster.Heroes.HeroExtensionsWrapper
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroGenerator
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html
+  name: HeroGenerator
+  nameWithType: HeroGenerator
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator
+- uid: Bannerlord.GameMaster.Heroes.HeroManager
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroManager
+  href: Bannerlord.GameMaster.Heroes.HeroManager.html
+  name: HeroManager
+  nameWithType: HeroManager
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager
+- uid: Bannerlord.GameMaster.Heroes.HeroOutfitter
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroOutfitter
+  href: Bannerlord.GameMaster.Heroes.HeroOutfitter.html
+  name: HeroOutfitter
+  nameWithType: HeroOutfitter
+  fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter
+- uid: Bannerlord.GameMaster.Heroes.HeroQueries
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroQueries
+  href: Bannerlord.GameMaster.Heroes.HeroQueries.html
+  name: HeroQueries
+  nameWithType: HeroQueries
+  fullName: Bannerlord.GameMaster.Heroes.HeroQueries
+- uid: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
+  commentId: T:Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
+  href: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper.html
+  name: StaticBodyPropertiesHelper
+  nameWithType: StaticBodyPropertiesHelper
+  fullName: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html

@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Cultures.HeroNames
+  commentId: N:Bannerlord.GameMaster.Cultures.HeroNames
+  id: Bannerlord.GameMaster.Cultures.HeroNames
+  children:
+  - Bannerlord.GameMaster.Cultures.HeroNames.AseraiHeroNames
+  - Bannerlord.GameMaster.Cultures.HeroNames.BattaniaHeroNames
+  - Bannerlord.GameMaster.Cultures.HeroNames.EmpireHeroNames
+  - Bannerlord.GameMaster.Cultures.HeroNames.KhuzaitHeroNames
+  - Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames
+  - Bannerlord.GameMaster.Cultures.HeroNames.SturgiaHeroNames
+  - Bannerlord.GameMaster.Cultures.HeroNames.VlandiaHeroNames
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Cultures.HeroNames
+  nameWithType: Bannerlord.GameMaster.Cultures.HeroNames
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Cultures.HeroNames.AseraiHeroNames
+  commentId: T:Bannerlord.GameMaster.Cultures.HeroNames.AseraiHeroNames
+  href: Bannerlord.GameMaster.Cultures.HeroNames.AseraiHeroNames.html
+  name: AseraiHeroNames
+  nameWithType: AseraiHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames.AseraiHeroNames
+- uid: Bannerlord.GameMaster.Cultures.HeroNames.BattaniaHeroNames
+  commentId: T:Bannerlord.GameMaster.Cultures.HeroNames.BattaniaHeroNames
+  href: Bannerlord.GameMaster.Cultures.HeroNames.BattaniaHeroNames.html
+  name: BattaniaHeroNames
+  nameWithType: BattaniaHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames.BattaniaHeroNames
+- uid: Bannerlord.GameMaster.Cultures.HeroNames.EmpireHeroNames
+  commentId: T:Bannerlord.GameMaster.Cultures.HeroNames.EmpireHeroNames
+  href: Bannerlord.GameMaster.Cultures.HeroNames.EmpireHeroNames.html
+  name: EmpireHeroNames
+  nameWithType: EmpireHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames.EmpireHeroNames
+- uid: Bannerlord.GameMaster.Cultures.HeroNames.KhuzaitHeroNames
+  commentId: T:Bannerlord.GameMaster.Cultures.HeroNames.KhuzaitHeroNames
+  href: Bannerlord.GameMaster.Cultures.HeroNames.KhuzaitHeroNames.html
+  name: KhuzaitHeroNames
+  nameWithType: KhuzaitHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames.KhuzaitHeroNames
+- uid: Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames
+  commentId: T:Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames
+  href: Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames.html
+  name: NordHeroNames
+  nameWithType: NordHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames
+- uid: Bannerlord.GameMaster.Cultures.HeroNames.SturgiaHeroNames
+  commentId: T:Bannerlord.GameMaster.Cultures.HeroNames.SturgiaHeroNames
+  href: Bannerlord.GameMaster.Cultures.HeroNames.SturgiaHeroNames.html
+  name: SturgiaHeroNames
+  nameWithType: SturgiaHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames.SturgiaHeroNames
+- uid: Bannerlord.GameMaster.Cultures.HeroNames.VlandiaHeroNames
+  commentId: T:Bannerlord.GameMaster.Cultures.HeroNames.VlandiaHeroNames
+  href: Bannerlord.GameMaster.Cultures.HeroNames.VlandiaHeroNames.html
+  name: VlandiaHeroNames
+  nameWithType: VlandiaHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames.VlandiaHeroNames

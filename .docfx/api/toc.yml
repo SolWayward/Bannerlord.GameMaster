@@ -1,0 +1,1218 @@
+### YamlMime:TableOfContent
+items:
+- uid: Bannerlord.GameMaster
+  name: Bannerlord.GameMaster
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.BLGMObjectManager
+    name: BLGMObjectManager
+    type: Class
+  - uid: Bannerlord.GameMaster.BLGMObjectManager.PartyTypeNames
+    name: BLGMObjectManager.PartyTypeNames
+    type: Class
+  - uid: Bannerlord.GameMaster.RandomNumberGen
+    name: RandomNumberGen
+    type: Class
+  - uid: Bannerlord.GameMaster.SubModule
+    name: SubModule
+    type: Class
+  - uid: Bannerlord.GameMaster.SystemConsoleCommands
+    name: SystemConsoleCommands
+    type: Class
+  - uid: Bannerlord.GameMaster.SystemConsoleHelper
+    name: SystemConsoleHelper
+    type: Class
+  - uid: Bannerlord.GameMaster.SystemConsoleManager
+    name: SystemConsoleManager
+    type: Class
+- uid: Bannerlord.GameMaster.BLGMDebug
+  name: Bannerlord.GameMaster.BLGMDebug
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.BLGMDebug.HeroDebug
+    name: HeroDebug
+    type: Class
+- uid: Bannerlord.GameMaster.Bandits
+  name: Bannerlord.GameMaster.Bandits
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Bandits.BanditHelpers
+    name: BanditHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Bandits.BanditManager
+    name: BanditManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Bandits.HideoutExtensions
+    name: HideoutExtensions
+    type: Class
+- uid: Bannerlord.GameMaster.Banners
+  name: Bannerlord.GameMaster.Banners
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Banners.BannerColorPicker
+    name: BannerColorPicker
+    type: Class
+  - uid: Bannerlord.GameMaster.Banners.BannerExtensions
+    name: BannerExtensions
+    type: Class
+- uid: Bannerlord.GameMaster.Battles
+  name: Bannerlord.GameMaster.Battles
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Battles.BattleStarter
+    name: BattleStarter
+    type: Class
+- uid: Bannerlord.GameMaster.Caravans
+  name: Bannerlord.GameMaster.Caravans
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Caravans.CaravanManager
+    name: CaravanManager
+    type: Class
+- uid: Bannerlord.GameMaster.Characters
+  name: Bannerlord.GameMaster.Characters
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Characters.BeardTags
+    name: BeardTags
+    type: Class
+  - uid: Bannerlord.GameMaster.Characters.CharacterExtensions
+    name: CharacterExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Characters.CharacterQueries
+    name: CharacterQueries
+    type: Class
+  - uid: Bannerlord.GameMaster.Characters.CharacterTemplatePooler
+    name: CharacterTemplatePooler
+    type: Class
+  - uid: Bannerlord.GameMaster.Characters.CharacterTypes
+    name: CharacterTypes
+    type: Enum
+  - uid: Bannerlord.GameMaster.Characters.GenderFlags
+    name: GenderFlags
+    type: Enum
+  - uid: Bannerlord.GameMaster.Characters.HairCoveringType
+    name: HairCoveringType
+    type: Class
+  - uid: Bannerlord.GameMaster.Characters.HairTags
+    name: HairTags
+    type: Class
+  - uid: Bannerlord.GameMaster.Characters.TattooTags
+    name: TattooTags
+    type: Class
+- uid: Bannerlord.GameMaster.Clans
+  name: Bannerlord.GameMaster.Clans
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Clans.ClanCreationHelpers
+    name: ClanCreationHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Clans.ClanExtensions
+    name: ClanExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Clans.ClanExtensionsWrapper
+    name: ClanExtensionsWrapper
+    type: Class
+  - uid: Bannerlord.GameMaster.Clans.ClanGenerator
+    name: ClanGenerator
+    type: Class
+  - uid: Bannerlord.GameMaster.Clans.ClanQueries
+    name: ClanQueries
+    type: Class
+  - uid: Bannerlord.GameMaster.Clans.ClanTypes
+    name: ClanTypes
+    type: Enum
+- uid: Bannerlord.GameMaster.Common
+  name: Bannerlord.GameMaster.Common
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Common.BLGMResult
+    name: BLGMResult
+    type: Class
+  - uid: Bannerlord.GameMaster.Common.ResultBase`1
+    name: ResultBase<TSelf>
+    type: Class
+- uid: Bannerlord.GameMaster.Common.Interfaces
+  name: Bannerlord.GameMaster.Common.Interfaces
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityExtensions`2
+    name: IEntityExtensions<TEntity, TTypes>
+    type: Interface
+  - uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+    name: IEntityQueries<TEntity, TTypes>
+    type: Interface
+- uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
+  name: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.BanditCommandHelpers
+    name: BanditCommandHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.ClearHideoutsCommand
+    name: ClearHideoutsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.CountCommand
+    name: CountCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.DestroyBanditPartiesCommand
+    name: DestroyBanditPartiesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.BanditCommands.BanditManagementCommands.RemoveAllBanditsCommand
+    name: RemoveAllBanditsCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.CaravanCommands
+  name: Bannerlord.GameMaster.Console.CaravanCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCommandHelpers
+    name: CaravanCommandHelpers
+    type: Class
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
+  name: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreateNotableCaravanCommand
+    name: CreateNotableCaravanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanCreationCommands.CreatePlayerCaravanCommand
+    name: CreatePlayerCaravanCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands
+  name: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.CountCaravansCommand
+    name: CountCaravansCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandCaravansCommand
+    name: DisbandCaravansCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNotableCaravansCommand
+    name: DisbandNotableCaravansCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandNpcLordCaravansCommand
+    name: DisbandNpcLordCaravansCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.DisbandPlayerCaravansCommand
+    name: DisbandPlayerCaravansCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CaravanCommands.CaravanManagementCommands.ForceDestroyDisbandingCaravansCommand
+    name: ForceDestroyDisbandingCaravansCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
+  name: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateClanCommand
+    name: CreateClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.CreateMinorClanCommand
+    name: CreateMinorClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands.GenerateClansCommand
+    name: GenerateClansCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands
+  name: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.AddClanGoldCommand
+    name: AddClanGoldCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.AddClanRenownCommand
+    name: AddClanRenownCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.AddGoldToLeaderCommand
+    name: AddGoldToLeaderCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.AddHeroToClanCommand
+    name: AddHeroToClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.DestroyClanCommand
+    name: DestroyClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EquipClanHeroesCommand
+    name: EquipClanHeroesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.GiveGoldToMemberCommand
+    name: GiveGoldToMemberCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.RenameClanCommand
+    name: RenameClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.SetClanGoldCommand
+    name: SetClanGoldCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.SetClanLeaderCommand
+    name: SetClanLeaderCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.SetClanRenownCommand
+    name: SetClanRenownCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.SetClanTierCommand
+    name: SetClanTierCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.SetCultureCommand
+    name: SetCultureCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.CleanupCommands
+  name: Bannerlord.GameMaster.Console.CleanupCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmClansCommand
+    name: BatchRemoveBlgmClansCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmKingdomsCommand
+    name: BatchRemoveBlgmKingdomsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveBlgmPartiesCommand
+    name: BatchRemoveBlgmPartiesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CleanupCommands.BatchRemoveHeroesCommand
+    name: BatchRemoveHeroesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmClanCommand
+    name: RemoveBlgmClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmHeroCommand
+    name: RemoveBlgmHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.CleanupCommands.RemoveBlgmKingdomCommand
+    name: RemoveBlgmKingdomCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Common
+  name: Bannerlord.GameMaster.Console.Common
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Common.CommandResult
+    name: CommandResult
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Common.EntityFinding
+  name: Bannerlord.GameMaster.Console.Common.EntityFinding
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.CharacterObjectFinder
+    name: CharacterObjectFinder
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.ClanFinder
+    name: ClanFinder
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinder
+    name: EntityFinder
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.EntityFinderResult`1
+    name: EntityFinderResult<T>
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.HeroFinder
+    name: HeroFinder
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.ItemFinder
+    name: ItemFinder
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.KingdomFinder
+    name: KingdomFinder
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.SettlementFinder
+    name: SettlementFinder
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.EntityFinding.TroopFinder
+    name: TroopFinder
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Common.Execution
+  name: Bannerlord.GameMaster.Console.Common.Execution
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Common.Execution.Cmd
+    name: Cmd
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Execution.CommandExecutor
+    name: CommandExecutor
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Execution.CommandLogger
+    name: CommandLogger
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingManager
+    name: LoggingManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Execution.LoggingResult
+    name: LoggingResult
+    type: Struct
+- uid: Bannerlord.GameMaster.Console.Common.Formatting
+  name: Bannerlord.GameMaster.Console.Common.Formatting
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1
+    name: ColumnFormatter<T>
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.ColumnFormatter`1.ColumnDefinition`1
+    name: ColumnFormatter<T>.ColumnDefinition<TEntity>
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Formatting.MessageFormatter
+    name: MessageFormatter
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Common.Parsing
+  name: Bannerlord.GameMaster.Console.Common.Parsing
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentDefinition
+    name: ArgumentDefinition
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing.ArgumentParser
+    name: ArgumentParser
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing.FlagParser
+    name: FlagParser
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing.ParsedArguments
+    name: ParsedArguments
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Common.Parsing.QueryArgumentParser`1
+    name: QueryArgumentParser<TEnum>
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Common.Validation
+  name: Bannerlord.GameMaster.Console.Common.Validation
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Common.Validation.CommandValidator
+    name: CommandValidator
+    type: Class
+- uid: Bannerlord.GameMaster.Console.DevCommands
+  name: Bannerlord.GameMaster.Console.DevCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.DevCommands.CheckHeroesMatchesCharactersStringIdCommand
+    name: CheckHeroesMatchesCharactersStringIdCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.DevCommands.DevCommandHelpers
+    name: DevCommandHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand
+    name: DumpBannerColorsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
+    name: DumpEquipmentForFlagsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
+    name: DumpHotkeyCategoriesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.DevCommands.GetPlayerCaptainPerksCommand
+    name: GetPlayerCaptainPerksCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.DevCommands.ReinitializeBlgmObjectManagerCommand
+    name: ReinitializeBlgmObjectManagerCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.GeneralCommands
+  name: Bannerlord.GameMaster.Console.GeneralCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.GeneralCommands.GeneralCommandHelpers
+    name: GeneralCommandHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.GeneralCommands.IgnoreLimitsCommand
+    name: IgnoreLimitsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.GeneralCommands.ShowSystemConsoleCommand
+    name: ShowSystemConsoleCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  name: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
+    name: CreateCompanionsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateLordCommand
+    name: CreateLordCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand
+    name: GenerateLordsCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  name: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddGoldCommand
+    name: AddGoldCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddHeroToPartyCommand
+    name: AddHeroToPartyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.CreatePartyCommand
+    name: CreatePartyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
+    name: EquipHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
+    name: HealHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
+    name: ImprisonHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
+    name: KillHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ReleaseHeroCommand
+    name: ReleaseHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RemoveClanCommand
+    name: RemoveClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RenameHeroCommand
+    name: RenameHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetAgeCommand
+    name: SetAgeCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetClanCommand
+    name: SetClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetCultureCommand
+    name: SetCultureCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetGoldCommand
+    name: SetGoldCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetRelationCommand
+    name: SetRelationCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.InfoCommands
+  name: Bannerlord.GameMaster.Console.InfoCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.InfoCommands.BannerlordVersionCommand
+    name: BannerlordVersionCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.InfoCommands.BlgmObjectCountCommand
+    name: BlgmObjectCountCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.InfoCommands.BlgmVersionCommand
+    name: BlgmVersionCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.InfoCommands.ListModsCommand
+    name: ListModsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.InfoCommands.ListModsLaunchCommand
+    name: ListModsLaunchCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.ItemCommands
+  name: Bannerlord.GameMaster.Console.ItemCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentItemInfo
+    name: EquipmentItemInfo
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+    name: EquipmentSetData
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSlotData
+    name: EquipmentSlotData
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.ItemCommandHelpers
+    name: ItemCommandHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.SkippedItemInfo
+    name: SkippedItemInfo
+    type: Class
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
+  name: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.EquipItemCommand
+    name: EquipItemCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.EquipSlotCommand
+    name: EquipSlotCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.ListEquippedCommand
+    name: ListEquippedCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.LoadEquipmentBothCommand
+    name: LoadEquipmentBothCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.LoadEquipmentCivilianCommand
+    name: LoadEquipmentCivilianCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.LoadEquipmentCommand
+    name: LoadEquipmentCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.RemoveEquippedCommand
+    name: RemoveEquippedCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.RemoveEquippedModifierCommand
+    name: RemoveEquippedModifierCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.SaveEquipmentBothCommand
+    name: SaveEquipmentBothCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.SaveEquipmentCivilianCommand
+    name: SaveEquipmentCivilianCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.SaveEquipmentCommand
+    name: SaveEquipmentCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.SetEquippedModifierCommand
+    name: SetEquippedModifierCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.UnequipAllCommand
+    name: UnequipAllCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.UnequipItemCommand
+    name: UnequipItemCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentManagementCommands.UnequipSlotCommand
+    name: UnequipSlotCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
+  name: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.AddItemCommand
+    name: AddItemCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveAllItemsCommand
+    name: RemoveAllItemsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.RemoveItemCommand
+    name: RemoveItemCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.SetInventoryModifierCommand
+    name: SetInventoryModifierCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ItemCommands.ItemManagementCommands.TransferItemCommand
+    name: TransferItemCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands
+  name: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.CallAllyToWarCommand
+    name: CallAllyToWarCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareAllianceCommand
+    name: DeclareAllianceCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.DeclareWarCommand
+    name: DeclareWarCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.GetTributeInfoCommand
+    name: GetTributeInfoCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.MakePeaceCommand
+    name: MakePeaceCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.PayTributeCommand
+    name: PayTributeCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomDiplomacyCommands.TradeAgreementCommand
+    name: TradeAgreementCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands
+  name: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.CreateKingdomCommand
+    name: CreateKingdomCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomGenerationCommands.GenerateKingdomsCommand
+    name: GenerateKingdomsCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  name: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
+    name: AddClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand
+    name: DestroyKingdomCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
+    name: EquipKingdomHeroesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
+    name: RemoveClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
+    name: SetRulerCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.LoggerCommands
+  name: Bannerlord.GameMaster.Console.LoggerCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.LoggerCommands.ClearLogCommand
+    name: ClearLogCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.LoggerCommands.DisableLoggingCommand
+    name: DisableLoggingCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.LoggerCommands.EnableLoggingCommand
+    name: EnableLoggingCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.LoggerCommands.LoggerCommandHelpers
+    name: LoggerCommandHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.LoggerCommands.LoggingHelpCommand
+    name: LoggingHelpCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.LoggerCommands.LoggingStatusCommand
+    name: LoggingStatusCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
+  name: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanAnyCommand
+    name: QueryClanAnyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanCommand
+    name: QueryClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands.QueryClanInfoCommand
+    name: QueryClanInfoCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  name: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryArguments
+    name: CharacterQueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryHelpers
+    name: CharacterQueryHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryArguments
+    name: ClanQueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryHelpers
+    name: ClanQueryHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CommonQueryHelpers
+    name: CommonQueryHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+    name: CultureQueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+    name: CultureQueryHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryArguments
+    name: HeroQueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryHelpers
+    name: HeroQueryHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryArguments
+    name: ItemQueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryHelpers
+    name: ItemQueryHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+    name: KingdomQueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryHelpers
+    name: KingdomQueryHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+    name: QueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryArguments
+    name: SettlementQueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryHelpers
+    name: SettlementQueryHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryArguments
+    name: TroopQueryArguments
+    type: Struct
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryHelpers
+    name: TroopQueryHelpers
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.CultureQueryCommands
+  name: Bannerlord.GameMaster.Console.Query.CultureQueryCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureCommand
+    name: QueryCultureCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.CultureQueryCommands.QueryCultureInfoCommand
+    name: QueryCultureInfoCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.HeroQueryCommands
+  name: Bannerlord.GameMaster.Console.Query.HeroQueryCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroAnyCommand
+    name: QueryHeroAnyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroCommand
+    name: QueryHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.HeroQueryCommands.QueryHeroInfoCommand
+    name: QueryHeroInfoCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands
+  name: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifierInfoCommand
+    name: QueryModifierInfoCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.ItemModifierQueryCommands.QueryModifiersCommand
+    name: QueryModifiersCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.ItemQueryCommands
+  name: Bannerlord.GameMaster.Console.Query.ItemQueryCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.ItemQueryCommands.QueryItemAnyCommand
+    name: QueryItemAnyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.ItemQueryCommands.QueryItemCommand
+    name: QueryItemCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.ItemQueryCommands.QueryItemInfoCommand
+    name: QueryItemInfoCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands
+  name: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomAnyCommand
+    name: QueryKingdomAnyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomCommand
+    name: QueryKingdomCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.KingdomQueryCommands.QueryKingdomInfoCommand
+    name: QueryKingdomInfoCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands
+  name: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementAnyCommand
+    name: QuerySettlementAnyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementCommand
+    name: QuerySettlementCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementInfoCommand
+    name: QuerySettlementInfoCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands
+  name: Bannerlord.GameMaster.Console.Query.TroopQueryCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsAnyCommand
+    name: QueryCharacterObjectsAnyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsCommand
+    name: QueryCharacterObjectsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryCharacterObjectsInfoCommand
+    name: QueryCharacterObjectsInfoCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopAnyCommand
+    name: QueryTroopAnyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopCommand
+    name: QueryTroopCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.Query.TroopQueryCommands.QueryTroopInfoCommand
+    name: QueryTroopInfoCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands
+  name: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.AddMilitiaCommand
+    name: AddMilitiaCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.FillGarrisonCommand
+    name: FillGarrisonCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.GiveFoodCommand
+    name: GiveFoodCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.GiveGoldCommand
+    name: GiveGoldCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.SetLoyaltyCommand
+    name: SetLoyaltyCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.SetOwnerClanCommand
+    name: SetOwnerClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.SetOwnerCommand
+    name: SetOwnerCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.SetOwnerKingdomCommand
+    name: SetOwnerKingdomCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.SetProsperityCommand
+    name: SetProsperityCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.SetSecurityCommand
+    name: SetSecurityCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.SpawnWandererCommand
+    name: SpawnWandererCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.FortificationManagementCommands.UpgradeBuildingsCommand
+    name: UpgradeBuildingsCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  name: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
+    name: RenameSettlementCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetAllSettlementNamesCommand
+    name: ResetAllSettlementNamesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.ResetSettlementNameCommand
+    name: ResetSettlementNameCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.SetSettlementCultureCommand
+    name: SetSettlementCultureCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands
+  name: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetHearthsCommand
+    name: SetHearthsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageBoundSettlementCommand
+    name: SetVillageBoundSettlementCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.SettlementCommands.VillageManagementCommands.SetVillageTradeBoundSettlementCommand
+    name: SetVillageTradeBoundSettlementCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands
+  name: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddBasicTroopsCommand
+    name: AddBasicTroopsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddEliteTroopsCommand
+    name: AddEliteTroopsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMercenaryTroopsCommand
+    name: AddMercenaryTroopsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.AddMixedTroopsCommand
+    name: AddMixedTroopsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveHeroTroopsCommand
+    name: GiveHeroTroopsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.GiveXpCommand
+    name: GiveXpCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.TroopCommands.TroopPartyManagementCommands.UpgradeTroopsCommand
+    name: UpgradeTroopsCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Cultures
+  name: Bannerlord.GameMaster.Cultures
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Cultures.CultureExtensions
+    name: CultureExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.CultureFlags
+    name: CultureFlags
+    type: Enum
+  - uid: Bannerlord.GameMaster.Cultures.CultureLookup
+    name: CultureLookup
+    type: Class
+- uid: Bannerlord.GameMaster.Cultures.FactionNames
+  name: Bannerlord.GameMaster.Cultures.FactionNames
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Cultures.FactionNames.AseraiFactionNames
+    name: AseraiFactionNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.FactionNames.BattaniaFactionNames
+    name: BattaniaFactionNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.FactionNames.EmpireFactionNames
+    name: EmpireFactionNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames
+    name: KhuzaitFactionNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.FactionNames.NordFactionNames
+    name: NordFactionNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+    name: SturgiaFactionNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.FactionNames.VlandiaFactionNames
+    name: VlandiaFactionNames
+    type: Class
+- uid: Bannerlord.GameMaster.Cultures.HeroNames
+  name: Bannerlord.GameMaster.Cultures.HeroNames
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Cultures.HeroNames.AseraiHeroNames
+    name: AseraiHeroNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.HeroNames.BattaniaHeroNames
+    name: BattaniaHeroNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.HeroNames.EmpireHeroNames
+    name: EmpireHeroNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.HeroNames.KhuzaitHeroNames
+    name: KhuzaitHeroNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames
+    name: NordHeroNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.HeroNames.SturgiaHeroNames
+    name: SturgiaHeroNames
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.HeroNames.VlandiaHeroNames
+    name: VlandiaHeroNames
+    type: Class
+- uid: Bannerlord.GameMaster.Factions
+  name: Bannerlord.GameMaster.Factions
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Factions.FactionExtensions
+    name: FactionExtensions
+    type: Class
+- uid: Bannerlord.GameMaster.Heroes
+  name: Bannerlord.GameMaster.Heroes
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+    name: BodyConstraints
+    type: Struct
+  - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+    name: BodyConstraints.Constraint
+    type: Struct
+  - uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+    name: HeroBodyEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroEditor
+    name: HeroEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroExtensions
+    name: HeroExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroExtensionsWrapper
+    name: HeroExtensionsWrapper
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroGenerator
+    name: HeroGenerator
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroManager
+    name: HeroManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroOutfitter
+    name: HeroOutfitter
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroQueries
+    name: HeroQueries
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroTypes
+    name: HeroTypes
+    type: Enum
+  - uid: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
+    name: StaticBodyPropertiesHelper
+    type: Class
+- uid: Bannerlord.GameMaster.Information
+  name: Bannerlord.GameMaster.Information
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Information.GameEnvironment
+    name: GameEnvironment
+    type: Class
+  - uid: Bannerlord.GameMaster.Information.InfoMessage
+    name: InfoMessage
+    type: Class
+- uid: Bannerlord.GameMaster.Items
+  name: Bannerlord.GameMaster.Items
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Items.BannerSelector
+    name: BannerSelector
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager
+    name: CivilianItemPoolManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.EquipmentBuilder
+    name: EquipmentBuilder
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.EquipmentBuilder.WeaponLoadout
+    name: EquipmentBuilder.WeaponLoadout
+    type: Struct
+  - uid: Bannerlord.GameMaster.Items.EquipmentFileManager
+    name: EquipmentFileManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.EquipmentTransfer
+    name: EquipmentTransfer
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.HeroEquipper
+    name: HeroEquipper
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.ItemExtensions
+    name: ItemExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.ItemExtensionsWrapper
+    name: ItemExtensionsWrapper
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.ItemModifierHelper
+    name: ItemModifierHelper
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+    name: ItemModifierHelper.CommonModifiers
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.ItemPoolManager
+    name: ItemPoolManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.ItemQueries
+    name: ItemQueries
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.ItemTypes
+    name: ItemTypes
+    type: Enum
+  - uid: Bannerlord.GameMaster.Items.ItemValidation
+    name: ItemValidation
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.MountCompatibility
+    name: MountCompatibility
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
+    name: WeaponTypeFlags
+    type: Enum
+- uid: Bannerlord.GameMaster.Kingdoms
+  name: Bannerlord.GameMaster.Kingdoms
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions
+    name: KingdomAllianceExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+    name: KingdomExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+    name: KingdomExtensionsWrapper
+    type: Class
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator
+    name: KingdomGenerator
+    type: Class
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomQueries
+    name: KingdomQueries
+    type: Class
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTradeAgreementExtensions
+    name: KingdomTradeAgreementExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+    name: KingdomTributeExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    name: KingdomTypes
+    type: Enum
+  - uid: Bannerlord.GameMaster.Kingdoms.TributeInfo
+    name: TributeInfo
+    type: Struct
+- uid: Bannerlord.GameMaster.Party
+  name: Bannerlord.GameMaster.Party
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Party.MobilePartyExtensions
+    name: MobilePartyExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Party.MobilePartyGenerator
+    name: MobilePartyGenerator
+    type: Class
+  - uid: Bannerlord.GameMaster.Party.SettlementPartyType
+    name: SettlementPartyType
+    type: Enum
+- uid: Bannerlord.GameMaster.RemovalHelpers
+  name: Bannerlord.GameMaster.RemovalHelpers
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+    name: ClanRemover
+    type: Class
+  - uid: Bannerlord.GameMaster.RemovalHelpers.HeroRemover
+    name: HeroRemover
+    type: Class
+  - uid: Bannerlord.GameMaster.RemovalHelpers.KingdomRemover
+    name: KingdomRemover
+    type: Class
+  - uid: Bannerlord.GameMaster.RemovalHelpers.PartyRemover
+    name: PartyRemover
+    type: Class
+- uid: Bannerlord.GameMaster.Settlements
+  name: Bannerlord.GameMaster.Settlements
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Settlements.SettlementDistanceCalculator
+    name: SettlementDistanceCalculator
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementDistanceHelpers
+    name: SettlementDistanceHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementExtensions
+    name: SettlementExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementExtensionsWrapper
+    name: SettlementExtensionsWrapper
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementManager
+    name: SettlementManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementNameData
+    name: SettlementNameData
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementNearestFinder
+    name: SettlementNearestFinder
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementQueries
+    name: SettlementQueries
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+    name: SettlementSaveDefiner
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementTravelEstimator
+    name: SettlementTravelEstimator
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.SettlementTypes
+    name: SettlementTypes
+    type: Enum
+  - uid: Bannerlord.GameMaster.Settlements.VillageExtensions
+    name: VillageExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Settlements.VillageManager
+    name: VillageManager
+    type: Class
+- uid: Bannerlord.GameMaster.Troops
+  name: Bannerlord.GameMaster.Troops
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Troops.TroopExtensions
+    name: TroopExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Troops.TroopExtensionsWrapper
+    name: TroopExtensionsWrapper
+    type: Class
+  - uid: Bannerlord.GameMaster.Troops.TroopQueries
+    name: TroopQueries
+    type: Class
+  - uid: Bannerlord.GameMaster.Troops.TroopTypes
+    name: TroopTypes
+    type: Enum
+  - uid: Bannerlord.GameMaster.Troops.TroopUpgrader
+    name: TroopUpgrader
+    type: Class
+memberLayout: SamePage

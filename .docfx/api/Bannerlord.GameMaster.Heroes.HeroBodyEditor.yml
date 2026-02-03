@@ -1,0 +1,933 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  id: HeroBodyEditor
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.#ctor(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyConstraints
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyRandomizedProperties(TaleWorlds.Core.BodyProperties)
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.BodyConstraints
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.Build
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty(System.String)
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.Height
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.IsDirty
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.Reset
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty(System.String,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroBodyEditor.Weight
+  langs:
+  - csharp
+  - vb
+  name: HeroBodyEditor
+  nameWithType: HeroBodyEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroBodyEditor
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Sub-editor for hero body properties: Height, Weight, and Build.
+
+    Owns BodyConstraints and tracks its own dirty state for reset functionality.
+  example: []
+  syntax:
+    content: public class HeroBodyEditor
+    content.vb: Public Class HeroBodyEditor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.BodyConstraints
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroBodyEditor.BodyConstraints
+  id: BodyConstraints
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: BodyConstraints
+  nameWithType: HeroBodyEditor.BodyConstraints
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.BodyConstraints
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BodyConstraints
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public BodyConstraints BodyConstraints { get; set; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Heroes.BodyConstraints
+    content.vb: Public Property BodyConstraints As BodyConstraints
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.BodyConstraints*
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.IsDirty
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroBodyEditor.IsDirty
+  id: IsDirty
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: IsDirty
+  nameWithType: HeroBodyEditor.IsDirty
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.IsDirty
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsDirty
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public bool IsDirty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsDirty As Boolean
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.IsDirty*
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Height
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroBodyEditor.Height
+  id: Height
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: HeroBodyEditor.Height
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Height
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Height
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets or sets hero height (0-1). Automatically applies BodyConstraints.
+  example: []
+  syntax:
+    content: public float Height { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Height As Single
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Height*
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Weight
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroBodyEditor.Weight
+  id: Weight
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: Weight
+  nameWithType: HeroBodyEditor.Weight
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Weight
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Weight
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets or sets hero weight (0-1). Automatically applies BodyConstraints.
+  example: []
+  syntax:
+    content: public float Weight { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Weight As Single
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Weight*
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Build
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroBodyEditor.Build
+  id: Build
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: Build
+  nameWithType: HeroBodyEditor.Build
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Build
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Build
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 58
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets or sets hero build/muscle (0-1). Automatically applies BodyConstraints.
+  example: []
+  syntax:
+    content: public float Build { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Build As Single
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Build*
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.#ctor(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroBodyEditor.#ctor(TaleWorlds.CampaignSystem.Hero)
+  id: '#ctor(TaleWorlds.CampaignSystem.Hero)'
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: HeroBodyEditor(Hero)
+  nameWithType: HeroBodyEditor.HeroBodyEditor(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.HeroBodyEditor(TaleWorlds.CampaignSystem.Hero)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 74
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public HeroBodyEditor(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    content.vb: Public Sub New(hero As Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.#ctor*
+  nameWithType.vb: HeroBodyEditor.New(Hero)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroBodyEditor.New(TaleWorlds.CampaignSystem.Hero)
+  name.vb: New(Hero)
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty(System.String,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty(System.String,System.Single)
+  id: SetProperty(System.String,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: SetProperty(string, float)
+  nameWithType: HeroBodyEditor.SetProperty(string, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty(string, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetProperty
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 91
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Sets an appearance property by name. Useful for console commands.
+  example: []
+  syntax:
+    content: public BLGMResult SetProperty(string propertyName, float value)
+    parameters:
+    - id: propertyName
+      type: System.String
+      description: Property name (height, weight, build/muscle)
+    - id: value
+      type: System.Single
+      description: Value to set (0-1)
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: Result indicating success/failure
+    content.vb: Public Function SetProperty(propertyName As String, value As Single) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty*
+  nameWithType.vb: HeroBodyEditor.SetProperty(String, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty(String, Single)
+  name.vb: SetProperty(String, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty(System.String)
+  id: GetProperty(System.String)
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: GetProperty(string)
+  nameWithType: HeroBodyEditor.GetProperty(string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetProperty
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 115
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets an appearance property value by name. Useful for console commands.
+  example: []
+  syntax:
+    content: public float? GetProperty(string propertyName)
+    parameters:
+    - id: propertyName
+      type: System.String
+      description: Property name (height, weight, build/muscle)
+    return:
+      type: System.Nullable{System.Single}
+      description: Property value or null if not found
+    content.vb: Public Function GetProperty(propertyName As String) As Single?
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty*
+  nameWithType.vb: HeroBodyEditor.GetProperty(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty(String)
+  name.vb: GetProperty(String)
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Reset
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroBodyEditor.Reset
+  id: Reset
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: HeroBodyEditor.Reset()
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Reset()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Reset
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 129
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Resets body properties to original state when editor was created.
+  example: []
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Reset*
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyConstraints
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyConstraints
+  id: ApplyConstraints
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: ApplyConstraints()
+  nameWithType: HeroBodyEditor.ApplyConstraints()
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyConstraints()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyConstraints
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 141
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Re-applies current BodyConstraints to current appearance values.
+
+    Clamps any out-of-range values.
+  example: []
+  syntax:
+    content: public void ApplyConstraints()
+    content.vb: Public Sub ApplyConstraints()
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyConstraints*
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyRandomizedProperties(TaleWorlds.Core.BodyProperties)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyRandomizedProperties(TaleWorlds.Core.BodyProperties)
+  id: ApplyRandomizedProperties(TaleWorlds.Core.BodyProperties)
+  parent: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+  langs:
+  - csharp
+  - vb
+  name: ApplyRandomizedProperties(BodyProperties)
+  nameWithType: HeroBodyEditor.ApplyRandomizedProperties(BodyProperties)
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyRandomizedProperties(TaleWorlds.Core.BodyProperties)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyRandomizedProperties
+    path: ../Bannerlord.GameMaster/Heroes/HeroBodyEditor.cs
+    startLine: 153
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Applies body properties from randomization, enforcing constraints.
+
+    If values are outside constraints, generates new random values within bounds.
+  example: []
+  syntax:
+    content: public void ApplyRandomizedProperties(BodyProperties randomProperties)
+    parameters:
+    - id: randomProperties
+      type: TaleWorlds.Core.BodyProperties
+      description: The randomly generated body properties
+    content.vb: Public Sub ApplyRandomizedProperties(randomProperties As BodyProperties)
+  overload: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyRandomizedProperties*
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.BodyConstraints*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.BodyConstraints
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_BodyConstraints
+  name: BodyConstraints
+  nameWithType: HeroBodyEditor.BodyConstraints
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.BodyConstraints
+- uid: Bannerlord.GameMaster.Heroes.BodyConstraints
+  commentId: T:Bannerlord.GameMaster.Heroes.BodyConstraints
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.BodyConstraints.html
+  name: BodyConstraints
+  nameWithType: BodyConstraints
+  fullName: Bannerlord.GameMaster.Heroes.BodyConstraints
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.IsDirty*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.IsDirty
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_IsDirty
+  name: IsDirty
+  nameWithType: HeroBodyEditor.IsDirty
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.IsDirty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Height*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.Height
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_Height
+  name: Height
+  nameWithType: HeroBodyEditor.Height
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Height
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Weight*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.Weight
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_Weight
+  name: Weight
+  nameWithType: HeroBodyEditor.Weight
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Weight
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Build*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.Build
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_Build
+  name: Build
+  nameWithType: HeroBodyEditor.Build
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Build
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.#ctor
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor__ctor_TaleWorlds_CampaignSystem_Hero_
+  name: HeroBodyEditor
+  nameWithType: HeroBodyEditor.HeroBodyEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.HeroBodyEditor
+  nameWithType.vb: HeroBodyEditor.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroBodyEditor.New
+  name.vb: New
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_SetProperty_System_String_System_Single_
+  name: SetProperty
+  nameWithType: HeroBodyEditor.SetProperty
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.SetProperty
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_GetProperty_System_String_
+  name: GetProperty
+  nameWithType: HeroBodyEditor.GetProperty
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.GetProperty
+- uid: System.Nullable{System.Single}
+  commentId: T:System.Nullable{System.Single}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float?
+  nameWithType: float?
+  fullName: float?
+  nameWithType.vb: Single?
+  fullName.vb: Single?
+  name.vb: Single?
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '?'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Reset*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.Reset
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_Reset
+  name: Reset
+  nameWithType: HeroBodyEditor.Reset
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.Reset
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyConstraints*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyConstraints
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_ApplyConstraints
+  name: ApplyConstraints
+  nameWithType: HeroBodyEditor.ApplyConstraints
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyConstraints
+- uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyRandomizedProperties*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyRandomizedProperties
+  href: Bannerlord.GameMaster.Heroes.HeroBodyEditor.html#Bannerlord_GameMaster_Heroes_HeroBodyEditor_ApplyRandomizedProperties_TaleWorlds_Core_BodyProperties_
+  name: ApplyRandomizedProperties
+  nameWithType: HeroBodyEditor.ApplyRandomizedProperties
+  fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor.ApplyRandomizedProperties
+- uid: TaleWorlds.Core.BodyProperties
+  commentId: T:TaleWorlds.Core.BodyProperties
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: BodyProperties
+  nameWithType: BodyProperties
+  fullName: TaleWorlds.Core.BodyProperties
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true

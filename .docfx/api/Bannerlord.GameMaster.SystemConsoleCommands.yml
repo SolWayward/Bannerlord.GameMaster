@@ -1,0 +1,748 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.SystemConsoleCommands
+  commentId: T:Bannerlord.GameMaster.SystemConsoleCommands
+  id: SystemConsoleCommands
+  parent: Bannerlord.GameMaster
+  children:
+  - Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand(System.String,System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.SystemConsoleCommands.GetCustomRegistedCommands
+  - Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.SystemConsoleCommands.ListCommand(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.SystemConsoleCommands.QuitGame(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand(System.Collections.Generic.List{System.String})
+  langs:
+  - csharp
+  - vb
+  name: SystemConsoleCommands
+  nameWithType: SystemConsoleCommands
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SystemConsoleCommands
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  syntax:
+    content: public static class SystemConsoleCommands
+    content.vb: Public Module SystemConsoleCommands
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.GetCustomRegistedCommands
+  commentId: M:Bannerlord.GameMaster.SystemConsoleCommands.GetCustomRegistedCommands
+  id: GetCustomRegistedCommands
+  parent: Bannerlord.GameMaster.SystemConsoleCommands
+  langs:
+  - csharp
+  - vb
+  name: GetCustomRegistedCommands()
+  nameWithType: SystemConsoleCommands.GetCustomRegistedCommands()
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.GetCustomRegistedCommands()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCustomRegistedCommands
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Get custom commands
+  example: []
+  syntax:
+    content: public static List<string> GetCustomRegistedCommands()
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Shared Function GetCustomRegistedCommands() As List(Of String)
+  overload: Bannerlord.GameMaster.SystemConsoleCommands.GetCustomRegistedCommands*
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand(System.String,System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand(System.String,System.Collections.Generic.List{System.String})
+  id: ExecuteCustomSystemConsoleCommand(System.String,System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.SystemConsoleCommands
+  langs:
+  - csharp
+  - vb
+  name: ExecuteCustomSystemConsoleCommand(string, List<string>)
+  nameWithType: SystemConsoleCommands.ExecuteCustomSystemConsoleCommand(string, List<string>)
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand(string, System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ExecuteCustomSystemConsoleCommand
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 46
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Executes custom command if it exists, returns command not found if it doesnt exist
+  example: []
+  syntax:
+    content: public static string ExecuteCustomSystemConsoleCommand(string command, List<string> args)
+    parameters:
+    - id: command
+      type: System.String
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.String
+    content.vb: Public Shared Function ExecuteCustomSystemConsoleCommand(command As String, args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand*
+  nameWithType.vb: SystemConsoleCommands.ExecuteCustomSystemConsoleCommand(String, List(Of String))
+  fullName.vb: Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand(String, System.Collections.Generic.List(Of String))
+  name.vb: ExecuteCustomSystemConsoleCommand(String, List(Of String))
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand(System.Collections.Generic.List{System.String})
+  id: ClearCommand(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.SystemConsoleCommands
+  langs:
+  - csharp
+  - vb
+  name: ClearCommand(List<string>)
+  nameWithType: SystemConsoleCommands.ClearCommand(List<string>)
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClearCommand
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 73
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Clears system console
+  example: []
+  syntax:
+    content: public static string ClearCommand(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.String
+    content.vb: Public Shared Function ClearCommand(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand*
+  nameWithType.vb: SystemConsoleCommands.ClearCommand(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand(System.Collections.Generic.List(Of String))
+  name.vb: ClearCommand(List(Of String))
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole(System.Collections.Generic.List{System.String})
+  id: CloseConsole(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.SystemConsoleCommands
+  langs:
+  - csharp
+  - vb
+  name: CloseConsole(List<string>)
+  nameWithType: SystemConsoleCommands.CloseConsole(List<string>)
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CloseConsole
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 83
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Clears system console
+  example: []
+  syntax:
+    content: public static string CloseConsole(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.String
+    content.vb: Public Shared Function CloseConsole(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole*
+  nameWithType.vb: SystemConsoleCommands.CloseConsole(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole(System.Collections.Generic.List(Of String))
+  name.vb: CloseConsole(List(Of String))
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand(System.Collections.Generic.List{System.String})
+  id: HelpCommand(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.SystemConsoleCommands
+  langs:
+  - csharp
+  - vb
+  name: HelpCommand(List<string>)
+  nameWithType: SystemConsoleCommands.HelpCommand(List<string>)
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HelpCommand
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 93
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Clears system console
+  example: []
+  syntax:
+    content: public static string HelpCommand(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.String
+    content.vb: Public Shared Function HelpCommand(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand*
+  nameWithType.vb: SystemConsoleCommands.HelpCommand(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand(System.Collections.Generic.List(Of String))
+  name.vb: HelpCommand(List(Of String))
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.ListCommand(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.SystemConsoleCommands.ListCommand(System.Collections.Generic.List{System.String})
+  id: ListCommand(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.SystemConsoleCommands
+  langs:
+  - csharp
+  - vb
+  name: ListCommand(List<string>)
+  nameWithType: SystemConsoleCommands.ListCommand(List<string>)
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.ListCommand(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ListCommand
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 113
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Lists commands using fuzzy search
+  example: []
+  syntax:
+    content: public static string ListCommand(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.String
+    content.vb: Public Shared Function ListCommand(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.SystemConsoleCommands.ListCommand*
+  nameWithType.vb: SystemConsoleCommands.ListCommand(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.SystemConsoleCommands.ListCommand(System.Collections.Generic.List(Of String))
+  name.vb: ListCommand(List(Of String))
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand(System.Collections.Generic.List{System.String})
+  id: ToggleCheatModeCommand(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.SystemConsoleCommands
+  langs:
+  - csharp
+  - vb
+  name: ToggleCheatModeCommand(List<string>)
+  nameWithType: SystemConsoleCommands.ToggleCheatModeCommand(List<string>)
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ToggleCheatModeCommand
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 128
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  example: []
+  syntax:
+    content: public static string ToggleCheatModeCommand(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToggleCheatModeCommand(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand*
+  nameWithType.vb: SystemConsoleCommands.ToggleCheatModeCommand(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand(System.Collections.Generic.List(Of String))
+  name.vb: ToggleCheatModeCommand(List(Of String))
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.QuitGame(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.SystemConsoleCommands.QuitGame(System.Collections.Generic.List{System.String})
+  id: QuitGame(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.SystemConsoleCommands
+  langs:
+  - csharp
+  - vb
+  name: QuitGame(List<string>)
+  nameWithType: SystemConsoleCommands.QuitGame(List<string>)
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.QuitGame(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/SystemConsoleCommands.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: QuitGame
+    path: ../Bannerlord.GameMaster/SystemConsoleCommands.cs
+    startLine: 152
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster
+  summary: Completely exits game
+  example: []
+  syntax:
+    content: public static string QuitGame(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.String
+    content.vb: Public Shared Function QuitGame(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.SystemConsoleCommands.QuitGame*
+  nameWithType.vb: SystemConsoleCommands.QuitGame(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.SystemConsoleCommands.QuitGame(System.Collections.Generic.List(Of String))
+  name.vb: QuitGame(List(Of String))
+references:
+- uid: Bannerlord.GameMaster
+  commentId: N:Bannerlord.GameMaster
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster
+  nameWithType: Bannerlord.GameMaster
+  fullName: Bannerlord.GameMaster
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.GetCustomRegistedCommands*
+  commentId: Overload:Bannerlord.GameMaster.SystemConsoleCommands.GetCustomRegistedCommands
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html#Bannerlord_GameMaster_SystemConsoleCommands_GetCustomRegistedCommands
+  name: GetCustomRegistedCommands
+  nameWithType: SystemConsoleCommands.GetCustomRegistedCommands
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.GetCustomRegistedCommands
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand*
+  commentId: Overload:Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html#Bannerlord_GameMaster_SystemConsoleCommands_ExecuteCustomSystemConsoleCommand_System_String_System_Collections_Generic_List_System_String__
+  name: ExecuteCustomSystemConsoleCommand
+  nameWithType: SystemConsoleCommands.ExecuteCustomSystemConsoleCommand
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.ExecuteCustomSystemConsoleCommand
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand*
+  commentId: Overload:Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html#Bannerlord_GameMaster_SystemConsoleCommands_ClearCommand_System_Collections_Generic_List_System_String__
+  name: ClearCommand
+  nameWithType: SystemConsoleCommands.ClearCommand
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.ClearCommand
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole*
+  commentId: Overload:Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html#Bannerlord_GameMaster_SystemConsoleCommands_CloseConsole_System_Collections_Generic_List_System_String__
+  name: CloseConsole
+  nameWithType: SystemConsoleCommands.CloseConsole
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.CloseConsole
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand*
+  commentId: Overload:Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html#Bannerlord_GameMaster_SystemConsoleCommands_HelpCommand_System_Collections_Generic_List_System_String__
+  name: HelpCommand
+  nameWithType: SystemConsoleCommands.HelpCommand
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.HelpCommand
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.ListCommand*
+  commentId: Overload:Bannerlord.GameMaster.SystemConsoleCommands.ListCommand
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html#Bannerlord_GameMaster_SystemConsoleCommands_ListCommand_System_Collections_Generic_List_System_String__
+  name: ListCommand
+  nameWithType: SystemConsoleCommands.ListCommand
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.ListCommand
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand*
+  commentId: Overload:Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html#Bannerlord_GameMaster_SystemConsoleCommands_ToggleCheatModeCommand_System_Collections_Generic_List_System_String__
+  name: ToggleCheatModeCommand
+  nameWithType: SystemConsoleCommands.ToggleCheatModeCommand
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.ToggleCheatModeCommand
+- uid: Bannerlord.GameMaster.SystemConsoleCommands.QuitGame*
+  commentId: Overload:Bannerlord.GameMaster.SystemConsoleCommands.QuitGame
+  href: Bannerlord.GameMaster.SystemConsoleCommands.html#Bannerlord_GameMaster_SystemConsoleCommands_QuitGame_System_Collections_Generic_List_System_String__
+  name: QuitGame
+  nameWithType: SystemConsoleCommands.QuitGame
+  fullName: Bannerlord.GameMaster.SystemConsoleCommands.QuitGame

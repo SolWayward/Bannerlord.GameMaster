@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands
+  commentId: N:Bannerlord.GameMaster.Console.Query.SettlementQueryCommands
+  id: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands
+  children:
+  - Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementAnyCommand
+  - Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementCommand
+  - Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementInfoCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands
+  nameWithType: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands
+  fullName: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementAnyCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementAnyCommand
+  href: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementAnyCommand.html
+  name: QuerySettlementAnyCommand
+  nameWithType: QuerySettlementAnyCommand
+  fullName: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementAnyCommand
+- uid: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementCommand
+  href: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementCommand.html
+  name: QuerySettlementCommand
+  nameWithType: QuerySettlementCommand
+  fullName: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementCommand
+- uid: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementInfoCommand
+  commentId: T:Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementInfoCommand
+  href: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementInfoCommand.html
+  name: QuerySettlementInfoCommand
+  nameWithType: QuerySettlementInfoCommand
+  fullName: Bannerlord.GameMaster.Console.Query.SettlementQueryCommands.QuerySettlementInfoCommand

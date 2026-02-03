@@ -1,0 +1,589 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroTypes
+  id: HeroTypes
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Alive
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Children
+  - Bannerlord.GameMaster.Heroes.HeroTypes.ClanLeader
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Dead
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Female
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Fugitive
+  - Bannerlord.GameMaster.Heroes.HeroTypes.IsArtisan
+  - Bannerlord.GameMaster.Heroes.HeroTypes.KingdomRuler
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Lord
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Male
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Married
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Merchant
+  - Bannerlord.GameMaster.Heroes.HeroTypes.None
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Notable
+  - Bannerlord.GameMaster.Heroes.HeroTypes.PartyLeader
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Prisoner
+  - Bannerlord.GameMaster.Heroes.HeroTypes.Wanderer
+  - Bannerlord.GameMaster.Heroes.HeroTypes.WithoutClan
+  - Bannerlord.GameMaster.Heroes.HeroTypes.WithoutKingdom
+  langs:
+  - csharp
+  - vb
+  name: HeroTypes
+  nameWithType: HeroTypes
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroTypes
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum HeroTypes
+    content.vb: >-
+      <Flags>
+
+      Public Enum HeroTypes
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.None
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.None
+  id: None
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: HeroTypes.None
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.IsArtisan
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.IsArtisan
+  id: IsArtisan
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: IsArtisan
+  nameWithType: HeroTypes.IsArtisan
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.IsArtisan
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsArtisan
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: IsArtisan = 1
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Lord
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Lord
+  id: Lord
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Lord
+  nameWithType: HeroTypes.Lord
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Lord
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Lord
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Lord = 2
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Wanderer
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Wanderer
+  id: Wanderer
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Wanderer
+  nameWithType: HeroTypes.Wanderer
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Wanderer
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Wanderer
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Wanderer = 4
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Notable
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Notable
+  id: Notable
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Notable
+  nameWithType: HeroTypes.Notable
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Notable
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Notable
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Notable = 8
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Merchant
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Merchant
+  id: Merchant
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Merchant
+  nameWithType: HeroTypes.Merchant
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Merchant
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Merchant
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Merchant = 16
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Children
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Children
+  id: Children
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Children
+  nameWithType: HeroTypes.Children
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Children
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Children
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Children = 32
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Female
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Female
+  id: Female
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Female
+  nameWithType: HeroTypes.Female
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Female
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Female
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Female = 64
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Male
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Male
+  id: Male
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Male
+  nameWithType: HeroTypes.Male
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Male
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Male
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Male = 128
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.ClanLeader
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.ClanLeader
+  id: ClanLeader
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: ClanLeader
+  nameWithType: HeroTypes.ClanLeader
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.ClanLeader
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClanLeader
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: ClanLeader = 256
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.KingdomRuler
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.KingdomRuler
+  id: KingdomRuler
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: KingdomRuler
+  nameWithType: HeroTypes.KingdomRuler
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.KingdomRuler
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: KingdomRuler
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 37
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: KingdomRuler = 512
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.PartyLeader
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.PartyLeader
+  id: PartyLeader
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: PartyLeader
+  nameWithType: HeroTypes.PartyLeader
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.PartyLeader
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: PartyLeader
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 38
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: PartyLeader = 1024
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Fugitive
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Fugitive
+  id: Fugitive
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Fugitive
+  nameWithType: HeroTypes.Fugitive
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Fugitive
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Fugitive
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 39
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Fugitive = 2048
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Alive
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Alive
+  id: Alive
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Alive
+  nameWithType: HeroTypes.Alive
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Alive
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Alive
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 40
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Alive = 4096
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Dead
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Dead
+  id: Dead
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Dead
+  nameWithType: HeroTypes.Dead
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Dead
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Dead
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Dead = 8192
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Prisoner
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Prisoner
+  id: Prisoner
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Prisoner
+  nameWithType: HeroTypes.Prisoner
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Prisoner
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Prisoner
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Prisoner = 16384
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.WithoutClan
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.WithoutClan
+  id: WithoutClan
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: WithoutClan
+  nameWithType: HeroTypes.WithoutClan
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.WithoutClan
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: WithoutClan
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 43
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: WithoutClan = 32768
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.WithoutKingdom
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.WithoutKingdom
+  id: WithoutKingdom
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: WithoutKingdom
+  nameWithType: HeroTypes.WithoutKingdom
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.WithoutKingdom
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: WithoutKingdom
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 44
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: WithoutKingdom = 65536
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes.Married
+  commentId: F:Bannerlord.GameMaster.Heroes.HeroTypes.Married
+  id: Married
+  parent: Bannerlord.GameMaster.Heroes.HeroTypes
+  langs:
+  - csharp
+  - vb
+  name: Married
+  nameWithType: HeroTypes.Married
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes.Married
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Married
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 45
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Married = 131072
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroTypes
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: Bannerlord.GameMaster.Heroes.HeroTypes
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroTypes
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.HeroTypes.html
+  name: HeroTypes
+  nameWithType: HeroTypes
+  fullName: Bannerlord.GameMaster.Heroes.HeroTypes

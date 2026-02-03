@@ -1,0 +1,1303 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  id: SettlementSaveDefiner
+  parent: Bannerlord.GameMaster.Settlements
+  children:
+  - Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.#ctor
+  - Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineClassTypes
+  - Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineContainerDefinitions
+  langs:
+  - csharp
+  - vb
+  name: SettlementSaveDefiner
+  nameWithType: SettlementSaveDefiner
+  fullName: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementSaveDefiner.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SettlementSaveDefiner
+    path: ../Bannerlord.GameMaster/Settlements/SettlementSaveDefiner.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Defines saveable types for settlement customization data.
+
+    Using ID range 900_000_000 for GameMaster mod to avoid conflicts.
+  example: []
+  syntax:
+    content: 'public class SettlementSaveDefiner : SaveableTypeDefiner'
+    content.vb: Public Class SettlementSaveDefiner Inherits SaveableTypeDefiner
+  inheritance:
+  - System.Object
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner
+  inheritedMembers:
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineBasicTypes
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineConflictResolvers
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineStructTypes
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineInterfaceTypes
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineEnumTypes
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineRootClassTypes
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericClassDefinitions
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericStructDefinitions
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericClassDefinition(System.Type)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericStructDefinition(System.Type)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddBasicTypeDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddConflictResolver(System.Int32,TaleWorlds.SaveSystem.Resolvers.IConflictResolver)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddRootClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddInterfaceDefinition(System.Type,System.Int32)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.AddEnumDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IEnumResolver)
+  - TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructContainerDefinition(System.Type)
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.#ctor
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  langs:
+  - csharp
+  - vb
+  name: SettlementSaveDefiner()
+  nameWithType: SettlementSaveDefiner.SettlementSaveDefiner()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.SettlementSaveDefiner()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementSaveDefiner.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Settlements/SettlementSaveDefiner.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: public SettlementSaveDefiner()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.#ctor*
+  nameWithType.vb: SettlementSaveDefiner.New()
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.New()
+  name.vb: New()
+- uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineClassTypes
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineClassTypes
+  id: DefineClassTypes
+  parent: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  langs:
+  - csharp
+  - vb
+  name: DefineClassTypes()
+  nameWithType: SettlementSaveDefiner.DefineClassTypes()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineClassTypes()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementSaveDefiner.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DefineClassTypes
+    path: ../Bannerlord.GameMaster/Settlements/SettlementSaveDefiner.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  example: []
+  syntax:
+    content: protected override void DefineClassTypes()
+    content.vb: Protected Overrides Sub DefineClassTypes()
+  overridden: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineClassTypes
+  overload: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineClassTypes*
+- uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineContainerDefinitions
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineContainerDefinitions
+  id: DefineContainerDefinitions
+  parent: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner
+  langs:
+  - csharp
+  - vb
+  name: DefineContainerDefinitions()
+  nameWithType: SettlementSaveDefiner.DefineContainerDefinitions()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineContainerDefinitions()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementSaveDefiner.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DefineContainerDefinitions
+    path: ../Bannerlord.GameMaster/Settlements/SettlementSaveDefiner.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  example: []
+  syntax:
+    content: protected override void DefineContainerDefinitions()
+    content.vb: Protected Overrides Sub DefineContainerDefinitions()
+  overridden: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineContainerDefinitions
+  overload: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineContainerDefinitions*
+references:
+- uid: Bannerlord.GameMaster.Settlements
+  commentId: N:Bannerlord.GameMaster.Settlements
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Settlements
+  nameWithType: Bannerlord.GameMaster.Settlements
+  fullName: Bannerlord.GameMaster.Settlements
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  commentId: T:TaleWorlds.SaveSystem.SaveableTypeDefiner
+  parent: TaleWorlds.SaveSystem
+  isExternal: true
+  name: SaveableTypeDefiner
+  nameWithType: SaveableTypeDefiner
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineBasicTypes
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineBasicTypes
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineBasicTypes()
+  nameWithType: SaveableTypeDefiner.DefineBasicTypes()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineBasicTypes()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineBasicTypes
+    name: DefineBasicTypes
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineBasicTypes
+    name: DefineBasicTypes
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineConflictResolvers
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineConflictResolvers
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineConflictResolvers()
+  nameWithType: SaveableTypeDefiner.DefineConflictResolvers()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineConflictResolvers()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineConflictResolvers
+    name: DefineConflictResolvers
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineConflictResolvers
+    name: DefineConflictResolvers
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineStructTypes
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineStructTypes
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineStructTypes()
+  nameWithType: SaveableTypeDefiner.DefineStructTypes()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineStructTypes()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineStructTypes
+    name: DefineStructTypes
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineStructTypes
+    name: DefineStructTypes
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineInterfaceTypes
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineInterfaceTypes
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineInterfaceTypes()
+  nameWithType: SaveableTypeDefiner.DefineInterfaceTypes()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineInterfaceTypes()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineInterfaceTypes
+    name: DefineInterfaceTypes
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineInterfaceTypes
+    name: DefineInterfaceTypes
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineEnumTypes
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineEnumTypes
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineEnumTypes()
+  nameWithType: SaveableTypeDefiner.DefineEnumTypes()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineEnumTypes()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineEnumTypes
+    name: DefineEnumTypes
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineEnumTypes
+    name: DefineEnumTypes
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineRootClassTypes
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineRootClassTypes
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineRootClassTypes()
+  nameWithType: SaveableTypeDefiner.DefineRootClassTypes()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineRootClassTypes()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineRootClassTypes
+    name: DefineRootClassTypes
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineRootClassTypes
+    name: DefineRootClassTypes
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericClassDefinitions
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericClassDefinitions
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineGenericClassDefinitions()
+  nameWithType: SaveableTypeDefiner.DefineGenericClassDefinitions()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericClassDefinitions()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericClassDefinitions
+    name: DefineGenericClassDefinitions
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericClassDefinitions
+    name: DefineGenericClassDefinitions
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericStructDefinitions
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericStructDefinitions
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineGenericStructDefinitions()
+  nameWithType: SaveableTypeDefiner.DefineGenericStructDefinitions()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericStructDefinitions()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericStructDefinitions
+    name: DefineGenericStructDefinitions
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineGenericStructDefinitions
+    name: DefineGenericStructDefinitions
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericClassDefinition(System.Type)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericClassDefinition(System.Type)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ConstructGenericClassDefinition(Type)
+  nameWithType: SaveableTypeDefiner.ConstructGenericClassDefinition(Type)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericClassDefinition(System.Type)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericClassDefinition(System.Type)
+    name: ConstructGenericClassDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericClassDefinition(System.Type)
+    name: ConstructGenericClassDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericStructDefinition(System.Type)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericStructDefinition(System.Type)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ConstructGenericStructDefinition(Type)
+  nameWithType: SaveableTypeDefiner.ConstructGenericStructDefinition(Type)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericStructDefinition(System.Type)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericStructDefinition(System.Type)
+    name: ConstructGenericStructDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructGenericStructDefinition(System.Type)
+    name: ConstructGenericStructDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddBasicTypeDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddBasicTypeDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: AddBasicTypeDefinition(Type, int, IBasicTypeSerializer)
+  nameWithType: SaveableTypeDefiner.AddBasicTypeDefinition(Type, int, IBasicTypeSerializer)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddBasicTypeDefinition(System.Type, int, TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer)
+  nameWithType.vb: SaveableTypeDefiner.AddBasicTypeDefinition(Type, Integer, IBasicTypeSerializer)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddBasicTypeDefinition(System.Type, Integer, TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer)
+  name.vb: AddBasicTypeDefinition(Type, Integer, IBasicTypeSerializer)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddBasicTypeDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer)
+    name: AddBasicTypeDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer
+    name: IBasicTypeSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddBasicTypeDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer)
+    name: AddBasicTypeDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Definition.IBasicTypeSerializer
+    name: IBasicTypeSerializer
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddConflictResolver(System.Int32,TaleWorlds.SaveSystem.Resolvers.IConflictResolver)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddConflictResolver(System.Int32,TaleWorlds.SaveSystem.Resolvers.IConflictResolver)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: AddConflictResolver(int, IConflictResolver)
+  nameWithType: SaveableTypeDefiner.AddConflictResolver(int, IConflictResolver)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddConflictResolver(int, TaleWorlds.SaveSystem.Resolvers.IConflictResolver)
+  nameWithType.vb: SaveableTypeDefiner.AddConflictResolver(Integer, IConflictResolver)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddConflictResolver(Integer, TaleWorlds.SaveSystem.Resolvers.IConflictResolver)
+  name.vb: AddConflictResolver(Integer, IConflictResolver)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddConflictResolver(System.Int32,TaleWorlds.SaveSystem.Resolvers.IConflictResolver)
+    name: AddConflictResolver
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IConflictResolver
+    name: IConflictResolver
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddConflictResolver(System.Int32,TaleWorlds.SaveSystem.Resolvers.IConflictResolver)
+    name: AddConflictResolver
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IConflictResolver
+    name: IConflictResolver
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: AddClassDefinition(Type, int, IObjectResolver)
+  nameWithType: SaveableTypeDefiner.AddClassDefinition(Type, int, IObjectResolver)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinition(System.Type, int, TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  nameWithType.vb: SaveableTypeDefiner.AddClassDefinition(Type, Integer, IObjectResolver)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinition(System.Type, Integer, TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  name.vb: AddClassDefinition(Type, Integer, IObjectResolver)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddClassDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddClassDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: AddClassDefinitionWithCustomFields(Type, int, IEnumerable<Tuple<string, short>>, IObjectResolver)
+  nameWithType: SaveableTypeDefiner.AddClassDefinitionWithCustomFields(Type, int, IEnumerable<Tuple<string, short>>, IObjectResolver)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinitionWithCustomFields(System.Type, int, System.Collections.Generic.IEnumerable<System.Tuple<string, short>>, TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  nameWithType.vb: SaveableTypeDefiner.AddClassDefinitionWithCustomFields(Type, Integer, IEnumerable(Of Tuple(Of String, Short)), IObjectResolver)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinitionWithCustomFields(System.Type, Integer, System.Collections.Generic.IEnumerable(Of System.Tuple(Of String, Short)), TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  name.vb: AddClassDefinitionWithCustomFields(Type, Integer, IEnumerable(Of Tuple(Of String, Short)), IObjectResolver)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddClassDefinitionWithCustomFields
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int16
+    name: short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddClassDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddClassDefinitionWithCustomFields
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int16
+    name: Short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: AddStructDefinitionWithCustomFields(Type, int, IEnumerable<Tuple<string, short>>, IObjectResolver)
+  nameWithType: SaveableTypeDefiner.AddStructDefinitionWithCustomFields(Type, int, IEnumerable<Tuple<string, short>>, IObjectResolver)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinitionWithCustomFields(System.Type, int, System.Collections.Generic.IEnumerable<System.Tuple<string, short>>, TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  nameWithType.vb: SaveableTypeDefiner.AddStructDefinitionWithCustomFields(Type, Integer, IEnumerable(Of Tuple(Of String, Short)), IObjectResolver)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinitionWithCustomFields(System.Type, Integer, System.Collections.Generic.IEnumerable(Of System.Tuple(Of String, Short)), TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  name.vb: AddStructDefinitionWithCustomFields(Type, Integer, IEnumerable(Of Tuple(Of String, Short)), IObjectResolver)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddStructDefinitionWithCustomFields
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int16
+    name: short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinitionWithCustomFields(System.Type,System.Int32,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.Int16}},TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddStructDefinitionWithCustomFields
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int16
+    name: Short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddRootClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddRootClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: AddRootClassDefinition(Type, int, IObjectResolver)
+  nameWithType: SaveableTypeDefiner.AddRootClassDefinition(Type, int, IObjectResolver)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddRootClassDefinition(System.Type, int, TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  nameWithType.vb: SaveableTypeDefiner.AddRootClassDefinition(Type, Integer, IObjectResolver)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddRootClassDefinition(System.Type, Integer, TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  name.vb: AddRootClassDefinition(Type, Integer, IObjectResolver)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddRootClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddRootClassDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddRootClassDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddRootClassDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: AddStructDefinition(Type, int, IObjectResolver)
+  nameWithType: SaveableTypeDefiner.AddStructDefinition(Type, int, IObjectResolver)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinition(System.Type, int, TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  nameWithType.vb: SaveableTypeDefiner.AddStructDefinition(Type, Integer, IObjectResolver)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinition(System.Type, Integer, TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+  name.vb: AddStructDefinition(Type, Integer, IObjectResolver)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddStructDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddStructDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IObjectResolver)
+    name: AddStructDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IObjectResolver
+    name: IObjectResolver
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddInterfaceDefinition(System.Type,System.Int32)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddInterfaceDefinition(System.Type,System.Int32)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: AddInterfaceDefinition(Type, int)
+  nameWithType: SaveableTypeDefiner.AddInterfaceDefinition(Type, int)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddInterfaceDefinition(System.Type, int)
+  nameWithType.vb: SaveableTypeDefiner.AddInterfaceDefinition(Type, Integer)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddInterfaceDefinition(System.Type, Integer)
+  name.vb: AddInterfaceDefinition(Type, Integer)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddInterfaceDefinition(System.Type,System.Int32)
+    name: AddInterfaceDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddInterfaceDefinition(System.Type,System.Int32)
+    name: AddInterfaceDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddEnumDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IEnumResolver)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.AddEnumDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IEnumResolver)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: AddEnumDefinition(Type, int, IEnumResolver)
+  nameWithType: SaveableTypeDefiner.AddEnumDefinition(Type, int, IEnumResolver)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddEnumDefinition(System.Type, int, TaleWorlds.SaveSystem.Resolvers.IEnumResolver)
+  nameWithType.vb: SaveableTypeDefiner.AddEnumDefinition(Type, Integer, IEnumResolver)
+  fullName.vb: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddEnumDefinition(System.Type, Integer, TaleWorlds.SaveSystem.Resolvers.IEnumResolver)
+  name.vb: AddEnumDefinition(Type, Integer, IEnumResolver)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddEnumDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IEnumResolver)
+    name: AddEnumDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IEnumResolver
+    name: IEnumResolver
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.AddEnumDefinition(System.Type,System.Int32,TaleWorlds.SaveSystem.Resolvers.IEnumResolver)
+    name: AddEnumDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.SaveSystem.Resolvers.IEnumResolver
+    name: IEnumResolver
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructContainerDefinition(System.Type)
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructContainerDefinition(System.Type)
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ConstructContainerDefinition(Type)
+  nameWithType: SaveableTypeDefiner.ConstructContainerDefinition(Type)
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructContainerDefinition(System.Type)
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructContainerDefinition(System.Type)
+    name: ConstructContainerDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.ConstructContainerDefinition(System.Type)
+    name: ConstructContainerDefinition
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TaleWorlds.SaveSystem
+  commentId: N:TaleWorlds.SaveSystem
+  isExternal: true
+  name: TaleWorlds.SaveSystem
+  nameWithType: TaleWorlds.SaveSystem
+  fullName: TaleWorlds.SaveSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.SaveSystem
+    name: SaveSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.SaveSystem
+    name: SaveSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.#ctor
+  href: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.html#Bannerlord_GameMaster_Settlements_SettlementSaveDefiner__ctor
+  name: SettlementSaveDefiner
+  nameWithType: SettlementSaveDefiner.SettlementSaveDefiner
+  fullName: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.SettlementSaveDefiner
+  nameWithType.vb: SettlementSaveDefiner.New
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.New
+  name.vb: New
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineClassTypes
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineClassTypes
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineClassTypes()
+  nameWithType: SaveableTypeDefiner.DefineClassTypes()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineClassTypes()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineClassTypes
+    name: DefineClassTypes
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineClassTypes
+    name: DefineClassTypes
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineClassTypes*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineClassTypes
+  href: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.html#Bannerlord_GameMaster_Settlements_SettlementSaveDefiner_DefineClassTypes
+  name: DefineClassTypes
+  nameWithType: SettlementSaveDefiner.DefineClassTypes
+  fullName: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineClassTypes
+- uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineContainerDefinitions
+  commentId: M:TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineContainerDefinitions
+  parent: TaleWorlds.SaveSystem.SaveableTypeDefiner
+  isExternal: true
+  name: DefineContainerDefinitions()
+  nameWithType: SaveableTypeDefiner.DefineContainerDefinitions()
+  fullName: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineContainerDefinitions()
+  spec.csharp:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineContainerDefinitions
+    name: DefineContainerDefinitions
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.SaveSystem.SaveableTypeDefiner.DefineContainerDefinitions
+    name: DefineContainerDefinitions
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineContainerDefinitions*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineContainerDefinitions
+  href: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.html#Bannerlord_GameMaster_Settlements_SettlementSaveDefiner_DefineContainerDefinitions
+  name: DefineContainerDefinitions
+  nameWithType: SettlementSaveDefiner.DefineContainerDefinitions
+  fullName: Bannerlord.GameMaster.Settlements.SettlementSaveDefiner.DefineContainerDefinitions

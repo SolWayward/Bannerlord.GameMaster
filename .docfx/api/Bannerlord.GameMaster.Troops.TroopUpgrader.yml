@@ -1,0 +1,615 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Troops.TroopUpgrader
+  commentId: T:Bannerlord.GameMaster.Troops.TroopUpgrader
+  id: TroopUpgrader
+  parent: Bannerlord.GameMaster.Troops
+  children:
+  - Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  - Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops(TaleWorlds.CampaignSystem.Roster.TroopRoster,System.Int32,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  langs:
+  - csharp
+  - vb
+  name: TroopUpgrader
+  nameWithType: TroopUpgrader
+  fullName: Bannerlord.GameMaster.Troops.TroopUpgrader
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopUpgrader.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TroopUpgrader
+    path: ../Bannerlord.GameMaster/Troops/TroopUpgrader.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  syntax:
+    content: public class TroopUpgrader
+    content.vb: Public Class TroopUpgrader
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops(TaleWorlds.CampaignSystem.Roster.TroopRoster,System.Int32,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  commentId: M:Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops(TaleWorlds.CampaignSystem.Roster.TroopRoster,System.Int32,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  id: UpgradeTroops(TaleWorlds.CampaignSystem.Roster.TroopRoster,System.Int32,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  parent: Bannerlord.GameMaster.Troops.TroopUpgrader
+  langs:
+  - csharp
+  - vb
+  name: UpgradeTroops(TroopRoster, int, float?, float?, float?)
+  nameWithType: TroopUpgrader.UpgradeTroops(TroopRoster, int, float?, float?, float?)
+  fullName: Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops(TaleWorlds.CampaignSystem.Roster.TroopRoster, int, float?, float?, float?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopUpgrader.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: UpgradeTroops
+    path: ../Bannerlord.GameMaster/Troops/TroopUpgrader.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: >-
+    Upgrades all troops in the roster to the specified tier while maintaining desired composition ratios.
+
+    When troops have multiple upgrade paths, intelligently splits them to achieve target ratios.
+
+    Pre-analyzes all upgrade paths to account for troops with limited options.
+  example: []
+  syntax:
+    content: public static void UpgradeTroops(TroopRoster memberRoster, int targetTier = 7, float? targetRangedRatio = null, float? targetCavalryRatio = null, float? targetInfantryRatio = null)
+    parameters:
+    - id: memberRoster
+      type: TaleWorlds.CampaignSystem.Roster.TroopRoster
+      description: The troop roster to upgrade
+    - id: targetTier
+      type: System.Int32
+      description: 'Maximum tier to upgrade to (default: max tier)'
+    - id: targetRangedRatio
+      type: System.Nullable{System.Single}
+      description: Desired ratio of ranged troops (0.0-1.0, null for auto)
+    - id: targetCavalryRatio
+      type: System.Nullable{System.Single}
+      description: Desired ratio of cavalry troops (0.0-1.0, null for auto)
+    - id: targetInfantryRatio
+      type: System.Nullable{System.Single}
+      description: Desired ratio of infantry troops (0.0-1.0, null for auto)
+    content.vb: Public Shared Sub UpgradeTroops(memberRoster As TroopRoster, targetTier As Integer = 7, targetRangedRatio As Single? = Nothing, targetCavalryRatio As Single? = Nothing, targetInfantryRatio As Single? = Nothing)
+  overload: Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops*
+  nameWithType.vb: TroopUpgrader.UpgradeTroops(TroopRoster, Integer, Single?, Single?, Single?)
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops(TaleWorlds.CampaignSystem.Roster.TroopRoster, Integer, Single?, Single?, Single?)
+  name.vb: UpgradeTroops(TroopRoster, Integer, Single?, Single?, Single?)
+- uid: Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  commentId: M:Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  id: NormalizeRatios(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  parent: Bannerlord.GameMaster.Troops.TroopUpgrader
+  langs:
+  - csharp
+  - vb
+  name: NormalizeRatios(float?, float?, float?)
+  nameWithType: TroopUpgrader.NormalizeRatios(float?, float?, float?)
+  fullName: Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios(float?, float?, float?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Troops/TroopUpgrader.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NormalizeRatios
+    path: ../Bannerlord.GameMaster/Troops/TroopUpgrader.cs
+    startLine: 63
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Troops
+  summary: Normalize ratios of troop types
+  example: []
+  syntax:
+    content: public static (float ranged, float cavalry, float infantry) NormalizeRatios(float? rangedRatio, float? cavalryRatio, float? infantryRatio)
+    parameters:
+    - id: rangedRatio
+      type: System.Nullable{System.Single}
+    - id: cavalryRatio
+      type: System.Nullable{System.Single}
+    - id: infantryRatio
+      type: System.Nullable{System.Single}
+    return:
+      type: System.ValueTuple{System.Single,System.Single,System.Single}
+    content.vb: Public Shared Function NormalizeRatios(rangedRatio As Single?, cavalryRatio As Single?, infantryRatio As Single?) As (ranged As Single, cavalry As Single, infantry As Single)
+  overload: Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios*
+  nameWithType.vb: TroopUpgrader.NormalizeRatios(Single?, Single?, Single?)
+  fullName.vb: Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios(Single?, Single?, Single?)
+  name.vb: NormalizeRatios(Single?, Single?, Single?)
+references:
+- uid: Bannerlord.GameMaster.Troops
+  commentId: N:Bannerlord.GameMaster.Troops
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Troops
+  nameWithType: Bannerlord.GameMaster.Troops
+  fullName: Bannerlord.GameMaster.Troops
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Troops
+    name: Troops
+    href: Bannerlord.GameMaster.Troops.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops
+  href: Bannerlord.GameMaster.Troops.TroopUpgrader.html#Bannerlord_GameMaster_Troops_TroopUpgrader_UpgradeTroops_TaleWorlds_CampaignSystem_Roster_TroopRoster_System_Int32_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__
+  name: UpgradeTroops
+  nameWithType: TroopUpgrader.UpgradeTroops
+  fullName: Bannerlord.GameMaster.Troops.TroopUpgrader.UpgradeTroops
+- uid: TaleWorlds.CampaignSystem.Roster.TroopRoster
+  commentId: T:TaleWorlds.CampaignSystem.Roster.TroopRoster
+  parent: TaleWorlds.CampaignSystem.Roster
+  isExternal: true
+  name: TroopRoster
+  nameWithType: TroopRoster
+  fullName: TaleWorlds.CampaignSystem.Roster.TroopRoster
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Nullable{System.Single}
+  commentId: T:System.Nullable{System.Single}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float?
+  nameWithType: float?
+  fullName: float?
+  nameWithType.vb: Single?
+  fullName.vb: Single?
+  name.vb: Single?
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '?'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '?'
+- uid: TaleWorlds.CampaignSystem.Roster
+  commentId: N:TaleWorlds.CampaignSystem.Roster
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Roster
+  nameWithType: TaleWorlds.CampaignSystem.Roster
+  fullName: TaleWorlds.CampaignSystem.Roster
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Roster
+    name: Roster
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Roster
+    name: Roster
+    isExternal: true
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios*
+  commentId: Overload:Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios
+  href: Bannerlord.GameMaster.Troops.TroopUpgrader.html#Bannerlord_GameMaster_Troops_TroopUpgrader_NormalizeRatios_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__
+  name: NormalizeRatios
+  nameWithType: TroopUpgrader.NormalizeRatios
+  fullName: Bannerlord.GameMaster.Troops.TroopUpgrader.NormalizeRatios
+- uid: System.ValueTuple{System.Single,System.Single,System.Single}
+  commentId: T:System.ValueTuple{System.Single,System.Single,System.Single}
+  parent: System
+  definition: System.ValueTuple`3
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: (float ranged, float cavalry, float infantry)
+  nameWithType: (float ranged, float cavalry, float infantry)
+  fullName: (float ranged, float cavalry, float infantry)
+  nameWithType.vb: (ranged As Single, cavalry As Single, infantry As Single)
+  fullName.vb: (ranged As Single, cavalry As Single, infantry As Single)
+  name.vb: (ranged As Single, cavalry As Single, infantry As Single)
+  spec.csharp:
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: " "
+  - uid: System.ValueTuple{System.Single,System.Single,System.Single}.ranged
+    name: ranged
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single,system.single-.ranged
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: " "
+  - uid: System.ValueTuple{System.Single,System.Single,System.Single}.cavalry
+    name: cavalry
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single,system.single-.cavalry
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: " "
+  - uid: System.ValueTuple{System.Single,System.Single,System.Single}.infantry
+    name: infantry
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single,system.single-.infantry
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.Single,System.Single,System.Single}.ranged
+    name: ranged
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single,system.single-.ranged
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Single,System.Single,System.Single}.cavalry
+    name: cavalry
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single,system.single-.cavalry
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Single,System.Single,System.Single}.infantry
+    name: infantry
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single,system.single-.infantry
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.ValueTuple`3
+  commentId: T:System.ValueTuple`3
+  name: (T1, T2, T3)
+  nameWithType: (T1, T2, T3)
+  fullName: (T1, T2, T3)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )

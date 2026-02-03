@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.LoggerCommands
+  commentId: N:Bannerlord.GameMaster.Console.LoggerCommands
+  id: Bannerlord.GameMaster.Console.LoggerCommands
+  children:
+  - Bannerlord.GameMaster.Console.LoggerCommands.ClearLogCommand
+  - Bannerlord.GameMaster.Console.LoggerCommands.DisableLoggingCommand
+  - Bannerlord.GameMaster.Console.LoggerCommands.EnableLoggingCommand
+  - Bannerlord.GameMaster.Console.LoggerCommands.LoggerCommandHelpers
+  - Bannerlord.GameMaster.Console.LoggerCommands.LoggingHelpCommand
+  - Bannerlord.GameMaster.Console.LoggerCommands.LoggingStatusCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.LoggerCommands
+  nameWithType: Bannerlord.GameMaster.Console.LoggerCommands
+  fullName: Bannerlord.GameMaster.Console.LoggerCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.LoggerCommands.ClearLogCommand
+  commentId: T:Bannerlord.GameMaster.Console.LoggerCommands.ClearLogCommand
+  href: Bannerlord.GameMaster.Console.LoggerCommands.ClearLogCommand.html
+  name: ClearLogCommand
+  nameWithType: ClearLogCommand
+  fullName: Bannerlord.GameMaster.Console.LoggerCommands.ClearLogCommand
+- uid: Bannerlord.GameMaster.Console.LoggerCommands.DisableLoggingCommand
+  commentId: T:Bannerlord.GameMaster.Console.LoggerCommands.DisableLoggingCommand
+  href: Bannerlord.GameMaster.Console.LoggerCommands.DisableLoggingCommand.html
+  name: DisableLoggingCommand
+  nameWithType: DisableLoggingCommand
+  fullName: Bannerlord.GameMaster.Console.LoggerCommands.DisableLoggingCommand
+- uid: Bannerlord.GameMaster.Console.LoggerCommands.EnableLoggingCommand
+  commentId: T:Bannerlord.GameMaster.Console.LoggerCommands.EnableLoggingCommand
+  href: Bannerlord.GameMaster.Console.LoggerCommands.EnableLoggingCommand.html
+  name: EnableLoggingCommand
+  nameWithType: EnableLoggingCommand
+  fullName: Bannerlord.GameMaster.Console.LoggerCommands.EnableLoggingCommand
+- uid: Bannerlord.GameMaster.Console.LoggerCommands.LoggerCommandHelpers
+  commentId: T:Bannerlord.GameMaster.Console.LoggerCommands.LoggerCommandHelpers
+  href: Bannerlord.GameMaster.Console.LoggerCommands.LoggerCommandHelpers.html
+  name: LoggerCommandHelpers
+  nameWithType: LoggerCommandHelpers
+  fullName: Bannerlord.GameMaster.Console.LoggerCommands.LoggerCommandHelpers
+- uid: Bannerlord.GameMaster.Console.LoggerCommands.LoggingHelpCommand
+  commentId: T:Bannerlord.GameMaster.Console.LoggerCommands.LoggingHelpCommand
+  href: Bannerlord.GameMaster.Console.LoggerCommands.LoggingHelpCommand.html
+  name: LoggingHelpCommand
+  nameWithType: LoggingHelpCommand
+  fullName: Bannerlord.GameMaster.Console.LoggerCommands.LoggingHelpCommand
+- uid: Bannerlord.GameMaster.Console.LoggerCommands.LoggingStatusCommand
+  commentId: T:Bannerlord.GameMaster.Console.LoggerCommands.LoggingStatusCommand
+  href: Bannerlord.GameMaster.Console.LoggerCommands.LoggingStatusCommand.html
+  name: LoggingStatusCommand
+  nameWithType: LoggingStatusCommand
+  fullName: Bannerlord.GameMaster.Console.LoggerCommands.LoggingStatusCommand

@@ -1,0 +1,589 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementTypes
+  id: SettlementTypes
+  parent: Bannerlord.GameMaster.Settlements
+  children:
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Aserai
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Battania
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Besieged
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Castle
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.City
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Empire
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Hideout
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.HighProsperity
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Khuzait
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.LowProsperity
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.MediumProsperity
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.None
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Nord
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.PlayerOwned
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Raided
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Settlement
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Sturgia
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Village
+  - Bannerlord.GameMaster.Settlements.SettlementTypes.Vlandia
+  langs:
+  - csharp
+  - vb
+  name: SettlementTypes
+  nameWithType: SettlementTypes
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SettlementTypes
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum SettlementTypes : long
+    content.vb: >-
+      <Flags>
+
+      Public Enum SettlementTypes As Long
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.None
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.None
+  id: None
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SettlementTypes.None
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Settlement
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Settlement
+  id: Settlement
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Settlement
+  nameWithType: SettlementTypes.Settlement
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Settlement
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Settlement
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Settlement = 1
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Castle
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Castle
+  id: Castle
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Castle
+  nameWithType: SettlementTypes.Castle
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Castle
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Castle
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Castle = 2
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.City
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.City
+  id: City
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: City
+  nameWithType: SettlementTypes.City
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.City
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: City
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: City = 4
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Village
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Village
+  id: Village
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Village
+  nameWithType: SettlementTypes.Village
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Village
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Village
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Village = 8
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Hideout
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Hideout
+  id: Hideout
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Hideout
+  nameWithType: SettlementTypes.Hideout
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Hideout
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Hideout
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Hideout = 16
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.PlayerOwned
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.PlayerOwned
+  id: PlayerOwned
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: PlayerOwned
+  nameWithType: SettlementTypes.PlayerOwned
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.PlayerOwned
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: PlayerOwned
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: PlayerOwned = 32
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Besieged
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Besieged
+  id: Besieged
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Besieged
+  nameWithType: SettlementTypes.Besieged
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Besieged
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Besieged
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Besieged = 64
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Raided
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Raided
+  id: Raided
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Raided
+  nameWithType: SettlementTypes.Raided
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Raided
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Raided
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Raided = 128
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Empire
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Empire
+  id: Empire
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Empire
+  nameWithType: SettlementTypes.Empire
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Empire
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Empire
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Empire = 256
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Vlandia
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Vlandia
+  id: Vlandia
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Vlandia
+  nameWithType: SettlementTypes.Vlandia
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Vlandia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Vlandia
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Vlandia = 512
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Sturgia
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Sturgia
+  id: Sturgia
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Sturgia
+  nameWithType: SettlementTypes.Sturgia
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Sturgia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sturgia
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Sturgia = 1024
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Aserai
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Aserai
+  id: Aserai
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Aserai
+  nameWithType: SettlementTypes.Aserai
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Aserai
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Aserai
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Aserai = 2048
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Khuzait
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Khuzait
+  id: Khuzait
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Khuzait
+  nameWithType: SettlementTypes.Khuzait
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Khuzait
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Khuzait
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Khuzait = 4096
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Battania
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Battania
+  id: Battania
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Battania
+  nameWithType: SettlementTypes.Battania
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Battania
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Battania
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Battania = 8192
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.Nord
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.Nord
+  id: Nord
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: Nord
+  nameWithType: SettlementTypes.Nord
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.Nord
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Nord
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: Nord = 16384
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.LowProsperity
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.LowProsperity
+  id: LowProsperity
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: LowProsperity
+  nameWithType: SettlementTypes.LowProsperity
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.LowProsperity
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LowProsperity
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: LowProsperity = 32768
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.MediumProsperity
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.MediumProsperity
+  id: MediumProsperity
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: MediumProsperity
+  nameWithType: SettlementTypes.MediumProsperity
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.MediumProsperity
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MediumProsperity
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: MediumProsperity = 65536
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes.HighProsperity
+  commentId: F:Bannerlord.GameMaster.Settlements.SettlementTypes.HighProsperity
+  id: HighProsperity
+  parent: Bannerlord.GameMaster.Settlements.SettlementTypes
+  langs:
+  - csharp
+  - vb
+  name: HighProsperity
+  nameWithType: SettlementTypes.HighProsperity
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes.HighProsperity
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HighProsperity
+    path: ../Bannerlord.GameMaster/Settlements/SettlementExtensions.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  syntax:
+    content: HighProsperity = 131072
+    return:
+      type: Bannerlord.GameMaster.Settlements.SettlementTypes
+references:
+- uid: Bannerlord.GameMaster.Settlements
+  commentId: N:Bannerlord.GameMaster.Settlements
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Settlements
+  nameWithType: Bannerlord.GameMaster.Settlements
+  fullName: Bannerlord.GameMaster.Settlements
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Settlements
+    name: Settlements
+    href: Bannerlord.GameMaster.Settlements.html
+- uid: Bannerlord.GameMaster.Settlements.SettlementTypes
+  commentId: T:Bannerlord.GameMaster.Settlements.SettlementTypes
+  parent: Bannerlord.GameMaster.Settlements
+  href: Bannerlord.GameMaster.Settlements.SettlementTypes.html
+  name: SettlementTypes
+  nameWithType: SettlementTypes
+  fullName: Bannerlord.GameMaster.Settlements.SettlementTypes

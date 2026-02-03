@@ -1,0 +1,626 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  commentId: T:Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  id: ClanRemover
+  parent: Bannerlord.GameMaster.RemovalHelpers
+  children:
+  - Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans(System.Nullable{System.Int32})
+  - Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveAllBlgmClans
+  - Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveSingleClan(TaleWorlds.CampaignSystem.Clan)
+  langs:
+  - csharp
+  - vb
+  name: ClanRemover
+  nameWithType: ClanRemover
+  fullName: Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RemovalHelpers/ClanRemover.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClanRemover
+    path: ../Bannerlord.GameMaster/RemovalHelpers/ClanRemover.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.RemovalHelpers
+  summary: Handles removal of BLGM-generated clans from the game.
+  example: []
+  syntax:
+    content: public static class ClanRemover
+    content.vb: Public Module ClanRemover
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveSingleClan(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveSingleClan(TaleWorlds.CampaignSystem.Clan)
+  id: RemoveSingleClan(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  langs:
+  - csharp
+  - vb
+  name: RemoveSingleClan(Clan)
+  nameWithType: ClanRemover.RemoveSingleClan(Clan)
+  fullName: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveSingleClan(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RemovalHelpers/ClanRemover.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveSingleClan
+    path: ../Bannerlord.GameMaster/RemovalHelpers/ClanRemover.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.RemovalHelpers
+  summary: Removes a single clan if it meets the criteria for removal.
+  example: []
+  syntax:
+    content: public static BLGMResult RemoveSingleClan(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: The clan to remove.
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with details.
+    content.vb: Public Shared Function RemoveSingleClan(clan As Clan) As BLGMResult
+  overload: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveSingleClan*
+- uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans(System.Nullable{System.Int32})
+  commentId: M:Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans(System.Nullable{System.Int32})
+  id: BatchRemoveClans(System.Nullable{System.Int32})
+  parent: Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  langs:
+  - csharp
+  - vb
+  name: BatchRemoveClans(int?)
+  nameWithType: ClanRemover.BatchRemoveClans(int?)
+  fullName: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans(int?)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RemovalHelpers/ClanRemover.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BatchRemoveClans
+    path: ../Bannerlord.GameMaster/RemovalHelpers/ClanRemover.cs
+    startLine: 60
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.RemovalHelpers
+  summary: Removes multiple BLGM clans in batch, up to the specified count.
+  example: []
+  syntax:
+    content: public static (int removed, string details) BatchRemoveClans(int? count)
+    parameters:
+    - id: count
+      type: System.Nullable{System.Int32}
+      description: Maximum number of clans to remove. If null, removes all eligible clans.
+    return:
+      type: System.ValueTuple{System.Int32,System.String}
+      description: Tuple containing the number of clans removed and a detailed summary.
+    content.vb: Public Shared Function BatchRemoveClans(count As Integer?) As (removed As Integer, details As String)
+  overload: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans*
+  nameWithType.vb: ClanRemover.BatchRemoveClans(Integer?)
+  fullName.vb: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans(Integer?)
+  name.vb: BatchRemoveClans(Integer?)
+- uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveAllBlgmClans
+  commentId: M:Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveAllBlgmClans
+  id: RemoveAllBlgmClans
+  parent: Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  langs:
+  - csharp
+  - vb
+  name: RemoveAllBlgmClans()
+  nameWithType: ClanRemover.RemoveAllBlgmClans()
+  fullName: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveAllBlgmClans()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/RemovalHelpers/ClanRemover.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveAllBlgmClans
+    path: ../Bannerlord.GameMaster/RemovalHelpers/ClanRemover.cs
+    startLine: 110
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.RemovalHelpers
+  summary: Removes all BLGM-generated clans from the game.
+  example: []
+  syntax:
+    content: public static BLGMResult RemoveAllBlgmClans()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success with details about removed clans.
+    content.vb: Public Shared Function RemoveAllBlgmClans() As BLGMResult
+  overload: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveAllBlgmClans*
+references:
+- uid: Bannerlord.GameMaster.RemovalHelpers
+  commentId: N:Bannerlord.GameMaster.RemovalHelpers
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.RemovalHelpers
+  nameWithType: Bannerlord.GameMaster.RemovalHelpers
+  fullName: Bannerlord.GameMaster.RemovalHelpers
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.RemovalHelpers
+    name: RemovalHelpers
+    href: Bannerlord.GameMaster.RemovalHelpers.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.RemovalHelpers
+    name: RemovalHelpers
+    href: Bannerlord.GameMaster.RemovalHelpers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveSingleClan*
+  commentId: Overload:Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveSingleClan
+  href: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.html#Bannerlord_GameMaster_RemovalHelpers_ClanRemover_RemoveSingleClan_TaleWorlds_CampaignSystem_Clan_
+  name: RemoveSingleClan
+  nameWithType: ClanRemover.RemoveSingleClan
+  fullName: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveSingleClan
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans*
+  commentId: Overload:Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans
+  href: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.html#Bannerlord_GameMaster_RemovalHelpers_ClanRemover_BatchRemoveClans_System_Nullable_System_Int32__
+  name: BatchRemoveClans
+  nameWithType: ClanRemover.BatchRemoveClans
+  fullName: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.BatchRemoveClans
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.ValueTuple{System.Int32,System.String}
+  commentId: T:System.ValueTuple{System.Int32,System.String}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: (int removed, string details)
+  nameWithType: (int removed, string details)
+  fullName: (int removed, string details)
+  nameWithType.vb: (removed As Integer, details As String)
+  fullName.vb: (removed As Integer, details As String)
+  name.vb: (removed As Integer, details As String)
+  spec.csharp:
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.String}.removed
+    name: removed
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.string-.removed
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.String}.details
+    name: details
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.string-.details
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.Int32,System.String}.removed
+    name: removed
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.string-.removed
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.String}.details
+    name: details
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.string-.details
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveAllBlgmClans*
+  commentId: Overload:Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveAllBlgmClans
+  href: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.html#Bannerlord_GameMaster_RemovalHelpers_ClanRemover_RemoveAllBlgmClans
+  name: RemoveAllBlgmClans
+  nameWithType: ClanRemover.RemoveAllBlgmClans
+  fullName: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.RemoveAllBlgmClans

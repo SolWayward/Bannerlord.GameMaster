@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.RemovalHelpers
+  commentId: N:Bannerlord.GameMaster.RemovalHelpers
+  id: Bannerlord.GameMaster.RemovalHelpers
+  children:
+  - Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  - Bannerlord.GameMaster.RemovalHelpers.HeroRemover
+  - Bannerlord.GameMaster.RemovalHelpers.KingdomRemover
+  - Bannerlord.GameMaster.RemovalHelpers.PartyRemover
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.RemovalHelpers
+  nameWithType: Bannerlord.GameMaster.RemovalHelpers
+  fullName: Bannerlord.GameMaster.RemovalHelpers
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  commentId: T:Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+  href: Bannerlord.GameMaster.RemovalHelpers.ClanRemover.html
+  name: ClanRemover
+  nameWithType: ClanRemover
+  fullName: Bannerlord.GameMaster.RemovalHelpers.ClanRemover
+- uid: Bannerlord.GameMaster.RemovalHelpers.HeroRemover
+  commentId: T:Bannerlord.GameMaster.RemovalHelpers.HeroRemover
+  href: Bannerlord.GameMaster.RemovalHelpers.HeroRemover.html
+  name: HeroRemover
+  nameWithType: HeroRemover
+  fullName: Bannerlord.GameMaster.RemovalHelpers.HeroRemover
+- uid: Bannerlord.GameMaster.RemovalHelpers.KingdomRemover
+  commentId: T:Bannerlord.GameMaster.RemovalHelpers.KingdomRemover
+  href: Bannerlord.GameMaster.RemovalHelpers.KingdomRemover.html
+  name: KingdomRemover
+  nameWithType: KingdomRemover
+  fullName: Bannerlord.GameMaster.RemovalHelpers.KingdomRemover
+- uid: Bannerlord.GameMaster.RemovalHelpers.PartyRemover
+  commentId: T:Bannerlord.GameMaster.RemovalHelpers.PartyRemover
+  href: Bannerlord.GameMaster.RemovalHelpers.PartyRemover.html
+  name: PartyRemover
+  nameWithType: PartyRemover
+  fullName: Bannerlord.GameMaster.RemovalHelpers.PartyRemover

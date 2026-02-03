@@ -1,0 +1,499 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Characters.HairCoveringType
+  commentId: T:Bannerlord.GameMaster.Characters.HairCoveringType
+  id: HairCoveringType
+  parent: Bannerlord.GameMaster.Characters
+  children:
+  - Bannerlord.GameMaster.Characters.HairCoveringType.Full
+  - Bannerlord.GameMaster.Characters.HairCoveringType.Heavy
+  - Bannerlord.GameMaster.Characters.HairCoveringType.Light
+  - Bannerlord.GameMaster.Characters.HairCoveringType.Medium
+  - Bannerlord.GameMaster.Characters.HairCoveringType.None
+  - Bannerlord.GameMaster.Characters.HairCoveringType.Special
+  langs:
+  - csharp
+  - vb
+  name: HairCoveringType
+  nameWithType: HairCoveringType
+  fullName: Bannerlord.GameMaster.Characters.HairCoveringType
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HairCoveringType
+    path: ../Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+    startLine: 5
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: Dertimines how hair is rendered depending on the type of headgear worn
+  example: []
+  syntax:
+    content: public static class HairCoveringType
+    content.vb: Public Module HairCoveringType
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Characters.HairCoveringType.None
+  commentId: F:Bannerlord.GameMaster.Characters.HairCoveringType.None
+  id: None
+  parent: Bannerlord.GameMaster.Characters.HairCoveringType
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: HairCoveringType.None
+  fullName: Bannerlord.GameMaster.Characters.HairCoveringType.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: '0: No hair covering - full hair visible (default for no helmet)'
+  example: []
+  syntax:
+    content: public static readonly int None
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly None As Integer
+- uid: Bannerlord.GameMaster.Characters.HairCoveringType.Light
+  commentId: F:Bannerlord.GameMaster.Characters.HairCoveringType.Light
+  id: Light
+  parent: Bannerlord.GameMaster.Characters.HairCoveringType
+  langs:
+  - csharp
+  - vb
+  name: Light
+  nameWithType: HairCoveringType.Light
+  fullName: Bannerlord.GameMaster.Characters.HairCoveringType.Light
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Light
+    path: ../Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: '1: Light coverage (circlets, tiaras, open helmets)'
+  example: []
+  syntax:
+    content: public static readonly int Light
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Light As Integer
+- uid: Bannerlord.GameMaster.Characters.HairCoveringType.Medium
+  commentId: F:Bannerlord.GameMaster.Characters.HairCoveringType.Medium
+  id: Medium
+  parent: Bannerlord.GameMaster.Characters.HairCoveringType
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: HairCoveringType.Medium
+  fullName: Bannerlord.GameMaster.Characters.HairCoveringType.Medium
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Medium
+    path: ../Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: '2: Medium coverage (half-helmets, hoods showing some hair)'
+  example: []
+  syntax:
+    content: public static readonly int Medium
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Medium As Integer
+- uid: Bannerlord.GameMaster.Characters.HairCoveringType.Heavy
+  commentId: F:Bannerlord.GameMaster.Characters.HairCoveringType.Heavy
+  id: Heavy
+  parent: Bannerlord.GameMaster.Characters.HairCoveringType
+  langs:
+  - csharp
+  - vb
+  name: Heavy
+  nameWithType: HairCoveringType.Heavy
+  fullName: Bannerlord.GameMaster.Characters.HairCoveringType.Heavy
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Heavy
+    path: ../Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: '3: Heavy coverage (most helmets, coifs)'
+  example: []
+  syntax:
+    content: public static readonly int Heavy
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Heavy As Integer
+- uid: Bannerlord.GameMaster.Characters.HairCoveringType.Full
+  commentId: F:Bannerlord.GameMaster.Characters.HairCoveringType.Full
+  id: Full
+  parent: Bannerlord.GameMaster.Characters.HairCoveringType
+  langs:
+  - csharp
+  - vb
+  name: Full
+  nameWithType: HairCoveringType.Full
+  fullName: Bannerlord.GameMaster.Characters.HairCoveringType.Full
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Full
+    path: ../Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: '4: Full coverage (full enclosed helmets, complete head wraps)'
+  example: []
+  syntax:
+    content: public static readonly int Full
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Full As Integer
+- uid: Bannerlord.GameMaster.Characters.HairCoveringType.Special
+  commentId: F:Bannerlord.GameMaster.Characters.HairCoveringType.Special
+  id: Special
+  parent: Bannerlord.GameMaster.Characters.HairCoveringType
+  langs:
+  - csharp
+  - vb
+  name: Special
+  nameWithType: HairCoveringType.Special
+  fullName: Bannerlord.GameMaster.Characters.HairCoveringType.Special
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Special
+    path: ../Bannerlord.GameMaster/Characters/HairCoveringTypes.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: '5: Special case (specific cultural headgear)'
+  example: []
+  syntax:
+    content: public static readonly int Special
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Special As Integer
+references:
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

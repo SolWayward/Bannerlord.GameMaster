@@ -1,0 +1,197 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  commentId: N:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  id: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  children:
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryHelpers
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryHelpers
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CommonQueryHelpers
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryHelpers
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryHelpers
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryHelpers
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryHelpers
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryArguments
+  - Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryHelpers
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  nameWithType: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryArguments.html
+  name: CharacterQueryArguments
+  nameWithType: CharacterQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryHelpers.html
+  name: CharacterQueryHelpers
+  nameWithType: CharacterQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CharacterQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryArguments.html
+  name: ClanQueryArguments
+  nameWithType: ClanQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryHelpers.html
+  name: ClanQueryHelpers
+  nameWithType: ClanQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ClanQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CommonQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CommonQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CommonQueryHelpers.html
+  name: CommonQueryHelpers
+  nameWithType: CommonQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CommonQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments.html
+  name: CultureQueryArguments
+  nameWithType: CultureQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers.html
+  name: CultureQueryHelpers
+  nameWithType: CultureQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.CultureQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryArguments.html
+  name: HeroQueryArguments
+  nameWithType: HeroQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryHelpers.html
+  name: HeroQueryHelpers
+  nameWithType: HeroQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.HeroQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryArguments.html
+  name: ItemQueryArguments
+  nameWithType: ItemQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryHelpers.html
+  name: ItemQueryHelpers
+  nameWithType: ItemQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.ItemQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments.html
+  name: KingdomQueryArguments
+  nameWithType: KingdomQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryHelpers.html
+  name: KingdomQueryHelpers
+  nameWithType: KingdomQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.KingdomQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments.html
+  name: QueryArguments
+  nameWithType: QueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.QueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryArguments.html
+  name: SettlementQueryArguments
+  nameWithType: SettlementQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryHelpers.html
+  name: SettlementQueryHelpers
+  nameWithType: SettlementQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.SettlementQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryArguments
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryArguments
+  parent: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryArguments.html
+  name: TroopQueryArguments
+  nameWithType: TroopQueryArguments
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryArguments
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryHelpers
+  commentId: T:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryHelpers
+  href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryHelpers.html
+  name: TroopQueryHelpers
+  nameWithType: TroopQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.TroopQueryHelpers
+- uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  commentId: N:Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  nameWithType: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  fullName: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query
+    name: Query
+    href: Bannerlord.GameMaster.Console.Query.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+    name: CommandQueryHelpers
+    href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query
+    name: Query
+    href: Bannerlord.GameMaster.Console.Query.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers
+    name: CommandQueryHelpers
+    href: Bannerlord.GameMaster.Console.Query.CommandQueryHelpers.html

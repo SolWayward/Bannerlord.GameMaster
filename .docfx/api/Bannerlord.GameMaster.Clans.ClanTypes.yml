@@ -1,0 +1,562 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Clans.ClanTypes
+  commentId: T:Bannerlord.GameMaster.Clans.ClanTypes
+  id: ClanTypes
+  parent: Bannerlord.GameMaster.Clans
+  children:
+  - Bannerlord.GameMaster.Clans.ClanTypes.Active
+  - Bannerlord.GameMaster.Clans.ClanTypes.Bandit
+  - Bannerlord.GameMaster.Clans.ClanTypes.Eliminated
+  - Bannerlord.GameMaster.Clans.ClanTypes.Empty
+  - Bannerlord.GameMaster.Clans.ClanTypes.Mafia
+  - Bannerlord.GameMaster.Clans.ClanTypes.MapFaction
+  - Bannerlord.GameMaster.Clans.ClanTypes.Mercenary
+  - Bannerlord.GameMaster.Clans.ClanTypes.MinorFaction
+  - Bannerlord.GameMaster.Clans.ClanTypes.Noble
+  - Bannerlord.GameMaster.Clans.ClanTypes.Nomad
+  - Bannerlord.GameMaster.Clans.ClanTypes.NonBandit
+  - Bannerlord.GameMaster.Clans.ClanTypes.None
+  - Bannerlord.GameMaster.Clans.ClanTypes.Outlaw
+  - Bannerlord.GameMaster.Clans.ClanTypes.PlayerClan
+  - Bannerlord.GameMaster.Clans.ClanTypes.Rebel
+  - Bannerlord.GameMaster.Clans.ClanTypes.Sect
+  - Bannerlord.GameMaster.Clans.ClanTypes.UnderMercenaryService
+  - Bannerlord.GameMaster.Clans.ClanTypes.WithoutKingdom
+  langs:
+  - csharp
+  - vb
+  name: ClanTypes
+  nameWithType: ClanTypes
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClanTypes
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum ClanTypes
+    content.vb: >-
+      <Flags>
+
+      Public Enum ClanTypes
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.None
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.None
+  id: None
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ClanTypes.None
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Active
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Active
+  id: Active
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Active
+  nameWithType: ClanTypes.Active
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Active
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Active
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Active = 1
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Eliminated
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Eliminated
+  id: Eliminated
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Eliminated
+  nameWithType: ClanTypes.Eliminated
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Eliminated
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Eliminated
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Eliminated = 2
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Bandit
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Bandit
+  id: Bandit
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Bandit
+  nameWithType: ClanTypes.Bandit
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Bandit
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bandit
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Bandit = 4
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.NonBandit
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.NonBandit
+  id: NonBandit
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: NonBandit
+  nameWithType: ClanTypes.NonBandit
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.NonBandit
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NonBandit
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 22
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: NonBandit = 8
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.MapFaction
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.MapFaction
+  id: MapFaction
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: MapFaction
+  nameWithType: ClanTypes.MapFaction
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.MapFaction
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MapFaction
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: MapFaction = 16
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Noble
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Noble
+  id: Noble
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Noble
+  nameWithType: ClanTypes.Noble
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Noble
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Noble
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Noble = 32
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.MinorFaction
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.MinorFaction
+  id: MinorFaction
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: MinorFaction
+  nameWithType: ClanTypes.MinorFaction
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.MinorFaction
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MinorFaction
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: MinorFaction = 64
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Rebel
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Rebel
+  id: Rebel
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Rebel
+  nameWithType: ClanTypes.Rebel
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Rebel
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Rebel
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Rebel = 128
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Mercenary
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Mercenary
+  id: Mercenary
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Mercenary
+  nameWithType: ClanTypes.Mercenary
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Mercenary
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Mercenary
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Mercenary = 256
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.UnderMercenaryService
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.UnderMercenaryService
+  id: UnderMercenaryService
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: UnderMercenaryService
+  nameWithType: ClanTypes.UnderMercenaryService
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.UnderMercenaryService
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: UnderMercenaryService
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: UnderMercenaryService = 512
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Mafia
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Mafia
+  id: Mafia
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Mafia
+  nameWithType: ClanTypes.Mafia
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Mafia
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Mafia
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Mafia = 1024
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Outlaw
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Outlaw
+  id: Outlaw
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Outlaw
+  nameWithType: ClanTypes.Outlaw
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Outlaw
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Outlaw
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Outlaw = 2048
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Nomad
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Nomad
+  id: Nomad
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Nomad
+  nameWithType: ClanTypes.Nomad
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Nomad
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Nomad
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Nomad = 4096
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Sect
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Sect
+  id: Sect
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Sect
+  nameWithType: ClanTypes.Sect
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Sect
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sect
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Sect = 8192
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.WithoutKingdom
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.WithoutKingdom
+  id: WithoutKingdom
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: WithoutKingdom
+  nameWithType: ClanTypes.WithoutKingdom
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.WithoutKingdom
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: WithoutKingdom
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: WithoutKingdom = 16384
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.Empty
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.Empty
+  id: Empty
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: ClanTypes.Empty
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.Empty
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Empty
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: Empty = 32768
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+- uid: Bannerlord.GameMaster.Clans.ClanTypes.PlayerClan
+  commentId: F:Bannerlord.GameMaster.Clans.ClanTypes.PlayerClan
+  id: PlayerClan
+  parent: Bannerlord.GameMaster.Clans.ClanTypes
+  langs:
+  - csharp
+  - vb
+  name: PlayerClan
+  nameWithType: ClanTypes.PlayerClan
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes.PlayerClan
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: PlayerClan
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  syntax:
+    content: PlayerClan = 65536
+    return:
+      type: Bannerlord.GameMaster.Clans.ClanTypes
+references:
+- uid: Bannerlord.GameMaster.Clans
+  commentId: N:Bannerlord.GameMaster.Clans
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Clans
+  nameWithType: Bannerlord.GameMaster.Clans
+  fullName: Bannerlord.GameMaster.Clans
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Clans
+    name: Clans
+    href: Bannerlord.GameMaster.Clans.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Clans
+    name: Clans
+    href: Bannerlord.GameMaster.Clans.html
+- uid: Bannerlord.GameMaster.Clans.ClanTypes
+  commentId: T:Bannerlord.GameMaster.Clans.ClanTypes
+  parent: Bannerlord.GameMaster.Clans
+  href: Bannerlord.GameMaster.Clans.ClanTypes.html
+  name: ClanTypes
+  nameWithType: ClanTypes
+  fullName: Bannerlord.GameMaster.Clans.ClanTypes

@@ -1,0 +1,697 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  commentId: T:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  id: ItemModifierHelper.CommonModifiers
+  parent: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Balanced
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Bent
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Chipped
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Cracked
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Fine
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Heavy
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Legendary
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Masterwork
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Rusty
+  - Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Sharp
+  langs:
+  - csharp
+  - vb
+  name: ItemModifierHelper.CommonModifiers
+  nameWithType: ItemModifierHelper.CommonModifiers
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CommonModifiers
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 138
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Common quality modifiers (for convenience/quick reference)
+  example: []
+  syntax:
+    content: public static class ItemModifierHelper.CommonModifiers
+    content.vb: Public Module ItemModifierHelper.CommonModifiers
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Fine
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Fine
+  id: Fine
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Fine
+  nameWithType: ItemModifierHelper.CommonModifiers.Fine
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Fine
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Fine
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 140
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Fine { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Fine As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Fine*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Masterwork
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Masterwork
+  id: Masterwork
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Masterwork
+  nameWithType: ItemModifierHelper.CommonModifiers.Masterwork
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Masterwork
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Masterwork
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 141
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Masterwork { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Masterwork As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Masterwork*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Legendary
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Legendary
+  id: Legendary
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Legendary
+  nameWithType: ItemModifierHelper.CommonModifiers.Legendary
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Legendary
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Legendary
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 142
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Legendary { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Legendary As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Legendary*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Bent
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Bent
+  id: Bent
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Bent
+  nameWithType: ItemModifierHelper.CommonModifiers.Bent
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Bent
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bent
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 143
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Bent { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Bent As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Bent*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Chipped
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Chipped
+  id: Chipped
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Chipped
+  nameWithType: ItemModifierHelper.CommonModifiers.Chipped
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Chipped
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Chipped
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 144
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Chipped { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Chipped As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Chipped*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Rusty
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Rusty
+  id: Rusty
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Rusty
+  nameWithType: ItemModifierHelper.CommonModifiers.Rusty
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Rusty
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Rusty
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 145
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Rusty { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Rusty As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Rusty*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Cracked
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Cracked
+  id: Cracked
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Cracked
+  nameWithType: ItemModifierHelper.CommonModifiers.Cracked
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Cracked
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Cracked
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 146
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Cracked { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Cracked As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Cracked*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Balanced
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Balanced
+  id: Balanced
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Balanced
+  nameWithType: ItemModifierHelper.CommonModifiers.Balanced
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Balanced
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Balanced
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 147
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Balanced { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Balanced As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Balanced*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Sharp
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Sharp
+  id: Sharp
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Sharp
+  nameWithType: ItemModifierHelper.CommonModifiers.Sharp
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Sharp
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sharp
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 148
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Sharp { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Sharp As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Sharp*
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Heavy
+  commentId: P:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Heavy
+  id: Heavy
+  parent: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers
+  langs:
+  - csharp
+  - vb
+  name: Heavy
+  nameWithType: ItemModifierHelper.CommonModifiers.Heavy
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Heavy
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Heavy
+    path: ../Bannerlord.GameMaster/Items/ItemModifierHelper.cs
+    startLine: 149
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  syntax:
+    content: public static ItemModifier Heavy { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.ItemModifier
+    content.vb: Public Shared ReadOnly Property Heavy As ItemModifier
+  overload: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Heavy*
+references:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Fine*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Fine
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Fine
+  name: Fine
+  nameWithType: ItemModifierHelper.CommonModifiers.Fine
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Fine
+- uid: TaleWorlds.Core.ItemModifier
+  commentId: T:TaleWorlds.Core.ItemModifier
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: ItemModifier
+  nameWithType: ItemModifier
+  fullName: TaleWorlds.Core.ItemModifier
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Masterwork*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Masterwork
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Masterwork
+  name: Masterwork
+  nameWithType: ItemModifierHelper.CommonModifiers.Masterwork
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Masterwork
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Legendary*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Legendary
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Legendary
+  name: Legendary
+  nameWithType: ItemModifierHelper.CommonModifiers.Legendary
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Legendary
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Bent*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Bent
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Bent
+  name: Bent
+  nameWithType: ItemModifierHelper.CommonModifiers.Bent
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Bent
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Chipped*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Chipped
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Chipped
+  name: Chipped
+  nameWithType: ItemModifierHelper.CommonModifiers.Chipped
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Chipped
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Rusty*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Rusty
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Rusty
+  name: Rusty
+  nameWithType: ItemModifierHelper.CommonModifiers.Rusty
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Rusty
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Cracked*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Cracked
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Cracked
+  name: Cracked
+  nameWithType: ItemModifierHelper.CommonModifiers.Cracked
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Cracked
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Balanced*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Balanced
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Balanced
+  name: Balanced
+  nameWithType: ItemModifierHelper.CommonModifiers.Balanced
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Balanced
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Sharp*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Sharp
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Sharp
+  name: Sharp
+  nameWithType: ItemModifierHelper.CommonModifiers.Sharp
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Sharp
+- uid: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Heavy*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Heavy
+  href: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.html#Bannerlord_GameMaster_Items_ItemModifierHelper_CommonModifiers_Heavy
+  name: Heavy
+  nameWithType: ItemModifierHelper.CommonModifiers.Heavy
+  fullName: Bannerlord.GameMaster.Items.ItemModifierHelper.CommonModifiers.Heavy

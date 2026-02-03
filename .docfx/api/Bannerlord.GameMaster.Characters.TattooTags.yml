@@ -1,0 +1,622 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Characters.TattooTags
+  commentId: T:Bannerlord.GameMaster.Characters.TattooTags
+  id: TattooTags
+  parent: Bannerlord.GameMaster.Characters
+  children:
+  - Bannerlord.GameMaster.Characters.TattooTags.All
+  - Bannerlord.GameMaster.Characters.TattooTags.Aserai
+  - Bannerlord.GameMaster.Characters.TattooTags.Battanian
+  - Bannerlord.GameMaster.Characters.TattooTags.Empire
+  - Bannerlord.GameMaster.Characters.TattooTags.Khuzait
+  - Bannerlord.GameMaster.Characters.TattooTags.None
+  - Bannerlord.GameMaster.Characters.TattooTags.Sturgian
+  - Bannerlord.GameMaster.Characters.TattooTags.Tribal
+  - Bannerlord.GameMaster.Characters.TattooTags.Vlandian
+  - Bannerlord.GameMaster.Characters.TattooTags.WarPaint
+  langs:
+  - csharp
+  - vb
+  name: TattooTags
+  nameWithType: TattooTags
+  fullName: Bannerlord.GameMaster.Characters.TattooTags
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TattooTags
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 6
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: >-
+    Filters which Tattoos / face paints are allowed <br />
+
+    Multiple tags can be combined to allow a combination (ex: "tag1;tag2;tag3"), some pre-combined tags are provided
+  example: []
+  syntax:
+    content: public static class TattooTags
+    content.vb: Public Module TattooTags
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Characters.TattooTags.All
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.All
+  id: All
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: TattooTags.All
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.All
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: All
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: 'Empty String: All tattoos and face paints allowed'
+  example: []
+  syntax:
+    content: public static readonly string All
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly All As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.None
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.None
+  id: None
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: TattooTags.None
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"none\" : None allowed"
+  example: []
+  syntax:
+    content: public static readonly string None
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly None As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.Tribal
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.Tribal
+  id: Tribal
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: Tribal
+  nameWithType: TattooTags.Tribal
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.Tribal
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tribal
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"tribal\" : Tribal styled tattoos"
+  example: []
+  syntax:
+    content: public static readonly string Tribal
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Tribal As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.WarPaint
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.WarPaint
+  id: WarPaint
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: WarPaint
+  nameWithType: TattooTags.WarPaint
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.WarPaint
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: WarPaint
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"war_paint\" : War Paint styles only"
+  example: []
+  syntax:
+    content: public static readonly string WarPaint
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly WarPaint As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.Battanian
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.Battanian
+  id: Battanian
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: Battanian
+  nameWithType: TattooTags.Battanian
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.Battanian
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Battanian
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"battanian\" : Battanian culutural specific styles"
+  example: []
+  syntax:
+    content: public static readonly string Battanian
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Battanian As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.Sturgian
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.Sturgian
+  id: Sturgian
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: Sturgian
+  nameWithType: TattooTags.Sturgian
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.Sturgian
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Sturgian
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"sturgian\" : Sturgian culutural specific styles allowed"
+  example: []
+  syntax:
+    content: public static readonly string Sturgian
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Sturgian As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.Aserai
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.Aserai
+  id: Aserai
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: Aserai
+  nameWithType: TattooTags.Aserai
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.Aserai
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Aserai
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"aserai\" : Aserai culutural specific styles allowed"
+  example: []
+  syntax:
+    content: public static readonly string Aserai
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Aserai As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.Khuzait
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.Khuzait
+  id: Khuzait
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: Khuzait
+  nameWithType: TattooTags.Khuzait
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.Khuzait
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Khuzait
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 46
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"khuzait\" : Khuzait culutural specific styles allowed"
+  example: []
+  syntax:
+    content: public static readonly string Khuzait
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Khuzait As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.Vlandian
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.Vlandian
+  id: Vlandian
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: Vlandian
+  nameWithType: TattooTags.Vlandian
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.Vlandian
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Vlandian
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 51
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"vlandian\" : Vlandian culutural specific styles allowed (minimal)"
+  example: []
+  syntax:
+    content: public static readonly string Vlandian
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Vlandian As String
+- uid: Bannerlord.GameMaster.Characters.TattooTags.Empire
+  commentId: F:Bannerlord.GameMaster.Characters.TattooTags.Empire
+  id: Empire
+  parent: Bannerlord.GameMaster.Characters.TattooTags
+  langs:
+  - csharp
+  - vb
+  name: Empire
+  nameWithType: TattooTags.Empire
+  fullName: Bannerlord.GameMaster.Characters.TattooTags.Empire
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/TattooTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Empire
+    path: ../Bannerlord.GameMaster/Characters/TattooTags.cs
+    startLine: 56
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"empire\" : Empire culutural specific styles allowed (minimal)"
+  example: []
+  syntax:
+    content: public static readonly string Empire
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Empire As String
+references:
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

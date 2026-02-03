@@ -1,0 +1,111 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Kingdoms
+  commentId: N:Bannerlord.GameMaster.Kingdoms
+  id: Bannerlord.GameMaster.Kingdoms
+  children:
+  - Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  - Bannerlord.GameMaster.Kingdoms.KingdomGenerator
+  - Bannerlord.GameMaster.Kingdoms.KingdomQueries
+  - Bannerlord.GameMaster.Kingdoms.KingdomTradeAgreementExtensions
+  - Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+  - Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  - Bannerlord.GameMaster.Kingdoms.TributeInfo
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Kingdoms
+  nameWithType: Bannerlord.GameMaster.Kingdoms
+  fullName: Bannerlord.GameMaster.Kingdoms
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions
+  href: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.html
+  name: KingdomAllianceExtensions
+  nameWithType: KingdomAllianceExtensions
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  parent: Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  name: KingdomTypes
+  nameWithType: KingdomTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html
+  name: KingdomExtensions
+  nameWithType: KingdomExtensions
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.html
+  name: KingdomExtensionsWrapper
+  nameWithType: KingdomExtensionsWrapper
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomGenerator
+  href: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.html
+  name: KingdomGenerator
+  nameWithType: KingdomGenerator
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomGenerator
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomQueries
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomQueries
+  href: Bannerlord.GameMaster.Kingdoms.KingdomQueries.html
+  name: KingdomQueries
+  nameWithType: KingdomQueries
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomQueries
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTradeAgreementExtensions
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTradeAgreementExtensions
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTradeAgreementExtensions.html
+  name: KingdomTradeAgreementExtensions
+  nameWithType: KingdomTradeAgreementExtensions
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTradeAgreementExtensions
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions.html
+  name: KingdomTributeExtensions
+  nameWithType: KingdomTributeExtensions
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTributeExtensions
+- uid: Bannerlord.GameMaster.Kingdoms.TributeInfo
+  commentId: T:Bannerlord.GameMaster.Kingdoms.TributeInfo
+  parent: Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.GameMaster.Kingdoms.TributeInfo.html
+  name: TributeInfo
+  nameWithType: TributeInfo
+  fullName: Bannerlord.GameMaster.Kingdoms.TributeInfo
+- uid: Bannerlord.GameMaster.Kingdoms
+  commentId: N:Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Kingdoms
+  nameWithType: Bannerlord.GameMaster.Kingdoms
+  fullName: Bannerlord.GameMaster.Kingdoms
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html

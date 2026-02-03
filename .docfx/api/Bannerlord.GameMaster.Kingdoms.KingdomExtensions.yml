@@ -1,0 +1,814 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  id: KingdomExtensions
+  parent: Bannerlord.GameMaster.Kingdoms
+  children:
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetFortifications(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetKingdomTypes(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTowns(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  langs:
+  - csharp
+  - vb
+  name: KingdomExtensions
+  nameWithType: KingdomExtensions
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: KingdomExtensions
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: public static class KingdomExtensions
+    content.vb: Public Module KingdomExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetKingdomTypes(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetKingdomTypes(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetKingdomTypes(TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetKingdomTypes(Kingdom)
+  nameWithType: KingdomExtensions.GetKingdomTypes(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetKingdomTypes(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetKingdomTypes
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Gets all kingdom type flags for this kingdom
+  example: []
+  syntax:
+    content: public static KingdomTypes GetKingdomTypes(this Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    content.vb: Public Shared Function GetKingdomTypes(kingdom As Kingdom) As KingdomTypes
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetKingdomTypes*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  id: HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasAllTypes(Kingdom, KingdomTypes)
+  nameWithType: KingdomExtensions.HasAllTypes(Kingdom, KingdomTypes)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAllTypes
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 64
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Checks if kingdom has ALL specified flags
+  example: []
+  syntax:
+    content: public static bool HasAllTypes(this Kingdom kingdom, KingdomTypes types)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: types
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasAllTypes(kingdom As Kingdom, types As KingdomTypes) As Boolean
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  id: HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasAnyType(Kingdom, KingdomTypes)
+  nameWithType: KingdomExtensions.HasAnyType(Kingdom, KingdomTypes)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType(TaleWorlds.CampaignSystem.Kingdom, Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasAnyType
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 74
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Checks if kingdom has ANY of the specified flags
+  example: []
+  syntax:
+    content: public static bool HasAnyType(this Kingdom kingdom, KingdomTypes types)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: types
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasAnyType(kingdom As Kingdom, types As KingdomTypes) As Boolean
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetFortifications(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetFortifications(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetFortifications(TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetFortifications(Kingdom)
+  nameWithType: KingdomExtensions.GetFortifications(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetFortifications(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFortifications
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 83
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Gets all Fortifications (Towns and Castles) within the Kingdom
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Settlement> GetFortifications(this Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+    content.vb: Public Shared Function GetFortifications(kingdom As Kingdom) As MBReadOnlyList(Of Settlement)
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetFortifications*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTowns(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTowns(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetTowns(TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetTowns(Kingdom)
+  nameWithType: KingdomExtensions.GetTowns(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTowns(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTowns
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 96
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Gets all Towns within the Kingdom
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Settlement> GetTowns(this Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+    content.vb: Public Shared Function GetTowns(kingdom As Kingdom) As MBReadOnlyList(Of Settlement)
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTowns*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetCastles(TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetCastles(Kingdom)
+  nameWithType: KingdomExtensions.GetCastles(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCastles
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 109
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Gets all Castles within the Kingdom
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Settlement> GetCastles(this Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+    content.vb: Public Shared Function GetCastles(kingdom As Kingdom) As MBReadOnlyList(Of Settlement)
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetVillages(TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetVillages(Kingdom)
+  nameWithType: KingdomExtensions.GetVillages(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetVillages
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 122
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Gets all Villages within the Kingdom
+  example: []
+  syntax:
+    content: public static MBReadOnlyList<Settlement> GetVillages(this Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+    content.vb: Public Shared Function GetVillages(kingdom As Kingdom) As MBReadOnlyList(Of Settlement)
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  id: FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: FormattedDetails(Kingdom)
+  nameWithType: KingdomExtensions.FormattedDetails(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FormattedDetails
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 138
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Returns a formatted string containing the kingdom's details
+  example: []
+  syntax:
+    content: public static string FormattedDetails(this Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: System.String
+    content.vb: Public Shared Function FormattedDetails(kingdom As Kingdom) As String
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  id: GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetTypes(Kingdom)
+  nameWithType: KingdomExtensions.GetTypes(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTypes
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 148
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: Alias for GetKingdomTypes to match IEntityExtensions interface
+  example: []
+  syntax:
+    content: public static KingdomTypes GetTypes(this Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    return:
+      type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+    content.vb: Public Shared Function GetTypes(kingdom As Kingdom) As KingdomTypes
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes*
+references:
+- uid: Bannerlord.GameMaster.Kingdoms
+  commentId: N:Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Kingdoms
+  nameWithType: Bannerlord.GameMaster.Kingdoms
+  fullName: Bannerlord.GameMaster.Kingdoms
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Kingdoms
+    name: Kingdoms
+    href: Bannerlord.GameMaster.Kingdoms.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetKingdomTypes*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetKingdomTypes
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_GetKingdomTypes_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetKingdomTypes
+  nameWithType: KingdomExtensions.GetKingdomTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetKingdomTypes
+- uid: TaleWorlds.CampaignSystem.Kingdom
+  commentId: T:TaleWorlds.CampaignSystem.Kingdom
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Kingdom
+  nameWithType: Kingdom
+  fullName: TaleWorlds.CampaignSystem.Kingdom
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  commentId: T:Bannerlord.GameMaster.Kingdoms.KingdomTypes
+  parent: Bannerlord.GameMaster.Kingdoms
+  href: Bannerlord.GameMaster.Kingdoms.KingdomTypes.html
+  name: KingdomTypes
+  nameWithType: KingdomTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomTypes
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_HasAllTypes_TaleWorlds_CampaignSystem_Kingdom_Bannerlord_GameMaster_Kingdoms_KingdomTypes_
+  name: HasAllTypes
+  nameWithType: KingdomExtensions.HasAllTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_HasAnyType_TaleWorlds_CampaignSystem_Kingdom_Bannerlord_GameMaster_Kingdoms_KingdomTypes_
+  name: HasAnyType
+  nameWithType: KingdomExtensions.HasAnyType
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetFortifications*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetFortifications
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_GetFortifications_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetFortifications
+  nameWithType: KingdomExtensions.GetFortifications
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetFortifications
+- uid: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+  commentId: T:TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
+  parent: TaleWorlds.Library
+  definition: TaleWorlds.Library.MBReadOnlyList`1
+  name: MBReadOnlyList<Settlement>
+  nameWithType: MBReadOnlyList<Settlement>
+  fullName: TaleWorlds.Library.MBReadOnlyList<TaleWorlds.CampaignSystem.Settlements.Settlement>
+  nameWithType.vb: MBReadOnlyList(Of Settlement)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of TaleWorlds.CampaignSystem.Settlements.Settlement)
+  name.vb: MBReadOnlyList(Of Settlement)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+    name: Settlement
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+    name: Settlement
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.Library.MBReadOnlyList`1
+  commentId: T:TaleWorlds.Library.MBReadOnlyList`1
+  isExternal: true
+  name: MBReadOnlyList<T>
+  nameWithType: MBReadOnlyList<T>
+  fullName: TaleWorlds.Library.MBReadOnlyList<T>
+  nameWithType.vb: MBReadOnlyList(Of T)
+  fullName.vb: TaleWorlds.Library.MBReadOnlyList(Of T)
+  name.vb: MBReadOnlyList(Of T)
+  spec.csharp:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: TaleWorlds.Library.MBReadOnlyList`1
+    name: MBReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTowns*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTowns
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_GetTowns_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetTowns
+  nameWithType: KingdomExtensions.GetTowns
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTowns
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_GetCastles_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetCastles
+  nameWithType: KingdomExtensions.GetCastles
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_GetVillages_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetVillages
+  nameWithType: KingdomExtensions.GetVillages
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_FormattedDetails_TaleWorlds_CampaignSystem_Kingdom_
+  name: FormattedDetails
+  nameWithType: KingdomExtensions.FormattedDetails
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_GetTypes_TaleWorlds_CampaignSystem_Kingdom_
+  name: GetTypes
+  nameWithType: KingdomExtensions.GetTypes
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes

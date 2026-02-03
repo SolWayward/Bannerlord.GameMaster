@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  id: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  children:
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.html
+  name: AddClanCommand
+  nameWithType: AddClanCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand.html
+  name: DestroyKingdomCommand
+  nameWithType: DestroyKingdomCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand.html
+  name: EquipKingdomHeroesCommand
+  nameWithType: EquipKingdomHeroesCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand.html
+  name: RemoveClanCommand
+  nameWithType: RemoveClanCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand.html
+  name: SetRulerCommand
+  nameWithType: SetRulerCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand

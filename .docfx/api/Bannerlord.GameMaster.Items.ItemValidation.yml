@@ -1,0 +1,1591 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.ItemValidation
+  commentId: T:Bannerlord.GameMaster.Items.ItemValidation
+  id: ItemValidation
+  parent: Bannerlord.GameMaster.Items
+  children:
+  - Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel(System.Int32)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender(TaleWorlds.Core.ItemObject,System.Boolean)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsBattleCrown(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedItem(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedWeaponStringId(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsCivilianAppropriateItem(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsCivilianCrown(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsClothArmor(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsCrownItem(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsDressItem(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsItemInTierRange(TaleWorlds.Core.ItemObject,TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsJeweledCrown(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsLadiesShoes(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsPolearmWeapon(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsRulingClanMember(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsSidearmWeapon(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.IsValidItem(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold(TaleWorlds.Core.ItemObject,System.Single)
+  - Bannerlord.GameMaster.Items.ItemValidation.MeetsBattleArmorAppearanceRequirement(TaleWorlds.Core.ItemObject)
+  - Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement(TaleWorlds.Core.ItemObject,System.Boolean)
+  - Bannerlord.GameMaster.Items.ItemValidation.MinimumBattleArmorAppearance
+  - Bannerlord.GameMaster.Items.ItemValidation.MinimumCivilianAppearance
+  - Bannerlord.GameMaster.Items.ItemValidation.MinimumRoyalAppearance
+  - Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor(System.Int32,TaleWorlds.Core.EquipmentIndex)
+  langs:
+  - csharp
+  - vb
+  name: ItemValidation
+  nameWithType: ItemValidation
+  fullName: Bannerlord.GameMaster.Items.ItemValidation
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ItemValidation
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Provides static methods for validating items and determining their suitability
+
+    for equipment pools and hero assignment based on various criteria.
+  example: []
+  syntax:
+    content: public static class ItemValidation
+    content.vb: Public Module ItemValidation
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MinimumCivilianAppearance
+  commentId: F:Bannerlord.GameMaster.Items.ItemValidation.MinimumCivilianAppearance
+  id: MinimumCivilianAppearance
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: MinimumCivilianAppearance
+  nameWithType: ItemValidation.MinimumCivilianAppearance
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MinimumCivilianAppearance
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MinimumCivilianAppearance
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 84
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Minimum appearance value for standard civilian items.
+
+    Items with Appearance &gt; this value are considered suitable.
+  example: []
+  syntax:
+    content: public const float MinimumCivilianAppearance = 0.99
+    return:
+      type: System.Single
+    content.vb: Public Const MinimumCivilianAppearance As Single = 0.99
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MinimumRoyalAppearance
+  commentId: F:Bannerlord.GameMaster.Items.ItemValidation.MinimumRoyalAppearance
+  id: MinimumRoyalAppearance
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: MinimumRoyalAppearance
+  nameWithType: ItemValidation.MinimumRoyalAppearance
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MinimumRoyalAppearance
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MinimumRoyalAppearance
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 90
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Minimum appearance value for ruling clan members' civilian items.
+
+    Items with Appearance &gt; this value are considered suitable for royalty.
+  example: []
+  syntax:
+    content: public const float MinimumRoyalAppearance = 1.99
+    return:
+      type: System.Single
+    content.vb: Public Const MinimumRoyalAppearance As Single = 1.99
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MinimumBattleArmorAppearance
+  commentId: F:Bannerlord.GameMaster.Items.ItemValidation.MinimumBattleArmorAppearance
+  id: MinimumBattleArmorAppearance
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: MinimumBattleArmorAppearance
+  nameWithType: ItemValidation.MinimumBattleArmorAppearance
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MinimumBattleArmorAppearance
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MinimumBattleArmorAppearance
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 96
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Minimum appearance value for battle armor items.
+
+    Items with Appearance &gt; this value are considered suitable for battle.
+  example: []
+  syntax:
+    content: public const float MinimumBattleArmorAppearance = 0.49
+    return:
+      type: System.Single
+    content.vb: Public Const MinimumBattleArmorAppearance As Single = 0.49
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedItem(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedItem(TaleWorlds.Core.ItemObject)
+  id: IsBlacklistedItem(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsBlacklistedItem(ItemObject)
+  nameWithType: ItemValidation.IsBlacklistedItem(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedItem(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsBlacklistedItem
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 109
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if an item is blacklisted and should be excluded from equipment pools.
+
+    Checks both exact name matches and keyword matches.
+  example: []
+  syntax:
+    content: public static bool IsBlacklistedItem(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is blacklisted; false otherwise.
+    content.vb: Public Shared Function IsBlacklistedItem(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedItem*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedWeaponStringId(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedWeaponStringId(TaleWorlds.Core.ItemObject)
+  id: IsBlacklistedWeaponStringId(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsBlacklistedWeaponStringId(ItemObject)
+  nameWithType: ItemValidation.IsBlacklistedWeaponStringId(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedWeaponStringId(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsBlacklistedWeaponStringId
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 144
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if a weapon item is blacklisted by StringId.
+
+    Checks for specific weapon StringIds that should be excluded.
+  example: []
+  syntax:
+    content: public static bool IsBlacklistedWeaponStringId(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the weapon StringId is blacklisted; false otherwise.
+    content.vb: Public Shared Function IsBlacklistedWeaponStringId(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedWeaponStringId*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsValidItem(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsValidItem(TaleWorlds.Core.ItemObject)
+  id: IsValidItem(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsValidItem(ItemObject)
+  nameWithType: ItemValidation.IsValidItem(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsValidItem(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsValidItem
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 170
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if an item is valid for inclusion in equipment pools.
+
+    Excludes blacklisted items, placeholder items (DP prefix), items with no functional stats,
+
+    and other invalid items.
+  example: []
+  syntax:
+    content: public static bool IsValidItem(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to validate.
+    return:
+      type: System.Boolean
+      description: True if the item is valid for equipment pools; false otherwise.
+    content.vb: Public Shared Function IsValidItem(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsValidItem*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender(TaleWorlds.Core.ItemObject,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender(TaleWorlds.Core.ItemObject,System.Boolean)
+  id: IsArmorSuitableForGender(TaleWorlds.Core.ItemObject,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsArmorSuitableForGender(ItemObject, bool)
+  nameWithType: ItemValidation.IsArmorSuitableForGender(ItemObject, bool)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender(TaleWorlds.Core.ItemObject, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsArmorSuitableForGender
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 222
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if an armor item is suitable for a hero based on gender.
+
+    Females can wear anything; males cannot wear items with female-only keywords.
+  example: []
+  syntax:
+    content: public static bool IsArmorSuitableForGender(ItemObject item, bool isFemale)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The armor item to check.
+    - id: isFemale
+      type: System.Boolean
+      description: Whether the hero is female.
+    return:
+      type: System.Boolean
+      description: True if the item is suitable for the specified gender; false otherwise.
+    content.vb: Public Shared Function IsArmorSuitableForGender(item As ItemObject, isFemale As Boolean) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender*
+  nameWithType.vb: ItemValidation.IsArmorSuitableForGender(ItemObject, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender(TaleWorlds.Core.ItemObject, Boolean)
+  name.vb: IsArmorSuitableForGender(ItemObject, Boolean)
+- uid: Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel(System.Int32)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel(System.Int32)
+  id: GetTierRangeForLevel(System.Int32)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: GetTierRangeForLevel(int)
+  nameWithType: ItemValidation.GetTierRangeForLevel(int)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel(int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetTierRangeForLevel
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 269
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Gets the valid tier range for equipment based on hero level.
+
+    Higher level heroes use higher tier equipment with appropriate minimum tiers.
+
+    Tier ranges are calibrated so heroes get level-appropriate gear:
+
+    - Level 0-9: Tier 1-3 (basic equipment)
+
+    - Level 10-14: Tier 3-4 (improved equipment)
+
+    - Level 15-19: Tier 4-5 (quality equipment)
+
+    - Level 20-24: Tier 5-6 (elite equipment)
+
+    - Level 25+: Tier 6 (legendary equipment)
+  example: []
+  syntax:
+    content: public static (ItemObject.ItemTiers minTier, ItemObject.ItemTiers maxTier) GetTierRangeForLevel(int heroLevel)
+    parameters:
+    - id: heroLevel
+      type: System.Int32
+      description: The hero's level.
+    return:
+      type: System.ValueTuple{TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers}
+      description: A tuple containing the minimum and maximum allowed item tiers.
+    content.vb: Public Shared Function GetTierRangeForLevel(heroLevel As Integer) As (minTier As ItemObject.ItemTiers, maxTier As ItemObject.ItemTiers)
+  overload: Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel*
+  nameWithType.vb: ItemValidation.GetTierRangeForLevel(Integer)
+  fullName.vb: Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel(Integer)
+  name.vb: GetTierRangeForLevel(Integer)
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsItemInTierRange(TaleWorlds.Core.ItemObject,TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsItemInTierRange(TaleWorlds.Core.ItemObject,TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers)
+  id: IsItemInTierRange(TaleWorlds.Core.ItemObject,TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsItemInTierRange(ItemObject, ItemTiers, ItemTiers)
+  nameWithType: ItemValidation.IsItemInTierRange(ItemObject, ItemObject.ItemTiers, ItemObject.ItemTiers)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsItemInTierRange(TaleWorlds.Core.ItemObject, TaleWorlds.Core.ItemObject.ItemTiers, TaleWorlds.Core.ItemObject.ItemTiers)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsItemInTierRange
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 299
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Determines if an item's tier falls within the specified tier range.
+  example: []
+  syntax:
+    content: public static bool IsItemInTierRange(ItemObject item, ItemObject.ItemTiers minTier, ItemObject.ItemTiers maxTier)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    - id: minTier
+      type: TaleWorlds.Core.ItemObject.ItemTiers
+      description: The minimum allowed tier.
+    - id: maxTier
+      type: TaleWorlds.Core.ItemObject.ItemTiers
+      description: The maximum allowed tier.
+    return:
+      type: System.Boolean
+      description: True if the item's tier is within the range; false otherwise.
+    content.vb: Public Shared Function IsItemInTierRange(item As ItemObject, minTier As ItemObject.ItemTiers, maxTier As ItemObject.ItemTiers) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsItemInTierRange*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor(System.Int32,TaleWorlds.Core.EquipmentIndex)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor(System.Int32,TaleWorlds.Core.EquipmentIndex)
+  id: ShouldExcludeClothArmor(System.Int32,TaleWorlds.Core.EquipmentIndex)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: ShouldExcludeClothArmor(int, EquipmentIndex)
+  nameWithType: ItemValidation.ShouldExcludeClothArmor(int, EquipmentIndex)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor(int, TaleWorlds.Core.EquipmentIndex)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ShouldExcludeClothArmor
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 315
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if cloth armor should be excluded for a hero based on level and equipment slot.
+
+    Low-level heroes (under 10) can wear cloth armor. Capes are always allowed to be cloth.
+  example: []
+  syntax:
+    content: public static bool ShouldExcludeClothArmor(int heroLevel, EquipmentIndex slot)
+    parameters:
+    - id: heroLevel
+      type: System.Int32
+      description: The hero's level.
+    - id: slot
+      type: TaleWorlds.Core.EquipmentIndex
+      description: The equipment slot being filled.
+    return:
+      type: System.Boolean
+      description: True if cloth armor should be excluded; false if cloth is allowed.
+    content.vb: Public Shared Function ShouldExcludeClothArmor(heroLevel As Integer, slot As EquipmentIndex) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor*
+  nameWithType.vb: ItemValidation.ShouldExcludeClothArmor(Integer, EquipmentIndex)
+  fullName.vb: Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor(Integer, TaleWorlds.Core.EquipmentIndex)
+  name.vb: ShouldExcludeClothArmor(Integer, EquipmentIndex)
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsClothArmor(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsClothArmor(TaleWorlds.Core.ItemObject)
+  id: IsClothArmor(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsClothArmor(ItemObject)
+  nameWithType: ItemValidation.IsClothArmor(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsClothArmor(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsClothArmor
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 335
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Determines if an item is cloth armor based on its armor component material type.
+  example: []
+  syntax:
+    content: public static bool IsClothArmor(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is cloth armor; false otherwise.
+    content.vb: Public Shared Function IsClothArmor(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsClothArmor*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianAppropriateItem(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsCivilianAppropriateItem(TaleWorlds.Core.ItemObject)
+  id: IsCivilianAppropriateItem(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsCivilianAppropriateItem(ItemObject)
+  nameWithType: ItemValidation.IsCivilianAppropriateItem(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianAppropriateItem(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsCivilianAppropriateItem
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 413
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if an item is suitable for civilian equipment.
+
+    Civilian appropriate items include:
+
+    - Items explicitly marked as IsCivilian by the game
+
+    - Dresses, ladies shoes, civilian crowns
+
+    - Cloth and leather items without combat keywords
+
+    - Items with civilian keywords (tunic, shirt, pants, etc.)
+
+    Excludes items with combat keywords (armor, mail, helm, etc.)
+  example: []
+  syntax:
+    content: public static bool IsCivilianAppropriateItem(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is suitable for civilian equipment; false otherwise.
+    content.vb: Public Shared Function IsCivilianAppropriateItem(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianAppropriateItem*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsDressItem(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsDressItem(TaleWorlds.Core.ItemObject)
+  id: IsDressItem(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsDressItem(ItemObject)
+  nameWithType: ItemValidation.IsDressItem(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsDressItem(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsDressItem
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 478
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Determines if an item is a dress based on name or StringId containing "dress".
+  example: []
+  syntax:
+    content: public static bool IsDressItem(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is a dress; false otherwise.
+    content.vb: Public Shared Function IsDressItem(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsDressItem*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsLadiesShoes(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsLadiesShoes(TaleWorlds.Core.ItemObject)
+  id: IsLadiesShoes(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsLadiesShoes(ItemObject)
+  nameWithType: ItemValidation.IsLadiesShoes(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsLadiesShoes(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsLadiesShoes
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 501
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Determines if an item is ladies shoes based on name containing "Ladies Shoes" or "Lady Shoes".
+  example: []
+  syntax:
+    content: public static bool IsLadiesShoes(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is ladies shoes; false otherwise.
+    content.vb: Public Shared Function IsLadiesShoes(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsLadiesShoes*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsCrownItem(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsCrownItem(TaleWorlds.Core.ItemObject)
+  id: IsCrownItem(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsCrownItem(ItemObject)
+  nameWithType: ItemValidation.IsCrownItem(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsCrownItem(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsCrownItem
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 527
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Determines if an item is a crown based on crown keywords or special crown item identifiers.
+  example: []
+  syntax:
+    content: public static bool IsCrownItem(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is a crown; false otherwise.
+    content.vb: Public Shared Function IsCrownItem(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsCrownItem*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsBattleCrown(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsBattleCrown(TaleWorlds.Core.ItemObject)
+  id: IsBattleCrown(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsBattleCrown(ItemObject)
+  nameWithType: ItemValidation.IsBattleCrown(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsBattleCrown(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsBattleCrown
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 562
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if an item is a battle crown (crown with "battle" or "helmet" in name).
+
+    Battle crowns are suitable for combat equipment.
+  example: []
+  syntax:
+    content: public static bool IsBattleCrown(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is a battle crown; false otherwise.
+    content.vb: Public Shared Function IsBattleCrown(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsBattleCrown*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianCrown(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsCivilianCrown(TaleWorlds.Core.ItemObject)
+  id: IsCivilianCrown(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsCivilianCrown(ItemObject)
+  nameWithType: ItemValidation.IsCivilianCrown(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianCrown(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsCivilianCrown
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 597
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if an item is a civilian crown (crown without "battle" or "helm" in name).
+
+    Civilian crowns are suitable for non-combat equipment.
+  example: []
+  syntax:
+    content: public static bool IsCivilianCrown(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is a civilian crown; false otherwise.
+    content.vb: Public Shared Function IsCivilianCrown(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianCrown*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsJeweledCrown(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsJeweledCrown(TaleWorlds.Core.ItemObject)
+  id: IsJeweledCrown(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsJeweledCrown(ItemObject)
+  nameWithType: ItemValidation.IsJeweledCrown(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsJeweledCrown(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsJeweledCrown
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 631
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Determines if an item is a jeweled crown based on name containing "Jeweled Crown".
+  example: []
+  syntax:
+    content: public static bool IsJeweledCrown(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is a jeweled crown; false otherwise.
+    content.vb: Public Shared Function IsJeweledCrown(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsJeweledCrown*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsPolearmWeapon(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsPolearmWeapon(TaleWorlds.Core.ItemObject)
+  id: IsPolearmWeapon(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsPolearmWeapon(ItemObject)
+  nameWithType: ItemValidation.IsPolearmWeapon(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsPolearmWeapon(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsPolearmWeapon
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 655
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if a weapon item is a polearm (including one-handed polearms).
+
+    Polearms always require a sidearm weapon for backup melee combat.
+  example: []
+  syntax:
+    content: public static bool IsPolearmWeapon(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The weapon item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is a polearm; false otherwise.
+    content.vb: Public Shared Function IsPolearmWeapon(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsPolearmWeapon*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsSidearmWeapon(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsSidearmWeapon(TaleWorlds.Core.ItemObject)
+  id: IsSidearmWeapon(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsSidearmWeapon(ItemObject)
+  nameWithType: ItemValidation.IsSidearmWeapon(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsSidearmWeapon(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsSidearmWeapon
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 683
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Determines if a weapon item is a sidearm (one-handed sword, axe, mace, or dagger).
+
+    Sidearms are backup weapons used when polearm is not effective (close combat).
+  example: []
+  syntax:
+    content: public static bool IsSidearmWeapon(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The weapon item to check.
+    return:
+      type: System.Boolean
+      description: True if the item is a sidearm; false otherwise.
+    content.vb: Public Shared Function IsSidearmWeapon(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsSidearmWeapon*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsRulingClanMember(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.IsRulingClanMember(TaleWorlds.CampaignSystem.Hero)
+  id: IsRulingClanMember(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: IsRulingClanMember(Hero)
+  nameWithType: ItemValidation.IsRulingClanMember(Hero)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsRulingClanMember(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsRulingClanMember
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 715
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Determines if a hero is a member of the ruling clan of their kingdom.
+  example: []
+  syntax:
+    content: public static bool IsRulingClanMember(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to check.
+    return:
+      type: System.Boolean
+      description: True if the hero is in the ruling clan of their kingdom; false otherwise.
+    content.vb: Public Shared Function IsRulingClanMember(hero As Hero) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.IsRulingClanMember*
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold(TaleWorlds.Core.ItemObject,System.Single)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold(TaleWorlds.Core.ItemObject,System.Single)
+  id: MeetsAppearanceThreshold(TaleWorlds.Core.ItemObject,System.Single)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: MeetsAppearanceThreshold(ItemObject, float)
+  nameWithType: ItemValidation.MeetsAppearanceThreshold(ItemObject, float)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold(TaleWorlds.Core.ItemObject, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MeetsAppearanceThreshold
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 746
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Checks if an item meets the specified appearance threshold.
+  example: []
+  syntax:
+    content: public static bool MeetsAppearanceThreshold(ItemObject item, float minAppearance)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    - id: minAppearance
+      type: System.Single
+      description: The minimum appearance value (exclusive).
+    return:
+      type: System.Boolean
+      description: True if item.Appearance &gt; minAppearance; false otherwise.
+    content.vb: Public Shared Function MeetsAppearanceThreshold(item As ItemObject, minAppearance As Single) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold*
+  nameWithType.vb: ItemValidation.MeetsAppearanceThreshold(ItemObject, Single)
+  fullName.vb: Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold(TaleWorlds.Core.ItemObject, Single)
+  name.vb: MeetsAppearanceThreshold(ItemObject, Single)
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement(TaleWorlds.Core.ItemObject,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement(TaleWorlds.Core.ItemObject,System.Boolean)
+  id: MeetsCivilianAppearanceRequirement(TaleWorlds.Core.ItemObject,System.Boolean)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: MeetsCivilianAppearanceRequirement(ItemObject, bool)
+  nameWithType: ItemValidation.MeetsCivilianAppearanceRequirement(ItemObject, bool)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement(TaleWorlds.Core.ItemObject, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MeetsCivilianAppearanceRequirement
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 761
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Checks if an item meets civilian appearance requirements based on hero status.
+  example: []
+  syntax:
+    content: public static bool MeetsCivilianAppearanceRequirement(ItemObject item, bool isRulingClanMember)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    - id: isRulingClanMember
+      type: System.Boolean
+      description: Whether the hero is a member of a ruling clan.
+    return:
+      type: System.Boolean
+      description: True if item meets appearance requirements; false otherwise.
+    content.vb: Public Shared Function MeetsCivilianAppearanceRequirement(item As ItemObject, isRulingClanMember As Boolean) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement*
+  nameWithType.vb: ItemValidation.MeetsCivilianAppearanceRequirement(ItemObject, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement(TaleWorlds.Core.ItemObject, Boolean)
+  name.vb: MeetsCivilianAppearanceRequirement(ItemObject, Boolean)
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MeetsBattleArmorAppearanceRequirement(TaleWorlds.Core.ItemObject)
+  commentId: M:Bannerlord.GameMaster.Items.ItemValidation.MeetsBattleArmorAppearanceRequirement(TaleWorlds.Core.ItemObject)
+  id: MeetsBattleArmorAppearanceRequirement(TaleWorlds.Core.ItemObject)
+  parent: Bannerlord.GameMaster.Items.ItemValidation
+  langs:
+  - csharp
+  - vb
+  name: MeetsBattleArmorAppearanceRequirement(ItemObject)
+  nameWithType: ItemValidation.MeetsBattleArmorAppearanceRequirement(ItemObject)
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MeetsBattleArmorAppearanceRequirement(TaleWorlds.Core.ItemObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MeetsBattleArmorAppearanceRequirement
+    path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
+    startLine: 776
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: Checks if an armor item meets battle appearance requirements.
+  example: []
+  syntax:
+    content: public static bool MeetsBattleArmorAppearanceRequirement(ItemObject item)
+    parameters:
+    - id: item
+      type: TaleWorlds.Core.ItemObject
+      description: The item to check.
+    return:
+      type: System.Boolean
+      description: True if item.Appearance &gt; MinimumBattleArmorAppearance; false otherwise.
+    content.vb: Public Shared Function MeetsBattleArmorAppearanceRequirement(item As ItemObject) As Boolean
+  overload: Bannerlord.GameMaster.Items.ItemValidation.MeetsBattleArmorAppearanceRequirement*
+references:
+- uid: Bannerlord.GameMaster.Items
+  commentId: N:Bannerlord.GameMaster.Items
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Items
+  nameWithType: Bannerlord.GameMaster.Items
+  fullName: Bannerlord.GameMaster.Items
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Items
+    name: Items
+    href: Bannerlord.GameMaster.Items.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedItem*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedItem
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsBlacklistedItem_TaleWorlds_Core_ItemObject_
+  name: IsBlacklistedItem
+  nameWithType: ItemValidation.IsBlacklistedItem
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedItem
+- uid: TaleWorlds.Core.ItemObject
+  commentId: T:TaleWorlds.Core.ItemObject
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: ItemObject
+  nameWithType: ItemObject
+  fullName: TaleWorlds.Core.ItemObject
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedWeaponStringId*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedWeaponStringId
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsBlacklistedWeaponStringId_TaleWorlds_Core_ItemObject_
+  name: IsBlacklistedWeaponStringId
+  nameWithType: ItemValidation.IsBlacklistedWeaponStringId
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsBlacklistedWeaponStringId
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsValidItem*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsValidItem
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsValidItem_TaleWorlds_Core_ItemObject_
+  name: IsValidItem
+  nameWithType: ItemValidation.IsValidItem
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsValidItem
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsArmorSuitableForGender_TaleWorlds_Core_ItemObject_System_Boolean_
+  name: IsArmorSuitableForGender
+  nameWithType: ItemValidation.IsArmorSuitableForGender
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsArmorSuitableForGender
+- uid: Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_GetTierRangeForLevel_System_Int32_
+  name: GetTierRangeForLevel
+  nameWithType: ItemValidation.GetTierRangeForLevel
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.GetTierRangeForLevel
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueTuple{TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers}
+  commentId: T:System.ValueTuple{TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.valuetuple-taleworlds.core.itemobject.itemtiers,taleworlds.core.itemobject.itemtiers-.mintier
+  name: (ItemObject.ItemTiers minTier, ItemObject.ItemTiers maxTier)
+  nameWithType: (ItemObject.ItemTiers minTier, ItemObject.ItemTiers maxTier)
+  fullName: (TaleWorlds.Core.ItemObject.ItemTiers minTier, TaleWorlds.Core.ItemObject.ItemTiers maxTier)
+  nameWithType.vb: (minTier As ItemObject.ItemTiers, maxTier As ItemObject.ItemTiers)
+  fullName.vb: (minTier As TaleWorlds.Core.ItemObject.ItemTiers, maxTier As TaleWorlds.Core.ItemObject.ItemTiers)
+  name.vb: (minTier As ItemObject.ItemTiers, maxTier As ItemObject.ItemTiers)
+  spec.csharp:
+  - name: (
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ItemObject.ItemTiers
+    name: ItemTiers
+    isExternal: true
+  - name: " "
+  - uid: System.ValueTuple{TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers}.minTier
+    name: minTier
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-taleworlds.core.itemobject.itemtiers,taleworlds.core.itemobject.itemtiers-.mintier
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ItemObject.ItemTiers
+    name: ItemTiers
+    isExternal: true
+  - name: " "
+  - uid: System.ValueTuple{TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers}.maxTier
+    name: maxTier
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-taleworlds.core.itemobject.itemtiers,taleworlds.core.itemobject.itemtiers-.maxtier
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers}.minTier
+    name: minTier
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-taleworlds.core.itemobject.itemtiers,taleworlds.core.itemobject.itemtiers-.mintier
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ItemObject.ItemTiers
+    name: ItemTiers
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{TaleWorlds.Core.ItemObject.ItemTiers,TaleWorlds.Core.ItemObject.ItemTiers}.maxTier
+    name: maxTier
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-taleworlds.core.itemobject.itemtiers,taleworlds.core.itemobject.itemtiers-.maxtier
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ItemObject.ItemTiers
+    name: ItemTiers
+    isExternal: true
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsItemInTierRange*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsItemInTierRange
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsItemInTierRange_TaleWorlds_Core_ItemObject_TaleWorlds_Core_ItemObject_ItemTiers_TaleWorlds_Core_ItemObject_ItemTiers_
+  name: IsItemInTierRange
+  nameWithType: ItemValidation.IsItemInTierRange
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsItemInTierRange
+- uid: TaleWorlds.Core.ItemObject.ItemTiers
+  commentId: T:TaleWorlds.Core.ItemObject.ItemTiers
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: ItemObject.ItemTiers
+  nameWithType: ItemObject.ItemTiers
+  fullName: TaleWorlds.Core.ItemObject.ItemTiers
+  spec.csharp:
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ItemObject.ItemTiers
+    name: ItemTiers
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds.Core.ItemObject
+    name: ItemObject
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core.ItemObject.ItemTiers
+    name: ItemTiers
+    isExternal: true
+- uid: Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_ShouldExcludeClothArmor_System_Int32_TaleWorlds_Core_EquipmentIndex_
+  name: ShouldExcludeClothArmor
+  nameWithType: ItemValidation.ShouldExcludeClothArmor
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.ShouldExcludeClothArmor
+- uid: TaleWorlds.Core.EquipmentIndex
+  commentId: T:TaleWorlds.Core.EquipmentIndex
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: EquipmentIndex
+  nameWithType: EquipmentIndex
+  fullName: TaleWorlds.Core.EquipmentIndex
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsClothArmor*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsClothArmor
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsClothArmor_TaleWorlds_Core_ItemObject_
+  name: IsClothArmor
+  nameWithType: ItemValidation.IsClothArmor
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsClothArmor
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianAppropriateItem*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsCivilianAppropriateItem
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsCivilianAppropriateItem_TaleWorlds_Core_ItemObject_
+  name: IsCivilianAppropriateItem
+  nameWithType: ItemValidation.IsCivilianAppropriateItem
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianAppropriateItem
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsDressItem*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsDressItem
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsDressItem_TaleWorlds_Core_ItemObject_
+  name: IsDressItem
+  nameWithType: ItemValidation.IsDressItem
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsDressItem
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsLadiesShoes*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsLadiesShoes
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsLadiesShoes_TaleWorlds_Core_ItemObject_
+  name: IsLadiesShoes
+  nameWithType: ItemValidation.IsLadiesShoes
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsLadiesShoes
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsCrownItem*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsCrownItem
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsCrownItem_TaleWorlds_Core_ItemObject_
+  name: IsCrownItem
+  nameWithType: ItemValidation.IsCrownItem
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsCrownItem
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsBattleCrown*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsBattleCrown
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsBattleCrown_TaleWorlds_Core_ItemObject_
+  name: IsBattleCrown
+  nameWithType: ItemValidation.IsBattleCrown
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsBattleCrown
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianCrown*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsCivilianCrown
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsCivilianCrown_TaleWorlds_Core_ItemObject_
+  name: IsCivilianCrown
+  nameWithType: ItemValidation.IsCivilianCrown
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsCivilianCrown
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsJeweledCrown*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsJeweledCrown
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsJeweledCrown_TaleWorlds_Core_ItemObject_
+  name: IsJeweledCrown
+  nameWithType: ItemValidation.IsJeweledCrown
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsJeweledCrown
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsPolearmWeapon*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsPolearmWeapon
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsPolearmWeapon_TaleWorlds_Core_ItemObject_
+  name: IsPolearmWeapon
+  nameWithType: ItemValidation.IsPolearmWeapon
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsPolearmWeapon
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsSidearmWeapon*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsSidearmWeapon
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsSidearmWeapon_TaleWorlds_Core_ItemObject_
+  name: IsSidearmWeapon
+  nameWithType: ItemValidation.IsSidearmWeapon
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsSidearmWeapon
+- uid: Bannerlord.GameMaster.Items.ItemValidation.IsRulingClanMember*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.IsRulingClanMember
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_IsRulingClanMember_TaleWorlds_CampaignSystem_Hero_
+  name: IsRulingClanMember
+  nameWithType: ItemValidation.IsRulingClanMember
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.IsRulingClanMember
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_MeetsAppearanceThreshold_TaleWorlds_Core_ItemObject_System_Single_
+  name: MeetsAppearanceThreshold
+  nameWithType: ItemValidation.MeetsAppearanceThreshold
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MeetsAppearanceThreshold
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_MeetsCivilianAppearanceRequirement_TaleWorlds_Core_ItemObject_System_Boolean_
+  name: MeetsCivilianAppearanceRequirement
+  nameWithType: ItemValidation.MeetsCivilianAppearanceRequirement
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MeetsCivilianAppearanceRequirement
+- uid: Bannerlord.GameMaster.Items.ItemValidation.MeetsBattleArmorAppearanceRequirement*
+  commentId: Overload:Bannerlord.GameMaster.Items.ItemValidation.MeetsBattleArmorAppearanceRequirement
+  href: Bannerlord.GameMaster.Items.ItemValidation.html#Bannerlord_GameMaster_Items_ItemValidation_MeetsBattleArmorAppearanceRequirement_TaleWorlds_Core_ItemObject_
+  name: MeetsBattleArmorAppearanceRequirement
+  nameWithType: ItemValidation.MeetsBattleArmorAppearanceRequirement
+  fullName: Bannerlord.GameMaster.Items.ItemValidation.MeetsBattleArmorAppearanceRequirement

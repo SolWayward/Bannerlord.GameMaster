@@ -1,0 +1,772 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Characters.HairTags
+  commentId: T:Bannerlord.GameMaster.Characters.HairTags
+  id: HairTags
+  parent: Bannerlord.GameMaster.Characters
+  children:
+  - Bannerlord.GameMaster.Characters.HairTags.All
+  - Bannerlord.GameMaster.Characters.HairTags.AllLong
+  - Bannerlord.GameMaster.Characters.HairTags.Bald
+  - Bannerlord.GameMaster.Characters.HairTags.Braided
+  - Bannerlord.GameMaster.Characters.HairTags.Long
+  - Bannerlord.GameMaster.Characters.HairTags.NormalFemale
+  - Bannerlord.GameMaster.Characters.HairTags.NormalMale
+  - Bannerlord.GameMaster.Characters.HairTags.NotBald
+  - Bannerlord.GameMaster.Characters.HairTags.NotBaldOrShaved
+  - Bannerlord.GameMaster.Characters.HairTags.NotBraided
+  - Bannerlord.GameMaster.Characters.HairTags.Ponytails
+  - Bannerlord.GameMaster.Characters.HairTags.Shaved
+  - Bannerlord.GameMaster.Characters.HairTags.Short
+  - Bannerlord.GameMaster.Characters.HairTags.Tied
+  - Bannerlord.GameMaster.Characters.HairTags.Viking
+  langs:
+  - csharp
+  - vb
+  name: HairTags
+  nameWithType: HairTags
+  fullName: Bannerlord.GameMaster.Characters.HairTags
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HairTags
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 6
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: >-
+    Determines which hair styles are allowed <br />
+
+    Multiple tags can be combined to allow a combination (ex: "tag1;tag2;tag3"), some pre-combined tags are provided
+  example: []
+  syntax:
+    content: public static class HairTags
+    content.vb: Public Module HairTags
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Characters.HairTags.All
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.All
+  id: All
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: HairTags.All
+  fullName: Bannerlord.GameMaster.Characters.HairTags.All
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: All
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: 'Empty String: All Hair styles allowed'
+  example: []
+  syntax:
+    content: public static readonly string All
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly All As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.Bald
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.Bald
+  id: Bald
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: Bald
+  nameWithType: HairTags.Bald
+  fullName: Bannerlord.GameMaster.Characters.HairTags.Bald
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Bald
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"bald\" : Forces bald/no hair"
+  example: []
+  syntax:
+    content: public static readonly string Bald
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Bald As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.Shaved
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.Shaved
+  id: Shaved
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: Shaved
+  nameWithType: HairTags.Shaved
+  fullName: Bannerlord.GameMaster.Characters.HairTags.Shaved
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Shaved
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"shaved\" : Shaved/Buzzed"
+  example: []
+  syntax:
+    content: public static readonly string Shaved
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Shaved As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.Short
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.Short
+  id: Short
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: Short
+  nameWithType: HairTags.Short
+  fullName: Bannerlord.GameMaster.Characters.HairTags.Short
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Short
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"short\" : Short hairstyles only"
+  example: []
+  syntax:
+    content: public static readonly string Short
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly [Short] As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.Long
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.Long
+  id: Long
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: Long
+  nameWithType: HairTags.Long
+  fullName: Bannerlord.GameMaster.Characters.HairTags.Long
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Long
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"long\" : Long hairstyles only"
+  example: []
+  syntax:
+    content: public static readonly string Long
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly [Long] As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.Braided
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.Braided
+  id: Braided
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: Braided
+  nameWithType: HairTags.Braided
+  fullName: Bannerlord.GameMaster.Characters.HairTags.Braided
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Braided
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"braided\" : Braided styles"
+  example: []
+  syntax:
+    content: public static readonly string Braided
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Braided As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.Ponytails
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.Ponytails
+  id: Ponytails
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: Ponytails
+  nameWithType: HairTags.Ponytails
+  fullName: Bannerlord.GameMaster.Characters.HairTags.Ponytails
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Ponytails
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 41
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"ponytail\" : Ponytail styles"
+  example: []
+  syntax:
+    content: public static readonly string Ponytails
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Ponytails As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.Tied
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.Tied
+  id: Tied
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: Tied
+  nameWithType: HairTags.Tied
+  fullName: Bannerlord.GameMaster.Characters.HairTags.Tied
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Tied
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 46
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"tied\" : Tied styles"
+  example: []
+  syntax:
+    content: public static readonly string Tied
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Tied As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.NormalFemale
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.NormalFemale
+  id: NormalFemale
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: NormalFemale
+  nameWithType: HairTags.NormalFemale
+  fullName: Bannerlord.GameMaster.Characters.HairTags.NormalFemale
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NormalFemale
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 51
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"long;ponytail\" : Normal attractive female hairstyles for normal people"
+  example: []
+  syntax:
+    content: public static readonly string NormalFemale
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly NormalFemale As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.NormalMale
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.NormalMale
+  id: NormalMale
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: NormalMale
+  nameWithType: HairTags.NormalMale
+  fullName: Bannerlord.GameMaster.Characters.HairTags.NormalMale
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NormalMale
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 56
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"bald;shaved;short\" : Normal common male hairstyles, may want to add long or others"
+  example: []
+  syntax:
+    content: public static readonly string NormalMale
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly NormalMale As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.NotBald
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.NotBald
+  id: NotBald
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: NotBald
+  nameWithType: HairTags.NotBald
+  fullName: Bannerlord.GameMaster.Characters.HairTags.NotBald
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NotBald
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 61
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"shaved;short;long;ponytail;tied;braided\" : Everything but bald"
+  example: []
+  syntax:
+    content: public static readonly string NotBald
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly NotBald As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.NotBaldOrShaved
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.NotBaldOrShaved
+  id: NotBaldOrShaved
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: NotBaldOrShaved
+  nameWithType: HairTags.NotBaldOrShaved
+  fullName: Bannerlord.GameMaster.Characters.HairTags.NotBaldOrShaved
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NotBaldOrShaved
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 66
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"short;long;ponytail;tied;braided\" : Everything but bald and shaved"
+  example: []
+  syntax:
+    content: public static readonly string NotBaldOrShaved
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly NotBaldOrShaved As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.AllLong
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.AllLong
+  id: AllLong
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: AllLong
+  nameWithType: HairTags.AllLong
+  fullName: Bannerlord.GameMaster.Characters.HairTags.AllLong
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AllLong
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 71
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"long;ponytail;tied;braided\" : All long hairstyles"
+  example: []
+  syntax:
+    content: public static readonly string AllLong
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly AllLong As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.Viking
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.Viking
+  id: Viking
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: Viking
+  nameWithType: HairTags.Viking
+  fullName: Bannerlord.GameMaster.Characters.HairTags.Viking
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Viking
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 76
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: 'bald;short;shaved;tied;braided : More viking stylish hair (Although viking can really be anything)'
+  example: []
+  syntax:
+    content: public static readonly string Viking
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Viking As String
+- uid: Bannerlord.GameMaster.Characters.HairTags.NotBraided
+  commentId: F:Bannerlord.GameMaster.Characters.HairTags.NotBraided
+  id: NotBraided
+  parent: Bannerlord.GameMaster.Characters.HairTags
+  langs:
+  - csharp
+  - vb
+  name: NotBraided
+  nameWithType: HairTags.NotBraided
+  fullName: Bannerlord.GameMaster.Characters.HairTags.NotBraided
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Characters/HairTags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NotBraided
+    path: ../Bannerlord.GameMaster/Characters/HairTags.cs
+    startLine: 81
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Characters
+  summary: "\"shaved;short;long;ponytail;tied;bald\" : Everything but braided"
+  example: []
+  syntax:
+    content: public static readonly string NotBraided
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly NotBraided As String
+references:
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

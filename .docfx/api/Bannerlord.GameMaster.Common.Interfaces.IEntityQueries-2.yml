@@ -1,0 +1,498 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  commentId: T:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  id: IEntityQueries`2
+  parent: Bannerlord.GameMaster.Common.Interfaces
+  children:
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetById(System.String)
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetFormattedDetails(System.Collections.Generic.List{`0})
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseType(System.String)
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseTypes(System.Collections.Generic.IEnumerable{System.String})
+  - Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.Query(System.String,`1,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: IEntityQueries<TEntity, TTypes>
+  nameWithType: IEntityQueries<TEntity, TTypes>
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>
+  type: Interface
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IEntityQueries
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+    startLine: 5
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: 'public interface IEntityQueries<TEntity, TTypes> where TTypes : struct, Enum'
+    typeParameters:
+    - id: TEntity
+    - id: TTypes
+    content.vb: Public Interface IEntityQueries(Of TEntity, TTypes As {Structure, [Enum]})
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes)
+  name.vb: IEntityQueries(Of TEntity, TTypes)
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetById(System.String)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetById(System.String)
+  id: GetById(System.String)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  langs:
+  - csharp
+  - vb
+  name: GetById(string)
+  nameWithType: IEntityQueries<TEntity, TTypes>.GetById(string)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.GetById(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetById
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: TEntity GetById(string id)
+    parameters:
+    - id: id
+      type: System.String
+    return:
+      type: '{TEntity}'
+    content.vb: Function GetById(id As String) As TEntity
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetById*
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).GetById(String)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).GetById(String)
+  name.vb: GetById(String)
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.Query(System.String,`1,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.Query(System.String,`1,System.Boolean)
+  id: Query(System.String,`1,System.Boolean)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  langs:
+  - csharp
+  - vb
+  name: Query(string, TTypes, bool)
+  nameWithType: IEntityQueries<TEntity, TTypes>.Query(string, TTypes, bool)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.Query(string, TTypes, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Query
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: List<TEntity> Query(string query, TTypes types, bool matchAll)
+    parameters:
+    - id: query
+      type: System.String
+    - id: types
+      type: '{TTypes}'
+    - id: matchAll
+      type: System.Boolean
+    return:
+      type: System.Collections.Generic.List{{TEntity}}
+    content.vb: Function Query(query As String, types As TTypes, matchAll As Boolean) As List(Of TEntity)
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.Query*
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).Query(String, TTypes, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).Query(String, TTypes, Boolean)
+  name.vb: Query(String, TTypes, Boolean)
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseType(System.String)
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseType(System.String)
+  id: ParseType(System.String)
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  langs:
+  - csharp
+  - vb
+  name: ParseType(string)
+  nameWithType: IEntityQueries<TEntity, TTypes>.ParseType(string)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.ParseType(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseType
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: TTypes ParseType(string typeString)
+    parameters:
+    - id: typeString
+      type: System.String
+    return:
+      type: '{TTypes}'
+    content.vb: Function ParseType(typeString As String) As TTypes
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseType*
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).ParseType(String)
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).ParseType(String)
+  name.vb: ParseType(String)
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseTypes(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseTypes(System.Collections.Generic.IEnumerable{System.String})
+  id: ParseTypes(System.Collections.Generic.IEnumerable{System.String})
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  langs:
+  - csharp
+  - vb
+  name: ParseTypes(IEnumerable<string>)
+  nameWithType: IEntityQueries<TEntity, TTypes>.ParseTypes(IEnumerable<string>)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.ParseTypes(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ParseTypes
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: TTypes ParseTypes(IEnumerable<string> typeStrings)
+    parameters:
+    - id: typeStrings
+      type: System.Collections.Generic.IEnumerable{System.String}
+    return:
+      type: '{TTypes}'
+    content.vb: Function ParseTypes(typeStrings As IEnumerable(Of String)) As TTypes
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseTypes*
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).ParseTypes(IEnumerable(Of String))
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).ParseTypes(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: ParseTypes(IEnumerable(Of String))
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetFormattedDetails(System.Collections.Generic.List{`0})
+  commentId: M:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetFormattedDetails(System.Collections.Generic.List{`0})
+  id: GetFormattedDetails(System.Collections.Generic.List{`0})
+  parent: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2
+  langs:
+  - csharp
+  - vb
+  name: GetFormattedDetails(List<TEntity>)
+  nameWithType: IEntityQueries<TEntity, TTypes>.GetFormattedDetails(List<TEntity>)
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.GetFormattedDetails(System.Collections.Generic.List<TEntity>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFormattedDetails
+    path: ../Bannerlord.GameMaster/Common/Interfaces/IEntityQueries.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common.Interfaces
+  syntax:
+    content: string GetFormattedDetails(List<TEntity> entities)
+    parameters:
+    - id: entities
+      type: System.Collections.Generic.List{{TEntity}}
+    return:
+      type: System.String
+    content.vb: Function GetFormattedDetails(entities As List(Of TEntity)) As String
+  overload: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetFormattedDetails*
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).GetFormattedDetails(List(Of TEntity))
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).GetFormattedDetails(System.Collections.Generic.List(Of TEntity))
+  name.vb: GetFormattedDetails(List(Of TEntity))
+references:
+- uid: Bannerlord.GameMaster.Common.Interfaces
+  commentId: N:Bannerlord.GameMaster.Common.Interfaces
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common.Interfaces
+  nameWithType: Bannerlord.GameMaster.Common.Interfaces
+  fullName: Bannerlord.GameMaster.Common.Interfaces
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common.Interfaces
+    name: Interfaces
+    href: Bannerlord.GameMaster.Common.Interfaces.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common.Interfaces
+    name: Interfaces
+    href: Bannerlord.GameMaster.Common.Interfaces.html
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetById*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetById
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityQueries_2_GetById_System_String_
+  name: GetById
+  nameWithType: IEntityQueries<TEntity, TTypes>.GetById
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.GetById
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).GetById
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).GetById
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{TEntity}'
+  commentId: '!:TEntity'
+  definition: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.Query*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.Query
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityQueries_2_Query_System_String__1_System_Boolean_
+  name: Query
+  nameWithType: IEntityQueries<TEntity, TTypes>.Query
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.Query
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).Query
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).Query
+- uid: '{TTypes}'
+  commentId: '!:TTypes'
+  definition: TTypes
+  name: TTypes
+  nameWithType: TTypes
+  fullName: TTypes
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.List{{TEntity}}
+  commentId: T:System.Collections.Generic.List{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TEntity>
+  nameWithType: List<TEntity>
+  fullName: System.Collections.Generic.List<TEntity>
+  nameWithType.vb: List(Of TEntity)
+  fullName.vb: System.Collections.Generic.List(Of TEntity)
+  name.vb: List(Of TEntity)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: TTypes
+  name: TTypes
+  nameWithType: TTypes
+  fullName: TTypes
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseType*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseType
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityQueries_2_ParseType_System_String_
+  name: ParseType
+  nameWithType: IEntityQueries<TEntity, TTypes>.ParseType
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.ParseType
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).ParseType
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).ParseType
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseTypes*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.ParseTypes
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityQueries_2_ParseTypes_System_Collections_Generic_IEnumerable_System_String__
+  name: ParseTypes
+  nameWithType: IEntityQueries<TEntity, TTypes>.ParseTypes
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.ParseTypes
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).ParseTypes
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).ParseTypes
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetFormattedDetails*
+  commentId: Overload:Bannerlord.GameMaster.Common.Interfaces.IEntityQueries`2.GetFormattedDetails
+  href: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries-2.html#Bannerlord_GameMaster_Common_Interfaces_IEntityQueries_2_GetFormattedDetails_System_Collections_Generic_List__0__
+  name: GetFormattedDetails
+  nameWithType: IEntityQueries<TEntity, TTypes>.GetFormattedDetails
+  fullName: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries<TEntity, TTypes>.GetFormattedDetails
+  nameWithType.vb: IEntityQueries(Of TEntity, TTypes).GetFormattedDetails
+  fullName.vb: Bannerlord.GameMaster.Common.Interfaces.IEntityQueries(Of TEntity, TTypes).GetFormattedDetails

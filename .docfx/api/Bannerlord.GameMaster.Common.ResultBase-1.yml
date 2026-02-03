@@ -1,0 +1,1006 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Common.ResultBase`1
+  commentId: T:Bannerlord.GameMaster.Common.ResultBase`1
+  id: ResultBase`1
+  parent: Bannerlord.GameMaster.Common
+  children:
+  - Bannerlord.GameMaster.Common.ResultBase`1.#ctor
+  - Bannerlord.GameMaster.Common.ResultBase`1.#ctor(System.Boolean,System.String)
+  - Bannerlord.GameMaster.Common.ResultBase`1.#ctor(System.Boolean,System.String,System.Exception)
+  - Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+  - Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+  - Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String)
+  - Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String,System.Exception)
+  - Bannerlord.GameMaster.Common.ResultBase`1.Exception
+  - Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+  - Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+  - Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess
+  - Bannerlord.GameMaster.Common.ResultBase`1.Log
+  - Bannerlord.GameMaster.Common.ResultBase`1.Message
+  - Bannerlord.GameMaster.Common.ResultBase`1.Prefix
+  - Bannerlord.GameMaster.Common.ResultBase`1.Success(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ResultBase<TSelf>
+  nameWithType: ResultBase<TSelf>
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResultBase
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: >-
+    Abstract base class used for different result types.
+
+    Contains a bool indicating if an operation succeeded, a string message with details of the result of the operation,
+
+    and an exception if an exception occured. Also includes convenience methods for logging to game rgl log and system console and or displaying in game.
+  example: []
+  syntax:
+    content: 'public abstract class ResultBase<TSelf> where TSelf : ResultBase<TSelf>, new()'
+    typeParameters:
+    - id: TSelf
+    content.vb: Public MustInherit Class ResultBase(Of TSelf As {ResultBase(Of TSelf), New})
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Bannerlord.GameMaster.Common.BLGMResult
+  - Bannerlord.GameMaster.Console.Common.CommandResult
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  nameWithType.vb: ResultBase(Of TSelf)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf)
+  name.vb: ResultBase(Of TSelf)
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess
+  id: IsSuccess
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: IsSuccess
+  nameWithType: ResultBase<TSelf>.IsSuccess
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.IsSuccess
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsSuccess
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Indicates if operation succeded or failed
+  example: []
+  syntax:
+    content: public bool IsSuccess { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSuccess As Boolean
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess*
+  nameWithType.vb: ResultBase(Of TSelf).IsSuccess
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).IsSuccess
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Message
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase`1.Message
+  id: Message
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: ResultBase<TSelf>.Message
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Message
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Message
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Message with details of operation result
+  example: []
+  syntax:
+    content: public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Message As String
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.Message*
+  nameWithType.vb: ResultBase(Of TSelf).Message
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Message
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Exception
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase`1.Exception
+  id: Exception
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: Exception
+  nameWithType: ResultBase<TSelf>.Exception
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Exception
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Exception
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Exception details for logging
+  example: []
+  syntax:
+    content: public Exception Exception { get; set; }
+    parameters: []
+    return:
+      type: System.Exception
+    content.vb: Public Property Exception As Exception
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.Exception*
+  nameWithType.vb: ResultBase(Of TSelf).Exception
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Exception
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Prefix
+  commentId: P:Bannerlord.GameMaster.Common.ResultBase`1.Prefix
+  id: Prefix
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: Prefix
+  nameWithType: ResultBase<TSelf>.Prefix
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Prefix
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Prefix
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Prefix used to indicate result type in Logs(Override this)
+  example: []
+  syntax:
+    content: protected abstract string Prefix { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Protected MustOverride ReadOnly Property Prefix As String
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.Prefix*
+  nameWithType.vb: ResultBase(Of TSelf).Prefix
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Prefix
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Success(System.String)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.Success(System.String)
+  id: Success(System.String)
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: Success(string)
+  nameWithType: ResultBase<TSelf>.Success(string)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Success(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Success
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Factory Method for creating a success result
+  example: []
+  syntax:
+    content: public static TSelf Success(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: '{TSelf}'
+    content.vb: Public Shared Function Success(message As String) As TSelf
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.Success*
+  nameWithType.vb: ResultBase(Of TSelf).Success(String)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Success(String)
+  name.vb: Success(String)
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String)
+  id: Error(System.String)
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: Error(string)
+  nameWithType: ResultBase<TSelf>.Error(string)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Error(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Error
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 29
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Factory Method for creating a non exception error result
+  example: []
+  syntax:
+    content: public static TSelf Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: '{TSelf}'
+    content.vb: Public Shared Function [Error](message As String) As TSelf
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.Error*
+  nameWithType.vb: ResultBase(Of TSelf).Error(String)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Error(String)
+  name.vb: Error(String)
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String,System.Exception)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.Error(System.String,System.Exception)
+  id: Error(System.String,System.Exception)
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: Error(string, Exception)
+  nameWithType: ResultBase<TSelf>.Error(string, Exception)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Error(string, System.Exception)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Error
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 32
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Factory Method for creating an esception error result
+  example: []
+  syntax:
+    content: public static TSelf Error(string message, Exception ex)
+    parameters:
+    - id: message
+      type: System.String
+    - id: ex
+      type: System.Exception
+    return:
+      type: '{TSelf}'
+    content.vb: Public Shared Function [Error](message As String, ex As Exception) As TSelf
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.Error*
+  nameWithType.vb: ResultBase(Of TSelf).Error(String, Exception)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Error(String, System.Exception)
+  name.vb: Error(String, Exception)
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.#ctor
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: ResultBase()
+  nameWithType: ResultBase<TSelf>.ResultBase()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.ResultBase()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Creates an unhandled failure result, recommended to use one of the other constructors
+  example: []
+  syntax:
+    content: public ResultBase()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.#ctor*
+  nameWithType.vb: ResultBase(Of TSelf).New()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).New()
+  name.vb: New()
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.#ctor(System.Boolean,System.String)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.#ctor(System.Boolean,System.String)
+  id: '#ctor(System.Boolean,System.String)'
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: ResultBase(bool, string)
+  nameWithType: ResultBase<TSelf>.ResultBase(bool, string)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.ResultBase(bool, string)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 43
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Used for successful results or results that failed without an exception
+  example: []
+  syntax:
+    content: public ResultBase(bool isSuccess, string message)
+    parameters:
+    - id: isSuccess
+      type: System.Boolean
+    - id: message
+      type: System.String
+    content.vb: Public Sub New(isSuccess As Boolean, message As String)
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.#ctor*
+  nameWithType.vb: ResultBase(Of TSelf).New(Boolean, String)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).New(Boolean, String)
+  name.vb: New(Boolean, String)
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.#ctor(System.Boolean,System.String,System.Exception)
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.#ctor(System.Boolean,System.String,System.Exception)
+  id: '#ctor(System.Boolean,System.String,System.Exception)'
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: ResultBase(bool, string, Exception)
+  nameWithType: ResultBase<TSelf>.ResultBase(bool, string, Exception)
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.ResultBase(bool, string, System.Exception)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 51
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: Used for results in exception handling blocks
+  example: []
+  syntax:
+    content: public ResultBase(bool isSuccessful, string message, Exception exception)
+    parameters:
+    - id: isSuccessful
+      type: System.Boolean
+    - id: message
+      type: System.String
+    - id: exception
+      type: System.Exception
+    content.vb: Public Sub New(isSuccessful As Boolean, message As String, exception As Exception)
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.#ctor*
+  nameWithType.vb: ResultBase(Of TSelf).New(Boolean, String, Exception)
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).New(Boolean, String, System.Exception)
+  name.vb: New(Boolean, String, Exception)
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+  id: DisplayMessage
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: DisplayMessage()
+  nameWithType: ResultBase<TSelf>.DisplayMessage()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.DisplayMessage()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DisplayMessage
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 64
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: >-
+    Displays a game log message using InformationManager.DisplayMessage(). Only displays contents of Prefix and Message. 
+
+    Does not display exception details by default<br />
+
+    Message is red if wasSuccessful = false, green if wasSuccessful = true
+  example: []
+  syntax:
+    content: public TSelf DisplayMessage()
+    return:
+      type: '{TSelf}'
+      description: Returns itself to allow chaining
+    content.vb: Public Function DisplayMessage() As TSelf
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage*
+  nameWithType.vb: ResultBase(Of TSelf).DisplayMessage()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).DisplayMessage()
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Log
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.Log
+  id: Log
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: Log()
+  nameWithType: ResultBase<TSelf>.Log()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Log()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Log
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 80
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: >-
+    Writes to the game's main rgl log file the message and success status if exception occured. 
+
+    Will also always write to system console if console is attached.
+
+    Automatically writes exception details if applicable.
+
+    Does not write to custom log file, that is handled by CommandExecutor.Run()
+  example: []
+  syntax:
+    content: public virtual TSelf Log()
+    return:
+      type: '{TSelf}'
+      description: Returns itself to allow chaining
+    content.vb: Public Overridable Function Log() As TSelf
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.Log*
+  nameWithType.vb: ResultBase(Of TSelf).Log()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Log()
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+  id: GetFormattedMessage
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: GetFormattedMessage()
+  nameWithType: ResultBase<TSelf>.GetFormattedMessage()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.GetFormattedMessage()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFormattedMessage
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 98
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: >-
+    Returns the message formatted with prefix and if failure, also prefixed with "Error". 
+
+    Does not contain exception details automatically<br />
+
+    Example: "[PREFIX] Error: result message" OR "[PREFIX] result message"
+  example: []
+  syntax:
+    content: public string GetFormattedMessage()
+    return:
+      type: System.String
+    content.vb: Public Function GetFormattedMessage() As String
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage*
+  nameWithType.vb: ResultBase(Of TSelf).GetFormattedMessage()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).GetFormattedMessage()
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+  id: GetFormattedLogEntry
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: GetFormattedLogEntry()
+  nameWithType: ResultBase<TSelf>.GetFormattedLogEntry()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.GetFormattedLogEntry()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFormattedLogEntry
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 110
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: >-
+    Gets a formatted string for logging, includes exception details if available.
+
+    Not meant for direct display to user.
+  example: []
+  syntax:
+    content: public string GetFormattedLogEntry()
+    return:
+      type: System.String
+    content.vb: Public Function GetFormattedLogEntry() As String
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry*
+  nameWithType.vb: ResultBase(Of TSelf).GetFormattedLogEntry()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).GetFormattedLogEntry()
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+  commentId: M:Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+  id: DisplayAndLog
+  parent: Bannerlord.GameMaster.Common.ResultBase`1
+  langs:
+  - csharp
+  - vb
+  name: DisplayAndLog()
+  nameWithType: ResultBase<TSelf>.DisplayAndLog()
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.DisplayAndLog()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Common/ResultBase.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DisplayAndLog
+    path: ../Bannerlord.GameMaster/Common/ResultBase.cs
+    startLine: 125
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Common
+  summary: >-
+    Displays message in game and writes to game's main log file. Will also write to system console if console is attached.
+
+    Automatically logs exception details if applicable, but does not display exception details in game.
+  example: []
+  syntax:
+    content: public TSelf DisplayAndLog()
+    return:
+      type: '{TSelf}'
+      description: Returns itself to allow chaining
+    content.vb: Public Function DisplayAndLog() As TSelf
+  overload: Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog*
+  nameWithType.vb: ResultBase(Of TSelf).DisplayAndLog()
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).DisplayAndLog()
+references:
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.IsSuccess
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_IsSuccess
+  name: IsSuccess
+  nameWithType: ResultBase<TSelf>.IsSuccess
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.IsSuccess
+  nameWithType.vb: ResultBase(Of TSelf).IsSuccess
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).IsSuccess
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Message*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.Message
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Message
+  name: Message
+  nameWithType: ResultBase<TSelf>.Message
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Message
+  nameWithType.vb: ResultBase(Of TSelf).Message
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Message
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Exception*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.Exception
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Exception
+  name: Exception
+  nameWithType: ResultBase<TSelf>.Exception
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Exception
+  nameWithType.vb: ResultBase(Of TSelf).Exception
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Exception
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Prefix*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.Prefix
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Prefix
+  name: Prefix
+  nameWithType: ResultBase<TSelf>.Prefix
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Prefix
+  nameWithType.vb: ResultBase(Of TSelf).Prefix
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Prefix
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Success*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.Success
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Success_System_String_
+  name: Success
+  nameWithType: ResultBase<TSelf>.Success
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Success
+  nameWithType.vb: ResultBase(Of TSelf).Success
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Success
+- uid: '{TSelf}'
+  commentId: '!:TSelf'
+  definition: TSelf
+  name: TSelf
+  nameWithType: TSelf
+  fullName: TSelf
+- uid: TSelf
+  name: TSelf
+  nameWithType: TSelf
+  fullName: TSelf
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Error*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.Error
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Error_System_String_
+  name: Error
+  nameWithType: ResultBase<TSelf>.Error
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Error
+  nameWithType.vb: ResultBase(Of TSelf).Error
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Error
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.#ctor
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1__ctor
+  name: ResultBase
+  nameWithType: ResultBase<TSelf>.ResultBase
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.ResultBase
+  nameWithType.vb: ResultBase(Of TSelf).New
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.DisplayMessage
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayMessage
+  name: DisplayMessage
+  nameWithType: ResultBase<TSelf>.DisplayMessage
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.DisplayMessage
+  nameWithType.vb: ResultBase(Of TSelf).DisplayMessage
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).DisplayMessage
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.Log*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.Log
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_Log
+  name: Log
+  nameWithType: ResultBase<TSelf>.Log
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.Log
+  nameWithType.vb: ResultBase(Of TSelf).Log
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).Log
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedMessage
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedMessage
+  name: GetFormattedMessage
+  nameWithType: ResultBase<TSelf>.GetFormattedMessage
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.GetFormattedMessage
+  nameWithType.vb: ResultBase(Of TSelf).GetFormattedMessage
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).GetFormattedMessage
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.GetFormattedLogEntry
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_GetFormattedLogEntry
+  name: GetFormattedLogEntry
+  nameWithType: ResultBase<TSelf>.GetFormattedLogEntry
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.GetFormattedLogEntry
+  nameWithType.vb: ResultBase(Of TSelf).GetFormattedLogEntry
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).GetFormattedLogEntry
+- uid: Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog*
+  commentId: Overload:Bannerlord.GameMaster.Common.ResultBase`1.DisplayAndLog
+  href: Bannerlord.GameMaster.Common.ResultBase-1.html#Bannerlord_GameMaster_Common_ResultBase_1_DisplayAndLog
+  name: DisplayAndLog
+  nameWithType: ResultBase<TSelf>.DisplayAndLog
+  fullName: Bannerlord.GameMaster.Common.ResultBase<TSelf>.DisplayAndLog
+  nameWithType.vb: ResultBase(Of TSelf).DisplayAndLog
+  fullName.vb: Bannerlord.GameMaster.Common.ResultBase(Of TSelf).DisplayAndLog
