@@ -195,8 +195,8 @@ namespace Bannerlord.GameMaster.Banners
         /// <summary>
         /// Gets a complete banner color scheme with main background, secondary background, and emblem colors
         /// for a specific main color. Automatically selects the best theme based on the main color's luminance.
-        /// For lighter main colors (luminance > 0.6), uses lighter secondary and darker emblem.
-        /// For darker main colors (luminance <= 0.6), uses darker secondary and lighter emblem.
+        /// For lighter main colors (luminance &gt; 0.6), uses lighter secondary and darker emblem.
+        /// For darker main colors (luminance &lt;= 0.6), uses darker secondary and lighter emblem.
         /// </summary>
         /// <param name="mainBackgroundId">The main background color ID to use.</param>
         /// <param name="secondaryBackgroundId">Output: The secondary background color ID.</param>

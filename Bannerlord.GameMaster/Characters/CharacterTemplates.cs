@@ -168,7 +168,7 @@ namespace Bannerlord.GameMaster.Characters
 		}
 
 		/// <summary>
-		/// Gets the character templates of a single specified culture </br>
+		/// Gets the character templates of a single specified culture <br />
 		/// Use CultureLookup class to easily retrieve CultureObjects to use.
 		/// </summary>
 		public List<CharacterObject> GetCulturalTemplates(CultureObject culture)
@@ -195,8 +195,8 @@ namespace Bannerlord.GameMaster.Characters
 		}
 
 		/// <summary>
-		/// Gets the character templates of the specified gender for a single culture </br>
-		/// Use CultureLookup class to easily retrieve CultureObjects to use. </br>
+		/// Gets the character templates of the specified gender for a single culture <br />
+		/// Use CultureLookup class to easily retrieve CultureObjects to use. <br />
 		/// if false is provided as an argument, males will be returned, if true is provided females are returned
 		/// </summary>
 		public List<CharacterObject> GetGenderCulturalTemplates(CultureObject culture, bool isFemale)

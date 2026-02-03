@@ -16,7 +16,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
     {
         /// <summary>
         /// Create a minor faction clan (not a noble house)
-        /// Usage: gm.clan.create_minor_clan <clanName> [leaderHero] [cultures] [createParty]
+        /// Usage: gm.clan.create_minor_clan &lt;clanName&gt; [leaderHero] [cultures] [createParty]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("create_minor_clan", "gm.clan")]
         public static string CreateMinorClan(List<string> args)

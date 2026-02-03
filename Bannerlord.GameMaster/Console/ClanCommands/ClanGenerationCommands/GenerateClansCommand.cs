@@ -16,7 +16,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
     {
         /// <summary>
         /// Generate multiple clans at once with random names from culture lists
-        /// Usage: gm.clan.generate_clans <count> [cultures] [kingdom] [createParties] [companionCount]
+        /// Usage: gm.clan.generate_clans &lt;count&gt; [cultures] [kingdom] [createParties] [companionCount]
         /// </summary>
         [CommandLineFunctionality.CommandLineArgumentFunction("generate_clans", "gm.clan")]
         public static string GenerateClans(List<string> args)

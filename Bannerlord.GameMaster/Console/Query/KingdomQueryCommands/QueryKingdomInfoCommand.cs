@@ -11,7 +11,7 @@ namespace Bannerlord.GameMaster.Console.Query.KingdomQueryCommands;
 
 /// <summary>
 /// Get detailed info about a specific kingdom by ID
-/// Usage: gm.query.kingdom_info <kingdomId>
+/// Usage: gm.query.kingdom_info &lt;kingdomId&gt;
 /// </summary>
 public static class QueryKingdomInfoCommand
 {

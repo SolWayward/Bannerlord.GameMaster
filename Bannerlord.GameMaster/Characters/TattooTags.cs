@@ -1,7 +1,7 @@
 namespace Bannerlord.GameMaster.Characters
 {
     /// <summary>
-    /// Filters which Tattoos / face paints are allowed </br>
+    /// Filters which Tattoos / face paints are allowed <br />
     /// Multiple tags can be combined to allow a combination (ex: "tag1;tag2;tag3"), some pre-combined tags are provided
     /// </summary>
     public static class TattooTags

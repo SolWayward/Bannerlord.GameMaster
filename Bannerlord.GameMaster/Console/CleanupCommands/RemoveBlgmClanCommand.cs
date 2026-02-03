@@ -16,7 +16,7 @@ public static class RemoveBlgmClanCommand
 {
     /// <summary>
     /// Removes a single BLGM-generated clan
-    /// Usage: gm.cleanup.remove_blgm_clan <clan>
+    /// Usage: gm.cleanup.remove_blgm_clan &lt;clan&gt;
     /// </summary>
     [CommandLineFunctionality.CommandLineArgumentFunction("remove_blgm_clan", "gm.cleanup")]
     public static string RemoveBlgmClan(List<string> args)

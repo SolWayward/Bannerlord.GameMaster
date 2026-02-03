@@ -1,8 +1,8 @@
 namespace Bannerlord.GameMaster.Characters
 {
     /// <summary>
-    /// Filters which beards are allowed </br>
-    /// Female Character should ignore any beard tags </br>
+    /// Filters which beards are allowed <br />
+    /// Female Character should ignore any beard tags <br />
     /// Multiple tags can be combined to allow a combination (ex: "tag1;tag2;tag3"), some pre-combined tags are provided
     /// </summary>
     public static class BeardTags

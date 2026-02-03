@@ -16,7 +16,7 @@ public static class RemoveBlgmHeroCommand
 {
     /// <summary>
     /// Removes a single BLGM-generated hero
-    /// Usage: gm.cleanup.remove_blgm_hero <hero>
+    /// Usage: gm.cleanup.remove_blgm_hero &lt;hero&gt;
     /// </summary>
     [CommandLineFunctionality.CommandLineArgumentFunction("remove_blgm_hero", "gm.cleanup")]
     public static string RemoveBlgmHero(List<string> args)

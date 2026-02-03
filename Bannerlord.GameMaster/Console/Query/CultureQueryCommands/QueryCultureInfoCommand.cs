@@ -11,7 +11,7 @@ namespace Bannerlord.GameMaster.Console.Query.CultureQueryCommands;
 
 /// <summary>
 /// Get detailed info about a specific culture by ID
-/// Usage: gm.query.culture_info <cultureId>
+/// Usage: gm.query.culture_info &lt;cultureId&gt;
 /// Example: gm.query.culture_info empire
 /// Example: gm.query.culture_info vlandia
 /// </summary>

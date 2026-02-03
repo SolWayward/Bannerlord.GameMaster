@@ -16,7 +16,7 @@ public static class RemoveBlgmKingdomCommand
 {
     /// <summary>
     /// Removes a single BLGM-generated kingdom
-    /// Usage: gm.cleanup.remove_blgm_kingdom <kingdom>
+    /// Usage: gm.cleanup.remove_blgm_kingdom &lt;kingdom&gt;
     /// </summary>
     [CommandLineFunctionality.CommandLineArgumentFunction("remove_blgm_kingdom", "gm.cleanup")]
     public static string RemoveBlgmKingdom(List<string> args)

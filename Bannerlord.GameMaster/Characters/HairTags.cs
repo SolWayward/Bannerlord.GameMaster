@@ -1,7 +1,7 @@
 namespace Bannerlord.GameMaster.Characters
 {
     /// <summary>
-    /// Determines which hair styles are allowed </br>
+    /// Determines which hair styles are allowed <br />
     /// Multiple tags can be combined to allow a combination (ex: "tag1;tag2;tag3"), some pre-combined tags are provided
     /// </summary>
     public static class HairTags
