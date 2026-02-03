@@ -1,5 +1,6 @@
 # Bannerlord.GameMaster (BLGM)
 BLGM provides the ability to Create and manage kingdoms, heroes, wanderers, clans, and tools to control, upgrade, and change ownership of settlements. Easily add members to your clan, or clans to your kingdom and way more. A powerful query system is also included, allowing you to easily add items, modifiers, and troops as well.
+BLGM provides the ability to Create and manage kingdoms, heroes, wanderers, clans, and tools to control, upgrade, and change ownership of settlements. Easily add members to your clan, or clans to your kingdom and way more. A powerful query system is also included, allowing you to easily add items, modifiers, and troops as well.
 
 ## Quick Links
 - **[User Command Documentation](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
