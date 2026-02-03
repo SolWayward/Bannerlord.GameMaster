@@ -4,7 +4,7 @@ BLGM provides the ability to Create and manage kingdoms, heroes, wanderers, clan
 
 ## Quick Links
 - **[User Command Documentation](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
-- **[Developer API Reference](https://solwayward.github.io/Bannerlord.GameMaster/api/Bannerlord.GameMaster.html)** 
+- **[Developer API Reference](https://solwayward.github.io/Bannerlord.GameMaster/api/index)** 
 
 Console commands and framework, providing Settlement, Hero, Clan, Item, troop, and Kingdom management. All commands provide the ability to use object names, or object ids as arguments as well as a query system to search and find objects.
   
