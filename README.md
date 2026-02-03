@@ -1,38 +1,13 @@
----
-title: Home
----
-
 # Bannerlord.GameMaster (BLGM)
-BLGM provides the ability to Create and manage kingdoms, heroes, wanderers, clans, and tools to control, upgrade, and change ownership of settlements. Easily add members to your clan, or clans to your kingdom and way more. A powerful query system is also included, allowing you to easily add items, modifiers, and troops as well.  
-
-BLGM provides a suite of console commands that users can use to take control of their game or mod developers can use to help test and debug their mod and etc..  
-
-BLGM also provide an api providing mod developers with useful methods and utilities to quickly and easily implement various functionaity to their mod. 
+BLGM provides the ability to Create and manage kingdoms, heroes, wanderers, clans, and tools to control, upgrade, and change ownership of settlements. Easily add members to your clan, or clans to your kingdom and way more. A powerful query system is also included, allowing you to easily add items, modifiers, and troops as well.
 
 ## Quick Links
 - **[User Command Documentation](https://github.com/SolWayward/Bannerlord.GameMaster/wiki)**  
-- **[Developer API Reference](api/index.md)**    
+- **[Developer API Reference](https://solwayward.github.io/Bannerlord.GameMaster/api/Bannerlord.GameMaster.html)** 
 
 Console commands and framework, providing Settlement, Hero, Clan, Item, troop, and Kingdom management. All commands provide the ability to use object names, or object ids as arguments as well as a query system to search and find objects.
   
 ```Press Alt + ~ (tilde key) in-game to open console```
-
-## System Console
-BLGM includes an optional system console that displays additional debug information alongside the game console and allows you to enter commands using the system console or the game console. 
-
-To enable the system console:
-
-**In-Game Command:**  
-gm.show_system_console  
-
-**Command Line Launch Option:**  
-/systemconsole  
-
-The system console is optional, all commands work in both the game console and system console.  
-The system console additionally shows:
-- Debug output and logging
-- Detailed command execution information
-- System messages and warnings
 
 ## Latest Update v1.3.13.16
 ```
