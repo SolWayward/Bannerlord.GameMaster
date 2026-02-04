@@ -44,17 +44,13 @@ namespace Bannerlord.GameMaster.Kingdoms
                 name = CultureLookup.GetUniqueRandomKingdomName(rulingClan.Leader.Culture);
 
             Kingdom kingdom = new();
-            BLGMObjectManager.AssignKingdomMBGUID(kingdom); // CRITICAL: Assign MBGUID immediately to prevent save/load crashes
+            BLGMObjectManager.AssignKingdomMBGUID(kingdom); // Assign MBGUID immediately to prevent save/load crashes
             TextObject nameObj = new(name);
             kingdom.ChangeKingdomName(nameObj, nameObj); // Set name here even though InitalizeKingdom sets name too so stringId will contain Name
             BLGMObjectManager.RegisterKingdom(kingdom); // Registers and assigns stringId
 
             // Prepare clan for ruling BEFORE creating kingdom
             PrepareClanToRule(rulingClan);
-
-            // Game does this after InitializeKingdom but doing it here before lets the kingdoms have better more colorful banners
-            // Doing it after InitializeKingdom causes banners to all be different shades of standard culture banners for the kingdom culture which makes banner all look similar
-            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
 
             CultureObject culture = rulingClan.Culture;
 
@@ -86,6 +82,9 @@ namespace Bannerlord.GameMaster.Kingdoms
                 encyclopediaTitle,              // encyclopedia title
                 encyclopediaRulerTitle          // encyclopedia ruler title
             );
+
+            // Game does this after InitializeKingdom Doing it before, makes settlement have richer 2 background color banners, but the banner wont match kingdom banner
+            ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, kingdom, true);
 
             // Transfer ownership of settlement
             ChangeOwnerOfSettlementAction.ApplyByDefault(rulingClan.Leader, homeSettlement);
