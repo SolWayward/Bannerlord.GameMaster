@@ -9,7 +9,6 @@
             "type": "clr",
             "request": "launch",
             "preLaunchTask": "build bannerlord",
-            "postDebugTask": "cleanup-debug",
             "program": "${env:BANNERLORD_GAME_DIR}/bin/Win64_Shipping_Client/Bannerlord.exe",
             "args": [
                 "/singleplayer",
