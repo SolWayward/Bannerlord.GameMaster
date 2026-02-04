@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Banners.UI
+  commentId: N:Bannerlord.GameMaster.Banners.UI
+  id: Bannerlord.GameMaster.Banners.UI
+  children:
+  - Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Banners.UI
+  nameWithType: Bannerlord.GameMaster.Banners.UI
+  fullName: Bannerlord.GameMaster.Banners.UI
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  commentId: T:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  href: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.html
+  name: ClanBannerEditorScreen
+  nameWithType: ClanBannerEditorScreen
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen

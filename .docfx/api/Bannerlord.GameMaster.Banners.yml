@@ -5,7 +5,9 @@ items:
   id: Bannerlord.GameMaster.Banners
   children:
   - Bannerlord.GameMaster.Banners.BannerColorPicker
+  - Bannerlord.GameMaster.Banners.BannerEditorController
   - Bannerlord.GameMaster.Banners.BannerExtensions
+  - Bannerlord.GameMaster.Banners.ClanBannerEditorState
   langs:
   - csharp
   - vb
@@ -22,9 +24,52 @@ references:
   name: BannerColorPicker
   nameWithType: BannerColorPicker
   fullName: Bannerlord.GameMaster.Banners.BannerColorPicker
+- uid: Bannerlord.GameMaster.Banners.BannerEditorController
+  commentId: T:Bannerlord.GameMaster.Banners.BannerEditorController
+  href: Bannerlord.GameMaster.Banners.BannerEditorController.html
+  name: BannerEditorController
+  nameWithType: BannerEditorController
+  fullName: Bannerlord.GameMaster.Banners.BannerEditorController
 - uid: Bannerlord.GameMaster.Banners.BannerExtensions
   commentId: T:Bannerlord.GameMaster.Banners.BannerExtensions
   href: Bannerlord.GameMaster.Banners.BannerExtensions.html
   name: BannerExtensions
   nameWithType: BannerExtensions
   fullName: Bannerlord.GameMaster.Banners.BannerExtensions
+- uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState
+  commentId: T:Bannerlord.GameMaster.Banners.ClanBannerEditorState
+  parent: Bannerlord.GameMaster.Banners
+  href: Bannerlord.GameMaster.Banners.ClanBannerEditorState.html
+  name: ClanBannerEditorState
+  nameWithType: ClanBannerEditorState
+  fullName: Bannerlord.GameMaster.Banners.ClanBannerEditorState
+- uid: Bannerlord.GameMaster.Banners
+  commentId: N:Bannerlord.GameMaster.Banners
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Banners
+  nameWithType: Bannerlord.GameMaster.Banners
+  fullName: Bannerlord.GameMaster.Banners
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html

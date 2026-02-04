@@ -52,8 +52,21 @@ items:
   - uid: Bannerlord.GameMaster.Banners.BannerColorPicker
     name: BannerColorPicker
     type: Class
+  - uid: Bannerlord.GameMaster.Banners.BannerEditorController
+    name: BannerEditorController
+    type: Class
   - uid: Bannerlord.GameMaster.Banners.BannerExtensions
     name: BannerExtensions
+    type: Class
+  - uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState
+    name: ClanBannerEditorState
+    type: Class
+- uid: Bannerlord.GameMaster.Banners.UI
+  name: Bannerlord.GameMaster.Banners.UI
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+    name: ClanBannerEditorScreen
     type: Class
 - uid: Bannerlord.GameMaster.Battles
   name: Bannerlord.GameMaster.Battles
@@ -231,6 +244,9 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.DestroyClanCommand
     name: DestroyClanCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EditBannerCommand
+    name: EditBannerCommand
     type: Class
   - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EquipClanHeroesCommand
     name: EquipClanHeroesCommand

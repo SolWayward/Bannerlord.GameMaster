@@ -1,0 +1,1423 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  commentId: T:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  id: ClanBannerEditorScreen
+  parent: Bannerlord.GameMaster.Banners.UI
+  children:
+  - Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.#ctor(Bannerlord.GameMaster.Banners.ClanBannerEditorState)
+  - Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnActivate
+  - Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnDeactivate
+  - Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFinalize
+  - Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick(System.Single)
+  - Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnInitialize
+  langs:
+  - csharp
+  - vb
+  name: ClanBannerEditorScreen
+  nameWithType: ClanBannerEditorScreen
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClanBannerEditorScreen
+    path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners.UI
+  syntax:
+    content: >-
+      [GameStateScreen(typeof(ClanBannerEditorState))]
+
+      public class ClanBannerEditorScreen : ScreenBase, IGameStateListener
+    content.vb: >-
+      <GameStateScreen(GetType(ClanBannerEditorState))>
+
+      Public Class ClanBannerEditorScreen Inherits ScreenBase Implements IGameStateListener
+  inheritance:
+  - System.Object
+  - TaleWorlds.ScreenSystem.ScreenBase
+  implements:
+  - TaleWorlds.Core.IGameStateListener
+  inheritedMembers:
+  - TaleWorlds.ScreenSystem.ScreenBase.ActivateAllLayers
+  - TaleWorlds.ScreenSystem.ScreenBase.DeactivateAllLayers
+  - TaleWorlds.ScreenSystem.ScreenBase.Deactivate
+  - TaleWorlds.ScreenSystem.ScreenBase.Activate
+  - TaleWorlds.ScreenSystem.ScreenBase.UpdateLayout
+  - TaleWorlds.ScreenSystem.ScreenBase.OnPause
+  - TaleWorlds.ScreenSystem.ScreenBase.OnResume
+  - TaleWorlds.ScreenSystem.ScreenBase.OnPostFrameTick(System.Single)
+  - TaleWorlds.ScreenSystem.ScreenBase.OnIdleTick(System.Single)
+  - TaleWorlds.ScreenSystem.ScreenBase.OnFocusChangeOnGameWindow(System.Boolean)
+  - TaleWorlds.ScreenSystem.ScreenBase.AddComponent(TaleWorlds.ScreenSystem.ScreenComponent)
+  - TaleWorlds.ScreenSystem.ScreenBase.FindComponent``1
+  - TaleWorlds.ScreenSystem.ScreenBase.AddLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  - TaleWorlds.ScreenSystem.ScreenBase.RemoveLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  - TaleWorlds.ScreenSystem.ScreenBase.HasLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  - TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1
+  - TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1(System.String)
+  - TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesState(System.String[],System.Boolean)
+  - TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndToggleOthers(System.String[],System.Boolean)
+  - TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(System.String[],System.Boolean)
+  - TaleWorlds.ScreenSystem.ScreenBase.DebugInput
+  - TaleWorlds.ScreenSystem.ScreenBase.Layers
+  - TaleWorlds.ScreenSystem.ScreenBase.IsActive
+  - TaleWorlds.ScreenSystem.ScreenBase.IsPaused
+  - TaleWorlds.ScreenSystem.ScreenBase.IsInitialized
+  - TaleWorlds.ScreenSystem.ScreenBase.IsFinalized
+  - TaleWorlds.ScreenSystem.ScreenBase.MouseVisible
+  - TaleWorlds.ScreenSystem.ScreenBase.OnAddLayer
+  - TaleWorlds.ScreenSystem.ScreenBase.OnRemoveLayer
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: TaleWorlds.MountAndBlade.View.Screens.GameStateScreen
+    ctor: TaleWorlds.MountAndBlade.View.Screens.GameStateScreen.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Bannerlord.GameMaster.Banners.ClanBannerEditorState
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.#ctor(Bannerlord.GameMaster.Banners.ClanBannerEditorState)
+  commentId: M:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.#ctor(Bannerlord.GameMaster.Banners.ClanBannerEditorState)
+  id: '#ctor(Bannerlord.GameMaster.Banners.ClanBannerEditorState)'
+  parent: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  langs:
+  - csharp
+  - vb
+  name: ClanBannerEditorScreen(ClanBannerEditorState)
+  nameWithType: ClanBannerEditorScreen.ClanBannerEditorScreen(ClanBannerEditorState)
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.ClanBannerEditorScreen(Bannerlord.GameMaster.Banners.ClanBannerEditorState)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+    startLine: 56
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners.UI
+  syntax:
+    content: public ClanBannerEditorScreen(ClanBannerEditorState state)
+    parameters:
+    - id: state
+      type: Bannerlord.GameMaster.Banners.ClanBannerEditorState
+    content.vb: Public Sub New(state As ClanBannerEditorState)
+  overload: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.#ctor*
+  nameWithType.vb: ClanBannerEditorScreen.New(ClanBannerEditorState)
+  fullName.vb: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.New(Bannerlord.GameMaster.Banners.ClanBannerEditorState)
+  name.vb: New(ClanBannerEditorState)
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnInitialize
+  commentId: M:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnInitialize
+  id: OnInitialize
+  parent: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  langs:
+  - csharp
+  - vb
+  name: OnInitialize()
+  nameWithType: ClanBannerEditorScreen.OnInitialize()
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnInitialize()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnInitialize
+    path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+    startLine: 62
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners.UI
+  example: []
+  syntax:
+    content: protected override void OnInitialize()
+    content.vb: Protected Overrides Sub OnInitialize()
+  overridden: TaleWorlds.ScreenSystem.ScreenBase.OnInitialize
+  overload: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnInitialize*
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnActivate
+  commentId: M:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnActivate
+  id: OnActivate
+  parent: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  langs:
+  - csharp
+  - vb
+  name: OnActivate()
+  nameWithType: ClanBannerEditorScreen.OnActivate()
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnActivate()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnActivate
+    path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+    startLine: 98
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners.UI
+  example: []
+  syntax:
+    content: protected override void OnActivate()
+    content.vb: Protected Overrides Sub OnActivate()
+  overridden: TaleWorlds.ScreenSystem.ScreenBase.OnActivate
+  overload: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnActivate*
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnDeactivate
+  commentId: M:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnDeactivate
+  id: OnDeactivate
+  parent: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  langs:
+  - csharp
+  - vb
+  name: OnDeactivate()
+  nameWithType: ClanBannerEditorScreen.OnDeactivate()
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnDeactivate()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnDeactivate
+    path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+    startLine: 106
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners.UI
+  example: []
+  syntax:
+    content: protected override void OnDeactivate()
+    content.vb: Protected Overrides Sub OnDeactivate()
+  overridden: TaleWorlds.ScreenSystem.ScreenBase.OnDeactivate
+  overload: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnDeactivate*
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick(System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick(System.Single)
+  id: OnFrameTick(System.Single)
+  parent: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  langs:
+  - csharp
+  - vb
+  name: OnFrameTick(float)
+  nameWithType: ClanBannerEditorScreen.OnFrameTick(float)
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick(float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnFrameTick
+    path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+    startLine: 151
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners.UI
+  example: []
+  syntax:
+    content: protected override void OnFrameTick(float dt)
+    parameters:
+    - id: dt
+      type: System.Single
+    content.vb: Protected Overrides Sub OnFrameTick(dt As Single)
+  overridden: TaleWorlds.ScreenSystem.ScreenBase.OnFrameTick(System.Single)
+  overload: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick*
+  nameWithType.vb: ClanBannerEditorScreen.OnFrameTick(Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick(Single)
+  name.vb: OnFrameTick(Single)
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFinalize
+  commentId: M:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFinalize
+  id: OnFinalize
+  parent: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen
+  langs:
+  - csharp
+  - vb
+  name: OnFinalize()
+  nameWithType: ClanBannerEditorScreen.OnFinalize()
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFinalize()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OnFinalize
+    path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
+    startLine: 210
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners.UI
+  example: []
+  syntax:
+    content: protected override void OnFinalize()
+    content.vb: Protected Overrides Sub OnFinalize()
+  overridden: TaleWorlds.ScreenSystem.ScreenBase.OnFinalize
+  overload: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFinalize*
+references:
+- uid: Bannerlord.GameMaster.Banners.UI
+  commentId: N:Bannerlord.GameMaster.Banners.UI
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Banners.UI
+  nameWithType: Bannerlord.GameMaster.Banners.UI
+  fullName: Bannerlord.GameMaster.Banners.UI
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners.UI
+    name: UI
+    href: Bannerlord.GameMaster.Banners.UI.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners.UI
+    name: UI
+    href: Bannerlord.GameMaster.Banners.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: TaleWorlds.ScreenSystem.ScreenBase
+  commentId: T:TaleWorlds.ScreenSystem.ScreenBase
+  parent: TaleWorlds.ScreenSystem
+  isExternal: true
+  name: ScreenBase
+  nameWithType: ScreenBase
+  fullName: TaleWorlds.ScreenSystem.ScreenBase
+- uid: TaleWorlds.Core.IGameStateListener
+  commentId: T:TaleWorlds.Core.IGameStateListener
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: IGameStateListener
+  nameWithType: IGameStateListener
+  fullName: TaleWorlds.Core.IGameStateListener
+- uid: TaleWorlds.ScreenSystem.ScreenBase.ActivateAllLayers
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.ActivateAllLayers
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: ActivateAllLayers()
+  nameWithType: ScreenBase.ActivateAllLayers()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.ActivateAllLayers()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.ActivateAllLayers
+    name: ActivateAllLayers
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.ActivateAllLayers
+    name: ActivateAllLayers
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.DeactivateAllLayers
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.DeactivateAllLayers
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: DeactivateAllLayers()
+  nameWithType: ScreenBase.DeactivateAllLayers()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.DeactivateAllLayers()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.DeactivateAllLayers
+    name: DeactivateAllLayers
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.DeactivateAllLayers
+    name: DeactivateAllLayers
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.Deactivate
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.Deactivate
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: Deactivate()
+  nameWithType: ScreenBase.Deactivate()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.Deactivate()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.Deactivate
+    name: Deactivate
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.Deactivate
+    name: Deactivate
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.Activate
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.Activate
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: Activate()
+  nameWithType: ScreenBase.Activate()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.Activate()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.Activate
+    name: Activate
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.Activate
+    name: Activate
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.UpdateLayout
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.UpdateLayout
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: UpdateLayout()
+  nameWithType: ScreenBase.UpdateLayout()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.UpdateLayout()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.UpdateLayout
+    name: UpdateLayout
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.UpdateLayout
+    name: UpdateLayout
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnPause
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnPause
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: OnPause()
+  nameWithType: ScreenBase.OnPause()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnPause()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnPause
+    name: OnPause
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnPause
+    name: OnPause
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnResume
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnResume
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: OnResume()
+  nameWithType: ScreenBase.OnResume()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnResume()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnResume
+    name: OnResume
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnResume
+    name: OnResume
+    isExternal: true
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnPostFrameTick(System.Single)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnPostFrameTick(System.Single)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: OnPostFrameTick(float)
+  nameWithType: ScreenBase.OnPostFrameTick(float)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnPostFrameTick(float)
+  nameWithType.vb: ScreenBase.OnPostFrameTick(Single)
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.OnPostFrameTick(Single)
+  name.vb: OnPostFrameTick(Single)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnPostFrameTick(System.Single)
+    name: OnPostFrameTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnPostFrameTick(System.Single)
+    name: OnPostFrameTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnIdleTick(System.Single)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnIdleTick(System.Single)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: OnIdleTick(float)
+  nameWithType: ScreenBase.OnIdleTick(float)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnIdleTick(float)
+  nameWithType.vb: ScreenBase.OnIdleTick(Single)
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.OnIdleTick(Single)
+  name.vb: OnIdleTick(Single)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnIdleTick(System.Single)
+    name: OnIdleTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnIdleTick(System.Single)
+    name: OnIdleTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnFocusChangeOnGameWindow(System.Boolean)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnFocusChangeOnGameWindow(System.Boolean)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: OnFocusChangeOnGameWindow(bool)
+  nameWithType: ScreenBase.OnFocusChangeOnGameWindow(bool)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnFocusChangeOnGameWindow(bool)
+  nameWithType.vb: ScreenBase.OnFocusChangeOnGameWindow(Boolean)
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.OnFocusChangeOnGameWindow(Boolean)
+  name.vb: OnFocusChangeOnGameWindow(Boolean)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnFocusChangeOnGameWindow(System.Boolean)
+    name: OnFocusChangeOnGameWindow
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnFocusChangeOnGameWindow(System.Boolean)
+    name: OnFocusChangeOnGameWindow
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.AddComponent(TaleWorlds.ScreenSystem.ScreenComponent)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.AddComponent(TaleWorlds.ScreenSystem.ScreenComponent)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: AddComponent(ScreenComponent)
+  nameWithType: ScreenBase.AddComponent(ScreenComponent)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.AddComponent(TaleWorlds.ScreenSystem.ScreenComponent)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.AddComponent(TaleWorlds.ScreenSystem.ScreenComponent)
+    name: AddComponent
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.ScreenSystem.ScreenComponent
+    name: ScreenComponent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.AddComponent(TaleWorlds.ScreenSystem.ScreenComponent)
+    name: AddComponent
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.ScreenSystem.ScreenComponent
+    name: ScreenComponent
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.FindComponent``1
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.FindComponent``1
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: FindComponent<T>()
+  nameWithType: ScreenBase.FindComponent<T>()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.FindComponent<T>()
+  nameWithType.vb: ScreenBase.FindComponent(Of T)()
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.FindComponent(Of T)()
+  name.vb: FindComponent(Of T)()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.FindComponent``1
+    name: FindComponent
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.FindComponent``1
+    name: FindComponent
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.AddLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.AddLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: AddLayer(ScreenLayer)
+  nameWithType: ScreenBase.AddLayer(ScreenLayer)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.AddLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.AddLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+    name: AddLayer
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.ScreenSystem.ScreenLayer
+    name: ScreenLayer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.AddLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+    name: AddLayer
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.ScreenSystem.ScreenLayer
+    name: ScreenLayer
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.RemoveLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.RemoveLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: RemoveLayer(ScreenLayer)
+  nameWithType: ScreenBase.RemoveLayer(ScreenLayer)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.RemoveLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.RemoveLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+    name: RemoveLayer
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.ScreenSystem.ScreenLayer
+    name: ScreenLayer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.RemoveLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+    name: RemoveLayer
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.ScreenSystem.ScreenLayer
+    name: ScreenLayer
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.HasLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.HasLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: HasLayer(ScreenLayer)
+  nameWithType: ScreenBase.HasLayer(ScreenLayer)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.HasLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.HasLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+    name: HasLayer
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.ScreenSystem.ScreenLayer
+    name: ScreenLayer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.HasLayer(TaleWorlds.ScreenSystem.ScreenLayer)
+    name: HasLayer
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.ScreenSystem.ScreenLayer
+    name: ScreenLayer
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: FindLayer<T>()
+  nameWithType: ScreenBase.FindLayer<T>()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.FindLayer<T>()
+  nameWithType.vb: ScreenBase.FindLayer(Of T)()
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.FindLayer(Of T)()
+  name.vb: FindLayer(Of T)()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1
+    name: FindLayer
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1
+    name: FindLayer
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1(System.String)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1(System.String)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: FindLayer<T>(string)
+  nameWithType: ScreenBase.FindLayer<T>(string)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.FindLayer<T>(string)
+  nameWithType.vb: ScreenBase.FindLayer(Of T)(String)
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.FindLayer(Of T)(String)
+  name.vb: FindLayer(Of T)(String)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1(System.String)
+    name: FindLayer
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.FindLayer``1(System.String)
+    name: FindLayer
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesState(System.String[],System.Boolean)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesState(System.String[],System.Boolean)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SetLayerCategoriesState(string[], bool)
+  nameWithType: ScreenBase.SetLayerCategoriesState(string[], bool)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesState(string[], bool)
+  nameWithType.vb: ScreenBase.SetLayerCategoriesState(String(), Boolean)
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesState(String(), Boolean)
+  name.vb: SetLayerCategoriesState(String(), Boolean)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesState(System.String[],System.Boolean)
+    name: SetLayerCategoriesState
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesState(System.String[],System.Boolean)
+    name: SetLayerCategoriesState
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndToggleOthers(System.String[],System.Boolean)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndToggleOthers(System.String[],System.Boolean)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SetLayerCategoriesStateAndToggleOthers(string[], bool)
+  nameWithType: ScreenBase.SetLayerCategoriesStateAndToggleOthers(string[], bool)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndToggleOthers(string[], bool)
+  nameWithType.vb: ScreenBase.SetLayerCategoriesStateAndToggleOthers(String(), Boolean)
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndToggleOthers(String(), Boolean)
+  name.vb: SetLayerCategoriesStateAndToggleOthers(String(), Boolean)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndToggleOthers(System.String[],System.Boolean)
+    name: SetLayerCategoriesStateAndToggleOthers
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndToggleOthers(System.String[],System.Boolean)
+    name: SetLayerCategoriesStateAndToggleOthers
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(System.String[],System.Boolean)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(System.String[],System.Boolean)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SetLayerCategoriesStateAndDeactivateOthers(string[], bool)
+  nameWithType: ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(string[], bool)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(string[], bool)
+  nameWithType.vb: ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(String(), Boolean)
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(String(), Boolean)
+  name.vb: SetLayerCategoriesStateAndDeactivateOthers(String(), Boolean)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(System.String[],System.Boolean)
+    name: SetLayerCategoriesStateAndDeactivateOthers
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.SetLayerCategoriesStateAndDeactivateOthers(System.String[],System.Boolean)
+    name: SetLayerCategoriesStateAndDeactivateOthers
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: TaleWorlds.ScreenSystem.ScreenBase.DebugInput
+  commentId: P:TaleWorlds.ScreenSystem.ScreenBase.DebugInput
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: DebugInput
+  nameWithType: ScreenBase.DebugInput
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.DebugInput
+- uid: TaleWorlds.ScreenSystem.ScreenBase.Layers
+  commentId: P:TaleWorlds.ScreenSystem.ScreenBase.Layers
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: Layers
+  nameWithType: ScreenBase.Layers
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.Layers
+- uid: TaleWorlds.ScreenSystem.ScreenBase.IsActive
+  commentId: P:TaleWorlds.ScreenSystem.ScreenBase.IsActive
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: IsActive
+  nameWithType: ScreenBase.IsActive
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.IsActive
+- uid: TaleWorlds.ScreenSystem.ScreenBase.IsPaused
+  commentId: P:TaleWorlds.ScreenSystem.ScreenBase.IsPaused
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: IsPaused
+  nameWithType: ScreenBase.IsPaused
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.IsPaused
+- uid: TaleWorlds.ScreenSystem.ScreenBase.IsInitialized
+  commentId: P:TaleWorlds.ScreenSystem.ScreenBase.IsInitialized
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: IsInitialized
+  nameWithType: ScreenBase.IsInitialized
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.IsInitialized
+- uid: TaleWorlds.ScreenSystem.ScreenBase.IsFinalized
+  commentId: P:TaleWorlds.ScreenSystem.ScreenBase.IsFinalized
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: IsFinalized
+  nameWithType: ScreenBase.IsFinalized
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.IsFinalized
+- uid: TaleWorlds.ScreenSystem.ScreenBase.MouseVisible
+  commentId: P:TaleWorlds.ScreenSystem.ScreenBase.MouseVisible
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: MouseVisible
+  nameWithType: ScreenBase.MouseVisible
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.MouseVisible
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnAddLayer
+  commentId: E:TaleWorlds.ScreenSystem.ScreenBase.OnAddLayer
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: OnAddLayer
+  nameWithType: ScreenBase.OnAddLayer
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnAddLayer
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnRemoveLayer
+  commentId: E:TaleWorlds.ScreenSystem.ScreenBase.OnRemoveLayer
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: OnRemoveLayer
+  nameWithType: ScreenBase.OnRemoveLayer
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnRemoveLayer
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TaleWorlds.ScreenSystem
+  commentId: N:TaleWorlds.ScreenSystem
+  isExternal: true
+  name: TaleWorlds.ScreenSystem
+  nameWithType: TaleWorlds.ScreenSystem
+  fullName: TaleWorlds.ScreenSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.ScreenSystem
+    name: ScreenSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.ScreenSystem
+    name: ScreenSystem
+    isExternal: true
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.#ctor
+  href: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.html#Bannerlord_GameMaster_Banners_UI_ClanBannerEditorScreen__ctor_Bannerlord_GameMaster_Banners_ClanBannerEditorState_
+  name: ClanBannerEditorScreen
+  nameWithType: ClanBannerEditorScreen.ClanBannerEditorScreen
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.ClanBannerEditorScreen
+  nameWithType.vb: ClanBannerEditorScreen.New
+  fullName.vb: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState
+  commentId: T:Bannerlord.GameMaster.Banners.ClanBannerEditorState
+  parent: Bannerlord.GameMaster.Banners
+  href: Bannerlord.GameMaster.Banners.ClanBannerEditorState.html
+  name: ClanBannerEditorState
+  nameWithType: ClanBannerEditorState
+  fullName: Bannerlord.GameMaster.Banners.ClanBannerEditorState
+- uid: Bannerlord.GameMaster.Banners
+  commentId: N:Bannerlord.GameMaster.Banners
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Banners
+  nameWithType: Bannerlord.GameMaster.Banners
+  fullName: Bannerlord.GameMaster.Banners
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Banners
+    name: Banners
+    href: Bannerlord.GameMaster.Banners.html
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnInitialize
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnInitialize
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: OnInitialize()
+  nameWithType: ScreenBase.OnInitialize()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnInitialize()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnInitialize
+    name: OnInitialize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnInitialize
+    name: OnInitialize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnInitialize*
+  commentId: Overload:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnInitialize
+  href: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.html#Bannerlord_GameMaster_Banners_UI_ClanBannerEditorScreen_OnInitialize
+  name: OnInitialize
+  nameWithType: ClanBannerEditorScreen.OnInitialize
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnInitialize
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnActivate
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnActivate
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: OnActivate()
+  nameWithType: ScreenBase.OnActivate()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnActivate()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnActivate
+    name: OnActivate
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnActivate
+    name: OnActivate
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnActivate*
+  commentId: Overload:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnActivate
+  href: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.html#Bannerlord_GameMaster_Banners_UI_ClanBannerEditorScreen_OnActivate
+  name: OnActivate
+  nameWithType: ClanBannerEditorScreen.OnActivate
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnActivate
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnDeactivate
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnDeactivate
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: OnDeactivate()
+  nameWithType: ScreenBase.OnDeactivate()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnDeactivate()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnDeactivate
+    name: OnDeactivate
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnDeactivate
+    name: OnDeactivate
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnDeactivate*
+  commentId: Overload:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnDeactivate
+  href: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.html#Bannerlord_GameMaster_Banners_UI_ClanBannerEditorScreen_OnDeactivate
+  name: OnDeactivate
+  nameWithType: ClanBannerEditorScreen.OnDeactivate
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnDeactivate
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnFrameTick(System.Single)
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnFrameTick(System.Single)
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: OnFrameTick(float)
+  nameWithType: ScreenBase.OnFrameTick(float)
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnFrameTick(float)
+  nameWithType.vb: ScreenBase.OnFrameTick(Single)
+  fullName.vb: TaleWorlds.ScreenSystem.ScreenBase.OnFrameTick(Single)
+  name.vb: OnFrameTick(Single)
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnFrameTick(System.Single)
+    name: OnFrameTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnFrameTick(System.Single)
+    name: OnFrameTick
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick*
+  commentId: Overload:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick
+  href: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.html#Bannerlord_GameMaster_Banners_UI_ClanBannerEditorScreen_OnFrameTick_System_Single_
+  name: OnFrameTick
+  nameWithType: ClanBannerEditorScreen.OnFrameTick
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFrameTick
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: TaleWorlds.ScreenSystem.ScreenBase.OnFinalize
+  commentId: M:TaleWorlds.ScreenSystem.ScreenBase.OnFinalize
+  parent: TaleWorlds.ScreenSystem.ScreenBase
+  isExternal: true
+  name: OnFinalize()
+  nameWithType: ScreenBase.OnFinalize()
+  fullName: TaleWorlds.ScreenSystem.ScreenBase.OnFinalize()
+  spec.csharp:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnFinalize
+    name: OnFinalize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.ScreenSystem.ScreenBase.OnFinalize
+    name: OnFinalize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFinalize*
+  commentId: Overload:Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFinalize
+  href: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.html#Bannerlord_GameMaster_Banners_UI_ClanBannerEditorScreen_OnFinalize
+  name: OnFinalize
+  nameWithType: ClanBannerEditorScreen.OnFinalize
+  fullName: Bannerlord.GameMaster.Banners.UI.ClanBannerEditorScreen.OnFinalize

@@ -16,11 +16,13 @@ items:
   - Bannerlord.GameMaster.Clans.ClanExtensions.GetVillages(TaleWorlds.CampaignSystem.Clan)
   - Bannerlord.GameMaster.Clans.ClanExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
   - Bannerlord.GameMaster.Clans.ClanExtensions.HasAnyType(TaleWorlds.CampaignSystem.Clan,Bannerlord.GameMaster.Clans.ClanTypes)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.IsRulingClan(TaleWorlds.CampaignSystem.Clan)
   - Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdom(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
   - Bannerlord.GameMaster.Clans.ClanExtensions.JoinKingdomAsMercenary(TaleWorlds.CampaignSystem.Clan,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
   - Bannerlord.GameMaster.Clans.ClanExtensions.LeaveKingdom(TaleWorlds.CampaignSystem.Clan,System.Boolean)
   - Bannerlord.GameMaster.Clans.ClanExtensions.SetClanTier(TaleWorlds.CampaignSystem.Clan,System.Int32)
   - Bannerlord.GameMaster.Clans.ClanExtensions.SetStringName(TaleWorlds.CampaignSystem.Clan,System.String)
+  - Bannerlord.GameMaster.Clans.ClanExtensions.UpdateBannerColorsForKingdom(TaleWorlds.CampaignSystem.Clan)
   langs:
   - csharp
   - vb
@@ -35,7 +37,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ClanExtensions
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 38
+    startLine: 40
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -71,7 +73,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetClanTypes
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 43
+    startLine: 45
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -105,7 +107,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasAllTypes
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 74
+    startLine: 76
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -141,7 +143,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasAnyType
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 84
+    startLine: 86
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -177,7 +179,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetTypes
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 94
+    startLine: 96
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -211,7 +213,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetFortifications
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 100
+    startLine: 102
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -245,7 +247,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetTowns
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 113
+    startLine: 115
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -279,7 +281,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetCastles
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 126
+    startLine: 128
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -313,7 +315,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetVillages
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 139
+    startLine: 141
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -347,7 +349,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetClanTier
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 154
+    startLine: 156
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -386,7 +388,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: JoinKingdom
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 177
+    startLine: 179
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -425,7 +427,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: JoinKingdomAsMercenary
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 185
+    startLine: 187
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -464,7 +466,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: DefectToKingdom
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 193
+    startLine: 195
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -505,7 +507,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: LeaveKingdom
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 201
+    startLine: 203
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -542,7 +544,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: DeclareWar
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 206
+    startLine: 208
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -574,7 +576,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetStringName
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 215
+    startLine: 217
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -611,7 +613,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: FormattedDetails
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 225
+    startLine: 227
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -626,6 +628,80 @@ items:
       type: System.String
     content.vb: Public Shared Function FormattedDetails(clan As Clan) As String
   overload: Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.UpdateBannerColorsForKingdom(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.UpdateBannerColorsForKingdom(TaleWorlds.CampaignSystem.Clan)
+  id: UpdateBannerColorsForKingdom(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: UpdateBannerColorsForKingdom(Clan)
+  nameWithType: ClanExtensions.UpdateBannerColorsForKingdom(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.UpdateBannerColorsForKingdom(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: UpdateBannerColorsForKingdom
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 248
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: >-
+    Updates this clan's banner colors to match its kingdom's PrimaryBannerColor and SecondaryBannerColor.
+
+    This is a public wrapper for the native private Clan.UpdateBannerColorsAccordingToKingdom() method.
+  example: []
+  syntax:
+    content: public static BLGMResult UpdateBannerColorsForKingdom(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: The clan whose banner colors should be updated.
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure.
+    content.vb: Public Shared Function UpdateBannerColorsForKingdom(clan As Clan) As BLGMResult
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.UpdateBannerColorsForKingdom*
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.IsRulingClan(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanExtensions.IsRulingClan(TaleWorlds.CampaignSystem.Clan)
+  id: IsRulingClan(TaleWorlds.CampaignSystem.Clan)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Clans.ClanExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsRulingClan(Clan)
+  nameWithType: ClanExtensions.IsRulingClan(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.IsRulingClan(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsRulingClan
+    path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
+    startLine: 292
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Checks if this clan is the ruling clan of its kingdom.
+  example: []
+  syntax:
+    content: public static bool IsRulingClan(this Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    return:
+      type: System.Boolean
+      description: True if the clan is the ruling clan of a kingdom, false otherwise.
+    content.vb: Public Shared Function IsRulingClan(clan As Clan) As Boolean
+  overload: Bannerlord.GameMaster.Clans.ClanExtensions.IsRulingClan*
 references:
 - uid: Bannerlord.GameMaster.Clans
   commentId: N:Bannerlord.GameMaster.Clans
@@ -1150,3 +1226,52 @@ references:
   name: FormattedDetails
   nameWithType: ClanExtensions.FormattedDetails
   fullName: Bannerlord.GameMaster.Clans.ClanExtensions.FormattedDetails
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.UpdateBannerColorsForKingdom*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.UpdateBannerColorsForKingdom
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_UpdateBannerColorsForKingdom_TaleWorlds_CampaignSystem_Clan_
+  name: UpdateBannerColorsForKingdom
+  nameWithType: ClanExtensions.UpdateBannerColorsForKingdom
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.UpdateBannerColorsForKingdom
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Clans.ClanExtensions.IsRulingClan*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanExtensions.IsRulingClan
+  href: Bannerlord.GameMaster.Clans.ClanExtensions.html#Bannerlord_GameMaster_Clans_ClanExtensions_IsRulingClan_TaleWorlds_CampaignSystem_Clan_
+  name: IsRulingClan
+  nameWithType: ClanExtensions.IsRulingClan
+  fullName: Bannerlord.GameMaster.Clans.ClanExtensions.IsRulingClan

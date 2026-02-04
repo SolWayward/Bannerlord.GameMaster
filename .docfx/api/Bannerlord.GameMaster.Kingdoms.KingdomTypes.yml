@@ -25,7 +25,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: KingdomTypes
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 10
+    startLine: 14
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -61,7 +61,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: None
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 13
+    startLine: 17
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -87,7 +87,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Active
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 14
+    startLine: 18
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -113,7 +113,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Eliminated
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 15
+    startLine: 19
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -139,7 +139,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Empty
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 16
+    startLine: 20
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -165,7 +165,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: PlayerKingdom
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 17
+    startLine: 21
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -191,7 +191,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: AtWar
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 18
+    startLine: 22
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms

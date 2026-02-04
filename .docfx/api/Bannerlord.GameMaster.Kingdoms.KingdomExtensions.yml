@@ -14,6 +14,8 @@ items:
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages(TaleWorlds.CampaignSystem.Kingdom)
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAllTypes(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors(TaleWorlds.CampaignSystem.Kingdom,System.UInt32,System.UInt32)
   langs:
   - csharp
   - vb
@@ -28,7 +30,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: KingdomExtensions
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 21
+    startLine: 25
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -64,7 +66,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetKingdomTypes
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 27
+    startLine: 31
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -98,7 +100,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasAllTypes
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 64
+    startLine: 68
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -134,7 +136,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasAnyType
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 74
+    startLine: 78
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -170,7 +172,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetFortifications
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 83
+    startLine: 87
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -204,7 +206,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetTowns
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 96
+    startLine: 100
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -238,7 +240,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetCastles
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 109
+    startLine: 113
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -272,7 +274,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetVillages
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 122
+    startLine: 126
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -306,7 +308,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: FormattedDetails
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 138
+    startLine: 142
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -340,7 +342,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetTypes
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 148
+    startLine: 152
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -355,6 +357,99 @@ items:
       type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
     content.vb: Public Shared Function GetTypes(kingdom As Kingdom) As KingdomTypes
   overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
+  id: PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: PropagateRulingClanBanner(Kingdom)
+  nameWithType: KingdomExtensions.PropagateRulingClanBanner(Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: PropagateRulingClanBanner
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 177
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: >-
+    Propagates the ruling clan's banner colors to this kingdom and all vassal clans.
+
+    Should be called after modifying a ruling clan's banner to ensure consistency.
+
+    Uses reflection to set Kingdom.PrimaryBannerColor (banner background) and
+
+    Kingdom.SecondaryBannerColor (icon color), then triggers banner color updates on all kingdom clans.
+
+    Note: Native game only uses primary (background) and icon colors for kingdom propagation - secondary background is NOT used.
+  example: []
+  syntax:
+    content: public static BLGMResult PropagateRulingClanBanner(this Kingdom kingdom)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: The kingdom to propagate banner colors to.
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure.
+    content.vb: Public Shared Function PropagateRulingClanBanner(kingdom As Kingdom) As BLGMResult
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors(TaleWorlds.CampaignSystem.Kingdom,System.UInt32,System.UInt32)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors(TaleWorlds.CampaignSystem.Kingdom,System.UInt32,System.UInt32)
+  id: SetBannerColors(TaleWorlds.CampaignSystem.Kingdom,System.UInt32,System.UInt32)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetBannerColors(Kingdom, uint, uint)
+  nameWithType: KingdomExtensions.SetBannerColors(Kingdom, uint, uint)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors(TaleWorlds.CampaignSystem.Kingdom, uint, uint)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetBannerColors
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 234
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: >-
+    Sets this kingdom's PrimaryBannerColor and SecondaryBannerColor properties using reflection.
+
+    These properties have private setters in native code.
+  example: []
+  syntax:
+    content: public static BLGMResult SetBannerColors(this Kingdom kingdom, uint primaryColor, uint secondaryColor)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: The kingdom to set banner colors for.
+    - id: primaryColor
+      type: System.UInt32
+      description: The primary banner color (background).
+    - id: secondaryColor
+      type: System.UInt32
+      description: The secondary banner color (icon).
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure.
+    content.vb: Public Shared Function SetBannerColors(kingdom As Kingdom, primaryColor As UInteger, secondaryColor As UInteger) As BLGMResult
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors*
+  nameWithType.vb: KingdomExtensions.SetBannerColors(Kingdom, UInteger, UInteger)
+  fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors(TaleWorlds.CampaignSystem.Kingdom, UInteger, UInteger)
+  name.vb: SetBannerColors(Kingdom, UInteger, UInteger)
 references:
 - uid: Bannerlord.GameMaster.Kingdoms
   commentId: N:Bannerlord.GameMaster.Kingdoms
@@ -812,3 +907,63 @@ references:
   name: GetTypes
   nameWithType: KingdomExtensions.GetTypes
   fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_PropagateRulingClanBanner_TaleWorlds_CampaignSystem_Kingdom_
+  name: PropagateRulingClanBanner
+  nameWithType: KingdomExtensions.PropagateRulingClanBanner
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_SetBannerColors_TaleWorlds_CampaignSystem_Kingdom_System_UInt32_System_UInt32_
+  name: SetBannerColors
+  nameWithType: KingdomExtensions.SetBannerColors
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger

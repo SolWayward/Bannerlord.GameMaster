@@ -104,7 +104,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GenerateKingdoms
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 175
+    startLine: 177
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms

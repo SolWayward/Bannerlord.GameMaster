@@ -9,6 +9,7 @@ items:
   - Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.AddGoldToLeaderCommand
   - Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.AddHeroToClanCommand
   - Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.DestroyClanCommand
+  - Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EditBannerCommand
   - Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EquipClanHeroesCommand
   - Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.GiveGoldToMemberCommand
   - Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.RenameClanCommand
@@ -57,6 +58,12 @@ references:
   name: DestroyClanCommand
   nameWithType: DestroyClanCommand
   fullName: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.DestroyClanCommand
+- uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EditBannerCommand
+  commentId: T:Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EditBannerCommand
+  href: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EditBannerCommand.html
+  name: EditBannerCommand
+  nameWithType: EditBannerCommand
+  fullName: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EditBannerCommand
 - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EquipClanHeroesCommand
   commentId: T:Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EquipClanHeroesCommand
   href: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.EquipClanHeroesCommand.html

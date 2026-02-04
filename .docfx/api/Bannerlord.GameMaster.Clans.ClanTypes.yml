@@ -37,7 +37,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ClanTypes
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 15
+    startLine: 17
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -72,7 +72,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: None
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 18
+    startLine: 20
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -98,7 +98,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Active
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 19
+    startLine: 21
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -124,7 +124,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Eliminated
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 20
+    startLine: 22
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -150,7 +150,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Bandit
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 21
+    startLine: 23
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -176,7 +176,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: NonBandit
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 22
+    startLine: 24
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -202,7 +202,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: MapFaction
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 23
+    startLine: 25
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -228,7 +228,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Noble
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 24
+    startLine: 26
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -254,7 +254,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: MinorFaction
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 25
+    startLine: 27
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -280,7 +280,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Rebel
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 26
+    startLine: 28
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -306,7 +306,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Mercenary
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 27
+    startLine: 29
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -332,7 +332,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: UnderMercenaryService
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 28
+    startLine: 30
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -358,7 +358,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Mafia
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 29
+    startLine: 31
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -384,7 +384,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Outlaw
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 30
+    startLine: 32
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -410,7 +410,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Nomad
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 31
+    startLine: 33
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -436,7 +436,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Sect
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 32
+    startLine: 34
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -462,7 +462,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: WithoutKingdom
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 33
+    startLine: 35
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -488,7 +488,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Empty
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 34
+    startLine: 36
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -514,7 +514,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: PlayerClan
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 35
+    startLine: 37
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
