@@ -61,9 +61,9 @@ namespace Bannerlord.GameMaster.Kingdoms
             else
                 banner = rulingClan.ClanOriginalBanner;
 
-            uint kingdomColor1 = rulingClan.Color;
-            uint kingdomColor2 = rulingClan.Color2;
-        
+            uint kingdomColor1 = rulingClan.Banner.GetPrimaryColor();     // Background
+            uint kingdomColor2 = rulingClan.Banner.GetFirstIconColor();   // Icon color!
+
             // Links seem to not show up in encyclopedia, keeping them anyway as still shows text correctly.
             TextObject encyclopediaText = new($"A new rising kingdom sparked from the upstarts of {rulingClan.EncyclopediaLinkWithName}, Taking {homeSettlement.EncyclopediaLinkWithName} as their capital " +
                                             $"and first ruled by {rulingClan.Leader.EncyclopediaLinkWithName}. Will their legitimacy as a sovereign nation be challenged?");
@@ -124,7 +124,7 @@ namespace Bannerlord.GameMaster.Kingdoms
             }
 
             // Propagate ruling clan banner colors to kingdom and all vassal clans
-            rulingClan.PropagateRulingClanBannerToKingdom();
+            kingdom.PropagateRulingClanBanner();
 
             // Set kingdom as ready AFTER all initialization is complete
             kingdom.IsReady = true;

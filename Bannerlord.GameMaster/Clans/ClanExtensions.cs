@@ -232,17 +232,6 @@ namespace Bannerlord.GameMaster.Clans
 
 		#region Kingdom Banner Propagation
 
-		// MARK: Cached Reflection - Kingdom
-		private static readonly Type kingdomType = typeof(Kingdom);
-
-		private static readonly PropertyInfo primaryBannerColorProp = kingdomType.GetProperty(
-			"PrimaryBannerColor",
-			BindingFlags.Public | BindingFlags.Instance);
-
-		private static readonly PropertyInfo secondaryBannerColorProp = kingdomType.GetProperty(
-			"SecondaryBannerColor",
-			BindingFlags.Public | BindingFlags.Instance);
-
 		// MARK: Cached Reflection - Clan
 		private static readonly Type clanType = typeof(Clan);
 
@@ -250,115 +239,32 @@ namespace Bannerlord.GameMaster.Clans
 			"UpdateBannerColorsAccordingToKingdom",
 			BindingFlags.NonPublic | BindingFlags.Instance);
 
-		/// MARK: PropagateRulingClanBanner
+		/// MARK: UpdateBannerColorsForKingdom
 		/// <summary>
-		/// Propagates this ruling clan's banner colors to the kingdom and all vassal clans.
-		/// Should be called after modifying a ruling clan's banner to ensure consistency.
-		/// Uses reflection to set Kingdom.PrimaryBannerColor (banner background) and
-		/// Kingdom.SecondaryBannerColor (icon color), then triggers banner color updates on all kingdom clans.
-		/// Note: Native game only uses primary (background) and icon colors for kingdom propagation - secondary background is NOT used.
+		/// Updates this clan's banner colors to match its kingdom's PrimaryBannerColor and SecondaryBannerColor.
+		/// This is a public wrapper for the native private Clan.UpdateBannerColorsAccordingToKingdom() method.
 		/// </summary>
-		/// <param name="rulingClan">The ruling clan whose banner was modified.</param>
+		/// <param name="clan">The clan whose banner colors should be updated.</param>
 		/// <returns>BLGMResult indicating success or failure.</returns>
-		public static BLGMResult PropagateRulingClanBannerToKingdom(this Clan rulingClan)
+		public static BLGMResult UpdateBannerColorsForKingdom(this Clan clan)
 		{
-			if (rulingClan == null)
+			if (clan == null)
 			{
-				BLGMResult.Error("PropagateRulingClanBannerToKingdom() failed, rulingClan cannot be null",
-					new ArgumentNullException(nameof(rulingClan))).Log();
-				return BLGMResult.Error("Ruling clan cannot be null");
+				BLGMResult.Error("UpdateBannerColorsForKingdom() failed, clan cannot be null",
+					new ArgumentNullException(nameof(clan))).Log();
+				return BLGMResult.Error("Clan cannot be null");
 			}
 
-			Kingdom kingdom = rulingClan.Kingdom;
-			if (kingdom == null)
+			if (clan.Kingdom == null)
 			{
-				BLGMResult.Error("PropagateRulingClanBannerToKingdom() failed, clan has no kingdom",
+				BLGMResult.Error("UpdateBannerColorsForKingdom() failed, clan has no kingdom",
 					new InvalidOperationException("Clan has no kingdom")).Log();
 				return BLGMResult.Error("Clan has no kingdom");
 			}
 
-			if (kingdom.RulingClan != rulingClan)
-			{
-				BLGMResult.Error("PropagateRulingClanBannerToKingdom() failed, clan is not the ruling clan of its kingdom",
-					new InvalidOperationException("Clan is not the ruling clan")).Log();
-				return BLGMResult.Error("Clan is not the ruling clan of its kingdom");
-			}
-
-			Banner banner = rulingClan.Banner;
-			if (banner == null)
-			{
-				BLGMResult.Error("PropagateRulingClanBannerToKingdom() failed, ruling clan has no banner",
-					new InvalidOperationException("Ruling clan has no banner")).Log();
-				return BLGMResult.Error("Ruling clan has no banner");
-			}
-
-			// Get colors from the ruling clan's banner
-			// Note: Native only uses PrimaryBannerColor (background) and SecondaryBannerColor (icon)
-			uint newPrimaryColor = banner.GetPrimaryColor();
-			uint newSecondaryColor = banner.GetFirstIconColor();
-
-			// Update kingdom banner colors using reflection
-			BLGMResult kingdomResult = SetKingdomBannerColors(kingdom, newPrimaryColor, newSecondaryColor);
-			if (!kingdomResult.IsSuccess)
-				return kingdomResult;
-
-			// Update all vassal clans to use the new kingdom colors
-			int clansUpdated = 0;
-			foreach (Clan clan in kingdom.Clans)
-			{
-				BLGMResult clanResult = UpdateClanBannerColorsForKingdom(clan);
-				if (clanResult.IsSuccess)
-					clansUpdated++;
-			}
-
-			return BLGMResult.Success(
-				$"Propagated banner colors to kingdom '{kingdom.Name}' and {clansUpdated} clan(s)");
-		}
-
-		/// MARK: SetKingdomBannerColors
-		/// <summary>
-		/// Sets the kingdom's PrimaryBannerColor and SecondaryBannerColor properties using reflection.
-		/// These properties have private setters in native code.
-		/// </summary>
-		private static BLGMResult SetKingdomBannerColors(Kingdom kingdom, uint primaryColor, uint secondaryColor)
-		{
-			if (kingdom == null)
-				return BLGMResult.Error("Kingdom cannot be null");
-
-			if (primaryBannerColorProp == null || secondaryBannerColorProp == null)
-			{
-				BLGMResult.Error("SetKingdomBannerColors() failed, reflection properties not found",
-					new InvalidOperationException("Kingdom banner color properties not found via reflection")).Log();
-				return BLGMResult.Error("Failed to find kingdom banner color properties via reflection");
-			}
-
-			try
-			{
-				primaryBannerColorProp.SetValue(kingdom, primaryColor);
-				secondaryBannerColorProp.SetValue(kingdom, secondaryColor);
-
-				return BLGMResult.Success($"Set kingdom banner colors for '{kingdom.Name}'");
-			}
-			catch (Exception ex)
-			{
-				BLGMResult.Error($"SetKingdomBannerColors() failed for '{kingdom.Name}'", ex).Log();
-				return BLGMResult.Error($"Failed to set kingdom banner colors: {ex.Message}");
-			}
-		}
-
-		/// MARK: UpdateClanBannerColors
-		/// <summary>
-		/// Calls the private UpdateBannerColorsAccordingToKingdom() method on a clan using reflection.
-		/// This method updates the clan's banner colors to match its kingdom's banner colors.
-		/// </summary>
-		private static BLGMResult UpdateClanBannerColorsForKingdom(Clan clan)
-		{
-			if (clan == null)
-				return BLGMResult.Error("Clan cannot be null");
-
 			if (updateBannerColorsMethod == null)
 			{
-				BLGMResult.Error("UpdateClanBannerColorsForKingdom() failed, reflection method not found",
+				BLGMResult.Error("UpdateBannerColorsForKingdom() failed, reflection method not found",
 					new InvalidOperationException("Clan.UpdateBannerColorsAccordingToKingdom method not found via reflection")).Log();
 				return BLGMResult.Error("Failed to find UpdateBannerColorsAccordingToKingdom method via reflection");
 			}
@@ -374,7 +280,7 @@ namespace Bannerlord.GameMaster.Clans
 			}
 			catch (Exception ex)
 			{
-				BLGMResult.Error($"UpdateClanBannerColorsForKingdom() failed for clan '{clan.Name}'", ex).Log();
+				BLGMResult.Error($"UpdateBannerColorsForKingdom() failed for clan '{clan.Name}'", ex).Log();
 				return BLGMResult.Error($"Failed to update clan banner colors: {ex.Message}");
 			}
 		}

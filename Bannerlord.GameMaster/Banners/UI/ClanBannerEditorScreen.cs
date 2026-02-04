@@ -1,5 +1,6 @@
 using System;
 using Bannerlord.GameMaster.Clans;
+using Bannerlord.GameMaster.Kingdoms;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
@@ -135,7 +136,7 @@ namespace Bannerlord.GameMaster.Banners.UI
                 // If this is the ruling clan, propagate banner colors to kingdom and vassal clans
                 if (targetClan.IsRulingClan())
                 {
-                    targetClan.PropagateRulingClanBannerToKingdom();
+                	targetClan.Kingdom.PropagateRulingClanBanner();
                 }
             }
 
