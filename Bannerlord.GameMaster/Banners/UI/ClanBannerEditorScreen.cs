@@ -1,10 +1,18 @@
+using System;
+using Bannerlord.GameMaster.Clans;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
+using TaleWorlds.Engine;
 using TaleWorlds.Engine.GauntletUI;
+using TaleWorlds.Engine.Screens;
 using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.MountAndBlade.View.Screens;
+using TaleWorlds.MountAndBlade.View.Tableaus;
+using TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails;
 using TaleWorlds.ScreenSystem;
 using TaleWorlds.TwoDimension;
 
@@ -15,19 +23,46 @@ namespace Bannerlord.GameMaster.Banners.UI
     {
         private readonly ClanBannerEditorState _state;
         private GauntletLayer _gauntletLayer;
-        private GauntletMovieIdentifier _gauntletMovie;  // Correct type
+        private GauntletMovieIdentifier _gauntletMovie;
         private BannerEditorVM _dataSource;
+        private SpriteCategory _bannerIconsCategory;
+
+        // MARK: 3D Scene Fields
+        private SceneLayer _sceneLayer;
+        private Scene _scene;
+        private Camera _camera;
+        private MBAgentRendererSceneController _agentRendererSceneController;
+        private AgentVisuals[] _agentVisuals;
+        private int _agentVisualToShowIndex;
+        private bool _checkWhetherAgentVisualIsReady;
+        private bool _firstCharacterRender = true;
+        private bool _refreshBannersNextFrame;
+        private bool _refreshCharacterAndShieldNextFrame;
+        private MatrixFrame _characterFrame;
+        private MissionWeapon _shieldWeapon;
+        private Equipment _weaponEquipment;
+        private Banner _currentBanner;
+        private BannerEditorTextureCreationData _latestBannerTextureCreationData;
+        private BannerEditorTextureCreationData _latestShieldTextureCreationData;
+
+        // MARK: Camera Control
+        private float _cameraCurrentRotation;
+        private float _cameraTargetRotation;
+        private float _cameraCurrentDistanceAdder;
+        private float _cameraTargetDistanceAdder;
+        private float _cameraCurrentElevationAdder;
+        private float _cameraTargetElevationAdder;
 
         public ClanBannerEditorScreen(ClanBannerEditorState state)
         {
+            LoadingWindow.EnableGlobalLoadingWindow();
             _state = state;
         }
-
-        private SpriteCategory _bannerIconsCategory;
 
         protected override void OnInitialize()
         {
             base.OnInitialize();
+            Game.Current.GameStateManager.RegisterActiveStateDisableRequest(this);
 
             // Load the banner icons sprite category
             _bannerIconsCategory = UIResourceManager.LoadSpriteCategory("ui_bannericons");
@@ -48,20 +83,45 @@ namespace Bannerlord.GameMaster.Banners.UI
                 _ => { }          // Action<int> goToIndex
             );
 
-            // Correct GauntletLayer constructor: (string name, int localOrder, bool shouldClear)
-            _gauntletLayer = new GauntletLayer("ClanBannerEditor", 1, true);
-            _gauntletLayer.Input.RegisterHotKeyCategory(
-                HotKeyManager.GetCategory("GenericPanelGameKeyCategory"));
+            // Create 3D scene
+            CreateScene();
 
-            // LoadMovie returns GauntletMovieIdentifier
-            _gauntletMovie = _gauntletLayer.LoadMovie("BannerEditor", _dataSource);
-
-            // SetInputRestrictions: 7 is the numeric value for InputUsageMask.All
+            // Create GauntletLayer - movie will be loaded later when scene is ready
+            _gauntletLayer = new GauntletLayer("ClanBannerEditor", 1, false);
+            _gauntletLayer.Input.RegisterHotKeyCategory(HotKeyManager.GetCategory("GenericPanelGameKeyCategory"));
+            _gauntletLayer.Input.RegisterHotKeyCategory(HotKeyManager.GetCategory("FaceGenHotkeyCategory"));
             _gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.All);
             _gauntletLayer.IsFocusLayer = true;
-
-            AddLayer(_gauntletLayer);
             ScreenManager.TrySetFocus(_gauntletLayer);
+        }
+
+        protected override void OnActivate()
+        {
+            base.OnActivate();
+            // Add GauntletLayer first, then SceneLayer (matches native order)
+            AddLayer(_gauntletLayer);
+            AddLayer(_sceneLayer);
+        }
+
+        protected override void OnDeactivate()
+        {
+            base.OnDeactivate();
+            // Clean up scene resources on deactivate (matches native pattern)
+            if (_agentVisuals != null)
+            {
+                _agentVisuals[0]?.Reset();
+                _agentVisuals[1]?.Reset();
+            }
+
+            if (_scene != null && _agentRendererSceneController != null)
+            {
+                MBAgentRendererSceneController.DestructAgentRendererSceneController(_scene, _agentRendererSceneController, false);
+                _agentRendererSceneController = null;
+            }
+
+            _scene?.ClearAll();
+            _scene?.ManualInvalidate();
+            _scene = null;
         }
 
         private void OnExit(bool cancelled)
@@ -71,6 +131,12 @@ namespace Bannerlord.GameMaster.Banners.UI
                 Clan targetClan = _state.GetClan();
                 // Access BannerVisual property to trigger refresh
                 IBannerVisual _ = targetClan.Banner.BannerVisual;
+
+                // If this is the ruling clan, propagate banner colors to kingdom and vassal clans
+                if (targetClan.IsRulingClan())
+                {
+                    targetClan.PropagateRulingClanBannerToKingdom();
+                }
             }
 
             Game.Current.GameStateManager.PopState(0);
@@ -79,12 +145,62 @@ namespace Bannerlord.GameMaster.Banners.UI
         private void RefreshBanner()
         {
             _dataSource.BannerVM.OnPropertyChanged();
+            RefreshShieldAndCharacter();
         }
 
         protected override void OnFrameTick(float dt)
         {
             base.OnFrameTick(dt);
 
+            // Update camera
+            UpdateCamera(dt);
+
+            // Load movie only after scene is ready to render (matches native pattern)
+            if (_sceneLayer != null && _sceneLayer.ReadyToRender())
+            {
+                LoadingWindow.DisableGlobalLoadingWindow();
+                if (_gauntletMovie == null)
+                {
+                    _gauntletMovie = _gauntletLayer.LoadMovie("BannerEditor", _dataSource);
+                }
+            }
+
+            // Tick scene
+            _scene?.Tick(dt);
+
+            // Handle banner refresh
+            if (_refreshBannersNextFrame)
+            {
+                UpdateBanners();
+                _refreshBannersNextFrame = false;
+            }
+
+            if (_refreshCharacterAndShieldNextFrame)
+            {
+                RefreshCharacterAux();
+                _refreshCharacterAndShieldNextFrame = false;
+            }
+
+            // Handle character visual ready check
+            if (_checkWhetherAgentVisualIsReady)
+            {
+                int otherVisual = (_agentVisualToShowIndex + 1) % 2;
+                if (_agentVisuals[_agentVisualToShowIndex].GetEntity().CheckResources(_firstCharacterRender, true))
+                {
+                    _agentVisuals[otherVisual].SetVisible(false);
+                    _agentVisuals[_agentVisualToShowIndex].SetVisible(true);
+                    _checkWhetherAgentVisualIsReady = false;
+                    _firstCharacterRender = false;
+                }
+                else if (!_firstCharacterRender)
+                {
+                    // Keep showing the previous visual while loading
+                    _agentVisuals[otherVisual].SetVisible(true);
+                    _agentVisuals[_agentVisualToShowIndex].SetVisible(false);
+                }
+            }
+
+            // Escape key handling
             if (_gauntletLayer.Input.IsHotKeyReleased("Exit"))
             {
                 _dataSource?.ExecuteCancel();
@@ -93,18 +209,241 @@ namespace Bannerlord.GameMaster.Banners.UI
 
         protected override void OnFinalize()
         {
+            base.OnFinalize();
+
+            // Disable loading window if still active
+            if (LoadingWindow.IsLoadingWindowActive)
+            {
+                LoadingWindow.DisableGlobalLoadingWindow();
+            }
+
+            // Unregister state disable request
+            Game.Current.GameStateManager.UnregisterActiveStateDisableRequest(this);
+
+            // Clean up texture creation data
+            if (_latestBannerTextureCreationData != null)
+            {
+                ThumbnailCacheManager.Current.DestroyTexture(_latestBannerTextureCreationData);
+                _latestBannerTextureCreationData = null;
+            }
+
+            if (_latestShieldTextureCreationData != null)
+            {
+                ThumbnailCacheManager.Current.DestroyTexture(_latestShieldTextureCreationData);
+                _latestShieldTextureCreationData = null;
+            }
+
+            if (_sceneLayer != null)
+                RemoveLayer(_sceneLayer);
+
             // Unload sprites
             _bannerIconsCategory?.Unload();
 
             if (_gauntletMovie != null)
-                _gauntletLayer?.ReleaseMovie(_gauntletMovie);  // Both are GauntletMovieIdentifier
+                _gauntletLayer?.ReleaseMovie(_gauntletMovie);
             if (_gauntletLayer != null)
                 RemoveLayer(_gauntletLayer);
             _dataSource?.OnFinalize();
             _dataSource = null;
             _gauntletLayer = null;
             _gauntletMovie = null;
-            base.OnFinalize();
+        }
+
+        // MARK: 3D Scene Methods
+
+        private void CreateScene()
+        {
+            _scene = Scene.CreateNewScene(true, true, (DecalAtlasGroup)2, "mono_renderscene");
+            _scene.SetName("MBBannerEditorScreen");
+
+            SceneInitializationData sceneInitData = default;
+            sceneInitData.InitPhysicsWorld = false;
+            _scene.Read("banner_editor_scene", ref sceneInitData, "");
+            _scene.SetShadow(true);
+            _scene.DisableStaticShadows(true);
+            _scene.SetDynamicShadowmapCascadesRadiusMultiplier(0.1f);
+
+            _agentRendererSceneController = MBAgentRendererSceneController.CreateNewAgentRendererSceneController(_scene);
+
+            float aspectRatio = Screen.AspectRatio;
+            GameEntity spawnPoint = _scene.FindEntityWithTag("spawnpoint_player");
+            _characterFrame = spawnPoint.GetFrame();
+            _characterFrame.rotation.OrthonormalizeAccordingToForwardAndKeepUpAsZAxis();
+
+            // Camera defaults
+            _cameraTargetDistanceAdder = 3.5f;
+            _cameraCurrentDistanceAdder = _cameraTargetDistanceAdder;
+            _cameraTargetElevationAdder = 1.15f;
+            _cameraCurrentElevationAdder = _cameraTargetElevationAdder;
+            _cameraTargetRotation = 0f;
+            _cameraCurrentRotation = 0f;
+
+            _camera = Camera.CreateCamera();
+            _camera.SetFovVertical(0.6981317f, aspectRatio, 0.2f, 200f);
+
+            _sceneLayer = new SceneLayer(true, true);
+            _sceneLayer.IsFocusLayer = true;
+            _sceneLayer.Input.RegisterHotKeyCategory(HotKeyManager.GetCategory("GenericPanelGameKeyCategory"));
+            _sceneLayer.Input.RegisterHotKeyCategory(HotKeyManager.GetCategory("FaceGenHotkeyCategory"));
+            _sceneLayer.SetScene(_scene);
+            UpdateCamera(0f);
+            _sceneLayer.SetSceneUsesShadows(true);
+            _sceneLayer.SceneView.SetResolutionScaling(true);
+
+            int postfxConfig = -1;
+            postfxConfig &= -5;
+            _sceneLayer.SetPostfxConfigParams(postfxConfig);
+
+            AddCharacterEntity(ActionIndexCache.act_walk_idle_1h_with_shield_left_stance);
+        }
+
+        private void AddCharacterEntity(ActionIndexCache action)
+        {
+            CharacterObject character = _state.GetCharacter();
+            Banner banner = _state.GetClan().Banner;
+            _currentBanner = banner;
+
+            _weaponEquipment = new Equipment();
+            for (int i = 0; i < 12; i++)
+            {
+                EquipmentElement element = character.Equipment.GetEquipmentFromSlot((EquipmentIndex)i);
+                if (element.Item?.PrimaryWeapon == null ||
+                    (!element.Item.PrimaryWeapon.IsShield && !element.Item.ItemFlags.HasAllFlags(ItemFlags.DropOnWeaponChange)))
+                {
+                    _weaponEquipment.AddEquipmentToSlotWithoutAgent((EquipmentIndex)i, element);
+                }
+            }
+
+            // Add shield from BannerEditorVM
+            ItemRosterElement shieldElement = _dataSource.ShieldRosterElement;
+            int shieldSlot = _dataSource.ShieldSlotIndex;
+            _weaponEquipment.AddEquipmentToSlotWithoutAgent((EquipmentIndex)shieldSlot, shieldElement.EquipmentElement);
+            _shieldWeapon = new MissionWeapon(shieldElement.EquipmentElement.Item, shieldElement.EquipmentElement.ItemModifier, banner);
+
+            Monster monster = TaleWorlds.Core.FaceGen.GetBaseMonsterFromRace(character.Race);
+
+            _agentVisuals = new AgentVisuals[2];
+            for (int i = 0; i < 2; i++)
+            {
+                _agentVisuals[i] = AgentVisuals.Create(
+                    new AgentVisualsData()
+                        .Equipment(_weaponEquipment)
+                        .BodyProperties(character.GetBodyProperties(_weaponEquipment, -1))
+                        .Frame(_characterFrame)
+                        .ActionSet(MBGlobals.GetActionSetWithSuffix(monster, character.IsFemale, "_facegen"))
+                        .ActionCode(action)
+                        .Scene(_scene)
+                        .Monster(monster)
+                        .Race(character.Race)
+                        .SkeletonType(character.IsFemale ? SkeletonType.Female : SkeletonType.Male)
+                        .PrepareImmediately(true)
+                        .UseMorphAnims(true)
+                        .RightWieldedItemIndex(-1)
+                        .LeftWieldedItemIndex(shieldSlot)
+                        .Banner(banner)
+                        .ClothColor1(banner.GetPrimaryColor())
+                        .ClothColor2(banner.GetFirstIconColor()),
+                    "BannerEditorChar", false, false, true);
+
+                _agentVisuals[i].SetAgentLodZeroOrMaxExternal(true);
+                _agentVisuals[i].SetVisible(false);
+                _agentVisuals[i].GetEntity().CheckResources(true, true);
+            }
+
+            _checkWhetherAgentVisualIsReady = true;
+            _firstCharacterRender = true;
+            UpdateBanners();
+        }
+
+        private void UpdateCamera(float dt)
+        {
+            float amount = MBMath.ClampFloat(10f * dt, 0f, 1f);
+            _cameraCurrentRotation = MBMath.Lerp(_cameraCurrentRotation, _cameraTargetRotation, amount);
+            _cameraCurrentElevationAdder = MBMath.Lerp(_cameraCurrentElevationAdder, _cameraTargetElevationAdder, amount);
+            _cameraCurrentDistanceAdder = MBMath.Lerp(_cameraCurrentDistanceAdder, _cameraTargetDistanceAdder, amount);
+
+            MatrixFrame frame = _characterFrame;
+            frame.rotation.RotateAboutUp(_cameraCurrentRotation);
+            frame.origin += _cameraCurrentElevationAdder * frame.rotation.u + _cameraCurrentDistanceAdder * frame.rotation.f;
+            frame.rotation.RotateAboutSide(-1.5707964f);
+            frame.rotation.RotateAboutUp(3.1415927f);
+            frame.rotation.RotateAboutForward(-0.18849556f);
+
+            _camera.Frame = frame;
+            _sceneLayer.SetCamera(_camera);
+        }
+
+        private void UpdateBanners()
+        {
+            if (_latestBannerTextureCreationData != null)
+            {
+                ThumbnailCacheManager.Current.DestroyTexture(_latestBannerTextureCreationData);
+                _latestBannerTextureCreationData = null;
+            }
+
+            Banner banner = _state.GetClan().Banner;
+            BannerDebugInfo bannerDebugInfo = BannerDebugInfo.CreateManual(GetType().Name);
+            BannerVisualExtensions.GetTableauTextureLargeForBannerEditor(banner, in bannerDebugInfo, OnNewBannerReadyForBanners, out _latestBannerTextureCreationData);
+        }
+
+        private void OnNewBannerReadyForBanners(TaleWorlds.Engine.Texture newTexture)
+        {
+            if (_scene != null && _currentBanner.BannerCode == _state.GetClan().Banner.BannerCode)
+            {
+                GameEntity bannerEntity = _scene.FindEntityWithTag("banner") ?? _scene.FindEntityWithTag("banner_2");
+
+                if (bannerEntity != null)
+                {
+                    Mesh mesh = bannerEntity.GetFirstMesh();
+                    if (mesh != null)
+                    {
+                        mesh.GetMaterial().SetTexture((TaleWorlds.Engine.Material.MBTextureType)1, newTexture);
+                    }
+                }
+                _refreshCharacterAndShieldNextFrame = true;
+            }
+        }
+
+        private void RefreshShieldAndCharacter()
+        {
+            _currentBanner = _state.GetClan().Banner;
+            _refreshBannersNextFrame = true;
+        }
+
+        private void RefreshCharacterAux()
+        {
+            if (_latestShieldTextureCreationData != null)
+            {
+                ThumbnailCacheManager.Current.DestroyTexture(_latestShieldTextureCreationData);
+                _latestShieldTextureCreationData = null;
+            }
+
+            Banner banner = _state.GetClan().Banner;
+            BannerDebugInfo bannerDebugInfo = BannerDebugInfo.CreateManual(GetType().Name);
+            BannerVisualExtensions.GetTableauTextureLargeForBannerEditor(banner, in bannerDebugInfo, OnNewBannerReadyForShield, out _latestShieldTextureCreationData);
+
+            int shieldSlot = _dataSource.ShieldSlotIndex;
+
+            int nextVisual = (_agentVisualToShowIndex + 1) % 2;
+            _agentVisualToShowIndex = nextVisual;
+
+            AgentVisualsData data = _agentVisuals[_agentVisualToShowIndex].GetCopyAgentVisualsData();
+            data.Equipment(_weaponEquipment)
+                .RightWieldedItemIndex(-1)
+                .LeftWieldedItemIndex(shieldSlot)
+                .Banner(banner)
+                .Frame(_characterFrame)
+                .ClothColor1(banner.GetPrimaryColor())
+                .ClothColor2(banner.GetFirstIconColor());
+
+            _agentVisuals[_agentVisualToShowIndex].Refresh(false, data, true);
+            _agentVisuals[_agentVisualToShowIndex].GetEntity().CheckResources(true, true);
+            _checkWhetherAgentVisualIsReady = true;
+        }
+
+        private void OnNewBannerReadyForShield(TaleWorlds.Engine.Texture newTexture)
+        {
+            _shieldWeapon.GetWeaponData(false).TableauMaterial.SetTexture((TaleWorlds.Engine.Material.MBTextureType)1, newTexture);
         }
 
         void IGameStateListener.OnActivate() { }

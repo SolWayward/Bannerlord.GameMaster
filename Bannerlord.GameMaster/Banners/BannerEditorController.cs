@@ -2,6 +2,7 @@ using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using Bannerlord.GameMaster.Information;
+using Bannerlord.GameMaster.Common;
 
 namespace Bannerlord.GameMaster.Banners
 {
@@ -14,13 +15,13 @@ namespace Bannerlord.GameMaster.Banners
         {
             if (clan == null)
             {
-                InfoMessage.Error("Cannot open banner editor: Clan is null");
+                BLGMResult.Error("Cannot open banner editor: Clan is null").Log();
                 return;
             }
 
             if (!Campaign.Current.IsBannerEditorEnabled)
             {
-                InfoMessage.Warning("Banner editor is disabled in this campaign");
+                InfoMessage.Log("Banner editor is disabled in this campaign");
                 return;
             }
 

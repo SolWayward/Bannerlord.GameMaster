@@ -124,6 +124,9 @@ namespace Bannerlord.GameMaster.Kingdoms
                     HeroGenerator.CreateLords(4, clan.Culture.ToCultureFlag(), GenderFlags.Either, clan);
             }
 
+            // Propagate ruling clan banner colors to kingdom and all vassal clans
+            rulingClan.PropagateRulingClanBannerToKingdom();
+
             // Set kingdom as ready AFTER all initialization is complete
             kingdom.IsReady = true;
             CampaignEventDispatcher.Instance.OnKingdomCreated(kingdom);
