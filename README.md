@@ -10,15 +10,15 @@ Console commands and framework, providing Settlement, Hero, Clan, Item, troop, a
   
 ```Press Alt + ~ (tilde key) in-game to open console```
 
-## Latest Update v1.3.13.16
+## Latest Update v1.3.13.17
 ```
-Fixed Hero Skills
-Improved Generated Hero Equipment
-	Heroes now get equipment relating to their skills
-	Heroes no longer get any weapon sets that don't make sense
-	Heroes can also be equipped with items added from other mods
-Fixed Load Equipment command not loading modifiers
-Added commands to reequip heroes gm.hero.equip_hero, gm.clan.equip_heroes, gm.kingdom.equip_heroes
+Added command gm.clan.edit_banner
+	This command will open the banner editor for the specified clan allowing you to modify any banner
+	If you modify a banner of a clan that rules a kingdom, it will change the kingdom color, propagating to all vassal clans
+	You can use this to change any kingdom color or any clan banner.
+	
+Fixed create_clan command missing option to specify culture
+Improved kingdom generation banners
 ```  
 
 ## Key Features
