@@ -5,14 +5,10 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.13.17
-Add command gm.clan.edit_banner
-	This command will open the banner editor for the specified clan allowing you to modify any banner
-	If you modify a banner of a clan that rules a kingdom, it will change the kingdom color, propagating to all vassal clans
-	You can use this to change any kingdom color or any clan banner.
-	
-Fixed create_clan command missing option to specify culture
-Improved kingdom generation banners"
+"v1.3.14.1
+Added optional arg to gm.kingdom.add_clan to specify if clan should join as vassal or mercenary, defaults to vassal
+Added gm.hero.edit_appearance command to modify any hero's appearance
+Added gm.clan.edit_banner command to modify any clan's banner or kingdom's colors"
         />
         <Tags>
             <Tag Value="Utility" />
@@ -27,6 +23,7 @@ Improved kingdom generation banners"
             <Tag Value="v1.3.11" />
             <Tag Value="v1.3.12" />
             <Tag Value="v1.3.13" />
+            <Tag Value="v1.3.14" />
         </Tags>
         <Visibility Value="Public"/>
     </UpdateItem>
