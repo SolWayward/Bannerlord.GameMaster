@@ -1,3 +1,6 @@
+using System;
+using Bannerlord.GameMaster.Common;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Core.ViewModelCollection;
 using TaleWorlds.Engine;
@@ -40,9 +43,29 @@ namespace Bannerlord.GameMaster.Heroes.FaceGenerator
 
         private void OnDone()
         {
-            // BodyGeneratorView already modified the CharacterObject's body properties
+            // BodyGeneratorView's SaveCurrentCharacter calls UpdatePlayerCharacterBodyProperties
+            // which only works for MainHero. For other heroes, manually apply the changes.
+            Hero hero = _state.GetHero();
+            if (hero != null)
+            {
+                // BodyGen is a public property on BodyGeneratorView - no reflection needed
+                BodyGenerator bodyGenerator = _facegenLayer.BodyGen;
+                if (bodyGenerator != null)
+                {
+                    BodyProperties newProps = bodyGenerator.CurrentBodyProperties;
+                    hero.StaticBodyProperties = newProps.StaticProperties;
+                    hero.Weight = newProps.Weight;
+                    hero.Build = newProps.Build;
+                }
+                else
+                {
+                    BLGMResult.Error("BodyGenerator is null - cannot save hero appearance.").Log();
+                }
+            }
+
             Game.Current.GameStateManager.PopState(0);
         }
+
 
         private void OnCancel()
         {
