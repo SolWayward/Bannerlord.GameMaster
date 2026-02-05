@@ -11,14 +11,11 @@ namespace Bannerlord.GameMaster.Heroes
     /// <br /><br />
     /// Sub-editors: <br />
     /// - BodyEditor: Height, Weight, Build <br />
-    /// - Future: EyesEditor, NoseEditor, JawEditor, etc.
+    /// - HeroAppearanceEditorUI: Opens native face generator UI
     /// </summary>
     public class HeroEditor
     {
-        // MARK: - Private Fields
         private readonly CharacterObject _template;
-
-        // MARK: - Public Properties
         public Hero Hero { get; }
         
         /// <summary>
@@ -27,20 +24,24 @@ namespace Bannerlord.GameMaster.Heroes
         public HeroBodyEditor BodyEditor { get; }
         
         /// <summary>
+        /// Sub-editor for opening the native face generator UI.
+        /// </summary>
+        public HeroAppearanceEditorUI HeroAppearanceEditorUI { get; }
+        
+        /// <summary>
         /// Returns true if any sub-editor has been modified since creation or last reset.
         /// </summary>
         public bool IsDirty => BodyEditor.IsDirty;
 
-        // MARK: - Constructor
         public HeroEditor(Hero hero)
         {
             Hero = hero;
             _template = hero.CharacterObject.OriginalCharacter ?? hero.CharacterObject;
             BodyEditor = new(hero);
+            HeroAppearanceEditorUI = new(hero);
         }
 
-        // MARK: - Public Methods
-
+        /// MARK: RandomizeApperanc
         /// <summary>
         /// Randomizes hero appearance using BodyEditor constraints.
         /// If height/weight/build fall outside constraints, new random values within range are generated.
@@ -69,6 +70,7 @@ namespace Bannerlord.GameMaster.Heroes
             BodyEditor.ApplyRandomizedProperties(randomProperties);
         }
 
+        /// MARK: Reset
         /// <summary>
         /// Resets all sub-editors to their original state when editor was created.
         /// Useful for GUI "cancel" functionality.
