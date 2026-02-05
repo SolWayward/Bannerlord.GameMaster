@@ -7,6 +7,7 @@ using Bannerlord.GameMaster.Console.Common.Parsing;
 using Bannerlord.GameMaster.Console.Common.Validation;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
+using TaleWorlds.CampaignSystem.Actions;
 
 namespace Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands;
 
@@ -67,7 +68,12 @@ public static class RemoveClanCommand
             };
 
             string previousKingdom = clan.Kingdom.Name.ToString();
-            clan.Kingdom = null;
+            
+            //clan.Kingdom = null; //Old way to remove clan
+            if (clan.IsUnderMercenaryService)
+            ChangeKingdomAction.ApplyByLeaveKingdomAsMercenary(clan, true);
+            else
+                ChangeKingdomAction.ApplyByLeaveKingdom(clan, true);
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.remove_clan", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
