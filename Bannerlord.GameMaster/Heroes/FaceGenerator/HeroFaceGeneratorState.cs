@@ -6,6 +6,7 @@ namespace Bannerlord.GameMaster.Heroes.FaceGenerator
 {
     /// <summary>
     /// Custom GameState that stores the target Hero for face generation.
+    /// Used with HeroFaceGeneratorScreen for editing appearance of any hero
     /// Similar to native BarberState pattern - parameters passed via constructor.
     /// </summary>
     public class HeroFaceGeneratorState : GameState
@@ -17,6 +18,7 @@ namespace Bannerlord.GameMaster.Heroes.FaceGenerator
         public override bool IsMenuState => true;
 
         /// <summary>
+        /// DO NOT USE 
         /// Parameterless constructor required by CreateState generic constraint.
         /// DO NOT USE - use the parameterized constructor via CreateState(params).
         /// </summary>
