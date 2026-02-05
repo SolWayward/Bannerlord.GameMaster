@@ -224,7 +224,7 @@ namespace Bannerlord.GameMaster.Items
                 }
 
                 _initialized = true;
-                InfoMessage.Success($"ItemPoolManager initialized: {_validItemsAdded} valid items from {_totalItemsProcessed} total items");
+                BLGMResult.Success($"ItemPoolManager initialized: {_validItemsAdded} valid items from {_totalItemsProcessed} total items").Log();
             }
         }
 

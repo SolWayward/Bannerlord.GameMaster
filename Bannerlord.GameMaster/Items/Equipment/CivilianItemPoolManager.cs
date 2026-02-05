@@ -172,7 +172,7 @@ namespace Bannerlord.GameMaster.Items
                 }
 
                 _initialized = true;
-                InfoMessage.Success($"CivilianItemPoolManager initialized: {_itemsExtracted} items from {_rostersProcessed} rosters");
+                BLGMResult.Success($"CivilianItemPoolManager initialized: {_itemsExtracted} items from {_rostersProcessed} rosters").Log();
             }
         }
 
