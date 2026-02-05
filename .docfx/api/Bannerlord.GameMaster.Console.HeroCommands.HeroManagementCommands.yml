@@ -7,6 +7,7 @@ items:
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddGoldCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddHeroToPartyCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.CreatePartyCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
@@ -47,6 +48,12 @@ references:
   name: CreatePartyCommand
   nameWithType: CreatePartyCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.CreatePartyCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.html
+  name: EditAppearanceCommand
+  nameWithType: EditAppearanceCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand.html

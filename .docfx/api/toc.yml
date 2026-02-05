@@ -457,6 +457,9 @@ items:
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.CreatePartyCommand
     name: CreatePartyCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
+    name: EditAppearanceCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
     name: EquipHeroCommand
     type: Class
@@ -1014,6 +1017,9 @@ items:
   - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
     name: BodyConstraints.Constraint
     type: Struct
+  - uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+    name: HeroAppearanceEditorUI
+    type: Class
   - uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor
     name: HeroBodyEditor
     type: Class
@@ -1043,6 +1049,16 @@ items:
     type: Enum
   - uid: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
     name: StaticBodyPropertiesHelper
+    type: Class
+- uid: Bannerlord.GameMaster.Heroes.FaceGenerator
+  name: Bannerlord.GameMaster.Heroes.FaceGenerator
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorScreen
+    name: HeroFaceGeneratorScreen
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorState
+    name: HeroFaceGeneratorState
     type: Class
 - uid: Bannerlord.GameMaster.Information
   name: Bannerlord.GameMaster.Information

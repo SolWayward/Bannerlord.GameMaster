@@ -1,0 +1,587 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  id: HeroAppearanceEditorUI
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.#ctor(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.Open(TaleWorlds.Core.IFaceGeneratorCustomFilter,System.Action)
+  - Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenFullEditor(System.Action)
+  - Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenWithDefaultFilter(System.Action)
+  langs:
+  - csharp
+  - vb
+  name: HeroAppearanceEditorUI
+  nameWithType: HeroAppearanceEditorUI
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroAppearanceEditorUI
+    path: ../Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Sub-editor for opening the native face generator UI.
+
+    This is the normal hero appearance editor, but can be used with any hero
+
+    Accessed via HeroEditor.HeroAppearanceEditorUI.Open()
+  example: []
+  syntax:
+    content: public class HeroAppearanceEditorUI
+    content.vb: Public Class HeroAppearanceEditorUI
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.#ctor(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.#ctor(TaleWorlds.CampaignSystem.Hero)
+  id: '#ctor(TaleWorlds.CampaignSystem.Hero)'
+  parent: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  langs:
+  - csharp
+  - vb
+  name: HeroAppearanceEditorUI(Hero)
+  nameWithType: HeroAppearanceEditorUI.HeroAppearanceEditorUI(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.HeroAppearanceEditorUI(TaleWorlds.CampaignSystem.Hero)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public HeroAppearanceEditorUI(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    content.vb: Public Sub New(hero As Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.#ctor*
+  nameWithType.vb: HeroAppearanceEditorUI.New(Hero)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.New(TaleWorlds.CampaignSystem.Hero)
+  name.vb: New(Hero)
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.Open(TaleWorlds.Core.IFaceGeneratorCustomFilter,System.Action)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.Open(TaleWorlds.Core.IFaceGeneratorCustomFilter,System.Action)
+  id: Open(TaleWorlds.Core.IFaceGeneratorCustomFilter,System.Action)
+  parent: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  langs:
+  - csharp
+  - vb
+  name: Open(IFaceGeneratorCustomFilter, Action)
+  nameWithType: HeroAppearanceEditorUI.Open(IFaceGeneratorCustomFilter, Action)
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.Open(TaleWorlds.Core.IFaceGeneratorCustomFilter, System.Action)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Open
+    path: ../Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Opens the native face generator UI for the hero.
+  example: []
+  syntax:
+    content: public BLGMResult Open(IFaceGeneratorCustomFilter filter = null, Action onComplete = null)
+    parameters:
+    - id: filter
+      type: TaleWorlds.Core.IFaceGeneratorCustomFilter
+      description: Optional filter to restrict available options
+    - id: onComplete
+      type: System.Action
+      description: Optional callback when editor closes
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: Result indicating success/failure
+    content.vb: Public Function Open(filter As IFaceGeneratorCustomFilter = Nothing, onComplete As Action = Nothing) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.Open*
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenWithDefaultFilter(System.Action)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenWithDefaultFilter(System.Action)
+  id: OpenWithDefaultFilter(System.Action)
+  parent: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  langs:
+  - csharp
+  - vb
+  name: OpenWithDefaultFilter(Action)
+  nameWithType: HeroAppearanceEditorUI.OpenWithDefaultFilter(Action)
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenWithDefaultFilter(System.Action)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OpenWithDefaultFilter
+    path: ../Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+    startLine: 53
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Opens the face generator with the default barber filter (hair/beard only).
+  example: []
+  syntax:
+    content: public BLGMResult OpenWithDefaultFilter(Action onComplete = null)
+    parameters:
+    - id: onComplete
+      type: System.Action
+      description: Optional callback when editor closes
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: Result indicating success/failure
+    content.vb: Public Function OpenWithDefaultFilter(onComplete As Action = Nothing) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenWithDefaultFilter*
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenFullEditor(System.Action)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenFullEditor(System.Action)
+  id: OpenFullEditor(System.Action)
+  parent: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  langs:
+  - csharp
+  - vb
+  name: OpenFullEditor(Action)
+  nameWithType: HeroAppearanceEditorUI.OpenFullEditor(Action)
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenFullEditor(System.Action)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OpenFullEditor
+    path: ../Bannerlord.GameMaster/Heroes/HeroAppearanceEditorUI.cs
+    startLine: 65
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Opens the face generator with all options available (no filter).
+  example: []
+  syntax:
+    content: public BLGMResult OpenFullEditor(Action onComplete = null)
+    parameters:
+    - id: onComplete
+      type: System.Action
+      description: Optional callback when editor closes
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: Result indicating success/failure
+    content.vb: Public Function OpenFullEditor(onComplete As Action = Nothing) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenFullEditor*
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.#ctor
+  href: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.html#Bannerlord_GameMaster_Heroes_HeroAppearanceEditorUI__ctor_TaleWorlds_CampaignSystem_Hero_
+  name: HeroAppearanceEditorUI
+  nameWithType: HeroAppearanceEditorUI.HeroAppearanceEditorUI
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.HeroAppearanceEditorUI
+  nameWithType.vb: HeroAppearanceEditorUI.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.New
+  name.vb: New
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.Open*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.Open
+  href: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.html#Bannerlord_GameMaster_Heroes_HeroAppearanceEditorUI_Open_TaleWorlds_Core_IFaceGeneratorCustomFilter_System_Action_
+  name: Open
+  nameWithType: HeroAppearanceEditorUI.Open
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.Open
+- uid: TaleWorlds.Core.IFaceGeneratorCustomFilter
+  commentId: T:TaleWorlds.Core.IFaceGeneratorCustomFilter
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: IFaceGeneratorCustomFilter
+  nameWithType: IFaceGeneratorCustomFilter
+  fullName: TaleWorlds.Core.IFaceGeneratorCustomFilter
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenWithDefaultFilter*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenWithDefaultFilter
+  href: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.html#Bannerlord_GameMaster_Heroes_HeroAppearanceEditorUI_OpenWithDefaultFilter_System_Action_
+  name: OpenWithDefaultFilter
+  nameWithType: HeroAppearanceEditorUI.OpenWithDefaultFilter
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenWithDefaultFilter
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenFullEditor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenFullEditor
+  href: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.html#Bannerlord_GameMaster_Heroes_HeroAppearanceEditorUI_OpenFullEditor_System_Action_
+  name: OpenFullEditor
+  nameWithType: HeroAppearanceEditorUI.OpenFullEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.OpenFullEditor

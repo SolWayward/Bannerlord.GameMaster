@@ -1,32 +1,37 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
-  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
-  id: AddClanCommand
-  parent: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
+  id: EditAppearanceCommand
+  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   children:
-  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance(System.Collections.Generic.List{System.String})
   langs:
   - csharp
   - vb
-  name: AddClanCommand
-  nameWithType: AddClanCommand
-  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
+  name: EditAppearanceCommand
+  nameWithType: EditAppearanceCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
   type: Class
   source:
     remote:
-      path: Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/AddClanCommand.cs
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/EditAppearanceCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: AddClanCommand
-    path: ../Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/AddClanCommand.cs
-    startLine: 13
+    id: EditAppearanceCommand
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/EditAppearanceCommand.cs
+    startLine: 18
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  summary: >-
+    Opens the native face generator UI to edit a hero's appearance.
+
+    Usage: gm.hero.edit_appearance [heroQuery]
+  example: []
   syntax:
-    content: public static class AddClanCommand
-    content.vb: Public Module AddClanCommand
+    content: public static class EditAppearanceCommand
+    content.vb: Public Module EditAppearanceCommand
   inheritance:
   - System.Object
   inheritedMembers:
@@ -37,66 +42,61 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom(System.Collections.Generic.List{System.String})
-  commentId: M:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom(System.Collections.Generic.List{System.String})
-  id: AddClanToKingdom(System.Collections.Generic.List{System.String})
-  parent: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance(System.Collections.Generic.List{System.String})
+  id: EditAppearance(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
   langs:
   - csharp
   - vb
-  name: AddClanToKingdom(List<string>)
-  nameWithType: AddClanCommand.AddClanToKingdom(List<string>)
-  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom(System.Collections.Generic.List<string>)
+  name: EditAppearance(List<string>)
+  nameWithType: EditAppearanceCommand.EditAppearance(List<string>)
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance(System.Collections.Generic.List<string>)
   type: Method
   source:
     remote:
-      path: Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/AddClanCommand.cs
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/EditAppearanceCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: AddClanToKingdom
-    path: ../Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/AddClanCommand.cs
-    startLine: 19
+    id: EditAppearance
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/EditAppearanceCommand.cs
+    startLine: 20
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
-  summary: >-
-    Add a clan to a kingdom
-
-    Usage: gm.kingdom.add_clan [clan] [kingdom] [asMercenary]
-  example: []
+  namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   syntax:
     content: >-
-      [CommandLineFunctionality.CommandLineArgumentFunction("add_clan", "gm.kingdom")]
+      [CommandLineFunctionality.CommandLineArgumentFunction("edit_appearance", "gm.hero")]
 
-      public static string AddClanToKingdom(List<string> args)
+      public static string EditAppearance(List<string> args)
     parameters:
     - id: args
       type: System.Collections.Generic.List{System.String}
     return:
       type: System.String
     content.vb: >-
-      <CommandLineFunctionality.CommandLineArgumentFunction("add_clan", "gm.kingdom")>
+      <CommandLineFunctionality.CommandLineArgumentFunction("edit_appearance", "gm.hero")>
 
-      Public Shared Function AddClanToKingdom(args As List(Of String)) As String
-  overload: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom*
+      Public Shared Function EditAppearance(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance*
   attributes:
   - type: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction
     ctor: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction.#ctor(System.String,System.String)
     arguments:
     - type: System.String
-      value: add_clan
+      value: edit_appearance
     - type: System.String
-      value: gm.kingdom
-  nameWithType.vb: AddClanCommand.AddClanToKingdom(List(Of String))
-  fullName.vb: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom(System.Collections.Generic.List(Of String))
-  name.vb: AddClanToKingdom(List(Of String))
+      value: gm.hero
+  nameWithType.vb: EditAppearanceCommand.EditAppearance(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance(System.Collections.Generic.List(Of String))
+  name.vb: EditAppearance(List(Of String))
 references:
-- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
-  commentId: N:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   href: Bannerlord.html
-  name: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
-  nameWithType: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
-  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  name: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   spec.csharp:
   - uid: Bannerlord
     name: Bannerlord
@@ -110,13 +110,13 @@ references:
     name: Console
     href: Bannerlord.GameMaster.Console.html
   - name: .
-  - uid: Bannerlord.GameMaster.Console.KingdomCommands
-    name: KingdomCommands
-    href: Bannerlord.GameMaster.Console.KingdomCommands.html
+  - uid: Bannerlord.GameMaster.Console.HeroCommands
+    name: HeroCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.html
   - name: .
-  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
-    name: KingdomManagementCommands
-    href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.html
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+    name: HeroManagementCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.html
   spec.vb:
   - uid: Bannerlord
     name: Bannerlord
@@ -130,13 +130,13 @@ references:
     name: Console
     href: Bannerlord.GameMaster.Console.html
   - name: .
-  - uid: Bannerlord.GameMaster.Console.KingdomCommands
-    name: KingdomCommands
-    href: Bannerlord.GameMaster.Console.KingdomCommands.html
+  - uid: Bannerlord.GameMaster.Console.HeroCommands
+    name: HeroCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.html
   - name: .
-  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
-    name: KingdomManagementCommands
-    href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.html
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+    name: HeroManagementCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -374,12 +374,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom*
-  commentId: Overload:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom
-  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.html#Bannerlord_GameMaster_Console_KingdomCommands_KingdomManagementCommands_AddClanCommand_AddClanToKingdom_System_Collections_Generic_List_System_String__
-  name: AddClanToKingdom
-  nameWithType: AddClanCommand.AddClanToKingdom
-  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand.AddClanToKingdom
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance*
+  commentId: Overload:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.html#Bannerlord_GameMaster_Console_HeroCommands_HeroManagementCommands_EditAppearanceCommand_EditAppearance_System_Collections_Generic_List_System_String__
+  name: EditAppearance
+  nameWithType: EditAppearanceCommand.EditAppearance
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.EditAppearance
 - uid: System.Collections.Generic.List{System.String}
   commentId: T:System.Collections.Generic.List{System.String}
   parent: System.Collections.Generic

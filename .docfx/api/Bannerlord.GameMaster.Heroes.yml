@@ -6,6 +6,7 @@ items:
   children:
   - Bannerlord.GameMaster.Heroes.BodyConstraints
   - Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  - Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
   - Bannerlord.GameMaster.Heroes.HeroBodyEditor
   - Bannerlord.GameMaster.Heroes.HeroEditor
   - Bannerlord.GameMaster.Heroes.HeroExtensions
@@ -56,6 +57,13 @@ references:
   - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
     name: Constraint
     href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.html
+  name: HeroAppearanceEditorUI
+  nameWithType: HeroAppearanceEditorUI
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
 - uid: Bannerlord.GameMaster.Heroes.HeroBodyEditor
   commentId: T:Bannerlord.GameMaster.Heroes.HeroBodyEditor
   parent: Bannerlord.GameMaster.Heroes

@@ -20,7 +20,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: RemoveClanCommand
     path: ../Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/RemoveClanCommand.cs
-    startLine: 12
+    startLine: 13
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
@@ -55,7 +55,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: RemoveClanFromKingdom
     path: ../Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/RemoveClanCommand.cs
-    startLine: 18
+    startLine: 19
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands

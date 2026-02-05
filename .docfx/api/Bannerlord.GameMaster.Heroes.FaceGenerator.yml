@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.FaceGenerator
+  commentId: N:Bannerlord.GameMaster.Heroes.FaceGenerator
+  id: Bannerlord.GameMaster.Heroes.FaceGenerator
+  children:
+  - Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorScreen
+  - Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorState
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Heroes.FaceGenerator
+  nameWithType: Bannerlord.GameMaster.Heroes.FaceGenerator
+  fullName: Bannerlord.GameMaster.Heroes.FaceGenerator
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorScreen
+  commentId: T:Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorScreen
+  href: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorScreen.html
+  name: HeroFaceGeneratorScreen
+  nameWithType: HeroFaceGeneratorScreen
+  fullName: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorScreen
+- uid: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorState
+  commentId: T:Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorState
+  parent: Bannerlord.GameMaster.Heroes.FaceGenerator
+  href: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorState.html
+  name: HeroFaceGeneratorState
+  nameWithType: HeroFaceGeneratorState
+  fullName: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorState
+- uid: Bannerlord.GameMaster.Heroes.FaceGenerator
+  commentId: N:Bannerlord.GameMaster.Heroes.FaceGenerator
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.FaceGenerator
+  nameWithType: Bannerlord.GameMaster.Heroes.FaceGenerator
+  fullName: Bannerlord.GameMaster.Heroes.FaceGenerator
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.FaceGenerator
+    name: FaceGenerator
+    href: Bannerlord.GameMaster.Heroes.FaceGenerator.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.FaceGenerator
+    name: FaceGenerator
+    href: Bannerlord.GameMaster.Heroes.FaceGenerator.html

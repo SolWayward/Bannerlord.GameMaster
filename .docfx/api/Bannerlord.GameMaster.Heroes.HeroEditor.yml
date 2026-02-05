@@ -8,6 +8,7 @@ items:
   - Bannerlord.GameMaster.Heroes.HeroEditor.#ctor(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.HeroEditor.BodyEditor
   - Bannerlord.GameMaster.Heroes.HeroEditor.Hero
+  - Bannerlord.GameMaster.Heroes.HeroEditor.HeroAppearanceEditorUI
   - Bannerlord.GameMaster.Heroes.HeroEditor.IsDirty
   - Bannerlord.GameMaster.Heroes.HeroEditor.RandomizeAppearance(System.Single)
   - Bannerlord.GameMaster.Heroes.HeroEditor.Reset
@@ -42,7 +43,7 @@ items:
 
     - BodyEditor: Height, Weight, Build <br />
 
-    - Future: EyesEditor, NoseEditor, JawEditor, etc.
+    - HeroAppearanceEditorUI: Opens native face generator UI
   example: []
   syntax:
     content: public class HeroEditor
@@ -75,7 +76,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Hero
     path: ../Bannerlord.GameMaster/Heroes/HeroEditor.cs
-    startLine: 21
+    startLine: 18
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -104,7 +105,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: BodyEditor
     path: ../Bannerlord.GameMaster/Heroes/HeroEditor.cs
-    startLine: 26
+    startLine: 23
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -117,6 +118,37 @@ items:
       type: Bannerlord.GameMaster.Heroes.HeroBodyEditor
     content.vb: Public ReadOnly Property BodyEditor As HeroBodyEditor
   overload: Bannerlord.GameMaster.Heroes.HeroEditor.BodyEditor*
+- uid: Bannerlord.GameMaster.Heroes.HeroEditor.HeroAppearanceEditorUI
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroEditor.HeroAppearanceEditorUI
+  id: HeroAppearanceEditorUI
+  parent: Bannerlord.GameMaster.Heroes.HeroEditor
+  langs:
+  - csharp
+  - vb
+  name: HeroAppearanceEditorUI
+  nameWithType: HeroEditor.HeroAppearanceEditorUI
+  fullName: Bannerlord.GameMaster.Heroes.HeroEditor.HeroAppearanceEditorUI
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroAppearanceEditorUI
+    path: ../Bannerlord.GameMaster/Heroes/HeroEditor.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Sub-editor for opening the native face generator UI.
+  example: []
+  syntax:
+    content: public HeroAppearanceEditorUI HeroAppearanceEditorUI { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+    content.vb: Public ReadOnly Property HeroAppearanceEditorUI As HeroAppearanceEditorUI
+  overload: Bannerlord.GameMaster.Heroes.HeroEditor.HeroAppearanceEditorUI*
 - uid: Bannerlord.GameMaster.Heroes.HeroEditor.IsDirty
   commentId: P:Bannerlord.GameMaster.Heroes.HeroEditor.IsDirty
   id: IsDirty
@@ -135,7 +167,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsDirty
     path: ../Bannerlord.GameMaster/Heroes/HeroEditor.cs
-    startLine: 31
+    startLine: 33
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -166,7 +198,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: .ctor
     path: ../Bannerlord.GameMaster/Heroes/HeroEditor.cs
-    startLine: 34
+    startLine: 35
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -198,7 +230,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: RandomizeAppearance
     path: ../Bannerlord.GameMaster/Heroes/HeroEditor.cs
-    startLine: 48
+    startLine: 49
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -236,7 +268,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Reset
     path: ../Bannerlord.GameMaster/Heroes/HeroEditor.cs
-    startLine: 75
+    startLine: 77
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -565,6 +597,19 @@ references:
   name: HeroBodyEditor
   nameWithType: HeroBodyEditor
   fullName: Bannerlord.GameMaster.Heroes.HeroBodyEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroEditor.HeroAppearanceEditorUI*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroEditor.HeroAppearanceEditorUI
+  href: Bannerlord.GameMaster.Heroes.HeroEditor.html#Bannerlord_GameMaster_Heroes_HeroEditor_HeroAppearanceEditorUI
+  name: HeroAppearanceEditorUI
+  nameWithType: HeroEditor.HeroAppearanceEditorUI
+  fullName: Bannerlord.GameMaster.Heroes.HeroEditor.HeroAppearanceEditorUI
+- uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI.html
+  name: HeroAppearanceEditorUI
+  nameWithType: HeroAppearanceEditorUI
+  fullName: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
 - uid: Bannerlord.GameMaster.Heroes.HeroEditor.IsDirty*
   commentId: Overload:Bannerlord.GameMaster.Heroes.HeroEditor.IsDirty
   href: Bannerlord.GameMaster.Heroes.HeroEditor.html#Bannerlord_GameMaster_Heroes_HeroEditor_IsDirty
