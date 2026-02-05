@@ -15,7 +15,7 @@ public static class AddClanCommand
 {
     /// <summary>
     /// Add a clan to a kingdom
-    /// Usage: gm.kingdom.add_clan [clan] [kingdom]
+    /// Usage: gm.kingdom.add_clan [clan] [kingdom] [asMercenary]
     /// </summary>
     [CommandLineFunctionality.CommandLineArgumentFunction("add_clan", "gm.kingdom")]
     public static string AddClanToKingdom(List<string> args)
@@ -27,16 +27,19 @@ public static class AddClanCommand
                 return error;
 
             string usageMessage = CommandValidator.CreateUsageMessage(
-                "gm.kingdom.add_clan", "<clan> <kingdom>",
+                "gm.kingdom.add_clan", "<clan> <kingdom> [asMercenary]",
                 "Adds a clan to the specified kingdom.\n" +
-                "Supports named arguments: clan:clan_battania_1 kingdom:empire",
-                "gm.kingdom.add_clan clan_battania_1 empire");
+                "Optional asMercenary (defaults to false): Set to true to join as mercenary.\n" +
+                "Supports named arguments: clan:clan_battania_1 kingdom:empire asMercenary:true",
+                "gm.kingdom.add_clan clan_battania_1 empire\n" +
+                "gm.kingdom.add_clan clan:clan_battania_1 kingdom:empire mercenary:true");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
             parsed.SetValidArguments(
                 new ArgumentDefinition("clan", true),
-                new ArgumentDefinition("kingdom", true)
+                new ArgumentDefinition("kingdom", true),
+                new ArgumentDefinition("asMercenary", false, null, "mercenary")
             );
 
             string validationError = parsed.GetValidationError();
@@ -68,19 +71,40 @@ public static class AddClanCommand
             if (clan.Kingdom == kingdom)
                 return MessageFormatter.FormatErrorMessage($"{clan.Name} is already part of {kingdom.Name}.");
 
+            // Parse asMercenary optional argument
+            string asMercenaryArg = parsed.GetArgument("asMercenary", 2) ?? parsed.GetArgument("mercenary", 2);
+            bool asMercenary = false;
+            if (asMercenaryArg != null)
+            {
+                if (asMercenaryArg.ToLower() == "true")
+                    asMercenary = true;
+                else if (asMercenaryArg.ToLower() != "false")
+                    return MessageFormatter.FormatErrorMessage($"Invalid value for asMercenary: '{asMercenaryArg}'. Must be 'true' or 'false'.");
+            }
+
             // MARK: Execute Logic
             Dictionary<string, string> resolvedValues = new()
             {
                 { "clan", clan.Name.ToString() },
-                { "kingdom", kingdom.Name.ToString() }
+                { "kingdom", kingdom.Name.ToString() },
+                { "asMercenary", asMercenary.ToString() }
             };
 
             string previousKingdom = clan.Kingdom?.Name?.ToString() ?? "No Kingdom";
-            ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, showNotification: true);
-
+            
+            if (asMercenary)
+            {
+                ChangeKingdomAction.ApplyByJoinFactionAsMercenary(clan, kingdom, CampaignTime.Never, 50, true);
+            }
+            else
+            {
+                ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, showNotification: true);
+            }
+            
+            string joinType = asMercenary ? "as mercenary" : "as vassal";
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.add_clan", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                $"{clan.Name} joined {kingdom.Name} from {previousKingdom}.")).Message;
+                $"{clan.Name} joined {kingdom.Name} {joinType} from {previousKingdom}.")).Message;
         });
     }
 }
