@@ -1,156 +1,127 @@
-Installation:
-Unzip and place the Bannerlord.GameMaster folder inside the modules folder within Bannerlord's installation directory.
-Enable the mod in the bannerlord launcher
-Open in game console (alt + ~) and type gm. to see commands
+BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clans, and tools to control, upgrade, and change ownership of settlements. Easily add members to your clan, or clans to your kingdom and way more. A powerful query system is also included, allowing you to easily add items, modifiers, and troops as well. Edit any hero's appearance, modify any clan's banner, or change any kingdom's colors.
 
-Bannerlord.GameMaster (BLGM)
-Complete Documentation for Users
-Console commands and framework, providing Settlement, Hero, Clan, Item, troop, and Kingdom management. All commands provide the ability to use object names, or object ids as arguments as well as a query system to search and find objects.
+================================================================================
+                        BANNERLORD.GAMEMASTER (BLGM)
+================================================================================
 
-Press Alt + ~ (tilde key) in-game to open console
+User Command Documentation
+https://github.com/SolWayward/Bannerlord.GameMaster/wiki
+Documentation for players using BLGM to enhance their gameplay
 
-Latest Update 1.3.11.7
-v1.3.11.7
-Added gm.kingdom.create_kingdom
-	- Generates a new clan leading a new kingdom
-	- New kingdom ruler takes ownership of the settlement specified
-	- Additional Lords and clans are automatically added to the new kingdom
-	- For player kingdom, use commands to change tier and settlementownership start kingdom regular way
+Developer API Reference
+https://solwayward.github.io/Bannerlord.GameMaster/api/index
+API Reference for mod developers using BLGM as a framework or helper for developing mods
 
-Added gm.kingdom.generate_kingdoms
-	- generates the specified number of kingdoms
-	- Will automatically take ownership of settlements
-	- selects settlements evenly from each kingdom
-	- will not take player settlement or kingdoms last settlement
+--------------------------------------------------------------------------------
+                          LATEST UPDATE v1.3.14.1
+--------------------------------------------------------------------------------
 
-Improved Clan Generation
-	- Generated clans now use better looking color schemes
-	- Attempts to select the most distinct clan colors
-	- fixed custom clan names not being used for create_clan
-Key Features
-Hero Management - Modify attributes, gold, health, relationships, life state
-Clan Management - Control membership, finances, renown, leadership
-Kingdom Management - Create NPC Kingdoms, Handle diplomacy, settlements, clan membership
-Item Management - Full inventory/equipment control with quality modifiers
-Equipment Save/Load - Save and load hero equipment sets to files
-Advanced Queries - Powerful search with AND/OR logic, sorting, filtering
-Command Logging - Track all command usage for debugging
-Testing Framework - Setup and run automated tests.
-Convenience Features - Use Ids or names, and even partial matches. Positional and named arguments using ArgName:ArgValue
-Tested: Bannerlord 1.3.9, 1.3.10, 1.3.12 beta, and works with or without Warsails.
+  - Added optional arg to gm.kingdom.add_clan to specify if clan should join 
+    as vassal or mercenary, defaults to vassal
+  - Added gm.hero.edit_appearance command to modify any hero's appearance
 
-BLGM extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game.
+--------------------------------------------------------------------------------
+                                 OVERVIEW
+--------------------------------------------------------------------------------
 
-The purpose of this mod is mainly for my own use as a foundation for another mod I am working on it but it can also be useful to modders for testing, debugging, or to quickly implement functionality in their mods as well, an API is also provided. The mod will regular be updated with additional features and more powerful functionality.
+BLGM extends Bannerlord's console with powerful commands for managing heroes, clans, kingdoms, items, and game state. This mod is useful for taking control of your game, testing things out, fixing saves, or whatever other reason you may need to take control of your game. Add family members or companions to your clan, add clans to your kingdom, edit the appearance of your wife, modify the banner of a clan in your kingdom, change Vlandia's kingdom colors from red to white, create clan parties exceeding your party limit, quickly add troops or items, instantly upgrade all buildings in a settlement or raise the settlement's prosperity, change the culture of a settlement, hero, clan, or even kingdom, rename a settlement or even take ownership of a settlement, and much more. The user command documentation wiki lists and explains every command and their usage.
 
-All commands use the gm. prefix for easy organization.
-Commands can be used by targeting entity names or entity Ids.
-Query system is also included for quickly searching for entities.
-Installation
-Download from Releases
-Extract to: ...\Mount & Blade II Bannerlord\Modules\
-Enable in Bannerlord launcher
-Press Alt + ~ (tilde key) in-game to open console
-No external dependencies required - This mod uses only native Bannerlord APIs
+--------------------------------------------------------------------------------
+                               KEY FEATURES
+--------------------------------------------------------------------------------
 
-Quick Start
-Command Structure
-gm.<category>.<command> [parameters]
-Example Commands
-# Manage heroes
-gm.hero.set_gold player 50000
-gm.hero.set_health lord_1_1 100
+  * Create new NPC Kingdoms, Clans, Heroes
+  * Create new Heroes for your clan or add existing heroes to your clan
+  * Create new Clans for your kingdom or add existing clans to your kingdom
+  * Edit any Clan banner or change any kingdom's colors
+  * Modify the appearance of any hero with the visual hero editor
+  * Change the culture of any settlement, kingdom, clan, or hero
+  * Upgrade settlement buildings, or modify any values such as prosperity, 
+    loyalty and more
+  * Rename settlements or change ownership of any settlement
+  * Save and load equipment sets to easily equip different heroes
+  * Add items or item modifiers to heroes
+  * Add troops or heroes to any party
+  * Upgrade troops in parties
+  * Specify objects by names, partial names, or stringIds
+  * Look up objects with powerful query commands
+  * "player" is always short for player hero/clan/kingdom
+  * And much, much more
 
-# Search and query
-gm.query.hero empire lord female
-gm.query.item sword tier5 sort:value:desc
+================================================================================
+                                QUICK START
+================================================================================
 
-# Manage items and equipment
-gm.item.add imperial_sword 5 player
-gm.item.equip chainmail player
+BLGM is easy to use.
 
-# Save/load equipment sets
-gm.item.save_equipment_both player my_loadout
-gm.item.load_equipment_both companion my_loadout
+To open the console, press Alt + ~ (Alt + tilde)
 
-# Clan operations
-gm.clan.add_hero clan_empire_1 lord_2_5
-gm.clan.set_gold clan_battania_1 100000
+Typing gm. into the console will show every command category. Typing gm.hero 
+will show all hero commands.
+Commands are as easy as gm.hero.generate_lords 10
 
-# Kingdom diplomacy
-gm.kingdom.declare_war empire battania
-gm.kingdom.add_clan empire clan_neutral_1
+Optional arguments can be used with commands as well such as:
+gm.hero.generate_lords 10 culture:vlandia gender:female clan:player
 
-# Enable logging
-gm.log.enable
-Query System
-Use powerful queries to search and filter:
+Typing any command without any args will show help for the command with info 
+on how to use the command, required/optional arguments, and examples.
+Alternatively, you can use the BLGM Command Documentation to view detailed 
+info about all commands.
 
-Basic Queries:
+Arguments can either be specified using positional arguments or named arguments.
+Any argument with spaces such as names must use single quotes: 'Arg with Spaces'
 
-gm.query.hero <terms> - Find heroes by name, culture, type
-gm.query.clan <terms> - Find clans with filters
-gm.query.kingdom <terms> - Find kingdoms
-gm.query.item <terms> - Search items with filters
-Advanced Features:
+COMMAND STRUCTURE
+-----------------
+    gm.<category>.<command> [parameters]
 
-AND logic (default): gm.query.hero empire lord (empire AND lord)
-OR logic: gm.query.hero OR empire battania (empire OR battania)
-Sorting: gm.query.item bow sort:value:desc (sort by value descending)
-Tier filtering: gm.query.item armor tier5 (tier 5 armor only)
-Type filtering: gm.query.item weapon OneHandedWeapon (specific type)
-Sort Options: name, value, tier, type (add :asc or :desc)
+EXAMPLE COMMANDS
+----------------
+    gm.hero.create_hero Maximus
+    gm.hero.edit_appearance derthert
+    gm.clan.edit_banner 'dey meroc'
+    gm.clan.generate_clans 5
+    gm.kingdom.create_kingdom Poros
+    gm.kingdom.generate_kingdoms 5
+    gm.troops.upgrade_troops player
+    gm.item.add imperial_sword 5 player
+    gm.item.save_equipment_both player my_loadout
+    gm.settlement.set_culture 'Ocs Hall' sturgia
+    gm.settlement.rename Galend 'Kings Landing'
+    gm.settlement.upgrade_buildings Charas 3
+    gm.settlement.set_owner Sargot player
+    gm.query.hero empire lord female
+    gm.query.item sword tier5 sort:value:desc
+    gm.item.add Justicier count:1 player
+    gm.item.set_equipped_modifier player legendary
+    gm.item.save_equipment_both derthert my_loadout
+    gm.item.load_equipment_both derthert my_loadout
+    gm.kingdom.declare_war empire battania
+    gm.kingdom.declare_alliance empire battania
 
-Multi-word Parameters: Use single quotes to use arguments with spaces ex: 'Multi word argument'
+And many more commands - over 114 commands as of v1.3.14.1
 
-Available Commands
-Hero Commands
-create_lord, generate_lords, set_gold, set_health, set_age, kill, imprison, release, teleport, set_clan, set_relation, create_companions, add_hero_to_party, rename, create_party
+--------------------------------------------------------------------------------
+                              UNBLOCKING DLLS
+--------------------------------------------------------------------------------
 
-Full Hero Commands Documentation →
+Remember to unblock dlls as BLGM uses multiple dll and not just one singular 
+dll file. Open powershell inside the root modules folder and run command:
 
-Clan Commands
-create_clan, add_hero, remove_hero, set_gold, add_gold, distribute_gold, set_renown, set_tier, set_leader, destroy, rename, set_culture, generate_clans, Create_minor_clan
+    dir -r | unblock-file
 
-Full Clan Commands Documentation →
+The below commands will unblock every dll for every mod in the modules folder.
+Your modules folder location may vary, but I included examples for standard 
+steam and windows install locations.
 
-Kingdom Commands
-create_kingdom, generate_Kingdoms, add_clan, remove_clan, declare_war, make_peace, set_ruler, destroy, declare_alliance, trade_agreement, pay_tribute, get_tribute_info
+Powershell for standard Steam install directory:
 
-Full Kingdom Commands Documentation →
+    cd "C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules"
+    dir -r | unblock-file
 
-Item Management Commands
-add, remove, remove_all, transfer, equip, unequip, equip_slot, unequip_slot, list_equipped, list_inventory, set_equipped_modifier, set_inventory_modifier, save_equipment, save_equipment_civilian, save_equipment_both, load_equipment, load_equipment_civilian, load_equipment_both
+Powershell for standard Windows install directory:
 
-Full Item Management Commands Documentation →
+    cd "C:\Program Files (x86)\Mount & Blade II Bannerlord\Modules"
+    dir -r | unblock-file
 
-Settlement Management Commands
-set_culture, set_owner, set_owner_clan, set_owner_kingdom, upgrade_buildings, add_militia, fill_garrison, give_food, give_gold, rename, reset_name, reset_name_all, set_hearths, set_loyalty, set_prosperity, set_security, spawn_wanderer, create_notable_caravan, create_player_caravan
-
-Full Settlement Management Commands Documentation →
-
-Troop Commands
-give_hero_troops, add_basic, add_elite, add_mercenary, add_mixed
-
-Full Troop Commands Documentation →
-
-Query Commands
-hero, clan, kingdom, item, modifiers, culture, character - All support AND/OR logic, sorting, and filtering
-
-Full Query Commands Documentation →
-
-Important Notes
-Backup your saves - Many commands make permanent changes
-Test in separate save - Running tests greatly effect game state
-Enable logging - Use gm.log.enable for tracking
-Some actions are irreversible - Killing heroes, destroying clans
-Multi-word Parameters - Use single quotes to use arguments with spaces ex: 'Multi word argument'
-Renaming Settlements - Name may not update right away. Open trade menu in settlement or load save to force update.
-Support
-Documentation: GitHub Wiki
-Issues: GitHub Issues
-Discussions: GitHub Discussions
-Contributing
-Contributions welcome! Report bugs, request features, or submit pull requests.
-
-For complete command documentation with all parameters and examples, visit the GitHub Wiki.
+================================================================================
