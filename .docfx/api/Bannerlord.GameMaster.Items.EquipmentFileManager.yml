@@ -30,7 +30,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: EquipmentFileManager
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -70,7 +70,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ModFolder
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 25
+    startLine: 26
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -101,7 +101,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Default
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 30
+    startLine: 31
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -132,7 +132,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: .ctor
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 37
+    startLine: 38
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -171,7 +171,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetEquipmentFilePath
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 52
+    startLine: 53
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -212,7 +212,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetEquipmentDirectory
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 82
+    startLine: 83
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -250,7 +250,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SaveEquipmentToFile
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 106
+    startLine: 107
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -294,7 +294,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SaveBothEquipmentSets
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 149
+    startLine: 150
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -341,7 +341,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: LoadEquipmentData
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 173
+    startLine: 174
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -379,7 +379,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: LoadEquipmentFromFile
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 193
+    startLine: 194
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -423,7 +423,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: EquipmentFileExists
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 268
+    startLine: 269
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -464,7 +464,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ListEquipmentFiles
     path: ../Bannerlord.GameMaster/Items/EquipmentFileManager.cs
-    startLine: 279
+    startLine: 280
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items

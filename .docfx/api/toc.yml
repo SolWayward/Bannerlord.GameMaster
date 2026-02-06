@@ -472,6 +472,9 @@ items:
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
     name: KillHeroCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
+    name: OpenInventoryCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ReleaseHeroCommand
     name: ReleaseHeroCommand
     type: Class
@@ -1125,6 +1128,16 @@ items:
   - uid: Bannerlord.GameMaster.Items.WeaponTypeFlags
     name: WeaponTypeFlags
     type: Enum
+- uid: Bannerlord.GameMaster.Items.Inventory
+  name: Bannerlord.GameMaster.Items.Inventory
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Items.Inventory.InventoryManager
+    name: InventoryManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Items.Inventory.InventoryUILauncher
+    name: InventoryUILauncher
+    type: Class
 - uid: Bannerlord.GameMaster.Kingdoms
   name: Bannerlord.GameMaster.Kingdoms
   type: Namespace

@@ -12,6 +12,7 @@ items:
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ReleaseHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RemoveClanCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RenameHeroCommand
@@ -78,6 +79,12 @@ references:
   name: KillHeroCommand
   nameWithType: KillHeroCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand.html
+  name: OpenInventoryCommand
+  nameWithType: OpenInventoryCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ReleaseHeroCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ReleaseHeroCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ReleaseHeroCommand.html

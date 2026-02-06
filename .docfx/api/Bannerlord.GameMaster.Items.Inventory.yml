@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Items.Inventory
+  commentId: N:Bannerlord.GameMaster.Items.Inventory
+  id: Bannerlord.GameMaster.Items.Inventory
+  children:
+  - Bannerlord.GameMaster.Items.Inventory.InventoryManager
+  - Bannerlord.GameMaster.Items.Inventory.InventoryUILauncher
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Items.Inventory
+  nameWithType: Bannerlord.GameMaster.Items.Inventory
+  fullName: Bannerlord.GameMaster.Items.Inventory
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Items.Inventory.InventoryManager
+  commentId: T:Bannerlord.GameMaster.Items.Inventory.InventoryManager
+  href: Bannerlord.GameMaster.Items.Inventory.InventoryManager.html
+  name: InventoryManager
+  nameWithType: InventoryManager
+  fullName: Bannerlord.GameMaster.Items.Inventory.InventoryManager
+- uid: Bannerlord.GameMaster.Items.Inventory.InventoryUILauncher
+  commentId: T:Bannerlord.GameMaster.Items.Inventory.InventoryUILauncher
+  href: Bannerlord.GameMaster.Items.Inventory.InventoryUILauncher.html
+  name: InventoryUILauncher
+  nameWithType: InventoryUILauncher
+  fullName: Bannerlord.GameMaster.Items.Inventory.InventoryUILauncher

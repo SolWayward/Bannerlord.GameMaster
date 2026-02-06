@@ -5,10 +5,9 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.14.1
-Added optional arg to gm.kingdom.add_clan to specify if clan should join as vassal or mercenary, defaults to vassal
-Added gm.hero.edit_appearance command to modify any hero's appearance
-Added gm.clan.edit_banner command to modify any clan's banner or kingdom's colors"
+"v1.3.14.2
+Added command to open any heroes inventory and modify their equipment
+    gm.hero.open_inventory derthert"
         />
         <Tags>
             <Tag Value="Utility" />

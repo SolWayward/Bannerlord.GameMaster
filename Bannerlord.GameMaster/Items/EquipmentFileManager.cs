@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory;
 
 namespace Bannerlord.GameMaster.Items
 {
