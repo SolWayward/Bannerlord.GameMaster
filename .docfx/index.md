@@ -31,11 +31,15 @@ The system console additionally shows:
 - Detailed command execution information
 - System messages and warnings
 
-## Latest Update v1.3.14.1
+## Latest Update v1.3.14.2
 
 ```
-Added optional arg to gm.kingdom.add_clan to specify if clan should join as vassal or mercenary, defaults to vassal
+Added command to open any hero's inventory and modify their equipment
+  gm.hero.open_inventory derthert
+
+Previous Updates:
 Added gm.hero.edit_appearance command to modify any hero's appearance
+Added gm.clan.edit_banner command to modify any clan's banner or kingdom's colors
 ```
 
 ---

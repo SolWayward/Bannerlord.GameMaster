@@ -6,7 +6,7 @@
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
 "v1.3.14.2
-Added command to open any heroes inventory and modify their equipment
+Added command to open any hero's inventory and modify their equipment
     gm.hero.open_inventory derthert"
         />
         <Tags>

@@ -10,20 +10,15 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.1
+## Latest Update v1.3.14.2
 
 ```
-Added optional arg to gm.kingdom.add_clan to specify if clan should join as vassal or mercenary, defaults to vassal
+Added command to open any hero's inventory and modify their equipment
+  gm.hero.open_inventory derthert
 
+Previous Updates:
 Added gm.hero.edit_appearance command to modify any hero's appearance
-
-Added command gm.clan.edit_banner
-This command will open the banner editor for the specified clan allowing you to modify any banner
-If you modify a banner of a clan that rules a kingdom, it will change the kingdom color, propagating to all vassal clans
-You can use this to change any kingdom color or any clan banner.
-
-Fixed create_clan command missing option to specify culture
-Improved kingdom generation banners
+Added gm.clan.edit_banner command to modify any clan's banner or kingdom's colors
 ```
 
 ---
