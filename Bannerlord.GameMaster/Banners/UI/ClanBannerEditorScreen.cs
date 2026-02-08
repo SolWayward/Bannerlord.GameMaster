@@ -2,6 +2,8 @@ using System;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Kingdoms;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
+using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
@@ -64,6 +66,10 @@ namespace Bannerlord.GameMaster.Banners.UI
         {
             base.OnInitialize();
             Game.Current.GameStateManager.RegisterActiveStateDisableRequest(this);
+
+            // Flush stale banner texture cache from previous editor sessions (matches native BannerEditorView pattern)
+            // Prevents black banner rendering when reopening editor on a previously edited clan
+            BannerEditorTextureCache.Current?.FlushCache();
 
             // Load the banner icons sprite category
             _bannerIconsCategory = UIResourceManager.LoadSpriteCategory("ui_bannericons");
@@ -130,17 +136,68 @@ namespace Bannerlord.GameMaster.Banners.UI
             if (!cancelled)
             {
                 Clan targetClan = _state.GetClan();
-                // Access BannerVisual property to trigger refresh
-                IBannerVisual _ = targetClan.Banner.BannerVisual;
+                Banner banner = targetClan.Banner;
+
+                // Update clan colors from the edited banner (matches native GauntletBannerEditorScreen.OnDone)
+                // These are used by the engine as ClothColor1/ClothColor2 for troop and hero equipment rendering
+                uint primaryColor = banner.GetPrimaryColor();
+                uint firstIconColor = banner.GetFirstIconColor();
+                targetClan.Color = primaryColor;
+                targetClan.Color2 = firstIconColor;
+
+                // Persist banner colors to clan saveable fields (BannerBackgroundColorPrimary/Secondary, BannerIconColor)
+                // These are used by native UpdateBannerColorsAccordingToKingdom() to reconstruct colors on state transitions
+                targetClan.UpdateBannerColor(primaryColor, firstIconColor);
+
+                // Trigger banner visual refresh
+                IBannerVisual _ = banner.BannerVisual;
 
                 // If this is the ruling clan, propagate banner colors to kingdom and vassal clans
                 if (targetClan.IsRulingClan())
                 {
-                	targetClan.Kingdom.PropagateRulingClanBanner();
+                    targetClan.Kingdom.PropagateRulingClanBanner();
                 }
+
+                // Mark all clan party visuals as dirty so map icons and troop visuals refresh
+                SetClanPartyVisualsAsDirty(targetClan);
             }
 
             Game.Current.GameStateManager.PopState(0);
+        }
+
+        /// <summary>
+        /// Marks all party visuals for the target clan as dirty so map icons refresh with new banner colors.
+        /// Follows the native SetMapIconAsDirtyForAllPlayerClanParties pattern but works for any clan.
+        /// </summary>
+        private static void SetClanPartyVisualsAsDirty(Clan clan)
+        {
+            // War parties (lord parties, patrols, etc.)
+            foreach (WarPartyComponent warPartyComponent in clan.WarPartyComponents)
+            {
+                warPartyComponent.MobileParty.Party?.SetVisualAsDirty();
+            }
+
+            // Caravans owned by clan heroes
+            foreach (Hero hero in clan.Heroes)
+            {
+                foreach (CaravanPartyComponent caravanComponent in hero.OwnedCaravans)
+                {
+                    caravanComponent.MobileParty.Party?.SetVisualAsDirty();
+                }
+            }
+
+            // Settlement parties (garrisons, villager parties)
+            foreach (Settlement settlement in clan.Settlements)
+            {
+                if (settlement.IsVillage && settlement.Village.VillagerPartyComponent != null)
+                {
+                    settlement.Village.VillagerPartyComponent.MobileParty.Party?.SetVisualAsDirty();
+                }
+                else if ((settlement.IsCastle || settlement.IsTown) && settlement.Town.GarrisonParty != null)
+                {
+                    settlement.Town.GarrisonParty.Party?.SetVisualAsDirty();
+                }
+            }
         }
 
         private void RefreshBanner()
@@ -211,6 +268,9 @@ namespace Bannerlord.GameMaster.Banners.UI
         protected override void OnFinalize()
         {
             base.OnFinalize();
+
+            // Flush banner texture cache on finalize (matches native BannerEditorView.OnFinalize pattern)
+            BannerEditorTextureCache.Current?.FlushCache();
 
             // Disable loading window if still active
             if (LoadingWindow.IsLoadingWindowActive)

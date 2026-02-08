@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.3.14.2</Version>
-    <OverrideGameVersion>v1.3.13</OverrideGameVersion>
+    <Version>1.3.14.3</Version>
+    <OverrideGameVersion>v1.3.14</OverrideGameVersion>
     <TargetFrameworks>net472;net6</TargetFrameworks>
     <Platforms>x64</Platforms>
     <PlatformTarget>x64</PlatformTarget>

@@ -13,12 +13,15 @@ https://solwayward.github.io/Bannerlord.GameMaster/api/index
 API Reference for mod developers using BLGM as a framework or helper for developing mods
 
 --------------------------------------------------------------------------------
-                          LATEST UPDATE v1.3.14.1
+                          LATEST UPDATE v1.3.14.2
 --------------------------------------------------------------------------------
 
-  - Added optional arg to gm.kingdom.add_clan to specify if clan should join 
-    as vassal or mercenary, defaults to vassal
+  - Added command to open any hero's inventory and modify their equipment
+		gm.hero.open_inventory derthert
+
+Previous Updates:
   - Added gm.hero.edit_appearance command to modify any hero's appearance
+  - Added gm.clan.edit_banner command to modify any clan's banner or kingdom's colors
 
 --------------------------------------------------------------------------------
                                  OVERVIEW
@@ -100,6 +103,17 @@ EXAMPLE COMMANDS
     gm.kingdom.declare_alliance empire battania
 
 And many more commands - over 114 commands as of v1.3.14.1
+
+--------------------------------------------------------------------------------
+                              Installing
+--------------------------------------------------------------------------------
+1. Place Bannerlord.GameMaster folder in the modules folder within Bannerlord install directory
+2. Unblock dlls
+3. Enable mod
+
+Modules folder is usually located at "C:\Program Files (x86)\Mount & Blade II Bannerlord\Modules"
+Or for steam version: "C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules"
+Your install directory may vary	
 
 --------------------------------------------------------------------------------
                               UNBLOCKING DLLS
