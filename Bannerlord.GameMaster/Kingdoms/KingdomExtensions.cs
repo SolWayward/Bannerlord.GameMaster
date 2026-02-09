@@ -154,7 +154,7 @@ namespace Bannerlord.GameMaster.Kingdoms
 
 		#region Kingdom Banner Propagation
 
-		// MARK: Cached Reflection - Kingdom
+		// Cached Reflection - Kingdom (all four color properties have private setters)
 		private static readonly Type kingdomType = typeof(Kingdom);
 
 		private static readonly PropertyInfo primaryBannerColorProp = kingdomType.GetProperty(
@@ -163,6 +163,14 @@ namespace Bannerlord.GameMaster.Kingdoms
 
 		private static readonly PropertyInfo secondaryBannerColorProp = kingdomType.GetProperty(
 			"SecondaryBannerColor",
+			BindingFlags.Public | BindingFlags.Instance);
+
+		private static readonly PropertyInfo colorProp = kingdomType.GetProperty(
+			"Color",
+			BindingFlags.Public | BindingFlags.Instance);
+
+		private static readonly PropertyInfo color2Prop = kingdomType.GetProperty(
+			"Color2",
 			BindingFlags.Public | BindingFlags.Instance);
 
 		/// MARK: PropagateRulingClanBanner
@@ -179,25 +187,22 @@ namespace Bannerlord.GameMaster.Kingdoms
 		{
 			if (kingdom == null)
 			{
-				BLGMResult.Error("PropagateRulingClanBanner() failed, kingdom cannot be null",
+				return BLGMResult.Error("PropagateRulingClanBanner() failed, kingdom cannot be null",
 					new ArgumentNullException(nameof(kingdom))).Log();
-				return BLGMResult.Error("Kingdom cannot be null");
 			}
 
 			Clan rulingClan = kingdom.RulingClan;
 			if (rulingClan == null)
 			{
-				BLGMResult.Error("PropagateRulingClanBanner() failed, kingdom has no ruling clan",
+				return BLGMResult.Error("PropagateRulingClanBanner() failed, kingdom has no ruling clan",
 					new InvalidOperationException("Kingdom has no ruling clan")).Log();
-				return BLGMResult.Error("Kingdom has no ruling clan");
 			}
 
 			Banner banner = rulingClan.Banner;
 			if (banner == null)
 			{
-				BLGMResult.Error("PropagateRulingClanBanner() failed, ruling clan has no banner",
+				return BLGMResult.Error("PropagateRulingClanBanner() failed, ruling clan has no banner",
 					new InvalidOperationException("Ruling clan has no banner")).Log();
-				return BLGMResult.Error("Ruling clan has no banner");
 			}
 
 			// Get colors from the ruling clan's banner
@@ -225,8 +230,15 @@ namespace Bannerlord.GameMaster.Kingdoms
 
 		/// MARK: SetBannerColors
 		/// <summary>
-		/// Sets this kingdom's PrimaryBannerColor and SecondaryBannerColor properties using reflection.
-		/// These properties have private setters in native code.
+		/// Sets this kingdom's color properties via reflection (all have private setters, no public alternative).
+		/// Sets PrimaryBannerColor and SecondaryBannerColor (used by native UpdateBannerColorsAccordingToKingdom
+		/// to propagate to clan banners), and Color/Color2 (used by map renderer for cloth tinting via
+		/// party.MapFaction.Color/Color2).
+		/// Does NOT mutate the kingdom Banner object directly -- actual banner visual data is updated
+		/// per-clan via UpdateBannerColorsForKingdom() which calls ChangePrimaryColor/ChangeIconColors
+		/// on each clan's banner. Mutating kingdom.Banner directly here is destructive because
+		/// ChangePrimaryColor sets both ColorId AND ColorId2 to the same value, wiping distinct
+		/// secondary background colors, and can silently fail if BannerManager.GetColorId returns -1.
 		/// </summary>
 		/// <param name="kingdom">The kingdom to set banner colors for.</param>
 		/// <param name="primaryColor">The primary banner color (background).</param>
@@ -236,29 +248,33 @@ namespace Bannerlord.GameMaster.Kingdoms
 		{
 			if (kingdom == null)
 			{
-				BLGMResult.Error("SetBannerColors() failed, kingdom cannot be null",
+				return BLGMResult.Error("SetBannerColors() failed, kingdom cannot be null",
 					new ArgumentNullException(nameof(kingdom))).Log();
-				return BLGMResult.Error("Kingdom cannot be null");
 			}
-
-			if (primaryBannerColorProp == null || secondaryBannerColorProp == null)
+	
+			if (primaryBannerColorProp == null || secondaryBannerColorProp == null ||
+				colorProp == null || color2Prop == null)
 			{
-				BLGMResult.Error("SetBannerColors() failed, reflection properties not found",
-					new InvalidOperationException("Kingdom banner color properties not found via reflection")).Log();
-				return BLGMResult.Error("Failed to find kingdom banner color properties via reflection");
+				return BLGMResult.Error("SetBannerColors() failed, reflection properties not found",
+					new InvalidOperationException("Kingdom color properties not found via reflection")).Log();
 			}
-
+	
 			try
 			{
+				// Set banner propagation colors via reflection (used by native UpdateBannerColorsAccordingToKingdom)
 				primaryBannerColorProp.SetValue(kingdom, primaryColor);
 				secondaryBannerColorProp.SetValue(kingdom, secondaryColor);
 
+				// Set map faction colors via reflection (used by map renderer for cloth tinting)
+				// Native InitializeKingdom sets Color = primaryColor, Color2 = secondaryColor
+				colorProp.SetValue(kingdom, primaryColor);
+				color2Prop.SetValue(kingdom, secondaryColor);
+	
 				return BLGMResult.Success($"Set kingdom banner colors for '{kingdom.Name}'");
 			}
 			catch (Exception ex)
 			{
-				BLGMResult.Error($"SetBannerColors() failed for '{kingdom.Name}'", ex).Log();
-				return BLGMResult.Error($"Failed to set kingdom banner colors: {ex.Message}");
+				return BLGMResult.Error($"SetBannerColors() failed for '{kingdom.Name}'", ex).Log();
 			}
 		}
 

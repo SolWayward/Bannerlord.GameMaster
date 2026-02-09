@@ -8,27 +8,13 @@ using TaleWorlds.Core;
 namespace Bannerlord.GameMaster.Clans
 {
     /// <summary>
-    /// Reflection helpers to change private fields that are needed for clan creation to match native patterns
+    /// Helpers to set private fields that are needed for clan creation to match native patterns
     /// </summary>
     public static class ClanCreationHelpers
     {
         // MARK: Cached Reflection
-        private static readonly Type clanType = typeof(Clan);
-
         private static readonly FieldInfo _distanceCacheField = typeof(Clan).GetField(
             "_distanceToClosestNonAllyFortificationCacheDirty",
-            BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly PropertyInfo primaryProp = clanType.GetProperty(
-            "BannerBackgroundColorPrimary",
-            BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly PropertyInfo secondaryProp = clanType.GetProperty(
-            "BannerBackgroundColorSecondary",
-            BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly PropertyInfo iconProp = clanType.GetProperty(
-            "BannerIconColor",
             BindingFlags.NonPublic | BindingFlags.Instance);
 
         [Obsolete] private static readonly FieldInfo midSettlementField = typeof(Clan).GetField("_midSettlement", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -52,28 +38,17 @@ namespace Bannerlord.GameMaster.Clans
         }
 
         /// <summary>
-        /// Sets native private fields that store original banner colors for kingdom join/leave scenarios using reflection
+        /// Sets the clan's saved banner color properties (BannerBackgroundColorPrimary/Secondary, BannerIconColor)
+        /// using the public Clan.UpdateBannerColor() method. These are used by native
+        /// UpdateBannerColorsAccordingToKingdom() to reconstruct colors on kingdom join/leave state transitions.
+        /// Note: UpdateBannerColor sets Primary = Secondary = backgroundColor (matches native rebel clan creation pattern).
         /// </summary>
         public static void SetOriginalBannerColors(Clan clan, Banner banner)
         {
             if (clan == null || banner == null)
                 return;
 
-            try
-            {
-                if (primaryProp != null)
-                    primaryProp.SetValue(clan, banner.GetPrimaryColor());
-
-                if (secondaryProp != null)
-                    secondaryProp.SetValue(clan, banner.GetSecondaryColor());
-
-                if (iconProp != null)
-                    iconProp.SetValue(clan, banner.GetFirstIconColor());
-            }
-            catch (System.Exception ex)
-            {
-                TaleWorlds.Library.Debug.Print($"Warning: Failed to set original banner color properties for {clan.StringId}: {ex.Message}");
-            }
+            clan.UpdateBannerColor(banner.GetPrimaryColor(), banner.GetFirstIconColor());
         }
 
         /// <summary>

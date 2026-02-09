@@ -1,7 +1,9 @@
 using System;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Kingdoms;
+using SandBox.View.Map;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
@@ -133,41 +135,67 @@ namespace Bannerlord.GameMaster.Banners.UI
 
         private void OnExit(bool cancelled)
         {
-            if (!cancelled)
-            {
-                Clan targetClan = _state.GetClan();
-                Banner banner = targetClan.Banner;
-
-                // Update clan colors from the edited banner (matches native GauntletBannerEditorScreen.OnDone)
-                // These are used by the engine as ClothColor1/ClothColor2 for troop and hero equipment rendering
-                uint primaryColor = banner.GetPrimaryColor();
-                uint firstIconColor = banner.GetFirstIconColor();
-                targetClan.Color = primaryColor;
-                targetClan.Color2 = firstIconColor;
-
-                // Persist banner colors to clan saveable fields (BannerBackgroundColorPrimary/Secondary, BannerIconColor)
-                // These are used by native UpdateBannerColorsAccordingToKingdom() to reconstruct colors on state transitions
-                targetClan.UpdateBannerColor(primaryColor, firstIconColor);
-
-                // Trigger banner visual refresh
-                IBannerVisual _ = banner.BannerVisual;
-
-                // If this is the ruling clan, propagate banner colors to kingdom and vassal clans
-                if (targetClan.IsRulingClan())
-                {
-                    targetClan.Kingdom.PropagateRulingClanBanner();
-                }
-
-                // Mark all clan party visuals as dirty so map icons and troop visuals refresh
-                SetClanPartyVisualsAsDirty(targetClan);
-            }
-
-            Game.Current.GameStateManager.PopState(0);
+        	if (!cancelled)
+        	{
+        		Clan targetClan = _state.GetClan();
+        		Banner banner = targetClan.Banner;
+      
+        		// Match native GauntletBannerEditorScreen.OnDone() color update logic
+        		// CanChangeBackgroundColor is false when clan is in a kingdom (background locked to kingdom color)
+        		uint primaryColor = banner.GetPrimaryColor();
+        		uint firstIconColor = banner.GetFirstIconColor();
+        		bool canChangeBackground = _dataSource.CanChangeBackgroundColor;
+      
+        		targetClan.Color2 = firstIconColor;
+        		if (canChangeBackground)
+        		{
+        			targetClan.Color = primaryColor;
+        			targetClan.UpdateBannerColor(primaryColor, firstIconColor);
+        		}
+        		else
+        		{
+        			targetClan.UpdateBannerColor(targetClan.Color, firstIconColor);
+        		}
+      
+        		// Invalidate cached BannerVisual so it regenerates on next access
+        		banner.SetBannerVisual(null);
+      
+        		// For ruling clan: sync the internal _banner with the edited kingdom banner
+        		// and propagate colors to kingdom and all vassal clans.
+        		// PropagateRulingClanBanner -> SetBannerColors updates Kingdom.Color/Color2,
+        		// PrimaryBannerColor/SecondaryBannerColor (via reflection), then calls
+        		// UpdateBannerColorsForKingdom on each clan (which dirties war party visuals)
+        		if (targetClan.IsRulingClan())
+        		{
+        			targetClan.Banner = new Banner(targetClan.Kingdom.Banner);
+        			targetClan.Kingdom.PropagateRulingClanBanner();
+        		}
+      
+        		// Clear the map screen's cached banner material textures so stale textures are not reused
+        		// The cache is keyed by Tuple<Material, Banner> -- for ruling clans the Banner object reference
+        		// doesn't change (it's kingdom.Banner modified in-place), so the stale texture persists without this
+        		MapScreen.Instance?.CharacterBannerMaterialCache?.Clear();
+      
+        		// For ruling clan edits, dirty ALL kingdom clan party visuals since the map renders
+        		// all kingdom parties using Kingdom.Color/Color2 for cloth tinting
+        		if (targetClan.IsRulingClan())
+        		{
+        			foreach (Clan clan in targetClan.Kingdom.Clans)
+        				SetClanPartyVisualsAsDirty(clan);
+        		}
+        		else
+        		{
+        			SetClanPartyVisualsAsDirty(targetClan);
+        		}
+        	}
+      
+        	Game.Current.GameStateManager.PopState(0);
         }
 
         /// <summary>
         /// Marks all party visuals for the target clan as dirty so map icons refresh with new banner colors.
         /// Follows the native SetMapIconAsDirtyForAllPlayerClanParties pattern but works for any clan.
+        /// Calls both SetVisualAsDirty() and SetNavalVisualAsDirty() on each party (matching native pattern).
         /// </summary>
         private static void SetClanPartyVisualsAsDirty(Clan clan)
         {
@@ -175,6 +203,7 @@ namespace Bannerlord.GameMaster.Banners.UI
             foreach (WarPartyComponent warPartyComponent in clan.WarPartyComponents)
             {
                 warPartyComponent.MobileParty.Party?.SetVisualAsDirty();
+                warPartyComponent.MobileParty.SetNavalVisualAsDirty();
             }
 
             // Caravans owned by clan heroes
@@ -183,6 +212,7 @@ namespace Bannerlord.GameMaster.Banners.UI
                 foreach (CaravanPartyComponent caravanComponent in hero.OwnedCaravans)
                 {
                     caravanComponent.MobileParty.Party?.SetVisualAsDirty();
+                    caravanComponent.MobileParty.SetNavalVisualAsDirty();
                 }
             }
 

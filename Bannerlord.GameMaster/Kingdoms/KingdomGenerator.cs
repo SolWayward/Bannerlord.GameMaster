@@ -61,8 +61,11 @@ namespace Bannerlord.GameMaster.Kingdoms
             else
                 banner = rulingClan.ClanOriginalBanner;
 
-            uint kingdomColor1 = rulingClan.Banner.GetPrimaryColor();     // Background
-            uint kingdomColor2 = rulingClan.Banner.GetFirstIconColor();   // Icon color!
+            // Match native KingdomManager pattern: use clan.Color/Color2 (not banner icon color)
+            // Native passes founderClan.Color and founderClan.Color2 to InitializeKingdom which sets
+            // Kingdom.Color, Color2, PrimaryBannerColor, and SecondaryBannerColor
+            uint kingdomColor1 = rulingClan.Color;   // Primary background color
+            uint kingdomColor2 = rulingClan.Color2;  // Secondary background color
 
             // Links seem to not show up in encyclopedia, keeping them anyway as still shows text correctly.
             TextObject encyclopediaText = new($"A new rising kingdom sparked from the upstarts of {rulingClan.EncyclopediaLinkWithName}, Taking {homeSettlement.EncyclopediaLinkWithName} as their capital " +

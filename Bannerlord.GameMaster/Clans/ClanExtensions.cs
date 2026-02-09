@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Common.Interfaces;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Library;
 using TaleWorlds.Core;
-using TaleWorlds.CampaignSystem.Actions;
 
 namespace Bannerlord.GameMaster.Clans
 {
@@ -179,7 +179,7 @@ namespace Bannerlord.GameMaster.Clans
 		/// </summary>
 		public static void JoinKingdom(this Clan clan, Kingdom kingdom, bool showNotification = true)
 		{
-			TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, showNotification: showNotification);
+			ChangeKingdomAction.ApplyByJoinToKingdom(clan, kingdom, showNotification: showNotification);
 		}
 
 		/// <summary>
@@ -187,7 +187,7 @@ namespace Bannerlord.GameMaster.Clans
 		/// </summary>
 		public static void JoinKingdomAsMercenary(this Clan clan, Kingdom kingdom, bool showNotification = true)
 		{
-			TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ApplyByJoinFactionAsMercenary(clan, kingdom, showNotification: showNotification);
+			ChangeKingdomAction.ApplyByJoinFactionAsMercenary(clan, kingdom, showNotification: showNotification);
 		}
 
 		/// <summary>
@@ -195,7 +195,7 @@ namespace Bannerlord.GameMaster.Clans
 		/// </summary>
 		public static void DefectToKingdom(this Clan clan, Kingdom kingdom, Kingdom oldKindom, bool showNotification = true)
 		{
-			TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ApplyByJoinToKingdomByDefection(clan, kingdom, oldKindom, showNotification: showNotification);
+			ChangeKingdomAction.ApplyByJoinToKingdomByDefection(clan, kingdom, oldKindom, showNotification: showNotification);
 		}
 
 		/// <summary>
@@ -203,7 +203,7 @@ namespace Bannerlord.GameMaster.Clans
 		/// </summary>
 		public static void LeaveKingdom(this Clan clan, bool showNotification = true)
 		{
-			TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ApplyByLeaveKingdom(clan, showNotification);
+			ChangeKingdomAction.ApplyByLeaveKingdom(clan, showNotification);
 		}
 
 		public static void DeclareWar(this Clan clan, IFaction targetFaction)
@@ -231,18 +231,11 @@ namespace Bannerlord.GameMaster.Clans
 		}
 
 		#region Kingdom Banner Propagation
-
-		// MARK: Cached Reflection - Clan
-		private static readonly Type clanType = typeof(Clan);
-
-		private static readonly MethodInfo updateBannerColorsMethod = clanType.GetMethod(
-			"UpdateBannerColorsAccordingToKingdom",
-			BindingFlags.NonPublic | BindingFlags.Instance);
-
+	
 		/// MARK: UpdateBannerColorsForKingdom
 		/// <summary>
 		/// Updates this clan's banner colors to match its kingdom's PrimaryBannerColor and SecondaryBannerColor.
-		/// This is a public wrapper for the native private Clan.UpdateBannerColorsAccordingToKingdom() method.
+		/// Replicates the native private Clan.UpdateBannerColorsAccordingToKingdom() logic using public Banner methods.
 		/// </summary>
 		/// <param name="clan">The clan whose banner colors should be updated.</param>
 		/// <returns>BLGMResult indicating success or failure.</returns>
@@ -250,39 +243,45 @@ namespace Bannerlord.GameMaster.Clans
 		{
 			if (clan == null)
 			{
-				BLGMResult.Error("UpdateBannerColorsForKingdom() failed, clan cannot be null",
+				return BLGMResult.Error("UpdateBannerColorsForKingdom() failed, clan cannot be null",
 					new ArgumentNullException(nameof(clan))).Log();
-				return BLGMResult.Error("Clan cannot be null");
 			}
-
+	
 			if (clan.Kingdom == null)
 			{
-				BLGMResult.Error("UpdateBannerColorsForKingdom() failed, clan has no kingdom",
+				return BLGMResult.Error("UpdateBannerColorsForKingdom() failed, clan has no kingdom",
 					new InvalidOperationException("Clan has no kingdom")).Log();
-				return BLGMResult.Error("Clan has no kingdom");
 			}
-
-			if (updateBannerColorsMethod == null)
+	
+			Kingdom kingdom = clan.Kingdom;
+			uint primaryBannerColor = kingdom.PrimaryBannerColor;
+			uint secondaryBannerColor = kingdom.SecondaryBannerColor;
+	
+			// Update the clan's active banner (for kingdom members, clan.Banner returns kingdom.Banner)
+			Banner banner = clan.Banner;
+			banner?.ChangePrimaryColor(primaryBannerColor);
+			banner?.ChangeIconColors(secondaryBannerColor);
+	
+			// For the ruling clan, also update the internal _banner (accessible via ClanOriginalBanner)
+			// so that if the clan later leaves the kingdom, native restores from _banner correctly
+			if (kingdom.RulingClan == clan)
 			{
-				BLGMResult.Error("UpdateBannerColorsForKingdom() failed, reflection method not found",
-					new InvalidOperationException("Clan.UpdateBannerColorsAccordingToKingdom method not found via reflection")).Log();
-				return BLGMResult.Error("Failed to find UpdateBannerColorsAccordingToKingdom method via reflection");
+				Banner originalBanner = clan.ClanOriginalBanner;
+				originalBanner?.ChangePrimaryColor(primaryBannerColor);
+				originalBanner?.ChangeIconColors(secondaryBannerColor);
 			}
-
-			try
+	
+			// Invalidate cached BannerVisual so it regenerates on next access
+			banner?.SetBannerVisual(null);
+	
+			// Mark all war party visuals as dirty (matches native pattern at end of UpdateBannerColorsAccordingToKingdom)
+			foreach (WarPartyComponent warPartyComponent in clan.WarPartyComponents)
 			{
-				updateBannerColorsMethod.Invoke(clan, null);
-
-				// Trigger visual refresh by accessing BannerVisual property
-				IBannerVisual _ = clan.Banner?.BannerVisual;
-
-				return BLGMResult.Success($"Updated banner colors for clan '{clan.Name}'");
+				warPartyComponent.Party.SetVisualAsDirty();
+				warPartyComponent.MobileParty.SetNavalVisualAsDirty();
 			}
-			catch (Exception ex)
-			{
-				BLGMResult.Error($"UpdateBannerColorsForKingdom() failed for clan '{clan.Name}'", ex).Log();
-				return BLGMResult.Error($"Failed to update clan banner colors: {ex.Message}");
-			}
+	
+			return BLGMResult.Success($"Updated banner colors for clan '{clan.Name}'");
 		}
 
 		/// MARK: IsRulingClan
