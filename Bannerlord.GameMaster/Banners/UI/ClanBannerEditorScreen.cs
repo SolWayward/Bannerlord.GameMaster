@@ -80,6 +80,9 @@ namespace Bannerlord.GameMaster.Banners.UI
             CharacterObject character = _state.GetCharacter();
             Banner banner = targetClan.Banner;
 
+            // Expand palette so all 229 colors are available for both sigil and background
+            BannerPaletteExpander.ExpandAllColors();
+
             // Create the ViewModel
             _dataSource = new BannerEditorVM(
                 character,
@@ -298,6 +301,9 @@ namespace Bannerlord.GameMaster.Banners.UI
         protected override void OnFinalize()
         {
             base.OnFinalize();
+
+            // Restore original palette so expanded colors don't leak into other game systems
+            BannerPaletteExpander.RestoreOriginalColors();
 
             // Flush banner texture cache on finalize (matches native BannerEditorView.OnFinalize pattern)
             BannerEditorTextureCache.Current?.FlushCache();
