@@ -151,22 +151,23 @@ namespace Bannerlord.GameMaster.Banners
         /// MARK: ApplyUniqueKingdomScheme
         /// <summary>
         /// Applies a unique color scheme to the banner that is distinct from existing kingdom background colors.
-        /// Only compares against actual kingdoms (not independent clans), ensuring new kingdoms
-        /// have visually distinct banner colors from all other kingdoms on the map.
+        /// Uses deterministic max-min distance scored selection for the background color,
+        /// adaptive saturation floor to prefer vivid colors, and pressure-aware icon color selection
+        /// that switches between aesthetic harmony (low kingdom count) and uniqueness (high kingdom count).
         /// </summary>
         /// <param name="banner">The banner to apply colors to.</param>
-        /// <param name="minimumThreshold">Minimum perceptual difference from existing kingdoms (0.0-1.0). Default is 0.15 for good distinction.</param>
         /// <returns>The banner instance for method chaining.</returns>
-        public static Banner ApplyUniqueKingdomColorScheme(this Banner banner, float minimumThreshold = 0.15f)
+        public static Banner ApplyUniqueKingdomColorScheme(this Banner banner)
         {
-            int uniquePrimaryColorId = BannerColorPicker.GetUniqueKingdomColorId(minimumThreshold);
+            KingdomColorResult result = BannerColorPicker.GetUniqueKingdomColorId();
 
-            BannerColorPicker.GetBannerColorScheme(
-                uniquePrimaryColorId,
-                out int secondaryColorId,
-                out int iconColorId);
+            // Get secondary background color (ignore generic icon color, we use pressure-aware selection)
+            BannerColorPicker.GetBannerColorScheme(result.ColorId, out int secondaryColorId, out int _);
 
-            banner.SetPrimaryColorId(uniquePrimaryColorId);
+            // Get pressure-aware icon color
+            int iconColorId = BannerColorPicker.GetUniqueKingdomIconColorId(result.ColorId, result.MinDistanceToNearest);
+
+            banner.SetPrimaryColorId(result.ColorId);
             banner.SetSecondaryColorId(secondaryColorId);
             banner.SetIconColorId(iconColorId);
 

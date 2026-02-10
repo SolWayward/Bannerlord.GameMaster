@@ -3,9 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Banners
 {
+    /// <summary>
+    /// Result of kingdom color selection containing the chosen color ID
+    /// and the minimum perceptual distance to the nearest existing kingdom color.
+    /// </summary>
+    public struct KingdomColorResult
+    {
+        public int ColorId;
+        public float MinDistanceToNearest;
+    }
+
     /// <summary>
     /// Provides methods for selecting banner colors from the game's palette
     /// and finding complementary colors for banner design.
@@ -21,8 +32,8 @@ namespace Bannerlord.GameMaster.Banners
         /// <returns>A valid color ID that exists in the palette.</returns>
         public static int GetRandomColorId()
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
-            var colorIds = palette.Keys.ToList();
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
+            List<int> colorIds = palette.Keys.ToList();
             return colorIds[_random.Next(colorIds.Count)];
         }
 
@@ -35,16 +46,16 @@ namespace Bannerlord.GameMaster.Banners
         /// <returns>A color ID for a lighter color, or the base color if no suitable lighter color exists.</returns>
         public static int GetLighterComplementaryColor(int baseColorId, float minLuminanceDifference = 0.15f)
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
             
             if (!palette.ContainsKey(baseColorId))
                 return baseColorId;
 
-            var baseColor = palette[baseColorId];
+            BannerColor baseColor = palette[baseColorId];
             float baseLuminance = CalculateLuminance(baseColor.Color);
 
             // Find colors that are lighter than the base color
-            var lighterColors = palette
+            List<KeyValuePair<int, BannerColor>> lighterColors = palette
                 .Where(kvp =>
                 {
                     float luminance = CalculateLuminance(kvp.Value.Color);
@@ -76,16 +87,16 @@ namespace Bannerlord.GameMaster.Banners
         /// <returns>A color ID for a darker color, or the base color if no suitable darker color exists.</returns>
         public static int GetDarkerComplementaryColor(int baseColorId, float minLuminanceDifference = 0.15f)
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
             
             if (!palette.ContainsKey(baseColorId))
                 return baseColorId;
 
-            var baseColor = palette[baseColorId];
+            BannerColor baseColor = palette[baseColorId];
             float baseLuminance = CalculateLuminance(baseColor.Color);
 
             // Find colors that are darker than the base color
-            var darkerColors = palette
+            List<KeyValuePair<int, BannerColor>> darkerColors = palette
                 .Where(kvp =>
                 {
                     float luminance = CalculateLuminance(kvp.Value.Color);
@@ -119,16 +130,16 @@ namespace Bannerlord.GameMaster.Banners
         /// <returns>A color ID for a contrasting color, or the base color if no suitable contrasting color exists.</returns>
         public static int GetContrastingColor(int baseColorId, bool preferLighter, float minLuminanceDifference = 0.3f)
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
             
             if (!palette.ContainsKey(baseColorId))
                 return baseColorId;
 
-            var baseColor = palette[baseColorId];
+            BannerColor baseColor = palette[baseColorId];
             float baseLuminance = CalculateLuminance(baseColor.Color);
 
             // Find colors with high luminance difference
-            var contrastingColors = palette
+            List<KeyValuePair<int, BannerColor>> contrastingColors = palette
                 .Where(kvp =>
                 {
                     float luminance = CalculateLuminance(kvp.Value.Color);
@@ -203,7 +214,7 @@ namespace Bannerlord.GameMaster.Banners
         /// <param name="emblemColorId">Output: The emblem color ID (high contrast).</param>
         public static void GetBannerColorScheme(int mainBackgroundId, out int secondaryBackgroundId, out int emblemColorId)
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
             
             if (!palette.ContainsKey(mainBackgroundId))
             {
@@ -211,7 +222,7 @@ namespace Bannerlord.GameMaster.Banners
                 mainBackgroundId = GetRandomColorId();
             }
 
-            var mainColor = palette[mainBackgroundId];
+            BannerColor mainColor = palette[mainBackgroundId];
             float mainLuminance = CalculateLuminance(mainColor.Color);
 
             // If the main color is very light (close to white), use alternative scheme (lighter secondary, darker emblem)
@@ -259,7 +270,7 @@ namespace Bannerlord.GameMaster.Banners
         /// <param name="emblemColorId">Output: The emblem color ID (darker, high contrast).</param>
         public static void GetAlternativeBannerColorScheme(int mainBackgroundId, out int secondaryBackgroundId, out int emblemColorId)
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
             
             if (!palette.ContainsKey(mainBackgroundId))
             {
@@ -285,7 +296,7 @@ namespace Bannerlord.GameMaster.Banners
         /// <param name="emblemColorId">Output: The emblem color ID (lighter, high contrast).</param>
         public static void GetStandardBannerColorScheme(int mainBackgroundId, out int secondaryBackgroundId, out int emblemColorId)
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
             
             if (!palette.ContainsKey(mainBackgroundId))
             {
@@ -327,7 +338,7 @@ namespace Bannerlord.GameMaster.Banners
             float h2 = GetHue(color2);
 
             float diff = Math.Abs(h1 - h2);
-            // Handle wrap-around (e.g., 350° and 10° are close)
+            // Handle wrap-around (e.g., 350 and 10 are close)
             if (diff > 180f)
                 diff = 360f - diff;
 
@@ -385,6 +396,35 @@ namespace Bannerlord.GameMaster.Banners
             return delta / max;
         }
 
+        /// MARK: PerceptualDistance
+        /// <summary>
+        /// Calculates a saturation-aware perceptual distance between two colors.
+        /// Dynamically adjusts hue weight based on the minimum saturation of both colors,
+        /// so that desaturated colors (grays/creams) are compared primarily by luminance
+        /// rather than by their meaningless hue values.
+        /// </summary>
+        /// <param name="color1">First color as uint value.</param>
+        /// <param name="color2">Second color as uint value.</param>
+        /// <returns>Perceptual distance between 0.0 (identical) and ~1.0 (maximally different).</returns>
+        public static float CalculatePerceptualDistance(uint color1, uint color2)
+        {
+            float luminanceDiff = Math.Abs(CalculateLuminance(color1) - CalculateLuminance(color2));
+            float hueDiff = CalculateHueDifference(color1, color2) / 180f; // Normalize to 0-1
+            float saturationDiff = Math.Abs(GetSaturation(color1) - GetSaturation(color2));
+
+            // At low saturation, hue is perceptually meaningless (gray has no hue)
+            // Scale hue relevance by the minimum saturation of both colors
+            float minSat = Math.Min(GetSaturation(color1), GetSaturation(color2));
+            float hueRelevance = MBMath.ClampFloat(minSat * 5f, 0f, 1f);
+
+            // Dynamic weights: freed hue weight is absorbed by luminance
+            float hueWeight = 0.35f * hueRelevance;
+            float lumWeight = 0.50f + (0.35f - hueWeight);
+            float satWeight = 0.15f;
+
+            return (luminanceDiff * lumWeight) + (hueDiff * hueWeight) + (saturationDiff * satWeight);
+        }
+
         /// MARK: ComplementaryColor
         /// <summary>
         /// Finds the best complementary color from a list of candidates.
@@ -395,7 +435,6 @@ namespace Bannerlord.GameMaster.Banners
             if (!candidates.Any())
                 return -1;
 
-            float baseHue = GetHue(baseColor);
             float baseSaturation = GetSaturation(baseColor);
 
             // Score each candidate color
@@ -420,13 +459,7 @@ namespace Bannerlord.GameMaster.Banners
 
             // Return the best scoring color, with some randomness for variety
             // 70% chance to pick the best, 20% second best, 10% third best
-            int index = 0;
-            float roll = (float)_random.NextDouble();
-            if (roll > 0.7f && scoredCandidates.Count > 1)
-                index = 1;
-            if (roll > 0.9f && scoredCandidates.Count > 2)
-                index = 2;
-
+            int index = PickWeightedTopIndex(scoredCandidates.Count);
             return scoredCandidates[index].ColorId;
         }
 
@@ -440,7 +473,6 @@ namespace Bannerlord.GameMaster.Banners
             if (!candidates.Any())
                 return -1;
 
-            float baseHue = GetHue(baseColor);
             float baseLuminance = CalculateLuminance(baseColor);
 
             // Score each candidate color for contrast
@@ -475,13 +507,7 @@ namespace Bannerlord.GameMaster.Banners
 
             // Return the best scoring color, with some randomness for variety
             // 70% chance to pick the best, 20% second best, 10% third best
-            int index = 0;
-            float roll = (float)_random.NextDouble();
-            if (roll > 0.7f && scoredCandidates.Count > 1)
-                index = 1;
-            if (roll > 0.9f && scoredCandidates.Count > 2)
-                index = 2;
-
+            int index = PickWeightedTopIndex(scoredCandidates.Count);
             return scoredCandidates[index].ColorId;
         }
 
@@ -493,11 +519,11 @@ namespace Bannerlord.GameMaster.Banners
         /// <returns>A string containing color information, or null if the color doesn't exist.</returns>
         public static string GetColorInfo(int colorId)
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
             if (!palette.ContainsKey(colorId))
                 return null;
 
-            var color = palette[colorId];
+            BannerColor color = palette[colorId];
             float luminance = CalculateLuminance(color.Color);
             float hue = GetHue(color.Color);
             float saturation = GetSaturation(color.Color);
@@ -508,13 +534,14 @@ namespace Bannerlord.GameMaster.Banners
             byte b = (byte)(colorValue & 0xFF);
 
             return $"Color ID {colorId}: RGB({r},{g},{b}) Hex:#{r:X2}{g:X2}{b:X2} " +
-                   $"Luminance:{luminance:F3} Hue:{hue:F1}° Saturation:{saturation:F3}";
+                   $"Luminance:{luminance:F3} Hue:{hue:F1} Saturation:{saturation:F3}";
         }
 
         /// MARK: AreColorsSimilar
         /// <summary>
         /// Determines if two colors are similar based on perceptual difference.
-        /// Uses luminance, hue, and saturation to calculate color similarity.
+        /// Uses saturation-aware perceptual distance that dynamically adjusts hue weight
+        /// based on color saturation, properly handling desaturated colors.
         /// </summary>
         /// <param name="colorId1">First color ID from banner palette.</param>
         /// <param name="colorId2">Second color ID from banner palette.</param>
@@ -522,11 +549,11 @@ namespace Bannerlord.GameMaster.Banners
         /// <returns>True if colors are perceptually similar, false otherwise.</returns>
         public static bool AreColorsSimilar(int colorId1, int colorId2, float threshold = 0.2f)
         {
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
-            
             // Exact match check
             if (colorId1 == colorId2)
                 return true;
+
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
 
             // Validate color IDs exist in palette
             if (!palette.ContainsKey(colorId1) || !palette.ContainsKey(colorId2))
@@ -535,30 +562,15 @@ namespace Bannerlord.GameMaster.Banners
             uint color1 = palette[colorId1].Color;
             uint color2 = palette[colorId2].Color;
 
-            // Calculate perceptual differences
-            float luminance1 = CalculateLuminance(color1);
-            float luminance2 = CalculateLuminance(color2);
-            float luminanceDiff = Math.Abs(luminance1 - luminance2);
-
-            float hue1 = GetHue(color1);
-            float hue2 = GetHue(color2);
-            float hueDiff = CalculateHueDifference(color1, color2) / 180f; // Normalize to 0-1
-
-            float saturation1 = GetSaturation(color1);
-            float saturation2 = GetSaturation(color2);
-            float saturationDiff = Math.Abs(saturation1 - saturation2);
-
-            // Calculate weighted perceptual difference
-            // Luminance is most important for distinguishing colors, then hue, then saturation
-            float perceptualDifference = (luminanceDiff * 0.5f) + (hueDiff * 0.35f) + (saturationDiff * 0.15f);
-
+            float perceptualDifference = CalculatePerceptualDistance(color1, color2);
             return perceptualDifference < threshold;
         }
 
         /// MARK: AreColorsSimilar
         /// <summary>
         /// Determines if two colors (by uint value) are similar based on perceptual difference.
-        /// This overload is for compatibility with existing code using raw color values.
+        /// Uses saturation-aware perceptual distance that dynamically adjusts hue weight
+        /// based on color saturation, properly handling desaturated colors.
         /// </summary>
         /// <param name="color1">First color as uint value.</param>
         /// <param name="color2">Second color as uint value.</param>
@@ -570,20 +582,7 @@ namespace Bannerlord.GameMaster.Banners
             if (color1 == color2)
                 return true;
 
-            // Calculate perceptual differences
-            float luminance1 = CalculateLuminance(color1);
-            float luminance2 = CalculateLuminance(color2);
-            float luminanceDiff = Math.Abs(luminance1 - luminance2);
-
-            float hueDiff = CalculateHueDifference(color1, color2) / 180f; // Normalize to 0-1
-
-            float saturation1 = GetSaturation(color1);
-            float saturation2 = GetSaturation(color2);
-            float saturationDiff = Math.Abs(saturation1 - saturation2);
-
-            // Calculate weighted perceptual difference
-            float perceptualDifference = (luminanceDiff * 0.5f) + (hueDiff * 0.35f) + (saturationDiff * 0.15f);
-
+            float perceptualDifference = CalculatePerceptualDistance(color1, color2);
             return perceptualDifference < threshold;
         }
 
@@ -596,10 +595,10 @@ namespace Bannerlord.GameMaster.Banners
         /// <returns>A banner palette color ID that is maximally distinct from existing clan colors.</returns>
         public static int GetUniqueClanColorId(float minimumThreshold = 0.15f)
         {   
-            int maxAttempts = 50; //Max attempts before color threshold is lowered
+            int maxAttempts = 50; // Max attempts before color threshold is lowered
 
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
-            var colorIds = palette.Keys.ToList();
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
+            List<int> colorIds = palette.Keys.ToList();
 
             // Start with a high threshold for maximum uniqueness, then gradually decrease
             for (float similarThreshold = 0.5f; similarThreshold >= minimumThreshold; similarThreshold -= 0.05f)
@@ -635,47 +634,274 @@ namespace Bannerlord.GameMaster.Banners
 
         /// MARK: GetUniqueKingdomColor
         /// <summary>
-        /// Gets the most unique color ID from the banner palette compared to existing kingdoms.
-        /// Ensures the selected color is perceptually distinct from all non-eliminated kingdom background colors.
-        /// Only compares against actual kingdoms (not independent clans without a kingdom).
+        /// Gets the most unique color ID from the banner palette compared to existing kingdoms
+        /// using deterministic max-min distance scored selection.
+        /// Scores every palette color by its minimum perceptual distance to all active kingdom colors,
+        /// applies an adaptive saturation floor to prefer vivid colors, and picks from the top candidates.
         /// </summary>
-        /// <param name="minimumThreshold">Minimum perceptual difference threshold (0.0-1.0). Default is 0.15 for good distinction.</param>
-        /// <returns>A banner palette color ID that is maximally distinct from existing kingdom colors.</returns>
-        public static int GetUniqueKingdomColorId(float minimumThreshold = 0.15f)
+        /// <returns>A <see cref="KingdomColorResult"/> containing the chosen color ID and its minimum distance to the nearest kingdom.</returns>
+        public static KingdomColorResult GetUniqueKingdomColorId()
         {
-            int maxAttempts = 50;
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
+            List<int> allColorIds = palette.Keys.ToList();
 
-            var palette = BannerManager.Instance.ReadOnlyColorPalette;
-            var colorIds = palette.Keys.ToList();
-
-            // Start with a high threshold for maximum uniqueness, then gradually decrease
-            for (float similarThreshold = 0.5f; similarThreshold >= minimumThreshold; similarThreshold -= 0.05f)
+            // Collect active kingdom background colors
+            List<uint> kingdomColors = new();
+            foreach (Kingdom kingdom in Kingdom.All)
             {
-                for (int attempt = 0; attempt < maxAttempts; attempt++)
-                {
-                    int randomColorId = colorIds[_random.Next(colorIds.Count)];
-                    bool isColorSimilar = false;
-
-                    foreach (Kingdom kingdom in Kingdom.All)
-                    {
-                        if (kingdom.IsEliminated)
-                            continue;
-
-                        // Check if similar to this kingdom's background color
-                        if (AreColorsSimilar(palette[randomColorId].Color, kingdom.Color, similarThreshold))
-                        {
-                            isColorSimilar = true;
-                            break;
-                        }
-                    }
-
-                    if (!isColorSimilar)
-                        return randomColorId;
-                }
+                if (!kingdom.IsEliminated)
+                    kingdomColors.Add(kingdom.Color);
             }
 
-            // If no unique color found even at minimum threshold, return a random color
-            return colorIds[_random.Next(colorIds.Count)];
+            // If no active kingdoms, return random color with max distance
+            if (kingdomColors.Count == 0)
+            {
+                return new KingdomColorResult
+                {
+                    ColorId = allColorIds[_random.Next(allColorIds.Count)],
+                    MinDistanceToNearest = 1.0f
+                };
+            }
+
+            // Compute adaptive saturation floor
+            float minSaturation = CalculateAdaptiveSaturationFloor(kingdomColors.Count, allColorIds.Count);
+
+            // Score candidates with saturation filter, fallback to all if none pass
+            KingdomColorResult result = ScoreAndPickKingdomColor(palette, allColorIds, kingdomColors, minSaturation);
+
+            // If filtered list yielded nothing (all below sat floor), retry without filter
+            if (result.ColorId == -1)
+                result = ScoreAndPickKingdomColor(palette, allColorIds, kingdomColors, 0f);
+
+            // Final fallback (should not happen, but safety)
+            if (result.ColorId == -1)
+            {
+                result = new KingdomColorResult
+                {
+                    ColorId = allColorIds[_random.Next(allColorIds.Count)],
+                    MinDistanceToNearest = 0f
+                };
+            }
+
+            return result;
+        }
+
+        /// MARK: ScoreAndPick
+        /// <summary>
+        /// Scores palette colors by minimum perceptual distance to existing kingdom colors
+        /// and returns the best candidate using weighted random selection from the top 3-5.
+        /// </summary>
+        private static KingdomColorResult ScoreAndPickKingdomColor(
+            MBReadOnlyDictionary<int, BannerColor> palette,
+            List<int> allColorIds,
+            List<uint> kingdomColors,
+            float minSaturation)
+        {
+            // Filter candidates by saturation
+            List<int> candidates = new();
+            for (int i = 0; i < allColorIds.Count; i++)
+            {
+                int colorId = allColorIds[i];
+                if (GetSaturation(palette[colorId].Color) >= minSaturation)
+                    candidates.Add(colorId);
+            }
+
+            if (candidates.Count == 0)
+                return new KingdomColorResult { ColorId = -1, MinDistanceToNearest = 0f };
+
+            // Score each candidate: minimum distance to any existing kingdom color
+            List<int> scoredIds = new(candidates.Count);
+            List<float> scoredDists = new(candidates.Count);
+
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                int candidateId = candidates[i];
+                uint candidateColor = palette[candidateId].Color;
+                float minDist = float.MaxValue;
+
+                for (int k = 0; k < kingdomColors.Count; k++)
+                {
+                    float dist = CalculatePerceptualDistance(candidateColor, kingdomColors[k]);
+                    if (dist < minDist)
+                        minDist = dist;
+                }
+
+                scoredIds.Add(candidateId);
+                scoredDists.Add(minDist);
+            }
+
+            // Sort by distance descending (best candidates first)
+            // Simple insertion sort is fine for this size
+            for (int i = 1; i < scoredIds.Count; i++)
+            {
+                int tempId = scoredIds[i];
+                float tempDist = scoredDists[i];
+                int j = i - 1;
+                while (j >= 0 && scoredDists[j] < tempDist)
+                {
+                    scoredIds[j + 1] = scoredIds[j];
+                    scoredDists[j + 1] = scoredDists[j];
+                    j--;
+                }
+                scoredIds[j + 1] = tempId;
+                scoredDists[j + 1] = tempDist;
+            }
+
+            // Pick from top 3-5 with weighted randomness (70/20/10)
+            int pickIndex = PickWeightedTopIndex(scoredIds.Count);
+
+            return new KingdomColorResult
+            {
+                ColorId = scoredIds[pickIndex],
+                MinDistanceToNearest = scoredDists[pickIndex]
+            };
+        }
+
+        /// MARK: AdaptiveSatFloor
+        /// <summary>
+        /// Calculates an adaptive saturation floor based on kingdom count pressure.
+        /// At low kingdom counts, enforces vivid colors only. As color space fills,
+        /// gradually relaxes to allow more muted tones.
+        /// </summary>
+        /// <param name="activeKingdomCount">Number of non-eliminated kingdoms.</param>
+        /// <param name="paletteSize">Total number of palette colors available.</param>
+        /// <returns>Minimum saturation value (0.0 to 0.25).</returns>
+        private static float CalculateAdaptiveSaturationFloor(int activeKingdomCount, int paletteSize)
+        {
+            float estimatedDistinctGroups = paletteSize / 4.0f;
+            float pressure = activeKingdomCount / estimatedDistinctGroups;
+            float minSaturation = Math.Max(0f, 0.25f * (1f - pressure / 0.7f));
+            return minSaturation;
+        }
+
+        /// MARK: UniqueKingdomIconColor
+        /// <summary>
+        /// Gets a unique icon color for a kingdom banner using a dual-strategy approach.
+        /// Below the pressure threshold (~12 kingdoms): focuses on aesthetic harmony and visibility
+        /// against the banner background using the existing contrasting color system.
+        /// Above the pressure threshold: focuses on icon uniqueness from kingdoms with similar
+        /// background shades while maintaining minimum visibility.
+        /// </summary>
+        /// <param name="backgroundColorId">The kingdom's background (primary) color ID.</param>
+        /// <param name="minDistanceToNearest">The minimum perceptual distance from the background to the nearest kingdom color.</param>
+        /// <returns>A palette color ID for the icon color.</returns>
+        public static int GetUniqueKingdomIconColorId(int backgroundColorId, float minDistanceToNearest)
+        {
+            const int KINGDOM_PRESSURE_THRESHOLD = 12;
+            const float SIMILAR_BACKGROUND_THRESHOLD = 0.25f;
+            const float MIN_LUMINANCE_CONTRAST = 0.25f;
+
+            MBReadOnlyDictionary<int, BannerColor> palette = BannerManager.Instance.ReadOnlyColorPalette;
+
+            if (!palette.ContainsKey(backgroundColorId))
+                return GetRandomColorId();
+
+            // Count active kingdoms
+            int activeKingdoms = 0;
+            foreach (Kingdom kingdom in Kingdom.All)
+            {
+                if (!kingdom.IsEliminated)
+                    activeKingdoms++;
+            }
+
+            float bgLuminance = CalculateLuminance(palette[backgroundColorId].Color);
+            bool preferLighter = bgLuminance <= 0.6f;
+
+            // LOW PRESSURE: Focus on aesthetic harmony + visibility against own background
+            if (activeKingdoms <= KINGDOM_PRESSURE_THRESHOLD)
+                return GetContrastingColor(backgroundColorId, preferLighter);
+
+            // HIGH PRESSURE: Focus on icon uniqueness from kingdoms with similar backgrounds
+            // Find kingdoms with similar background shade
+            List<uint> similarKingdomIconColors = new();
+            foreach (Kingdom kingdom in Kingdom.All)
+            {
+                if (kingdom.IsEliminated)
+                    continue;
+
+                float bgDist = CalculatePerceptualDistance(palette[backgroundColorId].Color, kingdom.Color);
+                if (bgDist < SIMILAR_BACKGROUND_THRESHOLD)
+                    similarKingdomIconColors.Add(kingdom.Color2); // Color2 = icon color
+            }
+
+            // If no similar-background kingdoms exist, fall back to aesthetic mode
+            if (similarKingdomIconColors.Count == 0)
+                return GetContrastingColor(backgroundColorId, preferLighter);
+
+            // Score each palette color as candidate icon
+            List<int> candidateIds = new();
+            List<float> candidateScores = new();
+
+            foreach (int colorId in palette.Keys)
+            {
+                uint candidateColor = palette[colorId].Color;
+                float lumDiff = Math.Abs(CalculateLuminance(candidateColor) - bgLuminance);
+
+                // Must have minimum contrast against own background
+                if (lumDiff < MIN_LUMINANCE_CONTRAST)
+                    continue;
+
+                // Minimum distance from all similar-kingdom icon colors
+                float minIconDist = float.MaxValue;
+                for (int i = 0; i < similarKingdomIconColors.Count; i++)
+                {
+                    float dist = CalculatePerceptualDistance(candidateColor, similarKingdomIconColors[i]);
+                    if (dist < minIconDist)
+                        minIconDist = dist;
+                }
+
+                // Composite score: 60% uniqueness from similar icons + 40% visibility against own background
+                float score = (minIconDist * 0.6f) + (lumDiff * 0.4f);
+                candidateIds.Add(colorId);
+                candidateScores.Add(score);
+            }
+
+            // Fallback if no candidates pass visibility filter
+            if (candidateIds.Count == 0)
+                return GetContrastingColor(backgroundColorId, preferLighter);
+
+            // Sort by score descending
+            for (int i = 1; i < candidateIds.Count; i++)
+            {
+                int tempId = candidateIds[i];
+                float tempScore = candidateScores[i];
+                int j = i - 1;
+                while (j >= 0 && candidateScores[j] < tempScore)
+                {
+                    candidateIds[j + 1] = candidateIds[j];
+                    candidateScores[j + 1] = candidateScores[j];
+                    j--;
+                }
+                candidateIds[j + 1] = tempId;
+                candidateScores[j + 1] = tempScore;
+            }
+
+            // Pick from top 3 with weighted randomness (70/20/10)
+            int pickIndex = PickWeightedTopIndex(candidateIds.Count);
+            return candidateIds[pickIndex];
+        }
+
+        /// MARK: PickWeightedTop
+        /// <summary>
+        /// Picks an index from the top of a sorted list using weighted randomness.
+        /// 70% chance for index 0, 20% for index 1, 10% for index 2.
+        /// Clamps to available count.
+        /// </summary>
+        /// <param name="availableCount">Total number of available items in the sorted list.</param>
+        /// <returns>Selected index (0, 1, or 2).</returns>
+        private static int PickWeightedTopIndex(int availableCount)
+        {
+            if (availableCount <= 1)
+                return 0;
+
+            float roll = (float)_random.NextDouble();
+            int index = 0;
+            if (roll > 0.7f && availableCount > 1)
+                index = 1;
+            if (roll > 0.9f && availableCount > 2)
+                index = 2;
+
+            return index;
         }
     }
 }
