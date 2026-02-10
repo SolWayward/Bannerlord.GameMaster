@@ -24,32 +24,8 @@ namespace Bannerlord.GameMaster.Banners
                 {
                     data.ColorId = colorId;
                     data.ColorId2 = colorId;
-                    data.DrawStroke = false;
                 }
             }
-        }
-
-        /// MARK: StripAllIconStrokes
-        /// <summary>
-        /// Disables DrawStroke on all icon layers (index 1..N) so the icon renders
-        /// with its true color instead of getting a dark outline baked in.
-        /// DrawStroke is a persistent boolean on BannerData that survives serialization,
-        /// so stripping it once per interaction is sufficient.
-        /// </summary>
-        /// <param name="banner">The banner to strip strokes from.</param>
-        /// <returns>The banner instance for method chaining.</returns>
-        public static Banner StripAllIconStrokes(this Banner banner)
-        {
-            int count = banner.GetBannerDataListCount();
-            for (int i = 1; i < count; i++)
-            {
-                BannerData data = banner.GetBannerDataAtIndex(i);
-                if (data != null)
-                {
-                    data.DrawStroke = false;
-                }
-            }
-            return banner;
         }
 
         /// MARK: ApplyRandomScheme

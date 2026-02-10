@@ -80,10 +80,6 @@ namespace Bannerlord.GameMaster.Banners.UI
             CharacterObject character = _state.GetCharacter();
             Banner banner = targetClan.Banner;
 
-            // Strip icon strokes so existing banners (e.g. vanilla Vlandia ruler) render
-            // with true icon color instead of a dark outline baked in by DrawStroke
-            banner.StripAllIconStrokes();
-
             // Expand palette so all 229 colors are available for both sigil and background
             BannerPaletteExpander.ExpandAllColors();
 
@@ -163,11 +159,7 @@ namespace Bannerlord.GameMaster.Banners.UI
         		{
         			targetClan.UpdateBannerColor(targetClan.Color, firstIconColor);
         		}
-
-        		// Safety net: strip icon strokes after UpdateBannerColor so the saved banner
-        		// has no strokes even if something upstream reintroduced them
-        		banner.StripAllIconStrokes();
-
+      
         		// Invalidate cached BannerVisual so it regenerates on next access
         		banner.SetBannerVisual(null);
       
@@ -246,21 +238,8 @@ namespace Bannerlord.GameMaster.Banners.UI
             // Fix native bug: BannerEditorVM.OnSigilColorSelection() calls SetIconColorId()
             // which only updates _bannerDataList[1]. Propagate that color to all icon entries
             // so multi-icon banners update uniformly.
-            // Also strip DrawStroke on every icon layer so the stroke doesn't reappear
-            // (native SetIconColorId does not touch DrawStroke).
             Banner banner = _state.GetClan().Banner;
             int iconCount = banner.GetBannerDataListCount();
-
-            // Strip stroke on the first icon (index 1) which is handled by native SetIconColorId
-            if (iconCount > 1)
-            {
-                BannerData firstIcon = banner.GetBannerDataAtIndex(1);
-                if (firstIcon != null)
-                {
-                    firstIcon.DrawStroke = false;
-                }
-            }
-
             if (iconCount > 2) // background + more than 1 icon
             {
                 int iconColorId = banner.GetIconColorId(); // reads _bannerDataList[1].ColorId
@@ -271,7 +250,6 @@ namespace Bannerlord.GameMaster.Banners.UI
                     {
                         data.ColorId = iconColorId;
                         data.ColorId2 = iconColorId;
-                        data.DrawStroke = false;
                     }
                 }
             }
