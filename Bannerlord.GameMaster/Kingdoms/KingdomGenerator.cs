@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using Bannerlord.GameMaster.Banners;
 using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Clans;
 using Bannerlord.GameMaster.Cultures;
@@ -37,8 +38,13 @@ namespace Bannerlord.GameMaster.Kingdoms
             if (!homeSettlement.IsTown && !homeSettlement.IsCastle)
                 return null;
 
-            // Create ruling clan
+            // Create ruling clan, then re-apply banner colors using kingdom-specific uniqueness
+            // ClanGenerator uses clan-unique colors, but kingdoms need colors distinct from other kingdoms
             Clan rulingClan = ClanGenerator.CreateNobleClan(rulingClanName, cultureFlags: cultureFlags);
+            rulingClan.Banner.ApplyUniqueKingdomColorScheme();
+            rulingClan.Color = rulingClan.Banner.GetPrimaryColor();
+            rulingClan.Color2 = rulingClan.Banner.GetFirstIconColor();
+            ClanCreationHelpers.SetOriginalBannerColors(rulingClan, rulingClan.Banner);
 
             if (name == null || name.IsEmpty())
                 name = CultureLookup.GetUniqueRandomKingdomName(rulingClan.Leader.Culture);
@@ -61,11 +67,12 @@ namespace Bannerlord.GameMaster.Kingdoms
             else
                 banner = rulingClan.ClanOriginalBanner;
 
-            // Match native KingdomManager pattern: use clan.Color/Color2 (not banner icon color)
+            // Match native KingdomManager pattern: use clan.Color/Color2
             // Native passes founderClan.Color and founderClan.Color2 to InitializeKingdom which sets
             // Kingdom.Color, Color2, PrimaryBannerColor, and SecondaryBannerColor
+            // clan.Color2 = icon color (matches native semantics used for cloth tinting and banner icon)
             uint kingdomColor1 = rulingClan.Color;   // Primary background color
-            uint kingdomColor2 = rulingClan.Color2;  // Secondary background color
+            uint kingdomColor2 = rulingClan.Color2;  // Icon color (contrasting)
 
             // Links seem to not show up in encyclopedia, keeping them anyway as still shows text correctly.
             TextObject encyclopediaText = new($"A new rising kingdom sparked from the upstarts of {rulingClan.EncyclopediaLinkWithName}, Taking {homeSettlement.EncyclopediaLinkWithName} as their capital " +

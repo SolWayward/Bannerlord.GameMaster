@@ -236,7 +236,9 @@ namespace Bannerlord.GameMaster.Clans
 
 		/// MARK: CreateClanBanner
 		/// <summary>
-		/// Creates and assigns a random banner to clan. Banner uses smart 2 color complimentary scheme
+		/// Creates and assigns a random banner to clan. Banner uses smart 3 color complimentary scheme.
+		/// clan.Color = primary background, clan.Color2 = icon color (matches native clan.Color2 semantics
+		/// used by kingdom propagation for cloth tinting and banner icon color).
 		/// </summary>
 		private static Banner CreateClanBanner(Clan clan)
 		{
@@ -245,7 +247,7 @@ namespace Bannerlord.GameMaster.Clans
 			banner.ApplyUniqueColorScheme();
 			clan.Banner = banner;
 			clan.Color = banner.GetPrimaryColor();
-			clan.Color2 = banner.GetSecondaryColor();
+			clan.Color2 = banner.GetFirstIconColor();
 
 			ClanCreationHelpers.SetOriginalBannerColors(clan, clan.Banner);
 

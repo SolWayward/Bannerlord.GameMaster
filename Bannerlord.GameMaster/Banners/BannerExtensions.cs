@@ -147,5 +147,30 @@ namespace Bannerlord.GameMaster.Banners
 
             return banner;
         }
+
+        /// MARK: ApplyUniqueKingdomScheme
+        /// <summary>
+        /// Applies a unique color scheme to the banner that is distinct from existing kingdom background colors.
+        /// Only compares against actual kingdoms (not independent clans), ensuring new kingdoms
+        /// have visually distinct banner colors from all other kingdoms on the map.
+        /// </summary>
+        /// <param name="banner">The banner to apply colors to.</param>
+        /// <param name="minimumThreshold">Minimum perceptual difference from existing kingdoms (0.0-1.0). Default is 0.15 for good distinction.</param>
+        /// <returns>The banner instance for method chaining.</returns>
+        public static Banner ApplyUniqueKingdomColorScheme(this Banner banner, float minimumThreshold = 0.15f)
+        {
+            int uniquePrimaryColorId = BannerColorPicker.GetUniqueKingdomColorId(minimumThreshold);
+
+            BannerColorPicker.GetBannerColorScheme(
+                uniquePrimaryColorId,
+                out int secondaryColorId,
+                out int iconColorId);
+
+            banner.SetPrimaryColorId(uniquePrimaryColorId);
+            banner.SetSecondaryColorId(secondaryColorId);
+            banner.SetIconColorId(iconColorId);
+
+            return banner;
+        }
     }
 }

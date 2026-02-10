@@ -632,5 +632,50 @@ namespace Bannerlord.GameMaster.Banners
             // If no unique color found even at minimum threshold, return a random color
             return colorIds[_random.Next(colorIds.Count)];
         }
+
+        /// MARK: GetUniqueKingdomColor
+        /// <summary>
+        /// Gets the most unique color ID from the banner palette compared to existing kingdoms.
+        /// Ensures the selected color is perceptually distinct from all non-eliminated kingdom background colors.
+        /// Only compares against actual kingdoms (not independent clans without a kingdom).
+        /// </summary>
+        /// <param name="minimumThreshold">Minimum perceptual difference threshold (0.0-1.0). Default is 0.15 for good distinction.</param>
+        /// <returns>A banner palette color ID that is maximally distinct from existing kingdom colors.</returns>
+        public static int GetUniqueKingdomColorId(float minimumThreshold = 0.15f)
+        {
+            int maxAttempts = 50;
+
+            var palette = BannerManager.Instance.ReadOnlyColorPalette;
+            var colorIds = palette.Keys.ToList();
+
+            // Start with a high threshold for maximum uniqueness, then gradually decrease
+            for (float similarThreshold = 0.5f; similarThreshold >= minimumThreshold; similarThreshold -= 0.05f)
+            {
+                for (int attempt = 0; attempt < maxAttempts; attempt++)
+                {
+                    int randomColorId = colorIds[_random.Next(colorIds.Count)];
+                    bool isColorSimilar = false;
+
+                    foreach (Kingdom kingdom in Kingdom.All)
+                    {
+                        if (kingdom.IsEliminated)
+                            continue;
+
+                        // Check if similar to this kingdom's background color
+                        if (AreColorsSimilar(palette[randomColorId].Color, kingdom.Color, similarThreshold))
+                        {
+                            isColorSimilar = true;
+                            break;
+                        }
+                    }
+
+                    if (!isColorSimilar)
+                        return randomColorId;
+                }
+            }
+
+            // If no unique color found even at minimum threshold, return a random color
+            return colorIds[_random.Next(colorIds.Count)];
+        }
     }
 }
