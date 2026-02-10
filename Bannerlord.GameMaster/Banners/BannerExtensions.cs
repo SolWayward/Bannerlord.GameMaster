@@ -7,6 +7,27 @@ namespace Bannerlord.GameMaster.Banners
     /// </summary>
     public static class BannerExtensions
     {
+        /// MARK: SetAllIconColorIds
+        /// <summary>
+        /// Sets the icon color for ALL icon layers in the banner (indices 1..N).
+        /// Fixes the native SetIconColorId() which only updates index 1.
+        /// </summary>
+        /// <param name="banner">The banner to update.</param>
+        /// <param name="colorId">The palette color ID to apply to all icon layers.</param>
+        public static void SetAllIconColorIds(this Banner banner, int colorId)
+        {
+            int count = banner.GetBannerDataListCount();
+            for (int i = 1; i < count; i++)
+            {
+                BannerData data = banner.GetBannerDataAtIndex(i);
+                if (data != null)
+                {
+                    data.ColorId = colorId;
+                    data.ColorId2 = colorId;
+                }
+            }
+        }
+
         /// MARK: ApplyRandomScheme
         /// <summary>
         /// Applies a random color scheme to the banner with high-contrast emblem.
@@ -25,7 +46,7 @@ namespace Bannerlord.GameMaster.Banners
 
             banner.SetPrimaryColorId(primaryColorId);
             banner.SetSecondaryColorId(secondaryColorId);
-            banner.SetIconColorId(iconColorId);
+            banner.SetAllIconColorIds(iconColorId);
 
             return banner;
         }
@@ -49,7 +70,7 @@ namespace Bannerlord.GameMaster.Banners
 
             banner.SetPrimaryColorId(primaryColorId);
             banner.SetSecondaryColorId(secondaryColorId);
-            banner.SetIconColorId(iconColorId);
+            banner.SetAllIconColorIds(iconColorId);
 
             return banner;
         }
@@ -71,12 +92,12 @@ namespace Bannerlord.GameMaster.Banners
 
             banner.SetPrimaryColorId(primaryColorId);
             banner.SetSecondaryColorId(secondaryColorId);
-            banner.SetIconColorId(iconColorId);
+            banner.SetAllIconColorIds(iconColorId);
 
             return banner;
         }
 
-        /// MARK: ApplyAltColorScheme 
+        /// MARK: ApplyAltColorScheme
         /// <summary>
         /// Applies an alternative color scheme to the banner using a specific primary color with high-contrast emblem.
         /// Always uses lighter secondary background and darker emblem regardless of main color luminance.
@@ -94,7 +115,7 @@ namespace Bannerlord.GameMaster.Banners
 
             banner.SetPrimaryColorId(primaryColorId);
             banner.SetSecondaryColorId(secondaryColorId);
-            banner.SetIconColorId(iconColorId);
+            banner.SetAllIconColorIds(iconColorId);
 
             return banner;
         }
@@ -117,7 +138,7 @@ namespace Bannerlord.GameMaster.Banners
 
             banner.SetPrimaryColorId(primaryColorId);
             banner.SetSecondaryColorId(secondaryColorId);
-            banner.SetIconColorId(iconColorId);
+            banner.SetAllIconColorIds(iconColorId);
 
             return banner;
         }
@@ -143,7 +164,7 @@ namespace Bannerlord.GameMaster.Banners
 
             banner.SetPrimaryColorId(uniquePrimaryColorId);
             banner.SetSecondaryColorId(secondaryColorId);
-            banner.SetIconColorId(iconColorId);
+            banner.SetAllIconColorIds(iconColorId);
 
             return banner;
         }
@@ -169,7 +190,7 @@ namespace Bannerlord.GameMaster.Banners
 
             banner.SetPrimaryColorId(result.ColorId);
             banner.SetSecondaryColorId(secondaryColorId);
-            banner.SetIconColorId(iconColorId);
+            banner.SetAllIconColorIds(iconColorId);
 
             return banner;
         }

@@ -235,6 +235,25 @@ namespace Bannerlord.GameMaster.Banners.UI
 
         private void RefreshBanner()
         {
+            // Fix native bug: BannerEditorVM.OnSigilColorSelection() calls SetIconColorId()
+            // which only updates _bannerDataList[1]. Propagate that color to all icon entries
+            // so multi-icon banners update uniformly.
+            Banner banner = _state.GetClan().Banner;
+            int iconCount = banner.GetBannerDataListCount();
+            if (iconCount > 2) // background + more than 1 icon
+            {
+                int iconColorId = banner.GetIconColorId(); // reads _bannerDataList[1].ColorId
+                for (int i = 2; i < iconCount; i++)
+                {
+                    BannerData data = banner.GetBannerDataAtIndex(i);
+                    if (data != null)
+                    {
+                        data.ColorId = iconColorId;
+                        data.ColorId2 = iconColorId;
+                    }
+                }
+            }
+
             _dataSource.BannerVM.OnPropertyChanged();
             RefreshShieldAndCharacter();
         }
