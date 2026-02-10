@@ -13,7 +13,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands;
 
 /// <summary>
 /// Opens the banner editor for a specified clan
-/// Usage: gm.clan.edit_banner [clan]
+/// Usage: gm.clan.edit_banner <clan>
 /// </summary>
 public static class EditBannerCommand
 {
@@ -27,42 +27,35 @@ public static class EditBannerCommand
                 return CommandResult.Error(error);
 
             string usageMessage = CommandValidator.CreateUsageMessage(
-                "gm.clan.edit_banner", "[clan]",
+                "gm.clan.edit_banner", "<clan>",
                 "Opens the native banner editor for the specified clan.\n" +
-                "If no clan is specified, opens the editor for the player's clan.\n" +
                 "Supports named arguments: clan:empire_south",
-                "gm.clan.edit_banner\n" +
                 "gm.clan.edit_banner empire_south\n" +
                 "gm.clan.edit_banner clan:sturgia");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
             parsed.SetValidArguments(
-                new ArgumentDefinition("clan", false)
+                new ArgumentDefinition("clan", true)
             );
 
             string validationError = parsed.GetValidationError();
             if (validationError != null)
                 return CommandResult.Error(MessageFormatter.FormatErrorMessage(validationError));
 
+            if (parsed.TotalCount < 1)
+                return CommandResult.Success(usageMessage);
+
             // MARK: Parse Arguments
-            Clan clan;
             string clanArg = parsed.GetArgument("clan", 0);
 
             if (string.IsNullOrWhiteSpace(clanArg))
-            {
-                // Default to player clan if no clan specified
-                clan = Clan.PlayerClan;
-                if (clan == null)
-                    return CommandResult.Error(MessageFormatter.FormatErrorMessage("No clan specified and player clan is not available."));
-            }
-            else
-            {
-                EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
-                if (!clanResult.IsSuccess)
-                    return CommandResult.Error(clanResult.Message);
-                clan = clanResult.Entity;
-            }
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Clan argument cannot be empty."));
+
+            EntityFinderResult<Clan> clanResult = ClanFinder.FindSingleClan(clanArg);
+            if (!clanResult.IsSuccess)
+                return CommandResult.Error(clanResult.Message);
+            Clan clan = clanResult.Entity;
 
             // Check if banner editor is enabled
             if (!Campaign.Current.IsBannerEditorEnabled)
