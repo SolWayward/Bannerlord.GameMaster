@@ -6,6 +6,7 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Localization;
 using Bannerlord.GameMaster.Information;
 using Bannerlord.GameMaster.Common;
+using TaleWorlds.CampaignSystem.Actions;
 
 namespace Bannerlord.GameMaster.Behaviours
 {
@@ -117,6 +118,12 @@ namespace Bannerlord.GameMaster.Behaviours
 
                 // Apply the name change via reflection
                 _nameField.SetValue(settlement, new TextObject(newName));
+
+                // WORKAROUND: fire event to immediately update settlement name plate on map. Should be safe. 
+                // Player will receive a notification if the player owns the settlement but should be harmless
+                CampaignEventDispatcher.Instance.OnSettlementOwnerChanged(settlement, false, settlement.Owner, settlement.Owner, settlement.Owner, new());
+                
+                //settlement.Party.SetVisualAsDirty(); // Doesnt work to immediately update name
 
                 return new BLGMResult(true, $"Settlement renamed from '{previousName}' to '{newName}'");
             }
