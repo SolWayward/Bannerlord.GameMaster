@@ -194,7 +194,12 @@ namespace Bannerlord.GameMaster.Banners.UI
         		{
         			SetClanPartyVisualsAsDirty(targetClan);
         		}
-        	}
+
+                // WORKAROUND: Player clan 2d map icon not updating with banner change
+                // Fire event to force update banner 2d map icon for player clan (NPC clans correctly update without this)
+                // Should be fine since new leader is already the current clan leader
+                CampaignEventDispatcher.Instance.OnClanLeaderChanged(targetClan.Leader, targetClan.Leader);
+            }
         	else
         	{
         		// If icons were stripped before editor opened, restore the original multi-icon banner on cancel.
@@ -206,7 +211,7 @@ namespace Bannerlord.GameMaster.Banners.UI
         			_state.GetClan().Banner.Deserialize(originalBannerCode);
         		}
         	}
-      
+
         	Game.Current.GameStateManager.PopState(0);
         }
 
