@@ -13,7 +13,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands;
 
 /// <summary>
 /// Opens the banner editor for a specified clan
-/// Usage: gm.clan.edit_banner <clan>
+/// Usage: gm.clan.edit_banner &lt;clan&gt;
 /// </summary>
 public static class EditBannerCommand
 {

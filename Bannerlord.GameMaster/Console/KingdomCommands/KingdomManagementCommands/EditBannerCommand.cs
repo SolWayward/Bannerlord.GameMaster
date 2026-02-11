@@ -13,7 +13,7 @@ namespace Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommand
 
 /// <summary>
 /// Opens the banner editor for a kingdom's ruling clan.
-/// Usage: gm.kingdom.edit_banner <kingdom>
+/// Usage: gm.kingdom.edit_banner &lt;kingdom&gt;
 /// </summary>
 public static class EditKingdomBannerCommand
 {

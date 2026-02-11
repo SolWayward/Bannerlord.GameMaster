@@ -14,7 +14,7 @@ namespace Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementC
 
 /// <summary>
 /// Rename a settlement with save persistence
-/// Usage: gm.settlement.rename [settlement] [new_name]
+/// Usage: gm.settlement.rename &lt;settlement&gt; [new_name]
 /// </summary>
 public static class RenameSettlementCommand
 {

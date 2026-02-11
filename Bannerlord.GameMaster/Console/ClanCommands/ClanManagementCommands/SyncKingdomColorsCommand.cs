@@ -14,7 +14,7 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands;
 
 /// <summary>
 /// Syncs a single clan's banner colors to match the kingdom colors.
-/// Usage: gm.clan.sync_kingdom_colors <clan>
+/// Usage: gm.clan.sync_kingdom_colors &lt;clan&gt;
 /// </summary>
 public static class SyncKingdomColorsCommand
 {

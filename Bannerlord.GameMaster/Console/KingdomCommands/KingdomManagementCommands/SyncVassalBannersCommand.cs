@@ -14,7 +14,7 @@ namespace Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommand
 
 /// <summary>
 /// Syncs all vassal clan banner colors to the kingdom's ruling clan banner colors.
-/// Usage: gm.kingdom.sync_vassal_banners <kingdom>
+/// Usage: gm.kingdom.sync_vassal_banners &lt;kingdom&gt;
 /// </summary>
 public static class SyncVassalBannersCommand
 {
