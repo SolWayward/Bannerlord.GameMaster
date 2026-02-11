@@ -27,17 +27,18 @@ public static class EditKingdomBannerCommand
                 return CommandResult.Error(error);
 
             string usageMessage = CommandValidator.CreateUsageMessage(
-                "gm.kingdom.edit_banner", "<kingdom> [removeExtraIcons:true]",
+                "gm.kingdom.edit_banner", "<kingdom> [removeExtraIcons:false]",
                 "Opens the native banner editor for the kingdom's ruling clan.\n" +
                 "This is a shortcut so you don't need to look up the ruling clan ID first.\n" +
                 "Changes to the ruling clan's banner will propagate to the kingdom and all vassal clans.\n" +
-                "Supports named arguments: kingdom:empire\n\n" +
-                "Optional: removeExtraIcons:true strips all icons except the main icon,\n" +
+                "Supports named arguments: kingdom:vlandia\n\n" +
+                "Optional: removeExtraIcons, defaults to false if not specified\n" +
+                "strips all icons except the main icon, leaving the icon which is in the top layer\n" +
                 "centers it, and resets rotation. Useful for editing the primary icon on\n" +
                 "multi-icon banners, or resetting a rotated/off-center single icon.\n" +
                 "If cancelled, the original banner is fully restored.",
-                "gm.kingdom.edit_banner empire\n" +
-                "gm.kingdom.edit_banner empire removeExtraIcons:true\n" +
+                "gm.kingdom.edit_banner vlandia\n" +
+                "gm.kingdom.edit_banner vlandia removeExtraIcons:true\n" +
                 "gm.kingdom.edit_banner kingdom:sturgia removeExtraIcons:true");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);

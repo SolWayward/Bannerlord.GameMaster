@@ -27,15 +27,16 @@ public static class EditBannerCommand
                 return CommandResult.Error(error);
 
             string usageMessage = CommandValidator.CreateUsageMessage(
-                "gm.clan.edit_banner", "<clan> [removeExtraIcons:true]",
+                "gm.clan.edit_banner", "<clan> [removeExtraIcons:false]",
                 "Opens the native banner editor for the specified clan.\n" +
                 "Supports named arguments: clan:Meroc\n\n" +
-                "Optional: removeExtraIcons:true strips all icons except the main icon,\n" +
+                "Optional: removeExtraIcons, defaults to false if not specified\n" + 
+                "strips all icons except the main icon, leaving the icon which is in the top layer\n" +
                 "centers it, and resets rotation. Useful for editing the primary icon on\n" +
                 "multi-icon banners, or resetting a rotated/off-center single icon.\n" +
                 "If cancelled, the original banner is fully restored.",
                 "gm.clan.edit_banner Meroc\n" +
-                "gm.clan.edit_banner Meroc removeExtraIcons:true\n" +
+                "gm.clan.edit_banner 'dey Meroc' removeExtraIcons:true\n" +
                 "gm.clan.edit_banner clan:sturgia removeExtraIcons:true");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
