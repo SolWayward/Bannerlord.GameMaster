@@ -6,9 +6,11 @@ items:
   children:
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.AddClanCommand
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EditKingdomBannerCommand
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
   langs:
   - csharp
   - vb
@@ -31,6 +33,12 @@ references:
   name: DestroyKingdomCommand
   nameWithType: DestroyKingdomCommand
   fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EditKingdomBannerCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EditKingdomBannerCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EditKingdomBannerCommand.html
+  name: EditKingdomBannerCommand
+  nameWithType: EditKingdomBannerCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EditKingdomBannerCommand
 - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
   commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
   href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand.html
@@ -49,3 +57,9 @@ references:
   name: SetRulerCommand
   nameWithType: SetRulerCommand
   fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.html
+  name: SyncVassalBannersCommand
+  nameWithType: SyncVassalBannersCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand

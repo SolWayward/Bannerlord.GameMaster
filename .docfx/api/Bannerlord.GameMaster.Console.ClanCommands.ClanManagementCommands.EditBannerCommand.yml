@@ -27,7 +27,7 @@ items:
   summary: >-
     Opens the banner editor for a specified clan
 
-    Usage: gm.clan.edit_banner [clan]
+    Usage: gm.clan.edit_banner &lt;clan&gt;
   example: []
   syntax:
     content: public static class EditBannerCommand

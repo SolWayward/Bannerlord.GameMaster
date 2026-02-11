@@ -23,7 +23,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ClanExtensionsWrapper
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 307
+    startLine: 306
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -62,7 +62,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetTypes
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 309
+    startLine: 308
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -96,7 +96,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasAllTypes
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 310
+    startLine: 309
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -132,7 +132,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasAnyType
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 311
+    startLine: 310
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -168,7 +168,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: FormattedDetails
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 312
+    startLine: 311
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans

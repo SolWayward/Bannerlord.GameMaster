@@ -25,7 +25,7 @@ items:
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
-  summary: Reflection helpers to change private fields that are needed for clan creation to match native patterns
+  summary: Helpers to set private fields that are needed for clan creation to match native patterns
   example: []
   syntax:
     content: public static class ClanCreationHelpers
@@ -58,7 +58,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetDistanceCacheDirty
     path: ../Bannerlord.GameMaster/Clans/ClanCreationHelpers.cs
-    startLine: 38
+    startLine: 24
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -89,11 +89,18 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetOriginalBannerColors
     path: ../Bannerlord.GameMaster/Clans/ClanCreationHelpers.cs
-    startLine: 56
+    startLine: 45
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
-  summary: Sets native private fields that store original banner colors for kingdom join/leave scenarios using reflection
+  summary: >-
+    Sets the clan's saved banner color properties (BannerBackgroundColorPrimary/Secondary, BannerIconColor)
+
+    using the public Clan.UpdateBannerColor() method. These are used by native
+
+    UpdateBannerColorsAccordingToKingdom() to reconstruct colors on kingdom join/leave state transitions.
+
+    Note: UpdateBannerColor sets Primary = Secondary = backgroundColor (matches native rebel clan creation pattern).
   example: []
   syntax:
     content: public static void SetOriginalBannerColors(Clan clan, Banner banner)

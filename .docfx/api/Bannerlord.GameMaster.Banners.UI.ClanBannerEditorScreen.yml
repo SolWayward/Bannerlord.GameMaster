@@ -25,7 +25,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ClanBannerEditorScreen
     path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
-    startLine: 21
+    startLine: 25
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners.UI
@@ -104,7 +104,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: .ctor
     path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
-    startLine: 56
+    startLine: 60
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners.UI
@@ -136,7 +136,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnInitialize
     path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
-    startLine: 62
+    startLine: 66
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners.UI
@@ -164,7 +164,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnActivate
     path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
-    startLine: 98
+    startLine: 109
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners.UI
@@ -192,7 +192,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnDeactivate
     path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
-    startLine: 106
+    startLine: 117
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners.UI
@@ -220,7 +220,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnFrameTick
     path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
-    startLine: 151
+    startLine: 291
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners.UI
@@ -254,7 +254,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnFinalize
     path: ../Bannerlord.GameMaster/Banners/UI/ClanBannerEditorScreen.cs
-    startLine: 210
+    startLine: 350
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners.UI

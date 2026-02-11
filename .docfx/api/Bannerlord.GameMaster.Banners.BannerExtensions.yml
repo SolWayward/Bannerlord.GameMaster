@@ -11,6 +11,11 @@ items:
   - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme(TaleWorlds.Core.Banner)
   - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyStandardColorScheme(TaleWorlds.Core.Banner,System.Int32)
   - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme(TaleWorlds.Core.Banner,System.Single)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueKingdomColorScheme(TaleWorlds.Core.Banner)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ConvertToSingleIcon(TaleWorlds.Core.Banner)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.RebuildWithoutStroke(TaleWorlds.Core.Banner)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.ResetIconTransforms(TaleWorlds.Core.Banner)
+  - Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds(TaleWorlds.Core.Banner,System.Int32)
   langs:
   - csharp
   - vb
@@ -25,7 +30,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: BannerExtensions
     path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
-    startLine: 7
+    startLine: 8
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -44,6 +49,48 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds(TaleWorlds.Core.Banner,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds(TaleWorlds.Core.Banner,System.Int32)
+  id: SetAllIconColorIds(TaleWorlds.Core.Banner,System.Int32)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetAllIconColorIds(Banner, int)
+  nameWithType: BannerExtensions.SetAllIconColorIds(Banner, int)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds(TaleWorlds.Core.Banner, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetAllIconColorIds
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Sets the icon color for ALL icon layers in the banner (indices 1..N).
+
+    Fixes the native SetIconColorId() which only updates index 1.
+  example: []
+  syntax:
+    content: public static void SetAllIconColorIds(this Banner banner, int colorId)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to update.
+    - id: colorId
+      type: System.Int32
+      description: The palette color ID to apply to all icon layers.
+    content.vb: Public Shared Sub SetAllIconColorIds(banner As Banner, colorId As Integer)
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds*
+  nameWithType.vb: BannerExtensions.SetAllIconColorIds(Banner, Integer)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds(TaleWorlds.Core.Banner, Integer)
+  name.vb: SetAllIconColorIds(Banner, Integer)
 - uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme(TaleWorlds.Core.Banner)
   commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme(TaleWorlds.Core.Banner)
   id: ApplyRandomColorScheme(TaleWorlds.Core.Banner)
@@ -63,7 +110,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ApplyRandomColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
-    startLine: 18
+    startLine: 40
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -106,7 +153,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ApplyColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
-    startLine: 42
+    startLine: 64
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -155,7 +202,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ApplyAlternativeColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
-    startLine: 64
+    startLine: 86
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -196,7 +243,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ApplyAlternativeColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
-    startLine: 87
+    startLine: 109
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -243,7 +290,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ApplyStandardColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
-    startLine: 110
+    startLine: 132
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -290,7 +337,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ApplyUniqueColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
-    startLine: 134
+    startLine: 156
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -320,6 +367,182 @@ items:
   nameWithType.vb: BannerExtensions.ApplyUniqueColorScheme(Banner, Single)
   fullName.vb: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueColorScheme(TaleWorlds.Core.Banner, Single)
   name.vb: ApplyUniqueColorScheme(Banner, Single)
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueKingdomColorScheme(TaleWorlds.Core.Banner)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueKingdomColorScheme(TaleWorlds.Core.Banner)
+  id: ApplyUniqueKingdomColorScheme(TaleWorlds.Core.Banner)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ApplyUniqueKingdomColorScheme(Banner)
+  nameWithType: BannerExtensions.ApplyUniqueKingdomColorScheme(Banner)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueKingdomColorScheme(TaleWorlds.Core.Banner)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyUniqueKingdomColorScheme
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 181
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Applies a unique color scheme to the banner that is distinct from existing kingdom background colors.
+
+    Uses deterministic max-min distance scored selection for the background color,
+
+    adaptive saturation floor to prefer vivid colors, and pressure-aware icon color selection
+
+    that switches between aesthetic harmony (low kingdom count) and uniqueness (high kingdom count).
+  example: []
+  syntax:
+    content: public static Banner ApplyUniqueKingdomColorScheme(this Banner banner)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to apply colors to.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function ApplyUniqueKingdomColorScheme(banner As Banner) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueKingdomColorScheme*
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ConvertToSingleIcon(TaleWorlds.Core.Banner)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ConvertToSingleIcon(TaleWorlds.Core.Banner)
+  id: ConvertToSingleIcon(TaleWorlds.Core.Banner)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ConvertToSingleIcon(Banner)
+  nameWithType: BannerExtensions.ConvertToSingleIcon(Banner)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ConvertToSingleIcon(TaleWorlds.Core.Banner)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ConvertToSingleIcon
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 207
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Strips all icon layers except the last one (the main/primary icon).
+
+    The last icon is typically the primary/main icon that sits on top of all others.
+
+    Does not modify icon position or rotation -- use ResetIconTransforms() for that.
+  example: []
+  syntax:
+    content: public static string ConvertToSingleIcon(this Banner banner)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to convert.
+    return:
+      type: System.String
+      description: >-
+        The original serialized banner code before stripping, or null if the banner
+            already had only one icon (or no icons).
+    content.vb: Public Shared Function ConvertToSingleIcon(banner As Banner) As String
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ConvertToSingleIcon*
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ResetIconTransforms(TaleWorlds.Core.Banner)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.ResetIconTransforms(TaleWorlds.Core.Banner)
+  id: ResetIconTransforms(TaleWorlds.Core.Banner)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: ResetIconTransforms(Banner)
+  nameWithType: BannerExtensions.ResetIconTransforms(Banner)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ResetIconTransforms(TaleWorlds.Core.Banner)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetIconTransforms
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 237
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Resets position to center (764, 764) and rotation to 0 for ALL icon layers.
+
+    Useful for fixing rotated or off-center icons. Does not strip any icons --
+
+    use ConvertToSingleIcon() for that.
+
+    764 = BannerFullSize / 2 = 1528 / 2.
+  example: []
+  syntax:
+    content: public static Banner ResetIconTransforms(this Banner banner)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to reset transforms on.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function ResetIconTransforms(banner As Banner) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.ResetIconTransforms*
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.RebuildWithoutStroke(TaleWorlds.Core.Banner)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerExtensions.RebuildWithoutStroke(TaleWorlds.Core.Banner)
+  id: RebuildWithoutStroke(TaleWorlds.Core.Banner)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Banners.BannerExtensions
+  langs:
+  - csharp
+  - vb
+  name: RebuildWithoutStroke(Banner)
+  nameWithType: BannerExtensions.RebuildWithoutStroke(Banner)
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.RebuildWithoutStroke(TaleWorlds.Core.Banner)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RebuildWithoutStroke
+    path: ../Bannerlord.GameMaster/Banners/BannerExtensions.cs
+    startLine: 266
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Rebuilds icon layers that have DrawStroke=true as new BannerData objects
+
+    with DrawStroke=false, preserving all other properties (MeshId, Size,
+
+    Position, ColorId, Mirror, Rotation). Sets ColorId2=ColorId to prevent
+
+    the stroke-same-as-icon-color blurring artifact. Uses serialize-deserialize
+
+    cycle to create fresh BannerData objects and invalidate the visual cache
+
+    (_bannerVisual=null forces regeneration on next access).
+  example: []
+  syntax:
+    content: public static Banner RebuildWithoutStroke(this Banner banner)
+    parameters:
+    - id: banner
+      type: TaleWorlds.Core.Banner
+      description: The banner to rebuild.
+    return:
+      type: TaleWorlds.Core.Banner
+      description: The banner instance for method chaining.
+    content.vb: Public Shared Function RebuildWithoutStroke(banner As Banner) As Banner
+  overload: Bannerlord.GameMaster.Banners.BannerExtensions.RebuildWithoutStroke*
 references:
 - uid: Bannerlord.GameMaster.Banners
   commentId: N:Bannerlord.GameMaster.Banners
@@ -588,12 +811,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme*
-  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme
-  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyRandomColorScheme_TaleWorlds_Core_Banner_
-  name: ApplyRandomColorScheme
-  nameWithType: BannerExtensions.ApplyRandomColorScheme
-  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_SetAllIconColorIds_TaleWorlds_Core_Banner_System_Int32_
+  name: SetAllIconColorIds
+  nameWithType: BannerExtensions.SetAllIconColorIds
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.SetAllIconColorIds
 - uid: TaleWorlds.Core.Banner
   commentId: T:TaleWorlds.Core.Banner
   parent: TaleWorlds.Core
@@ -601,6 +824,17 @@ references:
   name: Banner
   nameWithType: Banner
   fullName: TaleWorlds.Core.Banner
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: TaleWorlds.Core
   commentId: N:TaleWorlds.Core
   isExternal: true
@@ -623,23 +857,18 @@ references:
   - uid: TaleWorlds.Core
     name: Core
     isExternal: true
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyRandomColorScheme_TaleWorlds_Core_Banner_
+  name: ApplyRandomColorScheme
+  nameWithType: BannerExtensions.ApplyRandomColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyRandomColorScheme
 - uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme*
   commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme
   href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyColorScheme_TaleWorlds_Core_Banner_System_Int32_
   name: ApplyColorScheme
   nameWithType: BannerExtensions.ApplyColorScheme
   fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyColorScheme
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme*
   commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyAlternativeColorScheme
   href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyAlternativeColorScheme_TaleWorlds_Core_Banner_
@@ -669,3 +898,38 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueKingdomColorScheme*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueKingdomColorScheme
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ApplyUniqueKingdomColorScheme_TaleWorlds_Core_Banner_
+  name: ApplyUniqueKingdomColorScheme
+  nameWithType: BannerExtensions.ApplyUniqueKingdomColorScheme
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ApplyUniqueKingdomColorScheme
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ConvertToSingleIcon*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ConvertToSingleIcon
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ConvertToSingleIcon_TaleWorlds_Core_Banner_
+  name: ConvertToSingleIcon
+  nameWithType: BannerExtensions.ConvertToSingleIcon
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ConvertToSingleIcon
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.ResetIconTransforms*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.ResetIconTransforms
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_ResetIconTransforms_TaleWorlds_Core_Banner_
+  name: ResetIconTransforms
+  nameWithType: BannerExtensions.ResetIconTransforms
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.ResetIconTransforms
+- uid: Bannerlord.GameMaster.Banners.BannerExtensions.RebuildWithoutStroke*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerExtensions.RebuildWithoutStroke
+  href: Bannerlord.GameMaster.Banners.BannerExtensions.html#Bannerlord_GameMaster_Banners_BannerExtensions_RebuildWithoutStroke_TaleWorlds_Core_Banner_
+  name: RebuildWithoutStroke
+  nameWithType: BannerExtensions.RebuildWithoutStroke
+  fullName: Bannerlord.GameMaster.Banners.BannerExtensions.RebuildWithoutStroke

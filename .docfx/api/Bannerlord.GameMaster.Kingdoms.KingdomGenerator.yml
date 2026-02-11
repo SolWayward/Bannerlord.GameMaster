@@ -21,7 +21,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: KingdomGenerator
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -56,7 +56,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateKingdom
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 30
+    startLine: 31
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -104,7 +104,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GenerateKingdoms
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 177
+    startLine: 187
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms

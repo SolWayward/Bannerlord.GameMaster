@@ -8,7 +8,8 @@ items:
   - Bannerlord.GameMaster.Banners.ClanBannerEditorState.#ctor
   - Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetCharacter
   - Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetClan
-  - Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan,System.Action)
+  - Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetOriginalBannerCode
+  - Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan,System.Action,System.String)
   - Bannerlord.GameMaster.Banners.ClanBannerEditorState.IsMenuState
   - Bannerlord.GameMaster.Banners.ClanBannerEditorState.OnFinalize
   langs:
@@ -95,7 +96,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsMenuState
     path: ../Bannerlord.GameMaster/Banners/ClanBannerEditorState.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -126,7 +127,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: .ctor
     path: ../Bannerlord.GameMaster/Banners/ClanBannerEditorState.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -137,16 +138,16 @@ items:
   nameWithType.vb: ClanBannerEditorState.New()
   fullName.vb: Bannerlord.GameMaster.Banners.ClanBannerEditorState.New()
   name.vb: New()
-- uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan,System.Action)
-  commentId: M:Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan,System.Action)
-  id: Initialize(TaleWorlds.CampaignSystem.Clan,System.Action)
+- uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan,System.Action,System.String)
+  commentId: M:Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan,System.Action,System.String)
+  id: Initialize(TaleWorlds.CampaignSystem.Clan,System.Action,System.String)
   parent: Bannerlord.GameMaster.Banners.ClanBannerEditorState
   langs:
   - csharp
   - vb
-  name: Initialize(Clan, Action)
-  nameWithType: ClanBannerEditorState.Initialize(Clan, Action)
-  fullName: Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan, System.Action)
+  name: Initialize(Clan, Action, string)
+  nameWithType: ClanBannerEditorState.Initialize(Clan, Action, string)
+  fullName: Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan, System.Action, string)
   type: Method
   source:
     remote:
@@ -155,19 +156,24 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Initialize
     path: ../Bannerlord.GameMaster/Banners/ClanBannerEditorState.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
   syntax:
-    content: public void Initialize(Clan targetClan, Action onEndAction = null)
+    content: public void Initialize(Clan targetClan, Action onEndAction = null, string originalBannerCode = null)
     parameters:
     - id: targetClan
       type: TaleWorlds.CampaignSystem.Clan
     - id: onEndAction
       type: System.Action
-    content.vb: Public Sub Initialize(targetClan As Clan, onEndAction As Action = Nothing)
+    - id: originalBannerCode
+      type: System.String
+    content.vb: Public Sub Initialize(targetClan As Clan, onEndAction As Action = Nothing, originalBannerCode As String = Nothing)
   overload: Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize*
+  nameWithType.vb: ClanBannerEditorState.Initialize(Clan, Action, String)
+  fullName.vb: Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize(TaleWorlds.CampaignSystem.Clan, System.Action, String)
+  name.vb: Initialize(Clan, Action, String)
 - uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetClan
   commentId: M:Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetClan
   id: GetClan
@@ -186,7 +192,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetClan
     path: ../Bannerlord.GameMaster/Banners/ClanBannerEditorState.cs
-    startLine: 25
+    startLine: 27
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -196,6 +202,39 @@ items:
       type: TaleWorlds.CampaignSystem.Clan
     content.vb: Public Function GetClan() As Clan
   overload: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetClan*
+- uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetOriginalBannerCode
+  commentId: M:Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetOriginalBannerCode
+  id: GetOriginalBannerCode
+  parent: Bannerlord.GameMaster.Banners.ClanBannerEditorState
+  langs:
+  - csharp
+  - vb
+  name: GetOriginalBannerCode()
+  nameWithType: ClanBannerEditorState.GetOriginalBannerCode()
+  fullName: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetOriginalBannerCode()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/ClanBannerEditorState.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetOriginalBannerCode
+    path: ../Bannerlord.GameMaster/Banners/ClanBannerEditorState.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Returns the serialized banner code from before icon stripping, or null if no stripping was performed.
+
+    Used to restore the original multi-icon banner on cancel.
+  example: []
+  syntax:
+    content: public string GetOriginalBannerCode()
+    return:
+      type: System.String
+    content.vb: Public Function GetOriginalBannerCode() As String
+  overload: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetOriginalBannerCode*
 - uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetCharacter
   commentId: M:Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetCharacter
   id: GetCharacter
@@ -214,7 +253,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetCharacter
     path: ../Bannerlord.GameMaster/Banners/ClanBannerEditorState.cs
-    startLine: 27
+    startLine: 35
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -242,7 +281,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnFinalize
     path: ../Bannerlord.GameMaster/Banners/ClanBannerEditorState.cs
-    startLine: 30
+    startLine: 38
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -1183,7 +1222,7 @@ references:
   name.vb: New
 - uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize*
   commentId: Overload:Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize
-  href: Bannerlord.GameMaster.Banners.ClanBannerEditorState.html#Bannerlord_GameMaster_Banners_ClanBannerEditorState_Initialize_TaleWorlds_CampaignSystem_Clan_System_Action_
+  href: Bannerlord.GameMaster.Banners.ClanBannerEditorState.html#Bannerlord_GameMaster_Banners_ClanBannerEditorState_Initialize_TaleWorlds_CampaignSystem_Clan_System_Action_System_String_
   name: Initialize
   nameWithType: ClanBannerEditorState.Initialize
   fullName: Bannerlord.GameMaster.Banners.ClanBannerEditorState.Initialize
@@ -1202,6 +1241,17 @@ references:
   name: Action
   nameWithType: Action
   fullName: System.Action
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: TaleWorlds.CampaignSystem
   commentId: N:TaleWorlds.CampaignSystem
   isExternal: true
@@ -1230,6 +1280,12 @@ references:
   name: GetClan
   nameWithType: ClanBannerEditorState.GetClan
   fullName: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetClan
+- uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetOriginalBannerCode*
+  commentId: Overload:Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetOriginalBannerCode
+  href: Bannerlord.GameMaster.Banners.ClanBannerEditorState.html#Bannerlord_GameMaster_Banners_ClanBannerEditorState_GetOriginalBannerCode
+  name: GetOriginalBannerCode
+  nameWithType: ClanBannerEditorState.GetOriginalBannerCode
+  fullName: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetOriginalBannerCode
 - uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetCharacter*
   commentId: Overload:Bannerlord.GameMaster.Banners.ClanBannerEditorState.GetCharacter
   href: Bannerlord.GameMaster.Banners.ClanBannerEditorState.html#Bannerlord_GameMaster_Banners_ClanBannerEditorState_GetCharacter

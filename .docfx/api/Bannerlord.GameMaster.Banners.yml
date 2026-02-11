@@ -7,7 +7,9 @@ items:
   - Bannerlord.GameMaster.Banners.BannerColorPicker
   - Bannerlord.GameMaster.Banners.BannerEditorController
   - Bannerlord.GameMaster.Banners.BannerExtensions
+  - Bannerlord.GameMaster.Banners.BannerPaletteExpander
   - Bannerlord.GameMaster.Banners.ClanBannerEditorState
+  - Bannerlord.GameMaster.Banners.KingdomColorResult
   langs:
   - csharp
   - vb
@@ -18,6 +20,13 @@ items:
   assemblies:
   - Bannerlord.GameMaster
 references:
+- uid: Bannerlord.GameMaster.Banners.KingdomColorResult
+  commentId: T:Bannerlord.GameMaster.Banners.KingdomColorResult
+  parent: Bannerlord.GameMaster.Banners
+  href: Bannerlord.GameMaster.Banners.KingdomColorResult.html
+  name: KingdomColorResult
+  nameWithType: KingdomColorResult
+  fullName: Bannerlord.GameMaster.Banners.KingdomColorResult
 - uid: Bannerlord.GameMaster.Banners.BannerColorPicker
   commentId: T:Bannerlord.GameMaster.Banners.BannerColorPicker
   href: Bannerlord.GameMaster.Banners.BannerColorPicker.html
@@ -36,6 +45,12 @@ references:
   name: BannerExtensions
   nameWithType: BannerExtensions
   fullName: Bannerlord.GameMaster.Banners.BannerExtensions
+- uid: Bannerlord.GameMaster.Banners.BannerPaletteExpander
+  commentId: T:Bannerlord.GameMaster.Banners.BannerPaletteExpander
+  href: Bannerlord.GameMaster.Banners.BannerPaletteExpander.html
+  name: BannerPaletteExpander
+  nameWithType: BannerPaletteExpander
+  fullName: Bannerlord.GameMaster.Banners.BannerPaletteExpander
 - uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState
   commentId: T:Bannerlord.GameMaster.Banners.ClanBannerEditorState
   parent: Bannerlord.GameMaster.Banners

@@ -1,37 +1,37 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
-  commentId: T:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
-  id: RenameSettlementCommand
-  parent: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
+  id: SyncVassalBannersCommand
+  parent: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
   children:
-  - Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners(System.Collections.Generic.List{System.String})
   langs:
   - csharp
   - vb
-  name: RenameSettlementCommand
-  nameWithType: RenameSettlementCommand
-  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
+  name: SyncVassalBannersCommand
+  nameWithType: SyncVassalBannersCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
   type: Class
   source:
     remote:
-      path: Bannerlord.GameMaster/Console/SettlementCommands/SettlementManagementCommands/RenameSettlementCommand.cs
+      path: Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/SyncVassalBannersCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: RenameSettlementCommand
-    path: ../Bannerlord.GameMaster/Console/SettlementCommands/SettlementManagementCommands/RenameSettlementCommand.cs
+    id: SyncVassalBannersCommand
+    path: ../Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/SyncVassalBannersCommand.cs
     startLine: 18
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  namespace: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
   summary: >-
-    Rename a settlement with save persistence
+    Syncs all vassal clan banner colors to the kingdom's ruling clan banner colors.
 
-    Usage: gm.settlement.rename &lt;settlement&gt; [new_name]
+    Usage: gm.kingdom.sync_vassal_banners &lt;kingdom&gt;
   example: []
   syntax:
-    content: public static class RenameSettlementCommand
-    content.vb: Public Module RenameSettlementCommand
+    content: public static class SyncVassalBannersCommand
+    content.vb: Public Module SyncVassalBannersCommand
   inheritance:
   - System.Object
   inheritedMembers:
@@ -42,61 +42,61 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement(System.Collections.Generic.List{System.String})
-  commentId: M:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement(System.Collections.Generic.List{System.String})
-  id: RenameSettlement(System.Collections.Generic.List{System.String})
-  parent: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners(System.Collections.Generic.List{System.String})
+  id: SyncVassalBanners(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
   langs:
   - csharp
   - vb
-  name: RenameSettlement(List<string>)
-  nameWithType: RenameSettlementCommand.RenameSettlement(List<string>)
-  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement(System.Collections.Generic.List<string>)
+  name: SyncVassalBanners(List<string>)
+  nameWithType: SyncVassalBannersCommand.SyncVassalBanners(List<string>)
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners(System.Collections.Generic.List<string>)
   type: Method
   source:
     remote:
-      path: Bannerlord.GameMaster/Console/SettlementCommands/SettlementManagementCommands/RenameSettlementCommand.cs
+      path: Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/SyncVassalBannersCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: RenameSettlement
-    path: ../Bannerlord.GameMaster/Console/SettlementCommands/SettlementManagementCommands/RenameSettlementCommand.cs
+    id: SyncVassalBanners
+    path: ../Bannerlord.GameMaster/Console/KingdomCommands/KingdomManagementCommands/SyncVassalBannersCommand.cs
     startLine: 20
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  namespace: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
   syntax:
     content: >-
-      [CommandLineFunctionality.CommandLineArgumentFunction("rename", "gm.settlement")]
+      [CommandLineFunctionality.CommandLineArgumentFunction("sync_vassal_banners", "gm.kingdom")]
 
-      public static string RenameSettlement(List<string> args)
+      public static string SyncVassalBanners(List<string> args)
     parameters:
     - id: args
       type: System.Collections.Generic.List{System.String}
     return:
       type: System.String
     content.vb: >-
-      <CommandLineFunctionality.CommandLineArgumentFunction("rename", "gm.settlement")>
+      <CommandLineFunctionality.CommandLineArgumentFunction("sync_vassal_banners", "gm.kingdom")>
 
-      Public Shared Function RenameSettlement(args As List(Of String)) As String
-  overload: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement*
+      Public Shared Function SyncVassalBanners(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners*
   attributes:
   - type: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction
     ctor: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction.#ctor(System.String,System.String)
     arguments:
     - type: System.String
-      value: rename
+      value: sync_vassal_banners
     - type: System.String
-      value: gm.settlement
-  nameWithType.vb: RenameSettlementCommand.RenameSettlement(List(Of String))
-  fullName.vb: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement(System.Collections.Generic.List(Of String))
-  name.vb: RenameSettlement(List(Of String))
+      value: gm.kingdom
+  nameWithType.vb: SyncVassalBannersCommand.SyncVassalBanners(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners(System.Collections.Generic.List(Of String))
+  name.vb: SyncVassalBanners(List(Of String))
 references:
-- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
-  commentId: N:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
   href: Bannerlord.html
-  name: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
-  nameWithType: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
-  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
+  name: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
   spec.csharp:
   - uid: Bannerlord
     name: Bannerlord
@@ -110,13 +110,13 @@ references:
     name: Console
     href: Bannerlord.GameMaster.Console.html
   - name: .
-  - uid: Bannerlord.GameMaster.Console.SettlementCommands
-    name: SettlementCommands
-    href: Bannerlord.GameMaster.Console.SettlementCommands.html
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands
+    name: KingdomCommands
+    href: Bannerlord.GameMaster.Console.KingdomCommands.html
   - name: .
-  - uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
-    name: SettlementManagementCommands
-    href: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.html
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+    name: KingdomManagementCommands
+    href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.html
   spec.vb:
   - uid: Bannerlord
     name: Bannerlord
@@ -130,13 +130,13 @@ references:
     name: Console
     href: Bannerlord.GameMaster.Console.html
   - name: .
-  - uid: Bannerlord.GameMaster.Console.SettlementCommands
-    name: SettlementCommands
-    href: Bannerlord.GameMaster.Console.SettlementCommands.html
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands
+    name: KingdomCommands
+    href: Bannerlord.GameMaster.Console.KingdomCommands.html
   - name: .
-  - uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands
-    name: SettlementManagementCommands
-    href: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.html
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands
+    name: KingdomManagementCommands
+    href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -374,12 +374,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement*
-  commentId: Overload:Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement
-  href: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.html#Bannerlord_GameMaster_Console_SettlementCommands_SettlementManagementCommands_RenameSettlementCommand_RenameSettlement_System_Collections_Generic_List_System_String__
-  name: RenameSettlement
-  nameWithType: RenameSettlementCommand.RenameSettlement
-  fullName: Bannerlord.GameMaster.Console.SettlementCommands.SettlementManagementCommands.RenameSettlementCommand.RenameSettlement
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners*
+  commentId: Overload:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.html#Bannerlord_GameMaster_Console_KingdomCommands_KingdomManagementCommands_SyncVassalBannersCommand_SyncVassalBanners_System_Collections_Generic_List_System_String__
+  name: SyncVassalBanners
+  nameWithType: SyncVassalBannersCommand.SyncVassalBanners
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand.SyncVassalBanners
 - uid: System.Collections.Generic.List{System.String}
   commentId: T:System.Collections.Generic.List{System.String}
   parent: System.Collections.Generic

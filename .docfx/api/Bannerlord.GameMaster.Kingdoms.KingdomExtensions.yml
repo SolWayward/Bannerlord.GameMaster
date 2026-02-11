@@ -376,7 +376,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: PropagateRulingClanBanner
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 177
+    startLine: 185
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -421,14 +421,28 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetBannerColors
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 234
+    startLine: 246
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
   summary: >-
-    Sets this kingdom's PrimaryBannerColor and SecondaryBannerColor properties using reflection.
+    Sets this kingdom's color properties via reflection (all have private setters, no public alternative).
 
-    These properties have private setters in native code.
+    Sets PrimaryBannerColor and SecondaryBannerColor (used by native UpdateBannerColorsAccordingToKingdom
+
+    to propagate to clan banners), and Color/Color2 (used by map renderer for cloth tinting via
+
+    party.MapFaction.Color/Color2).
+
+    Does NOT mutate the kingdom Banner object directly -- actual banner visual data is updated
+
+    per-clan via UpdateBannerColorsForKingdom() which calls ChangePrimaryColor/ChangeIconColors
+
+    on each clan's banner. Mutating kingdom.Banner directly here is destructive because
+
+    ChangePrimaryColor sets both ColorId AND ColorId2 to the same value, wiping distinct
+
+    secondary background colors, and can silently fail if BannerManager.GetColorId returns -1.
   example: []
   syntax:
     content: public static BLGMResult SetBannerColors(this Kingdom kingdom, uint primaryColor, uint secondaryColor)

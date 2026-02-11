@@ -7,6 +7,7 @@ items:
   children:
   - Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(System.Int32,System.Int32,System.Single)
   - Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar(System.UInt32,System.UInt32,System.Single)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance(System.UInt32,System.UInt32)
   - Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
   - Bannerlord.GameMaster.Banners.BannerColorPicker.GetAlternativeBannerColorScheme(System.Int32@,System.Int32@,System.Int32@)
   - Bannerlord.GameMaster.Banners.BannerColorPicker.GetBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
@@ -18,6 +19,8 @@ items:
   - Bannerlord.GameMaster.Banners.BannerColorPicker.GetRandomColorId
   - Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme(System.Int32,System.Int32@,System.Int32@)
   - Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId(System.Single)
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomColorId
+  - Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId(System.Int32,System.Single)
   langs:
   - csharp
   - vb
@@ -32,7 +35,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: BannerColorPicker
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 12
+    startLine: 23
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -72,7 +75,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetRandomColorId
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 21
+    startLine: 32
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -103,7 +106,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetLighterComplementaryColor
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 35
+    startLine: 46
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -144,7 +147,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetDarkerComplementaryColor
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 76
+    startLine: 87
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -185,7 +188,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetContrastingColor
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 119
+    startLine: 130
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -232,7 +235,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetBannerColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 184
+    startLine: 195
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -278,7 +281,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetBannerColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 203
+    startLine: 214
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -326,7 +329,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetAlternativeBannerColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 241
+    startLine: 252
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -372,7 +375,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetAlternativeBannerColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 259
+    startLine: 270
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -418,7 +421,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetStandardBannerColorScheme
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 285
+    startLine: 296
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -446,6 +449,54 @@ items:
   nameWithType.vb: BannerColorPicker.GetStandardBannerColorScheme(Integer, Integer, Integer)
   fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme(Integer, Integer, Integer)
   name.vb: GetStandardBannerColorScheme(Integer, Integer, Integer)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance(System.UInt32,System.UInt32)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance(System.UInt32,System.UInt32)
+  id: CalculatePerceptualDistance(System.UInt32,System.UInt32)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: CalculatePerceptualDistance(uint, uint)
+  nameWithType: BannerColorPicker.CalculatePerceptualDistance(uint, uint)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance(uint, uint)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CalculatePerceptualDistance
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 408
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Calculates a saturation-aware perceptual distance between two colors.
+
+    Dynamically adjusts hue weight based on the minimum saturation of both colors,
+
+    so that desaturated colors (grays/creams) are compared primarily by luminance
+
+    rather than by their meaningless hue values.
+  example: []
+  syntax:
+    content: public static float CalculatePerceptualDistance(uint color1, uint color2)
+    parameters:
+    - id: color1
+      type: System.UInt32
+      description: First color as uint value.
+    - id: color2
+      type: System.UInt32
+      description: Second color as uint value.
+    return:
+      type: System.Single
+      description: Perceptual distance between 0.0 (identical) and ~1.0 (maximally different).
+    content.vb: Public Shared Function CalculatePerceptualDistance(color1 As UInteger, color2 As UInteger) As Single
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance*
+  nameWithType.vb: BannerColorPicker.CalculatePerceptualDistance(UInteger, UInteger)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance(UInteger, UInteger)
+  name.vb: CalculatePerceptualDistance(UInteger, UInteger)
 - uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo(System.Int32)
   commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo(System.Int32)
   id: GetColorInfo(System.Int32)
@@ -464,7 +515,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetColorInfo
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 493
+    startLine: 519
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -502,14 +553,16 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: AreColorsSimilar
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 522
+    startLine: 549
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
   summary: >-
     Determines if two colors are similar based on perceptual difference.
 
-    Uses luminance, hue, and saturation to calculate color similarity.
+    Uses saturation-aware perceptual distance that dynamically adjusts hue weight
+
+    based on color saturation, properly handling desaturated colors.
   example: []
   syntax:
     content: public static bool AreColorsSimilar(int colorId1, int colorId2, float threshold = 0.2)
@@ -549,14 +602,16 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: AreColorsSimilar
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 566
+    startLine: 578
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
   summary: >-
     Determines if two colors (by uint value) are similar based on perceptual difference.
 
-    This overload is for compatibility with existing code using raw color values.
+    Uses saturation-aware perceptual distance that dynamically adjusts hue weight
+
+    based on color saturation, properly handling desaturated colors.
   example: []
   syntax:
     content: public static bool AreColorsSimilar(uint color1, uint color2, float threshold = 0.2)
@@ -596,7 +651,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetUniqueClanColorId
     path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
-    startLine: 596
+    startLine: 595
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Banners
@@ -619,6 +674,94 @@ items:
   nameWithType.vb: BannerColorPicker.GetUniqueClanColorId(Single)
   fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId(Single)
   name.vb: GetUniqueClanColorId(Single)
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomColorId
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomColorId
+  id: GetUniqueKingdomColorId
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetUniqueKingdomColorId()
+  nameWithType: BannerColorPicker.GetUniqueKingdomColorId()
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomColorId()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetUniqueKingdomColorId
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 642
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Gets the most unique color ID from the banner palette compared to existing kingdoms
+
+    using deterministic max-min distance scored selection.
+
+    Scores every palette color by its minimum perceptual distance to all active kingdom colors,
+
+    applies an adaptive saturation floor to prefer vivid colors, and picks from the top candidates.
+  example: []
+  syntax:
+    content: public static KingdomColorResult GetUniqueKingdomColorId()
+    return:
+      type: Bannerlord.GameMaster.Banners.KingdomColorResult
+      description: A <xref href="Bannerlord.GameMaster.Banners.KingdomColorResult" data-throw-if-not-resolved="false"></xref> containing the chosen color ID and its minimum distance to the nearest kingdom.
+    content.vb: Public Shared Function GetUniqueKingdomColorId() As KingdomColorResult
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomColorId*
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId(System.Int32,System.Single)
+  commentId: M:Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId(System.Int32,System.Single)
+  id: GetUniqueKingdomIconColorId(System.Int32,System.Single)
+  parent: Bannerlord.GameMaster.Banners.BannerColorPicker
+  langs:
+  - csharp
+  - vb
+  name: GetUniqueKingdomIconColorId(int, float)
+  nameWithType: BannerColorPicker.GetUniqueKingdomIconColorId(int, float)
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId(int, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetUniqueKingdomIconColorId
+    path: ../Bannerlord.GameMaster/Banners/BannerColorPicker.cs
+    startLine: 787
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Banners
+  summary: >-
+    Gets a unique icon color for a kingdom banner using a dual-strategy approach.
+
+    Below the pressure threshold (~12 kingdoms): focuses on aesthetic harmony and visibility
+
+    against the banner background using the existing contrasting color system.
+
+    Above the pressure threshold: focuses on icon uniqueness from kingdoms with similar
+
+    background shades while maintaining minimum visibility.
+  example: []
+  syntax:
+    content: public static int GetUniqueKingdomIconColorId(int backgroundColorId, float minDistanceToNearest)
+    parameters:
+    - id: backgroundColorId
+      type: System.Int32
+      description: The kingdom's background (primary) color ID.
+    - id: minDistanceToNearest
+      type: System.Single
+      description: The minimum perceptual distance from the background to the nearest kingdom color.
+    return:
+      type: System.Int32
+      description: A palette color ID for the icon color.
+    content.vb: Public Shared Function GetUniqueKingdomIconColorId(backgroundColorId As Integer, minDistanceToNearest As Single) As Integer
+  overload: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId*
+  nameWithType.vb: BannerColorPicker.GetUniqueKingdomIconColorId(Integer, Single)
+  fullName.vb: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId(Integer, Single)
+  name.vb: GetUniqueKingdomIconColorId(Integer, Single)
 references:
 - uid: Bannerlord.GameMaster.Banners
   commentId: N:Bannerlord.GameMaster.Banners
@@ -962,6 +1105,23 @@ references:
   name: GetStandardBannerColorScheme
   nameWithType: BannerColorPicker.GetStandardBannerColorScheme
   fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetStandardBannerColorScheme
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_CalculatePerceptualDistance_System_UInt32_System_UInt32_
+  name: CalculatePerceptualDistance
+  nameWithType: BannerColorPicker.CalculatePerceptualDistance
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.CalculatePerceptualDistance
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
 - uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo*
   commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetColorInfo
   href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetColorInfo_System_Int32_
@@ -985,20 +1145,28 @@ references:
   name: AreColorsSimilar
   nameWithType: BannerColorPicker.AreColorsSimilar
   fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.AreColorsSimilar
-- uid: System.UInt32
-  commentId: T:System.UInt32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.uint32
-  name: uint
-  nameWithType: uint
-  fullName: uint
-  nameWithType.vb: UInteger
-  fullName.vb: UInteger
-  name.vb: UInteger
 - uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId*
   commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId
   href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetUniqueClanColorId_System_Single_
   name: GetUniqueClanColorId
   nameWithType: BannerColorPicker.GetUniqueClanColorId
   fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueClanColorId
+- uid: Bannerlord.GameMaster.Banners.KingdomColorResult
+  commentId: T:Bannerlord.GameMaster.Banners.KingdomColorResult
+  parent: Bannerlord.GameMaster.Banners
+  href: Bannerlord.GameMaster.Banners.KingdomColorResult.html
+  name: KingdomColorResult
+  nameWithType: KingdomColorResult
+  fullName: Bannerlord.GameMaster.Banners.KingdomColorResult
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomColorId*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomColorId
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetUniqueKingdomColorId
+  name: GetUniqueKingdomColorId
+  nameWithType: BannerColorPicker.GetUniqueKingdomColorId
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomColorId
+- uid: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId*
+  commentId: Overload:Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId
+  href: Bannerlord.GameMaster.Banners.BannerColorPicker.html#Bannerlord_GameMaster_Banners_BannerColorPicker_GetUniqueKingdomIconColorId_System_Int32_System_Single_
+  name: GetUniqueKingdomIconColorId
+  nameWithType: BannerColorPicker.GetUniqueKingdomIconColorId
+  fullName: Bannerlord.GameMaster.Banners.BannerColorPicker.GetUniqueKingdomIconColorId

@@ -58,9 +58,15 @@ items:
   - uid: Bannerlord.GameMaster.Banners.BannerExtensions
     name: BannerExtensions
     type: Class
+  - uid: Bannerlord.GameMaster.Banners.BannerPaletteExpander
+    name: BannerPaletteExpander
+    type: Class
   - uid: Bannerlord.GameMaster.Banners.ClanBannerEditorState
     name: ClanBannerEditorState
     type: Class
+  - uid: Bannerlord.GameMaster.Banners.KingdomColorResult
+    name: KingdomColorResult
+    type: Struct
 - uid: Bannerlord.GameMaster.Banners.UI
   name: Bannerlord.GameMaster.Banners.UI
   type: Namespace
@@ -271,6 +277,9 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.SetCultureCommand
     name: SetCultureCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands.SyncKingdomColorsCommand
+    name: SyncKingdomColorsCommand
     type: Class
 - uid: Bannerlord.GameMaster.Console.CleanupCommands
   name: Bannerlord.GameMaster.Console.CleanupCommands
@@ -650,6 +659,9 @@ items:
   - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.DestroyKingdomCommand
     name: DestroyKingdomCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EditKingdomBannerCommand
+    name: EditKingdomBannerCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
     name: EquipKingdomHeroesCommand
     type: Class
@@ -658,6 +670,9 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
     name: SetRulerCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
+    name: SyncVassalBannersCommand
     type: Class
 - uid: Bannerlord.GameMaster.Console.LoggerCommands
   name: Bannerlord.GameMaster.Console.LoggerCommands

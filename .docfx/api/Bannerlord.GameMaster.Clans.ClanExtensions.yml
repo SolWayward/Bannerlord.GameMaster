@@ -647,14 +647,14 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: UpdateBannerColorsForKingdom
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 248
+    startLine: 241
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
   summary: >-
     Updates this clan's banner colors to match its kingdom's PrimaryBannerColor and SecondaryBannerColor.
 
-    This is a public wrapper for the native private Clan.UpdateBannerColorsAccordingToKingdom() method.
+    Replicates the native private Clan.UpdateBannerColorsAccordingToKingdom() logic using public Banner methods.
   example: []
   syntax:
     content: public static BLGMResult UpdateBannerColorsForKingdom(this Clan clan)
@@ -686,7 +686,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsRulingClan
     path: ../Bannerlord.GameMaster/Clans/ClanExtensions.cs
-    startLine: 292
+    startLine: 291
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
