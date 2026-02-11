@@ -32,8 +32,8 @@ public static class SetCultureCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.set_culture", "<clan> <culture>",
                 "Changes the clan's culture. Also updates the clan's basic troop to match the new culture.\n" +
-                "Supports named arguments: clan:empire_south culture:vlandia",
-                "gm.clan.set_culture empire_south vlandia\n" +
+                "Supports named arguments: clan:Meroc culture:vlandia",
+                "gm.clan.set_culture Meroc vlandia\n" +
                 "gm.clan.set_culture my_clan battania");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);

@@ -29,8 +29,8 @@ public static class AddClanGoldCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.add_gold", "<clan> <amount>",
                 "Adds gold to all members of the clan.\n" +
-                "Supports named arguments: clan:empire_south amount:50000",
-                "gm.clan.add_gold empire_south 50000");
+                "Supports named arguments: clan:Meroc amount:50000",
+                "gm.clan.add_gold Meroc 50000");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 

@@ -29,8 +29,8 @@ public static class SetClanTierCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.set_tier", "<clan> <tier>",
                 "Sets the clan's tier (0-6).\n" +
-                "Supports named arguments: clan:empire_south tier:5",
-                "gm.clan.set_tier empire_south 5");
+                "Supports named arguments: clan:Meroc tier:5",
+                "gm.clan.set_tier Meroc 5");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 

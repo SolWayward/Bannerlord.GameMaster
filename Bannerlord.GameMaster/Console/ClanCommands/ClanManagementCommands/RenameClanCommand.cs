@@ -29,9 +29,9 @@ public static class RenameClanCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.rename", "<clan> <newName>",
                 "Renames the specified clan. Use SINGLE QUOTES for multi-word names.\n" +
-                "Supports named arguments: clan:empire_south newName:'Southern Empire Lords'",
-                "gm.clan.rename empire_south 'Southern Empire Lords'\n" +
-                "gm.clan.rename clan_1 NewClanName");
+                "Supports named arguments: clan:Meroc newName:'House of the Sun'",
+                "gm.clan.rename 'dey Meroc' 'House of the Sun'\n" +
+                "gm.clan.rename clan_1 'House of the Sun'");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 

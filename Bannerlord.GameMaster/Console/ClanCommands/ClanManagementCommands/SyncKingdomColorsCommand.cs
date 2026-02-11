@@ -32,8 +32,8 @@ public static class SyncKingdomColorsCommand
                 "Syncs a single clan's banner colors to match the kingdom colors.\n" +
                 "The clan must be a member of a kingdom and must NOT be the ruling clan.\n" +
                 "WARNING: This will overwrite the specified clan's banner colors with the kingdom colors.\n" +
-                "Supports named arguments: clan:empire_south",
-                "gm.clan.sync_kingdom_colors empire_south\n" +
+                "Supports named arguments: clan:Meroc",
+                "gm.clan.sync_kingdom_colors Meroc\n" +
                 "gm.clan.sync_kingdom_colors clan:sturgia");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);

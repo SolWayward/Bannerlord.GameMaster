@@ -28,8 +28,8 @@ public static class SetClanRenownCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.set_renown", "<clan> <amount>",
                 "Sets the clan's renown.\n" +
-                "Supports named arguments: clan:empire_south amount:500",
-                "gm.clan.set_renown empire_south 500");
+                "Supports named arguments: clan:Meroc amount:500",
+                "gm.clan.set_renown Meroc 500");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 

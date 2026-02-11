@@ -37,10 +37,10 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                     "- createParty/party: optional, 'true' or 'false' to create party for leader (default: true)\n" +
                     "- companionCount/companions: optional, number of companions to add (0-10, default: 2)\n" +
                     "- culture/cultures: optional, culture pool for auto-generated leader. Use commas with no spaces for multiple (default: main_cultures)\n" +
-                    "Supports named arguments: name:'The Highland Clan' leader:derthert kingdom:empire party:true companions:5 culture:vlandia",
+                    "Supports named arguments: name:'The Highland Clan' leader:derthert kingdom:vlandia party:true companions:5 culture:vlandia",
                     "gm.clan.create_clan Highlanders\n" +
                     "gm.clan.create_clan 'The Highland Clan' derthert\n" +
-                    "gm.clan.create_clan NewClan myHero empire\n" +
+                    "gm.clan.create_clan NewClan myHero vlandia\n" +
                     "gm.clan.create_clan name:'House Stark' kingdom:sturgia party:true companions:5 culture:sturgia\n" +
                     "gm.clan.create_clan TradingFamily null null false 0 vlandia,battania");
 

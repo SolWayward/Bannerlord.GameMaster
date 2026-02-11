@@ -28,8 +28,8 @@ public static class AddHeroToClanCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.add_hero", "<clan> <hero>",
                 "Adds a hero to the specified clan.\n" +
-                "Supports named arguments: clan:empire_south hero:lord_1_1",
-                "gm.clan.add_hero empire_south lord_1_1");
+                "Supports named arguments: clan:Meroc hero:lord_1_1",
+                "gm.clan.add_hero Meroc lord_1_1");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 

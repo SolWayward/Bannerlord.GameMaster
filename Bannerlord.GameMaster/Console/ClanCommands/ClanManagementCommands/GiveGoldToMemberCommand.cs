@@ -28,8 +28,8 @@ public static class GiveGoldToMemberCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.give_gold", "<clan> <hero> <amount>",
                 "Gives gold to a specific clan member.\n" +
-                "Supports named arguments: clan:empire_south hero:lord_1_1 amount:10000",
-                "gm.clan.give_gold empire_south lord_1_1 10000");
+                "Supports named arguments: clan:Meroc hero:lord_1_1 amount:10000",
+                "gm.clan.give_gold Meroc lord_1_1 10000");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 

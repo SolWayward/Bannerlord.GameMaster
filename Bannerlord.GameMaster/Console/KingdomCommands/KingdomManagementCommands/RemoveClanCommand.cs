@@ -29,8 +29,8 @@ public static class RemoveClanCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.kingdom.remove_clan", "<clan>",
                 "Removes a clan from its current kingdom.\n" +
-                "Supports named arguments: clan:clan_empire_south_1",
-                "gm.kingdom.remove_clan clan_empire_south_1");
+                "Supports named arguments: clan:meroc",
+                "gm.kingdom.remove_clan 'dey Meroc'");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 

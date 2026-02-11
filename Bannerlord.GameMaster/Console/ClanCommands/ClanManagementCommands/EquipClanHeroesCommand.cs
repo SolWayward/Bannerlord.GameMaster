@@ -34,11 +34,11 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanManagementCommands
                     "- tier: optional, equipment tier (0+). Native items are tier 0-6, mods may add higher. Defaults to auto based on hero level\n" +
                     "- civilian: optional, also replace civilian equipment (true/false). Defaults to false\n" +
                     "- includeNativeHeroes: optional, if true equips all heroes, if false only BLGM heroes (true/false). Defaults to false\n" +
-                    "Supports named arguments: clan:empire_south tier:5 civilian:true includeNativeHeroes:false",
-                    "gm.clan.equip_heroes empire_south\n" +
-                    "gm.clan.equip_heroes clan:empire_south tier:5\n" +
-                    "gm.clan.equip_heroes 'Clan of the Southern Empire' tier:4 civilian:true\n" +
-                    "gm.clan.equip_heroes clan:empire_south includeNativeHeroes:true");
+                    "Supports named arguments: clan:Meroc tier:5 civilian:true includeNativeHeroes:false",
+                    "gm.clan.equip_heroes Meroc\n" +
+                    "gm.clan.equip_heroes clan:Meroc tier:5\n" +
+                    "gm.clan.equip_heroes 'dey Meroc' tier:4 civilian:true\n" +
+                    "gm.clan.equip_heroes clan:Meroc includeNativeHeroes:true");
 
                 ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 

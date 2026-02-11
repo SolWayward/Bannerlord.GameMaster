@@ -27,18 +27,24 @@ public static class EditKingdomBannerCommand
                 return CommandResult.Error(error);
 
             string usageMessage = CommandValidator.CreateUsageMessage(
-                "gm.kingdom.edit_banner", "<kingdom>",
+                "gm.kingdom.edit_banner", "<kingdom> [removeExtraIcons:true]",
                 "Opens the native banner editor for the kingdom's ruling clan.\n" +
                 "This is a shortcut so you don't need to look up the ruling clan ID first.\n" +
                 "Changes to the ruling clan's banner will propagate to the kingdom and all vassal clans.\n" +
-                "Supports named arguments: kingdom:empire",
+                "Supports named arguments: kingdom:empire\n\n" +
+                "Optional: removeExtraIcons:true strips all icons except the main icon,\n" +
+                "centers it, and resets rotation. Useful for editing the primary icon on\n" +
+                "multi-icon banners, or resetting a rotated/off-center single icon.\n" +
+                "If cancelled, the original banner is fully restored.",
                 "gm.kingdom.edit_banner empire\n" +
-                "gm.kingdom.edit_banner kingdom:sturgia");
+                "gm.kingdom.edit_banner empire removeExtraIcons:true\n" +
+                "gm.kingdom.edit_banner kingdom:sturgia removeExtraIcons:true");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
             parsed.SetValidArguments(
-                new ArgumentDefinition("kingdom", true)
+                new ArgumentDefinition("kingdom", true),
+                new ArgumentDefinition("removeExtraIcons", false)
             );
 
             string validationError = parsed.GetValidationError();
@@ -53,6 +59,9 @@ public static class EditKingdomBannerCommand
 
             if (string.IsNullOrWhiteSpace(kingdomArg))
                 return CommandResult.Error(MessageFormatter.FormatErrorMessage("Kingdom argument cannot be empty."));
+
+            string removeExtraIconsArg = parsed.GetArgument("removeExtraIcons", 1);
+            bool removeExtraIcons = removeExtraIconsArg != null && removeExtraIconsArg.ToLower() == "true";
 
             EntityFinderResult<Kingdom> kingdomResult = KingdomFinder.FindSingleKingdom(kingdomArg);
             if (!kingdomResult.IsSuccess)
@@ -71,14 +80,16 @@ public static class EditKingdomBannerCommand
 
             Dictionary<string, string> resolvedValues = new()
             {
-                { "kingdom", kingdom.Name.ToString() }
+                { "kingdom", kingdom.Name.ToString() },
+                { "removeExtraIcons", removeExtraIcons.ToString() }
             };
 
-            BannerEditorController.OpenBannerEditor(rulingClan);
+            BannerEditorController.OpenBannerEditor(rulingClan, removeExtraIcons);
 
+            string extraIconsInfo = removeExtraIcons ? " (stripped to single icon)" : "";
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.kingdom.edit_banner", resolvedValues);
             return CommandResult.Success(argumentDisplay + MessageFormatter.FormatSuccessMessage(
-                $"Opened banner editor for kingdom '{kingdom.Name}' (ruling clan: {rulingClan.Name}, ID: {rulingClan.StringId}).\n" +
+                $"Opened banner editor for kingdom '{kingdom.Name}' (ruling clan: {rulingClan.Name}, ID: {rulingClan.StringId}){extraIconsInfo}.\n" +
                 $"Changes will propagate to the kingdom and all vassal clans."));
         }).Message;
     }

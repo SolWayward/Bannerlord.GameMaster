@@ -35,10 +35,10 @@ namespace Bannerlord.GameMaster.Console.ClanCommands.ClanGenerationCommands
                     "- kingdom: optional, kingdom for all generated clans to join (independent if omitted)\n" +
                     "- createParties/parties: optional, 'true' or 'false' to create parties for leaders (default: true)\n" +
                     "- companionCount/companions: optional, number of companions per clan (0-10, default: 2)\n" +
-                    "Supports named arguments: count:5 cultures:vlandia,battania kingdom:empire parties:true companions:3",
+                    "Supports named arguments: count:5 cultures:vlandia,battania kingdom:vlandia parties:true companions:3",
                     "gm.clan.generate_clans 5\n" +
                     "gm.clan.generate_clans 10 vlandia,battania\n" +
-                    "gm.clan.generate_clans 3 main_cultures empire\n" +
+                    "gm.clan.generate_clans 3 main_cultures vlandia\n" +
                     "gm.clan.generate_clans count:10 cultures:battania,sturgia kingdom:sturgia\n" +
                     "gm.clan.generate_clans 3 empire null false 0");
 

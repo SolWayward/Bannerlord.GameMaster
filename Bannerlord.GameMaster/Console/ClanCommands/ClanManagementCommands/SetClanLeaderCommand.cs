@@ -28,8 +28,8 @@ public static class SetClanLeaderCommand
             string usageMessage = CommandValidator.CreateUsageMessage(
                 "gm.clan.set_leader", "<clan> <hero>",
                 "Changes the clan leader to the specified hero.\n" +
-                "Supports named arguments: clan:empire_south hero:lord_1_1",
-                "gm.clan.set_leader empire_south lord_1_1");
+                "Supports named arguments: clan:Meroc hero:lord_1_1",
+                "gm.clan.set_leader Meroc lord_1_1");
 
             ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
