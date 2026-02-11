@@ -1,4 +1,5 @@
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace Bannerlord.GameMaster.Banners
 {
@@ -191,6 +192,100 @@ namespace Bannerlord.GameMaster.Banners
             banner.SetPrimaryColorId(result.ColorId);
             banner.SetSecondaryColorId(secondaryColorId);
             banner.SetAllIconColorIds(iconColorId);
+
+            return banner;
+        }
+
+        /// MARK: ConvertToSingleIcon
+        /// <summary>
+        /// Strips all icon layers except the last one (the main/primary icon).
+        /// The last icon is typically the primary/main icon that sits on top of all others.
+        /// Does not modify icon position or rotation -- use ResetIconTransforms() for that.
+        /// </summary>
+        /// <param name="banner">The banner to convert.</param>
+        /// <returns>The original serialized banner code before stripping, or null if the banner
+        /// already had only one icon (or no icons).</returns>
+        public static string ConvertToSingleIcon(this Banner banner)
+        {
+            int count = banner.GetBannerDataListCount();
+
+            // count <= 2 means background + 0 or 1 icon -- nothing to strip
+            if (count <= 2)
+                return null;
+
+            string originalCode = banner.Serialize();
+
+            // Copy the last icon data (the primary/main icon on top)
+            BannerData lastIcon = banner.GetBannerDataAtIndex(count - 1);
+            BannerData copiedIcon = new(lastIcon);
+
+            // ClearAllIcons keeps only background at index 0, then add our single icon
+            banner.ClearAllIcons();
+            banner.AddIconData(copiedIcon);
+
+            return originalCode;
+        }
+
+        /// MARK: ResetIconTransforms
+        /// <summary>
+        /// Resets position to center (764, 764) and rotation to 0 for ALL icon layers.
+        /// Useful for fixing rotated or off-center icons. Does not strip any icons --
+        /// use ConvertToSingleIcon() for that.
+        /// 764 = BannerFullSize / 2 = 1528 / 2.
+        /// </summary>
+        /// <param name="banner">The banner to reset transforms on.</param>
+        /// <returns>The banner instance for method chaining.</returns>
+        public static Banner ResetIconTransforms(this Banner banner)
+        {
+            int count = banner.GetBannerDataListCount();
+
+            // Start at index 1 to skip background layer at index 0
+            for (int i = 1; i < count; i++)
+            {
+                BannerData data = banner.GetBannerDataAtIndex(i);
+                if (data != null)
+                {
+                    data.Position = new Vec2(764f, 764f);
+                    data.RotationValue = 0f;
+                }
+            }
+
+            return banner;
+        }
+
+        /// MARK: RebuildWithoutStroke
+        /// <summary>
+        /// Rebuilds icon layers that have DrawStroke=true as new BannerData objects
+        /// with DrawStroke=false, preserving all other properties (MeshId, Size,
+        /// Position, ColorId, Mirror, Rotation). Sets ColorId2=ColorId to prevent
+        /// the stroke-same-as-icon-color blurring artifact. Uses serialize-deserialize
+        /// cycle to create fresh BannerData objects and invalidate the visual cache
+        /// (_bannerVisual=null forces regeneration on next access).
+        /// </summary>
+        /// <param name="banner">The banner to rebuild.</param>
+        /// <returns>The banner instance for method chaining.</returns>
+        public static Banner RebuildWithoutStroke(this Banner banner)
+        {
+            int count = banner.GetBannerDataListCount();
+            bool hasStroke = false;
+            for (int i = 1; i < count; i++)
+            {
+                BannerData data = banner.GetBannerDataAtIndex(i);
+                if (data != null && data.DrawStroke)
+                {
+                    data.DrawStroke = false;
+                    data.ColorId2 = data.ColorId;
+                    hasStroke = true;
+                }
+            }
+
+            if (hasStroke)
+            {
+                // Serialize modified data, then Deserialize to create fresh objects
+                // and null _bannerVisual (forces visual regeneration)
+                string fixedCode = banner.Serialize();
+                banner.Deserialize(fixedCode);
+            }
 
             return banner;
         }

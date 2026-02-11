@@ -162,6 +162,10 @@ namespace Bannerlord.GameMaster.Banners.UI
       
         		// Invalidate cached BannerVisual so it regenerates on next access
         		banner.SetBannerVisual(null);
+
+        		// Permanently strip stroke from icon layers -- prevents the blurry/detail-loss
+        		// artifact where stroke color matches icon color after game systems call ChangeIconColors()
+        		banner.RebuildWithoutStroke();
       
         		// For ruling clan: sync the internal _banner with the edited kingdom banner
         		// and propagate colors to kingdom and all vassal clans.
@@ -189,6 +193,17 @@ namespace Bannerlord.GameMaster.Banners.UI
         		else
         		{
         			SetClanPartyVisualsAsDirty(targetClan);
+        		}
+        	}
+        	else
+        	{
+        		// If icons were stripped before editor opened, restore the original multi-icon banner on cancel.
+        		// The VM's ExecuteCancel() already restored _initialBanner (the stripped version),
+        		// so we overwrite with the true original to fully revert the stripping.
+        		string originalBannerCode = _state.GetOriginalBannerCode();
+        		if (originalBannerCode != null)
+        		{
+        			_state.GetClan().Banner.Deserialize(originalBannerCode);
         		}
         	}
       
@@ -236,20 +251,31 @@ namespace Bannerlord.GameMaster.Banners.UI
         private void RefreshBanner()
         {
             // Fix native bug: BannerEditorVM.OnSigilColorSelection() calls SetIconColorId()
-            // which only updates _bannerDataList[1]. Propagate that color to all icon entries
-            // so multi-icon banners update uniformly.
+            // which only updates _bannerDataList[1].ColorId. We need to:
+            // 1. Set stroke color (ColorId2) to background color on ALL icon layers
+            //    so stroke blends invisibly into the background, preserving icon detail
+            // 2. Propagate icon color (ColorId) to all icon layers (2..N)
+            //    so multi-icon banners update uniformly
             Banner banner = _state.GetClan().Banner;
             int iconCount = banner.GetBannerDataListCount();
-            if (iconCount > 2) // background + more than 1 icon
+            if (iconCount > 1)
             {
                 int iconColorId = banner.GetIconColorId(); // reads _bannerDataList[1].ColorId
+                int bgColorId = banner.GetPrimaryColorId(); // background color for stroke blending
+
+                // Sync stroke color to background on primary icon layer
+                BannerData primaryIcon = banner.GetBannerDataAtIndex(1);
+                if (primaryIcon != null)
+                    primaryIcon.ColorId2 = bgColorId;
+
+                // Propagate icon color AND stroke-as-background to additional icon layers
                 for (int i = 2; i < iconCount; i++)
                 {
                     BannerData data = banner.GetBannerDataAtIndex(i);
                     if (data != null)
                     {
                         data.ColorId = iconColorId;
-                        data.ColorId2 = iconColorId;
+                        data.ColorId2 = bgColorId;
                     }
                 }
             }
