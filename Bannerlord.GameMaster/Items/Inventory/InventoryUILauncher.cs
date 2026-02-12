@@ -2,6 +2,7 @@ using System;
 using Bannerlord.GameMaster.Common;
 using Helpers;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.GameState;
 using TaleWorlds.CampaignSystem.Inventory;
 using TaleWorlds.CampaignSystem.Party;
@@ -254,7 +255,27 @@ namespace Bannerlord.GameMaster.Items.Inventory
             state.InventoryLogic = logic;
             state.InventoryMode = mode;
             state.DoneLogicExtrasDelegate = onComplete;
-            Game.Current.GameStateManager.PushState(state, 0);
+
+            // Temporarily bypass the "hero not met" check so HeroViewModel.FillFrom() populates
+            // the 3D model data instead of skipping it when IsHeroInformationHidden returns true.
+            // PushState is synchronous: SPInventoryVM constructor -> FillFrom() runs in-stack,
+            // so the flag is safely restored before any other code can observe it.
+            DefaultInformationRestrictionModel restrictionModel =
+                Campaign.Current?.Models?.InformationRestrictionModel as DefaultInformationRestrictionModel;
+            bool previousValue = restrictionModel?.IsDisabledByCheat ?? false;
+
+            try
+            {
+                if (restrictionModel != null)
+                    restrictionModel.IsDisabledByCheat = true;
+
+                Game.Current.GameStateManager.PushState(state, 0);
+            }
+            finally
+            {
+                if (restrictionModel != null)
+                    restrictionModel.IsDisabledByCheat = previousValue;
+            }
         }
 
         /// MARK: CreateSyntheticHeroRoster
