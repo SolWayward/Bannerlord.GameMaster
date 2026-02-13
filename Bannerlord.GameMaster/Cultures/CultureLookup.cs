@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
 using Bannerlord.GameMaster.Common.Interfaces;
 using TaleWorlds.ObjectSystem;
 using TaleWorlds.Localization;
@@ -132,58 +133,76 @@ namespace Bannerlord.GameMaster.Cultures
 
 		/// MARK: Hero Name
 		/// <summary>
-		/// Gets a random hero name from the culture's gender-specific name list.
-		/// Uses custom names only, then adds a suffix if all are exhausted.
+		/// Gets a unique random hero name for the specified culture and gender.
+		/// Fallback chain: BLGM custom names -> Native Bannerlord names -> BLGM name + suffix -> Last resort.
 		/// </summary>
 		public static string GetUniqueRandomHeroName(CultureObject culture, bool isFemale)
 		{
-			// Get all existing hero names (convert to strings for comparison)
 			HashSet<string> existingHeroNames = Hero.AllAliveHeroes
-			 .Select(h => h.FirstName?.ToString() ?? string.Empty)
-			 .Where(name => !string.IsNullOrEmpty(name))
-			 .ToHashSet(StringComparer.OrdinalIgnoreCase);
-	
-			// Get custom name array for the culture
+				.Select(h => h.FirstName?.ToString() ?? string.Empty)
+				.Where(name => !string.IsNullOrEmpty(name))
+				.ToHashSet(StringComparer.OrdinalIgnoreCase);
+
 			string cultureId = culture.StringId.ToLower();
 			string[] customNames = GetHeroNames(cultureId, isFemale);
-	
+
+			// Step 1: Try BLGM custom names for the culture+gender
 			if (customNames != null && customNames.Length > 0)
 			{
 				List<string> availableCustomNames = customNames
-				 .Where(name => !existingHeroNames.Contains(name))
-				 .ToList();
-	
+					.Where(name => !existingHeroNames.Contains(name))
+					.ToList();
+
 				if (availableCustomNames.Count > 0)
 				{
 					int randomIndex = RandomNumberGen.Instance.NextRandomInt(availableCustomNames.Count);
 					return availableCustomNames[randomIndex];
 				}
 			}
-	
-			// All custom names exhausted - add a suffix to a random custom name
-			string[] suffixes = {
-		"the Younger", "the Elder", "the Brave", "the Wise",
-		"the Bold", "the Just", "the Swift", "the Strong",
-		"the Fierce", "the Noble", "the Fair", "the Valiant"
-		  };
-	
-			// Use custom names for suffix base, or fallback
-			string baseName;
-			if (customNames != null && customNames.Length > 0)
+
+			// Step 2: Try native Bannerlord names from culture name lists
+			MBReadOnlyList<TextObject> nativeNameList = isFemale ? culture.FemaleNameList : culture.MaleNameList;
+			if (nativeNameList != null && nativeNameList.Count > 0)
 			{
-				int randomNameIndex = RandomNumberGen.Instance.NextRandomInt(customNames.Length);
-				baseName = customNames[randomNameIndex];
+				List<string> availableNativeNames = nativeNameList
+					.Select(textObj => textObj.ToString())
+					.Where(name => !string.IsNullOrEmpty(name) && !existingHeroNames.Contains(name))
+					.ToList();
+
+				if (availableNativeNames.Count > 0)
+				{
+					int randomIndex = RandomNumberGen.Instance.NextRandomInt(availableNativeNames.Count);
+					return availableNativeNames[randomIndex];
+				}
 			}
-			else
+
+			// Step 3: BLGM name + random culture suffix
+			string[] suffixes = GetHeroSuffixes(cultureId);
+			if (customNames != null && customNames.Length > 0 && suffixes != null && suffixes.Length > 0)
 			{
-				// Last resort fallback
-				baseName = isFemale ? "Hero" : "Warrior";
+				int maxAttempts = 100;
+				for (int attempt = 0; attempt < maxAttempts; attempt++)
+				{
+					int nameIndex = RandomNumberGen.Instance.NextRandomInt(customNames.Length);
+					int suffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
+					string candidate = $"{customNames[nameIndex]} {suffixes[suffixIndex]}";
+
+					if (!existingHeroNames.Contains(candidate))
+						return candidate;
+				}
 			}
-	
-			int randomSuffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
-			return $"{baseName} {suffixes[randomSuffixIndex]}";
+
+			// Step 4: Last resort fallback (should never happen)
+			string fallbackBase = isFemale ? "Hero" : "Warrior";
+			if (suffixes != null && suffixes.Length > 0)
+			{
+				int suffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
+				return $"{fallbackBase} {suffixes[suffixIndex]}";
+			}
+
+			return fallbackBase;
 		}
-	
+
 		/// <summary>
 		/// Gets hero names for a specific culture and gender
 		/// </summary>
@@ -202,59 +221,94 @@ namespace Bannerlord.GameMaster.Cultures
 			};
 		}
 
+		/// <summary>
+		/// Gets hero name suffixes for a specific culture
+		/// </summary>
+		private static string[] GetHeroSuffixes(string cultureId)
+		{
+			return cultureId switch
+			{
+				"aserai" => AseraiHeroNames.HeroSuffixes,
+				"battania" => BattaniaHeroNames.HeroSuffixes,
+				"empire" => EmpireHeroNames.HeroSuffixes,
+				"khuzait" => KhuzaitHeroNames.HeroSuffixes,
+				"nord" => NordHeroNames.HeroSuffixes,
+				"sturgia" => SturgiaHeroNames.HeroSuffixes,
+				"vlandia" => VlandiaHeroNames.HeroSuffixes,
+				_ => null
+			};
+		}
+
 		/// MARK: Clan Name
 		/// <summary>
-		/// Gets a random clan name from the culture's clan name list.
-		/// Uses custom names only, then adds a suffix if all are exhausted.
+		/// Gets a unique random clan name for the specified culture.
+		/// Fallback chain: BLGM custom names -> Native Bannerlord names -> Prefix + BLGM name -> Last resort.
 		/// </summary>
 		public static string GetUniqueRandomClanName(CultureObject culture)
 		{
-			// Get all existing clan names (convert to strings for comparison)
 			HashSet<string> existingClanNames = Clan.All
 				.Select(c => c.Name.ToString())
 				.ToHashSet(StringComparer.OrdinalIgnoreCase);
-	
-			// Get custom clan names for the culture
+
 			string cultureId = culture.StringId.ToLower();
 			string[] customNames = GetClanNames(cultureId);
-	
+
+			// Step 1: Try BLGM custom clan names for the culture
 			if (customNames != null && customNames.Length > 0)
 			{
 				List<string> availableCustomNames = customNames
 					.Where(name => !existingClanNames.Contains(name))
 					.ToList();
-	
+
 				if (availableCustomNames.Count > 0)
 				{
 					int randomIndex = RandomNumberGen.Instance.NextRandomInt(availableCustomNames.Count);
 					return availableCustomNames[randomIndex];
 				}
 			}
-	
-			// All custom names exhausted - add a suffix to a random custom name
-			string[] suffixes = {
-				"of The New World", "Separatists", "Loyalists", "Conservatives",
-				"of Calradia", "New Order", "Exiles", "Wanderers",
-				"Reborn", "Rising", "Ascendant", "Defiant"
-			};
-	
-			// Use custom names for suffix base, or fallback
-			string baseName;
-			if (customNames != null && customNames.Length > 0)
+
+			// Step 2: Try native Bannerlord names from culture clan name list
+			MBReadOnlyList<TextObject> nativeClanNames = culture.ClanNameList;
+			if (nativeClanNames != null && nativeClanNames.Count > 0)
 			{
-				int randomNameIndex = RandomNumberGen.Instance.NextRandomInt(customNames.Length);
-				baseName = customNames[randomNameIndex];
+				List<string> availableNativeNames = nativeClanNames
+					.Select(textObj => textObj.ToString())
+					.Where(name => !string.IsNullOrEmpty(name) && !existingClanNames.Contains(name))
+					.ToList();
+
+				if (availableNativeNames.Count > 0)
+				{
+					int randomIndex = RandomNumberGen.Instance.NextRandomInt(availableNativeNames.Count);
+					return availableNativeNames[randomIndex];
+				}
 			}
-			else
+
+			// Step 3: Random prefix + BLGM clan name
+			string[] prefixes = GetFactionPrefixes(cultureId);
+			if (customNames != null && customNames.Length > 0 && prefixes != null && prefixes.Length > 0)
 			{
-				// Last resort fallback
-				baseName = "Clan";
+				int maxAttempts = 100;
+				for (int attempt = 0; attempt < maxAttempts; attempt++)
+				{
+					int prefixIndex = RandomNumberGen.Instance.NextRandomInt(prefixes.Length);
+					int nameIndex = RandomNumberGen.Instance.NextRandomInt(customNames.Length);
+					string candidate = $"{prefixes[prefixIndex]} {customNames[nameIndex]}";
+
+					if (!existingClanNames.Contains(candidate))
+						return candidate;
+				}
 			}
-	
-			int randomSuffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
-			return $"{baseName} {suffixes[randomSuffixIndex]}";
+
+			// Step 4: Last resort fallback
+			if (prefixes != null && prefixes.Length > 0)
+			{
+				int prefixIndex = RandomNumberGen.Instance.NextRandomInt(prefixes.Length);
+				return $"{prefixes[prefixIndex]} Clan";
+			}
+
+			return "Clan";
 		}
-	
+
 		/// <summary>
 		/// Gets clan names for a specific culture
 		/// </summary>
@@ -273,59 +327,80 @@ namespace Bannerlord.GameMaster.Cultures
 			};
 		}
 
+		/// <summary>
+		/// Gets faction name prefixes for a specific culture
+		/// </summary>
+		private static string[] GetFactionPrefixes(string cultureId)
+		{
+			return cultureId switch
+			{
+				"aserai" => AseraiFactionNames.FactionPrefixes,
+				"battania" => BattaniaFactionNames.FactionPrefixes,
+				"empire" => EmpireFactionNames.FactionPrefixes,
+				"khuzait" => KhuzaitFactionNames.FactionPrefixes,
+				"nord" => NordFactionNames.FactionPrefixes,
+				"sturgia" => SturgiaFactionNames.FactionPrefixes,
+				"vlandia" => VlandiaFactionNames.FactionPrefixes,
+				_ => null
+			};
+		}
+
 		/// MARK: Kingdom Name
 		/// <summary>
-		/// Gets a random kingdom name appropriate to the specified culture.
-		/// First tries custom names, then adds a suffix if all are exhausted.
+		/// Gets a unique random kingdom name for the specified culture.
+		/// Fallback chain: BLGM custom names -> Prefix + BLGM name -> Last resort.
+		/// Note: No native culture.KingdomNameList exists in Bannerlord, so that step is skipped.
 		/// </summary>
 		public static string GetUniqueRandomKingdomName(CultureObject culture)
 		{
-			// Get all existing kingdom names (convert to strings for comparison)
 			HashSet<string> existingKingdomNames = Kingdom.All
 				.Select(k => k.Name.ToString())
 				.ToHashSet(StringComparer.OrdinalIgnoreCase);
-	
-			// Get custom kingdom names for the culture
+
 			string cultureId = culture.StringId.ToLower();
 			string[] customNames = GetKingdomNames(cultureId);
-	
+
+			// Step 1: Try BLGM custom kingdom names for the culture
 			if (customNames != null && customNames.Length > 0)
 			{
 				List<string> availableCustomNames = customNames
 					.Where(name => !existingKingdomNames.Contains(name))
 					.ToList();
-	
+
 				if (availableCustomNames.Count > 0)
 				{
 					int randomIndex = RandomNumberGen.Instance.NextRandomInt(availableCustomNames.Count);
 					return availableCustomNames[randomIndex];
 				}
 			}
-	
-			// All names exhausted - add a suffix to a random name
-			string[] suffixes = {
-				"Reborn", "Rising", "Ascendant", "Renewed",
-				"Reformed", "Restored", "United", "Free",
-				"New Order", "Resurgent", "Revived", "Triumphant"
-			};
-	
-			// Try to use custom names first for suffix
-			string baseName;
-			if (customNames != null && customNames.Length > 0)
+
+			// Step 2: Random prefix + BLGM kingdom name
+			string[] prefixes = GetFactionPrefixes(cultureId);
+			if (customNames != null && customNames.Length > 0 && prefixes != null && prefixes.Length > 0)
 			{
-				int randomNameIndex = RandomNumberGen.Instance.NextRandomInt(customNames.Length);
-				baseName = customNames[randomNameIndex];
+				int maxAttempts = 100;
+				for (int attempt = 0; attempt < maxAttempts; attempt++)
+				{
+					int prefixIndex = RandomNumberGen.Instance.NextRandomInt(prefixes.Length);
+					int nameIndex = RandomNumberGen.Instance.NextRandomInt(customNames.Length);
+					string candidate = $"{prefixes[prefixIndex]} {customNames[nameIndex]}";
+
+					if (!existingKingdomNames.Contains(candidate))
+						return candidate;
+				}
 			}
-			else
+
+			// Step 3: Last resort fallback
+			string fallbackBase = $"{culture.Name} Kingdom";
+			if (prefixes != null && prefixes.Length > 0)
 			{
-				// Last resort fallback
-				baseName = $"{culture.Name} Kingdom";
+				int prefixIndex = RandomNumberGen.Instance.NextRandomInt(prefixes.Length);
+				return $"{prefixes[prefixIndex]} {fallbackBase}";
 			}
-	
-			int randomSuffixIndex = RandomNumberGen.Instance.NextRandomInt(suffixes.Length);
-			return $"{baseName} {suffixes[randomSuffixIndex]}";
+
+			return fallbackBase;
 		}
-	
+
 		/// <summary>
 		/// Gets kingdom names for a specific culture
 		/// </summary>

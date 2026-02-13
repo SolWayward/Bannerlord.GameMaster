@@ -20,7 +20,18 @@ namespace Bannerlord.GameMaster.Cultures.FactionNames
             "Banu Nabil", "Banu Qasim", "Banu Sadiq", "Banu Tahir", "Banu Waleed", "Banu Zaid",
             "Banu Adil", "Banu Burhan", "Banu Dinar", "Banu Fahd", "Banu Ghaith", "Banu Husam",
             "Banu Jawad", "Banu Karam", "Banu Mansur", "Banu Nabeel", "Banu Rauf", "Banu Sami",
-            "Banu Aziz", "Banu Basheer", "Banu Dhulfiqar", "Banu Fadhil", "Banu Ghulam", "Banu Hamid"
+            "Banu Aziz", "Banu Basheer", "Banu Dhulfiqar", "Banu Fadhil", "Banu Ghulam", "Banu Hamid",
+            "Banu Aamir", "Banu Bilal", "Banu Darim", "Banu Ehsan", "Banu Fuad", "Banu Ghalib",
+            "Banu Hashim", "Banu Ibrahim", "Banu Jubair", "Banu Khattab", "Banu Luqman", "Banu Murad",
+            "Banu Naeem", "Banu Othman", "Banu Rafiq", "Banu Sulaiman", "Banu Tamim", "Banu Usama",
+            "Banu Waqar", "Banu Yusuf", "Banu Zubair", "Banu Ayman", "Banu Badr", "Banu Dahhak",
+            "Banu Faruq", "Banu Ghassan", "Banu Haroon", "Banu Imran", "Banu Jasim", "Banu Labid",
+            "Banu Mujahid", "Banu Numair", "Banu Qutaiba", "Banu Ridwan", "Banu Safwan", "Banu Tufail",
+            "Banu Ubaid", "Banu Wahab", "Banu Yaqub", "Banu Zuhayr", "Banu Asad", "Banu Barakat",
+            "Banu Diya", "Banu Faris", "Banu Ghaffar", "Banu Hilal", "Banu Ismail", "Banu Jarrah",
+            "Banu Kulthum", "Banu Maysara", "Banu Nawfal", "Banu Qays", "Banu Riyad", "Banu Shaddad",
+            "Banu Thalaba", "Banu Umayya", "Banu Waqqas", "Banu Yaman", "Banu Zinnad", "Banu Affan",
+            "Banu Bushra", "Banu Dakhil", "Banu Firuz", "Banu Ghannam", "Banu Hudhaifa", "Banu Ikrimah"
         };
 
         /// <summary>
@@ -48,7 +59,40 @@ namespace Bannerlord.GameMaster.Cultures.FactionNames
             "Kingdom of Qayrawan", "Sultanate of Tunisan", "Caliphate of Iftiqyan",
             "Emirate of Sijilmasan", "Kingdom of Marrakushan", "Sultanate of Fassan",
             "Caliphate of Tangerian", "Emirate of Salean", "Kingdom of Muluyan",
-            "Sultanate of Tadlan", "Caliphate of Tafilaltan", "Emirate of Draan"
+            "Sultanate of Tadlan", "Caliphate of Tafilaltan", "Emirate of Draan",
+            "Sultanate of Al-Hamid", "Sultanate of Al-Jawhar", "Sultanate of Al-Murad",
+            "Sultanate of Al-Bariq", "Sultanate of Zarqan", "Sultanate of Qatifan",
+            "Sultanate of Hayaran", "Sultanate of Darbandan", "Sultanate of Al-Sharif",
+            "Sultanate of Khandaran", "Sultanate of Wasiran", "Sultanate of Rimaltan",
+            "Sultanate of Al-Dhamir", "Sultanate of Suqaran", "Sultanate of Jamilabad",
+            "Sultanate of Nahdaran", "Caliphate of Andaliran", "Caliphate of Basrakan",
+            "Caliphate of Dimashqan", "Caliphate of Iskandaran", "Caliphate of Jawhariya",
+            "Caliphate of Khalifan", "Caliphate of Madinaran", "Caliphate of Qurtaban",
+            "Caliphate of Sahaltan", "Caliphate of Tabrakan", "Caliphate of Zahrawan",
+            "Caliphate of Mubarakan", "Caliphate of Raqimtan", "Caliphate of Nusayran",
+            "Caliphate of Ghardayan", "Caliphate of Hadramiya", "Emirate of Barzakan",
+            "Emirate of Dirayyah", "Emirate of Ghuraban", "Emirate of Hajariya",
+            "Emirate of Janubiya", "Emirate of Khaluran", "Emirate of Muzaffariya",
+            "Emirate of Qalandar", "Emirate of Shamaliya", "Emirate of Tuwayran",
+            "Emirate of Waqifan", "Emirate of Zaraqan", "Emirate of Buraydan",
+            "Emirate of Furatiya", "Emirate of Hamadaran", "Emirate of Jiddariya",
+            "Kingdom of Aqabaran", "Kingdom of Dahaban", "Kingdom of Ghassanir",
+            "Kingdom of Hamdaniya", "Kingdom of Jarashtan", "Kingdom of Nabatiran",
+            "Kingdom of Palmyran", "Kingdom of Sabairan", "Kingdom of Tadmuran",
+            "Kingdom of Yathribar", "Kingdom of Zurqaran", "Kingdom of Aleparan",
+            "Kingdom of Busratan", "Kingdom of Durayyah", "Kingdom of Himyaran"
+        };
+
+        /// <summary>
+        /// Faction name prefixes for Aserai culture
+        /// </summary>
+        public static readonly string[] FactionPrefixes = new[]
+        {
+            "Holy", "Blessed", "Glorious", "Golden", "Radiant", "Shining", "Brilliant", "Prosperous", "Wealthy", "Majestic",
+            "Mighty", "Powerful", "Victorious", "Triumphant", "Conquering", "Desert", "Faithful", "Righteous", "Pious", "Divine",
+            "Celestial", "Luminous", "Sun-Blessed", "Moon-Blessed", "Star-Blessed", "Pearl", "Jeweled", "Silken", "Opulent", "Magnificent",
+            "Splendid", "Illustrious", "Renowned", "Fabled", "Legendary", "Ancient", "Eternal", "Sacred", "Mercantile", "Trading",
+            "Nomadic", "Wandering", "Free", "Proud", "Noble", "Exalted", "Grand", "Resplendent", "Gleaming", "Glittering"
         };
     }
 }
