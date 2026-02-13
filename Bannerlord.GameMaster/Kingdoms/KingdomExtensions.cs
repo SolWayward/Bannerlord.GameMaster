@@ -123,6 +123,11 @@ namespace Bannerlord.GameMaster.Kingdoms
 			return result;
 		}
 	
+		public static void SetStringName(this Kingdom kingdom, string name)
+		{
+			kingdom.ChangeKingdomName(new(name), new(name));
+		}
+
 		/// <summary>Gets all Villages within the Kingdom</summary>
 		public static MBReadOnlyList<Settlement> GetVillages(this Kingdom kingdom)
 		{
