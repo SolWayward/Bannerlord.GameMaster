@@ -14,8 +14,11 @@ items:
   - Bannerlord.GameMaster.Heroes.HeroGenerator
   - Bannerlord.GameMaster.Heroes.HeroManager
   - Bannerlord.GameMaster.Heroes.HeroOutfitter
+  - Bannerlord.GameMaster.Heroes.HeroPositionHelpers
   - Bannerlord.GameMaster.Heroes.HeroQueries
   - Bannerlord.GameMaster.Heroes.HeroTypes
+  - Bannerlord.GameMaster.Heroes.PregnancyHelpers
+  - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
   - Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
   langs:
   - csharp
@@ -114,12 +117,30 @@ references:
   name: HeroOutfitter
   nameWithType: HeroOutfitter
   fullName: Bannerlord.GameMaster.Heroes.HeroOutfitter
+- uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+  href: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.html
+  name: HeroPositionHelpers
+  nameWithType: HeroPositionHelpers
+  fullName: Bannerlord.GameMaster.Heroes.HeroPositionHelpers
 - uid: Bannerlord.GameMaster.Heroes.HeroQueries
   commentId: T:Bannerlord.GameMaster.Heroes.HeroQueries
   href: Bannerlord.GameMaster.Heroes.HeroQueries.html
   name: HeroQueries
   nameWithType: HeroQueries
   fullName: Bannerlord.GameMaster.Heroes.HeroQueries
+- uid: Bannerlord.GameMaster.Heroes.PregnancyHelpers
+  commentId: T:Bannerlord.GameMaster.Heroes.PregnancyHelpers
+  href: Bannerlord.GameMaster.Heroes.PregnancyHelpers.html
+  name: PregnancyHelpers
+  nameWithType: PregnancyHelpers
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyHelpers
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
+  commentId: T:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
+  href: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.html
+  name: PregnancyReflectionHelper
+  nameWithType: PregnancyReflectionHelper
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
 - uid: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
   commentId: T:Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
   href: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper.html

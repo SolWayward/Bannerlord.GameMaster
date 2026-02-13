@@ -805,9 +805,9 @@ items:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Cultures
   summary: >-
-    Gets a random hero name from the culture's gender-specific name list.
+    Gets a unique random hero name for the specified culture and gender.
 
-    Uses custom names only, then adds a suffix if all are exhausted.
+    Fallback chain: BLGM custom names -&gt; Native Bannerlord names -&gt; BLGM name + suffix -&gt; Last resort.
   example: []
   syntax:
     content: public static string GetUniqueRandomHeroName(CultureObject culture, bool isFemale)
@@ -841,14 +841,14 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetUniqueRandomClanName
     path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
-    startLine: 209
+    startLine: 225
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Cultures
   summary: >-
-    Gets a random clan name from the culture's clan name list.
+    Gets a unique random clan name for the specified culture.
 
-    Uses custom names only, then adds a suffix if all are exhausted.
+    Fallback chain: BLGM custom names -&gt; Native Bannerlord names -&gt; Prefix + BLGM name -&gt; Last resort.
   example: []
   syntax:
     content: public static string GetUniqueRandomClanName(CultureObject culture)
@@ -877,14 +877,16 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetUniqueRandomKingdomName
     path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
-    startLine: 280
+    startLine: 312
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Cultures
   summary: >-
-    Gets a random kingdom name appropriate to the specified culture.
+    Gets a unique random kingdom name for the specified culture.
 
-    First tries custom names, then adds a suffix if all are exhausted.
+    Fallback chain: BLGM custom names -&gt; Prefix + BLGM name -&gt; Last resort.
+
+    Note: No native culture.KingdomNameList exists in Bannerlord, so that step is skipped.
   example: []
   syntax:
     content: public static string GetUniqueRandomKingdomName(CultureObject culture)
@@ -913,7 +915,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetCultureFlag
     path: ../Bannerlord.GameMaster/Cultures/CultureLookup.cs
-    startLine: 352
+    startLine: 376
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Cultures

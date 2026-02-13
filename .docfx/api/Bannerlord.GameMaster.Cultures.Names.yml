@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Cultures.Names
+  commentId: N:Bannerlord.GameMaster.Cultures.Names
+  id: Bannerlord.GameMaster.Cultures.Names
+  children:
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider
+  - Bannerlord.GameMaster.Cultures.Names.NameType
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Cultures.Names
+  nameWithType: Bannerlord.GameMaster.Cultures.Names
+  fullName: Bannerlord.GameMaster.Cultures.Names
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  commentId: T:Bannerlord.GameMaster.Cultures.Names.NameProvider
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html
+  name: NameProvider
+  nameWithType: NameProvider
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType
+  commentId: T:Bannerlord.GameMaster.Cultures.Names.NameType
+  parent: Bannerlord.GameMaster.Cultures.Names
+  href: Bannerlord.GameMaster.Cultures.Names.NameType.html
+  name: NameType
+  nameWithType: NameType
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType
+- uid: Bannerlord.GameMaster.Cultures.Names
+  commentId: N:Bannerlord.GameMaster.Cultures.Names
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Cultures.Names
+  nameWithType: Bannerlord.GameMaster.Cultures.Names
+  fullName: Bannerlord.GameMaster.Cultures.Names
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures.Names
+    name: Names
+    href: Bannerlord.GameMaster.Cultures.Names.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures.Names
+    name: Names
+    href: Bannerlord.GameMaster.Cultures.Names.html

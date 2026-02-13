@@ -7,11 +7,14 @@ items:
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddGoldCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddHeroToPartyCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.CreatePartyCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImpregnateCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ReleaseHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RemoveClanCommand
@@ -49,6 +52,12 @@ references:
   name: CreatePartyCommand
   nameWithType: CreatePartyCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.CreatePartyCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.html
+  name: DivorceCommand
+  nameWithType: DivorceCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand.html
@@ -67,6 +76,12 @@ references:
   name: HealHeroCommand
   nameWithType: HealHeroCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImpregnateCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImpregnateCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImpregnateCommand.html
+  name: ImpregnateCommand
+  nameWithType: ImpregnateCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImpregnateCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand.html
@@ -79,6 +94,12 @@ references:
   name: KillHeroCommand
   nameWithType: KillHeroCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.html
+  name: MarryCommand
+  nameWithType: MarryCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand.html

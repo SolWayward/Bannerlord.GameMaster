@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Console.NameCommands
+  commentId: N:Bannerlord.GameMaster.Console.NameCommands
+  id: Bannerlord.GameMaster.Console.NameCommands
+  children:
+  - Bannerlord.GameMaster.Console.NameCommands.ForceDefaultNamesCommand
+  - Bannerlord.GameMaster.Console.NameCommands.ReloadNamesCommand
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Console.NameCommands
+  nameWithType: Bannerlord.GameMaster.Console.NameCommands
+  fullName: Bannerlord.GameMaster.Console.NameCommands
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Console.NameCommands.ForceDefaultNamesCommand
+  commentId: T:Bannerlord.GameMaster.Console.NameCommands.ForceDefaultNamesCommand
+  href: Bannerlord.GameMaster.Console.NameCommands.ForceDefaultNamesCommand.html
+  name: ForceDefaultNamesCommand
+  nameWithType: ForceDefaultNamesCommand
+  fullName: Bannerlord.GameMaster.Console.NameCommands.ForceDefaultNamesCommand
+- uid: Bannerlord.GameMaster.Console.NameCommands.ReloadNamesCommand
+  commentId: T:Bannerlord.GameMaster.Console.NameCommands.ReloadNamesCommand
+  href: Bannerlord.GameMaster.Console.NameCommands.ReloadNamesCommand.html
+  name: ReloadNamesCommand
+  nameWithType: ReloadNamesCommand
+  fullName: Bannerlord.GameMaster.Console.NameCommands.ReloadNamesCommand

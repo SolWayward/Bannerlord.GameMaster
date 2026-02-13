@@ -1,0 +1,765 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  commentId: T:Bannerlord.GameMaster.Cultures.Names.NameProvider
+  id: NameProvider
+  parent: Bannerlord.GameMaster.Cultures.Names
+  children:
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.ClearForceDefaults
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.ForceDefaults
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames(System.String)
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes(System.String)
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames(System.String,System.Boolean)
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes(System.String)
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames(System.String)
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.IsForceDefaultsActive
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadAll
+  - Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture(System.String)
+  langs:
+  - csharp
+  - vb
+  name: NameProvider
+  nameWithType: NameProvider
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NameProvider
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: >-
+    Provides name arrays with external JSON file override support and caching.
+
+    Lookup chain: Cache -&gt; External JSON file -&gt; Hardcoded defaults
+  example: []
+  syntax:
+    content: public static class NameProvider
+    content.vb: Public Module NameProvider
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames(System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames(System.String,System.Boolean)
+  id: GetHeroNames(System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: GetHeroNames(string, bool)
+  nameWithType: NameProvider.GetHeroNames(string, bool)
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetHeroNames
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Gets hero names for a culture and gender. Checks external JSON file first, falls back to defaults.
+  example: []
+  syntax:
+    content: public static string[] GetHeroNames(string cultureId, bool isFemale)
+    parameters:
+    - id: cultureId
+      type: System.String
+    - id: isFemale
+      type: System.Boolean
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetHeroNames(cultureId As String, isFemale As Boolean) As String()
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames*
+  nameWithType.vb: NameProvider.GetHeroNames(String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames(String, Boolean)
+  name.vb: GetHeroNames(String, Boolean)
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes(System.String)
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes(System.String)
+  id: GetHeroSuffixes(System.String)
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: GetHeroSuffixes(string)
+  nameWithType: NameProvider.GetHeroSuffixes(string)
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetHeroSuffixes
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Gets hero suffixes for a culture. Checks external JSON file first, falls back to defaults.
+  example: []
+  syntax:
+    content: public static string[] GetHeroSuffixes(string cultureId)
+    parameters:
+    - id: cultureId
+      type: System.String
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetHeroSuffixes(cultureId As String) As String()
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes*
+  nameWithType.vb: NameProvider.GetHeroSuffixes(String)
+  fullName.vb: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes(String)
+  name.vb: GetHeroSuffixes(String)
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames(System.String)
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames(System.String)
+  id: GetClanNames(System.String)
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: GetClanNames(string)
+  nameWithType: NameProvider.GetClanNames(string)
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetClanNames
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 42
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Gets clan names for a culture. Checks external JSON file first, falls back to defaults.
+  example: []
+  syntax:
+    content: public static string[] GetClanNames(string cultureId)
+    parameters:
+    - id: cultureId
+      type: System.String
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetClanNames(cultureId As String) As String()
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames*
+  nameWithType.vb: NameProvider.GetClanNames(String)
+  fullName.vb: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames(String)
+  name.vb: GetClanNames(String)
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes(System.String)
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes(System.String)
+  id: GetFactionPrefixes(System.String)
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: GetFactionPrefixes(string)
+  nameWithType: NameProvider.GetFactionPrefixes(string)
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFactionPrefixes
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 51
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Gets faction prefixes for a culture. Checks external JSON file first, falls back to defaults.
+  example: []
+  syntax:
+    content: public static string[] GetFactionPrefixes(string cultureId)
+    parameters:
+    - id: cultureId
+      type: System.String
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetFactionPrefixes(cultureId As String) As String()
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes*
+  nameWithType.vb: NameProvider.GetFactionPrefixes(String)
+  fullName.vb: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes(String)
+  name.vb: GetFactionPrefixes(String)
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames(System.String)
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames(System.String)
+  id: GetKingdomNames(System.String)
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: GetKingdomNames(string)
+  nameWithType: NameProvider.GetKingdomNames(string)
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetKingdomNames
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 60
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Gets kingdom names for a culture. Checks external JSON file first, falls back to defaults.
+  example: []
+  syntax:
+    content: public static string[] GetKingdomNames(string cultureId)
+    parameters:
+    - id: cultureId
+      type: System.String
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetKingdomNames(cultureId As String) As String()
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames*
+  nameWithType.vb: NameProvider.GetKingdomNames(String)
+  fullName.vb: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames(String)
+  name.vb: GetKingdomNames(String)
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.IsForceDefaultsActive
+  commentId: P:Bannerlord.GameMaster.Cultures.Names.NameProvider.IsForceDefaultsActive
+  id: IsForceDefaultsActive
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: IsForceDefaultsActive
+  nameWithType: NameProvider.IsForceDefaultsActive
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.IsForceDefaultsActive
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IsForceDefaultsActive
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 71
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Whether force-defaults mode is currently active
+  example: []
+  syntax:
+    content: public static bool IsForceDefaultsActive { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared ReadOnly Property IsForceDefaultsActive As Boolean
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.IsForceDefaultsActive*
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadAll
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadAll
+  id: ReloadAll
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: ReloadAll()
+  nameWithType: NameProvider.ReloadAll()
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadAll()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ReloadAll
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 76
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Clears all cached culture data and re-reads from JSON files on next access
+  example: []
+  syntax:
+    content: public static void ReloadAll()
+    content.vb: Public Shared Sub ReloadAll()
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadAll*
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture(System.String)
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture(System.String)
+  id: ReloadCulture(System.String)
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: ReloadCulture(string)
+  nameWithType: NameProvider.ReloadCulture(string)
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ReloadCulture
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 84
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Clears cached data for a specific culture only
+  example: []
+  syntax:
+    content: public static void ReloadCulture(string cultureId)
+    parameters:
+    - id: cultureId
+      type: System.String
+    content.vb: Public Shared Sub ReloadCulture(cultureId As String)
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture*
+  nameWithType.vb: NameProvider.ReloadCulture(String)
+  fullName.vb: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture(String)
+  name.vb: ReloadCulture(String)
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.ForceDefaults
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.ForceDefaults
+  id: ForceDefaults
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: ForceDefaults()
+  nameWithType: NameProvider.ForceDefaults()
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.ForceDefaults()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ForceDefaults
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 92
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Enables force-defaults mode (ignores all external files, clears cache)
+  example: []
+  syntax:
+    content: public static void ForceDefaults()
+    content.vb: Public Shared Sub ForceDefaults()
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.ForceDefaults*
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.ClearForceDefaults
+  commentId: M:Bannerlord.GameMaster.Cultures.Names.NameProvider.ClearForceDefaults
+  id: ClearForceDefaults
+  parent: Bannerlord.GameMaster.Cultures.Names.NameProvider
+  langs:
+  - csharp
+  - vb
+  name: ClearForceDefaults()
+  nameWithType: NameProvider.ClearForceDefaults()
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.ClearForceDefaults()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClearForceDefaults
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameProvider.cs
+    startLine: 101
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Disables force-defaults mode and clears cache so files are re-checked on next access
+  example: []
+  syntax:
+    content: public static void ClearForceDefaults()
+    content.vb: Public Shared Sub ClearForceDefaults()
+  overload: Bannerlord.GameMaster.Cultures.Names.NameProvider.ClearForceDefaults*
+references:
+- uid: Bannerlord.GameMaster.Cultures.Names
+  commentId: N:Bannerlord.GameMaster.Cultures.Names
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Cultures.Names
+  nameWithType: Bannerlord.GameMaster.Cultures.Names
+  fullName: Bannerlord.GameMaster.Cultures.Names
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures.Names
+    name: Names
+    href: Bannerlord.GameMaster.Cultures.Names.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures.Names
+    name: Names
+    href: Bannerlord.GameMaster.Cultures.Names.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_GetHeroNames_System_String_System_Boolean_
+  name: GetHeroNames
+  nameWithType: NameProvider.GetHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroNames
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_GetHeroSuffixes_System_String_
+  name: GetHeroSuffixes
+  nameWithType: NameProvider.GetHeroSuffixes
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetHeroSuffixes
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_GetClanNames_System_String_
+  name: GetClanNames
+  nameWithType: NameProvider.GetClanNames
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetClanNames
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_GetFactionPrefixes_System_String_
+  name: GetFactionPrefixes
+  nameWithType: NameProvider.GetFactionPrefixes
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetFactionPrefixes
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_GetKingdomNames_System_String_
+  name: GetKingdomNames
+  nameWithType: NameProvider.GetKingdomNames
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.GetKingdomNames
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.IsForceDefaultsActive*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.IsForceDefaultsActive
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_IsForceDefaultsActive
+  name: IsForceDefaultsActive
+  nameWithType: NameProvider.IsForceDefaultsActive
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.IsForceDefaultsActive
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadAll*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadAll
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_ReloadAll
+  name: ReloadAll
+  nameWithType: NameProvider.ReloadAll
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadAll
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_ReloadCulture_System_String_
+  name: ReloadCulture
+  nameWithType: NameProvider.ReloadCulture
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.ReloadCulture
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.ForceDefaults*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.ForceDefaults
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_ForceDefaults
+  name: ForceDefaults
+  nameWithType: NameProvider.ForceDefaults
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.ForceDefaults
+- uid: Bannerlord.GameMaster.Cultures.Names.NameProvider.ClearForceDefaults*
+  commentId: Overload:Bannerlord.GameMaster.Cultures.Names.NameProvider.ClearForceDefaults
+  href: Bannerlord.GameMaster.Cultures.Names.NameProvider.html#Bannerlord_GameMaster_Cultures_Names_NameProvider_ClearForceDefaults
+  name: ClearForceDefaults
+  nameWithType: NameProvider.ClearForceDefaults
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameProvider.ClearForceDefaults

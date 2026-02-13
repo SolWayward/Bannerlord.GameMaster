@@ -10,37 +10,30 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.3
+## Latest Update v1.3.14.4
 
 ```
+Added new commands:
+	gm.hero.marry
+	gm.hero.divorce
+	gm.hero.impregnate
+	gm.kingdom.rename
+
+Added ability to override names blgm uses when generating objects
+	This will allow you to use a custom name set, or names in a different language
+	See article / discussion for instructions
+
+Previous Updates:
 Added all 229 possible colors the custom banner editor
-	Custom banner editor is accessed via command, vanilla banner editor accessed with 'B' is still limited to 16 colors
-
-Fixed troop hero/troop clothing not updating on clan/kingdom banner color change
-	clothing will reflect the kingdom if clan is part of a kingdom instead of clan colors
-	shields will reflect the clan colors regardless of kingdom colors
-
-Fixed banners with multiple icons only changing color of first icon
-Added optional arg to edit banner command to remove extra icons from banners with multiple icons as these extra icons cannot be edited
-Fixed banner icon outline colors not changing
-Fixed banner appearing black in editor after editing a clan banner and reopening editor
-Fixed the banner editor swap color pallet button not always working
-Fixed player 2d map icon not updating
-
-Improved auto generated banner colors when creating clans and kingdoms
-
 Added command gm.kingdom.sync_vassal_banners to manually update any clan banners that were changed back to the colors of the kingdom
 Added command gm.kingdom.edit_banner as shortcut for updating the ruling clans banner of a kingdom
 Added command gm.clan.sync_kingdom_colors to sync individual clan back to kingdom colors
 
+Added command gm.clan.edit.banner
+Added command gm.hero.edit_apperance
+Added command gm.hero.open_inventory
+
 Improved settlement renaming to immediately update name on map
-
-Previous Updates:
-Added command to open any hero's inventory and modify their equipment
-    gm.hero.open_inventory derthert
-
-Added gm.hero.edit_appearance command to modify any hero's appearance
-Added gm.clan.edit_banner command to modify any clan's banner or kingdom's colors
 ```
 
 ---

@@ -5,7 +5,10 @@ items:
   id: HeroManager
   parent: Bannerlord.GameMaster.Heroes
   children:
+  - Bannerlord.GameMaster.Heroes.HeroManager.Divorce(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.HeroManager.GetBestInitialSettlement(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroManager.Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroManager.Marry(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean,System.Boolean)
   - Bannerlord.GameMaster.Heroes.HeroManager.TrySetHomeSettlement(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
   langs:
   - csharp
@@ -21,7 +24,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HeroManager
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 10
+    startLine: 11
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -56,7 +59,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetBestInitialSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -89,7 +92,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: TrySetHomeSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 30
+    startLine: 34
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -107,6 +110,137 @@ items:
       description: BLGM result containing bool if Setting homeSettlement succeeded and a string with details
     content.vb: Public Shared Function TrySetHomeSettlement(hero As Hero, homeSettlement As Settlement) As BLGMResult
   overload: Bannerlord.GameMaster.Heroes.HeroManager.TrySetHomeSettlement*
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  id: Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.HeroManager
+  langs:
+  - csharp
+  - vb
+  name: Impregnate(Hero, Hero)
+  nameWithType: HeroManager.Impregnate(Hero, Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Impregnate
+    path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
+    startLine: 59
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Makes a female hero pregnant with an optional specified father.
+
+    If no father is specified, resolves one automatically via ResolveFather().
+
+    Uses reflection to replace the pregnancy record with the correct father after MakePregnantAction.Apply().
+  example: []
+  syntax:
+    content: public static BLGMResult Impregnate(Hero mother, Hero father = null)
+    parameters:
+    - id: mother
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The female hero to make pregnant
+    - id: father
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Optional father hero. If null, will be auto-resolved.
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with success/failure details
+    content.vb: Public Shared Function Impregnate(mother As Hero, father As Hero = Nothing) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate*
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.Marry(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.Marry(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean,System.Boolean)
+  id: Marry(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroManager
+  langs:
+  - csharp
+  - vb
+  name: Marry(Hero, Hero, bool, bool)
+  nameWithType: HeroManager.Marry(Hero, Hero, bool, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.Marry(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Hero, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Marry
+    path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
+    startLine: 97
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Marry two heroes. Divorces both from current spouses first if needed.
+
+    Tries native MarriageAction.Apply() first, only forces via Spouse setter when forceMarriage is true.
+  example: []
+  syntax:
+    content: public static BLGMResult Marry(Hero hero, Hero otherHero, bool forceMarriage = false, bool joinClan = true)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: First hero (otherHero joins this hero's clan by default)
+    - id: otherHero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Second hero
+    - id: forceMarriage
+      type: System.Boolean
+      description: If true, bypasses native validation checks on failure
+    - id: joinClan
+      type: System.Boolean
+      description: If true, otherHero joins hero's clan. If false, both heroes stay in original clans
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with success/failure details
+    content.vb: Public Shared Function Marry(hero As Hero, otherHero As Hero, forceMarriage As Boolean = False, joinClan As Boolean = True) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroManager.Marry*
+  nameWithType.vb: HeroManager.Marry(Hero, Hero, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroManager.Marry(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Hero, Boolean, Boolean)
+  name.vb: Marry(Hero, Hero, Boolean, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.Divorce(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.Divorce(TaleWorlds.CampaignSystem.Hero)
+  id: Divorce(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.HeroManager
+  langs:
+  - csharp
+  - vb
+  name: Divorce(Hero)
+  nameWithType: HeroManager.Divorce(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.Divorce(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Divorce
+    path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
+    startLine: 188
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Divorce hero from their current spouse.
+
+    The native Spouse setter handles both sides and exSpouses lists.
+  example: []
+  syntax:
+    content: public static BLGMResult Divorce(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to divorce from their current spouse
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with success/failure details
+    content.vb: Public Shared Function Divorce(hero As Hero) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroManager.Divorce*
 references:
 - uid: Bannerlord.GameMaster.Heroes
   commentId: N:Bannerlord.GameMaster.Heroes
@@ -490,3 +624,32 @@ references:
   - uid: Bannerlord.GameMaster.Common
     name: Common
     href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.Impregnate
+  href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_Impregnate_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Hero_
+  name: Impregnate
+  nameWithType: HeroManager.Impregnate
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.Marry*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.Marry
+  href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_Marry_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Hero_System_Boolean_System_Boolean_
+  name: Marry
+  nameWithType: HeroManager.Marry
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.Marry
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.Divorce*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.Divorce
+  href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_Divorce_TaleWorlds_CampaignSystem_Hero_
+  name: Divorce
+  nameWithType: HeroManager.Divorce
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.Divorce

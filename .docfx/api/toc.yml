@@ -98,6 +98,9 @@ items:
   - uid: Bannerlord.GameMaster.Characters.CharacterExtensions
     name: CharacterExtensions
     type: Class
+  - uid: Bannerlord.GameMaster.Characters.CharacterHelpers
+    name: CharacterHelpers
+    type: Class
   - uid: Bannerlord.GameMaster.Characters.CharacterQueries
     name: CharacterQueries
     type: Class
@@ -466,6 +469,9 @@ items:
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.CreatePartyCommand
     name: CreatePartyCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
+    name: DivorceCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
     name: EditAppearanceCommand
     type: Class
@@ -475,11 +481,17 @@ items:
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
     name: HealHeroCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImpregnateCommand
+    name: ImpregnateCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
     name: ImprisonHeroCommand
     type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
     name: KillHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
+    name: MarryCommand
     type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
     name: OpenInventoryCommand
@@ -668,6 +680,9 @@ items:
   - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
     name: RemoveClanCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RenameKingdomCommand
+    name: RenameKingdomCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
     name: SetRulerCommand
     type: Class
@@ -695,6 +710,16 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Console.LoggerCommands.LoggingStatusCommand
     name: LoggingStatusCommand
+    type: Class
+- uid: Bannerlord.GameMaster.Console.NameCommands
+  name: Bannerlord.GameMaster.Console.NameCommands
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Console.NameCommands.ForceDefaultNamesCommand
+    name: ForceDefaultNamesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.NameCommands.ReloadNamesCommand
+    name: ReloadNamesCommand
     type: Class
 - uid: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
   name: Bannerlord.GameMaster.Console.Query.ClanQueryCommands
@@ -1018,6 +1043,16 @@ items:
   - uid: Bannerlord.GameMaster.Cultures.HeroNames.VlandiaHeroNames
     name: VlandiaHeroNames
     type: Class
+- uid: Bannerlord.GameMaster.Cultures.Names
+  name: Bannerlord.GameMaster.Cultures.Names
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Cultures.Names.NameProvider
+    name: NameProvider
+    type: Class
+  - uid: Bannerlord.GameMaster.Cultures.Names.NameType
+    name: NameType
+    type: Enum
 - uid: Bannerlord.GameMaster.Factions
   name: Bannerlord.GameMaster.Factions
   type: Namespace
@@ -1059,12 +1094,21 @@ items:
   - uid: Bannerlord.GameMaster.Heroes.HeroOutfitter
     name: HeroOutfitter
     type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+    name: HeroPositionHelpers
+    type: Class
   - uid: Bannerlord.GameMaster.Heroes.HeroQueries
     name: HeroQueries
     type: Class
   - uid: Bannerlord.GameMaster.Heroes.HeroTypes
     name: HeroTypes
     type: Enum
+  - uid: Bannerlord.GameMaster.Heroes.PregnancyHelpers
+    name: PregnancyHelpers
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
+    name: PregnancyReflectionHelper
+    type: Class
   - uid: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
     name: StaticBodyPropertiesHelper
     type: Class

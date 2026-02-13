@@ -6,6 +6,7 @@ items:
   parent: Bannerlord.GameMaster.Cultures.FactionNames
   children:
   - Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames.ClanNames
+  - Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames.FactionPrefixes
   - Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames.KingdomNames
   langs:
   - csharp
@@ -87,7 +88,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: KingdomNames
     path: ../Bannerlord.GameMaster/Cultures/FactionNames/KhuzaitFactionNames.cs
-    startLine: 27
+    startLine: 39
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Cultures.FactionNames
@@ -98,6 +99,35 @@ items:
     return:
       type: System.String[]
     content.vb: Public Shared ReadOnly KingdomNames As String()
+- uid: Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames.FactionPrefixes
+  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames.FactionPrefixes
+  id: FactionPrefixes
+  parent: Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames
+  langs:
+  - csharp
+  - vb
+  name: FactionPrefixes
+  nameWithType: KhuzaitFactionNames.FactionPrefixes
+  fullName: Bannerlord.GameMaster.Cultures.FactionNames.KhuzaitFactionNames.FactionPrefixes
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/FactionNames/KhuzaitFactionNames.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FactionPrefixes
+    path: ../Bannerlord.GameMaster/Cultures/FactionNames/KhuzaitFactionNames.cs
+    startLine: 92
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.FactionNames
+  summary: Faction name prefixes for Khuzait culture
+  example: []
+  syntax:
+    content: public static readonly string[] FactionPrefixes
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly FactionPrefixes As String()
 references:
 - uid: Bannerlord.GameMaster.Cultures.FactionNames
   commentId: N:Bannerlord.GameMaster.Cultures.FactionNames

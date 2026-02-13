@@ -1,0 +1,757 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+  id: HeroPositionHelpers
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes(TaleWorlds.Library.Vec2,System.Int32,System.Func{TaleWorlds.CampaignSystem.Hero,System.Boolean})
+  - Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero})
+  - Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Library.Vec2@)
+  langs:
+  - csharp
+  - vb
+  name: HeroPositionHelpers
+  nameWithType: HeroPositionHelpers
+  fullName: Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroPositionHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroPositionHelpers
+    path: ../Bannerlord.GameMaster/Heroes/HeroPositionHelpers.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Provides helpers for finding heroes based on position, proximity, and settlement location.
+  example: []
+  syntax:
+    content: public static class HeroPositionHelpers
+    content.vb: Public Module HeroPositionHelpers
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Library.Vec2@)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Library.Vec2@)
+  id: TryGetHeroMapPosition(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Library.Vec2@)
+  parent: Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+  langs:
+  - csharp
+  - vb
+  name: TryGetHeroMapPosition(Hero, out Vec2)
+  nameWithType: HeroPositionHelpers.TryGetHeroMapPosition(Hero, out Vec2)
+  fullName: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition(TaleWorlds.CampaignSystem.Hero, out TaleWorlds.Library.Vec2)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroPositionHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TryGetHeroMapPosition
+    path: ../Bannerlord.GameMaster/Heroes/HeroPositionHelpers.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Gets the best available map position for a hero.
+
+    Checks settlement first, then party, then party's attached-to party.
+  example: []
+  syntax:
+    content: public static bool TryGetHeroMapPosition(Hero hero, out Vec2 position)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to get the position for
+    - id: position
+      type: TaleWorlds.Library.Vec2
+      description: The resolved map position
+    return:
+      type: System.Boolean
+      description: True if a valid position was found, false otherwise
+    content.vb: Public Shared Function TryGetHeroMapPosition(hero As Hero, position As Vec2) As Boolean
+  overload: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition*
+  nameWithType.vb: HeroPositionHelpers.TryGetHeroMapPosition(Hero, Vec2)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Library.Vec2)
+  name.vb: TryGetHeroMapPosition(Hero, Vec2)
+- uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero})
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero})
+  id: GetHeroesInSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero})
+  parent: Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetHeroesInSettlement(Settlement, List<Hero>)
+  nameWithType: HeroPositionHelpers.GetHeroesInSettlement(Settlement, List<Hero>)
+  fullName: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement, System.Collections.Generic.List<TaleWorlds.CampaignSystem.Hero>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroPositionHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetHeroesInSettlement
+    path: ../Bannerlord.GameMaster/Heroes/HeroPositionHelpers.cs
+    startLine: 55
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Collects all heroes present in a settlement, including heroes without a party
+
+    and hero members of parties stationed at the settlement.
+  example: []
+  syntax:
+    content: public static void GetHeroesInSettlement(Settlement settlement, List<Hero> heroes)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to search
+    - id: heroes
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+      description: Output list of heroes found in the settlement
+    content.vb: Public Shared Sub GetHeroesInSettlement(settlement As Settlement, heroes As List(Of Hero))
+  overload: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement*
+  nameWithType.vb: HeroPositionHelpers.GetHeroesInSettlement(Settlement, List(Of Hero))
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement, System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.Hero))
+  name.vb: GetHeroesInSettlement(Settlement, List(Of Hero))
+- uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes(TaleWorlds.Library.Vec2,System.Int32,System.Func{TaleWorlds.CampaignSystem.Hero,System.Boolean})
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes(TaleWorlds.Library.Vec2,System.Int32,System.Func{TaleWorlds.CampaignSystem.Hero,System.Boolean})
+  id: FindNearestHeroes(TaleWorlds.Library.Vec2,System.Int32,System.Func{TaleWorlds.CampaignSystem.Hero,System.Boolean})
+  parent: Bannerlord.GameMaster.Heroes.HeroPositionHelpers
+  langs:
+  - csharp
+  - vb
+  name: FindNearestHeroes(Vec2, int, Func<Hero, bool>)
+  nameWithType: HeroPositionHelpers.FindNearestHeroes(Vec2, int, Func<Hero, bool>)
+  fullName: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes(TaleWorlds.Library.Vec2, int, System.Func<TaleWorlds.CampaignSystem.Hero, bool>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroPositionHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestHeroes
+    path: ../Bannerlord.GameMaster/Heroes/HeroPositionHelpers.cs
+    startLine: 103
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Finds the nearest heroes to a given map position from Hero.AllAliveHeroes,
+
+    filtered by a predicate. Uses DistanceSquared for performance.
+
+    Returns up to maxCount heroes sorted by distance (closest first).
+  example: []
+  syntax:
+    content: public static List<Hero> FindNearestHeroes(Vec2 position, int maxCount, Func<Hero, bool> predicate)
+    parameters:
+    - id: position
+      type: TaleWorlds.Library.Vec2
+      description: The map position to measure distance from
+    - id: maxCount
+      type: System.Int32
+      description: Maximum number of heroes to return
+    - id: predicate
+      type: System.Func{TaleWorlds.CampaignSystem.Hero,System.Boolean}
+      description: Filter predicate (return true to include the hero)
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+      description: List of up to maxCount nearest heroes matching the predicate
+    content.vb: Public Shared Function FindNearestHeroes(position As Vec2, maxCount As Integer, predicate As Func(Of Hero, Boolean)) As List(Of Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes*
+  nameWithType.vb: HeroPositionHelpers.FindNearestHeroes(Vec2, Integer, Func(Of Hero, Boolean))
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes(TaleWorlds.Library.Vec2, Integer, System.Func(Of TaleWorlds.CampaignSystem.Hero, Boolean))
+  name.vb: FindNearestHeroes(Vec2, Integer, Func(Of Hero, Boolean))
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition
+  href: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.html#Bannerlord_GameMaster_Heroes_HeroPositionHelpers_TryGetHeroMapPosition_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Library_Vec2__
+  name: TryGetHeroMapPosition
+  nameWithType: HeroPositionHelpers.TryGetHeroMapPosition
+  fullName: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.TryGetHeroMapPosition
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.Library.Vec2
+  commentId: T:TaleWorlds.Library.Vec2
+  parent: TaleWorlds.Library
+  isExternal: true
+  name: Vec2
+  nameWithType: Vec2
+  fullName: TaleWorlds.Library.Vec2
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement
+  href: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.html#Bannerlord_GameMaster_Heroes_HeroPositionHelpers_GetHeroesInSettlement_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Collections_Generic_List_TaleWorlds_CampaignSystem_Hero__
+  name: GetHeroesInSettlement
+  nameWithType: HeroPositionHelpers.GetHeroesInSettlement
+  fullName: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.GetHeroesInSettlement
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.Hero}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Hero>
+  nameWithType: List<Hero>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.Hero>
+  nameWithType.vb: List(Of Hero)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.Hero)
+  name.vb: List(Of Hero)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes
+  href: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.html#Bannerlord_GameMaster_Heroes_HeroPositionHelpers_FindNearestHeroes_TaleWorlds_Library_Vec2_System_Int32_System_Func_TaleWorlds_CampaignSystem_Hero_System_Boolean__
+  name: FindNearestHeroes
+  nameWithType: HeroPositionHelpers.FindNearestHeroes
+  fullName: Bannerlord.GameMaster.Heroes.HeroPositionHelpers.FindNearestHeroes
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Func{TaleWorlds.CampaignSystem.Hero,System.Boolean}
+  commentId: T:System.Func{TaleWorlds.CampaignSystem.Hero,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<Hero, bool>
+  nameWithType: Func<Hero, bool>
+  fullName: System.Func<TaleWorlds.CampaignSystem.Hero, bool>
+  nameWithType.vb: Func(Of Hero, Boolean)
+  fullName.vb: System.Func(Of TaleWorlds.CampaignSystem.Hero, Boolean)
+  name.vb: Func(Of Hero, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

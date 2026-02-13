@@ -1,36 +1,32 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  id: SturgiaFactionNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames
+- uid: Bannerlord.GameMaster.Characters.CharacterHelpers
+  commentId: T:Bannerlord.GameMaster.Characters.CharacterHelpers
+  id: CharacterHelpers
+  parent: Bannerlord.GameMaster.Characters
   children:
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
+  - Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode(TaleWorlds.CampaignSystem.CharacterObject,System.Boolean,System.Boolean)
   langs:
   - csharp
   - vb
-  name: SturgiaFactionNames
-  nameWithType: SturgiaFactionNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+  name: CharacterHelpers
+  nameWithType: CharacterHelpers
+  fullName: Bannerlord.GameMaster.Characters.CharacterHelpers
   type: Class
   source:
     remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
+      path: Bannerlord.GameMaster/Characters/CharacterHelpers.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: SturgiaFactionNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 5
+    id: CharacterHelpers
+    path: ../Bannerlord.GameMaster/Characters/CharacterHelpers.cs
+    startLine: 8
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Sturgia culture faction names
-  example: []
+  namespace: Bannerlord.GameMaster.Characters
   syntax:
-    content: public static class SturgiaFactionNames
-    content.vb: Public Module SturgiaFactionNames
+    content: public static class CharacterHelpers
+    content.vb: Public Module CharacterHelpers
   inheritance:
   - System.Object
   inheritedMembers:
@@ -41,100 +37,56 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  id: ClanNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+- uid: Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode(TaleWorlds.CampaignSystem.CharacterObject,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode(TaleWorlds.CampaignSystem.CharacterObject,System.Boolean,System.Boolean)
+  id: BuildCharacterCode(TaleWorlds.CampaignSystem.CharacterObject,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Characters.CharacterHelpers
   langs:
   - csharp
   - vb
-  name: ClanNames
-  nameWithType: SturgiaFactionNames.ClanNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  type: Field
+  name: BuildCharacterCode(CharacterObject, bool, bool)
+  nameWithType: CharacterHelpers.BuildCharacterCode(CharacterObject, bool, bool)
+  fullName: Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode(TaleWorlds.CampaignSystem.CharacterObject, bool, bool)
+  type: Method
   source:
     remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
+      path: Bannerlord.GameMaster/Characters/CharacterHelpers.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: ClanNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 10
+    id: BuildCharacterCode
+    path: ../Bannerlord.GameMaster/Characters/CharacterHelpers.cs
+    startLine: 14
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Clan names for Sturgia culture
+  namespace: Bannerlord.GameMaster.Characters
+  summary: >-
+    Builds Character code the same way as CampaignUIHelper.GetCharacterCode except has an option to bypass the check for IsHeroInformationHidden
+
+    Use forceShowHidden = true to even show characters that are hidden or unknown to player
   example: []
   syntax:
-    content: public static readonly string[] ClanNames
+    content: public static CharacterCode BuildCharacterCode(CharacterObject character, bool useCivilian, bool forceShowHidden)
+    parameters:
+    - id: character
+      type: TaleWorlds.CampaignSystem.CharacterObject
+    - id: useCivilian
+      type: System.Boolean
+    - id: forceShowHidden
+      type: System.Boolean
     return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly ClanNames As String()
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  id: KingdomNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  langs:
-  - csharp
-  - vb
-  name: KingdomNames
-  nameWithType: SturgiaFactionNames.KingdomNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  type: Field
-  source:
-    remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-      branch: master
-      repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: KingdomNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 39
-  assemblies:
-  - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Kingdom names for Sturgia culture
-  example: []
-  syntax:
-    content: public static readonly string[] KingdomNames
-    return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly KingdomNames As String()
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  id: FactionPrefixes
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  langs:
-  - csharp
-  - vb
-  name: FactionPrefixes
-  nameWithType: SturgiaFactionNames.FactionPrefixes
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  type: Field
-  source:
-    remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-      branch: master
-      repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: FactionPrefixes
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 92
-  assemblies:
-  - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Faction name prefixes for Sturgia culture
-  example: []
-  syntax:
-    content: public static readonly string[] FactionPrefixes
-    return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly FactionPrefixes As String()
+      type: TaleWorlds.Core.CharacterCode
+    content.vb: Public Shared Function BuildCharacterCode(character As CharacterObject, useCivilian As Boolean, forceShowHidden As Boolean) As CharacterCode
+  overload: Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode*
+  nameWithType.vb: CharacterHelpers.BuildCharacterCode(CharacterObject, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode(TaleWorlds.CampaignSystem.CharacterObject, Boolean, Boolean)
+  name.vb: BuildCharacterCode(CharacterObject, Boolean, Boolean)
 references:
-- uid: Bannerlord.GameMaster.Cultures.FactionNames
-  commentId: N:Bannerlord.GameMaster.Cultures.FactionNames
+- uid: Bannerlord.GameMaster.Characters
+  commentId: N:Bannerlord.GameMaster.Characters
   href: Bannerlord.html
-  name: Bannerlord.GameMaster.Cultures.FactionNames
-  nameWithType: Bannerlord.GameMaster.Cultures.FactionNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames
+  name: Bannerlord.GameMaster.Characters
+  nameWithType: Bannerlord.GameMaster.Characters
+  fullName: Bannerlord.GameMaster.Characters
   spec.csharp:
   - uid: Bannerlord
     name: Bannerlord
@@ -144,13 +96,9 @@ references:
     name: GameMaster
     href: Bannerlord.GameMaster.html
   - name: .
-  - uid: Bannerlord.GameMaster.Cultures
-    name: Cultures
-    href: Bannerlord.GameMaster.Cultures.html
-  - name: .
-  - uid: Bannerlord.GameMaster.Cultures.FactionNames
-    name: FactionNames
-    href: Bannerlord.GameMaster.Cultures.FactionNames.html
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
   spec.vb:
   - uid: Bannerlord
     name: Bannerlord
@@ -160,13 +108,9 @@ references:
     name: GameMaster
     href: Bannerlord.GameMaster.html
   - name: .
-  - uid: Bannerlord.GameMaster.Cultures
-    name: Cultures
-    href: Bannerlord.GameMaster.Cultures.html
-  - name: .
-  - uid: Bannerlord.GameMaster.Cultures.FactionNames
-    name: FactionNames
-    href: Bannerlord.GameMaster.Cultures.FactionNames.html
+  - uid: Bannerlord.GameMaster.Characters
+    name: Characters
+    href: Bannerlord.GameMaster.Characters.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -404,26 +348,78 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.String[]
+- uid: Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode*
+  commentId: Overload:Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode
+  href: Bannerlord.GameMaster.Characters.CharacterHelpers.html#Bannerlord_GameMaster_Characters_CharacterHelpers_BuildCharacterCode_TaleWorlds_CampaignSystem_CharacterObject_System_Boolean_System_Boolean_
+  name: BuildCharacterCode
+  nameWithType: CharacterHelpers.BuildCharacterCode
+  fullName: Bannerlord.GameMaster.Characters.CharacterHelpers.BuildCharacterCode
+- uid: TaleWorlds.CampaignSystem.CharacterObject
+  commentId: T:TaleWorlds.CampaignSystem.CharacterObject
+  parent: TaleWorlds.CampaignSystem
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string[]
-  nameWithType: string[]
-  fullName: string[]
-  nameWithType.vb: String()
-  fullName.vb: String()
-  name.vb: String()
+  name: CharacterObject
+  nameWithType: CharacterObject
+  fullName: TaleWorlds.CampaignSystem.CharacterObject
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TaleWorlds.Core.CharacterCode
+  commentId: T:TaleWorlds.Core.CharacterCode
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: CharacterCode
+  nameWithType: CharacterCode
+  fullName: TaleWorlds.Core.CharacterCode
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
   spec.csharp:
-  - uid: System.String
-    name: string
+  - uid: TaleWorlds
+    name: TaleWorlds
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
   spec.vb:
-  - uid: System.String
-    name: String
+  - uid: TaleWorlds
+    name: TaleWorlds
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true

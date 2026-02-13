@@ -23,7 +23,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InventoryUILauncher
     path: ../Bannerlord.GameMaster/Items/Inventory/InventoryUILauncher.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items.Inventory
@@ -65,7 +65,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OpenHeroInventory
     path: ../Bannerlord.GameMaster/Items/Inventory/InventoryUILauncher.cs
-    startLine: 30
+    startLine: 31
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items.Inventory
@@ -108,7 +108,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OpenHeroToHeroInventory
     path: ../Bannerlord.GameMaster/Items/Inventory/InventoryUILauncher.cs
-    startLine: 76
+    startLine: 77
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items.Inventory
@@ -157,7 +157,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OpenPartyToPartyInventory
     path: ../Bannerlord.GameMaster/Items/Inventory/InventoryUILauncher.cs
-    startLine: 144
+    startLine: 145
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items.Inventory
@@ -203,7 +203,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OpenWithCustomRosters
     path: ../Bannerlord.GameMaster/Items/Inventory/InventoryUILauncher.cs
-    startLine: 200
+    startLine: 201
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items.Inventory

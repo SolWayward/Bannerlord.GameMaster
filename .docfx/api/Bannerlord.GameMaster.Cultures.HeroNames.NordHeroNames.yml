@@ -6,6 +6,7 @@ items:
   parent: Bannerlord.GameMaster.Cultures.HeroNames
   children:
   - Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames.FemaleNames
+  - Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames.HeroSuffixes
   - Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames.MaleNames
   langs:
   - csharp
@@ -87,7 +88,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: FemaleNames
     path: ../Bannerlord.GameMaster/Cultures/HeroNames/NordHeroNames.cs
-    startLine: 35
+    startLine: 56
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Cultures.HeroNames
@@ -98,6 +99,35 @@ items:
     return:
       type: System.String[]
     content.vb: Public Shared ReadOnly FemaleNames As String()
+- uid: Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames.HeroSuffixes
+  commentId: F:Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames.HeroSuffixes
+  id: HeroSuffixes
+  parent: Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames
+  langs:
+  - csharp
+  - vb
+  name: HeroSuffixes
+  nameWithType: NordHeroNames.HeroSuffixes
+  fullName: Bannerlord.GameMaster.Cultures.HeroNames.NordHeroNames.HeroSuffixes
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/HeroNames/NordHeroNames.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroSuffixes
+    path: ../Bannerlord.GameMaster/Cultures/HeroNames/NordHeroNames.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.HeroNames
+  summary: Hero name suffixes for Nord culture (Norse/Viking-style titles and epithets)
+  example: []
+  syntax:
+    content: public static readonly string[] HeroSuffixes
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly HeroSuffixes As String()
 references:
 - uid: Bannerlord.GameMaster.Cultures.HeroNames
   commentId: N:Bannerlord.GameMaster.Cultures.HeroNames

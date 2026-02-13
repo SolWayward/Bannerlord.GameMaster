@@ -16,6 +16,7 @@ items:
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors(TaleWorlds.CampaignSystem.Kingdom,System.UInt32,System.UInt32)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName(TaleWorlds.CampaignSystem.Kingdom,System.String)
   langs:
   - csharp
   - vb
@@ -255,6 +256,41 @@ items:
       type: TaleWorlds.Library.MBReadOnlyList{TaleWorlds.CampaignSystem.Settlements.Settlement}
     content.vb: Public Shared Function GetCastles(kingdom As Kingdom) As MBReadOnlyList(Of Settlement)
   overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName(TaleWorlds.CampaignSystem.Kingdom,System.String)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName(TaleWorlds.CampaignSystem.Kingdom,System.String)
+  id: SetStringName(TaleWorlds.CampaignSystem.Kingdom,System.String)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetStringName(Kingdom, string)
+  nameWithType: KingdomExtensions.SetStringName(Kingdom, string)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName(TaleWorlds.CampaignSystem.Kingdom, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetStringName
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 125
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  syntax:
+    content: public static void SetStringName(this Kingdom kingdom, string name)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: name
+      type: System.String
+    content.vb: Public Shared Sub SetStringName(kingdom As Kingdom, name As String)
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName*
+  nameWithType.vb: KingdomExtensions.SetStringName(Kingdom, String)
+  fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName(TaleWorlds.CampaignSystem.Kingdom, String)
+  name.vb: SetStringName(Kingdom, String)
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages(TaleWorlds.CampaignSystem.Kingdom)
   commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages(TaleWorlds.CampaignSystem.Kingdom)
   id: GetVillages(TaleWorlds.CampaignSystem.Kingdom)
@@ -274,7 +310,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetVillages
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 126
+    startLine: 131
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -308,7 +344,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: FormattedDetails
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 142
+    startLine: 147
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -342,7 +378,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetTypes
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 152
+    startLine: 157
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -376,7 +412,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: PropagateRulingClanBanner
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 185
+    startLine: 190
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -421,7 +457,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetBannerColors
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 246
+    startLine: 251
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -892,6 +928,23 @@ references:
   name: GetCastles
   nameWithType: KingdomExtensions.GetCastles
   fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetCastles
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_SetStringName_TaleWorlds_CampaignSystem_Kingdom_System_String_
+  name: SetStringName
+  nameWithType: KingdomExtensions.SetStringName
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages*
   commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetVillages
   href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_GetVillages_TaleWorlds_CampaignSystem_Kingdom_
@@ -904,17 +957,6 @@ references:
   name: FormattedDetails
   nameWithType: KingdomExtensions.FormattedDetails
   fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.FormattedDetails
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes*
   commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes
   href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_GetTypes_TaleWorlds_CampaignSystem_Kingdom_

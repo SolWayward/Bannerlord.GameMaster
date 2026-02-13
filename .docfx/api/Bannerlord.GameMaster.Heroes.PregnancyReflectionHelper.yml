@@ -1,36 +1,37 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  id: SturgiaFactionNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
+  commentId: T:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
+  id: PregnancyReflectionHelper
+  parent: Bannerlord.GameMaster.Heroes
   children:
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
+  - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
   langs:
   - csharp
   - vb
-  name: SturgiaFactionNames
-  nameWithType: SturgiaFactionNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+  name: PregnancyReflectionHelper
+  nameWithType: PregnancyReflectionHelper
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
   type: Class
   source:
     remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
+      path: Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: SturgiaFactionNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 5
+    id: PregnancyReflectionHelper
+    path: ../Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
+    startLine: 13
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Sturgia culture faction names
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Provides cached reflection access to PregnancyCampaignBehavior internals
+
+    for manipulating pregnancy records (replacing father on existing pregnancies).
   example: []
   syntax:
-    content: public static class SturgiaFactionNames
-    content.vb: Public Module SturgiaFactionNames
+    content: public static class PregnancyReflectionHelper
+    content.vb: Public Module PregnancyReflectionHelper
   inheritance:
   - System.Object
   inheritedMembers:
@@ -41,100 +42,54 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  id: ClanNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  id: ReplacePregnancyFather(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
   langs:
   - csharp
   - vb
-  name: ClanNames
-  nameWithType: SturgiaFactionNames.ClanNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  type: Field
+  name: ReplacePregnancyFather(Hero, Hero)
+  nameWithType: PregnancyReflectionHelper.ReplacePregnancyFather(Hero, Hero)
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Hero)
+  type: Method
   source:
     remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
+      path: Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: ClanNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 10
+    id: ReplacePregnancyFather
+    path: ../Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
+    startLine: 42
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Clan names for Sturgia culture
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Replaces the father on an existing pregnancy record for the given mother.
+
+    Must be called after MakePregnantAction.Apply() has created the initial record.
   example: []
   syntax:
-    content: public static readonly string[] ClanNames
+    content: public static BLGMResult ReplacePregnancyFather(Hero mother, Hero father)
+    parameters:
+    - id: mother
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The pregnant hero whose pregnancy record to modify
+    - id: father
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to set as the father
     return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly ClanNames As String()
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  id: KingdomNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  langs:
-  - csharp
-  - vb
-  name: KingdomNames
-  nameWithType: SturgiaFactionNames.KingdomNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  type: Field
-  source:
-    remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-      branch: master
-      repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: KingdomNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 39
-  assemblies:
-  - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Kingdom names for Sturgia culture
-  example: []
-  syntax:
-    content: public static readonly string[] KingdomNames
-    return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly KingdomNames As String()
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  id: FactionPrefixes
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  langs:
-  - csharp
-  - vb
-  name: FactionPrefixes
-  nameWithType: SturgiaFactionNames.FactionPrefixes
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  type: Field
-  source:
-    remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-      branch: master
-      repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: FactionPrefixes
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 92
-  assemblies:
-  - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Faction name prefixes for Sturgia culture
-  example: []
-  syntax:
-    content: public static readonly string[] FactionPrefixes
-    return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly FactionPrefixes As String()
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with details
+    content.vb: Public Shared Function ReplacePregnancyFather(mother As Hero, father As Hero) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather*
 references:
-- uid: Bannerlord.GameMaster.Cultures.FactionNames
-  commentId: N:Bannerlord.GameMaster.Cultures.FactionNames
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
   href: Bannerlord.html
-  name: Bannerlord.GameMaster.Cultures.FactionNames
-  nameWithType: Bannerlord.GameMaster.Cultures.FactionNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
   spec.csharp:
   - uid: Bannerlord
     name: Bannerlord
@@ -144,13 +99,9 @@ references:
     name: GameMaster
     href: Bannerlord.GameMaster.html
   - name: .
-  - uid: Bannerlord.GameMaster.Cultures
-    name: Cultures
-    href: Bannerlord.GameMaster.Cultures.html
-  - name: .
-  - uid: Bannerlord.GameMaster.Cultures.FactionNames
-    name: FactionNames
-    href: Bannerlord.GameMaster.Cultures.FactionNames.html
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
   spec.vb:
   - uid: Bannerlord
     name: Bannerlord
@@ -160,13 +111,9 @@ references:
     name: GameMaster
     href: Bannerlord.GameMaster.html
   - name: .
-  - uid: Bannerlord.GameMaster.Cultures
-    name: Cultures
-    href: Bannerlord.GameMaster.Cultures.html
-  - name: .
-  - uid: Bannerlord.GameMaster.Cultures.FactionNames
-    name: FactionNames
-    href: Bannerlord.GameMaster.Cultures.FactionNames.html
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -404,26 +351,75 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.String[]
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather
+  href: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.html#Bannerlord_GameMaster_Heroes_PregnancyReflectionHelper_ReplacePregnancyFather_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Hero_
+  name: ReplacePregnancyFather
+  nameWithType: PregnancyReflectionHelper.ReplacePregnancyFather
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string[]
-  nameWithType: string[]
-  fullName: string[]
-  nameWithType.vb: String()
-  fullName.vb: String()
-  name.vb: String()
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
   spec.csharp:
-  - uid: System.String
-    name: string
+  - uid: TaleWorlds
+    name: TaleWorlds
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
   spec.vb:
-  - uid: System.String
-    name: String
+  - uid: TaleWorlds
+    name: TaleWorlds
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html

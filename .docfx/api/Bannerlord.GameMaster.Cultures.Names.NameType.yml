@@ -1,0 +1,238 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType
+  commentId: T:Bannerlord.GameMaster.Cultures.Names.NameType
+  id: NameType
+  parent: Bannerlord.GameMaster.Cultures.Names
+  children:
+  - Bannerlord.GameMaster.Cultures.Names.NameType.ClanNames
+  - Bannerlord.GameMaster.Cultures.Names.NameType.FactionPrefixes
+  - Bannerlord.GameMaster.Cultures.Names.NameType.FemaleHeroNames
+  - Bannerlord.GameMaster.Cultures.Names.NameType.HeroSuffixes
+  - Bannerlord.GameMaster.Cultures.Names.NameType.KingdomNames
+  - Bannerlord.GameMaster.Cultures.Names.NameType.MaleHeroNames
+  langs:
+  - csharp
+  - vb
+  name: NameType
+  nameWithType: NameType
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: NameType
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameType.cs
+    startLine: 5
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  summary: Identifies the type of name data for cache lookup and default fallback routing
+  example: []
+  syntax:
+    content: public enum NameType
+    content.vb: Public Enum NameType
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType.MaleHeroNames
+  commentId: F:Bannerlord.GameMaster.Cultures.Names.NameType.MaleHeroNames
+  id: MaleHeroNames
+  parent: Bannerlord.GameMaster.Cultures.Names.NameType
+  langs:
+  - csharp
+  - vb
+  name: MaleHeroNames
+  nameWithType: NameType.MaleHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType.MaleHeroNames
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MaleHeroNames
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameType.cs
+    startLine: 7
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  syntax:
+    content: MaleHeroNames = 0
+    return:
+      type: Bannerlord.GameMaster.Cultures.Names.NameType
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType.FemaleHeroNames
+  commentId: F:Bannerlord.GameMaster.Cultures.Names.NameType.FemaleHeroNames
+  id: FemaleHeroNames
+  parent: Bannerlord.GameMaster.Cultures.Names.NameType
+  langs:
+  - csharp
+  - vb
+  name: FemaleHeroNames
+  nameWithType: NameType.FemaleHeroNames
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType.FemaleHeroNames
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FemaleHeroNames
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameType.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  syntax:
+    content: FemaleHeroNames = 1
+    return:
+      type: Bannerlord.GameMaster.Cultures.Names.NameType
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType.HeroSuffixes
+  commentId: F:Bannerlord.GameMaster.Cultures.Names.NameType.HeroSuffixes
+  id: HeroSuffixes
+  parent: Bannerlord.GameMaster.Cultures.Names.NameType
+  langs:
+  - csharp
+  - vb
+  name: HeroSuffixes
+  nameWithType: NameType.HeroSuffixes
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType.HeroSuffixes
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroSuffixes
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameType.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  syntax:
+    content: HeroSuffixes = 2
+    return:
+      type: Bannerlord.GameMaster.Cultures.Names.NameType
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType.ClanNames
+  commentId: F:Bannerlord.GameMaster.Cultures.Names.NameType.ClanNames
+  id: ClanNames
+  parent: Bannerlord.GameMaster.Cultures.Names.NameType
+  langs:
+  - csharp
+  - vb
+  name: ClanNames
+  nameWithType: NameType.ClanNames
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType.ClanNames
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClanNames
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameType.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  syntax:
+    content: ClanNames = 3
+    return:
+      type: Bannerlord.GameMaster.Cultures.Names.NameType
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType.KingdomNames
+  commentId: F:Bannerlord.GameMaster.Cultures.Names.NameType.KingdomNames
+  id: KingdomNames
+  parent: Bannerlord.GameMaster.Cultures.Names.NameType
+  langs:
+  - csharp
+  - vb
+  name: KingdomNames
+  nameWithType: NameType.KingdomNames
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType.KingdomNames
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: KingdomNames
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameType.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  syntax:
+    content: KingdomNames = 4
+    return:
+      type: Bannerlord.GameMaster.Cultures.Names.NameType
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType.FactionPrefixes
+  commentId: F:Bannerlord.GameMaster.Cultures.Names.NameType.FactionPrefixes
+  id: FactionPrefixes
+  parent: Bannerlord.GameMaster.Cultures.Names.NameType
+  langs:
+  - csharp
+  - vb
+  name: FactionPrefixes
+  nameWithType: NameType.FactionPrefixes
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType.FactionPrefixes
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Cultures/Names/NameType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FactionPrefixes
+    path: ../Bannerlord.GameMaster/Cultures/Names/NameType.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Cultures.Names
+  syntax:
+    content: FactionPrefixes = 5
+    return:
+      type: Bannerlord.GameMaster.Cultures.Names.NameType
+references:
+- uid: Bannerlord.GameMaster.Cultures.Names
+  commentId: N:Bannerlord.GameMaster.Cultures.Names
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Cultures.Names
+  nameWithType: Bannerlord.GameMaster.Cultures.Names
+  fullName: Bannerlord.GameMaster.Cultures.Names
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures.Names
+    name: Names
+    href: Bannerlord.GameMaster.Cultures.Names.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures
+    name: Cultures
+    href: Bannerlord.GameMaster.Cultures.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Cultures.Names
+    name: Names
+    href: Bannerlord.GameMaster.Cultures.Names.html
+- uid: Bannerlord.GameMaster.Cultures.Names.NameType
+  commentId: T:Bannerlord.GameMaster.Cultures.Names.NameType
+  parent: Bannerlord.GameMaster.Cultures.Names
+  href: Bannerlord.GameMaster.Cultures.Names.NameType.html
+  name: NameType
+  nameWithType: NameType
+  fullName: Bannerlord.GameMaster.Cultures.Names.NameType

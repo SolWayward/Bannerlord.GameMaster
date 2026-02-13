@@ -9,6 +9,7 @@ items:
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EditKingdomBannerCommand
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.EquipKingdomHeroesCommand
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
+  - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RenameKingdomCommand
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
   - Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SyncVassalBannersCommand
   langs:
@@ -51,6 +52,12 @@ references:
   name: RemoveClanCommand
   nameWithType: RemoveClanCommand
   fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RemoveClanCommand
+- uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RenameKingdomCommand
+  commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RenameKingdomCommand
+  href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RenameKingdomCommand.html
+  name: RenameKingdomCommand
+  nameWithType: RenameKingdomCommand
+  fullName: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.RenameKingdomCommand
 - uid: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
   commentId: T:Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand
   href: Bannerlord.GameMaster.Console.KingdomCommands.KingdomManagementCommands.SetRulerCommand.html

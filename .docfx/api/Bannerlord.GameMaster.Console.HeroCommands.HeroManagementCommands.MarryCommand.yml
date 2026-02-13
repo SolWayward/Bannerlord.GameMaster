@@ -1,36 +1,37 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  commentId: T:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  id: SturgiaFactionNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
+  id: MarryCommand
+  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   children:
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  - Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry(System.Collections.Generic.List{System.String})
   langs:
   - csharp
   - vb
-  name: SturgiaFactionNames
-  nameWithType: SturgiaFactionNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+  name: MarryCommand
+  nameWithType: MarryCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
   type: Class
   source:
     remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/MarryCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: SturgiaFactionNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 5
+    id: MarryCommand
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/MarryCommand.cs
+    startLine: 18
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Sturgia culture faction names
+  namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  summary: >-
+    Marry two heroes
+
+    Usage: gm.hero.marry [hero] [otherHero] [forceMarriage:false] [joinClan:true]
   example: []
   syntax:
-    content: public static class SturgiaFactionNames
-    content.vb: Public Module SturgiaFactionNames
+    content: public static class MarryCommand
+    content.vb: Public Module MarryCommand
   inheritance:
   - System.Object
   inheritedMembers:
@@ -41,100 +42,61 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  id: ClanNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry(System.Collections.Generic.List{System.String})
+  id: Marry(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
   langs:
   - csharp
   - vb
-  name: ClanNames
-  nameWithType: SturgiaFactionNames.ClanNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.ClanNames
-  type: Field
+  name: Marry(List<string>)
+  nameWithType: MarryCommand.Marry(List<string>)
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry(System.Collections.Generic.List<string>)
+  type: Method
   source:
     remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/MarryCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: ClanNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 10
+    id: Marry
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/MarryCommand.cs
+    startLine: 20
   assemblies:
   - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Clan names for Sturgia culture
-  example: []
+  namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   syntax:
-    content: public static readonly string[] ClanNames
+    content: >-
+      [CommandLineFunctionality.CommandLineArgumentFunction("marry", "gm.hero")]
+
+      public static string Marry(List<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.List{System.String}
     return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly ClanNames As String()
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  id: KingdomNames
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  langs:
-  - csharp
-  - vb
-  name: KingdomNames
-  nameWithType: SturgiaFactionNames.KingdomNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.KingdomNames
-  type: Field
-  source:
-    remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-      branch: master
-      repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: KingdomNames
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 39
-  assemblies:
-  - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Kingdom names for Sturgia culture
-  example: []
-  syntax:
-    content: public static readonly string[] KingdomNames
-    return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly KingdomNames As String()
-- uid: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  commentId: F:Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  id: FactionPrefixes
-  parent: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames
-  langs:
-  - csharp
-  - vb
-  name: FactionPrefixes
-  nameWithType: SturgiaFactionNames.FactionPrefixes
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames.SturgiaFactionNames.FactionPrefixes
-  type: Field
-  source:
-    remote:
-      path: Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-      branch: master
-      repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: FactionPrefixes
-    path: ../Bannerlord.GameMaster/Cultures/FactionNames/SturgiaFactionNames.cs
-    startLine: 92
-  assemblies:
-  - Bannerlord.GameMaster
-  namespace: Bannerlord.GameMaster.Cultures.FactionNames
-  summary: Faction name prefixes for Sturgia culture
-  example: []
-  syntax:
-    content: public static readonly string[] FactionPrefixes
-    return:
-      type: System.String[]
-    content.vb: Public Shared ReadOnly FactionPrefixes As String()
+      type: System.String
+    content.vb: >-
+      <CommandLineFunctionality.CommandLineArgumentFunction("marry", "gm.hero")>
+
+      Public Shared Function Marry(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry*
+  attributes:
+  - type: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction
+    ctor: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: marry
+    - type: System.String
+      value: gm.hero
+  nameWithType.vb: MarryCommand.Marry(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry(System.Collections.Generic.List(Of String))
+  name.vb: Marry(List(Of String))
 references:
-- uid: Bannerlord.GameMaster.Cultures.FactionNames
-  commentId: N:Bannerlord.GameMaster.Cultures.FactionNames
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  commentId: N:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   href: Bannerlord.html
-  name: Bannerlord.GameMaster.Cultures.FactionNames
-  nameWithType: Bannerlord.GameMaster.Cultures.FactionNames
-  fullName: Bannerlord.GameMaster.Cultures.FactionNames
+  name: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  nameWithType: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   spec.csharp:
   - uid: Bannerlord
     name: Bannerlord
@@ -144,13 +106,17 @@ references:
     name: GameMaster
     href: Bannerlord.GameMaster.html
   - name: .
-  - uid: Bannerlord.GameMaster.Cultures
-    name: Cultures
-    href: Bannerlord.GameMaster.Cultures.html
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
   - name: .
-  - uid: Bannerlord.GameMaster.Cultures.FactionNames
-    name: FactionNames
-    href: Bannerlord.GameMaster.Cultures.FactionNames.html
+  - uid: Bannerlord.GameMaster.Console.HeroCommands
+    name: HeroCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+    name: HeroManagementCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.html
   spec.vb:
   - uid: Bannerlord
     name: Bannerlord
@@ -160,13 +126,17 @@ references:
     name: GameMaster
     href: Bannerlord.GameMaster.html
   - name: .
-  - uid: Bannerlord.GameMaster.Cultures
-    name: Cultures
-    href: Bannerlord.GameMaster.Cultures.html
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
   - name: .
-  - uid: Bannerlord.GameMaster.Cultures.FactionNames
-    name: FactionNames
-    href: Bannerlord.GameMaster.Cultures.FactionNames.html
+  - uid: Bannerlord.GameMaster.Console.HeroCommands
+    name: HeroCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
+    name: HeroManagementCommands
+    href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -404,26 +374,120 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.String[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string[]
-  nameWithType: string[]
-  fullName: string[]
-  nameWithType.vb: String()
-  fullName.vb: String()
-  name.vb: String()
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry*
+  commentId: Overload:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.html#Bannerlord_GameMaster_Console_HeroCommands_HeroManagementCommands_MarryCommand_Marry_System_Collections_Generic_List_System_String__
+  name: Marry
+  nameWithType: MarryCommand.Marry
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.Marry
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
   spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
   - uid: System.String
     name: string
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
+  - name: '>'
   spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
   - uid: System.String
     name: String
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
   - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

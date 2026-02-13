@@ -6,6 +6,7 @@ items:
   children:
   - Bannerlord.GameMaster.Characters.BeardTags
   - Bannerlord.GameMaster.Characters.CharacterExtensions
+  - Bannerlord.GameMaster.Characters.CharacterHelpers
   - Bannerlord.GameMaster.Characters.CharacterQueries
   - Bannerlord.GameMaster.Characters.CharacterTemplatePooler
   - Bannerlord.GameMaster.Characters.CharacterTypes
@@ -35,6 +36,12 @@ references:
   name: CharacterExtensions
   nameWithType: CharacterExtensions
   fullName: Bannerlord.GameMaster.Characters.CharacterExtensions
+- uid: Bannerlord.GameMaster.Characters.CharacterHelpers
+  commentId: T:Bannerlord.GameMaster.Characters.CharacterHelpers
+  href: Bannerlord.GameMaster.Characters.CharacterHelpers.html
+  name: CharacterHelpers
+  nameWithType: CharacterHelpers
+  fullName: Bannerlord.GameMaster.Characters.CharacterHelpers
 - uid: Bannerlord.GameMaster.Characters.CharacterQueries
   commentId: T:Bannerlord.GameMaster.Characters.CharacterQueries
   href: Bannerlord.GameMaster.Characters.CharacterQueries.html
