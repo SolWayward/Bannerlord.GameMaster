@@ -32,19 +32,21 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     return CommandResult.Error(error).Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.hero.generate_lords", "<count> [cultures] [gender] [clan] [settlement] [randomFactor]",
-                    "Creates lords from random templates with good gear and decent stats. Age 20-30. Names are selected from their culture\n" +
+                    "gm.hero.generate_lords", "<count> [cultures] [gender] [clan] [settlement] [randomFactor] [level] [age]",
+                    "Creates lords from random templates with good gear and decent stats. Names are selected from their culture\n" +
                     "- count: required, number of lords to generate (1-50)\n" +
                     "- cultures/culture: optional, defines the pool of cultures. Defaults to main_cultures. Use commas for multiple: vlandia,battania\n" +
                     "- gender: optional, use keywords both, female, or male (also b, f, m). Defaults to both\n" +
                     "- clan: optional, clanID or clanName. If not specified, each hero goes to a different random clan\n" +
                     "- settlement: optional, settlement for spawning parties or home settlement. Defaults to automatic selection\n" +
                     "- randomFactor/random: optional, float value between 0 and 1. defaults to 1\n" +
-                    "Supports named arguments: count:15 cultures:vlandia,battania gender:male clan:player_faction settlement:pen_cannoc random:0.8",
+                    "- level: optional, target level (1-62). If not specified, a random level between 10-25 is assigned per hero\n" +
+                    "- age: optional, hero age (minimum 18). If not specified or less than 18, a random age between 18-30 is assigned per hero\n" +
+                    "Supports named arguments: count:15 cultures:vlandia,battania gender:male clan:player_faction settlement:pen_cannoc random:0.8 level:20 age:25",
                     "gm.hero.generate_lords 15\n" +
                     "gm.hero.generate_lords 15 vlandia player_faction male\n" +
-                    "gm.hero.generate_lords count:12 cultures:aserai,sturgia,khuzait clan:'dey Meroc' settlement:quyaz\n" +
-                    "gm.hero.generate_lords 12 aserai,sturgia,khuzait,empire both 'dey Meroc' pen 0.7");
+                    "gm.hero.generate_lords count:12 cultures:aserai,sturgia,khuzait clan:'dey Meroc' settlement:quyaz level:18 age:28\n" +
+                    "gm.hero.generate_lords 12 aserai,sturgia,khuzait,empire both 'dey Meroc' pen 0.7 20 25");
 
                 ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
@@ -54,7 +56,9 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     new ArgumentDefinition("gender", false),
                     new ArgumentDefinition("clan", false),
                     new ArgumentDefinition("settlement", false),
-                    new ArgumentDefinition("randomFactor", false, null, "random")
+                    new ArgumentDefinition("randomFactor", false, null, "random"),
+                    new ArgumentDefinition("level", false),
+                    new ArgumentDefinition("age", false)
                 );
 
                 string validationError = parsed.GetValidationError();
@@ -77,6 +81,8 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 Clan targetClan = null;
                 Settlement settlement = null;
                 float randomFactor = 1f;
+                int targetLevel = -1;
+                int age = -1;
                 string clanArg = null;
                 string settlementArg = null;
 
@@ -198,6 +204,58 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                         return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError)).Message;
                 }
 
+                // Parse level - named only (positional int parsing is too ambiguous with count)
+                string levelArg = parsed.GetNamed("level");
+                if (levelArg != null)
+                {
+                    if (!CommandValidator.ValidateIntegerRange(levelArg, 1, 62, out targetLevel, out string levelError))
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(levelError)).Message;
+                }
+                else
+                {
+                    // Scan positional for integers that could be level (after count, skip floats/gender/culture/clan/settlement)
+                    for (int i = 1; i < parsed.PositionalCount; i++)
+                    {
+                        string arg = parsed.GetPositional(i);
+                        if (int.TryParse(arg, out int testInt) && testInt > 1 &&
+                            FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
+                            FlagParser.ParseCultureArgument(arg) == CultureFlags.None &&
+                            arg != clanArg && arg != settlementArg && arg != randomArg)
+                        {
+                            levelArg = arg;
+                            if (!CommandValidator.ValidateIntegerRange(levelArg, 1, 62, out targetLevel, out string levelError2))
+                                return CommandResult.Error(MessageFormatter.FormatErrorMessage(levelError2)).Message;
+                            break;
+                        }
+                    }
+                }
+
+                // Parse age - named only preferred, then positional scan for second integer
+                string ageArg = parsed.GetNamed("age");
+                if (ageArg != null)
+                {
+                    if (!CommandValidator.ValidateIntegerRange(ageArg, 18, 999, out age, out string ageError))
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(ageError)).Message;
+                }
+                else
+                {
+                    for (int i = 1; i < parsed.PositionalCount; i++)
+                    {
+                        string arg = parsed.GetPositional(i);
+                        if (int.TryParse(arg, out int testInt) && testInt > 1 &&
+                            FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
+                            FlagParser.ParseCultureArgument(arg) == CultureFlags.None &&
+                            arg != clanArg && arg != settlementArg && arg != randomArg &&
+                            arg != levelArg)
+                        {
+                            ageArg = arg;
+                            if (!CommandValidator.ValidateIntegerRange(ageArg, 18, 999, out age, out string ageError2))
+                                return CommandResult.Error(MessageFormatter.FormatErrorMessage(ageError2)).Message;
+                            break;
+                        }
+                    }
+                }
+
                 if (!CommandValidator.ValidateHeroCreationLimit(count, out string limitError))
                     return CommandResult.Error(MessageFormatter.FormatErrorMessage(limitError)).Message;
 
@@ -209,7 +267,9 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     { "gender", genderFlags == GenderFlags.Either ? "Both" : (genderFlags == GenderFlags.Male ? "Male" : "Female") },
                     { "clan", targetClan != null ? targetClan.Name.ToString() : "Random" },
                     { "settlement", settlement != null ? settlement.Name.ToString() : "Auto" },
-                    { "randomFactor", randomFactor.ToString("0.0") }
+                    { "randomFactor", randomFactor.ToString("0.0") },
+                    { "level", targetLevel > 0 ? targetLevel.ToString() : "Random (10-25)" },
+                    { "age", age >= 18 ? age.ToString() : "Random (18-30)" }
                 };
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.generate_lords", resolvedValues);
@@ -230,13 +290,13 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     IEnumerable<IGrouping<Clan, Clan>> groupedClans = clansToUse.GroupBy(c => c);
                     foreach (IGrouping<Clan, Clan> clanGroup in groupedClans)
                     {
-                        List<Hero> clanLords = HeroGenerator.CreateLords(clanGroup.Count(), cultureFlags, genderFlags, clanGroup.Key, withParties: true, settlement, randomFactor);
+                        List<Hero> clanLords = HeroGenerator.CreateLords(clanGroup.Count(), cultureFlags, genderFlags, clanGroup.Key, withParties: true, settlement, randomFactor, targetLevel, age);
                         createdHeroes.AddRange(clanLords);
                     }
                 }
                 else
                 {
-                    createdHeroes = HeroGenerator.CreateLords(count, cultureFlags, genderFlags, targetClan, withParties: true, settlement, randomFactor);
+                    createdHeroes = HeroGenerator.CreateLords(count, cultureFlags, genderFlags, targetClan, withParties: true, settlement, randomFactor, targetLevel, age);
                 }
 
                 if (createdHeroes == null || createdHeroes.Count == 0)

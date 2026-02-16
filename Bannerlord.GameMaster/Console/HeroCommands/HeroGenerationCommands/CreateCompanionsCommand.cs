@@ -30,7 +30,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     return CommandResult.Error(error);
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.hero.create_companions", "<count> <heroLeader> [cultures] [gender] [randomFactor]",
+                    "gm.hero.create_companions", "<count> <heroLeader> [cultures] [gender] [randomFactor] [level] [age]",
                     "Creates companions and adds them directly to the specified hero's party.\n" +
                     "Companions are added as party members. Will not exceed companion limit, use create_lord instead for that.\n" +
                     "- count: required, number of companions to create (1-20)\n" +
@@ -38,11 +38,13 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     "- cultures/culture: optional, culture pool for template selection. Defaults to main_cultures\n" +
                     "- gender: optional, use keywords both, female, or male. Defaults to both\n" +
                     "- randomFactor/random: optional, float value between 0 and 1. defaults to 0.5\n" +
-                    "Supports named arguments: count:5 hero:player cultures:vlandia,battania gender:female\n",
+                    "- level: optional, target level (1-62). If not specified, a random level between 1-14 is assigned per companion\n" +
+                    "- age: optional, hero age (minimum 18). If not specified or less than 18, a random age between 18-30 is assigned per companion\n" +
+                    "Supports named arguments: count:5 hero:player cultures:vlandia,battania gender:female level:10 age:22\n",
                     "gm.hero.create_companions 5 player\n" +
                     "gm.hero.create_companions 3 player vlandia both\n" +
-                    "gm.hero.create_companions count:2 hero:'Lord Name' cultures:battania,sturgia gender:female\n" +
-                    "gm.hero.create_companions 2 'Lord Name' battania,sturgia female 0.8");
+                    "gm.hero.create_companions count:2 hero:'Lord Name' cultures:battania,sturgia gender:female level:8 age:25\n" +
+                    "gm.hero.create_companions 2 'Lord Name' battania,sturgia female 0.8 12 24");
 
                 ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
@@ -51,7 +53,9 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     new ArgumentDefinition("heroLeader", true, null, "hero"),
                     new ArgumentDefinition("cultures", false, null, "culture"),
                     new ArgumentDefinition("gender", false),
-                    new ArgumentDefinition("randomFactor", false, null, "random")
+                    new ArgumentDefinition("randomFactor", false, null, "random"),
+                    new ArgumentDefinition("level", false),
+                    new ArgumentDefinition("age", false)
                 );
 
                 string validationError = parsed.GetValidationError();
@@ -87,6 +91,8 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 CultureFlags cultureFlags = CultureFlags.AllMainCultures;
                 GenderFlags genderFlags = GenderFlags.Either;
                 float randomFactor = 0.5f;
+                int targetLevel = -1;
+                int age = -1;
 
                 // Parse cultures - try named first, then positional
                 string culturesArg = parsed.GetNamed("cultures") ?? parsed.GetNamed("culture");
@@ -147,6 +153,54 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                         return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError));
                 }
 
+                // Parse level - try named first, then scan positional for integers
+                string levelArg = parsed.GetNamed("level");
+                if (levelArg == null)
+                {
+                    for (int i = 2; i < parsed.PositionalCount; i++)
+                    {
+                        string arg = parsed.GetPositional(i);
+                        if (int.TryParse(arg, out int testInt) && testInt > 1 &&
+                            FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
+                            FlagParser.ParseCultureArgument(arg) == CultureFlags.None &&
+                            arg != randomArg)
+                        {
+                            levelArg = arg;
+                            break;
+                        }
+                    }
+                }
+
+                if (levelArg != null)
+                {
+                    if (!CommandValidator.ValidateIntegerRange(levelArg, 1, 62, out targetLevel, out string levelError))
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(levelError));
+                }
+
+                // Parse age - try named first, then scan positional for second integer not already used as level
+                string ageArg = parsed.GetNamed("age");
+                if (ageArg == null)
+                {
+                    for (int i = 2; i < parsed.PositionalCount; i++)
+                    {
+                        string arg = parsed.GetPositional(i);
+                        if (int.TryParse(arg, out int testInt) && testInt > 1 &&
+                            FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
+                            FlagParser.ParseCultureArgument(arg) == CultureFlags.None &&
+                            arg != randomArg && arg != levelArg)
+                        {
+                            ageArg = arg;
+                            break;
+                        }
+                    }
+                }
+
+                if (ageArg != null)
+                {
+                    if (!CommandValidator.ValidateIntegerRange(ageArg, 18, 999, out age, out string ageError))
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(ageError));
+                }
+
                 if (!CommandValidator.ValidateHeroCreationLimit(count, out string limitError))
                     return CommandResult.Error(MessageFormatter.FormatErrorMessage(limitError));
 
@@ -157,12 +211,14 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     { "heroLeader", hero.Name.ToString() },
                     { "cultures", culturesArg ?? "Main Cultures" },
                     { "gender", genderFlags == GenderFlags.Either ? "Both" : (genderFlags == GenderFlags.Male ? "Male" : "Female") },
-                    { "randomFactor", randomFactor.ToString("0.0") }
+                    { "randomFactor", randomFactor.ToString("0.0") },
+                    { "level", targetLevel > 0 ? targetLevel.ToString() : "Random (1-14)" },
+                    { "age", age >= 18 ? age.ToString() : "Random (18-30)" }
                 };
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.create_companions", resolvedValues);
 
-                List<Hero> companions = HeroGenerator.CreateCompanions(count, cultureFlags, genderFlags, randomFactor);
+                List<Hero> companions = HeroGenerator.CreateCompanions(count, cultureFlags, genderFlags, randomFactor, targetLevel, age);
 
                 if (companions == null || companions.Count == 0)
                     return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to create companions - no templates found matching criteria"));

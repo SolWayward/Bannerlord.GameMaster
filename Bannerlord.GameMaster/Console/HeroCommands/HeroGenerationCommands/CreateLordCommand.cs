@@ -32,8 +32,8 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     return CommandResult.Error(error).Message;
 
                 string usageMessage = CommandValidator.CreateUsageMessage(
-                    "gm.hero.create_lord", "<name> [cultures] [gender] [clan] [withParty] [settlement] [randomFactor]",
-                    "Creates a single lord from random templates with good gear and decent stats. Age 18-30. Allows custom naming.\n" +
+                    "gm.hero.create_lord", "<name> [cultures] [gender] [clan] [withParty] [settlement] [randomFactor] [level] [age]",
+                    "Creates a single lord from random templates with good gear and decent stats. Allows custom naming.\n" +
                     "Creates a party for the lord by default if clan is not at max allowed parties. Use create_party to exceed party limit\n" +
                     "- name: required, the name for the hero. Use SINGLE QUOTES for multi-word names\n" +
                     "- cultures/culture: optional, defines the pool of cultures allowed to be chosen from. Defaults to main_cultures\n" +
@@ -42,11 +42,13 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     "- withParty: optional, true/false to create party for lord. Defaults to true (Will only create party if clan is below party limit)\n" +
                     "- settlement: optional, settlement for lord without party to reside in (only used if withParty is false)\n" +
                     "- randomFactor/random: optional, float value between 0 and 1. defaults to 0.5\n" +
-                    "Supports named arguments: name:'Sir Percival' cultures:vlandia gender:male clan:player_faction withParty:true randomFactor:0.8",
+                    "- level: optional, target level (1-62). If not specified, a random level between 10-25 is assigned\n" +
+                    "- age: optional, hero age (minimum 18). If not specified or less than 18, a random age between 18-30 is assigned\n" +
+                    "Supports named arguments: name:'Sir Percival' cultures:vlandia gender:male clan:player_faction withParty:true randomFactor:0.8 level:20 age:25",
                     "gm.hero.create_lord 'Sir Percival'\n" +
                     "gm.hero.create_lord Ragnar vlandia male player_faction\n" +
-                    "gm.hero.create_lord name:'Lady Elara' cultures:empire gender:female clan:clan_x withParty:false settlement:pen\n" +
-                    "gm.hero.create_lord Khalid aserai male clan_y true null 0.8");
+                    "gm.hero.create_lord name:'Lady Elara' cultures:empire gender:female clan:clan_x withParty:false settlement:pen level:15 age:22\n" +
+                    "gm.hero.create_lord Khalid aserai male clan_y true null 0.8 20 25");
 
                 ParsedArguments parsed = ArgumentParser.ParseArguments(args);
 
@@ -57,7 +59,9 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     new ArgumentDefinition("clan", false),
                     new ArgumentDefinition("withParty", false),
                     new ArgumentDefinition("settlement", false),
-                    new ArgumentDefinition("randomFactor", false, null, "random")
+                    new ArgumentDefinition("randomFactor", false, null, "random"),
+                    new ArgumentDefinition("level", false),
+                    new ArgumentDefinition("age", false)
                 );
 
                 string validationError = parsed.GetValidationError();
@@ -78,6 +82,8 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                 bool withParty = true;
                 Settlement settlement = null;
                 float randomFactor = 0.5f;
+                int targetLevel = -1;
+                int age = -1;
                 string clanArg = null;
                 string settlementArg = null;
 
@@ -218,6 +224,57 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                         return CommandResult.Error(MessageFormatter.FormatErrorMessage(randomError)).Message;
                 }
 
+                // Parse level - try named first, then scan positional for integers > 1
+                string levelArg = parsed.GetNamed("level");
+                if (levelArg == null)
+                {
+                    for (int i = 1; i < parsed.PositionalCount; i++)
+                    {
+                        string arg = parsed.GetPositional(i);
+                        if (int.TryParse(arg, out int testInt) && testInt > 1 &&
+                            FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
+                            FlagParser.ParseCultureArgument(arg) == CultureFlags.None &&
+                            !bool.TryParse(arg, out _) &&
+                            arg != randomArg && arg != clanArg && arg != settlementArg)
+                        {
+                            levelArg = arg;
+                            break;
+                        }
+                    }
+                }
+
+                if (levelArg != null)
+                {
+                    if (!CommandValidator.ValidateIntegerRange(levelArg, 1, 62, out targetLevel, out string levelError))
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(levelError)).Message;
+                }
+
+                // Parse age - try named first, then scan positional for integers > 1 not already used as level
+                string ageArg = parsed.GetNamed("age");
+                if (ageArg == null)
+                {
+                    for (int i = 1; i < parsed.PositionalCount; i++)
+                    {
+                        string arg = parsed.GetPositional(i);
+                        if (int.TryParse(arg, out int testInt) && testInt > 1 &&
+                            FlagParser.ParseGenderArgument(arg) == GenderFlags.None &&
+                            FlagParser.ParseCultureArgument(arg) == CultureFlags.None &&
+                            !bool.TryParse(arg, out _) &&
+                            arg != randomArg && arg != clanArg && arg != settlementArg &&
+                            arg != levelArg)
+                        {
+                            ageArg = arg;
+                            break;
+                        }
+                    }
+                }
+
+                if (ageArg != null)
+                {
+                    if (!CommandValidator.ValidateIntegerRange(ageArg, 18, 999, out age, out string ageError))
+                        return CommandResult.Error(MessageFormatter.FormatErrorMessage(ageError)).Message;
+                }
+
                 if (!CommandValidator.ValidateHeroCreationLimit(1, out string limitError))
                     return CommandResult.Error(MessageFormatter.FormatErrorMessage(limitError)).Message;
 
@@ -237,12 +294,14 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands
                     { "clan", targetClan.Name.ToString() },
                     { "withParty", withParty.ToString() },
                     { "settlement", settlement != null ? settlement.Name.ToString() : "None" },
-                    { "randomFactor", randomFactor.ToString("0.0") }
+                    { "randomFactor", randomFactor.ToString("0.0") },
+                    { "level", targetLevel > 0 ? targetLevel.ToString() : "Random (10-25)" },
+                    { "age", age >= 18 ? age.ToString() : "Random (18-30)" }
                 };
 
                 string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.create_lord", resolvedValues);
 
-                Hero createdHero = HeroGenerator.CreateLord(name, cultureFlags, genderFlags, targetClan, withParty, settlement, randomFactor);
+                Hero createdHero = HeroGenerator.CreateLord(name, cultureFlags, genderFlags, targetClan, withParty, settlement, randomFactor, targetLevel, age);
 
                 if (createdHero == null)
                     return CommandResult.Error(argumentDisplay + MessageFormatter.FormatErrorMessage("Failed to create lord - no templates found matching criteria")).Message;
