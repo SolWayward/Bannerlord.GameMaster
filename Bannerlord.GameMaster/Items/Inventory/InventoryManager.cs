@@ -12,10 +12,10 @@ namespace Bannerlord.GameMaster.Items.Inventory
     /// Supports opening inventory for heroes from ANY clan by using synthetic TroopRosters
     /// that bypass the native CanSelectHero() player clan restriction.
     /// <br /><br />
-    /// The native inventory system uses:
-    /// - ItemRoster for item storage on each side
-    /// - TroopRoster for hero character switching arrows
-    /// - InventoryLogic for transfer/trade logic
+    /// The native inventory system uses: <br />
+    /// - ItemRoster for item storage on each side <br />
+    /// - TroopRoster for hero character switching arrows <br />
+    /// - InventoryLogic for transfer/trade logic <br />
     /// - InventoryState (native GameState) + GauntletInventoryScreen (auto-registered)
     /// </summary>
     public class InventoryManager
