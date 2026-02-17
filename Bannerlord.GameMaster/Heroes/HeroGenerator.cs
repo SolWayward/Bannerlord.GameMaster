@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Bannerlord.GameMaster.Characters;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Cultures;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
@@ -17,9 +18,55 @@ namespace Bannerlord.GameMaster.Heroes
 	/// Central system for creating heroes with flexible initialization options.
 	/// Separates hero creation from role initialization to prevent hidden side effects.
 	/// Now uses only Lord and Wanderer occupation characters to avoid notable occupation conflicts.
+	/// Uses a continuous algorithm to generate skills for any target level (uncapped).
 	/// </summary>
 	public static class HeroGenerator
 	{
+		#region Skill Category Pools
+
+		// Combat-oriented skills: direct fighting + physical capabilities
+		private static readonly SkillObject[] CombatPrimaryPool = new SkillObject[]
+		{
+			DefaultSkills.OneHanded, DefaultSkills.TwoHanded, DefaultSkills.Polearm,
+			DefaultSkills.Bow, DefaultSkills.Crossbow, DefaultSkills.Throwing,
+			DefaultSkills.Riding, DefaultSkills.Athletics
+		};
+
+		// Noncombat-oriented skills: civilian, social, and utility focused
+		private static readonly SkillObject[] NoncombatPrimaryPool = new SkillObject[]
+		{
+			DefaultSkills.Medicine, DefaultSkills.Charm, DefaultSkills.Trade,
+			DefaultSkills.Crafting, DefaultSkills.Roguery
+		};
+
+		// Mixed/utility skills: valuable for both combat and noncombat archetypes
+		private static readonly SkillObject[] MixedUtilityPool = new SkillObject[]
+		{
+			DefaultSkills.Steward, DefaultSkills.Engineering, DefaultSkills.Leadership,
+			DefaultSkills.Tactics, DefaultSkills.Scouting
+		};
+
+		// Tier weight multipliers for XP budget distribution
+		private const float PrimaryMultiplier = 2.2f;
+		private const float SecondaryMultiplier = 1.1f;
+		private const float TertiaryMultiplier = 0.5f;
+
+		// Variance applied to each skill value for natural randomness (+/- this percentage)
+		private const float SkillVariancePercent = 0.15f;
+
+		// Number of skills selected as primary specializations from each pool
+		private const int NumPrimarySkills = 4;
+
+		// Native XP formula constants: TotalXp = Sum(2 * skill^XpExponent) - XpOffset
+		private const float XpExponent = 2.2f;
+		private const float InverseXpExponent = 1f / XpExponent; // ~0.4545
+		private const int XpOffset = 2000;
+
+		// Maximum number of correction passes to land on exact target level
+		private const int MaxCorrectionPasses = 10;
+
+		#endregion
+
 		/// MARK: CreateBasicHero Core
 		/// <summary>
 		/// Creates a basic hero from a character object WITHOUT any occupation-specific initialization.
@@ -45,9 +92,8 @@ namespace Bannerlord.GameMaster.Heroes
 			Hero hero = HeroCreator.CreateSpecialHero(sourceCharacter, age: age);
 
 			// Ensure birthday is set correctly as CreateSpecialHero() doesn't seem to always respect age parameter
-			if (hero.Age < age)
+			if ((int)hero.Age != age) // Need cast to int otherwise age 18 may not work correctly on wanderer templates
 			{
-				// Force correct age
 				hero.SetAge(age);
 			}
 
@@ -84,8 +130,9 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="hero">Hero to initialize as Lord. Must have a clan assigned.</param>
 		/// <param name="homeSettlement">Settlement for hero's home (used for party spawn if creating party).</param>
 		/// <param name="createParty">Optional. If true, creates a party for the lord if clan is below commander limit. Defaults to true.</param>
-		/// <param name="targetLevel">Optional. Target level for the hero. If less than 1 (default -1), a random level between 10 and 25 (inclusive) is assigned.</param>
-		public static void InitializeAsLord(Hero hero, Settlement homeSettlement, bool createParty = true, int targetLevel = -1)
+		/// <param name="targetLevel">Optional. Target level for the hero (uncapped). If less than 1 (default -1), a random level between 10 and 25 (inclusive) is assigned.</param>
+		/// <param name="isCombatFocused">Optional. If true (default), primary skills are combat-oriented. If false, primary skills are management/utility-oriented.</param>
+		public static void InitializeAsLord(Hero hero, Settlement homeSettlement, bool createParty = true, int targetLevel = -1, bool isCombatFocused = true)
 		{
 			if (hero.Clan == null)
 				throw new ArgumentException("Hero must have a clan assigned before initializing as Lord");
@@ -101,7 +148,7 @@ namespace Bannerlord.GameMaster.Heroes
 
 			// Initialize skills appropriate for target level BEFORE calling InitializeHeroDeveloper
 			// This ensures the level calculation uses our generated skills, not template skills
-			InitializeSkillsForLevel(hero, targetLevel);
+			InitializeSkillsForLevel(hero, targetLevel, isCombatFocused);
 
 			hero.Gold = 2000 * targetLevel;
 
@@ -136,8 +183,9 @@ namespace Bannerlord.GameMaster.Heroes
 		/// </summary>
 		/// <param name="hero">Hero to initialize as Wanderer.</param>
 		/// <param name="settlement">Settlement where the wanderer will reside.</param>
-		/// <param name="targetLevel">Optional. Target level for the hero. If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned.</param>
-		public static void InitializeAsWanderer(Hero hero, Settlement settlement, int targetLevel = -1)
+		/// <param name="targetLevel">Optional. Target level for the hero (uncapped). If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned.</param>
+		/// <param name="isCombatFocused">Optional. If true (default), primary skills are combat-oriented. If false, primary skills are management/utility-oriented.</param>
+		public static void InitializeAsWanderer(Hero hero, Settlement settlement, int targetLevel = -1, bool isCombatFocused = true)
 		{
 			hero.Clan = null;
 			hero.InitializeHomeSettlement(settlement);
@@ -149,7 +197,7 @@ namespace Bannerlord.GameMaster.Heroes
 				targetLevel = RandomNumberGen.Instance.NextRandomInt(1, 15);
 
 			// Initialize skills appropriate for target level BEFORE calling InitializeHeroDeveloper
-			InitializeSkillsForLevel(hero, targetLevel);
+			InitializeSkillsForLevel(hero, targetLevel, isCombatFocused);
 
 			hero.Gold = 1000 * targetLevel;
 
@@ -172,8 +220,9 @@ namespace Bannerlord.GameMaster.Heroes
 		/// Use MobilePartyExtensions.AddCompanionToParty() after calling this method.
 		/// </summary>
 		/// <param name="hero">Hero to initialize as Companion.</param>
-		/// <param name="targetLevel">Optional. Target level for the hero. If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned.</param>
-		public static void InitializeAsCompanion(Hero hero, int targetLevel = -1)
+		/// <param name="targetLevel">Optional. Target level for the hero (uncapped). If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned.</param>
+		/// <param name="isCombatFocused">Optional. If true (default), primary skills are combat-oriented. If false, primary skills are management/utility-oriented.</param>
+		public static void InitializeAsCompanion(Hero hero, int targetLevel = -1, bool isCombatFocused = true)
 		{
 			// Keep clan assignment (should be set by caller)
 			hero.InitializeHomeSettlement();
@@ -185,7 +234,7 @@ namespace Bannerlord.GameMaster.Heroes
 				targetLevel = RandomNumberGen.Instance.NextRandomInt(1, 15);
 
 			// Initialize skills appropriate for target level BEFORE calling InitializeHeroDeveloper
-			InitializeSkillsForLevel(hero, targetLevel);
+			InitializeSkillsForLevel(hero, targetLevel, isCombatFocused);
 
 			hero.Gold = 1000 * targetLevel;
 
@@ -235,11 +284,12 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="withParty">Optional. If true, creates a party for the lord if clan is below commander limit. Defaults to true.</param>
 		/// <param name="settlement">Optional. Home settlement for the lord. Defaults to null (auto-resolved).</param>
 		/// <param name="randomFactor">Optional. Appearance randomization factor (0-1). Defaults to 0.5.</param>
-		/// <param name="targetLevel">Optional. Target level for the hero. If less than 1 (default -1), a random level between 10 and 25 (inclusive) is assigned.</param>
+		/// <param name="targetLevel">Optional. Target level for the hero (uncapped). If less than 1 (default -1), a random level between 10 and 25 (inclusive) is assigned.</param>
 		/// <param name="age">Optional. Hero's age. Minimum age is 18. If not specified (default -1), or if value is less than 18,
 		/// a random age between 18 and 30 (inclusive) is assigned.</param>
+		/// <param name="isCombatFocused">Optional. If true (default), primary skills are combat-oriented. If false, primary skills are management/utility-oriented.</param>
 		/// <returns>Created and initialized lord hero.</returns>
-		public static Hero CreateLord(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParty = true, Settlement settlement = null, float randomFactor = 0.5f, int targetLevel = -1, int age = -1)
+		public static Hero CreateLord(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParty = true, Settlement settlement = null, float randomFactor = 0.5f, int targetLevel = -1, int age = -1, bool isCombatFocused = true)
 		{
 			if (clan == null)
 				throw new ArgumentException("Clan is required for Lord creation");
@@ -249,7 +299,7 @@ namespace Bannerlord.GameMaster.Heroes
 
 			Hero hero = CreateBasicHero(template, nameObj, age, clan, randomFactor);
 
-			InitializeAsLord(hero, settlement, withParty, targetLevel);
+			InitializeAsLord(hero, settlement, withParty, targetLevel, isCombatFocused);
 
 			return hero;
 		}
@@ -267,11 +317,12 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="withParties">Optional. If true, creates a party for each lord if clan is below commander limit. Defaults to true.</param>
 		/// <param name="settlement">Optional. Home settlement for the lords. Defaults to null (auto-resolved).</param>
 		/// <param name="randomFactor">Optional. Appearance randomization factor (0-1). Defaults to 0.5.</param>
-		/// <param name="targetLevel">Optional. Target level for each hero. If less than 1 (default -1), a random level between 10 and 25 (inclusive) is assigned per hero.</param>
+		/// <param name="targetLevel">Optional. Target level for each hero (uncapped). If less than 1 (default -1), a random level between 10 and 25 (inclusive) is assigned per hero.</param>
 		/// <param name="age">Optional. Age for each hero. Minimum age is 18. If not specified (default -1), or if value is less than 18,
 		/// a random age between 18 and 30 (inclusive) is assigned per hero.</param>
+		/// <param name="isCombatFocused">Optional. If true (default), primary skills are combat-oriented. If false, primary skills are management/utility-oriented.</param>
 		/// <returns>List of created and initialized lord heroes.</returns>
-		public static List<Hero> CreateLords(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParties = true, Settlement settlement = null, float randomFactor = 0.5f, int targetLevel = -1, int age = -1)
+		public static List<Hero> CreateLords(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParties = true, Settlement settlement = null, float randomFactor = 0.5f, int targetLevel = -1, int age = -1, bool isCombatFocused = true)
 		{
 			if (clan == null)
 				throw new ArgumentException("Clan is required for Lord creation");
@@ -287,7 +338,7 @@ namespace Bannerlord.GameMaster.Heroes
 				TextObject nameObj = new(randomName);
 
 				Hero hero = CreateBasicHero(character, nameObj, age, clan, randomFactor);
-				InitializeAsLord(hero, settlement, withParties, targetLevel);
+				InitializeAsLord(hero, settlement, withParties, targetLevel, isCombatFocused);
 
 				lords.Add(hero);
 			}
@@ -306,17 +357,18 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="genderFlags">Gender selection for character template.</param>
 		/// <param name="settlement">Settlement where the wanderer will reside.</param>
 		/// <param name="randomFactor">Optional. Appearance randomization factor (0-1). Defaults to 0.5.</param>
-		/// <param name="targetLevel">Optional. Target level for the hero. If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned.</param>
+		/// <param name="targetLevel">Optional. Target level for the hero (uncapped). If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned.</param>
 		/// <param name="age">Optional. Hero's age. Minimum age is 18. If not specified (default -1), or if value is less than 18,
 		/// a random age between 18 and 30 (inclusive) is assigned.</param>
+		/// <param name="isCombatFocused">Optional. If true (default), primary skills are combat-oriented. If false, primary skills are management/utility-oriented.</param>
 		/// <returns>Created and initialized wanderer hero.</returns>
-		public static Hero CreateWanderer(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor = 0.5f, int targetLevel = -1, int age = -1)
+		public static Hero CreateWanderer(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor = 0.5f, int targetLevel = -1, int age = -1, bool isCombatFocused = true)
 		{
 			CharacterObject template = SelectRandomTemplate(cultureFlags, genderFlags);
 			TextObject nameObj = new(name);
 
 			Hero hero = CreateBasicHero(template, nameObj, age: age, randomFactor: randomFactor);
-			InitializeAsWanderer(hero, settlement, targetLevel);
+			InitializeAsWanderer(hero, settlement, targetLevel, isCombatFocused);
 
 			return hero;
 		}
@@ -332,11 +384,12 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="genderFlags">Gender selection for character templates.</param>
 		/// <param name="settlement">Settlement where the wanderers will reside.</param>
 		/// <param name="randomFactor">Optional. Appearance randomization factor (0-1). Defaults to 0.5.</param>
-		/// <param name="targetLevel">Optional. Target level for each hero. If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned per hero.</param>
+		/// <param name="targetLevel">Optional. Target level for each hero (uncapped). If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned per hero.</param>
 		/// <param name="age">Optional. Age for each hero. Minimum age is 18. If not specified (default -1), or if value is less than 18,
 		/// a random age between 18 and 30 (inclusive) is assigned per hero.</param>
+		/// <param name="isCombatFocused">Optional. If true (default), primary skills are combat-oriented. If false, primary skills are management/utility-oriented.</param>
 		/// <returns>List of created and initialized wanderer heroes.</returns>
-		public static List<Hero> CreateWanderers(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor = 0.5f, int targetLevel = -1, int age = -1)
+		public static List<Hero> CreateWanderers(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor = 0.5f, int targetLevel = -1, int age = -1, bool isCombatFocused = true)
 		{
 			List<Hero> wanderers = new();
 			CharacterTemplatePooler templatePooler = new();
@@ -349,7 +402,7 @@ namespace Bannerlord.GameMaster.Heroes
 				TextObject nameObj = new(randomName);
 
 				Hero hero = CreateBasicHero(character, nameObj, age: age, randomFactor: randomFactor);
-				InitializeAsWanderer(hero, settlement, targetLevel);
+				InitializeAsWanderer(hero, settlement, targetLevel, isCombatFocused);
 
 				wanderers.Add(hero);
 			}
@@ -368,11 +421,12 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="cultureFlags">Culture pool to select character templates from.</param>
 		/// <param name="genderFlags">Optional. Gender selection for character templates. Defaults to GenderFlags.Either.</param>
 		/// <param name="randomFactor">Optional. Appearance randomization factor (0-1). Defaults to 0.5.</param>
-		/// <param name="targetLevel">Optional. Target level for each hero. If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned per hero.</param>
+		/// <param name="targetLevel">Optional. Target level for each hero (uncapped). If less than 1 (default -1), a random level between 1 and 14 (inclusive) is assigned per hero.</param>
 		/// <param name="age">Optional. Age for each hero. Minimum age is 18. If not specified (default -1), or if value is less than 18,
 		/// a random age between 18 and 30 (inclusive) is assigned per hero.</param>
+		/// <param name="isCombatFocused">Optional. If true (default), primary skills are combat-oriented. If false, primary skills are management/utility-oriented.</param>
 		/// <returns>List of created and initialized companion heroes ready for party assignment.</returns>
-		public static List<Hero> CreateCompanions(int count, CultureFlags cultureFlags, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5f, int targetLevel = -1, int age = -1)
+		public static List<Hero> CreateCompanions(int count, CultureFlags cultureFlags, GenderFlags genderFlags = GenderFlags.Either, float randomFactor = 0.5f, int targetLevel = -1, int age = -1, bool isCombatFocused = true)
 		{
 			List<Hero> companions = new();
 			CharacterTemplatePooler templatePooler = new();
@@ -385,7 +439,7 @@ namespace Bannerlord.GameMaster.Heroes
 				TextObject nameObj = new(randomName);
 
 				Hero hero = CreateBasicHero(character, nameObj, age: age, randomFactor: randomFactor);
-				InitializeAsCompanion(hero, targetLevel);
+				InitializeAsCompanion(hero, targetLevel, isCombatFocused);
 
 				companions.Add(hero);
 			}
@@ -394,31 +448,56 @@ namespace Bannerlord.GameMaster.Heroes
 		}
 
 		#endregion
-		#region Helper Methods
+		#region Skill Distribution Algorithm
 
 		/// MARK: InitializeSkillsForLevel
 		/// <summary>
-		/// Initializes hero skills and attributes to match a target level.
-		/// This clears existing skills and generates appropriate values so that
-		/// InitializeHeroDeveloper() will calculate the correct level from skills.
-		/// Also syncs XP for each skill and properly distributes attribute/focus points.
+		/// Initializes hero skills and attributes to match a target level using a continuous algorithm.
+		/// This clears existing skills, computes an XP budget from the native level formula, distributes
+		/// skill values across combat/noncombat/utility categories, and validates the result lands on
+		/// the exact target level. Supports any level (uncapped).
 		/// </summary>
 		/// <param name="hero">The hero whose skills will be initialized.</param>
-		/// <param name="targetLevel">The desired level (clamped to 1-62).</param>
-		private static void InitializeSkillsForLevel(Hero hero, int targetLevel)
+		/// <param name="targetLevel">The desired level (minimum 1, uncapped).</param>
+		/// <param name="isCombatFocused">If true, combat skills are primary. If false, noncombat skills are primary.</param>
+		private static void InitializeSkillsForLevel(Hero hero, int targetLevel, bool isCombatFocused = true)
 		{
-			targetLevel = MBMath.ClampInt(targetLevel, 1, 62);
+			if (targetLevel < 1)
+				targetLevel = 1;
 
 			// Clear existing hero state to start fresh
 			hero.HeroDeveloper.ClearHero();
 
-			// Get skill distribution configuration for this level
-			SkillDistributionConfig config = GetSkillDistributionForLevel(targetLevel);
+			// Compute the XP thresholds for this level
+			long xpForLevel = ComputeSkillsRequiredForLevel(targetLevel);
+			long xpForNextLevel = ComputeSkillsRequiredForLevel(targetLevel + 1);
 
-			// Generate skills that will result in the target level
-			// The native formula is: TotalXp = Sum(2 * skillValue^2.2) - 2000
-			// We distribute skill points across skills to reach the required total
-			GenerateSkillsForConfig(hero, config);
+			// Aim for 30% into the level range to leave room for variance without overshooting
+			long targetTotalXp = xpForLevel + (long)((xpForNextLevel - xpForLevel) * 0.3);
+			if (targetTotalXp < 1)
+				targetTotalXp = 1;
+
+			// The raw XP sum before the -2000 offset
+			long targetXpSum = targetTotalXp + XpOffset;
+
+			// Build categorized skill lists based on focus type
+			List<SkillObject> primarySkills = new();
+			List<SkillObject> secondarySkills = new();
+			List<SkillObject> tertiarySkills = new();
+			BuildSkillCategories(isCombatFocused, primarySkills, secondarySkills, tertiarySkills);
+
+			// Compute base skill values from the XP budget
+			int primaryValue = ComputeBaseSkillValue(targetXpSum, primarySkills.Count, secondarySkills.Count, tertiarySkills.Count, PrimaryMultiplier);
+			int secondaryValue = ComputeBaseSkillValue(targetXpSum, primarySkills.Count, secondarySkills.Count, tertiarySkills.Count, SecondaryMultiplier);
+			int tertiaryValue = ComputeBaseSkillValue(targetXpSum, primarySkills.Count, secondarySkills.Count, tertiarySkills.Count, TertiaryMultiplier);
+
+			// Apply skills with randomized variance
+			ApplySkillsWithVariance(hero, primarySkills, primaryValue);
+			ApplySkillsWithVariance(hero, secondarySkills, secondaryValue);
+			ApplySkillsWithVariance(hero, tertiarySkills, tertiaryValue);
+
+			// Validate and adjust to ensure hero lands on exact target level
+			ValidateAndAdjustSkills(hero, targetLevel, xpForLevel, xpForNextLevel);
 
 			// Initialize each skill's XP to match the skill level (prevents negative XP display)
 			foreach (SkillObject skill in Skills.All)
@@ -426,180 +505,257 @@ namespace Bannerlord.GameMaster.Heroes
 				hero.HeroDeveloper.InitializeSkillXp(skill);
 			}
 
-			// Now let the native system initialize the hero developer
+			// Let the native system initialize the hero developer
 			// This will calculate level from skills and set up attribute/focus points
 			hero.HeroDeveloper.InitializeHeroDeveloper();
 		}
 
+		/// MARK: BuildSkillCategories
 		/// <summary>
-		/// Configuration for skill distribution at a given level range.
+		/// Builds the three-tier skill category lists based on combat/noncombat focus.
+		/// Primary skills get the highest values, secondary gets medium, tertiary gets lowest.
+		/// Skills within each pool are shuffled so specializations vary per hero.
 		/// </summary>
-		private struct SkillDistributionConfig
+		/// <param name="isCombatFocused">If true, combat pool is primary and noncombat is tertiary. If false, reversed.</param>
+		/// <param name="primarySkills">Output list for primary (highest) skills.</param>
+		/// <param name="secondarySkills">Output list for secondary (medium) skills.</param>
+		/// <param name="tertiarySkills">Output list for tertiary (lowest) skills.</param>
+		private static void BuildSkillCategories(bool isCombatFocused, List<SkillObject> primarySkills, List<SkillObject> secondarySkills, List<SkillObject> tertiarySkills)
 		{
-			public int PrimarySkillMin;      // Primary combat skills (3-4 skills)
-			public int PrimarySkillMax;
-			public int SecondarySkillMin;    // Secondary skills (3-4 skills)
-			public int SecondarySkillMax;
-			public int TertiarySkillMin;     // Remaining skills
-			public int TertiarySkillMax;
-			public int NumPrimarySkills;
-			public int NumSecondarySkills;
+			SkillObject[] focusPool = isCombatFocused ? CombatPrimaryPool : NoncombatPrimaryPool;
+			SkillObject[] offPool = isCombatFocused ? NoncombatPrimaryPool : CombatPrimaryPool;
+
+			// Shuffle the focus pool to pick random specializations
+			List<SkillObject> shuffledFocus = new(focusPool);
+			ShuffleList(shuffledFocus);
+
+			// Pick NumPrimarySkills from the focus pool as primary specializations
+			int primaryCount = MBMath.ClampInt(NumPrimarySkills, 1, shuffledFocus.Count);
+			for (int i = 0; i < primaryCount; i++)
+			{
+				primarySkills.Add(shuffledFocus[i]);
+			}
+
+			// Remaining focus pool skills become secondary
+			for (int i = primaryCount; i < shuffledFocus.Count; i++)
+			{
+				secondarySkills.Add(shuffledFocus[i]);
+			}
+
+			// Mixed/utility pool skills are always secondary (shuffled for variety)
+			List<SkillObject> shuffledMixed = new(MixedUtilityPool);
+			ShuffleList(shuffledMixed);
+			secondarySkills.AddRange(shuffledMixed);
+
+			// Off-focus pool skills become tertiary (shuffled for variety)
+			List<SkillObject> shuffledOff = new(offPool);
+			ShuffleList(shuffledOff);
+			tertiarySkills.AddRange(shuffledOff);
 		}
 
+		/// MARK: ComputeBaseSkillValue
 		/// <summary>
-		/// Gets skill distribution configuration appropriate for the target level.
-		/// Skill distributions are calibrated to produce correct levels using the
-		/// native formula: TotalXp = Sum(2 * skill^2.2) - 2000.
+		/// Computes the base skill value for a given tier using the inverse of the native XP formula.
+		/// Distributes the total XP budget across all skills using weighted multipliers, then converts
+		/// each tier's XP share back to a skill value: skillValue = (xpShare / 2)^(1/2.2).
 		/// </summary>
-		/// <param name="level">Target level to get distribution config for.</param>
-		/// <returns>A SkillDistributionConfig with min/max ranges for primary, secondary, and tertiary skills.</returns>
-		private static SkillDistributionConfig GetSkillDistributionForLevel(int level)
+		/// <param name="targetXpSum">The total raw XP sum (before the -2000 offset) to distribute.</param>
+		/// <param name="numPrimary">Number of primary tier skills.</param>
+		/// <param name="numSecondary">Number of secondary tier skills.</param>
+		/// <param name="numTertiary">Number of tertiary tier skills.</param>
+		/// <param name="tierMultiplier">The weight multiplier for the tier being computed.</param>
+		/// <returns>The base skill value for the specified tier.</returns>
+		private static int ComputeBaseSkillValue(long targetXpSum, int numPrimary, int numSecondary, int numTertiary, float tierMultiplier)
 		{
-			// Skill distributions calibrated to produce correct levels
-			// Native formula: TotalXp = Sum(2 * skill^2.2) - 2000
-			if (level <= 5)
-			{
-				return new SkillDistributionConfig
-				{
-					PrimarySkillMin = 30,
-					PrimarySkillMax = 50,
-					SecondarySkillMin = 15,
-					SecondarySkillMax = 30,
-					TertiarySkillMin = 0,
-					TertiarySkillMax = 15,
-					NumPrimarySkills = 3,
-					NumSecondarySkills = 3
-				};
-			}
-			else if (level <= 10)
-			{
-				return new SkillDistributionConfig
-				{
-					PrimarySkillMin = 50,
-					PrimarySkillMax = 80,
-					SecondarySkillMin = 25,
-					SecondarySkillMax = 50,
-					TertiarySkillMin = 5,
-					TertiarySkillMax = 25,
-					NumPrimarySkills = 3,
-					NumSecondarySkills = 4
-				};
-			}
-			else if (level <= 15)
-			{
-				return new SkillDistributionConfig
-				{
-					PrimarySkillMin = 80,
-					PrimarySkillMax = 120,
-					SecondarySkillMin = 40,
-					SecondarySkillMax = 70,
-					TertiarySkillMin = 10,
-					TertiarySkillMax = 35,
-					NumPrimarySkills = 4,
-					NumSecondarySkills = 4
-				};
-			}
-			else if (level <= 20)
-			{
-				return new SkillDistributionConfig
-				{
-					PrimarySkillMin = 120,
-					PrimarySkillMax = 160,
-					SecondarySkillMin = 60,
-					SecondarySkillMax = 100,
-					TertiarySkillMin = 20,
-					TertiarySkillMax = 50,
-					NumPrimarySkills = 4,
-					NumSecondarySkills = 4
-				};
-			}
-			else if (level <= 25)
-			{
-				return new SkillDistributionConfig
-				{
-					PrimarySkillMin = 160,
-					PrimarySkillMax = 200,
-					SecondarySkillMin = 80,
-					SecondarySkillMax = 130,
-					TertiarySkillMin = 30,
-					TertiarySkillMax = 60,
-					NumPrimarySkills = 4,
-					NumSecondarySkills = 4
-				};
-			}
-			else // level > 25
-			{
-				return new SkillDistributionConfig
-				{
-					PrimarySkillMin = 200,
-					PrimarySkillMax = 250,
-					SecondarySkillMin = 100,
-					SecondarySkillMax = 160,
-					TertiarySkillMin = 40,
-					TertiarySkillMax = 80,
-					NumPrimarySkills = 4,
-					NumSecondarySkills = 5
-				};
-			}
+			// Total weight across all skills
+			float totalWeight = numPrimary * PrimaryMultiplier
+							  + numSecondary * SecondaryMultiplier
+							  + numTertiary * TertiaryMultiplier;
+
+			// XP budget per weight unit
+			float xpPerUnit = (float)targetXpSum / totalWeight;
+
+			// This tier's XP contribution per skill: tierMultiplier * xpPerUnit = 2 * skill^2.2
+			// Solving for skill: skill = (tierMultiplier * xpPerUnit / 2)^(1/2.2)
+			float xpPerSkill = tierMultiplier * xpPerUnit;
+			if (xpPerSkill <= 0f)
+				return 0;
+
+			int skillValue = (int)TaleWorlds.Library.MathF.Pow(xpPerSkill / 2f, InverseXpExponent);
+			return MBMath.ClampInt(skillValue, 0, 1023);
 		}
 
+		/// MARK: ApplySkillsWithVariance
 		/// <summary>
-		/// Generates and assigns skills based on the distribution config.
-		/// Skills are randomly shuffled and then assigned to primary, secondary, and tertiary categories
-		/// with random values within each category's min/max range.
+		/// Applies skill values to a hero with random variance for natural-feeling distributions.
+		/// Each skill gets the base value +/- SkillVariancePercent randomized.
 		/// </summary>
 		/// <param name="hero">The hero to assign skills to.</param>
-		/// <param name="config">Skill distribution configuration defining ranges and category counts.</param>
-		private static void GenerateSkillsForConfig(Hero hero, SkillDistributionConfig config)
+		/// <param name="skills">List of skills in this tier.</param>
+		/// <param name="baseValue">The base skill value for this tier.</param>
+		private static void ApplySkillsWithVariance(Hero hero, List<SkillObject> skills, int baseValue)
 		{
-			// Create shuffled list of all skills for random selection
-			List<SkillObject> shuffledSkills = new(Skills.All);
-			ShuffleList(shuffledSkills);
-
-			int skillIndex = 0;
-
-			// Assign primary skills (highest values)
-			for (int i = 0; i < config.NumPrimarySkills && skillIndex < shuffledSkills.Count; i++)
+			foreach (SkillObject skill in skills)
 			{
-				int skillValue = RandomNumberGen.Instance.NextRandomInt(config.PrimarySkillMin, config.PrimarySkillMax + 1);
-				hero.HeroDeveloper.SetInitialSkillLevel(shuffledSkills[skillIndex], skillValue);
-				skillIndex++;
-			}
+				int variance = (int)(baseValue * SkillVariancePercent);
+				int minValue = MBMath.ClampInt(baseValue - variance, 0, 1023);
+				int maxValue = MBMath.ClampInt(baseValue + variance, 0, 1023);
 
-			// Assign secondary skills (medium values)
-			for (int i = 0; i < config.NumSecondarySkills && skillIndex < shuffledSkills.Count; i++)
-			{
-				int skillValue = RandomNumberGen.Instance.NextRandomInt(config.SecondarySkillMin, config.SecondarySkillMax + 1);
-				hero.HeroDeveloper.SetInitialSkillLevel(shuffledSkills[skillIndex], skillValue);
-				skillIndex++;
-			}
+				int skillValue;
+				if (minValue >= maxValue)
+				{
+					skillValue = minValue;
+				}
 
-			// Assign tertiary skills (lowest values) to remaining skills
-			while (skillIndex < shuffledSkills.Count)
-			{
-				int skillValue = RandomNumberGen.Instance.NextRandomInt(config.TertiarySkillMin, config.TertiarySkillMax + 1);
-				hero.HeroDeveloper.SetInitialSkillLevel(shuffledSkills[skillIndex], skillValue);
-				skillIndex++;
+				else
+				{
+					skillValue = RandomNumberGen.Instance.NextRandomInt(minValue, maxValue + 1);
+				}
+
+				hero.HeroDeveloper.SetInitialSkillLevel(skill, skillValue);
 			}
 		}
 
+		/// MARK: ValidateAndAdjustSkills
 		/// <summary>
-		/// Fisher-Yates shuffle for randomizing skill selection order.
+		/// Validates that the hero's current skill distribution produces the correct target level.
+		/// If the total XP is too high (would overshoot to next level), scales down the highest skill.
+		/// If too low (would undershoot), scales up the highest skill.
+		/// Uses iterative correction with a maximum number of passes.
 		/// </summary>
-		/// <typeparam name="T">Type of elements in the list.</typeparam>
-		/// <param name="list">List to shuffle in-place.</param>
-		private static void ShuffleList<T>(List<T> list)
+		/// <param name="hero">The hero whose skills to validate.</param>
+		/// <param name="targetLevel">The desired level.</param>
+		/// <param name="xpFloor">The minimum XP required for the target level.</param>
+		/// <param name="xpCeiling">The XP threshold for the next level (must stay below this).</param>
+		private static void ValidateAndAdjustSkills(Hero hero, int targetLevel, long xpFloor, long xpCeiling)
 		{
-			int n = list.Count;
-			for (int i = n - 1; i > 0; i--)
+			for (int pass = 0; pass < MaxCorrectionPasses; pass++)
 			{
-				int j = RandomNumberGen.Instance.NextRandomInt(i + 1);
-				T temp = list[i];
-				list[i] = list[j];
-				list[j] = temp;
+				long currentXpSum = ComputeCurrentXpSum(hero);
+				long currentTotalXp = currentXpSum - XpOffset;
+
+				// Check if we're in the valid range for the target level
+				if (currentTotalXp >= xpFloor && currentTotalXp < xpCeiling)
+					return; // Landed on target level
+
+				// Find the highest and lowest skill for adjustment
+				SkillObject highestSkill = null;
+				SkillObject lowestSkill = null;
+				int highestValue = int.MinValue;
+				int lowestValue = int.MaxValue;
+
+				foreach (SkillObject skill in Skills.All)
+				{
+					int value = hero.GetSkillValue(skill);
+					if (value > highestValue)
+					{
+						highestValue = value;
+						highestSkill = skill;
+					}
+
+					if (value < lowestValue)
+					{
+						lowestValue = value;
+						lowestSkill = skill;
+					}
+				}
+
+				if (currentTotalXp >= xpCeiling)
+				{
+					// Overshot - reduce the highest skill
+					if (highestSkill != null && highestValue > 0)
+					{
+						// Calculate how much XP we need to shed
+						long excess = currentTotalXp - (xpFloor + (xpCeiling - xpFloor) / 3);
+						int newValue = SkillValueFromXpContribution(
+							2f * TaleWorlds.Library.MathF.Pow((float)highestValue, XpExponent) - (float)excess);
+						newValue = MBMath.ClampInt(newValue, 0, highestValue - 1);
+						hero.HeroDeveloper.SetInitialSkillLevel(highestSkill, newValue);
+					}
+				}
+
+				else
+				{
+					// Undershot - increase the lowest skill
+					if (lowestSkill != null)
+					{
+						long deficit = xpFloor + (xpCeiling - xpFloor) / 3 - currentTotalXp;
+						int newValue = SkillValueFromXpContribution(
+							2f * TaleWorlds.Library.MathF.Pow((float)lowestValue, XpExponent) + (float)deficit);
+						newValue = MBMath.ClampInt(newValue, lowestValue + 1, 1023);
+						hero.HeroDeveloper.SetInitialSkillLevel(lowestSkill, newValue);
+					}
+				}
 			}
 		}
 
+		/// MARK: ComputeCurrentXpSum
+		/// <summary>
+		/// Computes the raw XP sum from all current skill values using the native formula.
+		/// Raw sum = Sum(2 * skillValue^2.2) across all 18 skills.
+		/// TotalXp is then rawSum - 2000.
+		/// </summary>
+		/// <param name="hero">The hero to compute XP sum for.</param>
+		/// <returns>The raw XP sum before the -2000 offset.</returns>
+		private static long ComputeCurrentXpSum(Hero hero)
+		{
+			float sum = 0f;
+			foreach (SkillObject skill in Skills.All)
+			{
+				int value = hero.GetSkillValue(skill);
+				sum += 2f * TaleWorlds.Library.MathF.Pow((float)value, XpExponent);
+			}
+
+			return (long)sum;
+		}
+
+		/// MARK: SkillValueFromXpContribution
+		/// <summary>
+		/// Converts an XP contribution amount back to a skill value using the inverse formula.
+		/// Given xpContrib = 2 * skill^2.2, solves for: skill = (xpContrib / 2)^(1/2.2).
+		/// </summary>
+		/// <param name="xpContribution">The XP contribution to convert (can be the contribution of a single skill).</param>
+		/// <returns>The skill value that would produce the given XP contribution.</returns>
+		private static int SkillValueFromXpContribution(float xpContribution)
+		{
+			if (xpContribution <= 0f)
+				return 0;
+
+			return MBMath.ClampInt((int)TaleWorlds.Library.MathF.Pow(xpContribution / 2f, InverseXpExponent), 0, 1023);
+		}
+
+		/// MARK: ComputeSkillsRequiredForLevel
+		/// <summary>
+		/// Replicates the native SkillsRequiredForLevel formula without the level 62 cap.
+		/// Uses long arithmetic to avoid overflow at high levels.
+		/// Native formula: starts at gap=1000, each level gap += 1000 + gap/5.
+		/// </summary>
+		/// <param name="level">Target level to compute XP threshold for.</param>
+		/// <returns>The cumulative TotalXp required to reach the specified level.</returns>
+		private static long ComputeSkillsRequiredForLevel(int level)
+		{
+			if (level <= 0)
+				return 0;
+
+			if (level == 1)
+				return 1;
+
+			long gap = 1000;
+			long cumulative = 1;
+
+			for (int i = 2; i <= level; i++)
+			{
+				cumulative += gap;
+				gap += 1000 + gap / 5;
+			}
+
+			return cumulative;
+		}
+
+		#endregion
+		#region Template Selection
+
+		/// MARK: SelectRandomTemplate
 		/// <summary>
 		/// Selects a random character template from the given culture/gender pool.
 		/// Only returns Lord and Wanderer occupation characters (no notables).
@@ -626,6 +782,24 @@ namespace Bannerlord.GameMaster.Heroes
 			CharacterObject character = CharacterObject.CreateFrom(characterPool[randomIndex]);
 
 			return character;
+		}
+
+		/// MARK: ShuffleList
+		/// <summary>
+		/// Fisher-Yates shuffle for randomizing skill selection order.
+		/// </summary>
+		/// <typeparam name="T">Type of elements in the list.</typeparam>
+		/// <param name="list">List to shuffle in-place.</param>
+		private static void ShuffleList<T>(List<T> list)
+		{
+			int n = list.Count;
+			for (int i = n - 1; i > 0; i--)
+			{
+				int j = RandomNumberGen.Instance.NextRandomInt(i + 1);
+				T temp = list[i];
+				list[i] = list[j];
+				list[j] = temp;
+			}
 		}
 
 		#endregion
