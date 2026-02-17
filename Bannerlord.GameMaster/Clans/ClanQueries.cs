@@ -13,6 +13,7 @@ namespace Bannerlord.GameMaster.Clans
 	{
 		#region Query
 
+		/// MARK: GetClanByID
 		/// <summary>
 		/// Finds a clan with the specified clanId, Fast but case sensitive (all string ids SHOULD be lower case) <br />
 		/// Use QueryClans().FirstOrDefault() to find clan with case insensitive partial name or partial stringIds <br />
@@ -20,6 +21,56 @@ namespace Bannerlord.GameMaster.Clans
 		/// </summary>
 		public static Clan GetClanById(string clanId) => Campaign.Current.CampaignObjectManager.Find<Clan>(clanId);
 
+		/// MARK: GetRandomMainCultureClan
+		/// <summary>
+		/// Returns a random non-eliminated clan from any main culture.
+		/// </summary>
+		public static Clan GetRandomMainCultureClan() => GetRandomClan();
+
+		/// MARK: GetRandomClan
+		/// <summary>
+		/// Returns a random non-eliminated clan matching the specified culture.
+		/// If no culture is specified, returns a random clan from any main culture.
+		/// </summary>
+		/// <param name="culture">Optional culture to filter by. If null, filters to main cultures only.</param>
+		/// <returns>A random matching clan, or null if none found.</returns>
+		public static Clan GetRandomClan(CultureObject culture = null)
+		{
+			MBReadOnlyList<Clan> source = Clan.All;
+			MBList<Clan> candidates = new();
+
+			for (int i = 0; i < source.Count; i++)
+			{
+				Clan clan = source[i];
+
+				// skip invalid or eliminated clans
+				if (clan == null || clan.IsEliminated || clan.Culture == null)
+					continue;
+
+				// Culture was specified
+				if (culture != null)
+				{
+					if (clan.Culture == culture)
+						candidates.Add(clan);
+				}
+
+				// No culture specifed
+				else if (clan.Culture.IsMainCulture)
+				{
+					candidates.Add(clan);
+				}
+			}
+
+			// No valid clans found
+			if (candidates.Count == 0)
+				return null;
+
+			int randomIndex = RandomNumberGen.Instance.NextRandomInt(candidates.Count);
+			return candidates[randomIndex];
+		}
+
+
+		/// MARK: QueryClans
 		/// <summary>
 		/// Performance focused method to find clans matching multiple parameters. All parameters are optional and can be used with none, one or a combination of any parameters<br />
 		/// Note: <paramref name="query"/> parameter is a string used that will match partial clan names or partial stringIds
@@ -64,6 +115,7 @@ namespace Bannerlord.GameMaster.Clans
 			return results;
 		}
 
+		/// MARK: MatchesFIlters
 		/// <summary>
 		/// Check if clan matches all filter criteria
 		/// </summary>
@@ -95,6 +147,7 @@ namespace Bannerlord.GameMaster.Clans
 			return true;
 		}
 
+		/// MARK: GetClanComparer
 		/// <summary>
 		/// Get comparer for clan sorting
 		/// </summary>
@@ -170,6 +223,7 @@ namespace Bannerlord.GameMaster.Clans
 
 		#region Parsing / Formatting
 
+		/// MARK: ParseClanType
 		/// <summary>
 		/// Parse a string into ClanTypes enum value
 		/// </summary>
@@ -206,6 +260,7 @@ namespace Bannerlord.GameMaster.Clans
 			return ClanTypes.None;
 		}
 
+		/// MARK: ParseClanTypes
 		/// <summary>
 		/// Parse multiple strings and combine into ClanTypes flags
 		/// </summary>
@@ -222,6 +277,7 @@ namespace Bannerlord.GameMaster.Clans
 			return combined;
 		}
 
+		/// MARK: GetFormattedDetails
 		/// <summary>
 		/// Returns a formatted string listing clan details with aligned columns
 		/// </summary>
