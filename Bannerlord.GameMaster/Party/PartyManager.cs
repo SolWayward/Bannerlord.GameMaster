@@ -38,8 +38,8 @@ namespace Bannerlord.GameMaster.Party
                 return BLGMResult.Error("OpenPartyEditor() failed, rightSideHero cannot be null",
                     new ArgumentNullException(nameof(rightSideHero))).Log();
             }
-
-            MobileParty rightParty = rightSideHero.PartyBelongedTo;
+            
+                        MobileParty rightParty = rightSideHero.PartyBelongedTo;
             if (rightParty == null)
             {
                 return BLGMResult.Error(
