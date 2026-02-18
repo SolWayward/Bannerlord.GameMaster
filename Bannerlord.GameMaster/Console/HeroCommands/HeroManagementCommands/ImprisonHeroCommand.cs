@@ -65,8 +65,8 @@ public static class ImprisonHeroCommand
             if (!captorResult.IsSuccess) return CommandResult.Error(captorResult.Message).Message;
             Hero captor = captorResult.Entity;
 
-            if (captor.PartyBelongedTo != null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{captor.Name} must be a member of any party to capture hero.")).Message;
+            if (captor.PartyBelongedTo == null && captor.Clan == null)
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{captor.Name} must be a member of any party or clan to capture hero.")).Message;
 
             if (prisoner.IsPrisoner)
                 return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{prisoner.Name} is already a prisoner.")).Message;
