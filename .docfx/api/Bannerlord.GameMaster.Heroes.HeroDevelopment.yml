@@ -1,0 +1,113 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  id: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroEditorState
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkEditor
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor.html
+  name: AttributeEditor
+  nameWithType: AttributeEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.html
+  name: FocusEditor
+  nameWithType: FocusEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroEditorState
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroEditorState
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroEditorState.html
+  name: HeroEditorState
+  nameWithType: HeroEditorState
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroEditorState
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html
+  name: HeroSkillEditor
+  nameWithType: HeroSkillEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot.html
+  name: HeroSkillSnapshot
+  nameWithType: HeroSkillSnapshot
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkEditor
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkEditor.html
+  name: PerkEditor
+  nameWithType: PerkEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.html
+  name: SkillEditor
+  nameWithType: SkillEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html
+  name: SkillInfo
+  nameWithType: SkillInfo
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html

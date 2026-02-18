@@ -475,6 +475,9 @@ items:
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
     name: EditAppearanceCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand
+    name: EditPartyCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
     name: EquipHeroCommand
     type: Class
@@ -519,6 +522,9 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetRelationCommand
     name: SetRelationCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand
+    name: StartConversationCommand
     type: Class
 - uid: Bannerlord.GameMaster.Console.InfoCommands
   name: Bannerlord.GameMaster.Console.InfoCommands
@@ -1064,6 +1070,9 @@ items:
   name: Bannerlord.GameMaster.Heroes
   type: Namespace
   items:
+  - uid: Bannerlord.GameMaster.Heroes.BLGMConversationManager
+    name: BLGMConversationManager
+    type: Class
   - uid: Bannerlord.GameMaster.Heroes.BodyConstraints
     name: BodyConstraints
     type: Struct
@@ -1122,6 +1131,34 @@ items:
   - uid: Bannerlord.GameMaster.Heroes.FaceGenerator.HeroFaceGeneratorState
     name: HeroFaceGeneratorState
     type: Class
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor
+    name: AttributeEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+    name: FocusEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroEditorState
+    name: HeroEditorState
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+    name: HeroSkillEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+    name: HeroSkillSnapshot
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkEditor
+    name: PerkEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+    name: SkillEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+    name: SkillInfo
+    type: Struct
 - uid: Bannerlord.GameMaster.Information
   name: Bannerlord.GameMaster.Information
   type: Namespace
@@ -1237,6 +1274,12 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Party.MobilePartyGenerator
     name: MobilePartyGenerator
+    type: Class
+  - uid: Bannerlord.GameMaster.Party.PartyManager
+    name: PartyManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Party.PartyUILauncher
+    name: PartyUILauncher
     type: Class
   - uid: Bannerlord.GameMaster.Party.SettlementPartyType
     name: SettlementPartyType

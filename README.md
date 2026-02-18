@@ -10,30 +10,43 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.4
+## Latest Update v1.3.14.5
 
 ```
+Added command gm.hero.edit_party
+	Opens the party UI with any hero's party
+	If two heroes are specified you can transfer troops between heroes
+	If only one hero specified, the discard pile will have 100 of each troop regardless of cheatmode
+	
+Added command gm.hero.start_conversation
+	Starts a conversation between player and the specifed hero instantly
+	
+Added optional age and level args to hero creation commands
+
+[h3]Released v1.3.14.5[/h3]
+Added command gm.hero.edit_party
+	Opens the party UI with any heroes party
+	If two heroes are specified you can transfer troops between heroes
+	If only one hero specified, the discard pile will have 100 of each troop regardless of cheatmode
+	
+Added command gm.hero.start_conversation
+	Starts a conversation between player and the specified hero instantly
+	
+Added optional age and level args to hero creation commands
+
+Previous Updates:
 Added new commands:
 	gm.hero.marry
 	gm.hero.divorce
 	gm.hero.impregnate
 	gm.kingdom.rename
 
-Added ability to override names blgm uses when generating objects
-	This will allow you to use a custom name set, or names in a different language
-	See article / discussion for instructions
-
-Previous Updates:
 Added all 229 possible colors the custom banner editor
-Added command gm.kingdom.sync_vassal_banners to manually update any clan banners that were changed back to the colors of the kingdom
-Added command gm.kingdom.edit_banner as shortcut for updating the ruling clans banner of a kingdom
-Added command gm.clan.sync_kingdom_colors to sync individual clan back to kingdom colors
 
-Added command gm.clan.edit.banner
-Added command gm.hero.edit_apperance
-Added command gm.hero.open_inventory
-
-Improved settlement renaming to immediately update name on map
+Added commands 
+	gm.clan.edit.banner
+	gm.hero.edit_apperance
+	m.hero.open_inventory
 ```
 
 ---

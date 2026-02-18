@@ -38,7 +38,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HeroTypes
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 25
+    startLine: 26
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -73,7 +73,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: None
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -99,7 +99,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsArtisan
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 29
+    startLine: 30
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -125,7 +125,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Lord
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 30
+    startLine: 31
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -151,7 +151,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Wanderer
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 31
+    startLine: 32
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -177,7 +177,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Notable
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 32
+    startLine: 33
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -203,7 +203,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Merchant
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -229,7 +229,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Children
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -255,7 +255,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Female
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 34
+    startLine: 35
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -281,7 +281,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Male
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 35
+    startLine: 36
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -307,7 +307,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ClanLeader
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 36
+    startLine: 37
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -333,7 +333,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: KingdomRuler
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 37
+    startLine: 38
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -359,7 +359,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: PartyLeader
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 38
+    startLine: 39
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -385,7 +385,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Fugitive
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 39
+    startLine: 40
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -411,7 +411,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Alive
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 40
+    startLine: 41
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -437,7 +437,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Dead
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 41
+    startLine: 42
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -463,7 +463,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Prisoner
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 42
+    startLine: 43
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -489,7 +489,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: WithoutClan
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 43
+    startLine: 44
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -515,7 +515,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: WithoutKingdom
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 44
+    startLine: 45
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -541,7 +541,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Married
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 45
+    startLine: 46
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes

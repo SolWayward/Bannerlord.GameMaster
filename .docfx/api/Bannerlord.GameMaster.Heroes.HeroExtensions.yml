@@ -20,6 +20,7 @@ items:
   - Bannerlord.GameMaster.Heroes.HeroExtensions.SetAge(TaleWorlds.CampaignSystem.Hero,System.Int32)
   - Bannerlord.GameMaster.Heroes.HeroExtensions.SetRandomDeathDate(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.HeroExtensions.SetStringName(TaleWorlds.CampaignSystem.Hero,System.String)
+  - Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer(TaleWorlds.CampaignSystem.Hero,System.Boolean)
   langs:
   - csharp
   - vb
@@ -34,7 +35,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HeroExtensions
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 48
+    startLine: 49
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -70,7 +71,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetHeroTypes
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 53
+    startLine: 54
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -104,7 +105,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasAllTypes
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 82
+    startLine: 83
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -140,7 +141,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasAnyType
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 92
+    startLine: 93
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -176,7 +177,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetTypes
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 102
+    startLine: 103
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -210,7 +211,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateParty
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 110
+    startLine: 111
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -246,7 +247,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeHomeSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 125
+    startLine: 126
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -290,7 +291,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeHomeSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 152
+    startLine: 153
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -331,7 +332,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetHomeOrAlternativeSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 166
+    startLine: 167
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -368,7 +369,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: AutoEquipHero
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 184
+    startLine: 185
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -410,7 +411,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: EquipHeroBasedOnCulture
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 193
+    startLine: 194
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -457,7 +458,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: EquipLordBasedOnCulture
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 203
+    startLine: 204
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -504,7 +505,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetAge
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 218
+    startLine: 219
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -544,7 +545,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetRandomDeathDate
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 232
+    startLine: 233
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -564,6 +565,46 @@ items:
       description: The CampignTime containing the actual date the hero will die
     content.vb: Public Shared Function SetRandomDeathDate(hero As Hero) As CampaignTime
   overload: Bannerlord.GameMaster.Heroes.HeroExtensions.SetRandomDeathDate*
+- uid: Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer(TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer(TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  id: StartConversationWithPlayer(TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Heroes.HeroExtensions
+  langs:
+  - csharp
+  - vb
+  name: StartConversationWithPlayer(Hero, bool)
+  nameWithType: HeroExtensions.StartConversationWithPlayer(Hero, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer(TaleWorlds.CampaignSystem.Hero, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: StartConversationWithPlayer
+    path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
+    startLine: 261
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Starts a conversation between player and the specified hero
+  example: []
+  syntax:
+    content: public static BLGMResult StartConversationWithPlayer(this Hero hero, bool forceCivillian = false)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero player will be talking to
+    - id: forceCivillian
+      type: System.Boolean
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Shared Function StartConversationWithPlayer(hero As Hero, forceCivillian As Boolean = False) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer*
+  nameWithType.vb: HeroExtensions.StartConversationWithPlayer(Hero, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer(TaleWorlds.CampaignSystem.Hero, Boolean)
+  name.vb: StartConversationWithPlayer(Hero, Boolean)
 - uid: Bannerlord.GameMaster.Heroes.HeroExtensions.SetStringName(TaleWorlds.CampaignSystem.Hero,System.String)
   commentId: M:Bannerlord.GameMaster.Heroes.HeroExtensions.SetStringName(TaleWorlds.CampaignSystem.Hero,System.String)
   id: SetStringName(TaleWorlds.CampaignSystem.Hero,System.String)
@@ -583,7 +624,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetStringName
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 259
+    startLine: 271
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -620,7 +661,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: FormattedDetails
     path: ../Bannerlord.GameMaster/Heroes/HeroExtensions.cs
-    startLine: 268
+    startLine: 280
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -1114,6 +1155,49 @@ references:
   name: SetRandomDeathDate
   nameWithType: HeroExtensions.SetRandomDeathDate
   fullName: Bannerlord.GameMaster.Heroes.HeroExtensions.SetRandomDeathDate
+- uid: Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer
+  href: Bannerlord.GameMaster.Heroes.HeroExtensions.html#Bannerlord_GameMaster_Heroes_HeroExtensions_StartConversationWithPlayer_TaleWorlds_CampaignSystem_Hero_System_Boolean_
+  name: StartConversationWithPlayer
+  nameWithType: HeroExtensions.StartConversationWithPlayer
+  fullName: Bannerlord.GameMaster.Heroes.HeroExtensions.StartConversationWithPlayer
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
 - uid: Bannerlord.GameMaster.Heroes.HeroExtensions.SetStringName*
   commentId: Overload:Bannerlord.GameMaster.Heroes.HeroExtensions.SetStringName
   href: Bannerlord.GameMaster.Heroes.HeroExtensions.html#Bannerlord_GameMaster_Heroes_HeroExtensions_SetStringName_TaleWorlds_CampaignSystem_Hero_System_String_

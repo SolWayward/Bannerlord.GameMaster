@@ -1,0 +1,635 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  id: FocusEditor
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.GetFocusValue(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: FocusEditor
+  nameWithType: FocusEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FocusEditor
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Provides unrestricted focus point editing operations for any hero.
+
+    Uses native HeroDeveloper.AddFocus (with checkUnspentFocusPoints: false) and
+
+    RemoveFocus, both of which are public. No reflection needed.
+  example: []
+  syntax:
+    content: public static class FocusEditor
+    content.vb: Public Module FocusEditor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  id: SetFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  langs:
+  - csharp
+  - vb
+  name: SetFocus(Hero, SkillObject, int)
+  nameWithType: FocusEditor.SetFocus(Hero, SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetFocus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Sets a hero's focus for a skill to an exact value. Computes the delta from current
+
+    and calls AddFocus or RemoveFocus accordingly.
+
+    Bypasses unspent focus point restrictions by passing checkUnspentFocusPoints: false.
+  example: []
+  syntax:
+    content: public static BLGMResult SetFocus(Hero hero, SkillObject skill, int value)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to modify
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+      description: The skill to set focus for
+    - id: value
+      type: System.Int32
+      description: The target focus value (clamped to 0-MaxFocusPerSkill)
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Shared Function SetFocus(hero As Hero, skill As SkillObject, value As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus*
+  nameWithType.vb: FocusEditor.SetFocus(Hero, SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, Integer)
+  name.vb: SetFocus(Hero, SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  id: AddFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  langs:
+  - csharp
+  - vb
+  name: AddFocus(Hero, SkillObject, int)
+  nameWithType: FocusEditor.AddFocus(Hero, SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AddFocus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+    startLine: 77
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Adds or removes focus points by a delta amount.
+
+    Positive delta increases, negative delta decreases.
+
+    Bypasses unspent focus point cost.
+  example: []
+  syntax:
+    content: public static BLGMResult AddFocus(Hero hero, SkillObject skill, int delta)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to modify
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+      description: The skill to change focus for
+    - id: delta
+      type: System.Int32
+      description: The amount to change (positive to add, negative to remove)
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Shared Function AddFocus(hero As Hero, skill As SkillObject, delta As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus*
+  nameWithType.vb: FocusEditor.AddFocus(Hero, SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, Integer)
+  name.vb: AddFocus(Hero, SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  id: RemoveFocus(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveFocus(Hero, SkillObject, int)
+  nameWithType: FocusEditor.RemoveFocus(Hero, SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveFocus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+    startLine: 122
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Removes focus points from a skill. Convenience wrapper around native RemoveFocus.
+  example: []
+  syntax:
+    content: public static BLGMResult RemoveFocus(Hero hero, SkillObject skill, int amount)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to modify
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+      description: The skill to remove focus from
+    - id: amount
+      type: System.Int32
+      description: The amount of focus points to remove (must be positive)
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Shared Function RemoveFocus(hero As Hero, skill As SkillObject, amount As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus*
+  nameWithType.vb: FocusEditor.RemoveFocus(Hero, SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, Integer)
+  name.vb: RemoveFocus(Hero, SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.GetFocusValue(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.GetFocusValue(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject)
+  id: GetFocusValue(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
+  langs:
+  - csharp
+  - vb
+  name: GetFocusValue(Hero, SkillObject)
+  nameWithType: FocusEditor.GetFocusValue(Hero, SkillObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.GetFocusValue(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFocusValue
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/FocusEditor.cs
+    startLine: 156
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Gets the current focus value for a skill.
+  example: []
+  syntax:
+    content: public static int GetFocusValue(Hero hero, SkillObject skill)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to query
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+      description: The skill to query focus for
+    return:
+      type: System.Int32
+      description: The current focus value, or 0 if parameters are null
+    content.vb: Public Shared Function GetFocusValue(hero As Hero, skill As SkillObject) As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.GetFocusValue*
+references:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_FocusEditor_SetFocus_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_SkillObject_System_Int32_
+  name: SetFocus
+  nameWithType: FocusEditor.SetFocus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.SetFocus
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.Core.SkillObject
+  commentId: T:TaleWorlds.Core.SkillObject
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: SkillObject
+  nameWithType: SkillObject
+  fullName: TaleWorlds.Core.SkillObject
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_FocusEditor_AddFocus_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_SkillObject_System_Int32_
+  name: AddFocus
+  nameWithType: FocusEditor.AddFocus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.AddFocus
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_FocusEditor_RemoveFocus_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_SkillObject_System_Int32_
+  name: RemoveFocus
+  nameWithType: FocusEditor.RemoveFocus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.RemoveFocus
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.GetFocusValue*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.GetFocusValue
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_FocusEditor_GetFocusValue_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_SkillObject_
+  name: GetFocusValue
+  nameWithType: FocusEditor.GetFocusValue
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.GetFocusValue

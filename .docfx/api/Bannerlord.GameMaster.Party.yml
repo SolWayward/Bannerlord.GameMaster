@@ -6,6 +6,8 @@ items:
   children:
   - Bannerlord.GameMaster.Party.MobilePartyExtensions
   - Bannerlord.GameMaster.Party.MobilePartyGenerator
+  - Bannerlord.GameMaster.Party.PartyManager
+  - Bannerlord.GameMaster.Party.PartyUILauncher
   - Bannerlord.GameMaster.Party.SettlementPartyType
   langs:
   - csharp
@@ -36,6 +38,18 @@ references:
   name: SettlementPartyType
   nameWithType: SettlementPartyType
   fullName: Bannerlord.GameMaster.Party.SettlementPartyType
+- uid: Bannerlord.GameMaster.Party.PartyManager
+  commentId: T:Bannerlord.GameMaster.Party.PartyManager
+  href: Bannerlord.GameMaster.Party.PartyManager.html
+  name: PartyManager
+  nameWithType: PartyManager
+  fullName: Bannerlord.GameMaster.Party.PartyManager
+- uid: Bannerlord.GameMaster.Party.PartyUILauncher
+  commentId: T:Bannerlord.GameMaster.Party.PartyUILauncher
+  href: Bannerlord.GameMaster.Party.PartyUILauncher.html
+  name: PartyUILauncher
+  nameWithType: PartyUILauncher
+  fullName: Bannerlord.GameMaster.Party.PartyUILauncher
 - uid: Bannerlord.GameMaster.Party
   commentId: N:Bannerlord.GameMaster.Party
   href: Bannerlord.html

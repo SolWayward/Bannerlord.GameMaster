@@ -14,7 +14,7 @@ namespace Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands;
 
 /// <summary>
 /// Divorce a hero from their current spouse
-/// Usage: gm.hero.divorce <hero>
+/// Usage: gm.hero.divorce [hero]
 /// </summary>
 public static class DivorceCommand
 {

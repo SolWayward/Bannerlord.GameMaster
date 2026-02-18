@@ -1,0 +1,699 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  id: SkillInfo
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.#ctor(TaleWorlds.Core.SkillObject,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Focus
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.LearningRate
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Level
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Skill
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.ToString
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.TotalXp
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpNeededForNextLevel
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpProgress
+  langs:
+  - csharp
+  - vb
+  name: SkillInfo
+  nameWithType: SkillInfo
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  type: Struct
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SkillInfo
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 180
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Immutable struct containing detailed information about a hero's skill state.
+  example: []
+  syntax:
+    content: public readonly struct SkillInfo
+    content.vb: Public Structure SkillInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Skill
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Skill
+  id: Skill
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: Skill
+  nameWithType: SkillInfo.Skill
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Skill
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Skill
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 182
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: public SkillObject Skill { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Core.SkillObject
+    content.vb: Public ReadOnly Property Skill As SkillObject
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Skill*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Level
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Level
+  id: Level
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: SkillInfo.Level
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Level
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Level
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 183
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: public int Level { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Level As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Level*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.TotalXp
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.TotalXp
+  id: TotalXp
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: TotalXp
+  nameWithType: SkillInfo.TotalXp
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.TotalXp
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TotalXp
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 184
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: public float TotalXp { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property TotalXp As Single
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.TotalXp*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpProgress
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpProgress
+  id: XpProgress
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: XpProgress
+  nameWithType: SkillInfo.XpProgress
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpProgress
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: XpProgress
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 185
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: public int XpProgress { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property XpProgress As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpProgress*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpNeededForNextLevel
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpNeededForNextLevel
+  id: XpNeededForNextLevel
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: XpNeededForNextLevel
+  nameWithType: SkillInfo.XpNeededForNextLevel
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpNeededForNextLevel
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: XpNeededForNextLevel
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 186
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: public int XpNeededForNextLevel { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property XpNeededForNextLevel As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpNeededForNextLevel*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Focus
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Focus
+  id: Focus
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: Focus
+  nameWithType: SkillInfo.Focus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Focus
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Focus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 187
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: public int Focus { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Focus As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Focus*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.LearningRate
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.LearningRate
+  id: LearningRate
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: LearningRate
+  nameWithType: SkillInfo.LearningRate
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.LearningRate
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LearningRate
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 188
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: public float LearningRate { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property LearningRate As Single
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.LearningRate*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.#ctor(TaleWorlds.Core.SkillObject,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.#ctor(TaleWorlds.Core.SkillObject,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single)
+  id: '#ctor(TaleWorlds.Core.SkillObject,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single)'
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: SkillInfo(SkillObject, int, float, int, int, int, float)
+  nameWithType: SkillInfo.SkillInfo(SkillObject, int, float, int, int, int, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.SkillInfo(TaleWorlds.Core.SkillObject, int, float, int, int, int, float)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 190
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: public SkillInfo(SkillObject skill, int level, float totalXp, int xpProgress, int xpNeededForNextLevel, int focus, float learningRate)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    - id: level
+      type: System.Int32
+    - id: totalXp
+      type: System.Single
+    - id: xpProgress
+      type: System.Int32
+    - id: xpNeededForNextLevel
+      type: System.Int32
+    - id: focus
+      type: System.Int32
+    - id: learningRate
+      type: System.Single
+    content.vb: Public Sub New(skill As SkillObject, level As Integer, totalXp As Single, xpProgress As Integer, xpNeededForNextLevel As Integer, focus As Integer, learningRate As Single)
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.#ctor*
+  nameWithType.vb: SkillInfo.New(SkillObject, Integer, Single, Integer, Integer, Integer, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.New(TaleWorlds.Core.SkillObject, Integer, Single, Integer, Integer, Integer, Single)
+  name.vb: New(SkillObject, Integer, Single, Integer, Integer, Integer, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.ToString
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.ToString
+  id: ToString
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SkillInfo.ToString()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.ToString()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ToString
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 202
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.ToString*
+references:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Skill*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Skill
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo_Skill
+  name: Skill
+  nameWithType: SkillInfo.Skill
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Skill
+- uid: TaleWorlds.Core.SkillObject
+  commentId: T:TaleWorlds.Core.SkillObject
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: SkillObject
+  nameWithType: SkillObject
+  fullName: TaleWorlds.Core.SkillObject
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Level*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Level
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo_Level
+  name: Level
+  nameWithType: SkillInfo.Level
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Level
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.TotalXp*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.TotalXp
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo_TotalXp
+  name: TotalXp
+  nameWithType: SkillInfo.TotalXp
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.TotalXp
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpProgress*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpProgress
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo_XpProgress
+  name: XpProgress
+  nameWithType: SkillInfo.XpProgress
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpProgress
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpNeededForNextLevel*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpNeededForNextLevel
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo_XpNeededForNextLevel
+  name: XpNeededForNextLevel
+  nameWithType: SkillInfo.XpNeededForNextLevel
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.XpNeededForNextLevel
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Focus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Focus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo_Focus
+  name: Focus
+  nameWithType: SkillInfo.Focus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.Focus
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.LearningRate*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.LearningRate
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo_LearningRate
+  name: LearningRate
+  nameWithType: SkillInfo.LearningRate
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.LearningRate
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.#ctor
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo__ctor_TaleWorlds_Core_SkillObject_System_Int32_System_Single_System_Int32_System_Int32_System_Int32_System_Single_
+  name: SkillInfo
+  nameWithType: SkillInfo.SkillInfo
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.SkillInfo
+  nameWithType.vb: SkillInfo.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.New
+  name.vb: New
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.ToString*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.ToString
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillInfo_ToString
+  name: ToString
+  nameWithType: SkillInfo.ToString
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -1,37 +1,39 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
-  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
-  id: DivorceCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand
+  id: EditPartyCommand
   parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   children:
-  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty(System.Collections.Generic.List{System.String})
   langs:
   - csharp
   - vb
-  name: DivorceCommand
-  nameWithType: DivorceCommand
-  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
+  name: EditPartyCommand
+  nameWithType: EditPartyCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand
   type: Class
   source:
     remote:
-      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/DivorceCommand.cs
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/EditPartyCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: DivorceCommand
-    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/DivorceCommand.cs
-    startLine: 18
+    id: EditPartyCommand
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/EditPartyCommand.cs
+    startLine: 19
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   summary: >-
-    Divorce a hero from their current spouse
+    Opens the native party editor UI for a hero's party, optionally with a second hero's party
 
-    Usage: gm.hero.divorce [hero]
+    for troop transfer. If no second hero is specified, opens in discard mode with all game troops.
+
+    Usage: gm.hero.edit_party &lt;rightSideHero&gt; [leftSideHero]
   example: []
   syntax:
-    content: public static class DivorceCommand
-    content.vb: Public Module DivorceCommand
+    content: public static class EditPartyCommand
+    content.vb: Public Module EditPartyCommand
   inheritance:
   - System.Object
   inheritedMembers:
@@ -42,54 +44,54 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List{System.String})
-  commentId: M:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List{System.String})
-  id: Divorce(System.Collections.Generic.List{System.String})
-  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty(System.Collections.Generic.List{System.String})
+  id: EditParty(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand
   langs:
   - csharp
   - vb
-  name: Divorce(List<string>)
-  nameWithType: DivorceCommand.Divorce(List<string>)
-  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List<string>)
+  name: EditParty(List<string>)
+  nameWithType: EditPartyCommand.EditParty(List<string>)
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty(System.Collections.Generic.List<string>)
   type: Method
   source:
     remote:
-      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/DivorceCommand.cs
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/EditPartyCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: Divorce
-    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/DivorceCommand.cs
-    startLine: 20
+    id: EditParty
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/EditPartyCommand.cs
+    startLine: 21
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   syntax:
     content: >-
-      [CommandLineFunctionality.CommandLineArgumentFunction("divorce", "gm.hero")]
+      [CommandLineFunctionality.CommandLineArgumentFunction("edit_party", "gm.hero")]
 
-      public static string Divorce(List<string> args)
+      public static string EditParty(List<string> args)
     parameters:
     - id: args
       type: System.Collections.Generic.List{System.String}
     return:
       type: System.String
     content.vb: >-
-      <CommandLineFunctionality.CommandLineArgumentFunction("divorce", "gm.hero")>
+      <CommandLineFunctionality.CommandLineArgumentFunction("edit_party", "gm.hero")>
 
-      Public Shared Function Divorce(args As List(Of String)) As String
-  overload: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce*
+      Public Shared Function EditParty(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty*
   attributes:
   - type: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction
     ctor: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction.#ctor(System.String,System.String)
     arguments:
     - type: System.String
-      value: divorce
+      value: edit_party
     - type: System.String
       value: gm.hero
-  nameWithType.vb: DivorceCommand.Divorce(List(Of String))
-  fullName.vb: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List(Of String))
-  name.vb: Divorce(List(Of String))
+  nameWithType.vb: EditPartyCommand.EditParty(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty(System.Collections.Generic.List(Of String))
+  name.vb: EditParty(List(Of String))
 references:
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   commentId: N:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
@@ -374,12 +376,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce*
-  commentId: Overload:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce
-  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.html#Bannerlord_GameMaster_Console_HeroCommands_HeroManagementCommands_DivorceCommand_Divorce_System_Collections_Generic_List_System_String__
-  name: Divorce
-  nameWithType: DivorceCommand.Divorce
-  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty*
+  commentId: Overload:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.html#Bannerlord_GameMaster_Console_HeroCommands_HeroManagementCommands_EditPartyCommand_EditParty_System_Collections_Generic_List_System_String__
+  name: EditParty
+  nameWithType: EditPartyCommand.EditParty
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand.EditParty
 - uid: System.Collections.Generic.List{System.String}
   commentId: T:System.Collections.Generic.List{System.String}
   parent: System.Collections.Generic

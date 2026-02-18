@@ -8,6 +8,8 @@ items:
   - Bannerlord.GameMaster.Clans.ClanQueries.GetClanById(System.String)
   - Bannerlord.GameMaster.Clans.ClanQueries.GetClanComparer(System.String,System.Boolean)
   - Bannerlord.GameMaster.Clans.ClanQueries.GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.Clan})
+  - Bannerlord.GameMaster.Clans.ClanQueries.GetRandomClan(TaleWorlds.CampaignSystem.CultureObject)
+  - Bannerlord.GameMaster.Clans.ClanQueries.GetRandomMainCultureClan
   - Bannerlord.GameMaster.Clans.ClanQueries.MatchesFilters(TaleWorlds.CampaignSystem.Clan,System.String,System.Boolean,Bannerlord.GameMaster.Clans.ClanTypes,System.Boolean,System.Boolean)
   - Bannerlord.GameMaster.Clans.ClanQueries.ParseClanType(System.String)
   - Bannerlord.GameMaster.Clans.ClanQueries.ParseClanTypes(System.Collections.Generic.IEnumerable{System.String})
@@ -63,7 +65,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetClanById
     path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -86,6 +88,74 @@ items:
   nameWithType.vb: ClanQueries.GetClanById(String)
   fullName.vb: Bannerlord.GameMaster.Clans.ClanQueries.GetClanById(String)
   name.vb: GetClanById(String)
+- uid: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomMainCultureClan
+  commentId: M:Bannerlord.GameMaster.Clans.ClanQueries.GetRandomMainCultureClan
+  id: GetRandomMainCultureClan
+  parent: Bannerlord.GameMaster.Clans.ClanQueries
+  langs:
+  - csharp
+  - vb
+  name: GetRandomMainCultureClan()
+  nameWithType: ClanQueries.GetRandomMainCultureClan()
+  fullName: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomMainCultureClan()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomMainCultureClan
+    path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Returns a random non-eliminated clan from any main culture.
+  example: []
+  syntax:
+    content: public static Clan GetRandomMainCultureClan()
+    return:
+      type: TaleWorlds.CampaignSystem.Clan
+    content.vb: Public Shared Function GetRandomMainCultureClan() As Clan
+  overload: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomMainCultureClan*
+- uid: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomClan(TaleWorlds.CampaignSystem.CultureObject)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanQueries.GetRandomClan(TaleWorlds.CampaignSystem.CultureObject)
+  id: GetRandomClan(TaleWorlds.CampaignSystem.CultureObject)
+  parent: Bannerlord.GameMaster.Clans.ClanQueries
+  langs:
+  - csharp
+  - vb
+  name: GetRandomClan(CultureObject)
+  nameWithType: ClanQueries.GetRandomClan(CultureObject)
+  fullName: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomClan(TaleWorlds.CampaignSystem.CultureObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanQueries.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomClan
+    path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
+    startLine: 36
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: >-
+    Returns a random non-eliminated clan matching the specified culture.
+
+    If no culture is specified, returns a random clan from any main culture.
+  example: []
+  syntax:
+    content: public static Clan GetRandomClan(CultureObject culture = null)
+    parameters:
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: Optional culture to filter by. If null, filters to main cultures only.
+    return:
+      type: TaleWorlds.CampaignSystem.Clan
+      description: A random matching clan, or null if none found.
+    content.vb: Public Shared Function GetRandomClan(culture As CultureObject = Nothing) As Clan
+  overload: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomClan*
 - uid: Bannerlord.GameMaster.Clans.ClanQueries.QueryClans(System.String,Bannerlord.GameMaster.Clans.ClanTypes,System.Boolean,System.String,System.Boolean)
   commentId: M:Bannerlord.GameMaster.Clans.ClanQueries.QueryClans(System.String,Bannerlord.GameMaster.Clans.ClanTypes,System.Boolean,System.String,System.Boolean)
   id: QueryClans(System.String,Bannerlord.GameMaster.Clans.ClanTypes,System.Boolean,System.String,System.Boolean)
@@ -104,7 +174,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: QueryClans
     path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
-    startLine: 32
+    startLine: 83
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -157,7 +227,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: MatchesFilters
     path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
-    startLine: 69
+    startLine: 121
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -203,7 +273,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetClanComparer
     path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
-    startLine: 100
+    startLine: 153
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -241,7 +311,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ParseClanType
     path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
-    startLine: 175
+    startLine: 229
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -277,7 +347,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ParseClanTypes
     path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
-    startLine: 211
+    startLine: 266
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -313,7 +383,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetFormattedDetails
     path: ../Bannerlord.GameMaster/Clans/ClanQueries.cs
-    startLine: 227
+    startLine: 283
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -645,6 +715,25 @@ references:
   - uid: TaleWorlds.CampaignSystem
     name: CampaignSystem
     isExternal: true
+- uid: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomMainCultureClan*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanQueries.GetRandomMainCultureClan
+  href: Bannerlord.GameMaster.Clans.ClanQueries.html#Bannerlord_GameMaster_Clans_ClanQueries_GetRandomMainCultureClan
+  name: GetRandomMainCultureClan
+  nameWithType: ClanQueries.GetRandomMainCultureClan
+  fullName: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomMainCultureClan
+- uid: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomClan*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanQueries.GetRandomClan
+  href: Bannerlord.GameMaster.Clans.ClanQueries.html#Bannerlord_GameMaster_Clans_ClanQueries_GetRandomClan_TaleWorlds_CampaignSystem_CultureObject_
+  name: GetRandomClan
+  nameWithType: ClanQueries.GetRandomClan
+  fullName: Bannerlord.GameMaster.Clans.ClanQueries.GetRandomClan
+- uid: TaleWorlds.CampaignSystem.CultureObject
+  commentId: T:TaleWorlds.CampaignSystem.CultureObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CultureObject
+  nameWithType: CultureObject
+  fullName: TaleWorlds.CampaignSystem.CultureObject
 - uid: Bannerlord.GameMaster.Clans.ClanQueries.QueryClans*
   commentId: Overload:Bannerlord.GameMaster.Clans.ClanQueries.QueryClans
   href: Bannerlord.GameMaster.Clans.ClanQueries.html#Bannerlord_GameMaster_Clans_ClanQueries_QueryClans_System_String_Bannerlord_GameMaster_Clans_ClanTypes_System_Boolean_System_String_System_Boolean_

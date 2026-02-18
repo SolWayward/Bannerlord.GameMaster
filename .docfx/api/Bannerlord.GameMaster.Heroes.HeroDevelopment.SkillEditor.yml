@@ -1,0 +1,659 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  id: SkillEditor
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.GetSkillInfo(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: SkillEditor
+  nameWithType: SkillEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SkillEditor
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Provides unrestricted skill level and XP editing operations for any hero.
+
+    Uses native HeroDeveloper APIs: SetInitialSkillLevel for bidirectional level changes,
+
+    AddSkillXp for positive XP injection (bypasses focus factor).
+  example: []
+  syntax:
+    content: public static class SkillEditor
+    content.vb: Public Module SkillEditor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  id: SetSkillLevel(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  langs:
+  - csharp
+  - vb
+  name: SetSkillLevel(Hero, SkillObject, int)
+  nameWithType: SkillEditor.SetSkillLevel(Hero, SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetSkillLevel
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Sets a hero's skill to an exact level by computing and applying the required XP.
+
+    Works for both increasing and decreasing skill levels.
+
+    Uses native SetInitialSkillLevel which directly sets XP and skill value.
+  example: []
+  syntax:
+    content: public static BLGMResult SetSkillLevel(Hero hero, SkillObject skill, int level)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to modify
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+      description: The skill to set
+    - id: level
+      type: System.Int32
+      description: The target skill level (clamped to 0-1023)
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Shared Function SetSkillLevel(hero As Hero, skill As SkillObject, level As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel*
+  nameWithType.vb: SkillEditor.SetSkillLevel(Hero, SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, Integer)
+  name.vb: SetSkillLevel(Hero, SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  id: ChangeSkillLevel(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ChangeSkillLevel(Hero, SkillObject, int)
+  nameWithType: SkillEditor.ChangeSkillLevel(Hero, SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ChangeSkillLevel
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 59
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Changes a hero's skill level by a delta amount (positive or negative).
+
+    For positive deltas, uses native ChangeSkillLevel which adds XP.
+
+    For negative deltas, uses SetInitialSkillLevel since native AddSkillXp rejects negative XP.
+  example: []
+  syntax:
+    content: public static BLGMResult ChangeSkillLevel(Hero hero, SkillObject skill, int delta)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to modify
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+      description: The skill to change
+    - id: delta
+      type: System.Int32
+      description: The amount to change (positive to increase, negative to decrease)
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Shared Function ChangeSkillLevel(hero As Hero, skill As SkillObject, delta As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel*
+  nameWithType.vb: SkillEditor.ChangeSkillLevel(Hero, SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, Integer)
+  name.vb: ChangeSkillLevel(Hero, SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Single)
+  id: AddSkillXp(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  langs:
+  - csharp
+  - vb
+  name: AddSkillXp(Hero, SkillObject, float)
+  nameWithType: SkillEditor.AddSkillXp(Hero, SkillObject, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AddSkillXp
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 108
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Injects XP directly into a skill. Always positive in native API.
+
+    Bypasses focus factor by passing isAffectedByFocusFactor: false.
+  example: []
+  syntax:
+    content: public static BLGMResult AddSkillXp(Hero hero, SkillObject skill, float xp)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to modify
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+      description: The skill to add XP to
+    - id: xp
+      type: System.Single
+      description: The amount of XP to add (must be positive)
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Shared Function AddSkillXp(hero As Hero, skill As SkillObject, xp As Single) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp*
+  nameWithType.vb: SkillEditor.AddSkillXp(Hero, SkillObject, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject, Single)
+  name.vb: AddSkillXp(Hero, SkillObject, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.GetSkillInfo(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.GetSkillInfo(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject)
+  id: GetSkillInfo(TaleWorlds.CampaignSystem.Hero,TaleWorlds.Core.SkillObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
+  langs:
+  - csharp
+  - vb
+  name: GetSkillInfo(Hero, SkillObject)
+  nameWithType: SkillEditor.GetSkillInfo(Hero, SkillObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.GetSkillInfo(TaleWorlds.CampaignSystem.Hero, TaleWorlds.Core.SkillObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetSkillInfo
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/SkillEditor.cs
+    startLine: 149
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Returns information about a hero's skill including current level, total XP,
+
+    XP progress toward next level, and XP required for next level.
+  example: []
+  syntax:
+    content: public static SkillInfo GetSkillInfo(Hero hero, SkillObject skill)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to query
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+      description: The skill to get info for
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+      description: A SkillInfo struct with skill details, or default if parameters are null
+    content.vb: Public Shared Function GetSkillInfo(hero As Hero, skill As SkillObject) As SkillInfo
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.GetSkillInfo*
+references:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillEditor_SetSkillLevel_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_SkillObject_System_Int32_
+  name: SetSkillLevel
+  nameWithType: SkillEditor.SetSkillLevel
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.SetSkillLevel
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.Core.SkillObject
+  commentId: T:TaleWorlds.Core.SkillObject
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: SkillObject
+  nameWithType: SkillObject
+  fullName: TaleWorlds.Core.SkillObject
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillEditor_ChangeSkillLevel_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_SkillObject_System_Int32_
+  name: ChangeSkillLevel
+  nameWithType: SkillEditor.ChangeSkillLevel
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.ChangeSkillLevel
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillEditor_AddSkillXp_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_SkillObject_System_Single_
+  name: AddSkillXp
+  nameWithType: SkillEditor.AddSkillXp
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.AddSkillXp
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.GetSkillInfo*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.GetSkillInfo
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillEditor_GetSkillInfo_TaleWorlds_CampaignSystem_Hero_TaleWorlds_Core_SkillObject_
+  name: GetSkillInfo
+  nameWithType: SkillEditor.GetSkillInfo
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor.GetSkillInfo
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html
+  name: SkillInfo
+  nameWithType: SkillInfo
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo

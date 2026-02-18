@@ -4,6 +4,7 @@ items:
   commentId: N:Bannerlord.GameMaster.Heroes
   id: Bannerlord.GameMaster.Heroes
   children:
+  - Bannerlord.GameMaster.Heroes.BLGMConversationManager
   - Bannerlord.GameMaster.Heroes.BodyConstraints
   - Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
   - Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
@@ -30,6 +31,12 @@ items:
   assemblies:
   - Bannerlord.GameMaster
 references:
+- uid: Bannerlord.GameMaster.Heroes.BLGMConversationManager
+  commentId: T:Bannerlord.GameMaster.Heroes.BLGMConversationManager
+  href: Bannerlord.GameMaster.Heroes.BLGMConversationManager.html
+  name: BLGMConversationManager
+  nameWithType: BLGMConversationManager
+  fullName: Bannerlord.GameMaster.Heroes.BLGMConversationManager
 - uid: Bannerlord.GameMaster.Heroes.BodyConstraints
   commentId: T:Bannerlord.GameMaster.Heroes.BodyConstraints
   parent: Bannerlord.GameMaster.Heroes

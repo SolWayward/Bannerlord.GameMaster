@@ -1,37 +1,37 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
-  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
-  id: DivorceCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand
+  id: StartConversationCommand
   parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   children:
-  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List{System.String})
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation(System.Collections.Generic.List{System.String})
   langs:
   - csharp
   - vb
-  name: DivorceCommand
-  nameWithType: DivorceCommand
-  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
+  name: StartConversationCommand
+  nameWithType: StartConversationCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand
   type: Class
   source:
     remote:
-      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/DivorceCommand.cs
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/StartConversationCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: DivorceCommand
-    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/DivorceCommand.cs
-    startLine: 18
+    id: StartConversationCommand
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/StartConversationCommand.cs
+    startLine: 20
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   summary: >-
-    Divorce a hero from their current spouse
+    Start a conversation with another hero
 
-    Usage: gm.hero.divorce [hero]
+    Usage: gm.hero.start_conversation [hero]
   example: []
   syntax:
-    content: public static class DivorceCommand
-    content.vb: Public Module DivorceCommand
+    content: public static class StartConversationCommand
+    content.vb: Public Module StartConversationCommand
   inheritance:
   - System.Object
   inheritedMembers:
@@ -42,54 +42,54 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List{System.String})
-  commentId: M:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List{System.String})
-  id: Divorce(System.Collections.Generic.List{System.String})
-  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation(System.Collections.Generic.List{System.String})
+  commentId: M:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation(System.Collections.Generic.List{System.String})
+  id: StartConversation(System.Collections.Generic.List{System.String})
+  parent: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand
   langs:
   - csharp
   - vb
-  name: Divorce(List<string>)
-  nameWithType: DivorceCommand.Divorce(List<string>)
-  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List<string>)
+  name: StartConversation(List<string>)
+  nameWithType: StartConversationCommand.StartConversation(List<string>)
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation(System.Collections.Generic.List<string>)
   type: Method
   source:
     remote:
-      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/DivorceCommand.cs
+      path: Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/StartConversationCommand.cs
       branch: master
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
-    id: Divorce
-    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/DivorceCommand.cs
-    startLine: 20
+    id: StartConversation
+    path: ../Bannerlord.GameMaster/Console/HeroCommands/HeroManagementCommands/StartConversationCommand.cs
+    startLine: 22
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   syntax:
     content: >-
-      [CommandLineFunctionality.CommandLineArgumentFunction("divorce", "gm.hero")]
+      [CommandLineFunctionality.CommandLineArgumentFunction("start_conversation", "gm.hero")]
 
-      public static string Divorce(List<string> args)
+      public static string StartConversation(List<string> args)
     parameters:
     - id: args
       type: System.Collections.Generic.List{System.String}
     return:
       type: System.String
     content.vb: >-
-      <CommandLineFunctionality.CommandLineArgumentFunction("divorce", "gm.hero")>
+      <CommandLineFunctionality.CommandLineArgumentFunction("start_conversation", "gm.hero")>
 
-      Public Shared Function Divorce(args As List(Of String)) As String
-  overload: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce*
+      Public Shared Function StartConversation(args As List(Of String)) As String
+  overload: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation*
   attributes:
   - type: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction
     ctor: TaleWorlds.Library.CommandLineFunctionality.CommandLineArgumentFunction.#ctor(System.String,System.String)
     arguments:
     - type: System.String
-      value: divorce
+      value: start_conversation
     - type: System.String
       value: gm.hero
-  nameWithType.vb: DivorceCommand.Divorce(List(Of String))
-  fullName.vb: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce(System.Collections.Generic.List(Of String))
-  name.vb: Divorce(List(Of String))
+  nameWithType.vb: StartConversationCommand.StartConversation(List(Of String))
+  fullName.vb: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation(System.Collections.Generic.List(Of String))
+  name.vb: StartConversation(List(Of String))
 references:
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   commentId: N:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
@@ -374,12 +374,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce*
-  commentId: Overload:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce
-  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.html#Bannerlord_GameMaster_Console_HeroCommands_HeroManagementCommands_DivorceCommand_Divorce_System_Collections_Generic_List_System_String__
-  name: Divorce
-  nameWithType: DivorceCommand.Divorce
-  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.DivorceCommand.Divorce
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation*
+  commentId: Overload:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.html#Bannerlord_GameMaster_Console_HeroCommands_HeroManagementCommands_StartConversationCommand_StartConversation_System_Collections_Generic_List_System_String__
+  name: StartConversation
+  nameWithType: StartConversationCommand.StartConversation
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.StartConversationCommand.StartConversation
 - uid: System.Collections.Generic.List{System.String}
   commentId: T:System.Collections.Generic.List{System.String}
   parent: System.Collections.Generic

@@ -1,0 +1,1729 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  id: HeroSkillEditor
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.#ctor(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute(TaleWorlds.Core.CharacterAttribute,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp(TaleWorlds.Core.SkillObject,System.Single)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel(TaleWorlds.Core.SkillObject,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearAllPerks
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearPerksForSkill(TaleWorlds.Core.SkillObject)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.DeselectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetAttributeValue(TaleWorlds.Core.CharacterAttribute)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetFocusValue(TaleWorlds.Core.SkillObject)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSkillInfo(TaleWorlds.Core.SkillObject)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSummary
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HasPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.OriginalSnapshot
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RecalculateLevel
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAll
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAttributes
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetFocus
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetPerks
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetSkills
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SelectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute(TaleWorlds.Core.CharacterAttribute,System.Int32,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel(TaleWorlds.Core.SkillObject,System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints(System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints(System.Int32)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TargetHero
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TogglePerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  langs:
+  - csharp
+  - vb
+  name: HeroSkillEditor
+  nameWithType: HeroSkillEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroSkillEditor
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Primary entry point for unrestricted hero character development editing.
+
+    Composes SkillEditor, AttributeEditor, FocusEditor, and PerkEditor behind a single facade.
+
+    Manages snapshot lifecycle for reset/cancel operations.
+
+    All operations work on any hero and bypass native point restrictions.
+
+    Both console commands and Commander's UI should call through this class.
+  example: []
+  syntax:
+    content: public class HeroSkillEditor
+    content.vb: Public Class HeroSkillEditor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TargetHero
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TargetHero
+  id: TargetHero
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: TargetHero
+  nameWithType: HeroSkillEditor.TargetHero
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TargetHero
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TargetHero
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: The hero being edited
+  example: []
+  syntax:
+    content: public Hero TargetHero { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.CampaignSystem.Hero
+    content.vb: Public Property TargetHero As Hero
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TargetHero*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.OriginalSnapshot
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.OriginalSnapshot
+  id: OriginalSnapshot
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: OriginalSnapshot
+  nameWithType: HeroSkillEditor.OriginalSnapshot
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.OriginalSnapshot
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: OriginalSnapshot
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Snapshot captured at creation time for full reset support
+  example: []
+  syntax:
+    content: public HeroSkillSnapshot OriginalSnapshot { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+    content.vb: Public Property OriginalSnapshot As HeroSkillSnapshot
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.OriginalSnapshot*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.#ctor(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.#ctor(TaleWorlds.CampaignSystem.Hero)
+  id: '#ctor(TaleWorlds.CampaignSystem.Hero)'
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: HeroSkillEditor(Hero)
+  nameWithType: HeroSkillEditor.HeroSkillEditor(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HeroSkillEditor(TaleWorlds.CampaignSystem.Hero)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 30
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Creates a new HeroSkillEditor for the specified hero and captures an initial snapshot.
+  example: []
+  syntax:
+    content: public HeroSkillEditor(Hero hero)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to edit. Cannot be null.
+    content.vb: Public Sub New(hero As Hero)
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.#ctor*
+  nameWithType.vb: HeroSkillEditor.New(Hero)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.New(TaleWorlds.CampaignSystem.Hero)
+  name.vb: New(Hero)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel(TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel(TaleWorlds.Core.SkillObject,System.Int32)
+  id: SetSkillLevel(TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: SetSkillLevel(SkillObject, int)
+  nameWithType: HeroSkillEditor.SetSkillLevel(SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel(TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetSkillLevel
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 49
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Sets the target hero's skill to an exact level.
+  example: []
+  syntax:
+    content: public BLGMResult SetSkillLevel(SkillObject skill, int level)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    - id: level
+      type: System.Int32
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function SetSkillLevel(skill As SkillObject, level As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel*
+  nameWithType.vb: HeroSkillEditor.SetSkillLevel(SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel(TaleWorlds.Core.SkillObject, Integer)
+  name.vb: SetSkillLevel(SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel(TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel(TaleWorlds.Core.SkillObject,System.Int32)
+  id: ChangeSkillLevel(TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ChangeSkillLevel(SkillObject, int)
+  nameWithType: HeroSkillEditor.ChangeSkillLevel(SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel(TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ChangeSkillLevel
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 58
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Changes the target hero's skill level by a delta amount.
+  example: []
+  syntax:
+    content: public BLGMResult ChangeSkillLevel(SkillObject skill, int delta)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    - id: delta
+      type: System.Int32
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function ChangeSkillLevel(skill As SkillObject, delta As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel*
+  nameWithType.vb: HeroSkillEditor.ChangeSkillLevel(SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel(TaleWorlds.Core.SkillObject, Integer)
+  name.vb: ChangeSkillLevel(SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp(TaleWorlds.Core.SkillObject,System.Single)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp(TaleWorlds.Core.SkillObject,System.Single)
+  id: AddSkillXp(TaleWorlds.Core.SkillObject,System.Single)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: AddSkillXp(SkillObject, float)
+  nameWithType: HeroSkillEditor.AddSkillXp(SkillObject, float)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp(TaleWorlds.Core.SkillObject, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AddSkillXp
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 67
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Injects XP directly into a skill for the target hero.
+  example: []
+  syntax:
+    content: public BLGMResult AddSkillXp(SkillObject skill, float xp)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    - id: xp
+      type: System.Single
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function AddSkillXp(skill As SkillObject, xp As Single) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp*
+  nameWithType.vb: HeroSkillEditor.AddSkillXp(SkillObject, Single)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp(TaleWorlds.Core.SkillObject, Single)
+  name.vb: AddSkillXp(SkillObject, Single)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSkillInfo(TaleWorlds.Core.SkillObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSkillInfo(TaleWorlds.Core.SkillObject)
+  id: GetSkillInfo(TaleWorlds.Core.SkillObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: GetSkillInfo(SkillObject)
+  nameWithType: HeroSkillEditor.GetSkillInfo(SkillObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSkillInfo(TaleWorlds.Core.SkillObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetSkillInfo
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 76
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Gets detailed skill information for the target hero.
+  example: []
+  syntax:
+    content: public SkillInfo GetSkillInfo(SkillObject skill)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+    content.vb: Public Function GetSkillInfo(skill As SkillObject) As SkillInfo
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSkillInfo*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute(TaleWorlds.Core.CharacterAttribute,System.Int32,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute(TaleWorlds.Core.CharacterAttribute,System.Int32,System.Boolean)
+  id: SetAttribute(TaleWorlds.Core.CharacterAttribute,System.Int32,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: SetAttribute(CharacterAttribute, int, bool)
+  nameWithType: HeroSkillEditor.SetAttribute(CharacterAttribute, int, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute(TaleWorlds.Core.CharacterAttribute, int, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetAttribute
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 89
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Sets the target hero's attribute to an exact value.
+  example: []
+  syntax:
+    content: public BLGMResult SetAttribute(CharacterAttribute attribute, int value, bool respectMaxCap = true)
+    parameters:
+    - id: attribute
+      type: TaleWorlds.Core.CharacterAttribute
+    - id: value
+      type: System.Int32
+    - id: respectMaxCap
+      type: System.Boolean
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function SetAttribute(attribute As CharacterAttribute, value As Integer, respectMaxCap As Boolean = True) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute*
+  nameWithType.vb: HeroSkillEditor.SetAttribute(CharacterAttribute, Integer, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute(TaleWorlds.Core.CharacterAttribute, Integer, Boolean)
+  name.vb: SetAttribute(CharacterAttribute, Integer, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute(TaleWorlds.Core.CharacterAttribute,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute(TaleWorlds.Core.CharacterAttribute,System.Int32)
+  id: AddAttribute(TaleWorlds.Core.CharacterAttribute,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: AddAttribute(CharacterAttribute, int)
+  nameWithType: HeroSkillEditor.AddAttribute(CharacterAttribute, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute(TaleWorlds.Core.CharacterAttribute, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AddAttribute
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 98
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Adds or removes attribute points for the target hero by a delta amount.
+  example: []
+  syntax:
+    content: public BLGMResult AddAttribute(CharacterAttribute attribute, int delta)
+    parameters:
+    - id: attribute
+      type: TaleWorlds.Core.CharacterAttribute
+    - id: delta
+      type: System.Int32
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function AddAttribute(attribute As CharacterAttribute, delta As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute*
+  nameWithType.vb: HeroSkillEditor.AddAttribute(CharacterAttribute, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute(TaleWorlds.Core.CharacterAttribute, Integer)
+  name.vb: AddAttribute(CharacterAttribute, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetAttributeValue(TaleWorlds.Core.CharacterAttribute)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetAttributeValue(TaleWorlds.Core.CharacterAttribute)
+  id: GetAttributeValue(TaleWorlds.Core.CharacterAttribute)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: GetAttributeValue(CharacterAttribute)
+  nameWithType: HeroSkillEditor.GetAttributeValue(CharacterAttribute)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetAttributeValue(TaleWorlds.Core.CharacterAttribute)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetAttributeValue
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 107
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Gets the current attribute value for the target hero.
+  example: []
+  syntax:
+    content: public int GetAttributeValue(CharacterAttribute attribute)
+    parameters:
+    - id: attribute
+      type: TaleWorlds.Core.CharacterAttribute
+    return:
+      type: System.Int32
+    content.vb: Public Function GetAttributeValue(attribute As CharacterAttribute) As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetAttributeValue*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  id: SetFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: SetFocus(SkillObject, int)
+  nameWithType: HeroSkillEditor.SetFocus(SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus(TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetFocus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 120
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Sets the target hero's focus for a skill to an exact value.
+  example: []
+  syntax:
+    content: public BLGMResult SetFocus(SkillObject skill, int value)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    - id: value
+      type: System.Int32
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function SetFocus(skill As SkillObject, value As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus*
+  nameWithType.vb: HeroSkillEditor.SetFocus(SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus(TaleWorlds.Core.SkillObject, Integer)
+  name.vb: SetFocus(SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  id: AddFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: AddFocus(SkillObject, int)
+  nameWithType: HeroSkillEditor.AddFocus(SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus(TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AddFocus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 129
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Adds or removes focus points for the target hero by a delta amount.
+  example: []
+  syntax:
+    content: public BLGMResult AddFocus(SkillObject skill, int delta)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    - id: delta
+      type: System.Int32
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function AddFocus(skill As SkillObject, delta As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus*
+  nameWithType.vb: HeroSkillEditor.AddFocus(SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus(TaleWorlds.Core.SkillObject, Integer)
+  name.vb: AddFocus(SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  id: RemoveFocus(TaleWorlds.Core.SkillObject,System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveFocus(SkillObject, int)
+  nameWithType: HeroSkillEditor.RemoveFocus(SkillObject, int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus(TaleWorlds.Core.SkillObject, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemoveFocus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 138
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Removes focus points from a skill for the target hero.
+  example: []
+  syntax:
+    content: public BLGMResult RemoveFocus(SkillObject skill, int amount)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    - id: amount
+      type: System.Int32
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function RemoveFocus(skill As SkillObject, amount As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus*
+  nameWithType.vb: HeroSkillEditor.RemoveFocus(SkillObject, Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus(TaleWorlds.Core.SkillObject, Integer)
+  name.vb: RemoveFocus(SkillObject, Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetFocusValue(TaleWorlds.Core.SkillObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetFocusValue(TaleWorlds.Core.SkillObject)
+  id: GetFocusValue(TaleWorlds.Core.SkillObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: GetFocusValue(SkillObject)
+  nameWithType: HeroSkillEditor.GetFocusValue(SkillObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetFocusValue(TaleWorlds.Core.SkillObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetFocusValue
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 147
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Gets the current focus value for a skill for the target hero.
+  example: []
+  syntax:
+    content: public int GetFocusValue(SkillObject skill)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    return:
+      type: System.Int32
+    content.vb: Public Function GetFocusValue(skill As SkillObject) As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetFocusValue*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SelectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SelectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  id: SelectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: SelectPerk(PerkObject)
+  nameWithType: HeroSkillEditor.SelectPerk(PerkObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SelectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SelectPerk
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 160
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Selects a perk for the target hero.
+  example: []
+  syntax:
+    content: public BLGMResult SelectPerk(PerkObject perk)
+    parameters:
+    - id: perk
+      type: TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function SelectPerk(perk As PerkObject) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SelectPerk*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.DeselectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.DeselectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  id: DeselectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: DeselectPerk(PerkObject)
+  nameWithType: HeroSkillEditor.DeselectPerk(PerkObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.DeselectPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DeselectPerk
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 169
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Deselects a perk for the target hero. Handles permanent bonus reversal.
+  example: []
+  syntax:
+    content: public BLGMResult DeselectPerk(PerkObject perk)
+    parameters:
+    - id: perk
+      type: TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function DeselectPerk(perk As PerkObject) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.DeselectPerk*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TogglePerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TogglePerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  id: TogglePerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: TogglePerk(PerkObject)
+  nameWithType: HeroSkillEditor.TogglePerk(PerkObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TogglePerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TogglePerk
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 178
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Toggles a perk on or off for the target hero.
+  example: []
+  syntax:
+    content: public BLGMResult TogglePerk(PerkObject perk)
+    parameters:
+    - id: perk
+      type: TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function TogglePerk(perk As PerkObject) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TogglePerk*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearPerksForSkill(TaleWorlds.Core.SkillObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearPerksForSkill(TaleWorlds.Core.SkillObject)
+  id: ClearPerksForSkill(TaleWorlds.Core.SkillObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ClearPerksForSkill(SkillObject)
+  nameWithType: HeroSkillEditor.ClearPerksForSkill(SkillObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearPerksForSkill(TaleWorlds.Core.SkillObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClearPerksForSkill
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 187
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Clears all perks for a specific skill for the target hero.
+  example: []
+  syntax:
+    content: public BLGMResult ClearPerksForSkill(SkillObject skill)
+    parameters:
+    - id: skill
+      type: TaleWorlds.Core.SkillObject
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function ClearPerksForSkill(skill As SkillObject) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearPerksForSkill*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearAllPerks
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearAllPerks
+  id: ClearAllPerks
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ClearAllPerks()
+  nameWithType: HeroSkillEditor.ClearAllPerks()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearAllPerks()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ClearAllPerks
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 196
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Clears all perks for the target hero.
+  example: []
+  syntax:
+    content: public BLGMResult ClearAllPerks()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function ClearAllPerks() As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearAllPerks*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HasPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HasPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  id: HasPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: HasPerk(PerkObject)
+  nameWithType: HeroSkillEditor.HasPerk(PerkObject)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HasPerk(TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasPerk
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 205
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Checks if the target hero has a specific perk.
+  example: []
+  syntax:
+    content: public bool HasPerk(PerkObject perk)
+    parameters:
+    - id: perk
+      type: TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasPerk(perk As PerkObject) As Boolean
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HasPerk*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints(System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints(System.Int32)
+  id: SetUnspentFocusPoints(System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: SetUnspentFocusPoints(int)
+  nameWithType: HeroSkillEditor.SetUnspentFocusPoints(int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints(int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetUnspentFocusPoints
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 220
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Directly sets the number of unspent focus points for the target hero.
+  example: []
+  syntax:
+    content: public BLGMResult SetUnspentFocusPoints(int value)
+    parameters:
+    - id: value
+      type: System.Int32
+      description: The number of unspent focus points to set
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function SetUnspentFocusPoints(value As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints*
+  nameWithType.vb: HeroSkillEditor.SetUnspentFocusPoints(Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints(Integer)
+  name.vb: SetUnspentFocusPoints(Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints(System.Int32)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints(System.Int32)
+  id: SetUnspentAttributePoints(System.Int32)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: SetUnspentAttributePoints(int)
+  nameWithType: HeroSkillEditor.SetUnspentAttributePoints(int)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints(int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetUnspentAttributePoints
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 241
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Directly sets the number of unspent attribute points for the target hero.
+  example: []
+  syntax:
+    content: public BLGMResult SetUnspentAttributePoints(int value)
+    parameters:
+    - id: value
+      type: System.Int32
+      description: The number of unspent attribute points to set
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function SetUnspentAttributePoints(value As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints*
+  nameWithType.vb: HeroSkillEditor.SetUnspentAttributePoints(Integer)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints(Integer)
+  name.vb: SetUnspentAttributePoints(Integer)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAll
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAll
+  id: ResetAll
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ResetAll()
+  nameWithType: HeroSkillEditor.ResetAll()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAll()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetAll
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 265
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Restores the target hero to the state captured when this editor was created.
+  example: []
+  syntax:
+    content: public BLGMResult ResetAll()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function ResetAll() As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAll*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetSkills
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetSkills
+  id: ResetSkills
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ResetSkills()
+  nameWithType: HeroSkillEditor.ResetSkills()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetSkills()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetSkills
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 281
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Restores only skill levels from the original snapshot.
+  example: []
+  syntax:
+    content: public BLGMResult ResetSkills()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function ResetSkills() As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetSkills*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAttributes
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAttributes
+  id: ResetAttributes
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ResetAttributes()
+  nameWithType: HeroSkillEditor.ResetAttributes()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAttributes()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetAttributes
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 313
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Restores only attribute values from the original snapshot.
+  example: []
+  syntax:
+    content: public BLGMResult ResetAttributes()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function ResetAttributes() As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAttributes*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetFocus
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetFocus
+  id: ResetFocus
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ResetFocus()
+  nameWithType: HeroSkillEditor.ResetFocus()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetFocus()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetFocus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 351
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Restores only focus values from the original snapshot.
+  example: []
+  syntax:
+    content: public BLGMResult ResetFocus()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function ResetFocus() As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetFocus*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetPerks
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetPerks
+  id: ResetPerks
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: ResetPerks()
+  nameWithType: HeroSkillEditor.ResetPerks()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetPerks()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetPerks
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 390
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Restores only perk selections from the original snapshot.
+
+    Clears all perks first (with permanent bonus handling), then re-selects original perks.
+  example: []
+  syntax:
+    content: public BLGMResult ResetPerks()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function ResetPerks() As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetPerks*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RecalculateLevel
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RecalculateLevel
+  id: RecalculateLevel
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: RecalculateLevel()
+  nameWithType: HeroSkillEditor.RecalculateLevel()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RecalculateLevel()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RecalculateLevel
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 430
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Recalculates the hero's level from current skill XP totals.
+
+    Uses the native formula: TotalXp = sum(2 * skillLevel^2.2) - 2000, then checks level from XP.
+
+    Calls SetInitialLevelFromSkills pattern followed by CheckLevel.
+  example: []
+  syntax:
+    content: public BLGMResult RecalculateLevel()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function RecalculateLevel() As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RecalculateLevel*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSummary
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSummary
+  id: GetSummary
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
+  langs:
+  - csharp
+  - vb
+  name: GetSummary()
+  nameWithType: HeroSkillEditor.GetSummary()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSummary()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetSummary
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
+    startLine: 495
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Returns a formatted string containing the current character development state of the target hero.
+
+    Includes all skills, attributes, focus, unspent points, and level.
+  example: []
+  syntax:
+    content: public string GetSummary()
+    return:
+      type: System.String
+      description: Formatted summary string
+    content.vb: Public Function GetSummary() As String
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSummary*
+references:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TargetHero*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TargetHero
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_TargetHero
+  name: TargetHero
+  nameWithType: HeroSkillEditor.TargetHero
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TargetHero
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.OriginalSnapshot*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.OriginalSnapshot
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_OriginalSnapshot
+  name: OriginalSnapshot
+  nameWithType: HeroSkillEditor.OriginalSnapshot
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.OriginalSnapshot
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot.html
+  name: HeroSkillSnapshot
+  nameWithType: HeroSkillSnapshot
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.#ctor
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor__ctor_TaleWorlds_CampaignSystem_Hero_
+  name: HeroSkillEditor
+  nameWithType: HeroSkillEditor.HeroSkillEditor
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HeroSkillEditor
+  nameWithType.vb: HeroSkillEditor.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_SetSkillLevel_TaleWorlds_Core_SkillObject_System_Int32_
+  name: SetSkillLevel
+  nameWithType: HeroSkillEditor.SetSkillLevel
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetSkillLevel
+- uid: TaleWorlds.Core.SkillObject
+  commentId: T:TaleWorlds.Core.SkillObject
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: SkillObject
+  nameWithType: SkillObject
+  fullName: TaleWorlds.Core.SkillObject
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.Core
+  commentId: N:TaleWorlds.Core
+  isExternal: true
+  name: TaleWorlds.Core
+  nameWithType: TaleWorlds.Core
+  fullName: TaleWorlds.Core
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Core
+    name: Core
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_ChangeSkillLevel_TaleWorlds_Core_SkillObject_System_Int32_
+  name: ChangeSkillLevel
+  nameWithType: HeroSkillEditor.ChangeSkillLevel
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ChangeSkillLevel
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_AddSkillXp_TaleWorlds_Core_SkillObject_System_Single_
+  name: AddSkillXp
+  nameWithType: HeroSkillEditor.AddSkillXp
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddSkillXp
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSkillInfo*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSkillInfo
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_GetSkillInfo_TaleWorlds_Core_SkillObject_
+  name: GetSkillInfo
+  nameWithType: HeroSkillEditor.GetSkillInfo
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSkillInfo
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo.html
+  name: SkillInfo
+  nameWithType: SkillInfo
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_SetAttribute_TaleWorlds_Core_CharacterAttribute_System_Int32_System_Boolean_
+  name: SetAttribute
+  nameWithType: HeroSkillEditor.SetAttribute
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetAttribute
+- uid: TaleWorlds.Core.CharacterAttribute
+  commentId: T:TaleWorlds.Core.CharacterAttribute
+  parent: TaleWorlds.Core
+  isExternal: true
+  name: CharacterAttribute
+  nameWithType: CharacterAttribute
+  fullName: TaleWorlds.Core.CharacterAttribute
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_AddAttribute_TaleWorlds_Core_CharacterAttribute_System_Int32_
+  name: AddAttribute
+  nameWithType: HeroSkillEditor.AddAttribute
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddAttribute
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetAttributeValue*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetAttributeValue
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_GetAttributeValue_TaleWorlds_Core_CharacterAttribute_
+  name: GetAttributeValue
+  nameWithType: HeroSkillEditor.GetAttributeValue
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetAttributeValue
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_SetFocus_TaleWorlds_Core_SkillObject_System_Int32_
+  name: SetFocus
+  nameWithType: HeroSkillEditor.SetFocus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetFocus
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_AddFocus_TaleWorlds_Core_SkillObject_System_Int32_
+  name: AddFocus
+  nameWithType: HeroSkillEditor.AddFocus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.AddFocus
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_RemoveFocus_TaleWorlds_Core_SkillObject_System_Int32_
+  name: RemoveFocus
+  nameWithType: HeroSkillEditor.RemoveFocus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RemoveFocus
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetFocusValue*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetFocusValue
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_GetFocusValue_TaleWorlds_Core_SkillObject_
+  name: GetFocusValue
+  nameWithType: HeroSkillEditor.GetFocusValue
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetFocusValue
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SelectPerk*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SelectPerk
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_SelectPerk_TaleWorlds_CampaignSystem_CharacterDevelopment_PerkObject_
+  name: SelectPerk
+  nameWithType: HeroSkillEditor.SelectPerk
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SelectPerk
+- uid: TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject
+  commentId: T:TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject
+  parent: TaleWorlds.CampaignSystem.CharacterDevelopment
+  isExternal: true
+  name: PerkObject
+  nameWithType: PerkObject
+  fullName: TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject
+- uid: TaleWorlds.CampaignSystem.CharacterDevelopment
+  commentId: N:TaleWorlds.CampaignSystem.CharacterDevelopment
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.CharacterDevelopment
+  nameWithType: TaleWorlds.CampaignSystem.CharacterDevelopment
+  fullName: TaleWorlds.CampaignSystem.CharacterDevelopment
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.CharacterDevelopment
+    name: CharacterDevelopment
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.CharacterDevelopment
+    name: CharacterDevelopment
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.DeselectPerk*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.DeselectPerk
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_DeselectPerk_TaleWorlds_CampaignSystem_CharacterDevelopment_PerkObject_
+  name: DeselectPerk
+  nameWithType: HeroSkillEditor.DeselectPerk
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.DeselectPerk
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TogglePerk*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TogglePerk
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_TogglePerk_TaleWorlds_CampaignSystem_CharacterDevelopment_PerkObject_
+  name: TogglePerk
+  nameWithType: HeroSkillEditor.TogglePerk
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.TogglePerk
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearPerksForSkill*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearPerksForSkill
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_ClearPerksForSkill_TaleWorlds_Core_SkillObject_
+  name: ClearPerksForSkill
+  nameWithType: HeroSkillEditor.ClearPerksForSkill
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearPerksForSkill
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearAllPerks*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearAllPerks
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_ClearAllPerks
+  name: ClearAllPerks
+  nameWithType: HeroSkillEditor.ClearAllPerks
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ClearAllPerks
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HasPerk*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HasPerk
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_HasPerk_TaleWorlds_CampaignSystem_CharacterDevelopment_PerkObject_
+  name: HasPerk
+  nameWithType: HeroSkillEditor.HasPerk
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.HasPerk
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_SetUnspentFocusPoints_System_Int32_
+  name: SetUnspentFocusPoints
+  nameWithType: HeroSkillEditor.SetUnspentFocusPoints
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentFocusPoints
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_SetUnspentAttributePoints_System_Int32_
+  name: SetUnspentAttributePoints
+  nameWithType: HeroSkillEditor.SetUnspentAttributePoints
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.SetUnspentAttributePoints
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAll*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAll
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_ResetAll
+  name: ResetAll
+  nameWithType: HeroSkillEditor.ResetAll
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAll
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetSkills*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetSkills
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_ResetSkills
+  name: ResetSkills
+  nameWithType: HeroSkillEditor.ResetSkills
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetSkills
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAttributes*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAttributes
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_ResetAttributes
+  name: ResetAttributes
+  nameWithType: HeroSkillEditor.ResetAttributes
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetAttributes
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetFocus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetFocus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_ResetFocus
+  name: ResetFocus
+  nameWithType: HeroSkillEditor.ResetFocus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetFocus
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetPerks*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetPerks
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_ResetPerks
+  name: ResetPerks
+  nameWithType: HeroSkillEditor.ResetPerks
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.ResetPerks
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RecalculateLevel*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RecalculateLevel
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_RecalculateLevel
+  name: RecalculateLevel
+  nameWithType: HeroSkillEditor.RecalculateLevel
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.RecalculateLevel
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSummary*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSummary
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_HeroSkillEditor_GetSummary
+  name: GetSummary
+  nameWithType: HeroSkillEditor.GetSummary
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor.GetSummary
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
