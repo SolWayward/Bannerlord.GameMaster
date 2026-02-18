@@ -259,9 +259,9 @@ namespace Bannerlord.GameMaster.Heroes
 		/// <param name="hero">The hero player will be talking to</param>
 		/// <param name="forceCivilian">Optional, defaults to false. If true both heroes will use civilian loadout, 
 		/// otherwise appropiate loadout will be selected based on location and hero states</param>
-		public static void StartConversationWithPlayer(this Hero hero, bool forceCivillian = false)
+		public static BLGMResult StartConversationWithPlayer(this Hero hero, bool forceCivillian = false)
 		{
-			new BLGMConversationManager(hero, forceCivillian).StartConversation();
+			return new BLGMConversationManager(hero, forceCivillian).StartConversation();
 		}
 
 		#region Name / Details

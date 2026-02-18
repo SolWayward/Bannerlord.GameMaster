@@ -1,4 +1,6 @@
+using System;
 using System.Data.Odbc;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Troops;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Conversation;
@@ -29,9 +31,27 @@ namespace Bannerlord.GameMaster.Heroes
         /// <summary>
         /// Start the conversation between player and other hero
         /// </summary>
-        public void StartConversation()
+        public BLGMResult StartConversation()
         {
+            if (playerCCD.Character == null)
+                return BLGMResult.Error($"Unable to start conversation, Player Hero ConversationCharacterData.Character is null", 
+                    new NullReferenceException($"{nameof(playerCCD.Character)} cannot be null")).Log();
+
+            if (!playerCCD.Character.IsPlayerCharacter)
+                return BLGMResult.Error($"Unable to start conversation, Player Hero ConversationCharacterData.Character must be the Player",
+                    new InvalidOperationException($"{nameof(playerCCD.Character)} Must be the player character")).Log();
+
+            if (otherHeroCCD.Character == null)
+                return BLGMResult.Error($"Unable to start conversation, Other Hero ConversationCharacterData.Character is null",
+                    new NullReferenceException($"{nameof(otherHeroCCD.Character)} cannot be null")).Log();
+
+            if (playerCCD.Character.IsPlayerCharacter)
+                return BLGMResult.Error($"Unable to start conversation, Other Hero ConversationCharacterData.Character Cannot be the player",
+                    new InvalidOperationException($"{nameof(otherHeroCCD.Character)} Cannot be the player character")).Log();
+
             CampaignMapConversation.OpenConversation(playerCCD, otherHeroCCD);
+            
+            return BLGMResult.Success($"Conversation started between {playerCCD.Character.GetName()} and {otherHeroCCD.Character.GetName()}");
         }
 
         /// MARK: CreateCCD

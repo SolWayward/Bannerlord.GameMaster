@@ -10,6 +10,7 @@ using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.Library;
 using TaleWorlds.CampaignSystem.Conversation;
 using Bannerlord.GameMaster.Heroes;
+using Bannerlord.GameMaster.Common;
 
 namespace Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands;
 
@@ -56,9 +57,6 @@ public static class StartConversationCommand
             if (!heroResult.IsSuccess) return CommandResult.Error(heroResult.Message).Message;
             Hero hero = heroResult.Entity;
 
-            if (hero.IsHumanPlayerCharacter)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is main player hero, cannot start conversation with self.\nHeroID: {hero.StringId}")).Message;
-
             // Do all these need to be check or is there one status that can be checked instead?
             //if (!hero.IsActive || hero.IsDead || hero.IsDisabled || hero.IsNotSpawned || hero.IsDisabled || hero.IsFugitive || hero.IsTraveling)
                 //return CommandResult.Error(MessageFormatter.FormatErrorMessage($"{hero.Name} is not available for conversation.\nHero State: {hero.HeroState}  \nHeroID: {hero.StringId}")).Message;
@@ -70,10 +68,13 @@ public static class StartConversationCommand
             };
             
             // Start Conversation
-            hero.StartConversationWithPlayer();
+            BLGMResult result = hero.StartConversationWithPlayer();
+
+            if (!result.IsSuccess)
+                return result.Message;
 
             string argumentDisplay = parsed.FormatArgumentDisplay("gm.hero.start_conversation", resolvedValues);
-            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage($"Conversation started with {hero.Name} (ID: {hero.StringId})");
+            string fullMessage = argumentDisplay + MessageFormatter.FormatSuccessMessage(result.Message);
             return CommandResult.Success(fullMessage).Message;
         });
     }
