@@ -142,4 +142,4 @@ dir -r | unblock-file
 
 # Note from developer
 
-I would much prefer anyone who wants to make use of code to reference BLGM in their project than take snippets of code from the repo. I am leaving this open source to help anyone out, But I have noticed my code starting to appear in many other mods, a large pecentage of which is probably from AI. 
+I would much prefer anyone who wants to make use of my code to reference BLGM in their project instead of taking snippets of code from the repo. I am leaving this open source to help anyone out, But I have noticed my code starting to appear in many other mods line for line, a large pecentage of which is probably from AI.
