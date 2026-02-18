@@ -18,6 +18,7 @@ using System.Drawing;
 using Bannerlord.GameMaster.Party;
 using TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign;
 using Bannerlord.GameMaster.Items;
+using System.CodeDom;
 
 namespace Bannerlord.GameMaster.Heroes
 {
@@ -250,6 +251,17 @@ namespace Bannerlord.GameMaster.Heroes
 
 			hero.SetDeathDay(deathDay);
 			return deathDay;
+		}
+
+		/// <summary>
+		/// Starts a conversation between player and the specified hero
+		/// </summary>
+		/// <param name="hero">The hero player will be talking to</param>
+		/// <param name="forceCivilian">Optional, defaults to false. If true both heroes will use civilian loadout, 
+		/// otherwise appropiate loadout will be selected based on location and hero states</param>
+		public static void StartConversationWithPlayer(this Hero hero, bool forceCivillian = false)
+		{
+			new BLGMConversationManager(hero, forceCivillian).StartConversation();
 		}
 
 		#region Name / Details
