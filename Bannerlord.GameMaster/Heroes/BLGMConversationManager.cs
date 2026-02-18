@@ -50,7 +50,7 @@ namespace Bannerlord.GameMaster.Heroes
                     new InvalidOperationException($"{nameof(otherHeroCCD.Character)} Cannot be the player character")).Log();
 
             CampaignMapConversation.OpenConversation(playerCCD, otherHeroCCD);
-            
+
             return BLGMResult.Success($"Conversation started between {playerCCD.Character.GetName()} and {otherHeroCCD.Character.GetName()}");
         }
 
@@ -64,17 +64,23 @@ namespace Bannerlord.GameMaster.Heroes
         /// <returns></returns>
         public static ConversationCharacterData CreateConversationCharacterData(Hero hero, bool forceCivilian = false)
         {
+            // Check if hero is in a settlement
             bool inSettlement = false;
-            if (hero.CurrentSettlement != null)
+            if (hero.CurrentSettlement != null || hero.StayingInSettlement != null)
                 inSettlement = true;
 
             CharacterObject character = hero.CharacterObject;
             
+            // Check if in party
             PartyBase party = null; 
             if (hero.PartyBelongedTo != null)
                 party = hero.PartyBelongedTo.Party;
             
+            // Check if prisoner
+            else if (hero.PartyBelongedToAsPrisoner != null)
+                party = hero.PartyBelongedToAsPrisoner;
             
+            // Aditional options
             bool noHorse = !character.IsMounted || inSettlement;
             bool noWeapon = hero.IsNoncombatant || !character.HasWeaponType(ItemObject.ItemTypeEnum.OneHandedWeapon) || !character.HasWeaponType(ItemObject.ItemTypeEnum.TwoHandedWeapon);
             bool spawnAfterFight = false;
@@ -82,6 +88,7 @@ namespace Bannerlord.GameMaster.Heroes
             bool isCivilianEquipmentRequiredForBodyGuardCharacters = isCivilianEquipmentRequiredForLeader;
             bool noBodyguards = isCivilianEquipmentRequiredForLeader;
 
+            // Force Civilian Option
             if (forceCivilian)
             {
                 noHorse = true;
