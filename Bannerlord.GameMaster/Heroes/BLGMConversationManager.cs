@@ -45,7 +45,7 @@ namespace Bannerlord.GameMaster.Heroes
                 return BLGMResult.Error($"Unable to start conversation, Other Hero ConversationCharacterData.Character is null",
                     new NullReferenceException($"{nameof(otherHeroCCD.Character)} cannot be null")).Log();
 
-            if (playerCCD.Character.IsPlayerCharacter)
+            if (!playerCCD.Character.IsPlayerCharacter)
                 return BLGMResult.Error($"Unable to start conversation, Other Hero ConversationCharacterData.Character Cannot be the player",
                     new InvalidOperationException($"{nameof(otherHeroCCD.Character)} Cannot be the player character")).Log();
 
