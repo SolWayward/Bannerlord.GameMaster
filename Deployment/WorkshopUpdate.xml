@@ -5,7 +5,7 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.14.5
+"v1.3.14.6
 Added command gm.hero.edit_party
 	Opens the party UI with any heroes party
 	If two heroes are specified you can transfer troops between heroes

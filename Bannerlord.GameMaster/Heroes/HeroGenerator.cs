@@ -448,6 +448,62 @@ namespace Bannerlord.GameMaster.Heroes
 		}
 
 		#endregion
+		#region Backward-Compatible Overloads (v1.3.14.4)
+
+		// These overloads preserve binary compatibility for mods compiled against v1.3.14.4 or earlier.
+		// Adding optional parameters to a public method is a binary-breaking change in .NET because
+		// optional parameter defaults are baked into the CALLER's compiled IL at compile time.
+		// Mods compiled against the old signature will look for the exact old parameter count at runtime.
+
+		/// <summary>Backward-compatible overload for InitializeAsLord (v1.3.14.4 signature: 3 params).</summary>
+		public static void InitializeAsLord(Hero hero, Settlement homeSettlement, bool createParty)
+		{
+			InitializeAsLord(hero, homeSettlement, createParty, targetLevel: -1, isCombatFocused: true);
+		}
+
+		/// <summary>Backward-compatible overload for InitializeAsWanderer (v1.3.14.4 signature: 2 params).</summary>
+		public static void InitializeAsWanderer(Hero hero, Settlement settlement)
+		{
+			InitializeAsWanderer(hero, settlement, targetLevel: -1, isCombatFocused: true);
+		}
+
+		/// <summary>Backward-compatible overload for InitializeAsCompanion (v1.3.14.4 signature: 1 param).</summary>
+		public static void InitializeAsCompanion(Hero hero)
+		{
+			InitializeAsCompanion(hero, targetLevel: -1, isCombatFocused: true);
+		}
+
+		/// <summary>Backward-compatible overload for CreateLord (v1.3.14.4 signature: 7 params).</summary>
+		public static Hero CreateLord(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParty, Settlement settlement, float randomFactor)
+		{
+			return CreateLord(name, cultureFlags, genderFlags, clan, withParty, settlement, randomFactor, targetLevel: -1, age: -1, isCombatFocused: true);
+		}
+
+		/// <summary>Backward-compatible overload for CreateLords (v1.3.14.4 signature: 7 params).</summary>
+		public static List<Hero> CreateLords(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Clan clan, bool withParties, Settlement settlement, float randomFactor)
+		{
+			return CreateLords(count, cultureFlags, genderFlags, clan, withParties, settlement, randomFactor, targetLevel: -1, age: -1, isCombatFocused: true);
+		}
+
+		/// <summary>Backward-compatible overload for CreateWanderer (v1.3.14.4 signature: 5 params).</summary>
+		public static Hero CreateWanderer(string name, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor)
+		{
+			return CreateWanderer(name, cultureFlags, genderFlags, settlement, randomFactor, targetLevel: -1, age: -1, isCombatFocused: true);
+		}
+
+		/// <summary>Backward-compatible overload for CreateWanderers (v1.3.14.4 signature: 5 params).</summary>
+		public static List<Hero> CreateWanderers(int count, CultureFlags cultureFlags, GenderFlags genderFlags, Settlement settlement, float randomFactor)
+		{
+			return CreateWanderers(count, cultureFlags, genderFlags, settlement, randomFactor, targetLevel: -1, age: -1, isCombatFocused: true);
+		}
+
+		/// <summary>Backward-compatible overload for CreateCompanions (v1.3.14.4 signature: 4 params).</summary>
+		public static List<Hero> CreateCompanions(int count, CultureFlags cultureFlags, GenderFlags genderFlags, float randomFactor)
+		{
+			return CreateCompanions(count, cultureFlags, genderFlags, randomFactor, targetLevel: -1, age: -1, isCombatFocused: true);
+		}
+
+		#endregion
 		#region Skill Distribution Algorithm
 
 		/// MARK: InitializeSkillsForLevel

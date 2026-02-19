@@ -10,7 +10,7 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.5
+## Latest Update v1.3.14.6
 
 ```
 Added command gm.hero.edit_party
@@ -23,16 +23,10 @@ Added command gm.hero.start_conversation
 	
 Added optional age and level args to hero creation commands
 
-[h3]Released v1.3.14.5[/h3]
 Added command gm.hero.edit_party
 	Opens the party UI with any heroes party
 	If two heroes are specified you can transfer troops between heroes
 	If only one hero specified, the discard pile will have 100 of each troop regardless of cheatmode
-	
-Added command gm.hero.start_conversation
-	Starts a conversation between player and the specified hero instantly
-	
-Added optional age and level args to hero creation commands
 
 Previous Updates:
 Added new commands:
