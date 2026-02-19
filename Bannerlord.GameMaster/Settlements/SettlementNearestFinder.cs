@@ -26,6 +26,16 @@ namespace Bannerlord.GameMaster.Settlements
         }
 
         /// <summary>
+        /// Finds the nearest Non Hideout Settlement to the specified settlement using map distance (straight-line).
+        /// </summary>
+        /// <param name="from">The source settlement to measure from</param>
+        /// <returns>The nearest town, or null if none found or from is null</returns>
+        public static Settlement FindNearestSettlement(Settlement from)
+        {
+            return FindNearestSettlementOfType(from, s => s.IsTown || s.IsCastle || s.IsVillage);
+        }
+
+        /// <summary>
         /// Finds the nearest town to the specified settlement using map distance (straight-line).
         /// </summary>
         /// <param name="from">The source settlement to measure from</param>
@@ -79,6 +89,18 @@ namespace Bannerlord.GameMaster.Settlements
         public static Settlement FindNearestHideoutByPath(Settlement from, MobileParty.NavigationType navigationType = MobileParty.NavigationType.Default)
         {
             return FindNearestSettlementOfTypeByPath(from, s => s.IsHideout, navigationType);
+        }
+
+        /// <summary>
+        /// Finds the nearest Non Hideout Settlement to the specified settlement using path distance (terrain-aware).
+        /// Slower than map distance but accounts for rivers, mountains, and other terrain obstacles.
+        /// </summary>
+        /// <param name="from">The source settlement to measure from</param>
+        /// <param name="navigationType">Navigation capability: Default (land), Naval (sea), or All (both)</param>
+        /// <returns>The nearest non hideout settlement by path, or null if none found or from is null</returns>
+        public static Settlement FindNearestSettlementByPath(Settlement from, MobileParty.NavigationType navigationType = MobileParty.NavigationType.Default)
+        {
+            return FindNearestSettlementOfTypeByPath(from, s => s.IsTown || s.IsCastle || s.IsVillage, navigationType);
         }
 
         /// <summary>

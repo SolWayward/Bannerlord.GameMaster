@@ -504,6 +504,42 @@ namespace Bannerlord.GameMaster.Heroes
 		}
 
 		#endregion
+
+		/// MARK: RegenerateSkillsForLevel
+		/// <summary>
+		/// Public entry point to regenerate a hero's skills, attributes, focus, and perks for a target level.
+		/// Clears existing character development state and rebuilds from scratch using the skill distribution algorithm.
+		/// Useful for reviving dead heroes whose OnDeath() cleared their skills/perks/traits.
+		/// If targetLevel is less than 1, uses the hero's current Level value as the target.
+		/// </summary>
+		/// <param name="hero">The hero whose skills will be regenerated. HeroDeveloper must not be null.</param>
+		/// <param name="targetLevel">Target level. If less than 1, defaults to hero.Level (minimum 1).</param>
+		/// <param name="isCombatFocused">If true, combat skills are primary. If false, noncombat skills are primary.</param>
+		public static void RegenerateSkillsForLevel(Hero hero, int targetLevel = -1, bool isCombatFocused = true)
+		{
+			if (hero == null)
+			{
+				BLGMResult.Error("RegenerateSkillsForLevel() failed, hero cannot be null",
+					new ArgumentNullException(nameof(hero))).Log();
+				return;
+			}
+
+			if (hero.HeroDeveloper == null)
+			{
+				BLGMResult.Error("RegenerateSkillsForLevel() failed, hero.HeroDeveloper is null. Reconstruct it first.",
+					new InvalidOperationException("HeroDeveloper is null")).Log();
+				return;
+			}
+
+			// Use hero's preserved Level if no target specified
+			if (targetLevel < 1)
+			{
+				targetLevel = hero.Level >= 1 ? hero.Level : 1;
+			}
+
+			InitializeSkillsForLevel(hero, targetLevel, isCombatFocused);
+		}
+
 		#region Skill Distribution Algorithm
 
 		/// MARK: InitializeSkillsForLevel
