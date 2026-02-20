@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Election;
+using TaleWorlds.CampaignSystem.MapEvents;
 using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
 
 namespace Bannerlord.GameMaster.Console.Common.Validation
 {
@@ -37,6 +39,13 @@ namespace Bannerlord.GameMaster.Console.Common.Validation
             // Prevents commands running while settlement ownership vote is pending as it can cause some crashes
             if (!ValidateNoSettlementClaimantDecisionsPending(out error))
                 return false;
+
+            // Prevents commands from running during battle
+            if (MapEvent.PlayerMapEvent != null || Mission.Current != null)
+            {
+                error = "Error: Cannot execute commands during an active battle.\n";
+                return false;
+            }
 
             error = null;
             return true;
