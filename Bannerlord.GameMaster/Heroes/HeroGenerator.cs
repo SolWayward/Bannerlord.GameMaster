@@ -150,6 +150,9 @@ namespace Bannerlord.GameMaster.Heroes
 			// This ensures the level calculation uses our generated skills, not template skills
 			InitializeSkillsForLevel(hero, targetLevel, isCombatFocused);
 
+			// Set random traits
+			InitializeTraits(hero, isCombatFocused);
+
 			hero.Gold = 2000 * targetLevel;
 
 			// Equip Hero with gear appropiate for level and skills
@@ -445,6 +448,22 @@ namespace Bannerlord.GameMaster.Heroes
 			}
 
 			return companions;
+		}
+
+		/// MARK: InitializeTraits
+		/// <summary>
+		/// Set random Valor, Mercy, Honor, Calculating, and Commander traits
+		/// </summary>
+		/// <param name="hero">The hero to set the traits for</param>
+		/// <param name="isCombatFocused">Optional, defaults to true. If true gives commander trait</param>
+		public static void InitializeTraits(Hero hero, bool isCombatFocused = true)
+		{
+			// In InitializeAsLord(), after skills are set:
+			hero.SetTraitLevel(DefaultTraits.Valor, RandomNumberGen.Instance.NextRandomInt(-1, 3));    // -1 to 2
+			hero.SetTraitLevel(DefaultTraits.Mercy, RandomNumberGen.Instance.NextRandomInt(-1, 2));     // -1 to 1  
+			hero.SetTraitLevel(DefaultTraits.Honor, RandomNumberGen.Instance.NextRandomInt(-1, 2));     // -1 to 1
+			hero.SetTraitLevel(DefaultTraits.Calculating, RandomNumberGen.Instance.NextRandomInt(-1, 2)); // -1 to 1
+			hero.SetTraitLevel(DefaultTraits.Commander, isCombatFocused ? 1 : 0);
 		}
 
 		#endregion

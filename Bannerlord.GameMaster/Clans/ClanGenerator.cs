@@ -271,8 +271,26 @@ namespace Bannerlord.GameMaster.Clans
 			clan.UpdateCurrentStrength();
 			clan.IsReady = true;
 
+			InitalizeRelations(clan);
+
 			// Notified game systems and AI of clan
 			CampaignEventDispatcher.Instance.OnClanCreated(clan, false);
+		}
+
+		/// MARK: InitalizeRelations
+		/// <summary>
+		/// Randomize relations for clan between other clans
+		/// </summary>
+		public static void InitalizeRelations(Clan clan)
+		{
+			foreach (Clan otherClan in Clan.All)
+			{
+				if (otherClan == clan || otherClan.IsEliminated)
+					continue;
+
+				int newRelation = RandomNumberGen.Instance.NextRandomInt(-80, 80);
+				ChangeRelationAction.ApplyRelationChangeBetweenHeroes(clan.Leader, otherClan.Leader, newRelation);
+			}
 		}
 	}
 }

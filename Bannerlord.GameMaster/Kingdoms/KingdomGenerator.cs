@@ -136,6 +136,9 @@ namespace Bannerlord.GameMaster.Kingdoms
             // Propagate ruling clan banner colors to kingdom and all vassal clans
             kingdom.PropagateRulingClanBanner();
 
+            // Set relations weighted torwards negative to encourage war
+            InitalizeRelations(kingdom);
+
             // Set kingdom as ready AFTER all initialization is complete
             kingdom.IsReady = true;
             CampaignEventDispatcher.Instance.OnKingdomCreated(kingdom);
@@ -187,7 +190,7 @@ namespace Bannerlord.GameMaster.Kingdoms
         /// <returns>List of created kingdoms</returns>
         public static List<Kingdom> GenerateKingdoms(int count, int vassalClanCount = 4, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
         {
-            List<Kingdom> createdKingdoms = new List<Kingdom>();
+            List<Kingdom> createdKingdoms = new();
 
             // Get existing kingdoms that have more than 1 town/castle settlement
             var eligibleKingdoms = Kingdom.All
@@ -293,6 +296,22 @@ namespace Bannerlord.GameMaster.Kingdoms
             }
 
             return createdKingdoms;
+        }
+
+        /// MARK: InitializeRelations
+        /// <summary>
+        /// Initialize Relations to trigger more war, weighted torwards negative relations
+        /// </summary>
+        static void InitalizeRelations(Kingdom kingdom)
+        {
+            foreach (Kingdom otherKingdom in Kingdom.All)
+            {
+                if (otherKingdom == kingdom || otherKingdom.IsEliminated)
+                    continue;
+
+                int newRelation = RandomNumberGen.Instance.NextRandomInt(-40, 20);
+                ChangeRelationAction.ApplyRelationChangeBetweenHeroes(kingdom.Leader, otherKingdom.Leader, newRelation);
+            }
         }
     }
 }
