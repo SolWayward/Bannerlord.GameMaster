@@ -285,6 +285,9 @@ namespace Bannerlord.GameMaster.Clans
 		{
 			foreach (Clan otherClan in Clan.All)
 			{
+				if (otherClan == clan || otherClan.IsEliminated || otherClan.Leader == null)
+					continue;
+				
 				if (otherClan == clan || otherClan.IsEliminated)
 					continue;
 

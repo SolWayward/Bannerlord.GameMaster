@@ -10,10 +10,12 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.7
+## Latest Update v1.3.14.8
 
 ```
 Updated BLGM for Commander initial release
+
+Fixed error when generating clans
 
 Added trait randomization to new heroes
 Added relation randomization to new clans and kingdoms

@@ -5,11 +5,8 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.14.7
-Updated BLGM for Commander initial release
-
-Added trait randomization to new heroes
-Added relation randomization to new clans and kingdoms"
+"v1.3.14.8
+Fixed error when generatng clans"
         />
         <Tags>
             <Tag Value="Utility" />
