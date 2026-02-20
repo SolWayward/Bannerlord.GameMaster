@@ -477,6 +477,7 @@ namespace Bannerlord.GameMaster.Heroes.HeroDevelopment
                 }
             }
 
+            TargetHero.HeroDeveloper.SetInitialLevel(level);
             TargetHero.Level = level;
 
             return BLGMResult.Success(
