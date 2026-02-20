@@ -1061,7 +1061,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetSummary
     path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/HeroSkillEditor.cs
-    startLine: 495
+    startLine: 496
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment

@@ -10,37 +10,32 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.6
+## Latest Update v1.3.14.7
 
 ```
-Added command gm.hero.edit_party
-	Opens the party UI with any hero's party
-	If two heroes are specified you can transfer troops between heroes
-	If only one hero specified, the discard pile will have 100 of each troop regardless of cheatmode
-	
-Added command gm.hero.start_conversation
-	Starts a conversation between player and the specifed hero instantly
-	
-Added optional age and level args to hero creation commands
+Updated BLGM for Commander initial release
 
-Added command gm.hero.edit_party
-	Opens the party UI with any heroes party
-	If two heroes are specified you can transfer troops between heroes
-	If only one hero specified, the discard pile will have 100 of each troop regardless of cheatmode
+Added trait randomization to new heroes
+Added relation randomization to new clans and kingdoms
 
 Previous Updates:
-Added new commands:
-	gm.hero.marry
-	gm.hero.divorce
-	gm.hero.impregnate
-	gm.kingdom.rename
+Added command gm.hero.edit_party
+Added command gm.hero.start_conversation
+   
+Added optional age and level args to hero creation commands
 
+Added new commands:
+   gm.hero.marry
+   gm.hero.divorce
+   gm.hero.impregnate
+   gm.kingdom.rename
 Added all 229 possible colors the custom banner editor
 
 Added commands 
-	gm.clan.edit.banner
-	gm.hero.edit_apperance
-	m.hero.open_inventory
+   gm.clan.edit.banner
+   gm.hero.edit_apperance
+   m.hero.open_inventory
+Improved settlement renaming to immediately update name on map
 ```
 
 ---

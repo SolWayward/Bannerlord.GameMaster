@@ -5,6 +5,7 @@ items:
   id: HeroManager
   parent: Bannerlord.GameMaster.Heroes
   children:
+  - Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
   - Bannerlord.GameMaster.Heroes.HeroManager.Divorce(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.HeroManager.GetBestInitialSettlement(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.HeroManager.Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
@@ -24,7 +25,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HeroManager
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 11
+    startLine: 13
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -59,7 +60,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetBestInitialSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 16
+    startLine: 40
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -92,7 +93,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: TrySetHomeSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 34
+    startLine: 55
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -110,6 +111,51 @@ items:
       description: BLGM result containing bool if Setting homeSettlement succeeded and a string with details
     content.vb: Public Shared Function TrySetHomeSettlement(hero As Hero, homeSettlement As Settlement) As BLGMResult
   overload: Bannerlord.GameMaster.Heroes.HeroManager.TrySetHomeSettlement*
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: ActivateHero(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Heroes.HeroManager
+  langs:
+  - csharp
+  - vb
+  name: ActivateHero(Hero, Settlement)
+  nameWithType: HeroManager.ActivateHero(Hero, Settlement)
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ActivateHero
+    path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
+    startLine: 83
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Activates a non-Active hero, placing them at a settlement.
+
+    Handles all hero states: Prisoner, Fugitive, Released, Disabled, NotSpawned, Traveling, and Dead.
+
+    Dead heroes are revived -- if OnDeath() was called, skills/equipment are reconstructed.
+
+    Heroes already Active are returned with a success message (no-op).
+  example: []
+  syntax:
+    content: public static BLGMResult ActivateHero(Hero hero, Settlement targetSettlement = null)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to activate
+    - id: targetSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Optional settlement to place the hero. If null, auto-resolved via GetHomeOrAlternativeSettlement()
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with success/failure details
+    content.vb: Public Shared Function ActivateHero(hero As Hero, targetSettlement As Settlement = Nothing) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero*
 - uid: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
   commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
   id: Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
@@ -128,7 +174,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Impregnate
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 59
+    startLine: 280
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -171,7 +217,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Marry
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 97
+    startLine: 318
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -221,7 +267,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Divorce
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 188
+    startLine: 409
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -624,6 +670,12 @@ references:
   - uid: Bannerlord.GameMaster.Common
     name: Common
     href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero
+  href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_ActivateHero_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: ActivateHero
+  nameWithType: HeroManager.ActivateHero
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero
 - uid: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate*
   commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.Impregnate
   href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_Impregnate_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Hero_

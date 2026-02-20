@@ -38,7 +38,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: MobilePartyGenerator
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -75,7 +75,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateLordParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 70
+    startLine: 71
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -128,7 +128,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateBanditParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 117
+    startLine: 129
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -174,7 +174,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateLooterParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 162
+    startLine: 174
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -211,7 +211,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateSettlementParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 203
+    startLine: 215
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -251,7 +251,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateClanParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 292
+    startLine: 304
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -289,7 +289,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateClanPartyWithNewLeader
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 314
+    startLine: 326
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -326,7 +326,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateCaravanParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 355
+    startLine: 367
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -372,7 +372,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateVillagerParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 401
+    startLine: 413
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -405,7 +405,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateVillagerParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 415
+    startLine: 427
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -438,7 +438,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreatePatrolParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 433
+    startLine: 445
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -478,7 +478,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateNavalPatrolParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 450
+    startLine: 462
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -518,7 +518,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateMilitiaParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 488
+    startLine: 500
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -551,7 +551,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateDeserterParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 507
+    startLine: 519
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -597,7 +597,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateDesertBanditParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 560
+    startLine: 572
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -637,7 +637,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateForestBanditParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 570
+    startLine: 582
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -677,7 +677,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateMountainBanditParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 580
+    startLine: 592
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -717,7 +717,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateSeaRaiderParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 590
+    startLine: 602
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -757,7 +757,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateSteppeBanditParty
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 600
+    startLine: 612
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -797,7 +797,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateBanditPartyForCulture
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 614
+    startLine: 626
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party

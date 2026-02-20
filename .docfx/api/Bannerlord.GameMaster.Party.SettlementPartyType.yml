@@ -22,7 +22,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SettlementPartyType
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 656
+    startLine: 668
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -49,7 +49,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Villager
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 659
+    startLine: 671
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -77,7 +77,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Patrol
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 662
+    startLine: 674
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party
@@ -105,7 +105,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Militia
     path: ../Bannerlord.GameMaster/Party/MobilePartyGenerator.cs
-    startLine: 665
+    startLine: 677
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Party

@@ -5,30 +5,16 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.14.6
-Added command gm.hero.edit_party
-	Opens the party UI with any heroes party
-	If two heroes are specified you can transfer troops between heroes
-	If only one hero specified, the discard pile will have 100 of each troop regardless of cheatmode
-	
-Added command gm.hero.start_conversation
-	Starts a conversation between player and the specifed hero instantly
-	
-Added optional age and level args to hero creation commands"
+"v1.3.14.7
+Updated BLGM for Commander initial release
+
+Added trait randomization to new heroes
+Added relation randomization to new clans and kingdoms"
         />
         <Tags>
             <Tag Value="Utility" />
             <Tag Value="Singleplayer" />
             <Tag Value="v1.3.4" />
-            <Tag Value="v1.3.5" />
-            <Tag Value="v1.3.6" />
-            <Tag Value="v1.3.7" />
-            <Tag Value="v1.3.8" />
-            <Tag Value="v1.3.9" />
-            <Tag Value="v1.3.10" />
-            <Tag Value="v1.3.11" />
-            <Tag Value="v1.3.12" />
-            <Tag Value="v1.3.13" />
             <Tag Value="v1.3.14" />
         </Tags>
         <Visibility Value="Public"/>

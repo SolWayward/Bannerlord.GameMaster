@@ -8,6 +8,7 @@ items:
   - Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
   - Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   - Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32)
+  - Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations(TaleWorlds.CampaignSystem.Clan)
   langs:
   - csharp
   - vb
@@ -210,6 +211,37 @@ items:
   nameWithType.vb: ClanGenerator.CreateMinorClan(String, Hero, CultureFlags, Boolean, Integer)
   fullName.vb: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(String, TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Cultures.CultureFlags, Boolean, Integer)
   name.vb: CreateMinorClan(String, Hero, CultureFlags, Boolean, Integer)
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations(TaleWorlds.CampaignSystem.Clan)
+  id: InitalizeRelations(TaleWorlds.CampaignSystem.Clan)
+  parent: Bannerlord.GameMaster.Clans.ClanGenerator
+  langs:
+  - csharp
+  - vb
+  name: InitalizeRelations(Clan)
+  nameWithType: ClanGenerator.InitalizeRelations(Clan)
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations(TaleWorlds.CampaignSystem.Clan)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: InitalizeRelations
+    path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
+    startLine: 283
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: Randomize relations for clan between other clans
+  example: []
+  syntax:
+    content: public static void InitalizeRelations(Clan clan)
+    parameters:
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+    content.vb: Public Shared Sub InitalizeRelations(clan As Clan)
+  overload: Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations*
 references:
 - uid: Bannerlord.GameMaster.Clans
   commentId: N:Bannerlord.GameMaster.Clans
@@ -707,3 +739,9 @@ references:
   name: CreateMinorClan
   nameWithType: ClanGenerator.CreateMinorClan
   fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations*
+  commentId: Overload:Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations
+  href: Bannerlord.GameMaster.Clans.ClanGenerator.html#Bannerlord_GameMaster_Clans_ClanGenerator_InitalizeRelations_TaleWorlds_CampaignSystem_Clan_
+  name: InitalizeRelations
+  nameWithType: ClanGenerator.InitalizeRelations
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations

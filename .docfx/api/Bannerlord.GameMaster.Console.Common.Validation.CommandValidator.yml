@@ -29,7 +29,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CommandValidator
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 11
+    startLine: 13
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -66,7 +66,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateCampaignState
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 21
+    startLine: 23
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -107,7 +107,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateNoSettlementClaimantDecisionsPending
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 50
+    startLine: 59
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -148,7 +148,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateArgumentCount
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 85
+    startLine: 94
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -195,7 +195,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateIntegerRange
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 105
+    startLine: 114
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -245,7 +245,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateFloatRange
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 132
+    startLine: 141
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -295,7 +295,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateBoolean
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 157
+    startLine: 166
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -339,7 +339,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateHeroCreationLimit
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 180
+    startLine: 189
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -383,7 +383,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateClanCreationLimit
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 216
+    startLine: 225
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -427,7 +427,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ValidateKingdomCreationLimit
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 252
+    startLine: 261
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
@@ -471,7 +471,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateUsageMessage
     path: ../Bannerlord.GameMaster/Console/Common/Validation/CommandValidator.cs
-    startLine: 293
+    startLine: 302
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Console.Common.Validation
