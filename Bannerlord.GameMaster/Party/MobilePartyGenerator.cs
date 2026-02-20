@@ -7,6 +7,7 @@ using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.CampaignSystem.Settlements;
@@ -81,6 +82,13 @@ namespace Bannerlord.GameMaster.Party
                 return null;
             }
 
+            // Release from captivity if prisoner
+            if (hero.IsPrisoner)
+                EndCaptivityAction.ApplyByReleasedAfterBattle(hero);
+
+            // Cleanup existing state (destroy old party, leave settlement)
+            HeroGenerator.CleanupHeroState(hero);
+
             Settlement settlement = spawnSettlement ?? hero.HomeSettlement ?? hero.GetHomeOrAlternativeSettlement();
 
             if (settlement == null)
@@ -103,6 +111,10 @@ namespace Bannerlord.GameMaster.Party
 
             float aggressiveness = Math.Max(0.3f, RandomNumberGen.Instance.NextRandomFloat());
             InitializePartySettings(party, settlement, aggressiveness, partyTradeGold, enableAi);
+
+            // Ensure hero is in Active state (handles Fugitive, Released, Disabled, etc.)
+            if (!hero.IsActive)
+                hero.ChangeState(Hero.CharacterStates.Active);
 
             return party;
         }
