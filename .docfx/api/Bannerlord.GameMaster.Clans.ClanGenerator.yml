@@ -5,7 +5,9 @@ items:
   id: ClanGenerator
   parent: Bannerlord.GameMaster.Clans
   children:
+  - Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.Int32,System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
   - Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
+  - Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.Int32,System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   - Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   - Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32)
   - Bannerlord.GameMaster.Clans.ClanGenerator.InitalizeRelations(TaleWorlds.CampaignSystem.Clan)
@@ -45,6 +47,69 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.Int32,System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.Int32,System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
+  id: CreateNobleClan(System.Int32,System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
+  parent: Bannerlord.GameMaster.Clans.ClanGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateNobleClan(int, string, Hero, Kingdom, bool, int, CultureFlags)
+  nameWithType: ClanGenerator.CreateNobleClan(int, string, Hero, Kingdom, bool, int, CultureFlags)
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(int, string, TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Kingdom, bool, int, Bannerlord.GameMaster.Cultures.CultureFlags)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateNobleClan
+    path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
+    startLine: 35
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: >-
+    Create a new clan with the specified name. The clan will have a party created for its leader filled with troops and companions.<br />
+
+    Optional specify a hero to be moved to the clan and be its leader, defaults to null.
+
+    A new hero will be created if hero is null<br />
+
+    Optionally assign clan to kingdom, Kingdom defaults to null (Independent)
+  example: []
+  syntax:
+    content: public static Clan CreateNobleClan(int tier, string name = null, Hero leader = null, Kingdom kingdom = null, bool createParty = true, int companionCount = 2, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+    parameters:
+    - id: tier
+      type: System.Int32
+      description: 'clan tier that also controls clan gold, influence, and leader party strength (default: -1 = Random tier of 3, 4, or 5)'
+    - id: name
+      type: System.String
+      description: Name of clan (if null, generates random name from culture)
+    - id: leader
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Hero to be moved to clan and assigned as it's leader (if null, creates new hero)
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: 'Optional: Kingdom to assign clan to, defaults to null (Independent)'
+    - id: createParty
+      type: System.Boolean
+      description: 'If true, creates a party for the clan leader (default: true)'
+    - id: companionCount
+      type: System.Int32
+      description: "Number of companions to add to leader's party (default: 2, 0 to skip)"
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: 'Culture pool for leader creation if leader is null (default: AllMainCultures)'
+    return:
+      type: TaleWorlds.CampaignSystem.Clan
+      description: The created clan
+    content.vb: Public Shared Function CreateNobleClan(tier As Integer, name As String = Nothing, leader As Hero = Nothing, kingdom As Kingdom = Nothing, createParty As Boolean = True, companionCount As Integer = 2, cultureFlags As CultureFlags = CultureFlags.AllMainCultures) As Clan
+  overload: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan*
+  nameWithType.vb: ClanGenerator.CreateNobleClan(Integer, String, Hero, Kingdom, Boolean, Integer, CultureFlags)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(Integer, String, TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Kingdom, Boolean, Integer, Bannerlord.GameMaster.Cultures.CultureFlags)
+  name.vb: CreateNobleClan(Integer, String, Hero, Kingdom, Boolean, Integer, CultureFlags)
 - uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   commentId: M:Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   id: CreateNobleClan(System.String,TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Kingdom,System.Boolean,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
@@ -63,7 +128,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateNobleClan
     path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
-    startLine: 34
+    startLine: 63
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -123,7 +188,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GenerateClans
     path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
-    startLine: 63
+    startLine: 79
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -158,6 +223,62 @@ items:
   nameWithType.vb: ClanGenerator.GenerateClans(Integer, CultureFlags, Kingdom, Boolean, Integer)
   fullName.vb: Bannerlord.GameMaster.Clans.ClanGenerator.GenerateClans(Integer, Bannerlord.GameMaster.Cultures.CultureFlags, TaleWorlds.CampaignSystem.Kingdom, Boolean, Integer)
   name.vb: GenerateClans(Integer, CultureFlags, Kingdom, Boolean, Integer)
+- uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.Int32,System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.Int32,System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
+  id: CreateMinorClan(System.Int32,System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
+  parent: Bannerlord.GameMaster.Clans.ClanGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateMinorClan(int, string, Hero, CultureFlags, bool, int)
+  nameWithType: ClanGenerator.CreateMinorClan(int, string, Hero, CultureFlags, bool, int)
+  fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(int, string, TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Cultures.CultureFlags, bool, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Clans/ClanGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateMinorClan
+    path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
+    startLine: 107
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Clans
+  summary: >-
+    Creates a minor faction clan (not a noble house).
+
+    Useful for creating mercenary companies, bandit factions, or other minor groups.
+  example: []
+  syntax:
+    content: public static Clan CreateMinorClan(int tier, string name = null, Hero leader = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool createParty = true, int companionCount = 0)
+    parameters:
+    - id: tier
+      type: System.Int32
+      description: 'clan tier that also controls clan gold, influence, and leader party strength (default: -1 = Random tier of 1, 2, or 3)'
+    - id: name
+      type: System.String
+      description: Name of the minor clan (if null, generates random name)
+    - id: leader
+      type: TaleWorlds.CampaignSystem.Hero
+      description: Optional leader hero (creates one if null)
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: 'Culture for the clan (default: AllMainCultures)'
+    - id: createParty
+      type: System.Boolean
+      description: 'If true, creates a party for the leader (default: true)'
+    - id: companionCount
+      type: System.Int32
+      description: "Number of companions to add to leader's party (default: 0)"
+    return:
+      type: TaleWorlds.CampaignSystem.Clan
+      description: The created minor clan
+    content.vb: Public Shared Function CreateMinorClan(tier As Integer, name As String = Nothing, leader As Hero = Nothing, cultureFlags As CultureFlags = CultureFlags.AllMainCultures, createParty As Boolean = True, companionCount As Integer = 0) As Clan
+  overload: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan*
+  nameWithType.vb: ClanGenerator.CreateMinorClan(Integer, String, Hero, CultureFlags, Boolean, Integer)
+  fullName.vb: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(Integer, String, TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Cultures.CultureFlags, Boolean, Integer)
+  name.vb: CreateMinorClan(Integer, String, Hero, CultureFlags, Boolean, Integer)
 - uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
   commentId: M:Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
   id: CreateMinorClan(System.String,TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean,System.Int32)
@@ -176,7 +297,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateMinorClan
     path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
-    startLine: 90
+    startLine: 131
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -229,7 +350,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitalizeRelations
     path: ../Bannerlord.GameMaster/Clans/ClanGenerator.cs
-    startLine: 283
+    startLine: 315
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Clans
@@ -512,10 +633,21 @@ references:
   fullName: System
 - uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan*
   commentId: Overload:Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan
-  href: Bannerlord.GameMaster.Clans.ClanGenerator.html#Bannerlord_GameMaster_Clans_ClanGenerator_CreateNobleClan_System_String_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Kingdom_System_Boolean_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_
+  href: Bannerlord.GameMaster.Clans.ClanGenerator.html#Bannerlord_GameMaster_Clans_ClanGenerator_CreateNobleClan_System_Int32_System_String_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Kingdom_System_Boolean_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_
   name: CreateNobleClan
   nameWithType: ClanGenerator.CreateNobleClan
   fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateNobleClan
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -552,17 +684,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: Bannerlord.GameMaster.Cultures.CultureFlags
   commentId: T:Bannerlord.GameMaster.Cultures.CultureFlags
   parent: Bannerlord.GameMaster.Cultures
@@ -735,7 +856,7 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan*
   commentId: Overload:Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan
-  href: Bannerlord.GameMaster.Clans.ClanGenerator.html#Bannerlord_GameMaster_Clans_ClanGenerator_CreateMinorClan_System_String_TaleWorlds_CampaignSystem_Hero_Bannerlord_GameMaster_Cultures_CultureFlags_System_Boolean_System_Int32_
+  href: Bannerlord.GameMaster.Clans.ClanGenerator.html#Bannerlord_GameMaster_Clans_ClanGenerator_CreateMinorClan_System_Int32_System_String_TaleWorlds_CampaignSystem_Hero_Bannerlord_GameMaster_Cultures_CultureFlags_System_Boolean_System_Int32_
   name: CreateMinorClan
   nameWithType: ClanGenerator.CreateMinorClan
   fullName: Bannerlord.GameMaster.Clans.ClanGenerator.CreateMinorClan

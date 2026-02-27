@@ -5,8 +5,11 @@ items:
   id: SettlementManager
   parent: Bannerlord.GameMaster.Settlements
   children:
+  - Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
   - Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetCustomCultureCount
+  - Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
   - Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
   - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomCastle
   - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomClanCastle(TaleWorlds.CampaignSystem.Clan)
@@ -24,9 +27,11 @@ items:
   - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomTown
   - Bannerlord.GameMaster.Settlements.SettlementManager.GetRandomVillage
   - Bannerlord.GameMaster.Settlements.SettlementManager.GetRenamedSettlementCount
+  - Bannerlord.GameMaster.Settlements.SettlementManager.HasCustomSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
   - Bannerlord.GameMaster.Settlements.SettlementManager.IsSettlementRenamed(TaleWorlds.CampaignSystem.Settlements.Settlement)
   - Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement(TaleWorlds.CampaignSystem.Settlements.Settlement,System.String)
   - Bannerlord.GameMaster.Settlements.SettlementManager.ResetAllSettlementNames
+  - Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
   - Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName(TaleWorlds.CampaignSystem.Settlements.Settlement)
   - Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
   langs:
@@ -578,6 +583,56 @@ items:
       type: TaleWorlds.CampaignSystem.Hero
     content.vb: Public Shared Sub ChangeSettlementOwner(settlement As Settlement, newOwnerHero As Hero)
   overload: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementOwner*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
+  id: ChangeSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: ChangeSettlementCulture(Settlement, CultureObject, bool, bool)
+  nameWithType: SettlementManager.ChangeSettlementCulture(Settlement, CultureObject, bool, bool)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.CultureObject, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ChangeSettlementCulture
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 98
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: >-
+    Changes the culture of a settlement with persistence through save/load cycles.
+
+    Routes through SettlementCultureBehavior for automatic persistence tracking.
+  example: []
+  syntax:
+    content: public static BLGMResult ChangeSettlementCulture(Settlement settlement, CultureObject culture, bool updateNotables, bool includeBoundVillages)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to change culture for
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: The new culture to apply
+    - id: updateNotables
+      type: System.Boolean
+      description: If true, updates the culture of all notables in the settlement
+    - id: includeBoundVillages
+      type: System.Boolean
+      description: If true and settlement is a town/castle, recursively updates bound villages
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with a message
+    content.vb: Public Shared Function ChangeSettlementCulture(settlement As Settlement, culture As CultureObject, updateNotables As Boolean, includeBoundVillages As Boolean) As BLGMResult
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture*
+  nameWithType.vb: SettlementManager.ChangeSettlementCulture(Settlement, CultureObject, Boolean, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.CultureObject, Boolean, Boolean)
+  name.vb: ChangeSettlementCulture(Settlement, CultureObject, Boolean, Boolean)
 - uid: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
   commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
   id: SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.CultureObject,System.Boolean,System.Boolean)
@@ -596,11 +651,14 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetSettlementCulture
     path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
-    startLine: 87
+    startLine: 127
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Settlements
-  summary: Changes the culture of a settlement and optionally its notables and bound villages.
+  summary: >-
+    Changes the culture of a settlement with persistence through save/load cycles.
+
+    This is a compatibility overload. Prefer ChangeSettlementCulture() for richer BLGMResult error handling.
   example: []
   syntax:
     content: public static bool SetSettlementCulture(Settlement settlement, CultureObject culture, bool updateNotables, bool includeBoundVillages)
@@ -616,7 +674,7 @@ items:
       description: If true, updates the culture of all notables in the settlement
     - id: includeBoundVillages
       type: System.Boolean
-      description: If true and settlement is a town, recursively updates bound villages
+      description: If true and settlement is a town/castle, recursively updates bound villages
     return:
       type: System.Boolean
       description: True if the culture change was successful, false otherwise
@@ -625,6 +683,142 @@ items:
   nameWithType.vb: SettlementManager.SetSettlementCulture(Settlement, CultureObject, Boolean, Boolean)
   fullName.vb: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.CultureObject, Boolean, Boolean)
   name.vb: SetSettlementCulture(Settlement, CultureObject, Boolean, Boolean)
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.HasCustomSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.HasCustomSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: HasCustomSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: HasCustomSettlementCulture(Settlement)
+  nameWithType: SettlementManager.HasCustomSettlementCulture(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.HasCustomSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HasCustomSettlementCulture
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 138
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Checks if a settlement has a custom culture set by GameMaster.
+  example: []
+  syntax:
+    content: public static bool HasCustomSettlementCulture(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to check
+    return:
+      type: System.Boolean
+      description: True if the settlement has a custom culture
+    content.vb: Public Shared Function HasCustomSettlementCulture(settlement As Settlement) As Boolean
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.HasCustomSettlementCulture*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: GetOriginalSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetOriginalSettlementCulture(Settlement)
+  nameWithType: SettlementManager.GetOriginalSettlementCulture(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetOriginalSettlementCulture
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 150
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets the original culture of a settlement before it was changed by GameMaster.
+  example: []
+  syntax:
+    content: public static CultureObject GetOriginalSettlementCulture(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to check
+    return:
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: Original culture if changed, null otherwise
+    content.vb: Public Shared Function GetOriginalSettlementCulture(settlement As Settlement) As CultureObject
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementCulture*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  id: ResetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: ResetSettlementCulture(Settlement)
+  nameWithType: SettlementManager.ResetSettlementCulture(Settlement)
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementCulture(TaleWorlds.CampaignSystem.Settlements.Settlement)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ResetSettlementCulture
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 162
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Resets a settlement to its original culture.
+  example: []
+  syntax:
+    content: public static BLGMResult ResetSettlementCulture(Settlement settlement)
+    parameters:
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The settlement to reset
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with a message
+    content.vb: Public Shared Function ResetSettlementCulture(settlement As Settlement) As BLGMResult
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementCulture*
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetCustomCultureCount
+  commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetCustomCultureCount
+  id: GetCustomCultureCount
+  parent: Bannerlord.GameMaster.Settlements.SettlementManager
+  langs:
+  - csharp
+  - vb
+  name: GetCustomCultureCount()
+  nameWithType: SettlementManager.GetCustomCultureCount()
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetCustomCultureCount()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Settlements/SettlementManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCustomCultureCount
+    path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
+    startLine: 180
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Settlements
+  summary: Gets the number of settlements with custom cultures.
+  example: []
+  syntax:
+    content: public static int GetCustomCultureCount()
+    return:
+      type: System.Int32
+      description: The count of settlements with custom cultures
+    content.vb: Public Shared Function GetCustomCultureCount() As Integer
+  overload: Bannerlord.GameMaster.Settlements.SettlementManager.GetCustomCultureCount*
 - uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
   commentId: M:Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
   id: GetBoundVillagesCount(TaleWorlds.CampaignSystem.Settlements.Settlement)
@@ -643,7 +837,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetBoundVillagesCount
     path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
-    startLine: 145
+    startLine: 194
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Settlements
@@ -678,7 +872,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: RenameSettlement
     path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
-    startLine: 169
+    startLine: 218
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Settlements
@@ -717,7 +911,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ResetSettlementName
     path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
-    startLine: 182
+    startLine: 231
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Settlements
@@ -751,7 +945,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ResetAllSettlementNames
     path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
-    startLine: 195
+    startLine: 244
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Settlements
@@ -782,7 +976,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetOriginalSettlementName
     path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
-    startLine: 209
+    startLine: 258
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Settlements
@@ -817,7 +1011,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsSettlementRenamed
     path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
-    startLine: 220
+    startLine: 269
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Settlements
@@ -852,7 +1046,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetRenamedSettlementCount
     path: ../Bannerlord.GameMaster/Settlements/SettlementManager.cs
-    startLine: 229
+    startLine: 278
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Settlements
@@ -1308,12 +1502,12 @@ references:
   name: Hero
   nameWithType: Hero
   fullName: TaleWorlds.CampaignSystem.Hero
-- uid: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture*
-  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture
-  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_SetSettlementCulture_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_CultureObject_System_Boolean_System_Boolean_
-  name: SetSettlementCulture
-  nameWithType: SettlementManager.SetSettlementCulture
-  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_ChangeSettlementCulture_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_CultureObject_System_Boolean_System_Boolean_
+  name: ChangeSettlementCulture
+  nameWithType: SettlementManager.ChangeSettlementCulture
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ChangeSettlementCulture
 - uid: TaleWorlds.CampaignSystem.CultureObject
   commentId: T:TaleWorlds.CampaignSystem.CultureObject
   parent: TaleWorlds.CampaignSystem
@@ -1332,40 +1526,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount*
-  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount
-  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetBoundVillagesCount_TaleWorlds_CampaignSystem_Settlements_Settlement_
-  name: GetBoundVillagesCount
-  nameWithType: SettlementManager.GetBoundVillagesCount
-  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement*
-  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement
-  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_RenameSettlement_TaleWorlds_CampaignSystem_Settlements_Settlement_System_String_
-  name: RenameSettlement
-  nameWithType: SettlementManager.RenameSettlement
-  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: Bannerlord.GameMaster.Common.BLGMResult
   commentId: T:Bannerlord.GameMaster.Common.BLGMResult
   parent: Bannerlord.GameMaster.Common
@@ -1403,6 +1563,70 @@ references:
   - uid: Bannerlord.GameMaster.Common
     name: Common
     href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_SetSettlementCulture_TaleWorlds_CampaignSystem_Settlements_Settlement_TaleWorlds_CampaignSystem_CultureObject_System_Boolean_System_Boolean_
+  name: SetSettlementCulture
+  nameWithType: SettlementManager.SetSettlementCulture
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.SetSettlementCulture
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.HasCustomSettlementCulture*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.HasCustomSettlementCulture
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_HasCustomSettlementCulture_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: HasCustomSettlementCulture
+  nameWithType: SettlementManager.HasCustomSettlementCulture
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.HasCustomSettlementCulture
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementCulture*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementCulture
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetOriginalSettlementCulture_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: GetOriginalSettlementCulture
+  nameWithType: SettlementManager.GetOriginalSettlementCulture
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetOriginalSettlementCulture
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementCulture*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementCulture
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_ResetSettlementCulture_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: ResetSettlementCulture
+  nameWithType: SettlementManager.ResetSettlementCulture
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementCulture
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetCustomCultureCount*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetCustomCultureCount
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetCustomCultureCount
+  name: GetCustomCultureCount
+  nameWithType: SettlementManager.GetCustomCultureCount
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetCustomCultureCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_GetBoundVillagesCount_TaleWorlds_CampaignSystem_Settlements_Settlement_
+  name: GetBoundVillagesCount
+  nameWithType: SettlementManager.GetBoundVillagesCount
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.GetBoundVillagesCount
+- uid: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement
+  href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_RenameSettlement_TaleWorlds_CampaignSystem_Settlements_Settlement_System_String_
+  name: RenameSettlement
+  nameWithType: SettlementManager.RenameSettlement
+  fullName: Bannerlord.GameMaster.Settlements.SettlementManager.RenameSettlement
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName*
   commentId: Overload:Bannerlord.GameMaster.Settlements.SettlementManager.ResetSettlementName
   href: Bannerlord.GameMaster.Settlements.SettlementManager.html#Bannerlord_GameMaster_Settlements_SettlementManager_ResetSettlementName_TaleWorlds_CampaignSystem_Settlements_Settlement_
