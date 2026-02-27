@@ -5,8 +5,8 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.14.8
-Fixed error when generatng clans"
+"v1.3.14.9
+Updated for Commander Clan Management"
         />
         <Tags>
             <Tag Value="Utility" />
