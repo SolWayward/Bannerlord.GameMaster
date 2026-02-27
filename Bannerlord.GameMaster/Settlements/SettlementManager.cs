@@ -76,66 +76,115 @@ namespace Bannerlord.GameMaster.Settlements
             ChangeOwnerOfSettlementAction.ApplyByDefault(newOwnerHero, settlement);
         }
 
-        /// MARK: Set Culture
+        #region Settlement Culture
+
         /// <summary>
-        /// Changes the culture of a settlement and optionally its notables and bound villages.
+        /// Gets the SettlementCultureBehavior instance from the current campaign.
+        /// </summary>
+        private static SettlementCultureBehavior GetCultureBehavior()
+        {
+            return Campaign.Current?.GetCampaignBehavior<SettlementCultureBehavior>();
+        }
+
+        /// MARK: Change Culture
+        /// <summary>
+        /// Changes the culture of a settlement with persistence through save/load cycles.
+        /// Routes through SettlementCultureBehavior for automatic persistence tracking.
         /// </summary>
         /// <param name="settlement">The settlement to change culture for</param>
         /// <param name="culture">The new culture to apply</param>
         /// <param name="updateNotables">If true, updates the culture of all notables in the settlement</param>
-        /// <param name="includeBoundVillages">If true and settlement is a town, recursively updates bound villages</param>
+        /// <param name="includeBoundVillages">If true and settlement is a town/castle, recursively updates bound villages</param>
+        /// <returns>BLGMResult indicating success or failure with a message</returns>
+        public static BLGMResult ChangeSettlementCulture(Settlement settlement, CultureObject culture, bool updateNotables, bool includeBoundVillages)
+        {
+            SettlementCultureBehavior behavior = GetCultureBehavior();
+            if (behavior == null)
+                return BLGMResult.Error("Cannot change settlement culture: SettlementCultureBehavior not found (campaign not loaded?)");
+
+            if (settlement == null)
+                return BLGMResult.Error("SetSettlementCulture() failed, settlement cannot be null");
+
+            if (culture == null)
+                return BLGMResult.Error("SetSettlementCulture() failed, culture cannot be null");
+
+            bool success = behavior.SetSettlementCulture(settlement, culture, updateNotables, includeBoundVillages);
+            if (!success)
+                return BLGMResult.Error($"Failed to change culture of '{settlement.Name}' to '{culture.Name}'");
+
+            return BLGMResult.Success($"Changed culture of '{settlement.Name}' to '{culture.Name}'");
+        }
+
+        /// MARK: Set Culture
+        /// <summary>
+        /// Changes the culture of a settlement with persistence through save/load cycles.
+        /// This is a compatibility overload. Prefer ChangeSettlementCulture() for richer BLGMResult error handling.
+        /// </summary>
+        /// <param name="settlement">The settlement to change culture for</param>
+        /// <param name="culture">The new culture to apply</param>
+        /// <param name="updateNotables">If true, updates the culture of all notables in the settlement</param>
+        /// <param name="includeBoundVillages">If true and settlement is a town/castle, recursively updates bound villages</param>
         /// <returns>True if the culture change was successful, false otherwise</returns>
         public static bool SetSettlementCulture(Settlement settlement, CultureObject culture, bool updateNotables, bool includeBoundVillages)
         {
-            if (settlement == null)
-            {
-                InfoMessage.Error("[GameMaster] SetSettlementCulture called with null settlement");
-                return false;
-            }
-
-            if (culture == null)
-            {
-                InfoMessage.Error("[GameMaster] SetSettlementCulture called with null culture");
-                return false;
-            }
-
-            try
-            {
-                // Set the settlement's culture
-                settlement.Culture = culture;
-
-                // Update notables if requested
-                if (updateNotables && settlement.Notables != null)
-                {
-                    foreach (Hero notable in settlement.Notables)
-                    {
-                        if (notable != null)
-                        {
-                            notable.Culture = culture;
-                        }
-                    }
-                }
-
-                // Update bound villages if requested and settlement is a town or castle
-                if (includeBoundVillages && (settlement.IsTown || settlement.IsCastle) && settlement.BoundVillages != null)
-                {
-                    foreach (Village village in settlement.BoundVillages)
-                    {
-                        if (village?.Settlement != null)
-                        {
-                            SetSettlementCulture(village.Settlement, culture, updateNotables, false);
-                        }
-                    }
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                InfoMessage.Error($"[GameMaster] Failed to set settlement culture: {ex.Message}");
-                return false;
-            }
+            return ChangeSettlementCulture(settlement, culture, updateNotables, includeBoundVillages).IsSuccess;
         }
+
+        /// MARK: Has Custom Culture
+        /// <summary>
+        /// Checks if a settlement has a custom culture set by GameMaster.
+        /// </summary>
+        /// <param name="settlement">The settlement to check</param>
+        /// <returns>True if the settlement has a custom culture</returns>
+        public static bool HasCustomSettlementCulture(Settlement settlement)
+        {
+            SettlementCultureBehavior behavior = GetCultureBehavior();
+            return behavior?.HasCustomCulture(settlement) ?? false;
+        }
+
+        /// MARK: Get Original Culture
+        /// <summary>
+        /// Gets the original culture of a settlement before it was changed by GameMaster.
+        /// </summary>
+        /// <param name="settlement">The settlement to check</param>
+        /// <returns>Original culture if changed, null otherwise</returns>
+        public static CultureObject GetOriginalSettlementCulture(Settlement settlement)
+        {
+            SettlementCultureBehavior behavior = GetCultureBehavior();
+            return behavior?.GetOriginalCulture(settlement);
+        }
+
+        /// MARK: Reset Culture
+        /// <summary>
+        /// Resets a settlement to its original culture.
+        /// </summary>
+        /// <param name="settlement">The settlement to reset</param>
+        /// <returns>BLGMResult indicating success or failure with a message</returns>
+        public static BLGMResult ResetSettlementCulture(Settlement settlement)
+        {
+            SettlementCultureBehavior behavior = GetCultureBehavior();
+            if (behavior == null)
+                return BLGMResult.Error("Cannot reset settlement culture: SettlementCultureBehavior not found (campaign not loaded?)");
+
+            bool success = behavior.ResetSettlementCulture(settlement);
+            if (!success)
+                return BLGMResult.Error($"Settlement '{settlement?.Name}' does not have a custom culture to reset");
+
+            return BLGMResult.Success($"Reset culture of '{settlement.Name}' to original");
+        }
+
+        /// MARK: Custom Culture Count
+        /// <summary>
+        /// Gets the number of settlements with custom cultures.
+        /// </summary>
+        /// <returns>The count of settlements with custom cultures</returns>
+        public static int GetCustomCultureCount()
+        {
+            SettlementCultureBehavior behavior = GetCultureBehavior();
+            return behavior?.GetCustomCultureCount() ?? 0;
+        }
+
+        #endregion
 
         /// MARK: Bound Village Count
         /// <summary>

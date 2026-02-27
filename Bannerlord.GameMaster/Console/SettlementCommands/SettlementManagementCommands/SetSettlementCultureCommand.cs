@@ -1,4 +1,4 @@
-using Bannerlord.GameMaster.Behaviours;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Console.Common;
 using Bannerlord.GameMaster.Console.Common.Execution;
 using Bannerlord.GameMaster.Console.Common.EntityFinding;
@@ -87,18 +87,14 @@ public static class SetSettlementCultureCommand
                 return CommandResult.Error(MessageFormatter.FormatErrorMessage($"Culture not found matching '{cultureQuery}'. Valid cultures include: empire, sturgia, aserai, vlandia, battania, khuzait.")).Message;
 
             // MARK: Execute Logic
-            SettlementCultureBehavior behavior = Campaign.Current.GetCampaignBehavior<SettlementCultureBehavior>();
-            if (behavior == null)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Settlement culture behavior not initialized. Please restart the game.")).Message;
-
             string previousCulture = settlement.Culture?.Name?.ToString() ?? "None";
             int notableCount = settlement.Notables?.Count() ?? 0;
             int boundVillageCount = updateBoundVillages ? SettlementManager.GetBoundVillagesCount(settlement) : 0;
 
-            bool success = behavior.SetSettlementCulture(settlement, culture, updateNotables: true, includeBoundVillages: updateBoundVillages);
+            BLGMResult result = SettlementManager.ChangeSettlementCulture(settlement, culture, updateNotables: true, includeBoundVillages: updateBoundVillages);
 
-            if (!success)
-                return CommandResult.Error(MessageFormatter.FormatErrorMessage("Failed to change settlement culture. Check the error log for details.")).Message;
+            if (!result.IsSuccess)
+                return CommandResult.Error(MessageFormatter.FormatErrorMessage(result.Message)).Message;
 
             Dictionary<string, string> resolvedValues = new()
             {

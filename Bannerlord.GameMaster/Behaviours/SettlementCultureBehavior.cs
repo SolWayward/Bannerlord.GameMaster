@@ -5,7 +5,6 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.SaveSystem;
 using TaleWorlds.ObjectSystem;
 using Bannerlord.GameMaster.Information;
-using Bannerlord.GameMaster.Settlements;
 
 namespace Bannerlord.GameMaster.Behaviours
 {
@@ -99,42 +98,36 @@ namespace Bannerlord.GameMaster.Behaviours
 
             try
             {
-                // Find existing entry
+                // Track the main settlement
                 int index = _settlementIds.IndexOf(settlement.StringId);
 
                 if (index >= 0)
                 {
-                    // Update existing
                     _customCultureIds[index] = culture.StringId;
                 }
+
                 else
                 {
-                    // Add new - store original culture before changing
                     _settlementIds.Add(settlement.StringId);
                     _customCultureIds.Add(culture.StringId);
                     _originalCultureIds.Add(settlement.Culture.StringId);
                 }
 
-                // Apply the change
-                ApplyCultureChange(settlement, culture, updateNotables, includeBoundVillages);
-
-                // Track bound villages if they were updated
+                // Track bound villages BEFORE applying the change (captures true originals)
                 if (includeBoundVillages && (settlement.IsTown || settlement.IsCastle) && settlement.BoundVillages != null)
                 {
                     foreach (Village village in settlement.BoundVillages)
                     {
                         if (village?.Settlement != null)
                         {
-                            // Track each village individually in the behavior's lists
                             int villageIndex = _settlementIds.IndexOf(village.Settlement.StringId);
                             if (villageIndex >= 0)
                             {
-                                // Update existing village entry
                                 _customCultureIds[villageIndex] = culture.StringId;
                             }
+
                             else
                             {
-                                // Add new village entry - store original culture before it was changed
                                 _settlementIds.Add(village.Settlement.StringId);
                                 _customCultureIds.Add(culture.StringId);
                                 _originalCultureIds.Add(village.Settlement.Culture.StringId);
@@ -142,6 +135,9 @@ namespace Bannerlord.GameMaster.Behaviours
                         }
                     }
                 }
+
+                // Now apply the actual culture change (raw mutation)
+                ApplyCultureChange(settlement, culture, updateNotables, includeBoundVillages);
 
                 return true;
             }
@@ -233,7 +229,9 @@ namespace Bannerlord.GameMaster.Behaviours
         }
 
         /// <summary>
-        /// Applies a culture change to a settlement using SettlementManager.
+        /// Applies the raw culture mutation to a settlement and optionally its notables and bound villages.
+        /// This is the low-level operation with no persistence tracking.
+        /// Used by both the load path (OnSessionLaunched) and the user action path (SetSettlementCulture).
         /// </summary>
         /// <param name="settlement">The settlement to change</param>
         /// <param name="culture">The culture to apply</param>
@@ -241,7 +239,29 @@ namespace Bannerlord.GameMaster.Behaviours
         /// <param name="includeBoundVillages">If true, updates bound villages' cultures</param>
         private void ApplyCultureChange(Settlement settlement, CultureObject culture, bool updateNotables, bool includeBoundVillages)
         {
-            SettlementManager.SetSettlementCulture(settlement, culture, updateNotables, includeBoundVillages);
+            settlement.Culture = culture;
+
+            if (updateNotables && settlement.Notables != null)
+            {
+                foreach (Hero notable in settlement.Notables)
+                {
+                    if (notable != null)
+                    {
+                        notable.Culture = culture;
+                    }
+                }
+            }
+
+            if (includeBoundVillages && (settlement.IsTown || settlement.IsCastle) && settlement.BoundVillages != null)
+            {
+                foreach (Village village in settlement.BoundVillages)
+                {
+                    if (village?.Settlement != null)
+                    {
+                        ApplyCultureChange(village.Settlement, culture, updateNotables, false);
+                    }
+                }
+            }
         }
     }
 }
