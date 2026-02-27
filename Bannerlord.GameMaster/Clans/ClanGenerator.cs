@@ -31,13 +31,22 @@ namespace Bannerlord.GameMaster.Clans
 		/// <param name="createParty">If true, creates a party for the clan leader (default: true)</param>
 		/// <param name="companionCount">Number of companions to add to leader's party (default: 2, 0 to skip)</param>
 		/// <param name="cultureFlags">Culture pool for leader creation if leader is null (default: AllMainCultures)</param>
+		/// <param name="tier">clan tier that also controls clan gold, influence, and leader party strength (default: -1 = Random tier of 3, 4, or 5)</param>
 		/// <returns>The created clan</returns>
-		public static Clan CreateNobleClan(string name = null, Hero leader = null, Kingdom kingdom = null, bool createParty = true, int companionCount = 2, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+		public static Clan CreateNobleClan(int tier, string name = null, Hero leader = null, Kingdom kingdom = null, bool createParty = true, int companionCount = 2, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
 		{
 			Clan clan = CreateBaseClan(name, leader, cultureFlags, isMinorFaction: false, createParty);
-			
-			// Noble tier range: 3-5
-			int tier = RandomNumberGen.Instance.NextRandomInt(3, 6);
+
+			// Game will crash if tier is higher than 6
+			if (tier > 6)
+				tier = 6;
+
+			// Randomly assign tier if not specified or invalid
+			if (tier < 0)
+			{
+				// Noble tier range: 3-5
+				tier = RandomNumberGen.Instance.NextRandomInt(3, 6);
+			}
 			
 			// Populate party with troops scaled to tier + companions
 			PopulateParty(clan.Leader, tier, companionCount);
@@ -48,6 +57,13 @@ namespace Bannerlord.GameMaster.Clans
 			
 			FinalizeClan(clan, tier);
 			return clan;
+		}
+
+		// Compatibility Override for dependencies built against older versions of BLGM
+		/// <inheritdoc cref="CreateNobleClan(int, string, Hero, Kingdom, bool, int, CultureFlags)"/>
+		public static Clan CreateNobleClan(string name = null, Hero leader = null, Kingdom kingdom = null, bool createParty = true, int companionCount = 2, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+		{
+			return CreateNobleClan(-1, name, leader, kingdom, createParty, companionCount, cultureFlags);
 		}
 
 		/// MARK: GenerateClans
@@ -87,19 +103,35 @@ namespace Bannerlord.GameMaster.Clans
 		/// <param name="cultureFlags">Culture for the clan (default: AllMainCultures)</param>
 		/// <param name="createParty">If true, creates a party for the leader (default: true)</param>
 		/// <param name="companionCount">Number of companions to add to leader's party (default: 0)</param>
+		/// <param name="tier">clan tier that also controls clan gold, influence, and leader party strength (default: -1 = Random tier of 1, 2, or 3)</param>
 		/// <returns>The created minor clan</returns>
-		public static Clan CreateMinorClan(string name = null, Hero leader = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool createParty = true, int companionCount = 0)
+		public static Clan CreateMinorClan(int tier, string name = null, Hero leader = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool createParty = true, int companionCount = 0)
 		{
 			Clan clan = CreateBaseClan(name, leader, cultureFlags, isMinorFaction: true, createParty);
 			
-			// Minor tier range: 1-3
-			int tier = RandomNumberGen.Instance.NextRandomInt(1, 4);
+			// Game will crash if tier is higher than 6
+			if (tier > 6)
+				tier = 6;
+
+			// Use random tier if tier not specified or invalid
+			if (tier < 0)
+			{
+				// Minor tier range: 1-3
+				tier = RandomNumberGen.Instance.NextRandomInt(1, 4);
+			}
 			
 			// Populate party with troops scaled to tier + optional companions
 			PopulateParty(clan.Leader, tier, companionCount);
 			
 			FinalizeClan(clan, tier);
 			return clan;
+		}
+
+		// Compatibility Override for dependencies built against older versions of BLGM
+		/// <inheritdoc cref="CreateMinorClan(int, string, Hero, CultureFlags, bool, int)"/>
+		public static Clan CreateMinorClan(string name = null, Hero leader = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool createParty = true, int companionCount = 0)
+		{
+			return CreateMinorClan(-1, name, leader, cultureFlags, createParty, companionCount);
 		}
 
 		/// MARK: CreateBaseClan
@@ -260,8 +292,8 @@ namespace Bannerlord.GameMaster.Clans
 		/// </summary>
 		private static void FinalizeClan(Clan clan, int tier)
 		{
-			int baseGold = 100000;
-			int baseInfluence = 250;
+			int baseGold = 50000;
+			int baseInfluence =100;
 
 			// Basic properties
 			clan.SetClanTier(tier);
