@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Bannerlord.GameMaster.Common;
@@ -304,6 +305,147 @@ namespace Bannerlord.GameMaster.Heroes
             }
 
             return BLGMResult.Success($"{mother.Name} is now pregnant by {father.Name}");
+        }
+
+        /// MARK: GiveBirth (no father)
+        /// <summary>
+        /// Forces immediate birth when the father is not known/provided.
+        /// Resolves father from the pregnancy record, or falls back to PregnancyHelpers.ResolveFather().
+        /// </summary>
+        /// <param name="mother">The pregnant hero to deliver</param>
+        /// <param name="isFemale">True for a female child, false for male</param>
+        /// <returns>BLGMResult with success/failure details</returns>
+        public static BLGMResult GiveBirth(Hero mother, bool isFemale)
+        {
+            if (mother == null)
+            {
+                return BLGMResult.Error("GiveBirth() failed, mother cannot be null",
+                    new ArgumentNullException(nameof(mother))).Log();
+            }
+
+            if (!mother.IsPregnant)
+            {
+                return BLGMResult.Error($"GiveBirth() failed, {mother.Name} is not pregnant").Log();
+            }
+
+            // Try to get father from pregnancy record
+            Hero father = PregnancyReflectionHelper.GetPregnancyFather(mother);
+
+            // Fall back to ResolveFather if reflection didn't find one
+            if (father == null)
+            {
+                father = PregnancyHelpers.ResolveFather(mother);
+            }
+
+            if (father == null)
+            {
+                return BLGMResult.Error($"GiveBirth() failed, could not resolve a father for {mother.Name}").Log();
+            }
+
+            return GiveBirth(mother, father, isFemale);
+        }
+
+        /// MARK: GiveBirth
+        /// <summary>
+        /// Forces immediate birth with an explicitly provided father.
+        /// Delivers the offspring, fires native birth events, clears pregnancy state, and removes the pregnancy record.
+        /// </summary>
+        /// <param name="mother">The pregnant hero to deliver</param>
+        /// <param name="father">The father hero</param>
+        /// <param name="isFemale">True for a female child, false for male</param>
+        /// <returns>BLGMResult with success/failure details</returns>
+        public static BLGMResult GiveBirth(Hero mother, Hero father, bool isFemale)
+        {
+            // MARK: Validation
+            if (mother == null)
+            {
+                return BLGMResult.Error("GiveBirth() failed, mother cannot be null",
+                    new ArgumentNullException(nameof(mother))).Log();
+            }
+
+            if (father == null)
+            {
+                return BLGMResult.Error("GiveBirth() failed, father cannot be null. Use the overload without father to auto-resolve.",
+                    new ArgumentNullException(nameof(father))).Log();
+            }
+
+            if (!mother.IsPregnant)
+            {
+                return BLGMResult.Error($"GiveBirth() failed, {mother.Name} is not pregnant").Log();
+            }
+
+            if (!mother.IsAlive)
+            {
+                return BLGMResult.Error($"GiveBirth() failed, {mother.Name} is not alive").Log();
+            }
+
+            try
+            {
+                // MARK: Deliver Offspring
+                Hero child = HeroCreator.DeliverOffSpring(mother, father, isFemale);
+
+                if (child == null)
+                {
+                    return BLGMResult.Error("GiveBirth() failed, DeliverOffSpring returned null",
+                        new InvalidOperationException("HeroCreator.DeliverOffSpring returned null")).Log();
+                }
+
+                // MARK: Fire Birth Events & Cleanup
+                List<Hero> children = new() { child };
+                CampaignEventDispatcher.Instance.OnGivenBirth(mother, children, 0);
+
+                mother.IsPregnant = false;
+
+                // Best-effort cleanup of the pregnancy record (non-fatal if it fails)
+                BLGMResult removeResult = PregnancyReflectionHelper.RemovePregnancyRecord(mother);
+                if (!removeResult.IsSuccess)
+                {
+                    BLGMResult.Error(
+                        $"GiveBirth() pregnancy record removal failed for {mother.Name} (birth succeeded). Details: {removeResult.Message}").Log();
+                }
+
+                // MARK: Return Result
+                return BLGMResult.Success($"{mother.Name} gave birth to {child.Name} (father: {father.Name})");
+            }
+            catch (Exception ex)
+            {
+                return BLGMResult.Error(
+                    $"GiveBirth() failed for {mother?.Name}: {ex.Message}", ex).Log();
+            }
+        }
+
+        /// MARK: AbortBirth
+        /// <summary>
+        /// Terminates a pregnancy without delivering a child.
+        /// Removes the pregnancy record first, then clears the pregnancy flag to maintain consistent state.
+        /// </summary>
+        /// <param name="mother">The pregnant hero whose pregnancy to abort</param>
+        /// <returns>BLGMResult with success/failure details</returns>
+        public static BLGMResult AbortBirth(Hero mother)
+        {
+            if (mother == null)
+            {
+                return BLGMResult.Error("AbortBirth() failed, mother cannot be null",
+                    new ArgumentNullException(nameof(mother))).Log();
+            }
+
+            if (!mother.IsPregnant)
+            {
+                return BLGMResult.Error($"AbortBirth() failed, {mother.Name} is not pregnant").Log();
+            }
+
+            // Remove the pregnancy record first to maintain consistent state
+            BLGMResult removeResult = PregnancyReflectionHelper.RemovePregnancyRecord(mother);
+
+            if (!removeResult.IsSuccess)
+            {
+                return BLGMResult.Error(
+                    $"AbortBirth() failed for {mother.Name}: could not remove pregnancy record. Pregnancy state unchanged. Details: {removeResult.Message}").Log();
+            }
+
+            mother.IsPregnant = false;
+
+            return BLGMResult.Success($"Pregnancy aborted for {mother.Name}");
         }
 
         /// MARK: Marry

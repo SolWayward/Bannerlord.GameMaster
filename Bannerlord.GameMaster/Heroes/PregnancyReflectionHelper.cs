@@ -130,5 +130,143 @@ namespace Bannerlord.GameMaster.Heroes
                     $"ReplacePregnancyFather() failed with unexpected exception for {mother?.Name}: {ex.Message}", ex).Log();
             }
         }
+
+        /// MARK: GetPregnancyFather
+        /// <summary>
+        /// Reads the father from an existing pregnancy record for a given mother.
+        /// </summary>
+        /// <param name="mother">The pregnant hero whose pregnancy father to retrieve</param>
+        /// <returns>The father Hero, or null if no record found or reflection fails</returns>
+        public static Hero GetPregnancyFather(Hero mother)
+        {
+            try
+            {
+                if (mother == null)
+                {
+                    BLGMResult.Error("GetPregnancyFather() failed, mother cannot be null",
+                        new ArgumentNullException(nameof(mother))).Log();
+                    return null;
+                }
+
+                if (HeroPregnanciesField == null || MotherField == null || FatherField == null)
+                {
+                    BLGMResult.Error(
+                        "GetPregnancyFather() failed: Required reflection fields not found. Game version may be incompatible.",
+                        new MissingFieldException(nameof(PregnancyCampaignBehavior), "_heroPregnancies/Mother/Father")).Log();
+                    return null;
+                }
+
+                PregnancyCampaignBehavior behavior = Campaign.Current.GetCampaignBehavior<PregnancyCampaignBehavior>();
+                if (behavior == null)
+                {
+                    BLGMResult.Error(
+                        "GetPregnancyFather() failed: PregnancyCampaignBehavior not found in current campaign.",
+                        new InvalidOperationException("PregnancyCampaignBehavior not found")).Log();
+                    return null;
+                }
+
+                IList pregnancyList = HeroPregnanciesField.GetValue(behavior) as IList;
+                if (pregnancyList == null)
+                {
+                    BLGMResult.Error(
+                        "GetPregnancyFather() failed: _heroPregnancies list is null or could not be cast to IList.",
+                        new InvalidOperationException("_heroPregnancies is null or not IList")).Log();
+                    return null;
+                }
+
+                // Find the pregnancy record for this mother
+                for (int i = 0; i < pregnancyList.Count; i++)
+                {
+                    object pregnancy = pregnancyList[i];
+                    Hero pregnancyMother = MotherField.GetValue(pregnancy) as Hero;
+
+                    if (pregnancyMother == mother)
+                    {
+                        Hero father = FatherField.GetValue(pregnancy) as Hero;
+                        return father;
+                    }
+                }
+
+                BLGMResult.Error(
+                    $"GetPregnancyFather() failed: No pregnancy record found for {mother.Name}.",
+                    new InvalidOperationException($"No pregnancy record for {mother.Name}")).Log();
+                return null;
+            }
+            catch (Exception ex)
+            {
+                BLGMResult.Error(
+                    $"GetPregnancyFather() failed with unexpected exception for {mother?.Name}: {ex.Message}", ex).Log();
+                return null;
+            }
+        }
+
+        /// MARK: RemovePregnancyRecord
+        /// <summary>
+        /// Removes the pregnancy record for a given mother from the _heroPregnancies list.
+        /// </summary>
+        /// <param name="mother">The hero whose pregnancy record to remove</param>
+        /// <returns>BLGMResult indicating success or failure with details</returns>
+        public static BLGMResult RemovePregnancyRecord(Hero mother)
+        {
+            try
+            {
+                if (mother == null)
+                {
+                    return BLGMResult.Error("RemovePregnancyRecord() failed, mother cannot be null",
+                        new ArgumentNullException(nameof(mother))).Log();
+                }
+
+                if (HeroPregnanciesField == null || MotherField == null)
+                {
+                    return BLGMResult.Error(
+                        "RemovePregnancyRecord() failed: Required reflection fields not found. Game version may be incompatible.",
+                        new MissingFieldException(nameof(PregnancyCampaignBehavior), "_heroPregnancies/Mother")).Log();
+                }
+
+                PregnancyCampaignBehavior behavior = Campaign.Current.GetCampaignBehavior<PregnancyCampaignBehavior>();
+                if (behavior == null)
+                {
+                    return BLGMResult.Error(
+                        "RemovePregnancyRecord() failed: PregnancyCampaignBehavior not found in current campaign.",
+                        new InvalidOperationException("PregnancyCampaignBehavior not found")).Log();
+                }
+
+                IList pregnancyList = HeroPregnanciesField.GetValue(behavior) as IList;
+                if (pregnancyList == null)
+                {
+                    return BLGMResult.Error(
+                        "RemovePregnancyRecord() failed: _heroPregnancies list is null or could not be cast to IList.",
+                        new InvalidOperationException("_heroPregnancies is null or not IList")).Log();
+                }
+
+                // Find the pregnancy record for this mother
+                int foundIndex = -1;
+
+                for (int i = 0; i < pregnancyList.Count; i++)
+                {
+                    object pregnancy = pregnancyList[i];
+                    Hero pregnancyMother = MotherField.GetValue(pregnancy) as Hero;
+
+                    if (pregnancyMother == mother)
+                    {
+                        foundIndex = i;
+                        break;
+                    }
+                }
+
+                if (foundIndex < 0)
+                {
+                    return BLGMResult.Success($"No pregnancy record found for {mother.Name} (already cleaned up or never created)");
+                }
+
+                pregnancyList.RemoveAt(foundIndex);
+                return BLGMResult.Success($"Removed pregnancy record for {mother.Name}");
+            }
+            catch (Exception ex)
+            {
+                return BLGMResult.Error(
+                    $"RemovePregnancyRecord() failed with unexpected exception for {mother?.Name}: {ex.Message}", ex).Log();
+            }
+        }
     }
 }
