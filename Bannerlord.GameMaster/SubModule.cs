@@ -10,6 +10,7 @@ namespace Bannerlord.GameMaster
 {
     public class SubModule : MBSubModuleBase
     {
+        // MARK: OnModuleLoad
         protected override void OnSubModuleLoad()
         {
             base.OnSubModuleLoad();
@@ -20,16 +21,19 @@ namespace Bannerlord.GameMaster
             //CreateMainMenuButton(); // For Testing purposes (May use for new game options or configs in the future)
         }
 
+        // MARK: Unloaded
         protected override void OnSubModuleUnloaded()
         {
             base.OnSubModuleUnloaded();
         }
 
+        // MARK: BeforeScreenSet
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
         }
 
+        // MARK: OnGameStart
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
             base.OnGameStart(game, gameStarterObject);
@@ -47,9 +51,13 @@ namespace Bannerlord.GameMaster
 
                 // Register BLGMObjectManagerBehaviour for loading blgm created objects
                 campaignStarter.AddBehavior(new BLGMObjectManagerBehaviour());
+
+                // Register equipment repair behavior for re-equipping BLGM heroes after save load trash replacement
+                campaignStarter.AddBehavior(new EquipmentRepairBehavior());
             }
         }
 
+        // MARK: OnGameEnd
         public override void OnGameEnd(Game game)
         {
             base.OnGameEnd(game);
@@ -61,6 +69,7 @@ namespace Bannerlord.GameMaster
             }
         }
 
+        /// MARK: ApplicationTick
         /// <summary>
         /// Executes every frame
         /// </summary>
@@ -73,6 +82,7 @@ namespace Bannerlord.GameMaster
             SystemConsoleManager.OnTick();
         }
 
+        /// MARK: CreateMainMenuBtn
         /// <summary>
         /// Adds a "Game Master" button to main menu of game.
         /// </summary>
@@ -94,6 +104,7 @@ namespace Bannerlord.GameMaster
             TaleWorlds.MountAndBlade.Module.CurrentModule.AddInitialStateOption(showMessageOption);
         }
 
+        /// MARK: MenuOptionClicked
         /// <summary>
         /// Runs when the "Game Master" button is clicked in main menu.
         /// </summary>
@@ -106,6 +117,7 @@ namespace Bannerlord.GameMaster
             InformationManager.DisplayMessage(infoMessage);
         }
 
+        /// MARK: ShowDisabledMsg
         /// <summary>
         /// Evaluates whether the message option button should be disabled and provides the reason for its state.
         /// </summary>

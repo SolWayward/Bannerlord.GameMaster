@@ -173,6 +173,15 @@ namespace Bannerlord.GameMaster.Items
             if (item == null)
                 return false;
 
+            // Reject items that failed to resolve during deserialization (IsReady = false)
+            // These would be replaced with DefaultItems.Trash by native CheckInvalidEquipmentsAndReplaceIfNeeded on next load
+            if (!item.IsReady)
+                return false;
+
+            // Reject the Trash placeholder item explicitly
+            if (item == DefaultItems.Trash)
+                return false;
+
             // Check blacklist first
             if (IsBlacklistedItem(item))
                 return false;

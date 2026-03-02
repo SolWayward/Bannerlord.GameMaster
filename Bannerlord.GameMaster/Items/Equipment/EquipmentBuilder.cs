@@ -1258,42 +1258,85 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: SelectRandomItem
         /// <summary>
         /// Selects a random item from the given list.
+        /// Skips items that are not ready or are DefaultItems.Trash.
+        /// Retries up to the list size to find a valid item.
         /// </summary>
         /// <param name="items">The list of items to select from.</param>
-        /// <returns>A random item from the list, or null if the list is empty or null.</returns>
+        /// <returns>A random item from the list, or null if no valid items found.</returns>
         private ItemObject SelectRandomItem(MBList<ItemObject> items)
         {
             if (items == null || items.Count == 0)
                 return null;
 
-            int index = _random.NextRandomInt(items.Count);
-            return items[index];
+            // Fast path: single item
+            if (items.Count == 1)
+            {
+                ItemObject single = items[0];
+                if (single != null && single.IsReady && single != DefaultItems.Trash)
+                    return single;
+
+                return null;
+            }
+
+            // Try up to items.Count times to find a valid item via random selection
+            for (int attempt = 0; attempt < items.Count; attempt++)
+            {
+                int index = _random.NextRandomInt(items.Count);
+                ItemObject candidate = items[index];
+
+                if (candidate != null && candidate.IsReady && candidate != DefaultItems.Trash)
+                    return candidate;
+            }
+
+            // Linear scan fallback: guarantees finding a valid item if one exists
+            for (int i = 0; i < items.Count; i++)
+            {
+                ItemObject candidate = items[i];
+                if (candidate != null && candidate.IsReady && candidate != DefaultItems.Trash)
+                    return candidate;
+            }
+
+            return null;
         }
 
         /// MARK: SelectWeightedRandomItem
         /// <summary>
-        /// Selects a random item from the given list with weighted probability favoring higher tiers.
-        /// Higher tier items have a greater chance of being selected.
-        /// Weight formula: tier + 1 (so Tier1=2, Tier2=3, ... Tier6=7)
-        /// This gives roughly 3x more likely to pick Tier6 over Tier1.
+        /// [Deprecated] This method is unused - all selection methods use SelectRandomItem() with uniform probability.
+        /// Kept for potential future use. Selects a random item with weighted probability favoring higher tiers.
+        /// Skips items that are not ready or are DefaultItems.Trash.
+        /// Weight formula: tier + 2 (so Tier1=3, Tier2=4, ... Tier6=8)
         /// </summary>
         /// <param name="items">The list of items to select from.</param>
         /// <returns>A random item from the list (favoring higher tiers), or null if empty.</returns>
+        [System.Obsolete("Unused - all selection methods use SelectRandomItem() with uniform probability. Kept for potential future use.")]
         private ItemObject SelectWeightedRandomItem(MBList<ItemObject> items)
         {
             if (items == null || items.Count == 0)
                 return null;
 
-            // If only one item, return it
+            // If only one item, return it if valid
             if (items.Count == 1)
-                return items[0];
+            {
+                ItemObject single = items[0];
+                if (single != null && single.IsReady && single != DefaultItems.Trash)
+                    return single;
 
-            // Calculate total weight
+                return null;
+            }
+
+            // Calculate total weight (only counting valid items)
             int totalWeight = 0;
             for (int i = 0; i < items.Count; i++)
             {
-                totalWeight += GetItemWeight(items[i]);
+                ItemObject item = items[i];
+                if (item != null && item.IsReady && item != DefaultItems.Trash)
+                {
+                    totalWeight += GetItemWeight(item);
+                }
             }
+
+            if (totalWeight == 0)
+                return null;
 
             // Select based on weighted random
             int randomValue = _random.NextRandomInt(totalWeight);
@@ -1301,22 +1344,28 @@ namespace Bannerlord.GameMaster.Items
 
             for (int i = 0; i < items.Count; i++)
             {
-                cumulativeWeight += GetItemWeight(items[i]);
+                ItemObject item = items[i];
+                if (item == null || !item.IsReady || item == DefaultItems.Trash)
+                    continue;
+
+                cumulativeWeight += GetItemWeight(item);
                 if (randomValue < cumulativeWeight)
                 {
-                    return items[i];
+                    return item;
                 }
             }
 
             // Fallback (shouldn't reach here)
-            return items[items.Count - 1];
+            return null;
         }
 
         /// MARK: GetItemWeight
         /// <summary>
+        /// [Deprecated] Used only by SelectWeightedRandomItem() which is itself deprecated/unused.
         /// Gets the selection weight for an item based on its tier.
         /// Higher tiers have higher weights for increased selection probability.
         /// </summary>
+        [System.Obsolete("Used only by SelectWeightedRandomItem() which is itself deprecated/unused.")]
         private static int GetItemWeight(ItemObject item)
         {
             // Weight = tier value + 2
@@ -1328,7 +1377,7 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: SelectWeaponByType
         /// <summary>
         /// Selects a weapon matching the specified type from pools.
-        /// Uses WEIGHTED selection favoring higher tiers within the range.
+        /// Uses UNIFORM selection from all items within the tier range.
         /// </summary>
         private ItemObject SelectWeaponByType(
             string cultureId,
@@ -1419,7 +1468,7 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: SelectArmorBySlot
         /// <summary>
         /// Selects armor for a specific slot matching culture and tier criteria.
-        /// Uses WEIGHTED selection favoring higher tiers within the range.
+        /// Uses UNIFORM selection from all items within the tier range.
         /// Implements tier fallback logic: if no items found in requested tier range,
         /// tries lower tiers first, then higher tiers to ensure slot gets filled.
         /// Also applies appearance filtering with fallback to no appearance filter.
