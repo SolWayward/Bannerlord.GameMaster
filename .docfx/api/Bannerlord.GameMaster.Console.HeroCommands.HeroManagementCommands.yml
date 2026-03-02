@@ -4,6 +4,7 @@ items:
   commentId: N:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   id: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   children:
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AbortPregnancyCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddGoldCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddHeroToPartyCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.CreatePartyCommand
@@ -11,6 +12,7 @@ items:
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImpregnateCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
@@ -36,6 +38,12 @@ items:
   assemblies:
   - Bannerlord.GameMaster
 references:
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AbortPregnancyCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AbortPregnancyCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AbortPregnancyCommand.html
+  name: AbortPregnancyCommand
+  nameWithType: AbortPregnancyCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AbortPregnancyCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddGoldCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddGoldCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddGoldCommand.html
@@ -78,6 +86,12 @@ references:
   name: EquipHeroCommand
   nameWithType: EquipHeroCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand.html
+  name: GiveBirthCommand
+  nameWithType: GiveBirthCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand.html

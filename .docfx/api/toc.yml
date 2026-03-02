@@ -460,6 +460,9 @@ items:
   name: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   type: Namespace
   items:
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AbortPregnancyCommand
+    name: AbortPregnancyCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.AddGoldCommand
     name: AddGoldCommand
     type: Class
@@ -480,6 +483,9 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
     name: EquipHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
+    name: GiveBirthCommand
     type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
     name: HealHeroCommand

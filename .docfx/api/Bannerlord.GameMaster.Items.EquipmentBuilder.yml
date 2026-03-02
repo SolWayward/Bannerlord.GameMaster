@@ -298,7 +298,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetCivilianEquipmentSet
     path: ../Bannerlord.GameMaster/Items/Equipment/EquipmentBuilder.cs
-    startLine: 2141
+    startLine: 2190
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items

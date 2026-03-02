@@ -5,9 +5,12 @@ items:
   id: HeroManager
   parent: Bannerlord.GameMaster.Heroes
   children:
+  - Bannerlord.GameMaster.Heroes.HeroManager.AbortBirth(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.HeroManager.ActivateHero(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
   - Bannerlord.GameMaster.Heroes.HeroManager.Divorce(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.HeroManager.GetBestInitialSettlement(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean)
   - Bannerlord.GameMaster.Heroes.HeroManager.Impregnate(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.HeroManager.Marry(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean,System.Boolean)
   - Bannerlord.GameMaster.Heroes.HeroManager.TrySetHomeSettlement(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement)
@@ -25,7 +28,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HeroManager
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 13
+    startLine: 14
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -60,7 +63,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetBestInitialSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 40
+    startLine: 41
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -93,7 +96,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: TrySetHomeSettlement
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 55
+    startLine: 56
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -129,7 +132,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ActivateHero
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 83
+    startLine: 84
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -174,7 +177,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Impregnate
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 280
+    startLine: 281
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -199,6 +202,135 @@ items:
       description: BLGMResult with success/failure details
     content.vb: Public Shared Function Impregnate(mother As Hero, father As Hero = Nothing) As BLGMResult
   overload: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate*
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  id: GiveBirth(TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroManager
+  langs:
+  - csharp
+  - vb
+  name: GiveBirth(Hero, bool)
+  nameWithType: HeroManager.GiveBirth(Hero, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GiveBirth
+    path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
+    startLine: 317
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Forces immediate birth when the father is not known/provided.
+
+    Resolves father from the pregnancy record, or falls back to PregnancyHelpers.ResolveFather().
+  example: []
+  syntax:
+    content: public static BLGMResult GiveBirth(Hero mother, bool isFemale)
+    parameters:
+    - id: mother
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The pregnant hero to deliver
+    - id: isFemale
+      type: System.Boolean
+      description: True for a female child, false for male
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with success/failure details
+    content.vb: Public Shared Function GiveBirth(mother As Hero, isFemale As Boolean) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth*
+  nameWithType.vb: HeroManager.GiveBirth(Hero, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero, Boolean)
+  name.vb: GiveBirth(Hero, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  id: GiveBirth(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroManager
+  langs:
+  - csharp
+  - vb
+  name: GiveBirth(Hero, Hero, bool)
+  nameWithType: HeroManager.GiveBirth(Hero, Hero, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Hero, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GiveBirth
+    path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
+    startLine: 356
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Forces immediate birth with an explicitly provided father.
+
+    Delivers the offspring, fires native birth events, clears pregnancy state, and removes the pregnancy record.
+  example: []
+  syntax:
+    content: public static BLGMResult GiveBirth(Hero mother, Hero father, bool isFemale)
+    parameters:
+    - id: mother
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The pregnant hero to deliver
+    - id: father
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The father hero
+    - id: isFemale
+      type: System.Boolean
+      description: True for a female child, false for male
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with success/failure details
+    content.vb: Public Shared Function GiveBirth(mother As Hero, father As Hero, isFemale As Boolean) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth*
+  nameWithType.vb: HeroManager.GiveBirth(Hero, Hero, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Hero, Boolean)
+  name.vb: GiveBirth(Hero, Hero, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.AbortBirth(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.AbortBirth(TaleWorlds.CampaignSystem.Hero)
+  id: AbortBirth(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.HeroManager
+  langs:
+  - csharp
+  - vb
+  name: AbortBirth(Hero)
+  nameWithType: HeroManager.AbortBirth(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.AbortBirth(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AbortBirth
+    path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
+    startLine: 423
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Terminates a pregnancy without delivering a child.
+
+    Removes the pregnancy record first, then clears the pregnancy flag to maintain consistent state.
+  example: []
+  syntax:
+    content: public static BLGMResult AbortBirth(Hero mother)
+    parameters:
+    - id: mother
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The pregnant hero whose pregnancy to abort
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with success/failure details
+    content.vb: Public Shared Function AbortBirth(mother As Hero) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroManager.AbortBirth*
 - uid: Bannerlord.GameMaster.Heroes.HeroManager.Marry(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean,System.Boolean)
   commentId: M:Bannerlord.GameMaster.Heroes.HeroManager.Marry(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean,System.Boolean)
   id: Marry(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero,System.Boolean,System.Boolean)
@@ -217,7 +349,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Marry
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 318
+    startLine: 460
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -267,7 +399,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Divorce
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 409
+    startLine: 551
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -682,12 +814,12 @@ references:
   name: Impregnate
   nameWithType: HeroManager.Impregnate
   fullName: Bannerlord.GameMaster.Heroes.HeroManager.Impregnate
-- uid: Bannerlord.GameMaster.Heroes.HeroManager.Marry*
-  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.Marry
-  href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_Marry_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Hero_System_Boolean_System_Boolean_
-  name: Marry
-  nameWithType: HeroManager.Marry
-  fullName: Bannerlord.GameMaster.Heroes.HeroManager.Marry
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth
+  href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_GiveBirth_TaleWorlds_CampaignSystem_Hero_System_Boolean_
+  name: GiveBirth
+  nameWithType: HeroManager.GiveBirth
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.GiveBirth
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -699,6 +831,18 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.AbortBirth*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.AbortBirth
+  href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_AbortBirth_TaleWorlds_CampaignSystem_Hero_
+  name: AbortBirth
+  nameWithType: HeroManager.AbortBirth
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.AbortBirth
+- uid: Bannerlord.GameMaster.Heroes.HeroManager.Marry*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.Marry
+  href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_Marry_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Hero_System_Boolean_System_Boolean_
+  name: Marry
+  nameWithType: HeroManager.Marry
+  fullName: Bannerlord.GameMaster.Heroes.HeroManager.Marry
 - uid: Bannerlord.GameMaster.Heroes.HeroManager.Divorce*
   commentId: Overload:Bannerlord.GameMaster.Heroes.HeroManager.Divorce
   href: Bannerlord.GameMaster.Heroes.HeroManager.html#Bannerlord_GameMaster_Heroes_HeroManager_Divorce_TaleWorlds_CampaignSystem_Hero_

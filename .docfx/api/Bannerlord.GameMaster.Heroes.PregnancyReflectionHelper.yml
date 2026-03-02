@@ -5,6 +5,8 @@ items:
   id: PregnancyReflectionHelper
   parent: Bannerlord.GameMaster.Heroes
   children:
+  - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather(TaleWorlds.CampaignSystem.Hero)
+  - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
   langs:
   - csharp
@@ -83,6 +85,76 @@ items:
       description: BLGMResult indicating success or failure with details
     content.vb: Public Shared Function ReplacePregnancyFather(mother As Hero, father As Hero) As BLGMResult
   overload: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather*
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather(TaleWorlds.CampaignSystem.Hero)
+  id: GetPregnancyFather(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
+  langs:
+  - csharp
+  - vb
+  name: GetPregnancyFather(Hero)
+  nameWithType: PregnancyReflectionHelper.GetPregnancyFather(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetPregnancyFather
+    path: ../Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
+    startLine: 139
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Reads the father from an existing pregnancy record for a given mother.
+  example: []
+  syntax:
+    content: public static Hero GetPregnancyFather(Hero mother)
+    parameters:
+    - id: mother
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The pregnant hero whose pregnancy father to retrieve
+    return:
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The father Hero, or null if no record found or reflection fails
+    content.vb: Public Shared Function GetPregnancyFather(mother As Hero) As Hero
+  overload: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather*
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord(TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord(TaleWorlds.CampaignSystem.Hero)
+  id: RemovePregnancyRecord(TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
+  langs:
+  - csharp
+  - vb
+  name: RemovePregnancyRecord(Hero)
+  nameWithType: PregnancyReflectionHelper.RemovePregnancyRecord(Hero)
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord(TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: RemovePregnancyRecord
+    path: ../Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
+    startLine: 208
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Removes the pregnancy record for a given mother from the _heroPregnancies list.
+  example: []
+  syntax:
+    content: public static BLGMResult RemovePregnancyRecord(Hero mother)
+    parameters:
+    - id: mother
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose pregnancy record to remove
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with details
+    content.vb: Public Shared Function RemovePregnancyRecord(mother As Hero) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord*
 references:
 - uid: Bannerlord.GameMaster.Heroes
   commentId: N:Bannerlord.GameMaster.Heroes
@@ -423,3 +495,15 @@ references:
   - uid: Bannerlord.GameMaster.Common
     name: Common
     href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather
+  href: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.html#Bannerlord_GameMaster_Heroes_PregnancyReflectionHelper_GetPregnancyFather_TaleWorlds_CampaignSystem_Hero_
+  name: GetPregnancyFather
+  nameWithType: PregnancyReflectionHelper.GetPregnancyFather
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord
+  href: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.html#Bannerlord_GameMaster_Heroes_PregnancyReflectionHelper_RemovePregnancyRecord_TaleWorlds_CampaignSystem_Hero_
+  name: RemovePregnancyRecord
+  nameWithType: PregnancyReflectionHelper.RemovePregnancyRecord
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord

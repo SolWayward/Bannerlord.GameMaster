@@ -295,7 +295,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsArmorSuitableForGender
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 222
+    startLine: 231
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -339,7 +339,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetTierRangeForLevel
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 269
+    startLine: 278
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -392,7 +392,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsItemInTierRange
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 299
+    startLine: 308
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -433,7 +433,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ShouldExcludeClothArmor
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 315
+    startLine: 324
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -477,7 +477,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsClothArmor
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 335
+    startLine: 344
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -512,7 +512,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsCivilianAppropriateItem
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 413
+    startLine: 422
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -560,7 +560,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsDressItem
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 478
+    startLine: 487
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -595,7 +595,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsLadiesShoes
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 501
+    startLine: 510
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -630,7 +630,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsCrownItem
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 527
+    startLine: 536
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -665,7 +665,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsBattleCrown
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 562
+    startLine: 571
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -703,7 +703,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsCivilianCrown
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 597
+    startLine: 606
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -741,7 +741,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsJeweledCrown
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 631
+    startLine: 640
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -776,7 +776,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsPolearmWeapon
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 655
+    startLine: 664
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -814,7 +814,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsSidearmWeapon
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 683
+    startLine: 692
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -852,7 +852,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsRulingClanMember
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 715
+    startLine: 724
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -887,7 +887,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: MeetsAppearanceThreshold
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 746
+    startLine: 755
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -928,7 +928,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: MeetsCivilianAppearanceRequirement
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 761
+    startLine: 770
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -969,7 +969,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: MeetsBattleArmorAppearanceRequirement
     path: ../Bannerlord.GameMaster/Items/Equipment/ItemValidation.cs
-    startLine: 776
+    startLine: 785
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items

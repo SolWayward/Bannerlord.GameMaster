@@ -10,10 +10,13 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.9
+## Latest Update v1.3.14.10
 
 ```
-Updated BLGM to support Commander clan management
+Fixed Heroes losing items on save load from other mods adding invalid and broken items, or removing mods that add items to the game
+
+Added gm.hero.give_birth
+Added gm.hero.abort_pregnancy
 
 Previous Updates:
 Fixed error when generating clans

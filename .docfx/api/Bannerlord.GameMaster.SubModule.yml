@@ -85,7 +85,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnSubModuleLoad
     path: ../Bannerlord.GameMaster/SubModule.cs
-    startLine: 12
+    startLine: 13
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster
@@ -113,7 +113,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnSubModuleUnloaded
     path: ../Bannerlord.GameMaster/SubModule.cs
-    startLine: 22
+    startLine: 24
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster
@@ -141,7 +141,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnBeforeInitialModuleScreenSetAsRoot
     path: ../Bannerlord.GameMaster/SubModule.cs
-    startLine: 27
+    startLine: 30
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster
@@ -169,7 +169,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnGameStart
     path: ../Bannerlord.GameMaster/SubModule.cs
-    startLine: 32
+    startLine: 36
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster
@@ -202,7 +202,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnGameEnd
     path: ../Bannerlord.GameMaster/SubModule.cs
-    startLine: 52
+    startLine: 60
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster
@@ -233,7 +233,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: OnApplicationTick
     path: ../Bannerlord.GameMaster/SubModule.cs
-    startLine: 67
+    startLine: 76
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster
