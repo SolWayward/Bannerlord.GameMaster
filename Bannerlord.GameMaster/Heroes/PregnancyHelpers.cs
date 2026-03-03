@@ -42,6 +42,9 @@ namespace Bannerlord.GameMaster.Heroes
             if (father.IsFemale)
                 return BLGMResult.Error($"ValidatePregnancy() failed, resolved father {father.Name} is female").Log();
 
+            if (father.Clan == null)
+                return BLGMResult.Error($"ValidatePregnancy() failed, resolved father {father.Name} must be a member of clan").Log();
+
             return BLGMResult.Success($"Pregnancy validation passed for {mother.Name} and {father.Name}");
         }
 

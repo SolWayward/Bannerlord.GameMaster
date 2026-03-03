@@ -268,5 +268,71 @@ namespace Bannerlord.GameMaster.Heroes
                     $"RemovePregnancyRecord() failed with unexpected exception for {mother?.Name}: {ex.Message}", ex).Log();
             }
         }
+
+        /// MARK: AddPregnancyRecord
+        /// <summary>
+        /// Creates a new pregnancy record and adds it to _heroPregnancies via reflection.
+        /// Used for clanless mothers where MakePregnantAction.Apply() is bypassed to avoid
+        /// NRE in PregnancyLogEntry.IsVisibleNotification (mother.Clan.Equals() crashes when Clan is null).
+        /// </summary>
+        /// <param name="mother">The hero to create a pregnancy record for</param>
+        /// <param name="father">The hero to set as the father</param>
+        /// <returns>BLGMResult indicating success or failure with details</returns>
+        public static BLGMResult AddPregnancyRecord(Hero mother, Hero father)
+        {
+            try
+            {
+                if (HeroPregnanciesField == null)
+                {
+                    return BLGMResult.Error(
+                        "AddPregnancyRecord() failed: _heroPregnancies field not found via reflection. Game version may be incompatible.",
+                        new MissingFieldException(nameof(PregnancyCampaignBehavior), "_heroPregnancies")).Log();
+                }
+
+                if (PregnancyType == null)
+                {
+                    return BLGMResult.Error(
+                        "AddPregnancyRecord() failed: Pregnancy nested type not found via reflection. Game version may be incompatible.",
+                        new MissingMemberException(nameof(PregnancyCampaignBehavior), "Pregnancy")).Log();
+                }
+
+                if (PregnancyConstructor == null)
+                {
+                    return BLGMResult.Error(
+                        "AddPregnancyRecord() failed: Pregnancy constructor not found via reflection. Game version may be incompatible.",
+                        new MissingMethodException("PregnancyCampaignBehavior.Pregnancy", ".ctor(Hero, Hero, CampaignTime)")).Log();
+                }
+
+                PregnancyCampaignBehavior behavior = Campaign.Current.GetCampaignBehavior<PregnancyCampaignBehavior>();
+                if (behavior == null)
+                {
+                    return BLGMResult.Error(
+                        "AddPregnancyRecord() failed: PregnancyCampaignBehavior not found in current campaign.",
+                        new InvalidOperationException("PregnancyCampaignBehavior not found")).Log();
+                }
+
+                IList pregnancyList = HeroPregnanciesField.GetValue(behavior) as IList;
+                if (pregnancyList == null)
+                {
+                    return BLGMResult.Error(
+                        "AddPregnancyRecord() failed: _heroPregnancies list is null or could not be cast to IList.",
+                        new InvalidOperationException("_heroPregnancies is null or not IList")).Log();
+                }
+
+                // Calculate due date the same way native ChildConceived() does
+                CampaignTime dueDate = CampaignTime.DaysFromNow(Campaign.Current.Models.PregnancyModel.PregnancyDurationInDays);
+
+                // Create new Pregnancy record with the correct father from the start
+                object newPregnancy = PregnancyConstructor.Invoke(new object[] { mother, father, dueDate });
+                pregnancyList.Add(newPregnancy);
+
+                return BLGMResult.Success($"Added pregnancy record for {mother.Name} with father {father.Name}");
+            }
+            catch (Exception ex)
+            {
+                return BLGMResult.Error(
+                    $"AddPregnancyRecord() failed with unexpected exception for {mother?.Name}: {ex.Message}", ex).Log();
+            }
+        }
     }
 }

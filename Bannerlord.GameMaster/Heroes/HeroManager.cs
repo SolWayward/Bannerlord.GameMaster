@@ -288,19 +288,40 @@ namespace Bannerlord.GameMaster.Heroes
             if (!validation.IsSuccess)
                 return validation;
 
-            // Apply pregnancy (this creates a pregnancy record with mother.Spouse as father)
-            TaleWorlds.CampaignSystem.Actions.MakePregnantAction.Apply(mother);
-
-            // If the resolved father is NOT mother.Spouse, we need to replace the pregnancy record via reflection
-            if (father != mother.Spouse)
+            if (mother.Clan != null)
             {
-                BLGMResult replaceResult = PregnancyReflectionHelper.ReplacePregnancyFather(mother, father);
+                // Normal path: native action fires OnChildConceived (creates record with mother.Spouse)
+                MakePregnantAction.Apply(mother);
 
-                if (!replaceResult.IsSuccess)
+                // If resolved father differs from Spouse, replace the record via reflection
+                if (father != mother.Spouse)
                 {
+                    BLGMResult replaceResult = PregnancyReflectionHelper.ReplacePregnancyFather(mother, father);
+
+                    if (!replaceResult.IsSuccess)
+                    {
+                        return BLGMResult.Error(
+                            $"{mother.Name} is now pregnant, but reflection failed to set {father.Name} as father. " +
+                            $"The father may be incorrect (defaulted to spouse or null). Details: {replaceResult.Message}").Log();
+                    }
+                }
+            }
+
+            else
+            {
+                // Clanless path: bypass MakePregnantAction to avoid NRE in PregnancyLogEntry.IsVisibleNotification
+                // (native code does mother.Clan.Equals() which crashes when Clan is null)
+                mother.IsPregnant = true;
+
+                BLGMResult addResult = PregnancyReflectionHelper.AddPregnancyRecord(mother, father);
+
+                if (!addResult.IsSuccess)
+                {
+                    // Pregnancy flag is set but record failed -- revert to avoid orphaned state
+                    mother.IsPregnant = false;
                     return BLGMResult.Error(
-                        $"{mother.Name} is now pregnant, but reflection failed to set {father.Name} as father. " +
-                        $"The father may be incorrect (defaulted to spouse or null). Details: {replaceResult.Message}").Log();
+                        $"Impregnate() failed for clanless hero {mother.Name}: could not add pregnancy record. " +
+                        $"Pregnancy reverted. Details: {addResult.Message}").Log();
                 }
             }
 
