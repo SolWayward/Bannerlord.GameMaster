@@ -220,7 +220,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GiveBirth
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 317
+    startLine: 338
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -264,7 +264,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GiveBirth
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 356
+    startLine: 377
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -311,7 +311,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: AbortBirth
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 423
+    startLine: 444
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -349,7 +349,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Marry
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 460
+    startLine: 481
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -399,7 +399,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Divorce
     path: ../Bannerlord.GameMaster/Heroes/HeroManager.cs
-    startLine: 551
+    startLine: 572
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes

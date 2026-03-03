@@ -456,6 +456,9 @@ items:
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand
     name: GenerateLordsCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.ImportCharacterCommand
+    name: ImportCharacterCommand
+    type: Class
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   name: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands
   type: Namespace
@@ -484,6 +487,9 @@ items:
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
     name: EquipHeroCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ExportCharacterCommand
+    name: ExportCharacterCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
     name: GiveBirthCommand
     type: Class
@@ -499,6 +505,30 @@ items:
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
     name: KillHeroCommand
     type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListAppearancesCommand
+    name: ListAppearancesCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListCharactersCommand
+    name: ListCharactersCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListDevelopmentsCommand
+    name: ListDevelopmentsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListTraitsCommand
+    name: ListTraitsCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadAppearanceCommand
+    name: LoadAppearanceCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadCharacterCommand
+    name: LoadCharacterCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadDevelopmentCommand
+    name: LoadDevelopmentCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadTraitsCommand
+    name: LoadTraitsCommand
+    type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
     name: MarryCommand
     type: Class
@@ -513,6 +543,15 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RenameHeroCommand
     name: RenameHeroCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveAppearanceCommand
+    name: SaveAppearanceCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveDevelopmentCommand
+    name: SaveDevelopmentCommand
+    type: Class
+  - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveTraitsCommand
+    name: SaveTraitsCommand
     type: Class
   - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetAgeCommand
     name: SetAgeCommand
@@ -1076,6 +1115,12 @@ items:
   name: Bannerlord.GameMaster.Heroes
   type: Namespace
   items:
+  - uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+    name: AppearanceFileManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.AppearanceSetData
+    name: AppearanceSetData
+    type: Class
   - uid: Bannerlord.GameMaster.Heroes.BLGMConversationManager
     name: BLGMConversationManager
     type: Class
@@ -1085,6 +1130,15 @@ items:
   - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
     name: BodyConstraints.Constraint
     type: Struct
+  - uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+    name: CharacterSetApplyFlags
+    type: Enum
+  - uid: Bannerlord.GameMaster.Heroes.CharacterSetData
+    name: CharacterSetData
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+    name: CharacterSetFileManager
+    type: Class
   - uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
     name: HeroAppearanceEditorUI
     type: Class
@@ -1118,6 +1172,9 @@ items:
   - uid: Bannerlord.GameMaster.Heroes.HeroTypes
     name: HeroTypes
     type: Enum
+  - uid: Bannerlord.GameMaster.Heroes.IndividualSetType
+    name: IndividualSetType
+    type: Enum
   - uid: Bannerlord.GameMaster.Heroes.PregnancyHelpers
     name: PregnancyHelpers
     type: Class
@@ -1126,6 +1183,15 @@ items:
     type: Class
   - uid: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
     name: StaticBodyPropertiesHelper
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.TraitData
+    name: TraitData
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.TraitFileManager
+    name: TraitFileManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.TraitSetData
+    name: TraitSetData
     type: Class
 - uid: Bannerlord.GameMaster.Heroes.FaceGenerator
   name: Bannerlord.GameMaster.Heroes.FaceGenerator
@@ -1141,8 +1207,17 @@ items:
   name: Bannerlord.GameMaster.Heroes.HeroDevelopment
   type: Namespace
   items:
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeData
+    name: AttributeData
+    type: Class
   - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor
     name: AttributeEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+    name: DevelopmentFileManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+    name: DevelopmentSetData
     type: Class
   - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
     name: FocusEditor
@@ -1156,8 +1231,14 @@ items:
   - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
     name: HeroSkillSnapshot
     type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkData
+    name: PerkData
+    type: Class
   - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkEditor
     name: PerkEditor
+    type: Class
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+    name: SkillData
     type: Class
   - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
     name: SkillEditor

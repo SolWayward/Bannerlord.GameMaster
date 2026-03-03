@@ -12,16 +12,28 @@ items:
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditAppearanceCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EditPartyCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ExportCharacterCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.HealHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImpregnateCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ImprisonHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListAppearancesCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListCharactersCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListDevelopmentsCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListTraitsCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadAppearanceCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadCharacterCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadDevelopmentCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadTraitsCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.OpenInventoryCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ReleaseHeroCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RemoveClanCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RenameHeroCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveAppearanceCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveDevelopmentCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveTraitsCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetAgeCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetClanCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetCultureCommand
@@ -86,6 +98,12 @@ references:
   name: EquipHeroCommand
   nameWithType: EquipHeroCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.EquipHeroCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ExportCharacterCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ExportCharacterCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ExportCharacterCommand.html
+  name: ExportCharacterCommand
+  nameWithType: ExportCharacterCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ExportCharacterCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.GiveBirthCommand.html
@@ -116,6 +134,54 @@ references:
   name: KillHeroCommand
   nameWithType: KillHeroCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.KillHeroCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListAppearancesCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListAppearancesCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListAppearancesCommand.html
+  name: ListAppearancesCommand
+  nameWithType: ListAppearancesCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListAppearancesCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListCharactersCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListCharactersCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListCharactersCommand.html
+  name: ListCharactersCommand
+  nameWithType: ListCharactersCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListCharactersCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListDevelopmentsCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListDevelopmentsCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListDevelopmentsCommand.html
+  name: ListDevelopmentsCommand
+  nameWithType: ListDevelopmentsCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListDevelopmentsCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListTraitsCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListTraitsCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListTraitsCommand.html
+  name: ListTraitsCommand
+  nameWithType: ListTraitsCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.ListTraitsCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadAppearanceCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadAppearanceCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadAppearanceCommand.html
+  name: LoadAppearanceCommand
+  nameWithType: LoadAppearanceCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadAppearanceCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadCharacterCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadCharacterCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadCharacterCommand.html
+  name: LoadCharacterCommand
+  nameWithType: LoadCharacterCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadCharacterCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadDevelopmentCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadDevelopmentCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadDevelopmentCommand.html
+  name: LoadDevelopmentCommand
+  nameWithType: LoadDevelopmentCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadDevelopmentCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadTraitsCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadTraitsCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadTraitsCommand.html
+  name: LoadTraitsCommand
+  nameWithType: LoadTraitsCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.LoadTraitsCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.MarryCommand.html
@@ -146,6 +212,24 @@ references:
   name: RenameHeroCommand
   nameWithType: RenameHeroCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.RenameHeroCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveAppearanceCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveAppearanceCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveAppearanceCommand.html
+  name: SaveAppearanceCommand
+  nameWithType: SaveAppearanceCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveAppearanceCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveDevelopmentCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveDevelopmentCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveDevelopmentCommand.html
+  name: SaveDevelopmentCommand
+  nameWithType: SaveDevelopmentCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveDevelopmentCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveTraitsCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveTraitsCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveTraitsCommand.html
+  name: SaveTraitsCommand
+  nameWithType: SaveTraitsCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SaveTraitsCommand
 - uid: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetAgeCommand
   commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetAgeCommand
   href: Bannerlord.GameMaster.Console.HeroCommands.HeroManagementCommands.SetAgeCommand.html

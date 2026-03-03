@@ -1,0 +1,541 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  id: SkillData
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Focus
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Level
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.SkillId
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Xp
+  langs:
+  - csharp
+  - vb
+  name: SkillData
+  nameWithType: SkillData
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SkillData
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+    startLine: 67
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Data class for individual skill serialization.
+  example: []
+  syntax:
+    content: public class SkillData
+    content.vb: Public Class SkillData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.SkillId
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.SkillId
+  id: SkillId
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  langs:
+  - csharp
+  - vb
+  name: SkillId
+  nameWithType: SkillData.SkillId
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.SkillId
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SkillId
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+    startLine: 69
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: >-
+      [JsonProperty("SkillId")]
+
+      public string SkillId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("SkillId")>
+
+      Public Property SkillId As String
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.SkillId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SkillId
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Level
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Level
+  id: Level
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: SkillData.Level
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Level
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Level
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+    startLine: 72
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: >-
+      [JsonProperty("Level")]
+
+      public int Level { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("Level")>
+
+      Public Property Level As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Level*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Level
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Xp
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Xp
+  id: Xp
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  langs:
+  - csharp
+  - vb
+  name: Xp
+  nameWithType: SkillData.Xp
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Xp
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Xp
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+    startLine: 75
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: >-
+      [JsonProperty("Xp")]
+
+      public float Xp { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: >-
+      <JsonProperty("Xp")>
+
+      Public Property Xp As Single
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Xp*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Xp
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Focus
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Focus
+  id: Focus
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  langs:
+  - csharp
+  - vb
+  name: Focus
+  nameWithType: SkillData.Focus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Focus
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Focus
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentSerializationModels.cs
+    startLine: 78
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  syntax:
+    content: >-
+      [JsonProperty("Focus")]
+
+      public int Focus { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("Focus")>
+
+      Public Property Focus As Integer
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Focus*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Focus
+references:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.SkillId*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.SkillId
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillData_SkillId
+  name: SkillId
+  nameWithType: SkillData.SkillId
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.SkillId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Level*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Level
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillData_Level
+  name: Level
+  nameWithType: SkillData.Level
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Level
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Xp*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Xp
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillData_Xp
+  name: Xp
+  nameWithType: SkillData.Xp
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Xp
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Focus*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Focus
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_SkillData_Focus
+  name: Focus
+  nameWithType: SkillData.Focus
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.Focus

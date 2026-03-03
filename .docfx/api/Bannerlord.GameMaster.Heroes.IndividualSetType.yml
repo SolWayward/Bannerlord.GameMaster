@@ -1,0 +1,208 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType
+  commentId: T:Bannerlord.GameMaster.Heroes.IndividualSetType
+  id: IndividualSetType
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.IndividualSetType.Appearance
+  - Bannerlord.GameMaster.Heroes.IndividualSetType.BattleEquipment
+  - Bannerlord.GameMaster.Heroes.IndividualSetType.CivilianEquipment
+  - Bannerlord.GameMaster.Heroes.IndividualSetType.Development
+  - Bannerlord.GameMaster.Heroes.IndividualSetType.Traits
+  langs:
+  - csharp
+  - vb
+  name: IndividualSetType
+  nameWithType: IndividualSetType
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: IndividualSetType
+    path: ../Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+    startLine: 7
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Identifies the type of an individual set file for import operations.
+
+    Used by CharacterSetFileManager.ImportFromIndividualSet() to determine
+
+    which file manager to use for loading and which section to apply.
+  example: []
+  syntax:
+    content: public enum IndividualSetType
+    content.vb: Public Enum IndividualSetType
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType.Appearance
+  commentId: F:Bannerlord.GameMaster.Heroes.IndividualSetType.Appearance
+  id: Appearance
+  parent: Bannerlord.GameMaster.Heroes.IndividualSetType
+  langs:
+  - csharp
+  - vb
+  name: Appearance
+  nameWithType: IndividualSetType.Appearance
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType.Appearance
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Appearance
+    path: ../Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Appearance = 0
+    return:
+      type: Bannerlord.GameMaster.Heroes.IndividualSetType
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType.Development
+  commentId: F:Bannerlord.GameMaster.Heroes.IndividualSetType.Development
+  id: Development
+  parent: Bannerlord.GameMaster.Heroes.IndividualSetType
+  langs:
+  - csharp
+  - vb
+  name: Development
+  nameWithType: IndividualSetType.Development
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType.Development
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Development
+    path: ../Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Development = 1
+    return:
+      type: Bannerlord.GameMaster.Heroes.IndividualSetType
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType.Traits
+  commentId: F:Bannerlord.GameMaster.Heroes.IndividualSetType.Traits
+  id: Traits
+  parent: Bannerlord.GameMaster.Heroes.IndividualSetType
+  langs:
+  - csharp
+  - vb
+  name: Traits
+  nameWithType: IndividualSetType.Traits
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType.Traits
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Traits
+    path: ../Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Traits = 2
+    return:
+      type: Bannerlord.GameMaster.Heroes.IndividualSetType
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType.BattleEquipment
+  commentId: F:Bannerlord.GameMaster.Heroes.IndividualSetType.BattleEquipment
+  id: BattleEquipment
+  parent: Bannerlord.GameMaster.Heroes.IndividualSetType
+  langs:
+  - csharp
+  - vb
+  name: BattleEquipment
+  nameWithType: IndividualSetType.BattleEquipment
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType.BattleEquipment
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BattleEquipment
+    path: ../Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: BattleEquipment = 3
+    return:
+      type: Bannerlord.GameMaster.Heroes.IndividualSetType
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType.CivilianEquipment
+  commentId: F:Bannerlord.GameMaster.Heroes.IndividualSetType.CivilianEquipment
+  id: CivilianEquipment
+  parent: Bannerlord.GameMaster.Heroes.IndividualSetType
+  langs:
+  - csharp
+  - vb
+  name: CivilianEquipment
+  nameWithType: IndividualSetType.CivilianEquipment
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType.CivilianEquipment
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CivilianEquipment
+    path: ../Bannerlord.GameMaster/Heroes/IndividualSetType.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: CivilianEquipment = 4
+    return:
+      type: Bannerlord.GameMaster.Heroes.IndividualSetType
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType
+  commentId: T:Bannerlord.GameMaster.Heroes.IndividualSetType
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.IndividualSetType.html
+  name: IndividualSetType
+  nameWithType: IndividualSetType
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType

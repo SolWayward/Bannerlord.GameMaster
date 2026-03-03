@@ -1,0 +1,1402 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  id: CharacterSetFileManager
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.#ctor(System.String)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyAppearance(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.AppearanceSetData)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyDevelopment(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyTraits(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.TraitSetData)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists(System.String)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.Default
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetDirectory
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath(System.String)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet(System.String,TaleWorlds.CampaignSystem.Clan,System.String,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet(System.String,Bannerlord.GameMaster.Heroes.IndividualSetType,TaleWorlds.CampaignSystem.Clan,System.String,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ListCharacterSetFiles
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData(System.String)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String,Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ModFolder
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  langs:
+  - csharp
+  - vb
+  name: CharacterSetFileManager
+  nameWithType: CharacterSetFileManager
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CharacterSetFileManager
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 25
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Manages character set file I/O operations for saving and loading full hero character data.
+
+    Aggregates appearance, development, traits, and equipment into a single unified JSON file.
+
+    Supports configurable mod folder names for use by different mods.
+  example: []
+  syntax:
+    content: public class CharacterSetFileManager
+    content.vb: Public Class CharacterSetFileManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ModFolder
+  commentId: P:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ModFolder
+  id: ModFolder
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: ModFolder
+  nameWithType: CharacterSetFileManager.ModFolder
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ModFolder
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ModFolder
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: The mod-specific folder name used in the configuration path.
+  example: []
+  syntax:
+    content: public string ModFolder { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ModFolder As String
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ModFolder*
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.Default
+  commentId: P:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.Default
+  id: Default
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: CharacterSetFileManager.Default
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.Default
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Default
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 39
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Default instance using "GameMaster" folder for backwards compatibility.
+  example: []
+  syntax:
+    content: public static CharacterSetFileManager Default { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+    content.vb: Public Shared ReadOnly Property [Default] As CharacterSetFileManager
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.Default*
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.#ctor(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: CharacterSetFileManager(string)
+  nameWithType: CharacterSetFileManager.CharacterSetFileManager(string)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileManager(string)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 45
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Creates a new CharacterSetFileManager with the specified mod folder name.
+  example: []
+  syntax:
+    content: public CharacterSetFileManager(string modFolder)
+    parameters:
+    - id: modFolder
+      type: System.String
+      description: The mod folder name to use in the configuration path.
+    content.vb: Public Sub New(modFolder As String)
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.#ctor*
+  nameWithType.vb: CharacterSetFileManager.New(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.New(String)
+  name.vb: New(String)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath(System.String)
+  id: GetCharacterSetFilePath(System.String)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: GetCharacterSetFilePath(string)
+  nameWithType: CharacterSetFileManager.GetCharacterSetFilePath(string)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCharacterSetFilePath
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 59
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets the full file path for character set files.
+  example: []
+  syntax:
+    content: public string GetCharacterSetFilePath(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename without extension
+    return:
+      type: System.String
+      description: The full file path
+    content.vb: Public Function GetCharacterSetFilePath(filename As String) As String
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath*
+  nameWithType.vb: CharacterSetFileManager.GetCharacterSetFilePath(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath(String)
+  name.vb: GetCharacterSetFilePath(String)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetDirectory
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetDirectory
+  id: GetCharacterSetDirectory
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: GetCharacterSetDirectory()
+  nameWithType: CharacterSetFileManager.GetCharacterSetDirectory()
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetDirectory()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetCharacterSetDirectory
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 81
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets the character sets directory path.
+  example: []
+  syntax:
+    content: public string GetCharacterSetDirectory()
+    return:
+      type: System.String
+      description: The directory path
+    content.vb: Public Function GetCharacterSetDirectory() As String
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetDirectory*
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists(System.String)
+  id: CharacterSetFileExists(System.String)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: CharacterSetFileExists(string)
+  nameWithType: CharacterSetFileManager.CharacterSetFileExists(string)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CharacterSetFileExists
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 92
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Checks if a character set file exists.
+  example: []
+  syntax:
+    content: public bool CharacterSetFileExists(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename to check
+    return:
+      type: System.Boolean
+      description: True if the file exists
+    content.vb: Public Function CharacterSetFileExists(filename As String) As Boolean
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists*
+  nameWithType.vb: CharacterSetFileManager.CharacterSetFileExists(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists(String)
+  name.vb: CharacterSetFileExists(String)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ListCharacterSetFiles
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ListCharacterSetFiles
+  id: ListCharacterSetFiles
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: ListCharacterSetFiles()
+  nameWithType: CharacterSetFileManager.ListCharacterSetFiles()
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ListCharacterSetFiles()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ListCharacterSetFiles
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 102
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Lists all character set files in the directory.
+  example: []
+  syntax:
+    content: public string[] ListCharacterSetFiles()
+    return:
+      type: System.String[]
+      description: Array of file names without paths
+    content.vb: Public Function ListCharacterSetFiles() As String()
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ListCharacterSetFiles*
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  id: SaveCharacterSetToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveCharacterSetToFile(Hero, string)
+  nameWithType: CharacterSetFileManager.SaveCharacterSetToFile(Hero, string)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile(TaleWorlds.CampaignSystem.Hero, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SaveCharacterSetToFile
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 127
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Saves a hero's full character data to a single JSON file.
+
+    Aggregates metadata, appearance, development, traits, and both equipment sets.
+  example: []
+  syntax:
+    content: public void SaveCharacterSetToFile(Hero hero, string filepath)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose character data is being saved
+    - id: filepath
+      type: System.String
+      description: The full file path to save to
+    content.vb: Public Sub SaveCharacterSetToFile(hero As Hero, filepath As String)
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile*
+  nameWithType.vb: CharacterSetFileManager.SaveCharacterSetToFile(Hero, String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile(TaleWorlds.CampaignSystem.Hero, String)
+  name.vb: SaveCharacterSetToFile(Hero, String)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData(System.String)
+  id: LoadCharacterSetData(System.String)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadCharacterSetData(string)
+  nameWithType: CharacterSetFileManager.LoadCharacterSetData(string)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadCharacterSetData
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 166
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Loads character set data from a JSON file without applying to a hero.
+  example: []
+  syntax:
+    content: public CharacterSetData LoadCharacterSetData(string filepath)
+    parameters:
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetData
+      description: The deserialized character set data
+    content.vb: Public Function LoadCharacterSetData(filepath As String) As CharacterSetData
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData*
+  nameWithType.vb: CharacterSetFileManager.LoadCharacterSetData(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData(String)
+  name.vb: LoadCharacterSetData(String)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String)
+  id: LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadCharacterSetToHero(Hero, string)
+  nameWithType: CharacterSetFileManager.LoadCharacterSetToHero(Hero, string)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadCharacterSetToHero
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 188
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Loads saved character data from a JSON file and applies ALL sections to an existing hero.
+
+    Applies: age, culture, appearance, development, traits, battle equipment, civilian equipment.
+
+    Does NOT apply: name, gender, stringId, MBGUID, type (occupation).
+  example: []
+  syntax:
+    content: public BLGMResult LoadCharacterSetToHero(Hero hero, string filepath)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to apply data to
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with summary of applied/skipped items
+    content.vb: Public Function LoadCharacterSetToHero(hero As Hero, filepath As String) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero*
+  nameWithType.vb: CharacterSetFileManager.LoadCharacterSetToHero(Hero, String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero, String)
+  name.vb: LoadCharacterSetToHero(Hero, String)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String,Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String,Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  id: LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String,Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadCharacterSetToHero(Hero, string, CharacterSetApplyFlags)
+  nameWithType: CharacterSetFileManager.LoadCharacterSetToHero(Hero, string, CharacterSetApplyFlags)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero, string, Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadCharacterSetToHero
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 203
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Loads saved character data from a JSON file and selectively applies sections to an existing hero.
+
+    Use <xref href="Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags" data-throw-if-not-resolved="false"></xref> to control which sections are applied.
+
+    Does NOT apply: name, gender, stringId, MBGUID, type (occupation).
+  example: []
+  syntax:
+    content: public BLGMResult LoadCharacterSetToHero(Hero hero, string filepath, CharacterSetApplyFlags flags)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to apply data to
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    - id: flags
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+      description: Flags controlling which sections to apply
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with summary of applied/skipped items
+    content.vb: Public Function LoadCharacterSetToHero(hero As Hero, filepath As String, flags As CharacterSetApplyFlags) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero*
+  nameWithType.vb: CharacterSetFileManager.LoadCharacterSetToHero(Hero, String, CharacterSetApplyFlags)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero, String, Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  name.vb: LoadCharacterSetToHero(Hero, String, CharacterSetApplyFlags)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet(System.String,TaleWorlds.CampaignSystem.Clan,System.String,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet(System.String,TaleWorlds.CampaignSystem.Clan,System.String,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  id: ImportCharacterSet(System.String,TaleWorlds.CampaignSystem.Clan,System.String,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: ImportCharacterSet(string, Clan, string, Settlement, bool)
+  nameWithType: CharacterSetFileManager.ImportCharacterSet(string, Clan, string, Settlement, bool)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet(string, TaleWorlds.CampaignSystem.Clan, string, TaleWorlds.CampaignSystem.Settlements.Settlement, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ImportCharacterSet
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 288
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Creates a brand new hero from saved character data.
+
+    Uses HeroGenerator to create and initialize the hero, then overrides with saved data.
+  example: []
+  syntax:
+    content: public BLGMResult ImportCharacterSet(string filepath, Clan clan, string typeOverride = null, Settlement settlement = null, bool withParty = true)
+    parameters:
+    - id: filepath
+      type: System.String
+      description: Full path to the character set JSON file
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: Target clan for the new hero (required)
+    - id: typeOverride
+      type: System.String
+      description: 'Override hero type from file. If null, uses saved HeroType. Valid: "lord", "wanderer", "companion"'
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Settlement for placement. If null, auto-resolved from clan
+    - id: withParty
+      type: System.Boolean
+      description: 'For Lords only: create a party. Defaults to true'
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with the created hero summary
+    content.vb: Public Function ImportCharacterSet(filepath As String, clan As Clan, typeOverride As String = Nothing, settlement As Settlement = Nothing, withParty As Boolean = True) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet*
+  nameWithType.vb: CharacterSetFileManager.ImportCharacterSet(String, Clan, String, Settlement, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet(String, TaleWorlds.CampaignSystem.Clan, String, TaleWorlds.CampaignSystem.Settlements.Settlement, Boolean)
+  name.vb: ImportCharacterSet(String, Clan, String, Settlement, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet(System.String,Bannerlord.GameMaster.Heroes.IndividualSetType,TaleWorlds.CampaignSystem.Clan,System.String,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet(System.String,Bannerlord.GameMaster.Heroes.IndividualSetType,TaleWorlds.CampaignSystem.Clan,System.String,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  id: ImportFromIndividualSet(System.String,Bannerlord.GameMaster.Heroes.IndividualSetType,TaleWorlds.CampaignSystem.Clan,System.String,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: ImportFromIndividualSet(string, IndividualSetType, Clan, string, Settlement, bool)
+  nameWithType: CharacterSetFileManager.ImportFromIndividualSet(string, IndividualSetType, Clan, string, Settlement, bool)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet(string, Bannerlord.GameMaster.Heroes.IndividualSetType, TaleWorlds.CampaignSystem.Clan, string, TaleWorlds.CampaignSystem.Settlements.Settlement, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ImportFromIndividualSet
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 385
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Creates a new hero and applies data from a single individual set file (Appearance, Development, Traits, or Equipment).
+
+    Unlike ImportCharacterSet() which requires a full CharacterSetData, this works with partial set files.
+
+    Missing metadata (gender, culture, age, level) is resolved from defaults or the clan.
+
+    The hero is fully initialized with generated skills/traits/equipment, then the individual set overrides its section.
+  example: []
+  syntax:
+    content: public BLGMResult ImportFromIndividualSet(string filepath, IndividualSetType setType, Clan clan, string heroType = "lord", Settlement settlement = null, bool withParty = true)
+    parameters:
+    - id: filepath
+      type: System.String
+      description: Full path to the individual set JSON file.
+    - id: setType
+      type: Bannerlord.GameMaster.Heroes.IndividualSetType
+      description: Which type of individual set file this is.
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: Target clan for the new hero (required).
+    - id: heroType
+      type: System.String
+      description: 'Override hero type: "lord", "wanderer", "companion". Defaults to "lord".'
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Settlement for placement. If null, auto-resolved from clan.
+    - id: withParty
+      type: System.Boolean
+      description: 'For Lords only: create a party. Defaults to true.'
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with the created hero summary.
+    content.vb: Public Function ImportFromIndividualSet(filepath As String, setType As IndividualSetType, clan As Clan, heroType As String = "lord", settlement As Settlement = Nothing, withParty As Boolean = True) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet*
+  nameWithType.vb: CharacterSetFileManager.ImportFromIndividualSet(String, IndividualSetType, Clan, String, Settlement, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet(String, Bannerlord.GameMaster.Heroes.IndividualSetType, TaleWorlds.CampaignSystem.Clan, String, TaleWorlds.CampaignSystem.Settlements.Settlement, Boolean)
+  name.vb: ImportFromIndividualSet(String, IndividualSetType, Clan, String, Settlement, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyAppearance(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.AppearanceSetData)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyAppearance(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.AppearanceSetData)
+  id: ApplyAppearance(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.AppearanceSetData)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: ApplyAppearance(Hero, AppearanceSetData)
+  nameWithType: CharacterSetFileManager.ApplyAppearance(Hero, AppearanceSetData)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyAppearance(TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Heroes.AppearanceSetData)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyAppearance
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 708
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Applies appearance data to a hero.
+
+    Mirrors the application logic from AppearanceFileManager.LoadAppearanceToHero().
+
+    Gender mismatch is allowed but warned about during character set operations.
+  example: []
+  syntax:
+    content: public BLGMResult ApplyAppearance(Hero hero, AppearanceSetData data)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    - id: data
+      type: Bannerlord.GameMaster.Heroes.AppearanceSetData
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function ApplyAppearance(hero As Hero, data As AppearanceSetData) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyAppearance*
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyDevelopment(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyDevelopment(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData)
+  id: ApplyDevelopment(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: ApplyDevelopment(Hero, DevelopmentSetData)
+  nameWithType: CharacterSetFileManager.ApplyDevelopment(Hero, DevelopmentSetData)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyDevelopment(TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyDevelopment
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 745
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Applies development data to a hero using the 7-step pattern from DevelopmentFileManager.LoadDevelopmentToHero().
+
+    1. Set Attributes, 2. Set Focus, 3. Set Skill Levels,
+
+    4. Clear All Perks, 5. Re-Select Saved Perks, 6. Set Unspent Points, 7. RecalculateLevel.
+  example: []
+  syntax:
+    content: public BLGMResult ApplyDevelopment(Hero hero, DevelopmentSetData data)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    - id: data
+      type: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function ApplyDevelopment(hero As Hero, data As DevelopmentSetData) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyDevelopment*
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyTraits(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.TraitSetData)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyTraits(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.TraitSetData)
+  id: ApplyTraits(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Heroes.TraitSetData)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: ApplyTraits(Hero, TraitSetData)
+  nameWithType: CharacterSetFileManager.ApplyTraits(Hero, TraitSetData)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyTraits(TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Heroes.TraitSetData)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyTraits
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 836
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Applies trait data to a hero.
+
+    Mirrors the application logic from TraitFileManager.LoadTraitsToHero().
+  example: []
+  syntax:
+    content: public BLGMResult ApplyTraits(Hero hero, TraitSetData data)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+    - id: data
+      type: Bannerlord.GameMaster.Heroes.TraitSetData
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function ApplyTraits(hero As Hero, data As TraitSetData) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyTraits*
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData,System.Boolean)
+  id: ApplyEquipment(TaleWorlds.CampaignSystem.Hero,Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  langs:
+  - csharp
+  - vb
+  name: ApplyEquipment(Hero, EquipmentSetData, bool)
+  nameWithType: CharacterSetFileManager.ApplyEquipment(Hero, EquipmentSetData, bool)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment(TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ApplyEquipment
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetFileManager.cs
+    startLine: 873
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Applies equipment data to a hero.
+
+    Mirrors the application logic from EquipmentFileManager.LoadEquipmentFromFile().
+  example: []
+  syntax:
+    content: public BLGMResult ApplyEquipment(Hero hero, EquipmentSetData data, bool isCivilian)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to apply equipment to
+    - id: data
+      type: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+      description: The equipment set data to apply
+    - id: isCivilian
+      type: System.Boolean
+      description: True to apply to civilian equipment, false for battle
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+    content.vb: Public Function ApplyEquipment(hero As Hero, data As EquipmentSetData, isCivilian As Boolean) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment*
+  nameWithType.vb: CharacterSetFileManager.ApplyEquipment(Hero, EquipmentSetData, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment(TaleWorlds.CampaignSystem.Hero, Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData, Boolean)
+  name.vb: ApplyEquipment(Hero, EquipmentSetData, Boolean)
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ModFolder*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ModFolder
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_ModFolder
+  name: ModFolder
+  nameWithType: CharacterSetFileManager.ModFolder
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ModFolder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.Default*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.Default
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_Default
+  name: Default
+  nameWithType: CharacterSetFileManager.Default
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.Default
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html
+  name: CharacterSetFileManager
+  nameWithType: CharacterSetFileManager
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.#ctor
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager__ctor_System_String_
+  name: CharacterSetFileManager
+  nameWithType: CharacterSetFileManager.CharacterSetFileManager
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileManager
+  nameWithType.vb: CharacterSetFileManager.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_GetCharacterSetFilePath_System_String_
+  name: GetCharacterSetFilePath
+  nameWithType: CharacterSetFileManager.GetCharacterSetFilePath
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetFilePath
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetDirectory*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetDirectory
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_GetCharacterSetDirectory
+  name: GetCharacterSetDirectory
+  nameWithType: CharacterSetFileManager.GetCharacterSetDirectory
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.GetCharacterSetDirectory
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_CharacterSetFileExists_System_String_
+  name: CharacterSetFileExists
+  nameWithType: CharacterSetFileManager.CharacterSetFileExists
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.CharacterSetFileExists
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ListCharacterSetFiles*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ListCharacterSetFiles
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_ListCharacterSetFiles
+  name: ListCharacterSetFiles
+  nameWithType: CharacterSetFileManager.ListCharacterSetFiles
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ListCharacterSetFiles
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_SaveCharacterSetToFile_TaleWorlds_CampaignSystem_Hero_System_String_
+  name: SaveCharacterSetToFile
+  nameWithType: CharacterSetFileManager.SaveCharacterSetToFile
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.SaveCharacterSetToFile
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_LoadCharacterSetData_System_String_
+  name: LoadCharacterSetData
+  nameWithType: CharacterSetFileManager.LoadCharacterSetData
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetData
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetData
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.CharacterSetData.html
+  name: CharacterSetData
+  nameWithType: CharacterSetData
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetData
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_LoadCharacterSetToHero_TaleWorlds_CampaignSystem_Hero_System_String_
+  name: LoadCharacterSetToHero
+  nameWithType: CharacterSetFileManager.LoadCharacterSetToHero
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.html
+  name: CharacterSetApplyFlags
+  nameWithType: CharacterSetApplyFlags
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_ImportCharacterSet_System_String_TaleWorlds_CampaignSystem_Clan_System_String_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Boolean_
+  name: ImportCharacterSet
+  nameWithType: CharacterSetFileManager.ImportCharacterSet
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportCharacterSet
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_ImportFromIndividualSet_System_String_Bannerlord_GameMaster_Heroes_IndividualSetType_TaleWorlds_CampaignSystem_Clan_System_String_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Boolean_
+  name: ImportFromIndividualSet
+  nameWithType: CharacterSetFileManager.ImportFromIndividualSet
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ImportFromIndividualSet
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType
+  commentId: T:Bannerlord.GameMaster.Heroes.IndividualSetType
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.IndividualSetType.html
+  name: IndividualSetType
+  nameWithType: IndividualSetType
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyAppearance*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyAppearance
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_ApplyAppearance_TaleWorlds_CampaignSystem_Hero_Bannerlord_GameMaster_Heroes_AppearanceSetData_
+  name: ApplyAppearance
+  nameWithType: CharacterSetFileManager.ApplyAppearance
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyAppearance
+- uid: Bannerlord.GameMaster.Heroes.AppearanceSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.AppearanceSetData
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.AppearanceSetData.html
+  name: AppearanceSetData
+  nameWithType: AppearanceSetData
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceSetData
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyDevelopment*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyDevelopment
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_ApplyDevelopment_TaleWorlds_CampaignSystem_Hero_Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentSetData_
+  name: ApplyDevelopment
+  nameWithType: CharacterSetFileManager.ApplyDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyDevelopment
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData.html
+  name: DevelopmentSetData
+  nameWithType: DevelopmentSetData
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyTraits*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyTraits
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_ApplyTraits_TaleWorlds_CampaignSystem_Hero_Bannerlord_GameMaster_Heroes_TraitSetData_
+  name: ApplyTraits
+  nameWithType: CharacterSetFileManager.ApplyTraits
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyTraits
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.TraitSetData
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.TraitSetData.html
+  name: TraitSetData
+  nameWithType: TraitSetData
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_ApplyEquipment_TaleWorlds_CampaignSystem_Hero_Bannerlord_GameMaster_Console_ItemCommands_EquipmentSetData_System_Boolean_
+  name: ApplyEquipment
+  nameWithType: CharacterSetFileManager.ApplyEquipment
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.ApplyEquipment
+- uid: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+  commentId: T:Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+  parent: Bannerlord.GameMaster.Console.ItemCommands
+  href: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData.html
+  name: EquipmentSetData
+  nameWithType: EquipmentSetData
+  fullName: Bannerlord.GameMaster.Console.ItemCommands.EquipmentSetData
+- uid: Bannerlord.GameMaster.Console.ItemCommands
+  commentId: N:Bannerlord.GameMaster.Console.ItemCommands
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Console.ItemCommands
+  nameWithType: Bannerlord.GameMaster.Console.ItemCommands
+  fullName: Bannerlord.GameMaster.Console.ItemCommands
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console
+    name: Console
+    href: Bannerlord.GameMaster.Console.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Console.ItemCommands
+    name: ItemCommands
+    href: Bannerlord.GameMaster.Console.ItemCommands.html

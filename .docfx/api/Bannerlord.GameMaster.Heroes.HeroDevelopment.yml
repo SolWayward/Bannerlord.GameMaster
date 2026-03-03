@@ -4,12 +4,17 @@ items:
   commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
   id: Bannerlord.GameMaster.Heroes.HeroDevelopment
   children:
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeData
   - Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
   - Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
   - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroEditorState
   - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillEditor
   - Bannerlord.GameMaster.Heroes.HeroDevelopment.HeroSkillSnapshot
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkData
   - Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkEditor
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
   - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillEditor
   - Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillInfo
   langs:
@@ -28,6 +33,38 @@ references:
   name: AttributeEditor
   nameWithType: AttributeEditor
   fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeEditor
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html
+  name: DevelopmentFileManager
+  nameWithType: DevelopmentFileManager
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData.html
+  name: DevelopmentSetData
+  nameWithType: DevelopmentSetData
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeData
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeData
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeData.html
+  name: AttributeData
+  nameWithType: AttributeData
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.AttributeData
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData.html
+  name: SkillData
+  nameWithType: SkillData
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.SkillData
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkData
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkData
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkData.html
+  name: PerkData
+  nameWithType: PerkData
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.PerkData
 - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
   commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor
   href: Bannerlord.GameMaster.Heroes.HeroDevelopment.FocusEditor.html

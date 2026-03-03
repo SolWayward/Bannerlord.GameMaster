@@ -10,37 +10,14 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.10
+## Latest Update v1.3.14.11
 
 ```
-Fixed Heroes losing items on save load from other mods adding invalid and broken items, or removing mods that add items to the game
+Fixed crash when impregnating a female that has no clan such as notables
 
-Added gm.hero.give_birth
-Added gm.hero.abort_pregnancy
-
-Previous Updates:
-Fixed error when generating clans
-
-Added trait randomization to new heroes
-Added relation randomization to new clans and kingdoms
-
-Added command gm.hero.edit_party
-Added command gm.hero.start_conversation
-   
-Added optional age and level args to hero creation commands
-
-Added new commands:
-   gm.hero.marry
-   gm.hero.divorce
-   gm.hero.impregnate
-   gm.kingdom.rename
-Added all 229 possible colors the custom banner editor
-
-Added commands 
-   gm.clan.edit.banner
-   gm.hero.edit_apperance
-   m.hero.open_inventory
-Improved settlement renaming to immediately update name on map
+Added Appearance save / load system
+Added Skills, Attributes, Perks, Focus Points, and traits save / load system
+Added character export / import
 ```
 
 ---

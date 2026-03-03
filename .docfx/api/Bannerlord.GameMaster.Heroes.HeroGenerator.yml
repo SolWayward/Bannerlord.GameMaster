@@ -9,6 +9,7 @@ items:
   - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateBasicHero(TaleWorlds.CampaignSystem.CharacterObject,TaleWorlds.Localization.TextObject,System.Int32,TaleWorlds.CampaignSystem.Clan,System.Single)
   - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,System.Single)
   - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateCompanions(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,System.Single,System.Int32,System.Int32,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata(System.String,TaleWorlds.CampaignSystem.Clan,System.String,System.String,System.Nullable{System.Boolean},System.Int32,System.Int32,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
   - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
   - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLord(System.String,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single,System.Int32,System.Int32,System.Boolean)
   - Bannerlord.GameMaster.Heroes.HeroGenerator.CreateLords(System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags,Bannerlord.GameMaster.Characters.GenderFlags,TaleWorlds.CampaignSystem.Clan,System.Boolean,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Single)
@@ -687,6 +688,73 @@ items:
   nameWithType.vb: HeroGenerator.InitializeTraits(Hero, Boolean)
   fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeTraits(TaleWorlds.CampaignSystem.Hero, Boolean)
   name.vb: InitializeTraits(Hero, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata(System.String,TaleWorlds.CampaignSystem.Clan,System.String,System.String,System.Nullable{System.Boolean},System.Int32,System.Int32,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata(System.String,TaleWorlds.CampaignSystem.Clan,System.String,System.String,System.Nullable{System.Boolean},System.Int32,System.Int32,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  id: CreateHeroFromMetadata(System.String,TaleWorlds.CampaignSystem.Clan,System.String,System.String,System.Nullable{System.Boolean},System.Int32,System.Int32,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.HeroGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateHeroFromMetadata(string, Clan, string, string, bool?, int, int, Settlement, bool)
+  nameWithType: HeroGenerator.CreateHeroFromMetadata(string, Clan, string, string, bool?, int, int, Settlement, bool)
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata(string, TaleWorlds.CampaignSystem.Clan, string, string, bool?, int, int, TaleWorlds.CampaignSystem.Settlements.Settlement, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateHeroFromMetadata
+    path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
+    startLine: 484
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Creates a fully initialized hero from explicit metadata parameters.
+
+    This is the reusable building block for both full character set imports and individual set imports.
+
+    Handles: template selection, CreateBasicHero, and InitializeAs* based on heroType.
+  example: []
+  syntax:
+    content: public static Hero CreateHeroFromMetadata(string name, Clan clan, string heroType = "lord", string cultureStringId = null, bool? isFemale = null, int age = -1, int level = -1, Settlement settlement = null, bool withParty = true)
+    parameters:
+    - id: name
+      type: System.String
+      description: Hero name. Required.
+    - id: clan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: Target clan. Required for lords and companions.
+    - id: heroType
+      type: System.String
+      description: 'Role type: "lord", "wanderer", "companion". Defaults to "lord".'
+    - id: cultureStringId
+      type: System.String
+      description: Culture StringId for template selection. If null, uses clan's culture.
+    - id: isFemale
+      type: System.Nullable{System.Boolean}
+      description: Gender for template selection. If null, random (Either).
+    - id: age
+      type: System.Int32
+      description: Hero age. If less than 18, random 18-30.
+    - id: level
+      type: System.Int32
+      description: Target level. If less than 1, type-appropriate random.
+    - id: settlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Placement settlement. If null, auto-resolved from clan.
+    - id: withParty
+      type: System.Boolean
+      description: 'For lords: create party. Defaults to true.'
+    return:
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The created and initialized hero, or null on failure (logged via BLGMResult).
+    content.vb: Public Shared Function CreateHeroFromMetadata(name As String, clan As Clan, heroType As String = "lord", cultureStringId As String = Nothing, isFemale As Boolean? = Nothing, age As Integer = -1, level As Integer = -1, settlement As Settlement = Nothing, withParty As Boolean = True) As Hero
+  overload: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata*
+  nameWithType.vb: HeroGenerator.CreateHeroFromMetadata(String, Clan, String, String, Boolean?, Integer, Integer, Settlement, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata(String, TaleWorlds.CampaignSystem.Clan, String, String, Boolean?, Integer, Integer, TaleWorlds.CampaignSystem.Settlements.Settlement, Boolean)
+  name.vb: CreateHeroFromMetadata(String, Clan, String, String, Boolean?, Integer, Integer, Settlement, Boolean)
 - uid: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
   commentId: M:Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeAsLord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
   id: InitializeAsLord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean)
@@ -705,7 +773,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeAsLord
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 477
+    startLine: 582
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -743,7 +811,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeAsWanderer
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 483
+    startLine: 588
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -776,7 +844,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeAsCompanion
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 489
+    startLine: 594
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -807,7 +875,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateLord
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 495
+    startLine: 600
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -855,7 +923,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateLords
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 501
+    startLine: 606
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -903,7 +971,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateWanderer
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 507
+    startLine: 612
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -947,7 +1015,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateWanderers
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 513
+    startLine: 618
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -991,7 +1059,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateCompanions
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 519
+    startLine: 624
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -1033,7 +1101,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: RegenerateSkillsForLevel
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 536
+    startLine: 641
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -1722,6 +1790,63 @@ references:
   name: InitializeTraits
   nameWithType: HeroGenerator.InitializeTraits
   fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.InitializeTraits
+- uid: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata
+  href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_CreateHeroFromMetadata_System_String_TaleWorlds_CampaignSystem_Clan_System_String_System_String_System_Nullable_System_Boolean__System_Int32_System_Int32_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Boolean_
+  name: CreateHeroFromMetadata
+  nameWithType: HeroGenerator.CreateHeroFromMetadata
+  fullName: Bannerlord.GameMaster.Heroes.HeroGenerator.CreateHeroFromMetadata
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Bannerlord.GameMaster.Heroes.HeroGenerator.RegenerateSkillsForLevel*
   commentId: Overload:Bannerlord.GameMaster.Heroes.HeroGenerator.RegenerateSkillsForLevel
   href: Bannerlord.GameMaster.Heroes.HeroGenerator.html#Bannerlord_GameMaster_Heroes_HeroGenerator_RegenerateSkillsForLevel_TaleWorlds_CampaignSystem_Hero_System_Int32_System_Boolean_

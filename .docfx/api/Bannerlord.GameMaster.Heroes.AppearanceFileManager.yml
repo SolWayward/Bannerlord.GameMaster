@@ -1,0 +1,871 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  id: AppearanceFileManager
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.#ctor(System.String)
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists(System.String)
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.Default
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceDirectory
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath(System.String)
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.ListAppearanceFiles
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData(System.String)
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean)
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.ModFolder
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  langs:
+  - csharp
+  - vb
+  name: AppearanceFileManager
+  nameWithType: AppearanceFileManager
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AppearanceFileManager
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Manages appearance file I/O operations for saving and loading hero appearance sets.
+
+    Supports configurable mod folder names for use by different mods.
+  example: []
+  syntax:
+    content: public class AppearanceFileManager
+    content.vb: Public Class AppearanceFileManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ModFolder
+  commentId: P:Bannerlord.GameMaster.Heroes.AppearanceFileManager.ModFolder
+  id: ModFolder
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: ModFolder
+  nameWithType: AppearanceFileManager.ModFolder
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ModFolder
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ModFolder
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: The mod-specific folder name used in the configuration path.
+  example: []
+  syntax:
+    content: public string ModFolder { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ModFolder As String
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ModFolder*
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.Default
+  commentId: P:Bannerlord.GameMaster.Heroes.AppearanceFileManager.Default
+  id: Default
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: AppearanceFileManager.Default
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.Default
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Default
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Default instance using "GameMaster" folder for backwards compatibility.
+  example: []
+  syntax:
+    content: public static AppearanceFileManager Default { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+    content.vb: Public Shared ReadOnly Property [Default] As AppearanceFileManager
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.Default*
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.#ctor(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.AppearanceFileManager.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: AppearanceFileManager(string)
+  nameWithType: AppearanceFileManager.AppearanceFileManager(string)
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileManager(string)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 34
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Creates a new AppearanceFileManager with the specified mod folder name.
+  example: []
+  syntax:
+    content: public AppearanceFileManager(string modFolder)
+    parameters:
+    - id: modFolder
+      type: System.String
+      description: The mod folder name to use in the configuration path.
+    content.vb: Public Sub New(modFolder As String)
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.#ctor*
+  nameWithType.vb: AppearanceFileManager.New(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.AppearanceFileManager.New(String)
+  name.vb: New(String)
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath(System.String)
+  id: GetAppearanceFilePath(System.String)
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: GetAppearanceFilePath(string)
+  nameWithType: AppearanceFileManager.GetAppearanceFilePath(string)
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetAppearanceFilePath
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 48
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets the full file path for appearance files.
+  example: []
+  syntax:
+    content: public string GetAppearanceFilePath(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename without extension
+    return:
+      type: System.String
+      description: The full file path
+    content.vb: Public Function GetAppearanceFilePath(filename As String) As String
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath*
+  nameWithType.vb: AppearanceFileManager.GetAppearanceFilePath(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath(String)
+  name.vb: GetAppearanceFilePath(String)
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceDirectory
+  commentId: M:Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceDirectory
+  id: GetAppearanceDirectory
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: GetAppearanceDirectory()
+  nameWithType: AppearanceFileManager.GetAppearanceDirectory()
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceDirectory()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetAppearanceDirectory
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 70
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Gets the appearance sets directory path.
+  example: []
+  syntax:
+    content: public string GetAppearanceDirectory()
+    return:
+      type: System.String
+      description: The directory path
+    content.vb: Public Function GetAppearanceDirectory() As String
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceDirectory*
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  id: SaveAppearanceToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveAppearanceToFile(Hero, string)
+  nameWithType: AppearanceFileManager.SaveAppearanceToFile(Hero, string)
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile(TaleWorlds.CampaignSystem.Hero, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SaveAppearanceToFile
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 85
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Saves a hero's appearance data to a JSON file.
+  example: []
+  syntax:
+    content: public void SaveAppearanceToFile(Hero hero, string filepath)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose appearance is being saved
+    - id: filepath
+      type: System.String
+      description: The full file path to save to
+    content.vb: Public Sub SaveAppearanceToFile(hero As Hero, filepath As String)
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile*
+  nameWithType.vb: AppearanceFileManager.SaveAppearanceToFile(Hero, String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile(TaleWorlds.CampaignSystem.Hero, String)
+  name.vb: SaveAppearanceToFile(Hero, String)
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData(System.String)
+  id: LoadAppearanceData(System.String)
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadAppearanceData(string)
+  nameWithType: AppearanceFileManager.LoadAppearanceData(string)
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadAppearanceData
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 121
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Loads appearance data from a JSON file without applying to a hero.
+  example: []
+  syntax:
+    content: public AppearanceSetData LoadAppearanceData(string filepath)
+    parameters:
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    return:
+      type: Bannerlord.GameMaster.Heroes.AppearanceSetData
+      description: The deserialized appearance set data
+    content.vb: Public Function LoadAppearanceData(filepath As String) As AppearanceSetData
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData*
+  nameWithType.vb: AppearanceFileManager.LoadAppearanceData(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData(String)
+  name.vb: LoadAppearanceData(String)
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean)
+  id: LoadAppearanceToHero(TaleWorlds.CampaignSystem.Hero,System.String,System.Boolean)
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadAppearanceToHero(Hero, string, bool)
+  nameWithType: AppearanceFileManager.LoadAppearanceToHero(Hero, string, bool)
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero(TaleWorlds.CampaignSystem.Hero, string, bool)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadAppearanceToHero
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 145
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Loads appearance data from a JSON file and applies it to a hero.
+
+    Parses the BodyPropertiesString to extract StaticBodyProperties, Weight, and Build.
+
+    Age is NOT applied (tied to hero birth date/timeline).
+
+    Gender mismatch is blocked by default unless forceGenderMismatch is true.
+  example: []
+  syntax:
+    content: public BLGMResult LoadAppearanceToHero(Hero hero, string filepath, bool forceGenderMismatch = false)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to apply appearance to
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    - id: forceGenderMismatch
+      type: System.Boolean
+      description: If true, allows applying appearance across genders
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Function LoadAppearanceToHero(hero As Hero, filepath As String, forceGenderMismatch As Boolean = False) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero*
+  nameWithType.vb: AppearanceFileManager.LoadAppearanceToHero(Hero, String, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero(TaleWorlds.CampaignSystem.Hero, String, Boolean)
+  name.vb: LoadAppearanceToHero(Hero, String, Boolean)
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists(System.String)
+  id: AppearanceFileExists(System.String)
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: AppearanceFileExists(string)
+  nameWithType: AppearanceFileManager.AppearanceFileExists(string)
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AppearanceFileExists
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 200
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Checks if an appearance file exists.
+  example: []
+  syntax:
+    content: public bool AppearanceFileExists(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename to check
+    return:
+      type: System.Boolean
+      description: True if the file exists
+    content.vb: Public Function AppearanceFileExists(filename As String) As Boolean
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists*
+  nameWithType.vb: AppearanceFileManager.AppearanceFileExists(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists(String)
+  name.vb: AppearanceFileExists(String)
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ListAppearanceFiles
+  commentId: M:Bannerlord.GameMaster.Heroes.AppearanceFileManager.ListAppearanceFiles
+  id: ListAppearanceFiles
+  parent: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  langs:
+  - csharp
+  - vb
+  name: ListAppearanceFiles()
+  nameWithType: AppearanceFileManager.ListAppearanceFiles()
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ListAppearanceFiles()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ListAppearanceFiles
+    path: ../Bannerlord.GameMaster/Heroes/AppearanceFileManager.cs
+    startLine: 210
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Lists all appearance files in the directory.
+  example: []
+  syntax:
+    content: public string[] ListAppearanceFiles()
+    return:
+      type: System.String[]
+      description: Array of file names without paths
+    content.vb: Public Function ListAppearanceFiles() As String()
+  overload: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ListAppearanceFiles*
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ModFolder*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.ModFolder
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_ModFolder
+  name: ModFolder
+  nameWithType: AppearanceFileManager.ModFolder
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ModFolder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.Default*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.Default
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_Default
+  name: Default
+  nameWithType: AppearanceFileManager.Default
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.Default
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html
+  name: AppearanceFileManager
+  nameWithType: AppearanceFileManager
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.#ctor
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager__ctor_System_String_
+  name: AppearanceFileManager
+  nameWithType: AppearanceFileManager.AppearanceFileManager
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileManager
+  nameWithType.vb: AppearanceFileManager.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.AppearanceFileManager.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_GetAppearanceFilePath_System_String_
+  name: GetAppearanceFilePath
+  nameWithType: AppearanceFileManager.GetAppearanceFilePath
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceFilePath
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceDirectory*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceDirectory
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_GetAppearanceDirectory
+  name: GetAppearanceDirectory
+  nameWithType: AppearanceFileManager.GetAppearanceDirectory
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.GetAppearanceDirectory
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_SaveAppearanceToFile_TaleWorlds_CampaignSystem_Hero_System_String_
+  name: SaveAppearanceToFile
+  nameWithType: AppearanceFileManager.SaveAppearanceToFile
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.SaveAppearanceToFile
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_LoadAppearanceData_System_String_
+  name: LoadAppearanceData
+  nameWithType: AppearanceFileManager.LoadAppearanceData
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceData
+- uid: Bannerlord.GameMaster.Heroes.AppearanceSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.AppearanceSetData
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.AppearanceSetData.html
+  name: AppearanceSetData
+  nameWithType: AppearanceSetData
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceSetData
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_LoadAppearanceToHero_TaleWorlds_CampaignSystem_Hero_System_String_System_Boolean_
+  name: LoadAppearanceToHero
+  nameWithType: AppearanceFileManager.LoadAppearanceToHero
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.LoadAppearanceToHero
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_AppearanceFileExists_System_String_
+  name: AppearanceFileExists
+  nameWithType: AppearanceFileManager.AppearanceFileExists
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.AppearanceFileExists
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ListAppearanceFiles*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.AppearanceFileManager.ListAppearanceFiles
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html#Bannerlord_GameMaster_Heroes_AppearanceFileManager_ListAppearanceFiles
+  name: ListAppearanceFiles
+  nameWithType: AppearanceFileManager.ListAppearanceFiles
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager.ListAppearanceFiles
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )

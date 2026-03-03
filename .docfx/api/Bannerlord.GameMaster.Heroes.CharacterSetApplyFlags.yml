@@ -1,0 +1,437 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  id: CharacterSetApplyFlags
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Age
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.All
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Appearance
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.BattleEquipment
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.CharacterOnly
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.CivilianEquipment
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Culture
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Development
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Equipment
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.None
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Traits
+  langs:
+  - csharp
+  - vb
+  name: CharacterSetApplyFlags
+  nameWithType: CharacterSetApplyFlags
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CharacterSetApplyFlags
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Flags controlling which sections of a character set file are applied to a hero
+
+    during <xref href="Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero%2cSystem.String%2cBannerlord.GameMaster.Heroes.CharacterSetApplyFlags)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum CharacterSetApplyFlags
+    content.vb: >-
+      <Flags>
+
+      Public Enum CharacterSetApplyFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.None
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.None
+  id: None
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CharacterSetApplyFlags.None
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Age
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Age
+  id: Age
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: Age
+  nameWithType: CharacterSetApplyFlags.Age
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Age
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Age
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 12
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Age = 1
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Culture
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Culture
+  id: Culture
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: Culture
+  nameWithType: CharacterSetApplyFlags.Culture
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Culture
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Culture
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Culture = 2
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Appearance
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Appearance
+  id: Appearance
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: Appearance
+  nameWithType: CharacterSetApplyFlags.Appearance
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Appearance
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Appearance
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Appearance = 4
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Development
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Development
+  id: Development
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: Development
+  nameWithType: CharacterSetApplyFlags.Development
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Development
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Development
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 15
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Development = 8
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Traits
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Traits
+  id: Traits
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: Traits
+  nameWithType: CharacterSetApplyFlags.Traits
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Traits
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Traits
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 16
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: Traits = 16
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.BattleEquipment
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.BattleEquipment
+  id: BattleEquipment
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: BattleEquipment
+  nameWithType: CharacterSetApplyFlags.BattleEquipment
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.BattleEquipment
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BattleEquipment
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: BattleEquipment = 32
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.CivilianEquipment
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.CivilianEquipment
+  id: CivilianEquipment
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: CivilianEquipment
+  nameWithType: CharacterSetApplyFlags.CivilianEquipment
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.CivilianEquipment
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CivilianEquipment
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 18
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: CivilianEquipment = 64
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Equipment
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Equipment
+  id: Equipment
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: Equipment
+  nameWithType: CharacterSetApplyFlags.Equipment
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.Equipment
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Equipment
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 21
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Both battle and civilian equipment.
+  example: []
+  syntax:
+    content: Equipment = BattleEquipment | CivilianEquipment
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+    content.vb: Equipment = BattleEquipment Or CivilianEquipment
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.CharacterOnly
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.CharacterOnly
+  id: CharacterOnly
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: CharacterOnly
+  nameWithType: CharacterSetApplyFlags.CharacterOnly
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.CharacterOnly
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CharacterOnly
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 24
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: Everything except age and culture (appearance, development, traits, equipment).
+  example: []
+  syntax:
+    content: CharacterOnly = Appearance | Development | Traits | Equipment
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+    content.vb: CharacterOnly = Appearance Or Development Or Traits Or Equipment
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.All
+  commentId: F:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.All
+  id: All
+  parent: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: CharacterSetApplyFlags.All
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.All
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: All
+    path: ../Bannerlord.GameMaster/Heroes/CharacterSetApplyFlags.cs
+    startLine: 27
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: All sections (default behaviour of the original overload).
+  example: []
+  syntax:
+    content: All = Age | Culture | CharacterOnly
+    return:
+      type: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+    content.vb: All = Age Or Culture Or CharacterOnly
+references:
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String,Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  commentId: M:Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String,Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  isExternal: true
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_LoadCharacterSetToHero_TaleWorlds_CampaignSystem_Hero_System_String_Bannerlord_GameMaster_Heroes_CharacterSetApplyFlags_
+  name: LoadCharacterSetToHero(Hero, string, CharacterSetApplyFlags)
+  nameWithType: CharacterSetFileManager.LoadCharacterSetToHero(Hero, string, CharacterSetApplyFlags)
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero, string, Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  nameWithType.vb: CharacterSetFileManager.LoadCharacterSetToHero(Hero, String, CharacterSetApplyFlags)
+  fullName.vb: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero, String, Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+  name.vb: LoadCharacterSetToHero(Hero, String, CharacterSetApplyFlags)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String,Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+    name: LoadCharacterSetToHero
+    href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_LoadCharacterSetToHero_TaleWorlds_CampaignSystem_Hero_System_String_Bannerlord_GameMaster_Heroes_CharacterSetApplyFlags_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+    name: CharacterSetApplyFlags
+    href: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.html
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.LoadCharacterSetToHero(TaleWorlds.CampaignSystem.Hero,System.String,Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags)
+    name: LoadCharacterSetToHero
+    href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html#Bannerlord_GameMaster_Heroes_CharacterSetFileManager_LoadCharacterSetToHero_TaleWorlds_CampaignSystem_Hero_System_String_Bannerlord_GameMaster_Heroes_CharacterSetApplyFlags_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Hero
+    name: Hero
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+    name: CharacterSetApplyFlags
+    href: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.html
+  - name: )
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.html
+  name: CharacterSetApplyFlags
+  nameWithType: CharacterSetApplyFlags
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags

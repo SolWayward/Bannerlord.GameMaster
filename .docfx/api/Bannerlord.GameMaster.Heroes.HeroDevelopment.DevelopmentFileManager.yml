@@ -1,0 +1,881 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  id: DevelopmentFileManager
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  children:
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.#ctor(System.String)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.Default
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists(System.String)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentDirectory
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath(System.String)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ListDevelopmentFiles
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData(System.String)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero(TaleWorlds.CampaignSystem.Hero,System.String)
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ModFolder
+  - Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  langs:
+  - csharp
+  - vb
+  name: DevelopmentFileManager
+  nameWithType: DevelopmentFileManager
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DevelopmentFileManager
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 19
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Manages development file I/O operations for saving and loading hero development sets.
+
+    Supports configurable mod folder names for use by different mods.
+  example: []
+  syntax:
+    content: public class DevelopmentFileManager
+    content.vb: Public Class DevelopmentFileManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ModFolder
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ModFolder
+  id: ModFolder
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: ModFolder
+  nameWithType: DevelopmentFileManager.ModFolder
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ModFolder
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ModFolder
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 28
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: The mod-specific folder name used in the configuration path.
+  example: []
+  syntax:
+    content: public string ModFolder { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ModFolder As String
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ModFolder*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.Default
+  commentId: P:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.Default
+  id: Default
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: DevelopmentFileManager.Default
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.Default
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Default
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 33
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Default instance using "GameMaster" folder for backwards compatibility.
+  example: []
+  syntax:
+    content: public static DevelopmentFileManager Default { get; }
+    parameters: []
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+    content.vb: Public Shared ReadOnly Property [Default] As DevelopmentFileManager
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.Default*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.#ctor(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: DevelopmentFileManager(string)
+  nameWithType: DevelopmentFileManager.DevelopmentFileManager(string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileManager(string)
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 39
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Creates a new DevelopmentFileManager with the specified mod folder name.
+  example: []
+  syntax:
+    content: public DevelopmentFileManager(string modFolder)
+    parameters:
+    - id: modFolder
+      type: System.String
+      description: The mod folder name to use in the configuration path.
+    content.vb: Public Sub New(modFolder As String)
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.#ctor*
+  nameWithType.vb: DevelopmentFileManager.New(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.New(String)
+  name.vb: New(String)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath(System.String)
+  id: GetDevelopmentFilePath(System.String)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: GetDevelopmentFilePath(string)
+  nameWithType: DevelopmentFileManager.GetDevelopmentFilePath(string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetDevelopmentFilePath
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 53
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Gets the full file path for development files.
+  example: []
+  syntax:
+    content: public string GetDevelopmentFilePath(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename without extension
+    return:
+      type: System.String
+      description: The full file path
+    content.vb: Public Function GetDevelopmentFilePath(filename As String) As String
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath*
+  nameWithType.vb: DevelopmentFileManager.GetDevelopmentFilePath(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath(String)
+  name.vb: GetDevelopmentFilePath(String)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentDirectory
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentDirectory
+  id: GetDevelopmentDirectory
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: GetDevelopmentDirectory()
+  nameWithType: DevelopmentFileManager.GetDevelopmentDirectory()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentDirectory()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetDevelopmentDirectory
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 75
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Gets the development sets directory path.
+  example: []
+  syntax:
+    content: public string GetDevelopmentDirectory()
+    return:
+      type: System.String
+      description: The directory path
+    content.vb: Public Function GetDevelopmentDirectory() As String
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentDirectory*
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  id: SaveDevelopmentToFile(TaleWorlds.CampaignSystem.Hero,System.String)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: SaveDevelopmentToFile(Hero, string)
+  nameWithType: DevelopmentFileManager.SaveDevelopmentToFile(Hero, string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile(TaleWorlds.CampaignSystem.Hero, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SaveDevelopmentToFile
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 91
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Saves a hero's full development data to a JSON file.
+
+    Captures all skills, attributes, perks, focus, XP, and level data.
+  example: []
+  syntax:
+    content: public void SaveDevelopmentToFile(Hero hero, string filepath)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero whose development is being saved
+    - id: filepath
+      type: System.String
+      description: The full file path to save to
+    content.vb: Public Sub SaveDevelopmentToFile(hero As Hero, filepath As String)
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile*
+  nameWithType.vb: DevelopmentFileManager.SaveDevelopmentToFile(Hero, String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile(TaleWorlds.CampaignSystem.Hero, String)
+  name.vb: SaveDevelopmentToFile(Hero, String)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData(System.String)
+  id: LoadDevelopmentData(System.String)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadDevelopmentData(string)
+  nameWithType: DevelopmentFileManager.LoadDevelopmentData(string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadDevelopmentData
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 152
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Loads development data from a JSON file without applying to a hero.
+  example: []
+  syntax:
+    content: public DevelopmentSetData LoadDevelopmentData(string filepath)
+    parameters:
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    return:
+      type: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+      description: The deserialized development set data
+    content.vb: Public Function LoadDevelopmentData(filepath As String) As DevelopmentSetData
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData*
+  nameWithType.vb: DevelopmentFileManager.LoadDevelopmentData(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData(String)
+  name.vb: LoadDevelopmentData(String)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero(TaleWorlds.CampaignSystem.Hero,System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero(TaleWorlds.CampaignSystem.Hero,System.String)
+  id: LoadDevelopmentToHero(TaleWorlds.CampaignSystem.Hero,System.String)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: LoadDevelopmentToHero(Hero, string)
+  nameWithType: DevelopmentFileManager.LoadDevelopmentToHero(Hero, string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero(TaleWorlds.CampaignSystem.Hero, string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: LoadDevelopmentToHero
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 176
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: >-
+    Loads development data from a JSON file and applies it to a hero.
+
+    Follows the HeroSkillSnapshot.RestoreTo pattern:
+
+    1. Set Attributes, 2. Set Focus, 3. Set Skill Levels,
+
+    4. Clear All Perks, 5. Re-Select Saved Perks, 6. Set Unspent Points,
+
+    7. RecalculateLevel.
+  example: []
+  syntax:
+    content: public BLGMResult LoadDevelopmentToHero(Hero hero, string filepath)
+    parameters:
+    - id: hero
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to apply development to
+    - id: filepath
+      type: System.String
+      description: The full file path to load from
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult with details including skipped items
+    content.vb: Public Function LoadDevelopmentToHero(hero As Hero, filepath As String) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero*
+  nameWithType.vb: DevelopmentFileManager.LoadDevelopmentToHero(Hero, String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero(TaleWorlds.CampaignSystem.Hero, String)
+  name.vb: LoadDevelopmentToHero(Hero, String)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists(System.String)
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists(System.String)
+  id: DevelopmentFileExists(System.String)
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: DevelopmentFileExists(string)
+  nameWithType: DevelopmentFileManager.DevelopmentFileExists(string)
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists(string)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DevelopmentFileExists
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 281
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Checks if a development file exists.
+  example: []
+  syntax:
+    content: public bool DevelopmentFileExists(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename to check
+    return:
+      type: System.Boolean
+      description: True if the file exists
+    content.vb: Public Function DevelopmentFileExists(filename As String) As Boolean
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists*
+  nameWithType.vb: DevelopmentFileManager.DevelopmentFileExists(String)
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists(String)
+  name.vb: DevelopmentFileExists(String)
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ListDevelopmentFiles
+  commentId: M:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ListDevelopmentFiles
+  id: ListDevelopmentFiles
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  langs:
+  - csharp
+  - vb
+  name: ListDevelopmentFiles()
+  nameWithType: DevelopmentFileManager.ListDevelopmentFiles()
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ListDevelopmentFiles()
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ListDevelopmentFiles
+    path: ../Bannerlord.GameMaster/Heroes/HeroDevelopment/DevelopmentFileManager.cs
+    startLine: 291
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  summary: Lists all development files in the directory.
+  example: []
+  syntax:
+    content: public string[] ListDevelopmentFiles()
+    return:
+      type: System.String[]
+      description: Array of file names without paths
+    content.vb: Public Function ListDevelopmentFiles() As String()
+  overload: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ListDevelopmentFiles*
+references:
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  commentId: N:Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  nameWithType: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes.HeroDevelopment
+    name: HeroDevelopment
+    href: Bannerlord.GameMaster.Heroes.HeroDevelopment.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ModFolder*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ModFolder
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_ModFolder
+  name: ModFolder
+  nameWithType: DevelopmentFileManager.ModFolder
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ModFolder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.Default*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.Default
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_Default
+  name: Default
+  nameWithType: DevelopmentFileManager.Default
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.Default
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html
+  name: DevelopmentFileManager
+  nameWithType: DevelopmentFileManager
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.#ctor
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager__ctor_System_String_
+  name: DevelopmentFileManager
+  nameWithType: DevelopmentFileManager.DevelopmentFileManager
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileManager
+  nameWithType.vb: DevelopmentFileManager.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.New
+  name.vb: New
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_GetDevelopmentFilePath_System_String_
+  name: GetDevelopmentFilePath
+  nameWithType: DevelopmentFileManager.GetDevelopmentFilePath
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentFilePath
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentDirectory*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentDirectory
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_GetDevelopmentDirectory
+  name: GetDevelopmentDirectory
+  nameWithType: DevelopmentFileManager.GetDevelopmentDirectory
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.GetDevelopmentDirectory
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_SaveDevelopmentToFile_TaleWorlds_CampaignSystem_Hero_System_String_
+  name: SaveDevelopmentToFile
+  nameWithType: DevelopmentFileManager.SaveDevelopmentToFile
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.SaveDevelopmentToFile
+- uid: TaleWorlds.CampaignSystem.Hero
+  commentId: T:TaleWorlds.CampaignSystem.Hero
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Hero
+  nameWithType: Hero
+  fullName: TaleWorlds.CampaignSystem.Hero
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_LoadDevelopmentData_System_String_
+  name: LoadDevelopmentData
+  nameWithType: DevelopmentFileManager.LoadDevelopmentData
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentData
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+  parent: Bannerlord.GameMaster.Heroes.HeroDevelopment
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData.html
+  name: DevelopmentSetData
+  nameWithType: DevelopmentSetData
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentSetData
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_LoadDevelopmentToHero_TaleWorlds_CampaignSystem_Hero_System_String_
+  name: LoadDevelopmentToHero
+  nameWithType: DevelopmentFileManager.LoadDevelopmentToHero
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.LoadDevelopmentToHero
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_DevelopmentFileExists_System_String_
+  name: DevelopmentFileExists
+  nameWithType: DevelopmentFileManager.DevelopmentFileExists
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.DevelopmentFileExists
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ListDevelopmentFiles*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ListDevelopmentFiles
+  href: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.html#Bannerlord_GameMaster_Heroes_HeroDevelopment_DevelopmentFileManager_ListDevelopmentFiles
+  name: ListDevelopmentFiles
+  nameWithType: DevelopmentFileManager.ListDevelopmentFiles
+  fullName: Bannerlord.GameMaster.Heroes.HeroDevelopment.DevelopmentFileManager.ListDevelopmentFiles
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )

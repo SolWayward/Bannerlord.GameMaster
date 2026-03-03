@@ -5,6 +5,7 @@ items:
   id: PregnancyReflectionHelper
   parent: Bannerlord.GameMaster.Heroes
   children:
+  - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.AddPregnancyRecord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.GetPregnancyFather(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord(TaleWorlds.CampaignSystem.Hero)
   - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.ReplacePregnancyFather(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
@@ -155,6 +156,49 @@ items:
       description: BLGMResult indicating success or failure with details
     content.vb: Public Shared Function RemovePregnancyRecord(mother As Hero) As BLGMResult
   overload: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord*
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.AddPregnancyRecord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  commentId: M:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.AddPregnancyRecord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  id: AddPregnancyRecord(TaleWorlds.CampaignSystem.Hero,TaleWorlds.CampaignSystem.Hero)
+  parent: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
+  langs:
+  - csharp
+  - vb
+  name: AddPregnancyRecord(Hero, Hero)
+  nameWithType: PregnancyReflectionHelper.AddPregnancyRecord(Hero, Hero)
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.AddPregnancyRecord(TaleWorlds.CampaignSystem.Hero, TaleWorlds.CampaignSystem.Hero)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: AddPregnancyRecord
+    path: ../Bannerlord.GameMaster/Heroes/PregnancyReflectionHelper.cs
+    startLine: 280
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Creates a new pregnancy record and adds it to _heroPregnancies via reflection.
+
+    Used for clanless mothers where MakePregnantAction.Apply() is bypassed to avoid
+
+    NRE in PregnancyLogEntry.IsVisibleNotification (mother.Clan.Equals() crashes when Clan is null).
+  example: []
+  syntax:
+    content: public static BLGMResult AddPregnancyRecord(Hero mother, Hero father)
+    parameters:
+    - id: mother
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to create a pregnancy record for
+    - id: father
+      type: TaleWorlds.CampaignSystem.Hero
+      description: The hero to set as the father
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with details
+    content.vb: Public Shared Function AddPregnancyRecord(mother As Hero, father As Hero) As BLGMResult
+  overload: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.AddPregnancyRecord*
 references:
 - uid: Bannerlord.GameMaster.Heroes
   commentId: N:Bannerlord.GameMaster.Heroes
@@ -507,3 +551,9 @@ references:
   name: RemovePregnancyRecord
   nameWithType: PregnancyReflectionHelper.RemovePregnancyRecord
   fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.RemovePregnancyRecord
+- uid: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.AddPregnancyRecord*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.AddPregnancyRecord
+  href: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.html#Bannerlord_GameMaster_Heroes_PregnancyReflectionHelper_AddPregnancyRecord_TaleWorlds_CampaignSystem_Hero_TaleWorlds_CampaignSystem_Hero_
+  name: AddPregnancyRecord
+  nameWithType: PregnancyReflectionHelper.AddPregnancyRecord
+  fullName: Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper.AddPregnancyRecord

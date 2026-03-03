@@ -7,6 +7,7 @@ items:
   - Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateCompanionsCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.CreateLordCommand
   - Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand
+  - Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.ImportCharacterCommand
   langs:
   - csharp
   - vb
@@ -35,3 +36,9 @@ references:
   name: GenerateLordsCommand
   nameWithType: GenerateLordsCommand
   fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.GenerateLordsCommand
+- uid: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.ImportCharacterCommand
+  commentId: T:Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.ImportCharacterCommand
+  href: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.ImportCharacterCommand.html
+  name: ImportCharacterCommand
+  nameWithType: ImportCharacterCommand
+  fullName: Bannerlord.GameMaster.Console.HeroCommands.HeroGenerationCommands.ImportCharacterCommand

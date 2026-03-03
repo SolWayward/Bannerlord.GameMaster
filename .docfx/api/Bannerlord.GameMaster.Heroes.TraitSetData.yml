@@ -1,0 +1,699 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.TraitSetData
+  id: TraitSetData
+  parent: Bannerlord.GameMaster.Heroes
+  children:
+  - Bannerlord.GameMaster.Heroes.TraitSetData.#ctor
+  - Bannerlord.GameMaster.Heroes.TraitSetData.HeroMBGUID
+  - Bannerlord.GameMaster.Heroes.TraitSetData.HeroName
+  - Bannerlord.GameMaster.Heroes.TraitSetData.HeroStringId
+  - Bannerlord.GameMaster.Heroes.TraitSetData.SavedDate
+  - Bannerlord.GameMaster.Heroes.TraitSetData.Traits
+  langs:
+  - csharp
+  - vb
+  name: TraitSetData
+  nameWithType: TraitSetData
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TraitSetData
+    path: ../Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  summary: >-
+    Data class for hero trait set serialization to JSON.
+
+    Stores all traits (personality, persona, political, role/skill) with their levels.
+  example: []
+  syntax:
+    content: public class TraitSetData
+    content.vb: Public Class TraitSetData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.HeroName
+  commentId: P:Bannerlord.GameMaster.Heroes.TraitSetData.HeroName
+  id: HeroName
+  parent: Bannerlord.GameMaster.Heroes.TraitSetData
+  langs:
+  - csharp
+  - vb
+  name: HeroName
+  nameWithType: TraitSetData.HeroName
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.HeroName
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroName
+    path: ../Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+    startLine: 11
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: >-
+      [JsonProperty("HeroName")]
+
+      public string HeroName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("HeroName")>
+
+      Public Property HeroName As String
+  overload: Bannerlord.GameMaster.Heroes.TraitSetData.HeroName*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: HeroName
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.HeroStringId
+  commentId: P:Bannerlord.GameMaster.Heroes.TraitSetData.HeroStringId
+  id: HeroStringId
+  parent: Bannerlord.GameMaster.Heroes.TraitSetData
+  langs:
+  - csharp
+  - vb
+  name: HeroStringId
+  nameWithType: TraitSetData.HeroStringId
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.HeroStringId
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroStringId
+    path: ../Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: >-
+      [JsonProperty("HeroStringId")]
+
+      public string HeroStringId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("HeroStringId")>
+
+      Public Property HeroStringId As String
+  overload: Bannerlord.GameMaster.Heroes.TraitSetData.HeroStringId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: HeroStringId
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.HeroMBGUID
+  commentId: P:Bannerlord.GameMaster.Heroes.TraitSetData.HeroMBGUID
+  id: HeroMBGUID
+  parent: Bannerlord.GameMaster.Heroes.TraitSetData
+  langs:
+  - csharp
+  - vb
+  name: HeroMBGUID
+  nameWithType: TraitSetData.HeroMBGUID
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.HeroMBGUID
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: HeroMBGUID
+    path: ../Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+    startLine: 17
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: >-
+      [JsonProperty("HeroMBGUID")]
+
+      public string HeroMBGUID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("HeroMBGUID")>
+
+      Public Property HeroMBGUID As String
+  overload: Bannerlord.GameMaster.Heroes.TraitSetData.HeroMBGUID*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: HeroMBGUID
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.SavedDate
+  commentId: P:Bannerlord.GameMaster.Heroes.TraitSetData.SavedDate
+  id: SavedDate
+  parent: Bannerlord.GameMaster.Heroes.TraitSetData
+  langs:
+  - csharp
+  - vb
+  name: SavedDate
+  nameWithType: TraitSetData.SavedDate
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.SavedDate
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SavedDate
+    path: ../Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+    startLine: 20
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: >-
+      [JsonProperty("SavedDate")]
+
+      public string SavedDate { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("SavedDate")>
+
+      Public Property SavedDate As String
+  overload: Bannerlord.GameMaster.Heroes.TraitSetData.SavedDate*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SavedDate
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.Traits
+  commentId: P:Bannerlord.GameMaster.Heroes.TraitSetData.Traits
+  id: Traits
+  parent: Bannerlord.GameMaster.Heroes.TraitSetData
+  langs:
+  - csharp
+  - vb
+  name: Traits
+  nameWithType: TraitSetData.Traits
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.Traits
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Traits
+    path: ../Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: >-
+      [JsonProperty("Traits")]
+
+      public List<TraitData> Traits { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Bannerlord.GameMaster.Heroes.TraitData}
+    content.vb: >-
+      <JsonProperty("Traits")>
+
+      Public Property Traits As List(Of TraitData)
+  overload: Bannerlord.GameMaster.Heroes.TraitSetData.Traits*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Traits
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.#ctor
+  commentId: M:Bannerlord.GameMaster.Heroes.TraitSetData.#ctor
+  id: '#ctor'
+  parent: Bannerlord.GameMaster.Heroes.TraitSetData
+  langs:
+  - csharp
+  - vb
+  name: TraitSetData()
+  nameWithType: TraitSetData.TraitSetData()
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.TraitSetData()
+  type: Constructor
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: .ctor
+    path: ../Bannerlord.GameMaster/Heroes/TraitSerializationModels.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Heroes
+  syntax:
+    content: public TraitSetData()
+    content.vb: Public Sub New()
+  overload: Bannerlord.GameMaster.Heroes.TraitSetData.#ctor*
+  nameWithType.vb: TraitSetData.New()
+  fullName.vb: Bannerlord.GameMaster.Heroes.TraitSetData.New()
+  name.vb: New()
+references:
+- uid: Bannerlord.GameMaster.Heroes
+  commentId: N:Bannerlord.GameMaster.Heroes
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Heroes
+  nameWithType: Bannerlord.GameMaster.Heroes
+  fullName: Bannerlord.GameMaster.Heroes
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Heroes
+    name: Heroes
+    href: Bannerlord.GameMaster.Heroes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.HeroName*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.TraitSetData.HeroName
+  href: Bannerlord.GameMaster.Heroes.TraitSetData.html#Bannerlord_GameMaster_Heroes_TraitSetData_HeroName
+  name: HeroName
+  nameWithType: TraitSetData.HeroName
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.HeroName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.HeroStringId*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.TraitSetData.HeroStringId
+  href: Bannerlord.GameMaster.Heroes.TraitSetData.html#Bannerlord_GameMaster_Heroes_TraitSetData_HeroStringId
+  name: HeroStringId
+  nameWithType: TraitSetData.HeroStringId
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.HeroStringId
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.HeroMBGUID*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.TraitSetData.HeroMBGUID
+  href: Bannerlord.GameMaster.Heroes.TraitSetData.html#Bannerlord_GameMaster_Heroes_TraitSetData_HeroMBGUID
+  name: HeroMBGUID
+  nameWithType: TraitSetData.HeroMBGUID
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.HeroMBGUID
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.SavedDate*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.TraitSetData.SavedDate
+  href: Bannerlord.GameMaster.Heroes.TraitSetData.html#Bannerlord_GameMaster_Heroes_TraitSetData_SavedDate
+  name: SavedDate
+  nameWithType: TraitSetData.SavedDate
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.SavedDate
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.Traits*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.TraitSetData.Traits
+  href: Bannerlord.GameMaster.Heroes.TraitSetData.html#Bannerlord_GameMaster_Heroes_TraitSetData_Traits
+  name: Traits
+  nameWithType: TraitSetData.Traits
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.Traits
+- uid: System.Collections.Generic.List{Bannerlord.GameMaster.Heroes.TraitData}
+  commentId: T:System.Collections.Generic.List{Bannerlord.GameMaster.Heroes.TraitData}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TraitData>
+  nameWithType: List<TraitData>
+  fullName: System.Collections.Generic.List<Bannerlord.GameMaster.Heroes.TraitData>
+  nameWithType.vb: List(Of TraitData)
+  fullName.vb: System.Collections.Generic.List(Of Bannerlord.GameMaster.Heroes.TraitData)
+  name.vb: List(Of TraitData)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Bannerlord.GameMaster.Heroes.TraitData
+    name: TraitData
+    href: Bannerlord.GameMaster.Heroes.TraitData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Bannerlord.GameMaster.Heroes.TraitData
+    name: TraitData
+    href: Bannerlord.GameMaster.Heroes.TraitData.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData.#ctor*
+  commentId: Overload:Bannerlord.GameMaster.Heroes.TraitSetData.#ctor
+  href: Bannerlord.GameMaster.Heroes.TraitSetData.html#Bannerlord_GameMaster_Heroes_TraitSetData__ctor
+  name: TraitSetData
+  nameWithType: TraitSetData.TraitSetData
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData.TraitSetData
+  nameWithType.vb: TraitSetData.New
+  fullName.vb: Bannerlord.GameMaster.Heroes.TraitSetData.New
+  name.vb: New

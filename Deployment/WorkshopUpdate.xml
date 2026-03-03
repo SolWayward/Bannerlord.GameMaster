@@ -5,11 +5,12 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.14.10
-Fixed Heroes losing items on save load from other mods adding invalid and broken items, or removing mods that add items to the game
-
-Added gm.hero.give_birth
-Added gm.hero.abort_pregnancy"
+"v1.3.14.11
+Fixed crash when impregnating a female that has no clan such as notables
+Added Appearance save / load system
+Added Skills, Attributes, Perks, Focus Points, and traits save / load system
+Added character export / imprt
+"
         />
         <Tags>
             <Tag Value="Utility" />

@@ -4,9 +4,14 @@ items:
   commentId: N:Bannerlord.GameMaster.Heroes
   id: Bannerlord.GameMaster.Heroes
   children:
+  - Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  - Bannerlord.GameMaster.Heroes.AppearanceSetData
   - Bannerlord.GameMaster.Heroes.BLGMConversationManager
   - Bannerlord.GameMaster.Heroes.BodyConstraints
   - Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
+  - Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  - Bannerlord.GameMaster.Heroes.CharacterSetData
+  - Bannerlord.GameMaster.Heroes.CharacterSetFileManager
   - Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
   - Bannerlord.GameMaster.Heroes.HeroBodyEditor
   - Bannerlord.GameMaster.Heroes.HeroEditor
@@ -18,9 +23,13 @@ items:
   - Bannerlord.GameMaster.Heroes.HeroPositionHelpers
   - Bannerlord.GameMaster.Heroes.HeroQueries
   - Bannerlord.GameMaster.Heroes.HeroTypes
+  - Bannerlord.GameMaster.Heroes.IndividualSetType
   - Bannerlord.GameMaster.Heroes.PregnancyHelpers
   - Bannerlord.GameMaster.Heroes.PregnancyReflectionHelper
   - Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
+  - Bannerlord.GameMaster.Heroes.TraitData
+  - Bannerlord.GameMaster.Heroes.TraitFileManager
+  - Bannerlord.GameMaster.Heroes.TraitSetData
   langs:
   - csharp
   - vb
@@ -31,6 +40,20 @@ items:
   assemblies:
   - Bannerlord.GameMaster
 references:
+- uid: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.AppearanceFileManager
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.AppearanceFileManager.html
+  name: AppearanceFileManager
+  nameWithType: AppearanceFileManager
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceFileManager
+- uid: Bannerlord.GameMaster.Heroes.AppearanceSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.AppearanceSetData
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.AppearanceSetData.html
+  name: AppearanceSetData
+  nameWithType: AppearanceSetData
+  fullName: Bannerlord.GameMaster.Heroes.AppearanceSetData
 - uid: Bannerlord.GameMaster.Heroes.BLGMConversationManager
   commentId: T:Bannerlord.GameMaster.Heroes.BLGMConversationManager
   href: Bannerlord.GameMaster.Heroes.BLGMConversationManager.html
@@ -67,6 +90,27 @@ references:
   - uid: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint
     name: Constraint
     href: Bannerlord.GameMaster.Heroes.BodyConstraints.Constraint.html
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags.html
+  name: CharacterSetApplyFlags
+  nameWithType: CharacterSetApplyFlags
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetApplyFlags
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.CharacterSetFileManager.html
+  name: CharacterSetFileManager
+  nameWithType: CharacterSetFileManager
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetFileManager
+- uid: Bannerlord.GameMaster.Heroes.CharacterSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.CharacterSetData
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.CharacterSetData.html
+  name: CharacterSetData
+  nameWithType: CharacterSetData
+  fullName: Bannerlord.GameMaster.Heroes.CharacterSetData
 - uid: Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
   commentId: T:Bannerlord.GameMaster.Heroes.HeroAppearanceEditorUI
   parent: Bannerlord.GameMaster.Heroes
@@ -136,6 +180,13 @@ references:
   name: HeroQueries
   nameWithType: HeroQueries
   fullName: Bannerlord.GameMaster.Heroes.HeroQueries
+- uid: Bannerlord.GameMaster.Heroes.IndividualSetType
+  commentId: T:Bannerlord.GameMaster.Heroes.IndividualSetType
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.IndividualSetType.html
+  name: IndividualSetType
+  nameWithType: IndividualSetType
+  fullName: Bannerlord.GameMaster.Heroes.IndividualSetType
 - uid: Bannerlord.GameMaster.Heroes.PregnancyHelpers
   commentId: T:Bannerlord.GameMaster.Heroes.PregnancyHelpers
   href: Bannerlord.GameMaster.Heroes.PregnancyHelpers.html
@@ -154,6 +205,26 @@ references:
   name: StaticBodyPropertiesHelper
   nameWithType: StaticBodyPropertiesHelper
   fullName: Bannerlord.GameMaster.Heroes.StaticBodyPropertiesHelper
+- uid: Bannerlord.GameMaster.Heroes.TraitFileManager
+  commentId: T:Bannerlord.GameMaster.Heroes.TraitFileManager
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.TraitFileManager.html
+  name: TraitFileManager
+  nameWithType: TraitFileManager
+  fullName: Bannerlord.GameMaster.Heroes.TraitFileManager
+- uid: Bannerlord.GameMaster.Heroes.TraitSetData
+  commentId: T:Bannerlord.GameMaster.Heroes.TraitSetData
+  parent: Bannerlord.GameMaster.Heroes
+  href: Bannerlord.GameMaster.Heroes.TraitSetData.html
+  name: TraitSetData
+  nameWithType: TraitSetData
+  fullName: Bannerlord.GameMaster.Heroes.TraitSetData
+- uid: Bannerlord.GameMaster.Heroes.TraitData
+  commentId: T:Bannerlord.GameMaster.Heroes.TraitData
+  href: Bannerlord.GameMaster.Heroes.TraitData.html
+  name: TraitData
+  nameWithType: TraitData
+  fullName: Bannerlord.GameMaster.Heroes.TraitData
 - uid: Bannerlord.GameMaster.Heroes
   commentId: N:Bannerlord.GameMaster.Heroes
   href: Bannerlord.html
