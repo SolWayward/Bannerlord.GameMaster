@@ -1,7 +1,5 @@
-using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Console.ItemCommands;
-using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes.HeroDevelopment;
 using Bannerlord.GameMaster.Information;
 using Bannerlord.GameMaster.Items;
@@ -16,7 +14,6 @@ using TaleWorlds.CampaignSystem.CharacterDevelopment;
 using TaleWorlds.CampaignSystem.Extensions;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
-using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
 
 namespace Bannerlord.GameMaster.Heroes
@@ -303,65 +300,24 @@ namespace Bannerlord.GameMaster.Heroes
             // Resolve hero type
             string heroType = !string.IsNullOrEmpty(typeOverride) ? typeOverride.ToLower() : (data.HeroType?.ToLower() ?? "lord");
 
-            // Resolve culture flags from saved culture
-            CultureFlags cultureFlags = CultureFlags.AllMainCultures;
-            if (!string.IsNullOrEmpty(data.Culture))
-            {
-                CultureFlags parsedFlags = Console.Common.Parsing.FlagParser.ParseCultureArgument(data.Culture);
-                if (parsedFlags != CultureFlags.None)
-                {
-                    cultureFlags = parsedFlags;
-                }
-            }
-
-            // Resolve gender flags from saved gender
-            GenderFlags genderFlags = data.IsFemale ? GenderFlags.Female : GenderFlags.Male;
-
-            // Select template
-            CharacterTemplatePooler templatePooler = new();
-            List<CharacterObject> characterPool = templatePooler.GetAllHeroTemplatesFromFlags(cultureFlags, genderFlags);
-            if (characterPool == null || characterPool.Count == 0)
-            {
-                // Fallback to all main cultures if specific culture has no templates
-                characterPool = templatePooler.GetAllHeroTemplatesFromFlags(CultureFlags.AllMainCultures, genderFlags);
-            }
-
-            if (characterPool == null || characterPool.Count == 0)
-            {
-                return BLGMResult.Error($"ImportCharacterSet() failed, no character templates found for culture '{data.Culture}' and gender '{(data.IsFemale ? "female" : "male")}'").Log();
-            }
-
-            int randomIndex = RandomNumberGen.Instance.NextRandomInt(characterPool.Count);
-            CharacterObject template = CharacterObject.CreateFrom(characterPool[randomIndex]);
-
-            // Create basic hero with saved identity
-            TextObject nameObj = new(data.HeroName ?? "Imported Hero");
+            // Delegate hero creation to HeroGenerator.CreateHeroFromMetadata()
             int age = data.Age >= 18 ? data.Age : -1;
-
-            Hero hero = HeroGenerator.CreateBasicHero(template, nameObj, age, clan, randomFactor: 0);
-
-            // Initialize role with saved level
             int level = data.Level > 0 ? data.Level : -1;
-            Settlement targetSettlement = settlement ?? hero.GetHomeOrAlternativeSettlement();
 
-            switch (heroType)
+            Hero hero = HeroGenerator.CreateHeroFromMetadata(
+                name: data.HeroName ?? "Imported Hero",
+                clan: clan,
+                heroType: heroType,
+                cultureStringId: data.Culture,
+                isFemale: data.IsFemale,
+                age: age,
+                level: level,
+                settlement: settlement,
+                withParty: withParty);
+
+            if (hero == null)
             {
-                case "lord":
-                    HeroGenerator.InitializeAsLord(hero, targetSettlement, withParty, level);
-                    break;
-
-                case "wanderer":
-                    hero.Clan = null;
-                    HeroGenerator.InitializeAsWanderer(hero, targetSettlement, level);
-                    break;
-
-                case "companion":
-                    HeroGenerator.InitializeAsCompanion(hero, level);
-                    break;
-
-                default:
-                    HeroGenerator.InitializeAsLord(hero, targetSettlement, withParty, level);
-                    break;
+                return BLGMResult.Error("ImportCharacterSet() failed, could not create hero from template").Log();
             }
 
             // Override with saved character data
@@ -411,6 +367,175 @@ namespace Bannerlord.GameMaster.Heroes
                 $"Imported '{data.HeroName}' from '{filename}' as {typeDisplay}{clanInfo}{partyInfo}.\n" +
                 $"Hero: {hero.Name} (ID: {hero.StringId}), Level: {hero.Level}, Age: {(int)hero.Age}" +
                 warnings);
+        }
+
+        /// MARK: ImportFromIndividualSet
+        /// <summary>
+        /// Creates a new hero and applies data from a single individual set file (Appearance, Development, Traits, or Equipment).
+        /// Unlike ImportCharacterSet() which requires a full CharacterSetData, this works with partial set files.
+        /// Missing metadata (gender, culture, age, level) is resolved from defaults or the clan.
+        /// The hero is fully initialized with generated skills/traits/equipment, then the individual set overrides its section.
+        /// </summary>
+        /// <param name="filepath">Full path to the individual set JSON file.</param>
+        /// <param name="setType">Which type of individual set file this is.</param>
+        /// <param name="clan">Target clan for the new hero (required).</param>
+        /// <param name="heroType">Override hero type: "lord", "wanderer", "companion". Defaults to "lord".</param>
+        /// <param name="settlement">Settlement for placement. If null, auto-resolved from clan.</param>
+        /// <param name="withParty">For Lords only: create a party. Defaults to true.</param>
+        /// <returns>BLGMResult with the created hero summary.</returns>
+        public BLGMResult ImportFromIndividualSet(
+            string filepath,
+            IndividualSetType setType,
+            Clan clan,
+            string heroType = "lord",
+            Settlement settlement = null,
+            bool withParty = true)
+        {
+            if (clan == null)
+            {
+                return BLGMResult.Error("ImportFromIndividualSet() failed, clan cannot be null",
+                    new ArgumentNullException(nameof(clan))).Log();
+            }
+
+            if (!File.Exists(filepath))
+            {
+                return BLGMResult.Error($"ImportFromIndividualSet() failed, file not found: {filepath}").Log();
+            }
+
+            string filename = Path.GetFileNameWithoutExtension(filepath);
+
+            // Extract available metadata from individual set file
+            string name = null;
+            bool? isFemale = null;
+            string cultureStringId = null;
+            int level = -1;
+
+            switch (setType)
+            {
+                case IndividualSetType.Appearance:
+                {
+                    AppearanceFileManager appearanceManager = new(ModFolder);
+                    AppearanceSetData data = appearanceManager.LoadAppearanceData(filepath);
+                    name = data.HeroName;
+                    isFemale = data.IsFemale;
+                    cultureStringId = data.Culture;
+                    break;
+                }
+
+                case IndividualSetType.Development:
+                {
+                    DevelopmentFileManager devManager = new(ModFolder);
+                    DevelopmentSetData data = devManager.LoadDevelopmentData(filepath);
+                    name = data.HeroName;
+                    level = data.Level;
+                    break;
+                }
+
+                case IndividualSetType.Traits:
+                {
+                    TraitFileManager traitManager = new(ModFolder);
+                    TraitSetData data = traitManager.LoadTraitData(filepath);
+                    name = data.HeroName;
+                    break;
+                }
+
+                case IndividualSetType.BattleEquipment:
+                case IndividualSetType.CivilianEquipment:
+                {
+                    EquipmentFileManager equipManager = new(ModFolder);
+                    EquipmentSetData data = equipManager.LoadEquipmentData(filepath);
+                    name = data.HeroName;
+                    break;
+                }
+
+                default:
+                    return BLGMResult.Error($"ImportFromIndividualSet() failed, unknown set type: {setType}").Log();
+            }
+
+            // Create hero using extracted metadata (defaults filled by CreateHeroFromMetadata)
+            Hero hero = HeroGenerator.CreateHeroFromMetadata(
+                name: name ?? "Imported Hero",
+                clan: clan,
+                heroType: heroType,
+                cultureStringId: cultureStringId,
+                isFemale: isFemale,
+                age: -1,
+                level: level,
+                settlement: settlement,
+                withParty: withParty);
+
+            if (hero == null)
+            {
+                return BLGMResult.Error($"ImportFromIndividualSet() failed, could not create hero from template for '{filename}'").Log();
+            }
+
+            // Apply the individual set section to override the generated defaults
+            BLGMResult applyResult;
+            string sectionName;
+
+            switch (setType)
+            {
+                case IndividualSetType.Appearance:
+                {
+                    AppearanceFileManager appearanceManager = new(ModFolder);
+                    AppearanceSetData data = appearanceManager.LoadAppearanceData(filepath);
+                    applyResult = ApplyAppearance(hero, data);
+                    sectionName = "Appearance";
+                    break;
+                }
+
+                case IndividualSetType.Development:
+                {
+                    DevelopmentFileManager devManager = new(ModFolder);
+                    DevelopmentSetData data = devManager.LoadDevelopmentData(filepath);
+                    applyResult = ApplyDevelopment(hero, data);
+                    sectionName = "Development";
+                    break;
+                }
+
+                case IndividualSetType.Traits:
+                {
+                    TraitFileManager traitManager = new(ModFolder);
+                    TraitSetData data = traitManager.LoadTraitData(filepath);
+                    applyResult = ApplyTraits(hero, data);
+                    sectionName = "Traits";
+                    break;
+                }
+
+                case IndividualSetType.BattleEquipment:
+                {
+                    EquipmentFileManager equipManager = new(ModFolder);
+                    EquipmentSetData data = equipManager.LoadEquipmentData(filepath);
+                    applyResult = ApplyEquipment(hero, data, false);
+                    sectionName = "Battle Equipment";
+                    break;
+                }
+
+                case IndividualSetType.CivilianEquipment:
+                {
+                    EquipmentFileManager equipManager = new(ModFolder);
+                    EquipmentSetData data = equipManager.LoadEquipmentData(filepath);
+                    applyResult = ApplyEquipment(hero, data, true);
+                    sectionName = "Civilian Equipment";
+                    break;
+                }
+
+                default:
+                    applyResult = BLGMResult.Error("Unknown set type");
+                    sectionName = "Unknown";
+                    break;
+            }
+
+            string resolvedType = (heroType ?? "lord").ToLower();
+            string typeDisplay = resolvedType.Substring(0, 1).ToUpper() + resolvedType.Substring(1);
+            string clanInfo = hero.Clan != null ? $" in clan {hero.Clan.Name}" : "";
+            string partyInfo = resolvedType == "lord" && withParty ? " with party" : "";
+            string applyStatus = applyResult.IsSuccess ? "Applied" : $"Failed: {applyResult.Message}";
+
+            return BLGMResult.Success(
+                $"Imported {sectionName} from '{filename}' as {typeDisplay}{clanInfo}{partyInfo}.\n" +
+                $"Hero: {hero.Name} (ID: {hero.StringId}), Level: {hero.Level}, Age: {(int)hero.Age}\n" +
+                $"{sectionName}: {applyStatus}");
         }
 
         #endregion

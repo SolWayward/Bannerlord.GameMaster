@@ -466,6 +466,111 @@ namespace Bannerlord.GameMaster.Heroes
 			hero.SetTraitLevel(DefaultTraits.Commander, isCombatFocused ? 1 : 0);
 		}
 
+		/// MARK: CreateHeroFromMetadata
+		/// <summary>
+		/// Creates a fully initialized hero from explicit metadata parameters.
+		/// This is the reusable building block for both full character set imports and individual set imports.
+		/// Handles: template selection, CreateBasicHero, and InitializeAs* based on heroType.
+		/// </summary>
+		/// <param name="name">Hero name. Required.</param>
+		/// <param name="clan">Target clan. Required for lords and companions.</param>
+		/// <param name="heroType">Role type: "lord", "wanderer", "companion". Defaults to "lord".</param>
+		/// <param name="cultureStringId">Culture StringId for template selection. If null, uses clan's culture.</param>
+		/// <param name="isFemale">Gender for template selection. If null, random (Either).</param>
+		/// <param name="age">Hero age. If less than 18, random 18-30.</param>
+		/// <param name="level">Target level. If less than 1, type-appropriate random.</param>
+		/// <param name="settlement">Placement settlement. If null, auto-resolved from clan.</param>
+		/// <param name="withParty">For lords: create party. Defaults to true.</param>
+		/// <returns>The created and initialized hero, or null on failure (logged via BLGMResult).</returns>
+		public static Hero CreateHeroFromMetadata(
+			string name,
+			Clan clan,
+			string heroType = "lord",
+			string cultureStringId = null,
+			bool? isFemale = null,
+			int age = -1,
+			int level = -1,
+			Settlement settlement = null,
+			bool withParty = true)
+		{
+			// Resolve culture flags from cultureStringId, falling back to clan's culture, then AllMainCultures
+			CultureFlags cultureFlags = CultureFlags.AllMainCultures;
+			if (!string.IsNullOrEmpty(cultureStringId))
+			{
+				CultureFlags parsedFlags = Console.Common.Parsing.FlagParser.ParseCultureArgument(cultureStringId);
+				if (parsedFlags != CultureFlags.None)
+				{
+					cultureFlags = parsedFlags;
+				}
+			}
+
+			else if (clan?.Culture != null)
+			{
+				CultureFlags clanCultureFlags = Console.Common.Parsing.FlagParser.ParseCultureArgument(clan.Culture.StringId);
+				if (clanCultureFlags != CultureFlags.None)
+				{
+					cultureFlags = clanCultureFlags;
+				}
+			}
+
+			// Resolve gender flags from isFemale (null = Either/random)
+			GenderFlags genderFlags = GenderFlags.Either;
+			if (isFemale.HasValue)
+			{
+				genderFlags = isFemale.Value ? GenderFlags.Female : GenderFlags.Male;
+			}
+
+			// Select template from pool
+			CharacterTemplatePooler templatePooler = new();
+			List<CharacterObject> characterPool = templatePooler.GetAllHeroTemplatesFromFlags(cultureFlags, genderFlags);
+			if (characterPool == null || characterPool.Count == 0)
+			{
+				// Fallback to all main cultures if specific culture has no templates
+				characterPool = templatePooler.GetAllHeroTemplatesFromFlags(CultureFlags.AllMainCultures, genderFlags);
+			}
+
+			if (characterPool == null || characterPool.Count == 0)
+			{
+				BLGMResult.Error(
+					$"CreateHeroFromMetadata() failed, no character templates found for culture '{cultureStringId}' and gender '{genderFlags}'",
+					new InvalidOperationException("No character templates available")).Log();
+				return null;
+			}
+
+			int randomIndex = RandomNumberGen.Instance.NextRandomInt(characterPool.Count);
+			CharacterObject template = CharacterObject.CreateFrom(characterPool[randomIndex]);
+
+			// Create basic hero
+			TextObject nameObj = new(name ?? "Imported Hero");
+			Hero hero = CreateBasicHero(template, nameObj, age, clan, randomFactor: 0);
+
+			// Resolve heroType and initialize
+			string resolvedType = (heroType ?? "lord").ToLower();
+			Settlement targetSettlement = settlement ?? hero.GetHomeOrAlternativeSettlement();
+
+			switch (resolvedType)
+			{
+				case "lord":
+					InitializeAsLord(hero, targetSettlement, withParty, level);
+					break;
+
+				case "wanderer":
+					hero.Clan = null;
+					InitializeAsWanderer(hero, targetSettlement, level);
+					break;
+
+				case "companion":
+					InitializeAsCompanion(hero, level);
+					break;
+
+				default:
+					InitializeAsLord(hero, targetSettlement, withParty, level);
+					break;
+			}
+
+			return hero;
+		}
+
 		#endregion
 		#region Backward-Compatible Overloads (v1.3.14.4)
 
