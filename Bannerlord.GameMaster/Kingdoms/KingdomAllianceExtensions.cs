@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Bannerlord.GameMaster.Information;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
@@ -32,6 +33,17 @@ namespace Bannerlord.GameMaster.Kingdoms
 				ProposeCallAllyToWarForceAccept(proposingKindom, receivingkingdom);
             }
 		}
+
+		/// <summary>
+		/// Ends the alliance between two kingdoms using the native alliance behavior. <br/>
+		/// Cleans up CallToWar agreements, removes the alliance, and fires campaign events.
+		/// </summary>
+		public static void EndAlliance(this Kingdom kingdom1, Kingdom kingdom2)
+		{
+			IAllianceCampaignBehavior allianceBehavior = Campaign.Current.GetCampaignBehavior<IAllianceCampaignBehavior>();
+			allianceBehavior.EndAlliance(kingdom1, kingdom2);
+		}
+
 
 		/// <summary>
 		/// Proposes to ally to join war against target kingdom and forces ally to accept
@@ -88,6 +100,8 @@ namespace Bannerlord.GameMaster.Kingdoms
 			AcceptCallToWarAgreementDecision.AcceptCallToWarAgreementDecisionOutcome outcome = 
 				new(true, proposer, ally, enemy);
 			decision.ApplyChosenOutcome(outcome);
+
+			InfoMessage.Warning("Warning: Allies AI may choose to declare war on all enemies");
 		}
 
 		/// <summary>
