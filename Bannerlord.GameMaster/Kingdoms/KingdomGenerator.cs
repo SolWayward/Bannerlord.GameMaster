@@ -111,10 +111,9 @@ namespace Bannerlord.GameMaster.Kingdoms
             rulingClan.CalculateMidSettlement();
 
             // Initialize kingdom Wallets
-            kingdom.KingdomBudgetWallet += 100000;
-            kingdom.CallToWarWallet += 100000;
+            kingdom.KingdomBudgetWallet += 1000000;
+            kingdom.CallToWarWallet += 1000000;
             kingdom.TributeWallet += 100000;
-
 
             if (rulingClan.Leader.PartyBelongedTo != null)
             {

@@ -157,6 +157,50 @@ namespace Bannerlord.GameMaster.Kingdoms
 		/// </summary>
 		public static KingdomTypes GetTypes(this Kingdom kingdom) => kingdom.GetKingdomTypes();
 
+		#region Kingdom Wallet
+
+		// Cached Reflection - MercenaryWallet has internal set, inaccessible from outside TaleWorlds.CampaignSystem
+		private static readonly PropertyInfo mercenaryWalletProp = typeof(Kingdom).GetProperty(
+			"MercenaryWallet",
+			BindingFlags.Public | BindingFlags.Instance);
+
+		/// MARK: SetMercenaryWallet
+		/// <summary>
+		/// Sets the MercenaryWallet value on this kingdom via reflection.
+		/// MercenaryWallet has an internal setter, so reflection is required from outside the assembly.
+		/// The wallet acts as a ledger: mercenaries draw from it (pushing it negative),
+		/// then each non-mercenary clan pays its proportional share to zero it out.
+		/// </summary>
+		/// <param name="kingdom">The kingdom to set the mercenary wallet for.</param>
+		/// <param name="value">The new mercenary wallet balance.</param>
+		/// <returns>BLGMResult indicating success or failure.</returns>
+		public static BLGMResult SetMercenaryWallet(this Kingdom kingdom, int value)
+		{
+			if (kingdom == null)
+			{
+				return BLGMResult.Error("SetMercenaryWallet() failed, kingdom cannot be null",
+					new ArgumentNullException(nameof(kingdom))).Log();
+			}
+
+			if (mercenaryWalletProp == null)
+			{
+				return BLGMResult.Error("SetMercenaryWallet() failed, MercenaryWallet property not found via reflection",
+					new InvalidOperationException("Kingdom.MercenaryWallet property not found")).Log();
+			}
+
+			try
+			{
+				mercenaryWalletProp.SetValue(kingdom, value);
+				return BLGMResult.Success($"Set MercenaryWallet to {value} for kingdom '{kingdom.Name}'");
+			}
+			catch (Exception ex)
+			{
+				return BLGMResult.Error($"SetMercenaryWallet() failed for kingdom '{kingdom.Name}'", ex).Log();
+			}
+		}
+
+		#endregion
+
 		#region Kingdom Banner Propagation
 
 		// Cached Reflection - Kingdom (all four color properties have private setters)
