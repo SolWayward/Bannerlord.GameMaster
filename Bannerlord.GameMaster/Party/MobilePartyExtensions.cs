@@ -155,7 +155,7 @@ namespace Bannerlord.GameMaster.Party
         {
         	DisbandPartyAction.CancelDisband(mobileParty);
 			mobileParty.IsDisbanding = false;
-        }
+		}
 
 		/// <summary>
 		/// Destroy party. destroyerParty is optional and defaults to null for when destroying for administrative reasons

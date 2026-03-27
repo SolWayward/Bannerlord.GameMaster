@@ -70,6 +70,55 @@ namespace Bannerlord.GameMaster.Armies
             return BLGMResult.Success($"Added {party.Name} to {army.Name}");
         }
 
+        /// MARK: TryRemovePartyFromArmy
+        /// <summary>
+        /// Validates and removes a party from an army using the native
+        /// <see cref="MobileParty.Army"/> setter (set to null) which triggers <c>OnRemovePartyInternal</c>,
+        /// removing the party from the army's party list, firing <c>OnPartyRemovedFromArmy</c>,
+        /// and setting <c>AttachedTo = null</c>.<br/><br/>
+        /// Cannot remove the leader party -- use <see cref="ArmyManager.SetCommander"/> first to swap
+        /// the leader, or disband the army entirely. Removing the leader via this path would trigger
+        /// <c>DisbandArmyAction.ApplyByLeaderPartyRemoved</c> which disbands the entire army.
+        /// </summary>
+        /// <param name="army">The army to remove the party from</param>
+        /// <param name="party">The party to remove</param>
+        /// <returns>BLGMResult indicating success or failure with reason</returns>
+        public static BLGMResult TryRemovePartyFromArmy(Army army, MobileParty party)
+        {
+            if (army == null)
+            {
+                return BLGMResult.Error("TryRemovePartyFromArmy() failed, army cannot be null",
+                    new ArgumentNullException(nameof(army))).Log();
+            }
+
+            if (party == null)
+            {
+                return BLGMResult.Error("TryRemovePartyFromArmy() failed, party cannot be null",
+                    new ArgumentNullException(nameof(party))).Log();
+            }
+
+            if (party.Army != army)
+            {
+                return BLGMResult.Error($"TryRemovePartyFromArmy() failed, {party.Name} is not in this army").Log();
+            }
+
+            if (party == army.LeaderParty)
+            {
+                return BLGMResult.Error("TryRemovePartyFromArmy() failed, cannot remove the leader party. " +
+                    "Use SetCommander() to swap the leader first, or disband the army").Log();
+            }
+
+            string partyName = party.Name?.ToString() ?? "Unknown";
+            string armyName = army.Name?.ToString() ?? "Unknown";
+
+            // Native .Army setter (null): calls OnRemovePartyInternal which removes from _parties,
+            // fires OnPartyRemovedFromArmy, sets AttachedTo = null, and checks if army should disband.
+            // After setter: fires OnPartyLeftArmy campaign event and updates army overlay if player army.
+            party.Army = null;
+
+            return BLGMResult.Success($"Removed {partyName} from {armyName}");
+        }
+
         /// MARK: TeleportToCommander
         /// <summary>
         /// Teleports all army member parties to the commander's position and physically

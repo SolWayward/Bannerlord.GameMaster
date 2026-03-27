@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Bannerlord.GameMaster.Common;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
@@ -16,6 +17,108 @@ namespace Bannerlord.GameMaster.Armies
     /// </summary>
     public static class ArmyManager
     {
+        // Cached reflection for Army.LeaderParty (public get, private set auto-property)
+        private static readonly PropertyInfo LeaderPartyProperty = typeof(Army).GetProperty(
+            "LeaderParty",
+            BindingFlags.Public | BindingFlags.Instance);
+
+        /// MARK: SetCommander
+        /// <summary>
+        /// Changes the commander (leader party) of an existing army without disbanding it.<br/><br/>
+        /// The new leader must already be a member of the army. This method uses reflection to set
+        /// <see cref="Army.LeaderParty"/> (private setter) and then re-attaches all member parties
+        /// to the new leader. The old leader becomes a regular attached member.<br/><br/>
+        /// <b>Why reflection:</b> <c>Army.LeaderParty</c> has a private setter and is only assigned
+        /// in the <see cref="Army"/> constructor. No public API exists to change the leader without
+        /// disbanding and recreating the army, which fires <c>OnArmyDispersed</c> events and has
+        /// undesirable side effects.<br/><br/>
+        /// <b>Execution sequence</b> (order prevents disband cascade):<br/>
+        /// 1. Detach all parties from old leader (sets <c>AttachedTo = null</c>)<br/>
+        /// 2. Swap <c>LeaderParty</c> via reflection<br/>
+        /// 3. Set <c>ArmyOwner</c> to new leader's hero<br/>
+        /// 4. Call <c>UpdateName()</c> to regenerate army name<br/>
+        /// 5. Re-attach all member parties to the new leader via <see cref="Army.AddPartyToMergedParties"/>
+        /// </summary>
+        /// <param name="army">The army to change the commander of</param>
+        /// <param name="newLeaderParty">The party that will become the new leader (must already be in the army)</param>
+        /// <returns>BLGMResult indicating success or failure with reason</returns>
+        public static BLGMResult SetCommander(Army army, MobileParty newLeaderParty)
+        {
+            // MARK: Validation
+            if (army == null)
+            {
+                return BLGMResult.Error("SetCommander() failed, army cannot be null",
+                    new ArgumentNullException(nameof(army))).Log();
+            }
+
+            if (newLeaderParty == null)
+            {
+                return BLGMResult.Error("SetCommander() failed, newLeaderParty cannot be null",
+                    new ArgumentNullException(nameof(newLeaderParty))).Log();
+            }
+
+            if (newLeaderParty.LeaderHero == null)
+            {
+                return BLGMResult.Error("SetCommander() failed, newLeaderParty must have a LeaderHero",
+                    new InvalidOperationException("newLeaderParty has no LeaderHero")).Log();
+            }
+
+            if (newLeaderParty.Army != army)
+            {
+                return BLGMResult.Error($"SetCommander() failed, {newLeaderParty.Name} is not in this army").Log();
+            }
+
+            if (newLeaderParty == army.LeaderParty)
+            {
+                return BLGMResult.Error($"SetCommander() failed, {newLeaderParty.Name} is already the leader").Log();
+            }
+
+            if (LeaderPartyProperty == null)
+            {
+                return BLGMResult.Error("SetCommander() failed, could not find LeaderParty property via reflection",
+                    new InvalidOperationException("Army.LeaderParty PropertyInfo is null")).Log();
+            }
+
+            // MARK: Capture State
+            MobileParty oldLeaderParty = army.LeaderParty;
+            string oldLeaderName = oldLeaderParty.LeaderHero?.Name?.ToString() ?? "Unknown";
+            string newLeaderName = newLeaderParty.LeaderHero.Name?.ToString() ?? "Unknown";
+
+            // MARK: Detach All Parties
+            // Detach all parties from the old leader to prevent stale attachment references.
+            // Native SetAttachedToInternal handles cleanup (removes from attached list, map event side, etc.)
+            MBReadOnlyList<MobileParty> parties = army.Parties;
+            for (int i = 0; i < parties.Count; i++)
+            {
+                MobileParty party = parties[i];
+                if (party != oldLeaderParty && party.AttachedTo != null)
+                {
+                    party.AttachedTo = null;
+                }
+            }
+
+            // MARK: Swap Leader (Reflection)
+            // Set LeaderParty via reflection - we never set any party's .Army = null,
+            // so OnRemovePartyInternal is never triggered and _parties list stays intact.
+            LeaderPartyProperty.SetValue(army, newLeaderParty);
+            army.ArmyOwner = newLeaderParty.LeaderHero;
+            army.UpdateName();
+
+            // MARK: Re-attach Members
+            // Attach all member parties (including old leader) to the new leader
+            for (int i = 0; i < parties.Count; i++)
+            {
+                MobileParty party = parties[i];
+                if (party != newLeaderParty)
+                {
+                    army.AddPartyToMergedParties(party);
+                }
+            }
+
+            return BLGMResult.Success(
+                $"Changed army commander from {oldLeaderName} to {newLeaderName}");
+        }
+
         /// MARK: CreateArmy
         /// <summary>
         /// Creates a new army led by the specified party's leader.<br/>
