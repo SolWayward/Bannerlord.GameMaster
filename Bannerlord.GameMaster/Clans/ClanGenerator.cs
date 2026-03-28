@@ -324,7 +324,7 @@ namespace Bannerlord.GameMaster.Clans
 					continue;
 
 				int newRelation = RandomNumberGen.Instance.NextRandomInt(-80, 80);
-				ChangeRelationAction.ApplyRelationChangeBetweenHeroes(clan.Leader, otherClan.Leader, newRelation);
+				ChangeRelationAction.ApplyRelationChangeBetweenHeroes(clan.Leader, otherClan.Leader, newRelation, showQuickNotification: false);
 			}
 		}
 	}

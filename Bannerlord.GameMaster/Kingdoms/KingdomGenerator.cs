@@ -357,9 +357,9 @@ namespace Bannerlord.GameMaster.Kingdoms
             {
                 if (otherKingdom == kingdom || otherKingdom.IsEliminated)
                     continue;
-
+                
                 int newRelation = RandomNumberGen.Instance.NextRandomInt(-40, 20);
-                ChangeRelationAction.ApplyRelationChangeBetweenHeroes(kingdom.Leader, otherKingdom.Leader, newRelation);
+                ChangeRelationAction.ApplyRelationChangeBetweenHeroes(kingdom.Leader, otherKingdom.Leader, newRelation, showQuickNotification: false);
             }
         }
     }
