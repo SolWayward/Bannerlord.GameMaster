@@ -328,6 +328,55 @@ namespace Bannerlord.GameMaster.Kingdoms
 		}
 
 		#endregion
+
+		#region Kingdom Culture
+
+		// Cached Reflection - Kingdom.Culture has a private setter ([SaveableProperty(6)])
+		private static readonly PropertyInfo cultureProp = kingdomType.GetProperty(
+			"Culture",
+			BindingFlags.Public | BindingFlags.Instance);
+
+		/// MARK: SetCulture
+		/// <summary>
+		/// Sets the Culture on this kingdom via reflection.
+		/// Kingdom.Culture has a private setter and is only assigned once during InitializeKingdom(),
+		/// so reflection is required to change it after creation.
+		/// </summary>
+		/// <param name="kingdom">The kingdom to set the culture for.</param>
+		/// <param name="culture">The new CultureObject to assign.</param>
+		/// <returns>BLGMResult indicating success or failure.</returns>
+		public static BLGMResult SetCulture(this Kingdom kingdom, CultureObject culture)
+		{
+			if (kingdom == null)
+			{
+				return BLGMResult.Error("SetCulture() failed, kingdom cannot be null",
+					new ArgumentNullException(nameof(kingdom))).Log();
+			}
+
+			if (culture == null)
+			{
+				return BLGMResult.Error("SetCulture() failed, culture cannot be null",
+					new ArgumentNullException(nameof(culture))).Log();
+			}
+
+			if (cultureProp == null)
+			{
+				return BLGMResult.Error("SetCulture() failed, Culture property not found via reflection",
+					new InvalidOperationException("Kingdom.Culture property not found")).Log();
+			}
+
+			try
+			{
+				cultureProp.SetValue(kingdom, culture);
+				return BLGMResult.Success($"Set culture to '{culture.Name}' for kingdom '{kingdom.Name}'");
+			}
+			catch (Exception ex)
+			{
+				return BLGMResult.Error($"SetCulture() failed for kingdom '{kingdom.Name}'", ex).Log();
+			}
+		}
+
+		#endregion
 	}
 
 	/// MARK: Wrapper
