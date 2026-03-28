@@ -5,6 +5,7 @@ using System.Linq;
 using Bannerlord.GameMaster.Banners;
 using Bannerlord.GameMaster.Characters;
 using Bannerlord.GameMaster.Clans;
+using Bannerlord.GameMaster.Common;
 using Bannerlord.GameMaster.Cultures;
 using Bannerlord.GameMaster.Heroes;
 using Bannerlord.GameMaster.Information;
@@ -21,13 +22,15 @@ namespace Bannerlord.GameMaster.Kingdoms
 {
     public class KingdomGenerator
     {
-        /// MARK: Create Kingdom
+        /// MARK: Create Kingdom (Auto-Generate Ruling Clan)
         /// <summary>
-        /// Creates a new kingdom with the specified ruling clan and home settlement.
+        /// Creates a new kingdom with an auto-generated ruling clan and home settlement.
         /// </summary>
         /// <param name="homeSettlement">Capital settlement (auto-resolves if null/invalid)</param>
+        /// <param name="vassalClanCount">Number of vassal clans to generate</param>
         /// <param name="name">Kingdom name (generates random if null)</param>
         /// <param name="rulingClanName">Name of the Clan ruling to rule the kingdom (generates random if null)</param>
+        /// <param name="cultureFlags">Culture pool for the kingdom</param>
         /// <returns>The created kingdom, or null if settlement cannot be resolved</returns>
         public static Kingdom CreateKingdom(Settlement homeSettlement, int vassalClanCount = 4, string name = null, string rulingClanName = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
         {
@@ -38,9 +41,50 @@ namespace Bannerlord.GameMaster.Kingdoms
             if (!homeSettlement.IsTown && !homeSettlement.IsCastle)
                 return null;
 
-            // Create ruling clan, then re-apply banner colors using kingdom-specific uniqueness
-            // ClanGenerator uses clan-unique colors, but kingdoms need colors distinct from other kingdoms
             Clan rulingClan = ClanGenerator.CreateNobleClan(rulingClanName, cultureFlags: cultureFlags);
+
+            return InitializeKingdomWithClan(homeSettlement, rulingClan, vassalClanCount, name, cultureFlags);
+        }
+
+        /// MARK: Create Kingdom (Existing Ruling Clan)
+        /// <summary>
+        /// Creates a new kingdom with an existing clan as the ruling clan.
+        /// Calls <see cref="PrepareClanToRule"/> on the provided clan (leaves current kingdom, sets tier, adds lords, etc).
+        /// </summary>
+        /// <param name="homeSettlement">Capital settlement (must be a town or castle)</param>
+        /// <param name="rulingClan">Existing clan to become the ruling clan</param>
+        /// <param name="vassalClanCount">Number of vassal clans to generate</param>
+        /// <param name="name">Kingdom name (generates random if null)</param>
+        /// <param name="cultureFlags">Culture pool for vassal generation</param>
+        /// <returns>The created kingdom, or null if parameters are invalid</returns>
+        public static Kingdom CreateKingdom(Settlement homeSettlement, Clan rulingClan, int vassalClanCount = 4, string name = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+        {
+            // Early validation of settlement
+            if (homeSettlement == null || homeSettlement.Town == null)
+                return null;
+
+            if (!homeSettlement.IsTown && !homeSettlement.IsCastle)
+                return null;
+
+            if (rulingClan == null)
+            {
+                BLGMResult.Error("CreateKingdom() failed, rulingClan cannot be null", new ArgumentNullException(nameof(rulingClan))).Log();
+                return null;
+            }
+
+            return InitializeKingdomWithClan(homeSettlement, rulingClan, vassalClanCount, name, cultureFlags);
+        }
+
+        /// MARK: Initialize Kingdom With Clan
+        /// <summary>
+        /// Shared initialization logic for creating a kingdom with a given ruling clan.
+        /// Applies kingdom-unique banner colors, prepares the clan to rule, creates the kingdom object,
+        /// transfers settlement ownership, generates vassals, and initializes relations.
+        /// </summary>
+        private static Kingdom InitializeKingdomWithClan(Settlement homeSettlement, Clan rulingClan, int vassalClanCount, string name, CultureFlags cultureFlags)
+        {
+            // Re-apply banner colors using kingdom-specific uniqueness
+            // ClanGenerator uses clan-unique colors, but kingdoms need colors distinct from other kingdoms
             rulingClan.Banner.ApplyUniqueKingdomColorScheme();
             rulingClan.Color = rulingClan.Banner.GetPrimaryColor();
             rulingClan.Color2 = rulingClan.Banner.GetFirstIconColor();
@@ -98,10 +142,10 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             // Transfer ownership of settlement
             ChangeOwnerOfSettlementAction.ApplyByDefault(rulingClan.Leader, homeSettlement);
-            
+
             // Change homesettlement and bound villages culture to match to new kingdom
             homeSettlement.Culture = culture;
-            foreach(Village village in homeSettlement.BoundVillages)
+            foreach (Village village in homeSettlement.BoundVillages)
             {
                 village.Settlement.Culture = culture;
             }
@@ -117,7 +161,7 @@ namespace Bannerlord.GameMaster.Kingdoms
 
             if (rulingClan.Leader.PartyBelongedTo != null)
             {
-                MobileParty rulerParty = rulingClan.Leader.PartyBelongedTo;              
+                MobileParty rulerParty = rulingClan.Leader.PartyBelongedTo;
                 rulerParty.AddMixedTierTroops(30);
                 rulerParty.UpgradeTroops();
             }
@@ -126,9 +170,9 @@ namespace Bannerlord.GameMaster.Kingdoms
             if (vassalClanCount > 0)
             {
                 List<Clan> clans = ClanGenerator.GenerateClans(vassalClanCount, cultureFlags, kingdom);
-                
+
                 // Add extra lords to vassals
-                foreach(Clan clan in clans)
+                foreach (Clan clan in clans)
                     HeroGenerator.CreateLords(4, clan.Culture.ToCultureFlag(), GenderFlags.Either, clan);
             }
 
@@ -143,7 +187,7 @@ namespace Bannerlord.GameMaster.Kingdoms
             CampaignEventDispatcher.Instance.OnKingdomCreated(kingdom);
 
             InfoMessage.Success($"Kingdom '{kingdom.Name}' created with {rulingClan.Name} as ruling clan and {homeSettlement.Name} as the capital and {vassalClanCount} vassal clans");
-            
+
             return kingdom;
         }
 
