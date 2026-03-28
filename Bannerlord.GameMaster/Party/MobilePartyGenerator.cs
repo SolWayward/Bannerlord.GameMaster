@@ -37,7 +37,7 @@ namespace Bannerlord.GameMaster.Party
                 : MobileParty.NavigationType.Default;
 
             party.DesiredAiNavigationType = navType;
-            party.Aggressiveness = aggressiveness;
+            party.Aggressiveness = aggressiveness; 
 
             if (partyTradeGold > 0)
                 party.PartyTradeGold = partyTradeGold;

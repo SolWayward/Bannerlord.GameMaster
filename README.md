@@ -10,9 +10,12 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.14.11
+## Latest Update v1.3.15.1
 
 ```
+Updated to support Commander kingdom management and party command system
+
+Previous Update:
 Fixed crash when impregnating a female that has no clan such as notables
 
 Added Appearance save / load system

@@ -5,11 +5,8 @@
    <UpdateItem>
         <ModuleFolder Value="C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.GameMaster"/>
         <ChangeNotes Value=
-"v1.3.14.11
-Fixed crash when impregnating a female that has no clan such as notables
-Added Appearance save / load system
-Added Skills, Attributes, Perks, Focus Points, and traits save / load system
-Added character export / imprt
+"v1.3.15.1
+Updated to support Commander kingdom management and party command system
 "
         />
         <Tags>
@@ -17,6 +14,7 @@ Added character export / imprt
             <Tag Value="Singleplayer" />
             <Tag Value="v1.3.4" />
             <Tag Value="v1.3.14" />
+            <Tag Value="v1.3.15" />
         </Tags>
         <Visibility Value="Public"/>
     </UpdateItem>
