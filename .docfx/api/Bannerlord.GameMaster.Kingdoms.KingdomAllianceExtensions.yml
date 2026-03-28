@@ -9,6 +9,7 @@ items:
   - Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.AcceptCallAllyToWar(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
   - Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.DeclareAlliance(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,System.Boolean)
   - Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.DeclareWar(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.IFaction)
+  - Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.EndAlliance(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
   - Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.ProposeCallAllyToWar(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
   - Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.ProposeCallAllyToWar(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
   - Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.ProposeCallAllyToWarForceAccept(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
@@ -27,7 +28,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: KingdomAllianceExtensions
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -63,7 +64,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: DeclareAlliance
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -86,6 +87,43 @@ items:
   nameWithType.vb: KingdomAllianceExtensions.DeclareAlliance(Kingdom, Kingdom, Boolean)
   fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.DeclareAlliance(TaleWorlds.CampaignSystem.Kingdom, TaleWorlds.CampaignSystem.Kingdom, Boolean)
   name.vb: DeclareAlliance(Kingdom, Kingdom, Boolean)
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.EndAlliance(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.EndAlliance(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
+  id: EndAlliance(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions
+  langs:
+  - csharp
+  - vb
+  name: EndAlliance(Kingdom, Kingdom)
+  nameWithType: KingdomAllianceExtensions.EndAlliance(Kingdom, Kingdom)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.EndAlliance(TaleWorlds.CampaignSystem.Kingdom, TaleWorlds.CampaignSystem.Kingdom)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: EndAlliance
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
+    startLine: 40
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: >-
+    Ends the alliance between two kingdoms using the native alliance behavior. <br />
+
+    Cleans up CallToWar agreements, removes the alliance, and fires campaign events.
+  example: []
+  syntax:
+    content: public static void EndAlliance(this Kingdom kingdom1, Kingdom kingdom2)
+    parameters:
+    - id: kingdom1
+      type: TaleWorlds.CampaignSystem.Kingdom
+    - id: kingdom2
+      type: TaleWorlds.CampaignSystem.Kingdom
+    content.vb: Public Shared Sub EndAlliance(kingdom1 As Kingdom, kingdom2 As Kingdom)
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.EndAlliance*
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.ProposeCallAllyToWarForceAccept(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
   commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.ProposeCallAllyToWarForceAccept(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
   id: ProposeCallAllyToWarForceAccept(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.Kingdom)
@@ -105,7 +143,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ProposeCallAllyToWarForceAccept
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 38
+    startLine: 50
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -141,7 +179,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ProposeCallAllyToWarForceAccept
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 47
+    startLine: 59
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -175,7 +213,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ProposeCallAllyToWar
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 56
+    startLine: 68
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -211,7 +249,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ProposeCallAllyToWar
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 69
+    startLine: 81
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -245,7 +283,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: AcceptCallAllyToWar
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 81
+    startLine: 93
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -281,7 +319,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: AcceptCallAllyToWar
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 95
+    startLine: 109
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -315,7 +353,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: DeclareWar
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomAllianceExtensions.cs
-    startLine: 120
+    startLine: 134
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -642,6 +680,12 @@ references:
   - uid: TaleWorlds.CampaignSystem
     name: CampaignSystem
     isExternal: true
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.EndAlliance*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.EndAlliance
+  href: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomAllianceExtensions_EndAlliance_TaleWorlds_CampaignSystem_Kingdom_TaleWorlds_CampaignSystem_Kingdom_
+  name: EndAlliance
+  nameWithType: KingdomAllianceExtensions.EndAlliance
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.EndAlliance
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.ProposeCallAllyToWarForceAccept*
   commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.ProposeCallAllyToWarForceAccept
   href: Bannerlord.GameMaster.Kingdoms.KingdomAllianceExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomAllianceExtensions_ProposeCallAllyToWarForceAccept_TaleWorlds_CampaignSystem_Kingdom_TaleWorlds_CampaignSystem_Kingdom_TaleWorlds_CampaignSystem_Kingdom_

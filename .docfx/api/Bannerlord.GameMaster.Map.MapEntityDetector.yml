@@ -1,0 +1,962 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector
+  commentId: T:Bannerlord.GameMaster.Map.MapEntityDetector
+  id: MapEntityDetector
+  parent: Bannerlord.GameMaster.Map
+  children:
+  - Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition(TaleWorlds.Library.Vec2,System.Single,System.Single)
+  - Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean})
+  - Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean})
+  - Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean})
+  - Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean})
+  langs:
+  - csharp
+  - vb
+  name: MapEntityDetector
+  nameWithType: MapEntityDetector
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityDetector.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MapEntityDetector
+    path: ../Bannerlord.GameMaster/Map/MapEntityDetector.cs
+    startLine: 14
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  summary: >-
+    Provides methods for detecting MobileParty, Settlement, or terrain
+
+    entities near a given campaign map world position.
+
+    Used by BLC for cursor-based entity targeting on the campaign map.
+  example: []
+  syntax:
+    content: public static class MapEntityDetector
+    content.vb: Public Module MapEntityDetector
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition(TaleWorlds.Library.Vec2,System.Single,System.Single)
+  commentId: M:Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition(TaleWorlds.Library.Vec2,System.Single,System.Single)
+  id: DetectEntityAtWorldPosition(TaleWorlds.Library.Vec2,System.Single,System.Single)
+  parent: Bannerlord.GameMaster.Map.MapEntityDetector
+  langs:
+  - csharp
+  - vb
+  name: DetectEntityAtWorldPosition(Vec2, float, float)
+  nameWithType: MapEntityDetector.DetectEntityAtWorldPosition(Vec2, float, float)
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition(TaleWorlds.Library.Vec2, float, float)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityDetector.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: DetectEntityAtWorldPosition
+    path: ../Bannerlord.GameMaster/Map/MapEntityDetector.cs
+    startLine: 31
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  summary: >-
+    Detects the nearest map entity (party or settlement) at the given world position.
+
+    Parties are prioritized over settlements when both overlap, matching the game's
+
+    native behavior of prioritizing mobile entities over static ones.
+
+    Returns a terrain result if no entity is within detection range.
+  example: []
+  syntax:
+    content: public static MapEntityDetectionResult DetectEntityAtWorldPosition(Vec2 worldPosition, float partyRadiusSq = 1, float settlementRadiusSq = 4)
+    parameters:
+    - id: worldPosition
+      type: TaleWorlds.Library.Vec2
+      description: The campaign map world position to detect entities at
+    - id: partyRadiusSq
+      type: System.Single
+      description: 'Squared detection radius for parties (default: 1.0)'
+    - id: settlementRadiusSq
+      type: System.Single
+      description: 'Squared detection radius for settlements (default: 4.0)'
+    return:
+      type: Bannerlord.GameMaster.Map.MapEntityDetectionResult
+      description: Detection result containing the entity type and reference
+    content.vb: Public Shared Function DetectEntityAtWorldPosition(worldPosition As Vec2, partyRadiusSq As Single = 1, settlementRadiusSq As Single = 4) As MapEntityDetectionResult
+  overload: Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition*
+  nameWithType.vb: MapEntityDetector.DetectEntityAtWorldPosition(Vec2, Single, Single)
+  fullName.vb: Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition(TaleWorlds.Library.Vec2, Single, Single)
+  name.vb: DetectEntityAtWorldPosition(Vec2, Single, Single)
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean})
+  commentId: M:Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean})
+  id: FindNearestParty(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean})
+  parent: Bannerlord.GameMaster.Map.MapEntityDetector
+  langs:
+  - csharp
+  - vb
+  name: FindNearestParty(Vec2, float, Func<MobileParty, bool>)
+  nameWithType: MapEntityDetector.FindNearestParty(Vec2, float, Func<MobileParty, bool>)
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty(TaleWorlds.Library.Vec2, float, System.Func<TaleWorlds.CampaignSystem.Party.MobileParty, bool>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityDetector.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestParty
+    path: ../Bannerlord.GameMaster/Map/MapEntityDetector.cs
+    startLine: 63
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  summary: >-
+    Finds the nearest visible mobile party to a world position within the detection radius.
+
+    Skips invisible, removed, and settlement-docked parties.
+
+    Uses DistanceSquared for performance (no sqrt).
+  example: []
+  syntax:
+    content: public static MobileParty FindNearestParty(Vec2 worldPosition, float detectionRadiusSq = 1, Func<MobileParty, bool> predicate = null)
+    parameters:
+    - id: worldPosition
+      type: TaleWorlds.Library.Vec2
+      description: The campaign map world position to search from
+    - id: detectionRadiusSq
+      type: System.Single
+      description: 'Squared maximum detection distance (default: 1.0)'
+    - id: predicate
+      type: System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean}
+      description: Optional filter predicate to exclude specific parties
+    return:
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+      description: The nearest matching party, or null if none found within radius
+    content.vb: Public Shared Function FindNearestParty(worldPosition As Vec2, detectionRadiusSq As Single = 1, predicate As Func(Of MobileParty, Boolean) = Nothing) As MobileParty
+  overload: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty*
+  nameWithType.vb: MapEntityDetector.FindNearestParty(Vec2, Single, Func(Of MobileParty, Boolean))
+  fullName.vb: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty(TaleWorlds.Library.Vec2, Single, System.Func(Of TaleWorlds.CampaignSystem.Party.MobileParty, Boolean))
+  name.vb: FindNearestParty(Vec2, Single, Func(Of MobileParty, Boolean))
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean})
+  commentId: M:Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean})
+  id: FindNearestSettlement(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean})
+  parent: Bannerlord.GameMaster.Map.MapEntityDetector
+  langs:
+  - csharp
+  - vb
+  name: FindNearestSettlement(Vec2, float, Func<Settlement, bool>)
+  nameWithType: MapEntityDetector.FindNearestSettlement(Vec2, float, Func<Settlement, bool>)
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement(TaleWorlds.Library.Vec2, float, System.Func<TaleWorlds.CampaignSystem.Settlements.Settlement, bool>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityDetector.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindNearestSettlement
+    path: ../Bannerlord.GameMaster/Map/MapEntityDetector.cs
+    startLine: 81
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  summary: >-
+    Finds the nearest settlement to a world position within the detection radius.
+
+    Uses DistanceSquared for performance (no sqrt).
+  example: []
+  syntax:
+    content: public static Settlement FindNearestSettlement(Vec2 worldPosition, float detectionRadiusSq = 4, Func<Settlement, bool> predicate = null)
+    parameters:
+    - id: worldPosition
+      type: TaleWorlds.Library.Vec2
+      description: The campaign map world position to search from
+    - id: detectionRadiusSq
+      type: System.Single
+      description: 'Squared maximum detection distance (default: 4.0)'
+    - id: predicate
+      type: System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean}
+      description: Optional filter predicate to exclude specific settlements
+    return:
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: The nearest matching settlement, or null if none found within radius
+    content.vb: Public Shared Function FindNearestSettlement(worldPosition As Vec2, detectionRadiusSq As Single = 4, predicate As Func(Of Settlement, Boolean) = Nothing) As Settlement
+  overload: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement*
+  nameWithType.vb: MapEntityDetector.FindNearestSettlement(Vec2, Single, Func(Of Settlement, Boolean))
+  fullName.vb: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement(TaleWorlds.Library.Vec2, Single, System.Func(Of TaleWorlds.CampaignSystem.Settlements.Settlement, Boolean))
+  name.vb: FindNearestSettlement(Vec2, Single, Func(Of Settlement, Boolean))
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean})
+  commentId: M:Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean})
+  id: FindPartiesInRadius(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean})
+  parent: Bannerlord.GameMaster.Map.MapEntityDetector
+  langs:
+  - csharp
+  - vb
+  name: FindPartiesInRadius(Vec2, float, Func<MobileParty, bool>)
+  nameWithType: MapEntityDetector.FindPartiesInRadius(Vec2, float, Func<MobileParty, bool>)
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius(TaleWorlds.Library.Vec2, float, System.Func<TaleWorlds.CampaignSystem.Party.MobileParty, bool>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityDetector.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindPartiesInRadius
+    path: ../Bannerlord.GameMaster/Map/MapEntityDetector.cs
+    startLine: 99
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  summary: >-
+    Finds all visible mobile parties within a squared radius of a world position.
+
+    Skips invisible, removed, and settlement-docked parties.
+  example: []
+  syntax:
+    content: public static List<MobileParty> FindPartiesInRadius(Vec2 worldPosition, float radiusSq, Func<MobileParty, bool> predicate = null)
+    parameters:
+    - id: worldPosition
+      type: TaleWorlds.Library.Vec2
+      description: The campaign map world position to search from
+    - id: radiusSq
+      type: System.Single
+      description: Squared search radius
+    - id: predicate
+      type: System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean}
+      description: Optional filter predicate to exclude specific parties
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Party.MobileParty}
+      description: List of parties within the radius (may be empty, never null)
+    content.vb: Public Shared Function FindPartiesInRadius(worldPosition As Vec2, radiusSq As Single, predicate As Func(Of MobileParty, Boolean) = Nothing) As List(Of MobileParty)
+  overload: Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius*
+  nameWithType.vb: MapEntityDetector.FindPartiesInRadius(Vec2, Single, Func(Of MobileParty, Boolean))
+  fullName.vb: Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius(TaleWorlds.Library.Vec2, Single, System.Func(Of TaleWorlds.CampaignSystem.Party.MobileParty, Boolean))
+  name.vb: FindPartiesInRadius(Vec2, Single, Func(Of MobileParty, Boolean))
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean})
+  commentId: M:Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean})
+  id: FindSettlementsInRadius(TaleWorlds.Library.Vec2,System.Single,System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean})
+  parent: Bannerlord.GameMaster.Map.MapEntityDetector
+  langs:
+  - csharp
+  - vb
+  name: FindSettlementsInRadius(Vec2, float, Func<Settlement, bool>)
+  nameWithType: MapEntityDetector.FindSettlementsInRadius(Vec2, float, Func<Settlement, bool>)
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius(TaleWorlds.Library.Vec2, float, System.Func<TaleWorlds.CampaignSystem.Settlements.Settlement, bool>)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityDetector.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: FindSettlementsInRadius
+    path: ../Bannerlord.GameMaster/Map/MapEntityDetector.cs
+    startLine: 140
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  summary: Finds all settlements within a squared radius of a world position.
+  example: []
+  syntax:
+    content: public static List<Settlement> FindSettlementsInRadius(Vec2 worldPosition, float radiusSq, Func<Settlement, bool> predicate = null)
+    parameters:
+    - id: worldPosition
+      type: TaleWorlds.Library.Vec2
+      description: The campaign map world position to search from
+    - id: radiusSq
+      type: System.Single
+      description: Squared search radius
+    - id: predicate
+      type: System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean}
+      description: Optional filter predicate to exclude specific settlements
+    return:
+      type: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Settlements.Settlement}
+      description: List of settlements within the radius (may be empty, never null)
+    content.vb: Public Shared Function FindSettlementsInRadius(worldPosition As Vec2, radiusSq As Single, predicate As Func(Of Settlement, Boolean) = Nothing) As List(Of Settlement)
+  overload: Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius*
+  nameWithType.vb: MapEntityDetector.FindSettlementsInRadius(Vec2, Single, Func(Of Settlement, Boolean))
+  fullName.vb: Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius(TaleWorlds.Library.Vec2, Single, System.Func(Of TaleWorlds.CampaignSystem.Settlements.Settlement, Boolean))
+  name.vb: FindSettlementsInRadius(Vec2, Single, Func(Of Settlement, Boolean))
+references:
+- uid: Bannerlord.GameMaster.Map
+  commentId: N:Bannerlord.GameMaster.Map
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Map
+  nameWithType: Bannerlord.GameMaster.Map
+  fullName: Bannerlord.GameMaster.Map
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Map
+    name: Map
+    href: Bannerlord.GameMaster.Map.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Map
+    name: Map
+    href: Bannerlord.GameMaster.Map.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition*
+  commentId: Overload:Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition
+  href: Bannerlord.GameMaster.Map.MapEntityDetector.html#Bannerlord_GameMaster_Map_MapEntityDetector_DetectEntityAtWorldPosition_TaleWorlds_Library_Vec2_System_Single_System_Single_
+  name: DetectEntityAtWorldPosition
+  nameWithType: MapEntityDetector.DetectEntityAtWorldPosition
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.DetectEntityAtWorldPosition
+- uid: TaleWorlds.Library.Vec2
+  commentId: T:TaleWorlds.Library.Vec2
+  parent: TaleWorlds.Library
+  isExternal: true
+  name: Vec2
+  nameWithType: Vec2
+  fullName: TaleWorlds.Library.Vec2
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Bannerlord.GameMaster.Map.MapEntityDetectionResult
+  commentId: T:Bannerlord.GameMaster.Map.MapEntityDetectionResult
+  parent: Bannerlord.GameMaster.Map
+  href: Bannerlord.GameMaster.Map.MapEntityDetectionResult.html
+  name: MapEntityDetectionResult
+  nameWithType: MapEntityDetectionResult
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetectionResult
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty*
+  commentId: Overload:Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty
+  href: Bannerlord.GameMaster.Map.MapEntityDetector.html#Bannerlord_GameMaster_Map_MapEntityDetector_FindNearestParty_TaleWorlds_Library_Vec2_System_Single_System_Func_TaleWorlds_CampaignSystem_Party_MobileParty_System_Boolean__
+  name: FindNearestParty
+  nameWithType: MapEntityDetector.FindNearestParty
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestParty
+- uid: System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean}
+  commentId: T:System.Func{TaleWorlds.CampaignSystem.Party.MobileParty,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<MobileParty, bool>
+  nameWithType: Func<MobileParty, bool>
+  fullName: System.Func<TaleWorlds.CampaignSystem.Party.MobileParty, bool>
+  nameWithType.vb: Func(Of MobileParty, Boolean)
+  fullName.vb: System.Func(Of TaleWorlds.CampaignSystem.Party.MobileParty, Boolean)
+  name.vb: Func(Of MobileParty, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: TaleWorlds.CampaignSystem.Party.MobileParty
+  commentId: T:TaleWorlds.CampaignSystem.Party.MobileParty
+  parent: TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: MobileParty
+  nameWithType: MobileParty
+  fullName: TaleWorlds.CampaignSystem.Party.MobileParty
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: TaleWorlds.CampaignSystem.Party
+  commentId: N:TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Party
+  nameWithType: TaleWorlds.CampaignSystem.Party
+  fullName: TaleWorlds.CampaignSystem.Party
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement*
+  commentId: Overload:Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement
+  href: Bannerlord.GameMaster.Map.MapEntityDetector.html#Bannerlord_GameMaster_Map_MapEntityDetector_FindNearestSettlement_TaleWorlds_Library_Vec2_System_Single_System_Func_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Boolean__
+  name: FindNearestSettlement
+  nameWithType: MapEntityDetector.FindNearestSettlement
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.FindNearestSettlement
+- uid: System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean}
+  commentId: T:System.Func{TaleWorlds.CampaignSystem.Settlements.Settlement,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<Settlement, bool>
+  nameWithType: Func<Settlement, bool>
+  fullName: System.Func<TaleWorlds.CampaignSystem.Settlements.Settlement, bool>
+  nameWithType.vb: Func(Of Settlement, Boolean)
+  fullName.vb: System.Func(Of TaleWorlds.CampaignSystem.Settlements.Settlement, Boolean)
+  name.vb: Func(Of Settlement, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+    name: Settlement
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+    name: Settlement
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+  commentId: T:TaleWorlds.CampaignSystem.Settlements.Settlement
+  parent: TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: Settlement
+  nameWithType: Settlement
+  fullName: TaleWorlds.CampaignSystem.Settlements.Settlement
+- uid: TaleWorlds.CampaignSystem.Settlements
+  commentId: N:TaleWorlds.CampaignSystem.Settlements
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Settlements
+  nameWithType: TaleWorlds.CampaignSystem.Settlements
+  fullName: TaleWorlds.CampaignSystem.Settlements
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Settlements
+    name: Settlements
+    isExternal: true
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius*
+  commentId: Overload:Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius
+  href: Bannerlord.GameMaster.Map.MapEntityDetector.html#Bannerlord_GameMaster_Map_MapEntityDetector_FindPartiesInRadius_TaleWorlds_Library_Vec2_System_Single_System_Func_TaleWorlds_CampaignSystem_Party_MobileParty_System_Boolean__
+  name: FindPartiesInRadius
+  nameWithType: MapEntityDetector.FindPartiesInRadius
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.FindPartiesInRadius
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Party.MobileParty}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.Party.MobileParty}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<MobileParty>
+  nameWithType: List<MobileParty>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.Party.MobileParty>
+  nameWithType.vb: List(Of MobileParty)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.Party.MobileParty)
+  name.vb: List(Of MobileParty)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius*
+  commentId: Overload:Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius
+  href: Bannerlord.GameMaster.Map.MapEntityDetector.html#Bannerlord_GameMaster_Map_MapEntityDetector_FindSettlementsInRadius_TaleWorlds_Library_Vec2_System_Single_System_Func_TaleWorlds_CampaignSystem_Settlements_Settlement_System_Boolean__
+  name: FindSettlementsInRadius
+  nameWithType: MapEntityDetector.FindSettlementsInRadius
+  fullName: Bannerlord.GameMaster.Map.MapEntityDetector.FindSettlementsInRadius
+- uid: System.Collections.Generic.List{TaleWorlds.CampaignSystem.Settlements.Settlement}
+  commentId: T:System.Collections.Generic.List{TaleWorlds.CampaignSystem.Settlements.Settlement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Settlement>
+  nameWithType: List<Settlement>
+  fullName: System.Collections.Generic.List<TaleWorlds.CampaignSystem.Settlements.Settlement>
+  nameWithType.vb: List(Of Settlement)
+  fullName.vb: System.Collections.Generic.List(Of TaleWorlds.CampaignSystem.Settlements.Settlement)
+  name.vb: List(Of Settlement)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+    name: Settlement
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Settlements.Settlement
+    name: Settlement
+    isExternal: true
+  - name: )

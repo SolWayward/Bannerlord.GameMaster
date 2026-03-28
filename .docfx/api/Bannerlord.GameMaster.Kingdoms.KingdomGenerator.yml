@@ -6,6 +6,7 @@ items:
   parent: Bannerlord.GameMaster.Kingdoms
   children:
   - Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,System.Int32,System.String,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
+  - Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
   - Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   langs:
   - csharp
@@ -21,7 +22,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: KingdomGenerator
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -56,11 +57,11 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateKingdom
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 31
+    startLine: 34
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
-  summary: Creates a new kingdom with the specified ruling clan and home settlement.
+  summary: Creates a new kingdom with an auto-generated ruling clan and home settlement.
   example: []
   syntax:
     content: public static Kingdom CreateKingdom(Settlement homeSettlement, int vassalClanCount = 4, string name = null, string rulingClanName = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
@@ -70,6 +71,7 @@ items:
       description: Capital settlement (auto-resolves if null/invalid)
     - id: vassalClanCount
       type: System.Int32
+      description: Number of vassal clans to generate
     - id: name
       type: System.String
       description: Kingdom name (generates random if null)
@@ -78,6 +80,7 @@ items:
       description: Name of the Clan ruling to rule the kingdom (generates random if null)
     - id: cultureFlags
       type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: Culture pool for the kingdom
     return:
       type: TaleWorlds.CampaignSystem.Kingdom
       description: The created kingdom, or null if settlement cannot be resolved
@@ -86,6 +89,59 @@ items:
   nameWithType.vb: KingdomGenerator.CreateKingdom(Settlement, Integer, String, String, CultureFlags)
   fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement, Integer, String, String, Bannerlord.GameMaster.Cultures.CultureFlags)
   name.vb: CreateKingdom(Settlement, Integer, String, String, CultureFlags)
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
+  id: CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomGenerator
+  langs:
+  - csharp
+  - vb
+  name: CreateKingdom(Settlement, Clan, int, string, CultureFlags)
+  nameWithType: KingdomGenerator.CreateKingdom(Settlement, Clan, int, string, CultureFlags)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Clan, int, string, Bannerlord.GameMaster.Cultures.CultureFlags)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: CreateKingdom
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
+    startLine: 59
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: >-
+    Creates a new kingdom with an existing clan as the ruling clan.
+
+    Calls <xref href="Bannerlord.GameMaster.Kingdoms.KingdomGenerator.PrepareClanToRule(TaleWorlds.CampaignSystem.Clan)" data-throw-if-not-resolved="false"></xref> on the provided clan (leaves current kingdom, sets tier, adds lords, etc).
+  example: []
+  syntax:
+    content: public static Kingdom CreateKingdom(Settlement homeSettlement, Clan rulingClan, int vassalClanCount = 4, string name = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+    parameters:
+    - id: homeSettlement
+      type: TaleWorlds.CampaignSystem.Settlements.Settlement
+      description: Capital settlement (must be a town or castle)
+    - id: rulingClan
+      type: TaleWorlds.CampaignSystem.Clan
+      description: Existing clan to become the ruling clan
+    - id: vassalClanCount
+      type: System.Int32
+      description: Number of vassal clans to generate
+    - id: name
+      type: System.String
+      description: Kingdom name (generates random if null)
+    - id: cultureFlags
+      type: Bannerlord.GameMaster.Cultures.CultureFlags
+      description: Culture pool for vassal generation
+    return:
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: The created kingdom, or null if parameters are invalid
+    content.vb: Public Shared Function CreateKingdom(homeSettlement As Settlement, rulingClan As Clan, vassalClanCount As Integer = 4, name As String = Nothing, cultureFlags As CultureFlags = CultureFlags.AllMainCultures) As Kingdom
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom*
+  nameWithType.vb: KingdomGenerator.CreateKingdom(Settlement, Clan, Integer, String, CultureFlags)
+  fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Clan, Integer, String, Bannerlord.GameMaster.Cultures.CultureFlags)
+  name.vb: CreateKingdom(Settlement, Clan, Integer, String, CultureFlags)
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   id: GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
@@ -104,7 +160,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GenerateKingdoms
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 190
+    startLine: 233
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -534,6 +590,35 @@ references:
   - uid: TaleWorlds.CampaignSystem
     name: CampaignSystem
     isExternal: true
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.PrepareClanToRule(TaleWorlds.CampaignSystem.Clan)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomGenerator.PrepareClanToRule(TaleWorlds.CampaignSystem.Clan)
+  isExternal: true
+  name: PrepareClanToRule(Clan)
+  nameWithType: KingdomGenerator.PrepareClanToRule(Clan)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.PrepareClanToRule(TaleWorlds.CampaignSystem.Clan)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.PrepareClanToRule(TaleWorlds.CampaignSystem.Clan)
+    name: PrepareClanToRule
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Clan
+    name: Clan
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.PrepareClanToRule(TaleWorlds.CampaignSystem.Clan)
+    name: PrepareClanToRule
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Clan
+    name: Clan
+    isExternal: true
+  - name: )
+- uid: TaleWorlds.CampaignSystem.Clan
+  commentId: T:TaleWorlds.CampaignSystem.Clan
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Clan
+  nameWithType: Clan
+  fullName: TaleWorlds.CampaignSystem.Clan
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms*
   commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms
   href: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.html#Bannerlord_GameMaster_Kingdoms_KingdomGenerator_GenerateKingdoms_System_Int32_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_

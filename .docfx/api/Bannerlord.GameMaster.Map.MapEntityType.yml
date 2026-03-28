@@ -1,0 +1,176 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Map.MapEntityType
+  commentId: T:Bannerlord.GameMaster.Map.MapEntityType
+  id: MapEntityType
+  parent: Bannerlord.GameMaster.Map
+  children:
+  - Bannerlord.GameMaster.Map.MapEntityType.MobileParty
+  - Bannerlord.GameMaster.Map.MapEntityType.None
+  - Bannerlord.GameMaster.Map.MapEntityType.Settlement
+  - Bannerlord.GameMaster.Map.MapEntityType.Terrain
+  langs:
+  - csharp
+  - vb
+  name: MapEntityType
+  nameWithType: MapEntityType
+  fullName: Bannerlord.GameMaster.Map.MapEntityType
+  type: Enum
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MapEntityType
+    path: ../Bannerlord.GameMaster/Map/MapEntityType.cs
+    startLine: 5
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  summary: Represents the type of entity detected at a world map position.
+  example: []
+  syntax:
+    content: public enum MapEntityType
+    content.vb: Public Enum MapEntityType
+- uid: Bannerlord.GameMaster.Map.MapEntityType.None
+  commentId: F:Bannerlord.GameMaster.Map.MapEntityType.None
+  id: None
+  parent: Bannerlord.GameMaster.Map.MapEntityType
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: MapEntityType.None
+  fullName: Bannerlord.GameMaster.Map.MapEntityType.None
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: None
+    path: ../Bannerlord.GameMaster/Map/MapEntityType.cs
+    startLine: 7
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  syntax:
+    content: None = 0
+    return:
+      type: Bannerlord.GameMaster.Map.MapEntityType
+- uid: Bannerlord.GameMaster.Map.MapEntityType.MobileParty
+  commentId: F:Bannerlord.GameMaster.Map.MapEntityType.MobileParty
+  id: MobileParty
+  parent: Bannerlord.GameMaster.Map.MapEntityType
+  langs:
+  - csharp
+  - vb
+  name: MobileParty
+  nameWithType: MapEntityType.MobileParty
+  fullName: Bannerlord.GameMaster.Map.MapEntityType.MobileParty
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: MobileParty
+    path: ../Bannerlord.GameMaster/Map/MapEntityType.cs
+    startLine: 8
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  syntax:
+    content: MobileParty = 1
+    return:
+      type: Bannerlord.GameMaster.Map.MapEntityType
+- uid: Bannerlord.GameMaster.Map.MapEntityType.Settlement
+  commentId: F:Bannerlord.GameMaster.Map.MapEntityType.Settlement
+  id: Settlement
+  parent: Bannerlord.GameMaster.Map.MapEntityType
+  langs:
+  - csharp
+  - vb
+  name: Settlement
+  nameWithType: MapEntityType.Settlement
+  fullName: Bannerlord.GameMaster.Map.MapEntityType.Settlement
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Settlement
+    path: ../Bannerlord.GameMaster/Map/MapEntityType.cs
+    startLine: 9
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  syntax:
+    content: Settlement = 2
+    return:
+      type: Bannerlord.GameMaster.Map.MapEntityType
+- uid: Bannerlord.GameMaster.Map.MapEntityType.Terrain
+  commentId: F:Bannerlord.GameMaster.Map.MapEntityType.Terrain
+  id: Terrain
+  parent: Bannerlord.GameMaster.Map.MapEntityType
+  langs:
+  - csharp
+  - vb
+  name: Terrain
+  nameWithType: MapEntityType.Terrain
+  fullName: Bannerlord.GameMaster.Map.MapEntityType.Terrain
+  type: Field
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Map/MapEntityType.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: Terrain
+    path: ../Bannerlord.GameMaster/Map/MapEntityType.cs
+    startLine: 10
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Map
+  syntax:
+    content: Terrain = 3
+    return:
+      type: Bannerlord.GameMaster.Map.MapEntityType
+references:
+- uid: Bannerlord.GameMaster.Map
+  commentId: N:Bannerlord.GameMaster.Map
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Map
+  nameWithType: Bannerlord.GameMaster.Map
+  fullName: Bannerlord.GameMaster.Map
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Map
+    name: Map
+    href: Bannerlord.GameMaster.Map.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Map
+    name: Map
+    href: Bannerlord.GameMaster.Map.html
+- uid: Bannerlord.GameMaster.Map.MapEntityType
+  commentId: T:Bannerlord.GameMaster.Map.MapEntityType
+  parent: Bannerlord.GameMaster.Map
+  href: Bannerlord.GameMaster.Map.MapEntityType.html
+  name: MapEntityType
+  nameWithType: MapEntityType
+  fullName: Bannerlord.GameMaster.Map.MapEntityType

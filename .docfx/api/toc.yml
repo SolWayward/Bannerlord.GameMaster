@@ -25,6 +25,16 @@ items:
   - uid: Bannerlord.GameMaster.SystemConsoleManager
     name: SystemConsoleManager
     type: Class
+- uid: Bannerlord.GameMaster.Armies
+  name: Bannerlord.GameMaster.Armies
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Armies.ArmyManager
+    name: ArmyManager
+    type: Class
+  - uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+    name: ArmyPartyHelpers
+    type: Class
 - uid: Bannerlord.GameMaster.BLGMDebug
   name: Bannerlord.GameMaster.BLGMDebug
   type: Namespace
@@ -1352,6 +1362,19 @@ items:
   - uid: Bannerlord.GameMaster.Kingdoms.TributeInfo
     name: TributeInfo
     type: Struct
+- uid: Bannerlord.GameMaster.Map
+  name: Bannerlord.GameMaster.Map
+  type: Namespace
+  items:
+  - uid: Bannerlord.GameMaster.Map.MapEntityDetectionResult
+    name: MapEntityDetectionResult
+    type: Struct
+  - uid: Bannerlord.GameMaster.Map.MapEntityDetector
+    name: MapEntityDetector
+    type: Class
+  - uid: Bannerlord.GameMaster.Map.MapEntityType
+    name: MapEntityType
+    type: Enum
 - uid: Bannerlord.GameMaster.Party
   name: Bannerlord.GameMaster.Party
   type: Namespace

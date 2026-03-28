@@ -16,6 +16,8 @@ items:
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors(TaleWorlds.CampaignSystem.Kingdom,System.UInt32,System.UInt32)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetCulture(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.CultureObject)
+  - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet(TaleWorlds.CampaignSystem.Kingdom,System.Int32)
   - Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetStringName(TaleWorlds.CampaignSystem.Kingdom,System.String)
   langs:
   - csharp
@@ -393,6 +395,55 @@ items:
       type: Bannerlord.GameMaster.Kingdoms.KingdomTypes
     content.vb: Public Shared Function GetTypes(kingdom As Kingdom) As KingdomTypes
   overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes*
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet(TaleWorlds.CampaignSystem.Kingdom,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet(TaleWorlds.CampaignSystem.Kingdom,System.Int32)
+  id: SetMercenaryWallet(TaleWorlds.CampaignSystem.Kingdom,System.Int32)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetMercenaryWallet(Kingdom, int)
+  nameWithType: KingdomExtensions.SetMercenaryWallet(Kingdom, int)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet(TaleWorlds.CampaignSystem.Kingdom, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetMercenaryWallet
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 176
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: >-
+    Sets the MercenaryWallet value on this kingdom via reflection.
+
+    MercenaryWallet has an internal setter, so reflection is required from outside the assembly.
+
+    The wallet acts as a ledger: mercenaries draw from it (pushing it negative),
+
+    then each non-mercenary clan pays its proportional share to zero it out.
+  example: []
+  syntax:
+    content: public static BLGMResult SetMercenaryWallet(this Kingdom kingdom, int value)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: The kingdom to set the mercenary wallet for.
+    - id: value
+      type: System.Int32
+      description: The new mercenary wallet balance.
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure.
+    content.vb: Public Shared Function SetMercenaryWallet(kingdom As Kingdom, value As Integer) As BLGMResult
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet*
+  nameWithType.vb: KingdomExtensions.SetMercenaryWallet(Kingdom, Integer)
+  fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet(TaleWorlds.CampaignSystem.Kingdom, Integer)
+  name.vb: SetMercenaryWallet(Kingdom, Integer)
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
   commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
   id: PropagateRulingClanBanner(TaleWorlds.CampaignSystem.Kingdom)
@@ -412,7 +463,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: PropagateRulingClanBanner
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 190
+    startLine: 234
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -457,7 +508,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: SetBannerColors
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
-    startLine: 251
+    startLine: 295
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -500,6 +551,50 @@ items:
   nameWithType.vb: KingdomExtensions.SetBannerColors(Kingdom, UInteger, UInteger)
   fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors(TaleWorlds.CampaignSystem.Kingdom, UInteger, UInteger)
   name.vb: SetBannerColors(Kingdom, UInteger, UInteger)
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetCulture(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.CultureObject)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetCulture(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.CultureObject)
+  id: SetCulture(TaleWorlds.CampaignSystem.Kingdom,TaleWorlds.CampaignSystem.CultureObject)
+  isExtensionMethod: true
+  parent: Bannerlord.GameMaster.Kingdoms.KingdomExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetCulture(Kingdom, CultureObject)
+  nameWithType: KingdomExtensions.SetCulture(Kingdom, CultureObject)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetCulture(TaleWorlds.CampaignSystem.Kingdom, TaleWorlds.CampaignSystem.CultureObject)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: SetCulture
+    path: ../Bannerlord.GameMaster/Kingdoms/KingdomExtensions.cs
+    startLine: 347
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Kingdoms
+  summary: >-
+    Sets the Culture on this kingdom via reflection.
+
+    Kingdom.Culture has a private setter and is only assigned once during InitializeKingdom(),
+
+    so reflection is required to change it after creation.
+  example: []
+  syntax:
+    content: public static BLGMResult SetCulture(this Kingdom kingdom, CultureObject culture)
+    parameters:
+    - id: kingdom
+      type: TaleWorlds.CampaignSystem.Kingdom
+      description: The kingdom to set the culture for.
+    - id: culture
+      type: TaleWorlds.CampaignSystem.CultureObject
+      description: The new CultureObject to assign.
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure.
+    content.vb: Public Shared Function SetCulture(kingdom As Kingdom, culture As CultureObject) As BLGMResult
+  overload: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetCulture*
 references:
 - uid: Bannerlord.GameMaster.Kingdoms
   commentId: N:Bannerlord.GameMaster.Kingdoms
@@ -963,12 +1058,23 @@ references:
   name: GetTypes
   nameWithType: KingdomExtensions.GetTypes
   fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.GetTypes
-- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner*
-  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner
-  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_PropagateRulingClanBanner_TaleWorlds_CampaignSystem_Kingdom_
-  name: PropagateRulingClanBanner
-  nameWithType: KingdomExtensions.PropagateRulingClanBanner
-  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_SetMercenaryWallet_TaleWorlds_CampaignSystem_Kingdom_System_Int32_
+  name: SetMercenaryWallet
+  nameWithType: KingdomExtensions.SetMercenaryWallet
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetMercenaryWallet
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Bannerlord.GameMaster.Common.BLGMResult
   commentId: T:Bannerlord.GameMaster.Common.BLGMResult
   parent: Bannerlord.GameMaster.Common
@@ -1006,6 +1112,12 @@ references:
   - uid: Bannerlord.GameMaster.Common
     name: Common
     href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_PropagateRulingClanBanner_TaleWorlds_CampaignSystem_Kingdom_
+  name: PropagateRulingClanBanner
+  nameWithType: KingdomExtensions.PropagateRulingClanBanner
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.PropagateRulingClanBanner
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors*
   commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetBannerColors
   href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_SetBannerColors_TaleWorlds_CampaignSystem_Kingdom_System_UInt32_System_UInt32_
@@ -1023,3 +1135,16 @@ references:
   nameWithType.vb: UInteger
   fullName.vb: UInteger
   name.vb: UInteger
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetCulture*
+  commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetCulture
+  href: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.html#Bannerlord_GameMaster_Kingdoms_KingdomExtensions_SetCulture_TaleWorlds_CampaignSystem_Kingdom_TaleWorlds_CampaignSystem_CultureObject_
+  name: SetCulture
+  nameWithType: KingdomExtensions.SetCulture
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomExtensions.SetCulture
+- uid: TaleWorlds.CampaignSystem.CultureObject
+  commentId: T:TaleWorlds.CampaignSystem.CultureObject
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: CultureObject
+  nameWithType: CultureObject
+  fullName: TaleWorlds.CampaignSystem.CultureObject

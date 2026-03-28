@@ -1,0 +1,784 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  commentId: T:Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  id: ArmyPartyHelpers
+  parent: Bannerlord.GameMaster.Armies
+  children:
+  - Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartiesToCommander(TaleWorlds.CampaignSystem.Army)
+  - Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty,TaleWorlds.Library.Vec2)
+  - Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryAddPartyToArmy(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  - Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryRemovePartyFromArmy(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  langs:
+  - csharp
+  - vb
+  name: ArmyPartyHelpers
+  nameWithType: ArmyPartyHelpers
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  type: Class
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: ArmyPartyHelpers
+    path: ../Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+    startLine: 13
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Armies
+  summary: >-
+    Utility helpers for army party management including validation, teleportation,
+
+    and physical attachment of parties to army commanders.
+  example: []
+  syntax:
+    content: public static class ArmyPartyHelpers
+    content.vb: Public Module ArmyPartyHelpers
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryAddPartyToArmy(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  commentId: M:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryAddPartyToArmy(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  id: TryAddPartyToArmy(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  parent: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  langs:
+  - csharp
+  - vb
+  name: TryAddPartyToArmy(Army, MobileParty)
+  nameWithType: ArmyPartyHelpers.TryAddPartyToArmy(Army, MobileParty)
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryAddPartyToArmy(TaleWorlds.CampaignSystem.Army, TaleWorlds.CampaignSystem.Party.MobileParty)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TryAddPartyToArmy
+    path: ../Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+    startLine: 26
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Armies
+  summary: >-
+    Validates and adds a party to an existing army using the native
+
+    <xref href="TaleWorlds.CampaignSystem.Party.MobileParty.Army" data-throw-if-not-resolved="false"></xref> setter which triggers <code>OnAddPartyInternal</code>,
+
+    adding the party to the army's party list and firing <code>OnPartyJoinedArmy</code>.<br /><br />
+
+    Filters out parties that are null, already in an army, disbanded, the leader party itself,
+
+    or lacking a leader hero.
+  example: []
+  syntax:
+    content: public static BLGMResult TryAddPartyToArmy(Army army, MobileParty party)
+    parameters:
+    - id: army
+      type: TaleWorlds.CampaignSystem.Army
+      description: The army to add the party to
+    - id: party
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+      description: The party to add
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with reason
+    content.vb: Public Shared Function TryAddPartyToArmy(army As Army, party As MobileParty) As BLGMResult
+  overload: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryAddPartyToArmy*
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryRemovePartyFromArmy(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  commentId: M:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryRemovePartyFromArmy(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  id: TryRemovePartyFromArmy(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  parent: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  langs:
+  - csharp
+  - vb
+  name: TryRemovePartyFromArmy(Army, MobileParty)
+  nameWithType: ArmyPartyHelpers.TryRemovePartyFromArmy(Army, MobileParty)
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryRemovePartyFromArmy(TaleWorlds.CampaignSystem.Army, TaleWorlds.CampaignSystem.Party.MobileParty)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TryRemovePartyFromArmy
+    path: ../Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+    startLine: 85
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Armies
+  summary: >-
+    Validates and removes a party from an army using the native
+
+    <xref href="TaleWorlds.CampaignSystem.Party.MobileParty.Army" data-throw-if-not-resolved="false"></xref> setter (set to null) which triggers <code>OnRemovePartyInternal</code>,
+
+    removing the party from the army's party list, firing <code>OnPartyRemovedFromArmy</code>,
+
+    and setting <code>AttachedTo = null</code>.<br /><br />
+
+    Cannot remove the leader party -- use <xref href="Bannerlord.GameMaster.Armies.ArmyManager.SetCommander(TaleWorlds.CampaignSystem.Army%2cTaleWorlds.CampaignSystem.Party.MobileParty)" data-throw-if-not-resolved="false"></xref> first to swap
+
+    the leader, or disband the army entirely. Removing the leader via this path would trigger
+
+    <code>DisbandArmyAction.ApplyByLeaderPartyRemoved</code> which disbands the entire army.
+  example: []
+  syntax:
+    content: public static BLGMResult TryRemovePartyFromArmy(Army army, MobileParty party)
+    parameters:
+    - id: army
+      type: TaleWorlds.CampaignSystem.Army
+      description: The army to remove the party from
+    - id: party
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+      description: The party to remove
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure with reason
+    content.vb: Public Shared Function TryRemovePartyFromArmy(army As Army, party As MobileParty) As BLGMResult
+  overload: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryRemovePartyFromArmy*
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartiesToCommander(TaleWorlds.CampaignSystem.Army)
+  commentId: M:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartiesToCommander(TaleWorlds.CampaignSystem.Army)
+  id: TeleportPartiesToCommander(TaleWorlds.CampaignSystem.Army)
+  parent: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  langs:
+  - csharp
+  - vb
+  name: TeleportPartiesToCommander(Army)
+  nameWithType: ArmyPartyHelpers.TeleportPartiesToCommander(Army)
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartiesToCommander(TaleWorlds.CampaignSystem.Army)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TeleportPartiesToCommander
+    path: ../Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+    startLine: 131
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Armies
+  summary: >-
+    Teleports all army member parties to the commander's position and physically
+
+    attaches them using the native <xref href="TaleWorlds.CampaignSystem.Army.AddPartyToMergedParties(TaleWorlds.CampaignSystem.Party.MobileParty)" data-throw-if-not-resolved="false"></xref>.<br /><br />
+
+    Each party is first safely extracted from any settlement or existing attachment
+
+    via <xref href="Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty%2cTaleWorlds.Library.Vec2)" data-throw-if-not-resolved="false"></xref>, then attached to the leader.
+
+    Skips the leader party itself and any parties already attached.
+  example: []
+  syntax:
+    content: public static BLGMResult TeleportPartiesToCommander(Army army)
+    parameters:
+    - id: army
+      type: TaleWorlds.CampaignSystem.Army
+      description: The army whose members to teleport
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success with count of teleported parties
+    content.vb: Public Shared Function TeleportPartiesToCommander(army As Army) As BLGMResult
+  overload: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartiesToCommander*
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty,TaleWorlds.Library.Vec2)
+  commentId: M:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty,TaleWorlds.Library.Vec2)
+  id: TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty,TaleWorlds.Library.Vec2)
+  parent: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  langs:
+  - csharp
+  - vb
+  name: TeleportPartyToPosition(MobileParty, Vec2)
+  nameWithType: ArmyPartyHelpers.TeleportPartyToPosition(MobileParty, Vec2)
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty, TaleWorlds.Library.Vec2)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: TeleportPartyToPosition
+    path: ../Bannerlord.GameMaster/Armies/ArmyPartyHelpers.cs
+    startLine: 186
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Armies
+  summary: >-
+    Safely teleports a single party to a target map position.<br /><br />
+
+    Handles the following edge cases before moving:<br />
+
+    - Leaves the current settlement via <xref href="TaleWorlds.CampaignSystem.Actions.LeaveSettlementAction.ApplyForParty(TaleWorlds.CampaignSystem.Party.MobileParty)" data-throw-if-not-resolved="false"></xref> if inside one<br />
+
+    - Detaches from any party it is currently attached to<br />
+
+    - Sets position and puts the party in hold mode to prevent immediate AI repath
+  example: []
+  syntax:
+    content: public static BLGMResult TeleportPartyToPosition(MobileParty party, Vec2 targetPosition)
+    parameters:
+    - id: party
+      type: TaleWorlds.CampaignSystem.Party.MobileParty
+      description: The party to teleport
+    - id: targetPosition
+      type: TaleWorlds.Library.Vec2
+      description: The 2D map position to teleport to
+    return:
+      type: Bannerlord.GameMaster.Common.BLGMResult
+      description: BLGMResult indicating success or failure
+    content.vb: Public Shared Function TeleportPartyToPosition(party As MobileParty, targetPosition As Vec2) As BLGMResult
+  overload: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition*
+references:
+- uid: Bannerlord.GameMaster.Armies
+  commentId: N:Bannerlord.GameMaster.Armies
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Armies
+  nameWithType: Bannerlord.GameMaster.Armies
+  fullName: Bannerlord.GameMaster.Armies
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Armies
+    name: Armies
+    href: Bannerlord.GameMaster.Armies.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Armies
+    name: Armies
+    href: Bannerlord.GameMaster.Armies.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TaleWorlds.CampaignSystem.Party.MobileParty.Army
+  commentId: P:TaleWorlds.CampaignSystem.Party.MobileParty.Army
+  isExternal: true
+  name: Army
+  nameWithType: MobileParty.Army
+  fullName: TaleWorlds.CampaignSystem.Party.MobileParty.Army
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryAddPartyToArmy*
+  commentId: Overload:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryAddPartyToArmy
+  href: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.html#Bannerlord_GameMaster_Armies_ArmyPartyHelpers_TryAddPartyToArmy_TaleWorlds_CampaignSystem_Army_TaleWorlds_CampaignSystem_Party_MobileParty_
+  name: TryAddPartyToArmy
+  nameWithType: ArmyPartyHelpers.TryAddPartyToArmy
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryAddPartyToArmy
+- uid: TaleWorlds.CampaignSystem.Army
+  commentId: T:TaleWorlds.CampaignSystem.Army
+  parent: TaleWorlds.CampaignSystem
+  isExternal: true
+  name: Army
+  nameWithType: Army
+  fullName: TaleWorlds.CampaignSystem.Army
+- uid: TaleWorlds.CampaignSystem.Party.MobileParty
+  commentId: T:TaleWorlds.CampaignSystem.Party.MobileParty
+  parent: TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: MobileParty
+  nameWithType: MobileParty
+  fullName: TaleWorlds.CampaignSystem.Party.MobileParty
+- uid: Bannerlord.GameMaster.Common.BLGMResult
+  commentId: T:Bannerlord.GameMaster.Common.BLGMResult
+  parent: Bannerlord.GameMaster.Common
+  href: Bannerlord.GameMaster.Common.BLGMResult.html
+  name: BLGMResult
+  nameWithType: BLGMResult
+  fullName: Bannerlord.GameMaster.Common.BLGMResult
+- uid: TaleWorlds.CampaignSystem
+  commentId: N:TaleWorlds.CampaignSystem
+  isExternal: true
+  name: TaleWorlds.CampaignSystem
+  nameWithType: TaleWorlds.CampaignSystem
+  fullName: TaleWorlds.CampaignSystem
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+- uid: TaleWorlds.CampaignSystem.Party
+  commentId: N:TaleWorlds.CampaignSystem.Party
+  isExternal: true
+  name: TaleWorlds.CampaignSystem.Party
+  nameWithType: TaleWorlds.CampaignSystem.Party
+  fullName: TaleWorlds.CampaignSystem.Party
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem
+    name: CampaignSystem
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.CampaignSystem.Party
+    name: Party
+    isExternal: true
+- uid: Bannerlord.GameMaster.Common
+  commentId: N:Bannerlord.GameMaster.Common
+  href: Bannerlord.html
+  name: Bannerlord.GameMaster.Common
+  nameWithType: Bannerlord.GameMaster.Common
+  fullName: Bannerlord.GameMaster.Common
+  spec.csharp:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+  spec.vb:
+  - uid: Bannerlord
+    name: Bannerlord
+    href: Bannerlord.html
+  - name: .
+  - uid: Bannerlord.GameMaster
+    name: GameMaster
+    href: Bannerlord.GameMaster.html
+  - name: .
+  - uid: Bannerlord.GameMaster.Common
+    name: Common
+    href: Bannerlord.GameMaster.Common.html
+- uid: Bannerlord.GameMaster.Armies.ArmyManager.SetCommander(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  commentId: M:Bannerlord.GameMaster.Armies.ArmyManager.SetCommander(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+  isExternal: true
+  href: Bannerlord.GameMaster.Armies.ArmyManager.html#Bannerlord_GameMaster_Armies_ArmyManager_SetCommander_TaleWorlds_CampaignSystem_Army_TaleWorlds_CampaignSystem_Party_MobileParty_
+  name: SetCommander(Army, MobileParty)
+  nameWithType: ArmyManager.SetCommander(Army, MobileParty)
+  fullName: Bannerlord.GameMaster.Armies.ArmyManager.SetCommander(TaleWorlds.CampaignSystem.Army, TaleWorlds.CampaignSystem.Party.MobileParty)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Armies.ArmyManager.SetCommander(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+    name: SetCommander
+    href: Bannerlord.GameMaster.Armies.ArmyManager.html#Bannerlord_GameMaster_Armies_ArmyManager_SetCommander_TaleWorlds_CampaignSystem_Army_TaleWorlds_CampaignSystem_Party_MobileParty_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Army
+    name: Army
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Armies.ArmyManager.SetCommander(TaleWorlds.CampaignSystem.Army,TaleWorlds.CampaignSystem.Party.MobileParty)
+    name: SetCommander
+    href: Bannerlord.GameMaster.Armies.ArmyManager.html#Bannerlord_GameMaster_Armies_ArmyManager_SetCommander_TaleWorlds_CampaignSystem_Army_TaleWorlds_CampaignSystem_Party_MobileParty_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Army
+    name: Army
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: )
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryRemovePartyFromArmy*
+  commentId: Overload:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryRemovePartyFromArmy
+  href: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.html#Bannerlord_GameMaster_Armies_ArmyPartyHelpers_TryRemovePartyFromArmy_TaleWorlds_CampaignSystem_Army_TaleWorlds_CampaignSystem_Party_MobileParty_
+  name: TryRemovePartyFromArmy
+  nameWithType: ArmyPartyHelpers.TryRemovePartyFromArmy
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TryRemovePartyFromArmy
+- uid: TaleWorlds.CampaignSystem.Army.AddPartyToMergedParties(TaleWorlds.CampaignSystem.Party.MobileParty)
+  commentId: M:TaleWorlds.CampaignSystem.Army.AddPartyToMergedParties(TaleWorlds.CampaignSystem.Party.MobileParty)
+  isExternal: true
+  name: AddPartyToMergedParties(MobileParty)
+  nameWithType: Army.AddPartyToMergedParties(MobileParty)
+  fullName: TaleWorlds.CampaignSystem.Army.AddPartyToMergedParties(TaleWorlds.CampaignSystem.Party.MobileParty)
+  spec.csharp:
+  - uid: TaleWorlds.CampaignSystem.Army.AddPartyToMergedParties(TaleWorlds.CampaignSystem.Party.MobileParty)
+    name: AddPartyToMergedParties
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.CampaignSystem.Army.AddPartyToMergedParties(TaleWorlds.CampaignSystem.Party.MobileParty)
+    name: AddPartyToMergedParties
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: )
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty,TaleWorlds.Library.Vec2)
+  commentId: M:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty,TaleWorlds.Library.Vec2)
+  isExternal: true
+  href: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.html#Bannerlord_GameMaster_Armies_ArmyPartyHelpers_TeleportPartyToPosition_TaleWorlds_CampaignSystem_Party_MobileParty_TaleWorlds_Library_Vec2_
+  name: TeleportPartyToPosition(MobileParty, Vec2)
+  nameWithType: ArmyPartyHelpers.TeleportPartyToPosition(MobileParty, Vec2)
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty, TaleWorlds.Library.Vec2)
+  spec.csharp:
+  - uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty,TaleWorlds.Library.Vec2)
+    name: TeleportPartyToPosition
+    href: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.html#Bannerlord_GameMaster_Armies_ArmyPartyHelpers_TeleportPartyToPosition_TaleWorlds_CampaignSystem_Party_MobileParty_TaleWorlds_Library_Vec2_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.Vec2
+    name: Vec2
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition(TaleWorlds.CampaignSystem.Party.MobileParty,TaleWorlds.Library.Vec2)
+    name: TeleportPartyToPosition
+    href: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.html#Bannerlord_GameMaster_Armies_ArmyPartyHelpers_TeleportPartyToPosition_TaleWorlds_CampaignSystem_Party_MobileParty_TaleWorlds_Library_Vec2_
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: TaleWorlds.Library.Vec2
+    name: Vec2
+    isExternal: true
+  - name: )
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartiesToCommander*
+  commentId: Overload:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartiesToCommander
+  href: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.html#Bannerlord_GameMaster_Armies_ArmyPartyHelpers_TeleportPartiesToCommander_TaleWorlds_CampaignSystem_Army_
+  name: TeleportPartiesToCommander
+  nameWithType: ArmyPartyHelpers.TeleportPartiesToCommander
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartiesToCommander
+- uid: TaleWorlds.CampaignSystem.Actions.LeaveSettlementAction.ApplyForParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+  commentId: M:TaleWorlds.CampaignSystem.Actions.LeaveSettlementAction.ApplyForParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+  isExternal: true
+  name: ApplyForParty(MobileParty)
+  nameWithType: LeaveSettlementAction.ApplyForParty(MobileParty)
+  fullName: TaleWorlds.CampaignSystem.Actions.LeaveSettlementAction.ApplyForParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+  spec.csharp:
+  - uid: TaleWorlds.CampaignSystem.Actions.LeaveSettlementAction.ApplyForParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+    name: ApplyForParty
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: TaleWorlds.CampaignSystem.Actions.LeaveSettlementAction.ApplyForParty(TaleWorlds.CampaignSystem.Party.MobileParty)
+    name: ApplyForParty
+    isExternal: true
+  - name: (
+  - uid: TaleWorlds.CampaignSystem.Party.MobileParty
+    name: MobileParty
+    isExternal: true
+  - name: )
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition*
+  commentId: Overload:Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition
+  href: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.html#Bannerlord_GameMaster_Armies_ArmyPartyHelpers_TeleportPartyToPosition_TaleWorlds_CampaignSystem_Party_MobileParty_TaleWorlds_Library_Vec2_
+  name: TeleportPartyToPosition
+  nameWithType: ArmyPartyHelpers.TeleportPartyToPosition
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.TeleportPartyToPosition
+- uid: TaleWorlds.Library.Vec2
+  commentId: T:TaleWorlds.Library.Vec2
+  parent: TaleWorlds.Library
+  isExternal: true
+  name: Vec2
+  nameWithType: Vec2
+  fullName: TaleWorlds.Library.Vec2
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true

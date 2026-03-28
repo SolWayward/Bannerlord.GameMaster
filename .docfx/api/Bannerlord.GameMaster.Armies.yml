@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Bannerlord.GameMaster.Armies
+  commentId: N:Bannerlord.GameMaster.Armies
+  id: Bannerlord.GameMaster.Armies
+  children:
+  - Bannerlord.GameMaster.Armies.ArmyManager
+  - Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  langs:
+  - csharp
+  - vb
+  name: Bannerlord.GameMaster.Armies
+  nameWithType: Bannerlord.GameMaster.Armies
+  fullName: Bannerlord.GameMaster.Armies
+  type: Namespace
+  assemblies:
+  - Bannerlord.GameMaster
+references:
+- uid: Bannerlord.GameMaster.Armies.ArmyManager
+  commentId: T:Bannerlord.GameMaster.Armies.ArmyManager
+  href: Bannerlord.GameMaster.Armies.ArmyManager.html
+  name: ArmyManager
+  nameWithType: ArmyManager
+  fullName: Bannerlord.GameMaster.Armies.ArmyManager
+- uid: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  commentId: T:Bannerlord.GameMaster.Armies.ArmyPartyHelpers
+  href: Bannerlord.GameMaster.Armies.ArmyPartyHelpers.html
+  name: ArmyPartyHelpers
+  nameWithType: ArmyPartyHelpers
+  fullName: Bannerlord.GameMaster.Armies.ArmyPartyHelpers
