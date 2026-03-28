@@ -6,7 +6,7 @@ items:
   parent: Bannerlord.GameMaster.Kingdoms
   children:
   - Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,System.Int32,System.String,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
-  - Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
+  - Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean)
   - Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   langs:
   - csharp
@@ -89,16 +89,16 @@ items:
   nameWithType.vb: KingdomGenerator.CreateKingdom(Settlement, Integer, String, String, CultureFlags)
   fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement, Integer, String, String, Bannerlord.GameMaster.Cultures.CultureFlags)
   name.vb: CreateKingdom(Settlement, Integer, String, String, CultureFlags)
-- uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
-  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
-  id: CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)
+- uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean)
+  commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean)
+  id: CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean)
   parent: Bannerlord.GameMaster.Kingdoms.KingdomGenerator
   langs:
   - csharp
   - vb
-  name: CreateKingdom(Settlement, Clan, int, string, CultureFlags)
-  nameWithType: KingdomGenerator.CreateKingdom(Settlement, Clan, int, string, CultureFlags)
-  fullName: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Clan, int, string, Bannerlord.GameMaster.Cultures.CultureFlags)
+  name: CreateKingdom(Settlement, Clan, int, string, CultureFlags, bool)
+  nameWithType: KingdomGenerator.CreateKingdom(Settlement, Clan, int, string, CultureFlags, bool)
+  fullName: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Clan, int, string, Bannerlord.GameMaster.Cultures.CultureFlags, bool)
   type: Method
   source:
     remote:
@@ -107,7 +107,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateKingdom
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 59
+    startLine: 60
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -117,7 +117,7 @@ items:
     Calls <xref href="Bannerlord.GameMaster.Kingdoms.KingdomGenerator.PrepareClanToRule(TaleWorlds.CampaignSystem.Clan)" data-throw-if-not-resolved="false"></xref> on the provided clan (leaves current kingdom, sets tier, adds lords, etc).
   example: []
   syntax:
-    content: public static Kingdom CreateKingdom(Settlement homeSettlement, Clan rulingClan, int vassalClanCount = 4, string name = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+    content: public static Kingdom CreateKingdom(Settlement homeSettlement, Clan rulingClan, int vassalClanCount = 4, string name = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool generateBanner = true)
     parameters:
     - id: homeSettlement
       type: TaleWorlds.CampaignSystem.Settlements.Settlement
@@ -134,14 +134,17 @@ items:
     - id: cultureFlags
       type: Bannerlord.GameMaster.Cultures.CultureFlags
       description: Culture pool for vassal generation
+    - id: generateBanner
+      type: System.Boolean
+      description: If true, regenerates banner colors unique among kingdoms; if false, keeps the clan's existing banner
     return:
       type: TaleWorlds.CampaignSystem.Kingdom
       description: The created kingdom, or null if parameters are invalid
-    content.vb: Public Shared Function CreateKingdom(homeSettlement As Settlement, rulingClan As Clan, vassalClanCount As Integer = 4, name As String = Nothing, cultureFlags As CultureFlags = CultureFlags.AllMainCultures) As Kingdom
+    content.vb: Public Shared Function CreateKingdom(homeSettlement As Settlement, rulingClan As Clan, vassalClanCount As Integer = 4, name As String = Nothing, cultureFlags As CultureFlags = CultureFlags.AllMainCultures, generateBanner As Boolean = True) As Kingdom
   overload: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom*
-  nameWithType.vb: KingdomGenerator.CreateKingdom(Settlement, Clan, Integer, String, CultureFlags)
-  fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Clan, Integer, String, Bannerlord.GameMaster.Cultures.CultureFlags)
-  name.vb: CreateKingdom(Settlement, Clan, Integer, String, CultureFlags)
+  nameWithType.vb: KingdomGenerator.CreateKingdom(Settlement, Clan, Integer, String, CultureFlags, Boolean)
+  fullName.vb: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement, TaleWorlds.CampaignSystem.Clan, Integer, String, Bannerlord.GameMaster.Cultures.CultureFlags, Boolean)
+  name.vb: CreateKingdom(Settlement, Clan, Integer, String, CultureFlags, Boolean)
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   commentId: M:Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
   id: GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)
@@ -160,7 +163,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GenerateKingdoms
     path: ../Bannerlord.GameMaster/Kingdoms/KingdomGenerator.cs
-    startLine: 233
+    startLine: 239
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Kingdoms
@@ -619,6 +622,17 @@ references:
   name: Clan
   nameWithType: Clan
   fullName: TaleWorlds.CampaignSystem.Clan
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms*
   commentId: Overload:Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms
   href: Bannerlord.GameMaster.Kingdoms.KingdomGenerator.html#Bannerlord_GameMaster_Kingdoms_KingdomGenerator_GenerateKingdoms_System_Int32_System_Int32_Bannerlord_GameMaster_Cultures_CultureFlags_

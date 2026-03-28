@@ -1874,7 +1874,7 @@
   "Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.HasAnyType(TaleWorlds.CampaignSystem.Kingdom,Bannerlord.GameMaster.Kingdoms.KingdomTypes)": "Bannerlord.GameMaster.Kingdoms.KingdomExtensionsWrapper.yml",
   "Bannerlord.GameMaster.Kingdoms.KingdomGenerator": "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.yml",
   "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,System.Int32,System.String,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)": "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.yml",
-  "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags)": "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.yml",
+  "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.CreateKingdom(TaleWorlds.CampaignSystem.Settlements.Settlement,TaleWorlds.CampaignSystem.Clan,System.Int32,System.String,Bannerlord.GameMaster.Cultures.CultureFlags,System.Boolean)": "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.yml",
   "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.GenerateKingdoms(System.Int32,System.Int32,Bannerlord.GameMaster.Cultures.CultureFlags)": "Bannerlord.GameMaster.Kingdoms.KingdomGenerator.yml",
   "Bannerlord.GameMaster.Kingdoms.KingdomQueries": "Bannerlord.GameMaster.Kingdoms.KingdomQueries.yml",
   "Bannerlord.GameMaster.Kingdoms.KingdomQueries.GetFormattedDetails(System.Collections.Generic.List{TaleWorlds.CampaignSystem.Kingdom})": "Bannerlord.GameMaster.Kingdoms.KingdomQueries.yml",

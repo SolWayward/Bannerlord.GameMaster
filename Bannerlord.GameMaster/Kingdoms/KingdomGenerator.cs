@@ -56,8 +56,10 @@ namespace Bannerlord.GameMaster.Kingdoms
         /// <param name="vassalClanCount">Number of vassal clans to generate</param>
         /// <param name="name">Kingdom name (generates random if null)</param>
         /// <param name="cultureFlags">Culture pool for vassal generation</param>
+        /// <param name="generateBanner">If true, regenerates banner colors unique among kingdoms; if false, keeps the clan's existing banner</param>
         /// <returns>The created kingdom, or null if parameters are invalid</returns>
-        public static Kingdom CreateKingdom(Settlement homeSettlement, Clan rulingClan, int vassalClanCount = 4, string name = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures)
+        public static Kingdom CreateKingdom(Settlement homeSettlement, Clan rulingClan, int vassalClanCount = 4,
+            string name = null, CultureFlags cultureFlags = CultureFlags.AllMainCultures, bool generateBanner = true)
         {
             // Early validation of settlement
             if (homeSettlement == null || homeSettlement.Town == null)
@@ -72,7 +74,7 @@ namespace Bannerlord.GameMaster.Kingdoms
                 return null;
             }
 
-            return InitializeKingdomWithClan(homeSettlement, rulingClan, vassalClanCount, name, cultureFlags);
+            return InitializeKingdomWithClan(homeSettlement, rulingClan, vassalClanCount, name, cultureFlags, generateBanner);
         }
 
         /// MARK: Initialize Kingdom With Clan
@@ -81,11 +83,15 @@ namespace Bannerlord.GameMaster.Kingdoms
         /// Applies kingdom-unique banner colors, prepares the clan to rule, creates the kingdom object,
         /// transfers settlement ownership, generates vassals, and initializes relations.
         /// </summary>
-        private static Kingdom InitializeKingdomWithClan(Settlement homeSettlement, Clan rulingClan, int vassalClanCount, string name, CultureFlags cultureFlags)
+        private static Kingdom InitializeKingdomWithClan(Settlement homeSettlement, Clan rulingClan, int vassalClanCount, string name, CultureFlags cultureFlags, bool generateBanner = true)
         {
             // Re-apply banner colors using kingdom-specific uniqueness
             // ClanGenerator uses clan-unique colors, but kingdoms need colors distinct from other kingdoms
-            rulingClan.Banner.ApplyUniqueKingdomColorScheme();
+            if (generateBanner)
+            {
+                rulingClan.Banner.ApplyUniqueKingdomColorScheme();
+            }
+
             rulingClan.Color = rulingClan.Banner.GetPrimaryColor();
             rulingClan.Color2 = rulingClan.Banner.GetFirstIconColor();
             ClanCreationHelpers.SetOriginalBannerColors(rulingClan, rulingClan.Banner);
