@@ -428,8 +428,8 @@ items:
   - uid: Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand
     name: DumpBannerColorsCommand
     type: Class
-  - uid: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
-    name: DumpEquipmentForFlagsCommand
+  - uid: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentCategoriesCommand
+    name: DumpEquipmentCategoriesCommand
     type: Class
   - uid: Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
     name: DumpHotkeyCategoriesCommand

@@ -8,6 +8,8 @@ items:
   - Bannerlord.GameMaster.Information.GameEnvironment.BLGMIsVersion(System.Int32,System.Int32,System.Int32,System.Int32)
   - Bannerlord.GameMaster.Information.GameEnvironment.BLGMIsVersionOrGreater(System.Int32,System.Int32,System.Int32,System.Int32)
   - Bannerlord.GameMaster.Information.GameEnvironment.BLGMVersion
+  - Bannerlord.GameMaster.Information.GameEnvironment.BannerlordAppVersion
+  - Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater(System.Int32,System.Int32,System.Int32,System.Int32)
   - Bannerlord.GameMaster.Information.GameEnvironment.BannerlordVersion
   - Bannerlord.GameMaster.Information.GameEnvironment.IsWarsailsDlcLoaded
   - Bannerlord.GameMaster.Information.GameEnvironment.LoadedModules
@@ -60,7 +62,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsWarsailsDlcLoaded
     path: ../Bannerlord.GameMaster/Information/GameEnvironment.cs
-    startLine: 17
+    startLine: 18
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Information
@@ -73,6 +75,37 @@ items:
       type: System.Boolean
     content.vb: Public Shared ReadOnly Property IsWarsailsDlcLoaded As Boolean
   overload: Bannerlord.GameMaster.Information.GameEnvironment.IsWarsailsDlcLoaded*
+- uid: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordAppVersion
+  commentId: P:Bannerlord.GameMaster.Information.GameEnvironment.BannerlordAppVersion
+  id: BannerlordAppVersion
+  parent: Bannerlord.GameMaster.Information.GameEnvironment
+  langs:
+  - csharp
+  - vb
+  name: BannerlordAppVersion
+  nameWithType: GameEnvironment.BannerlordAppVersion
+  fullName: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordAppVersion
+  type: Property
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/GameEnvironment.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BannerlordAppVersion
+    path: ../Bannerlord.GameMaster/Information/GameEnvironment.cs
+    startLine: 23
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Gets the current Bannerlord ApplicationVersion.
+  example: []
+  syntax:
+    content: public static ApplicationVersion BannerlordAppVersion { get; }
+    parameters: []
+    return:
+      type: TaleWorlds.Library.ApplicationVersion
+    content.vb: Public Shared ReadOnly Property BannerlordAppVersion As ApplicationVersion
+  overload: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordAppVersion*
 - uid: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordVersion
   commentId: P:Bannerlord.GameMaster.Information.GameEnvironment.BannerlordVersion
   id: BannerlordVersion
@@ -91,11 +124,11 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: BannerlordVersion
     path: ../Bannerlord.GameMaster/Information/GameEnvironment.cs
-    startLine: 22
+    startLine: 35
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Information
-  summary: Gets the current Bannerlord game version.
+  summary: Gets the current Bannerlord game version as a display string.
   example: []
   syntax:
     content: public static string BannerlordVersion { get; }
@@ -104,6 +137,48 @@ items:
       type: System.String
     content.vb: Public Shared ReadOnly Property BannerlordVersion As String
   overload: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordVersion*
+- uid: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: BannerlordIsVersionOrGreater(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Bannerlord.GameMaster.Information.GameEnvironment
+  langs:
+  - csharp
+  - vb
+  name: BannerlordIsVersionOrGreater(int, int, int, int)
+  nameWithType: GameEnvironment.BannerlordIsVersionOrGreater(int, int, int, int)
+  fullName: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Information/GameEnvironment.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: BannerlordIsVersionOrGreater
+    path: ../Bannerlord.GameMaster/Information/GameEnvironment.cs
+    startLine: 47
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Information
+  summary: Checks if the current Bannerlord version is equal to or greater than the specified version.
+  example: []
+  syntax:
+    content: public static bool BannerlordIsVersionOrGreater(int major, int minor, int revision, int changeSet = 0)
+    parameters:
+    - id: major
+      type: System.Int32
+    - id: minor
+      type: System.Int32
+    - id: revision
+      type: System.Int32
+    - id: changeSet
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function BannerlordIsVersionOrGreater(major As Integer, minor As Integer, revision As Integer, changeSet As Integer = 0) As Boolean
+  overload: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater*
+  nameWithType.vb: GameEnvironment.BannerlordIsVersionOrGreater(Integer, Integer, Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater(Integer, Integer, Integer, Integer)
+  name.vb: BannerlordIsVersionOrGreater(Integer, Integer, Integer, Integer)
 - uid: Bannerlord.GameMaster.Information.GameEnvironment.BLGMVersion
   commentId: P:Bannerlord.GameMaster.Information.GameEnvironment.BLGMVersion
   id: BLGMVersion
@@ -122,7 +197,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: BLGMVersion
     path: ../Bannerlord.GameMaster/Information/GameEnvironment.cs
-    startLine: 34
+    startLine: 56
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Information
@@ -153,7 +228,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: BLGMIsVersionOrGreater
     path: ../Bannerlord.GameMaster/Information/GameEnvironment.cs
-    startLine: 46
+    startLine: 68
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Information
@@ -195,7 +270,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: BLGMIsVersion
     path: ../Bannerlord.GameMaster/Information/GameEnvironment.cs
-    startLine: 54
+    startLine: 76
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Information
@@ -237,7 +312,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: LoadedModules
     path: ../Bannerlord.GameMaster/Information/GameEnvironment.cs
-    startLine: 62
+    startLine: 84
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Information
@@ -535,6 +610,41 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordAppVersion*
+  commentId: Overload:Bannerlord.GameMaster.Information.GameEnvironment.BannerlordAppVersion
+  href: Bannerlord.GameMaster.Information.GameEnvironment.html#Bannerlord_GameMaster_Information_GameEnvironment_BannerlordAppVersion
+  name: BannerlordAppVersion
+  nameWithType: GameEnvironment.BannerlordAppVersion
+  fullName: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordAppVersion
+- uid: TaleWorlds.Library.ApplicationVersion
+  commentId: T:TaleWorlds.Library.ApplicationVersion
+  parent: TaleWorlds.Library
+  isExternal: true
+  name: ApplicationVersion
+  nameWithType: ApplicationVersion
+  fullName: TaleWorlds.Library.ApplicationVersion
+- uid: TaleWorlds.Library
+  commentId: N:TaleWorlds.Library
+  isExternal: true
+  name: TaleWorlds.Library
+  nameWithType: TaleWorlds.Library
+  fullName: TaleWorlds.Library
+  spec.csharp:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
+  spec.vb:
+  - uid: TaleWorlds
+    name: TaleWorlds
+    isExternal: true
+  - name: .
+  - uid: TaleWorlds.Library
+    name: Library
+    isExternal: true
 - uid: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordVersion*
   commentId: Overload:Bannerlord.GameMaster.Information.GameEnvironment.BannerlordVersion
   href: Bannerlord.GameMaster.Information.GameEnvironment.html#Bannerlord_GameMaster_Information_GameEnvironment_BannerlordVersion
@@ -552,6 +662,23 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater*
+  commentId: Overload:Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater
+  href: Bannerlord.GameMaster.Information.GameEnvironment.html#Bannerlord_GameMaster_Information_GameEnvironment_BannerlordIsVersionOrGreater_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: BannerlordIsVersionOrGreater
+  nameWithType: GameEnvironment.BannerlordIsVersionOrGreater
+  fullName: Bannerlord.GameMaster.Information.GameEnvironment.BannerlordIsVersionOrGreater
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Bannerlord.GameMaster.Information.GameEnvironment.BLGMVersion*
   commentId: Overload:Bannerlord.GameMaster.Information.GameEnvironment.BLGMVersion
   href: Bannerlord.GameMaster.Information.GameEnvironment.html#Bannerlord_GameMaster_Information_GameEnvironment_BLGMVersion
@@ -572,17 +699,6 @@ references:
   name: BLGMIsVersionOrGreater
   nameWithType: GameEnvironment.BLGMIsVersionOrGreater
   fullName: Bannerlord.GameMaster.Information.GameEnvironment.BLGMIsVersionOrGreater
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: Bannerlord.GameMaster.Information.GameEnvironment.BLGMIsVersion*
   commentId: Overload:Bannerlord.GameMaster.Information.GameEnvironment.BLGMIsVersion
   href: Bannerlord.GameMaster.Information.GameEnvironment.html#Bannerlord_GameMaster_Information_GameEnvironment_BLGMIsVersion_System_Int32_System_Int32_System_Int32_System_Int32_

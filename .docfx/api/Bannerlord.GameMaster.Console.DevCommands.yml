@@ -7,7 +7,7 @@ items:
   - Bannerlord.GameMaster.Console.DevCommands.CheckHeroesMatchesCharactersStringIdCommand
   - Bannerlord.GameMaster.Console.DevCommands.DevCommandHelpers
   - Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand
-  - Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
+  - Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentCategoriesCommand
   - Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
   - Bannerlord.GameMaster.Console.DevCommands.GetPlayerCaptainPerksCommand
   - Bannerlord.GameMaster.Console.DevCommands.ReinitializeBlgmObjectManagerCommand
@@ -39,12 +39,12 @@ references:
   name: DumpBannerColorsCommand
   nameWithType: DumpBannerColorsCommand
   fullName: Bannerlord.GameMaster.Console.DevCommands.DumpBannerColorsCommand
-- uid: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
-  commentId: T:Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
-  href: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand.html
-  name: DumpEquipmentForFlagsCommand
-  nameWithType: DumpEquipmentForFlagsCommand
-  fullName: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentForFlagsCommand
+- uid: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentCategoriesCommand
+  commentId: T:Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentCategoriesCommand
+  href: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentCategoriesCommand.html
+  name: DumpEquipmentCategoriesCommand
+  nameWithType: DumpEquipmentCategoriesCommand
+  fullName: Bannerlord.GameMaster.Console.DevCommands.DumpEquipmentCategoriesCommand
 - uid: Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
   commentId: T:Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand
   href: Bannerlord.GameMaster.Console.DevCommands.DumpHotkeyCategoriesCommand.html

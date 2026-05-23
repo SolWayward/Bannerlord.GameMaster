@@ -6,9 +6,10 @@ items:
   parent: Bannerlord.GameMaster.Items
   children:
   - Bannerlord.GameMaster.Items.CivilianItemPoolManager.Clear
-  - Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(System.String)
-  - Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(System.String,System.Boolean)
+  - Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(System.String,System.Int32)
+  - Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(System.String,System.Boolean,System.Int32)
   - Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomItem(System.String,System.Boolean,TaleWorlds.Core.EquipmentIndex,System.Boolean,System.Int32)
+  - Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomItem(System.String,System.Boolean,TaleWorlds.Core.EquipmentIndex,System.Boolean,System.Int32,System.Int32)
   - Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomNonCrownHeadItem(System.String,System.Boolean,System.Boolean)
   - Bannerlord.GameMaster.Items.CivilianItemPoolManager.HasItemsForCulture(System.String,System.Boolean)
   - Bannerlord.GameMaster.Items.CivilianItemPoolManager.Initialize
@@ -31,16 +32,23 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CivilianItemPoolManager
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 15
+    startLine: 19
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
   summary: >-
     Singleton manager that extracts civilian equipment items directly from game equipment rosters
 
-    based on their EquipmentFlags. This provides more authentic and culture-appropriate civilian
+    based on their EquipmentCategories. This provides more authentic and culture-appropriate civilian
 
     outfits compared to heuristic-based item selection.
+
+
+    Items from lord rosters (IsLordTemplate) are extracted into both the regular pools AND separate
+
+    lord-specific pools. At selection time, heroes level 15+ prefer the lord-only pool for higher
+
+    quality civilian gear, while lower level heroes draw from the combined pool.
   example: []
   syntax:
     content: public sealed class CivilianItemPoolManager
@@ -72,7 +80,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Instance
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 23
+    startLine: 27
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -103,7 +111,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: IsInitialized
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 127
+    startLine: 144
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -134,7 +142,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: RostersProcessed
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 132
+    startLine: 149
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -165,7 +173,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: ItemsExtracted
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 137
+    startLine: 154
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -196,7 +204,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Initialize
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 146
+    startLine: 163
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -227,7 +235,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Clear
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 182
+    startLine: 199
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -255,7 +263,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: Reinitialize
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 197
+    startLine: 214
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -283,7 +291,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetRandomItem
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 499
+    startLine: 545
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -320,6 +328,64 @@ items:
   nameWithType.vb: CivilianItemPoolManager.GetRandomItem(String, Boolean, EquipmentIndex, Boolean, Integer)
   fullName.vb: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomItem(String, Boolean, TaleWorlds.Core.EquipmentIndex, Boolean, Integer)
   name.vb: GetRandomItem(String, Boolean, EquipmentIndex, Boolean, Integer)
+- uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomItem(System.String,System.Boolean,TaleWorlds.Core.EquipmentIndex,System.Boolean,System.Int32,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomItem(System.String,System.Boolean,TaleWorlds.Core.EquipmentIndex,System.Boolean,System.Int32,System.Int32)
+  id: GetRandomItem(System.String,System.Boolean,TaleWorlds.Core.EquipmentIndex,System.Boolean,System.Int32,System.Int32)
+  parent: Bannerlord.GameMaster.Items.CivilianItemPoolManager
+  langs:
+  - csharp
+  - vb
+  name: GetRandomItem(string, bool, EquipmentIndex, bool, int, int)
+  nameWithType: CivilianItemPoolManager.GetRandomItem(string, bool, EquipmentIndex, bool, int, int)
+  fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomItem(string, bool, TaleWorlds.Core.EquipmentIndex, bool, int, int)
+  type: Method
+  source:
+    remote:
+      path: Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
+      branch: master
+      repo: https://github.com/SolWayward/Bannerlord.GameMaster
+    id: GetRandomItem
+    path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
+    startLine: 563
+  assemblies:
+  - Bannerlord.GameMaster
+  namespace: Bannerlord.GameMaster.Items
+  summary: >-
+    Gets a random item from the appropriate civilian pool for the specified slot.
+
+    For heroes at level 15+, prefers lord-specific pools for higher quality gear.
+
+    Falls back to combined pools if lord pool has no suitable items.
+  example: []
+  syntax:
+    content: public ItemObject GetRandomItem(string cultureId, bool isFemale, EquipmentIndex slot, bool isRulingClanMember, int appearanceBonus, int heroLevel)
+    parameters:
+    - id: cultureId
+      type: System.String
+      description: The culture ID to select from.
+    - id: isFemale
+      type: System.Boolean
+      description: Whether the hero is female.
+    - id: slot
+      type: TaleWorlds.Core.EquipmentIndex
+      description: The equipment slot.
+    - id: isRulingClanMember
+      type: System.Boolean
+      description: Whether the hero is a member of a ruling clan.
+    - id: appearanceBonus
+      type: System.Int32
+      description: Additional appearance requirement (0 or 1) for higher quality items.
+    - id: heroLevel
+      type: System.Int32
+      description: The hero's level. At 15+, lord-specific pools are preferred. Use -1 to skip level gating.
+    return:
+      type: TaleWorlds.Core.ItemObject
+      description: A random item from the pool that meets appearance requirements, or null if none available.
+    content.vb: Public Function GetRandomItem(cultureId As String, isFemale As Boolean, slot As EquipmentIndex, isRulingClanMember As Boolean, appearanceBonus As Integer, heroLevel As Integer) As ItemObject
+  overload: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomItem*
+  nameWithType.vb: CivilianItemPoolManager.GetRandomItem(String, Boolean, EquipmentIndex, Boolean, Integer, Integer)
+  fullName.vb: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomItem(String, Boolean, TaleWorlds.Core.EquipmentIndex, Boolean, Integer, Integer)
+  name.vb: GetRandomItem(String, Boolean, EquipmentIndex, Boolean, Integer, Integer)
 - uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomNonCrownHeadItem(System.String,System.Boolean,System.Boolean)
   commentId: M:Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomNonCrownHeadItem(System.String,System.Boolean,System.Boolean)
   id: GetRandomNonCrownHeadItem(System.String,System.Boolean,System.Boolean)
@@ -338,7 +404,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetRandomNonCrownHeadItem
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 569
+    startLine: 655
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -367,16 +433,16 @@ items:
   nameWithType.vb: CivilianItemPoolManager.GetRandomNonCrownHeadItem(String, Boolean, Boolean)
   fullName.vb: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomNonCrownHeadItem(String, Boolean, Boolean)
   name.vb: GetRandomNonCrownHeadItem(String, Boolean, Boolean)
-- uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(System.String,System.Boolean)
-  commentId: M:Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(System.String,System.Boolean)
-  id: GetCrown(System.String,System.Boolean)
+- uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(System.String,System.Boolean,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(System.String,System.Boolean,System.Int32)
+  id: GetCrown(System.String,System.Boolean,System.Int32)
   parent: Bannerlord.GameMaster.Items.CivilianItemPoolManager
   langs:
   - csharp
   - vb
-  name: GetCrown(string, bool)
-  nameWithType: CivilianItemPoolManager.GetCrown(string, bool)
-  fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(string, bool)
+  name: GetCrown(string, bool, int)
+  nameWithType: CivilianItemPoolManager.GetCrown(string, bool, int)
+  fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(string, bool, int)
   type: Method
   source:
     remote:
@@ -385,36 +451,41 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetCrown
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 579
+    startLine: 666
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
-  summary: Gets a crown for ruling clan members.
+  summary: >-
+    Gets a crown for ruling clan members.
+
+    For heroes level 15+, prefers lord-specific crown pools.
   example: []
   syntax:
-    content: public ItemObject GetCrown(string cultureId, bool isFemale)
+    content: public ItemObject GetCrown(string cultureId, bool isFemale, int heroLevel = -1)
     parameters:
     - id: cultureId
       type: System.String
     - id: isFemale
       type: System.Boolean
+    - id: heroLevel
+      type: System.Int32
     return:
       type: TaleWorlds.Core.ItemObject
-    content.vb: Public Function GetCrown(cultureId As String, isFemale As Boolean) As ItemObject
+    content.vb: Public Function GetCrown(cultureId As String, isFemale As Boolean, heroLevel As Integer = -1) As ItemObject
   overload: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown*
-  nameWithType.vb: CivilianItemPoolManager.GetCrown(String, Boolean)
-  fullName.vb: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(String, Boolean)
-  name.vb: GetCrown(String, Boolean)
-- uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(System.String)
-  commentId: M:Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(System.String)
-  id: GetCivilianWeapon(System.String)
+  nameWithType.vb: CivilianItemPoolManager.GetCrown(String, Boolean, Integer)
+  fullName.vb: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown(String, Boolean, Integer)
+  name.vb: GetCrown(String, Boolean, Integer)
+- uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(System.String,System.Int32)
+  commentId: M:Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(System.String,System.Int32)
+  id: GetCivilianWeapon(System.String,System.Int32)
   parent: Bannerlord.GameMaster.Items.CivilianItemPoolManager
   langs:
   - csharp
   - vb
-  name: GetCivilianWeapon(string)
-  nameWithType: CivilianItemPoolManager.GetCivilianWeapon(string)
-  fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(string)
+  name: GetCivilianWeapon(string, int)
+  nameWithType: CivilianItemPoolManager.GetCivilianWeapon(string, int)
+  fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(string, int)
   type: Method
   source:
     remote:
@@ -423,24 +494,29 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: GetCivilianWeapon
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 608
+    startLine: 719
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
-  summary: Gets a one-handed civilian weapon for male characters.
+  summary: >-
+    Gets a one-handed civilian weapon for male characters.
+
+    For heroes level 15+, prefers lord-specific weapon pools.
   example: []
   syntax:
-    content: public ItemObject GetCivilianWeapon(string cultureId)
+    content: public ItemObject GetCivilianWeapon(string cultureId, int heroLevel = -1)
     parameters:
     - id: cultureId
       type: System.String
+    - id: heroLevel
+      type: System.Int32
     return:
       type: TaleWorlds.Core.ItemObject
-    content.vb: Public Function GetCivilianWeapon(cultureId As String) As ItemObject
+    content.vb: Public Function GetCivilianWeapon(cultureId As String, heroLevel As Integer = -1) As ItemObject
   overload: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon*
-  nameWithType.vb: CivilianItemPoolManager.GetCivilianWeapon(String)
-  fullName.vb: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(String)
-  name.vb: GetCivilianWeapon(String)
+  nameWithType.vb: CivilianItemPoolManager.GetCivilianWeapon(String, Integer)
+  fullName.vb: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon(String, Integer)
+  name.vb: GetCivilianWeapon(String, Integer)
 - uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.HasItemsForCulture(System.String,System.Boolean)
   commentId: M:Bannerlord.GameMaster.Items.CivilianItemPoolManager.HasItemsForCulture(System.String,System.Boolean)
   id: HasItemsForCulture(System.String,System.Boolean)
@@ -459,7 +535,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: HasItemsForCulture
     path: ../Bannerlord.GameMaster/Items/Equipment/CivilianItemPoolManager.cs
-    startLine: 633
+    startLine: 765
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Items
@@ -855,13 +931,13 @@ references:
   fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetRandomNonCrownHeadItem
 - uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown*
   commentId: Overload:Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown
-  href: Bannerlord.GameMaster.Items.CivilianItemPoolManager.html#Bannerlord_GameMaster_Items_CivilianItemPoolManager_GetCrown_System_String_System_Boolean_
+  href: Bannerlord.GameMaster.Items.CivilianItemPoolManager.html#Bannerlord_GameMaster_Items_CivilianItemPoolManager_GetCrown_System_String_System_Boolean_System_Int32_
   name: GetCrown
   nameWithType: CivilianItemPoolManager.GetCrown
   fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCrown
 - uid: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon*
   commentId: Overload:Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon
-  href: Bannerlord.GameMaster.Items.CivilianItemPoolManager.html#Bannerlord_GameMaster_Items_CivilianItemPoolManager_GetCivilianWeapon_System_String_
+  href: Bannerlord.GameMaster.Items.CivilianItemPoolManager.html#Bannerlord_GameMaster_Items_CivilianItemPoolManager_GetCivilianWeapon_System_String_System_Int32_
   name: GetCivilianWeapon
   nameWithType: CivilianItemPoolManager.GetCivilianWeapon
   fullName: Bannerlord.GameMaster.Items.CivilianItemPoolManager.GetCivilianWeapon

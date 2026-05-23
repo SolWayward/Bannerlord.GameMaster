@@ -199,7 +199,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeAsWanderer
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 190
+    startLine: 192
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -246,7 +246,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeAsCompanion
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 227
+    startLine: 229
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -292,7 +292,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CleanupHeroState
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 259
+    startLine: 261
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -327,7 +327,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateLord
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 294
+    startLine: 296
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -399,7 +399,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateLords
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 327
+    startLine: 329
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -471,7 +471,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateWanderer
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 367
+    startLine: 369
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -537,7 +537,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateWanderers
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 394
+    startLine: 396
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -603,7 +603,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateCompanions
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 431
+    startLine: 433
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -668,7 +668,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeTraits
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 458
+    startLine: 460
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -706,7 +706,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateHeroFromMetadata
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 484
+    startLine: 486
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -773,7 +773,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeAsLord
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 582
+    startLine: 584
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -811,7 +811,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeAsWanderer
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 588
+    startLine: 590
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -844,7 +844,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: InitializeAsCompanion
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 594
+    startLine: 596
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -875,7 +875,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateLord
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 600
+    startLine: 602
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -923,7 +923,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateLords
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 606
+    startLine: 608
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -971,7 +971,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateWanderer
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 612
+    startLine: 614
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -1015,7 +1015,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateWanderers
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 618
+    startLine: 620
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -1059,7 +1059,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: CreateCompanions
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 624
+    startLine: 626
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
@@ -1101,7 +1101,7 @@ items:
       repo: https://github.com/SolWayward/Bannerlord.GameMaster
     id: RegenerateSkillsForLevel
     path: ../Bannerlord.GameMaster/Heroes/HeroGenerator.cs
-    startLine: 641
+    startLine: 643
   assemblies:
   - Bannerlord.GameMaster
   namespace: Bannerlord.GameMaster.Heroes
