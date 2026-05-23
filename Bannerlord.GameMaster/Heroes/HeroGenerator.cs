@@ -158,7 +158,9 @@ namespace Bannerlord.GameMaster.Heroes
 			// Equip Hero with gear appropiate for level and skills
 			hero.AutoEquipHero(true);
 
-			if (createParty && hero.Clan.WarPartyComponents.Count < hero.Clan.CommanderLimit)
+			// Only Create party if clan is under party limit
+			// Clan.CommanderLimit no longer exists in v1.4.4 and replaced with Clan.WarPartyLimit
+			if (createParty && hero.Clan.WarPartyComponents.Count < hero.Clan.WarPartyLimit)
 			{
 				hero.CreateParty(homeSettlement ?? hero.GetHomeOrAlternativeSettlement());
 			}

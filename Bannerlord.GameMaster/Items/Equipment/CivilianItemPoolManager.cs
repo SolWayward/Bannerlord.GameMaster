@@ -10,8 +10,12 @@ namespace Bannerlord.GameMaster.Items
 {
     /// <summary>
     /// Singleton manager that extracts civilian equipment items directly from game equipment rosters
-    /// based on their EquipmentFlags. This provides more authentic and culture-appropriate civilian
+    /// based on their EquipmentCategories. This provides more authentic and culture-appropriate civilian
     /// outfits compared to heuristic-based item selection.
+    ///
+    /// Items from lord rosters (IsLordTemplate) are extracted into both the regular pools AND separate
+    /// lord-specific pools. At selection time, heroes level 15+ prefer the lord-only pool for higher
+    /// quality civilian gear, while lower level heroes draw from the combined pool.
     /// </summary>
     public sealed class CivilianItemPoolManager
     {
@@ -48,20 +52,11 @@ namespace Bannerlord.GameMaster.Items
         private int _rostersProcessed;
         private int _itemsExtracted;
 
-        #region Equipment Flags Constants
-
-        // From EquipmentFlags.cs:
-        // IsCombatantTemplate = 16        // For combatant characters
-        // IsCivilianTemplate = 32         // Civilian equipment set
-        // IsNobleTemplate = 64            // Noble-quality equipment
-        // IsFemaleTemplate = 128          // Female-specific equipment
-
-        private const EquipmentFlags CombatantFlag = (EquipmentFlags)16;
-        private const EquipmentFlags CivilianFlag = (EquipmentFlags)32;
-        private const EquipmentFlags NobleFlag = (EquipmentFlags)64;
-        private const EquipmentFlags FemaleFlag = (EquipmentFlags)128;
-
-        #endregion
+        /// <summary>
+        /// Minimum hero level to prefer lord-only civilian item pools.
+        /// Heroes at or above this level draw from lord pools first for higher quality gear.
+        /// </summary>
+        private const int LordPoolMinLevel = 15;
 
         #region Peasant Roster Prefixes
 
@@ -94,29 +89,51 @@ namespace Bannerlord.GameMaster.Items
 
         #region Pools
 
-        // Female civilian item pools
+        // Female civilian item pools (combined: all rosters including lord)
         // Key: CultureId -> EquipmentIndex -> Items
         private Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> _femaleCivilianPools;
 
-        // Male civilian item pools
+        // Male civilian item pools (combined: all rosters including lord)
         // Key: CultureId -> EquipmentIndex -> Items
         private Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> _maleCivilianPools;
 
-        // Crown pools for ruling clan members
+        // Female lord-specific civilian pools (IsLordTemplate rosters only)
+        // Key: CultureId -> EquipmentIndex -> Items
+        private Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> _femaleLordCivilianPools;
+
+        // Male lord-specific civilian pools (IsLordTemplate rosters only)
+        // Key: CultureId -> EquipmentIndex -> Items
+        private Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> _maleLordCivilianPools;
+
+        // Crown pools for ruling clan members (combined)
         // Key: CultureId -> Items
         private Dictionary<string, MBList<ItemObject>> _femaleCrownPools;
         private Dictionary<string, MBList<ItemObject>> _maleCrownPools;
 
-        // Civilian weapon pools (one-handed melee for males)
+        // Lord-specific crown pools
+        private Dictionary<string, MBList<ItemObject>> _femaleLordCrownPools;
+        private Dictionary<string, MBList<ItemObject>> _maleLordCrownPools;
+
+        // Civilian weapon pools (one-handed melee for males, combined)
         // Key: CultureId -> Items
         private Dictionary<string, MBList<ItemObject>> _civilianWeaponPools;
 
-        // Fallback pools for cultures without specific items
+        // Lord-specific civilian weapon pools
+        private Dictionary<string, MBList<ItemObject>> _civilianLordWeaponPools;
+
+        // Fallback pools for cultures without specific items (combined)
         private Dictionary<EquipmentIndex, MBList<ItemObject>> _fallbackFemalePools;
         private Dictionary<EquipmentIndex, MBList<ItemObject>> _fallbackMalePools;
         private MBList<ItemObject> _fallbackFemaleCrowns;
         private MBList<ItemObject> _fallbackMaleCrowns;
         private MBList<ItemObject> _fallbackWeapons;
+
+        // Lord-specific fallback pools
+        private Dictionary<EquipmentIndex, MBList<ItemObject>> _fallbackFemaleLordPools;
+        private Dictionary<EquipmentIndex, MBList<ItemObject>> _fallbackMaleLordPools;
+        private MBList<ItemObject> _fallbackFemaleLordCrowns;
+        private MBList<ItemObject> _fallbackMaleLordCrowns;
+        private MBList<ItemObject> _fallbackLordWeapons;
 
         #endregion
 
@@ -204,6 +221,7 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: InitializePoolStructures
         private void InitializePoolStructures()
         {
+            // Combined pools (all rosters)
             _femaleCivilianPools = new();
             _maleCivilianPools = new();
             _femaleCrownPools = new();
@@ -214,23 +232,36 @@ namespace Bannerlord.GameMaster.Items
             _fallbackFemaleCrowns = new();
             _fallbackMaleCrowns = new();
             _fallbackWeapons = new();
+
+            // Lord-specific pools
+            _femaleLordCivilianPools = new();
+            _maleLordCivilianPools = new();
+            _femaleLordCrownPools = new();
+            _maleLordCrownPools = new();
+            _civilianLordWeaponPools = new();
+            _fallbackFemaleLordPools = new();
+            _fallbackMaleLordPools = new();
+            _fallbackFemaleLordCrowns = new();
+            _fallbackMaleLordCrowns = new();
+            _fallbackLordWeapons = new();
+
             _initialized = false;
         }
 
         /// MARK: ProcessRoster
         /// <summary>
         /// Processes a single equipment roster and extracts civilian items.
+        /// All non-peasant rosters with a resolvable culture are processed.
+        /// Gender is determined by the IsFemaleTemplate category flag.
+        /// Items from lord rosters are extracted into both the regular pools and lord-specific pools.
+        /// Civilian filtering is done at the individual equipment set level via equipment.IsCivilian.
         /// </summary>
         private void ProcessRoster(MBEquipmentRoster roster)
         {
             if (roster == null)
                 return;
 
-            // Must be an equipment template
-            if (!roster.IsEquipmentTemplate())
-                return;
-
-            // Exclude peasant rosters (they have noble flag but contain peasant items)
+            // Exclude peasant rosters (they contain peasant items)
             if (IsPeasantRoster(roster))
                 return;
 
@@ -239,30 +270,23 @@ namespace Bannerlord.GameMaster.Items
             if (cultureId == null)
                 return;
 
-            bool isFemaleRoster = roster.HasEquipmentFlags(FemaleFlag);
-            bool isNoble = roster.HasEquipmentFlags(NobleFlag);
-            bool isCivilian = roster.HasEquipmentFlags(CivilianFlag);
+            bool isFemale = (roster.EquipmentCategories & EquipmentCategories.IsFemaleTemplate) != 0;
+            bool isLord = (roster.EquipmentCategories & EquipmentCategories.IsLordTemplate) != 0;
 
-            // Female civilian rosters: female + noble + civilian
-            bool isFemaleCivilianRoster = isFemaleRoster && isNoble && isCivilian;
+            // Always extract to combined (regular) pools
+            ExtractCivilianItems(roster, cultureId, isFemale, isLordPool: false);
 
-            // Male civilian rosters: noble + civilian WITHOUT female flag
-            bool isMaleCivilianRoster = !isFemaleRoster && isNoble && isCivilian;
-
-            if (isFemaleCivilianRoster)
+            // Additionally extract to lord-specific pools for lord rosters
+            if (isLord)
             {
-                ExtractCivilianItems(roster, cultureId, isFemale: true);
-            }
-            else if (isMaleCivilianRoster)
-            {
-                ExtractCivilianItems(roster, cultureId, isFemale: false);
+                ExtractCivilianItems(roster, cultureId, isFemale, isLordPool: true);
             }
         }
 
         /// MARK: IsPeasantRoster
         /// <summary>
         /// Checks if the roster is a peasant roster that should be excluded.
-        /// These rosters have the noble flag but contain peasant items.
+        /// These rosters contain peasant items that are not suitable for noble/lord civilian equipment.
         /// </summary>
         private bool IsPeasantRoster(MBEquipmentRoster roster)
         {
@@ -308,22 +332,36 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: ExtractCivilianItems
         /// <summary>
         /// Extracts civilian equipment items from a roster into the appropriate pools.
+        /// When isLordPool is false, items go to the combined pools (regular + lord items together).
+        /// When isLordPool is true, items go to the lord-specific pools (for level 15+ selection).
         /// </summary>
-        private void ExtractCivilianItems(MBEquipmentRoster roster, string cultureId, bool isFemale)
+        private void ExtractCivilianItems(MBEquipmentRoster roster, string cultureId, bool isFemale, bool isLordPool)
         {
             MBReadOnlyList<Equipment> allEquipments = roster.AllEquipments;
             if (allEquipments == null || allEquipments.Count == 0)
                 return;
 
-            // Get target pools
-            Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> targetPools = 
-                isFemale ? _femaleCivilianPools : _maleCivilianPools;
-            Dictionary<string, MBList<ItemObject>> targetCrownPools = 
-                isFemale ? _femaleCrownPools : _maleCrownPools;
-            Dictionary<EquipmentIndex, MBList<ItemObject>> fallbackPools = 
-                isFemale ? _fallbackFemalePools : _fallbackMalePools;
-            MBList<ItemObject> fallbackCrowns = 
-                isFemale ? _fallbackFemaleCrowns : _fallbackMaleCrowns;
+            // Select target pools based on isLordPool flag
+            Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> targetPools =
+                isLordPool
+                    ? (isFemale ? _femaleLordCivilianPools : _maleLordCivilianPools)
+                    : (isFemale ? _femaleCivilianPools : _maleCivilianPools);
+            Dictionary<string, MBList<ItemObject>> targetCrownPools =
+                isLordPool
+                    ? (isFemale ? _femaleLordCrownPools : _maleLordCrownPools)
+                    : (isFemale ? _femaleCrownPools : _maleCrownPools);
+            Dictionary<EquipmentIndex, MBList<ItemObject>> fallbackPools =
+                isLordPool
+                    ? (isFemale ? _fallbackFemaleLordPools : _fallbackMaleLordPools)
+                    : (isFemale ? _fallbackFemalePools : _fallbackMalePools);
+            MBList<ItemObject> fallbackCrowns =
+                isLordPool
+                    ? (isFemale ? _fallbackFemaleLordCrowns : _fallbackMaleLordCrowns)
+                    : (isFemale ? _fallbackFemaleCrowns : _fallbackMaleCrowns);
+            Dictionary<string, MBList<ItemObject>> targetWeaponPools =
+                isLordPool ? _civilianLordWeaponPools : _civilianWeaponPools;
+            MBList<ItemObject> fallbackWeaponPool =
+                isLordPool ? _fallbackLordWeapons : _fallbackWeapons;
 
             // Ensure culture dictionaries exist
             EnsureCulturePoolsExist(cultureId, targetPools);
@@ -331,16 +369,17 @@ namespace Bannerlord.GameMaster.Items
             {
                 targetCrownPools[cultureId] = new();
             }
-            if (!_civilianWeaponPools.ContainsKey(cultureId))
+
+            if (!targetWeaponPools.ContainsKey(cultureId))
             {
-                _civilianWeaponPools[cultureId] = new();
+                targetWeaponPools[cultureId] = new();
             }
 
             // Process each equipment set in the roster
             for (int equipIdx = 0; equipIdx < allEquipments.Count; equipIdx++)
             {
                 Equipment equipment = allEquipments[equipIdx];
-                
+
                 // Only extract items from civilian equipment sets
                 if (!equipment.IsCivilian)
                     continue;
@@ -351,7 +390,7 @@ namespace Bannerlord.GameMaster.Items
                 // Extract weapons (only for male pools since females don't carry civilian weapons)
                 if (!isFemale)
                 {
-                    ExtractWeaponsFromEquipment(equipment, cultureId);
+                    ExtractWeaponsFromEquipment(equipment, cultureId, targetWeaponPools, fallbackWeaponPool);
                 }
             }
         }
@@ -406,6 +445,7 @@ namespace Bannerlord.GameMaster.Items
                         crownPools[cultureId].Add(item);
                         _itemsExtracted++;
                     }
+
                     // Also add to fallback
                     if (!fallbackCrowns.Contains(item))
                     {
@@ -423,6 +463,7 @@ namespace Bannerlord.GameMaster.Items
                             targetPools[cultureId][slot].Add(item);
                             _itemsExtracted++;
                         }
+
                         // Also add to fallback
                         EnsureSlotPoolExists(slot, fallbackPools);
                         if (!fallbackPools[slot].Contains(item))
@@ -438,7 +479,11 @@ namespace Bannerlord.GameMaster.Items
         /// <summary>
         /// Extracts one-handed civilian weapons from equipment for male characters.
         /// </summary>
-        private void ExtractWeaponsFromEquipment(Equipment equipment, string cultureId)
+        private void ExtractWeaponsFromEquipment(
+            Equipment equipment,
+            string cultureId,
+            Dictionary<string, MBList<ItemObject>> targetWeaponPools,
+            MBList<ItemObject> fallbackWeaponPool)
         {
             // Check weapon slots
             for (int i = 0; i < 4; i++)
@@ -469,15 +514,16 @@ namespace Bannerlord.GameMaster.Items
 
                 if (isOneHandedMelee)
                 {
-                    if (!_civilianWeaponPools[cultureId].Contains(item))
+                    if (!targetWeaponPools[cultureId].Contains(item))
                     {
-                        _civilianWeaponPools[cultureId].Add(item);
+                        targetWeaponPools[cultureId].Add(item);
                         _itemsExtracted++;
                     }
+
                     // Also add to fallback
-                    if (!_fallbackWeapons.Contains(item))
+                    if (!fallbackWeaponPool.Contains(item))
                     {
-                        _fallbackWeapons.Add(item);
+                        fallbackWeaponPool.Add(item);
                     }
                 }
             }
@@ -499,10 +545,48 @@ namespace Bannerlord.GameMaster.Items
         /// <returns>A random item from the pool that meets appearance requirements, or null if none available.</returns>
         public ItemObject GetRandomItem(string cultureId, bool isFemale, EquipmentIndex slot, bool isRulingClanMember = false, int appearanceBonus = 0)
         {
+            return GetRandomItem(cultureId, isFemale, slot, isRulingClanMember, appearanceBonus, heroLevel: -1);
+        }
+
+        /// MARK: GetRandomItem (level-gated)
+        /// <summary>
+        /// Gets a random item from the appropriate civilian pool for the specified slot.
+        /// For heroes at level 15+, prefers lord-specific pools for higher quality gear.
+        /// Falls back to combined pools if lord pool has no suitable items.
+        /// </summary>
+        /// <param name="cultureId">The culture ID to select from.</param>
+        /// <param name="isFemale">Whether the hero is female.</param>
+        /// <param name="slot">The equipment slot.</param>
+        /// <param name="isRulingClanMember">Whether the hero is a member of a ruling clan.</param>
+        /// <param name="appearanceBonus">Additional appearance requirement (0 or 1) for higher quality items.</param>
+        /// <param name="heroLevel">The hero's level. At 15+, lord-specific pools are preferred. Use -1 to skip level gating.</param>
+        /// <returns>A random item from the pool that meets appearance requirements, or null if none available.</returns>
+        public ItemObject GetRandomItem(string cultureId, bool isFemale, EquipmentIndex slot, bool isRulingClanMember, int appearanceBonus, int heroLevel)
+        {
             EnsureInitialized();
 
+            // Level 15+: try lord-specific pools first
+            if (heroLevel >= LordPoolMinLevel)
+            {
+                ItemObject lordItem = SelectFromPools(cultureId, isFemale, slot, isRulingClanMember, appearanceBonus, useLordPools: true);
+                if (lordItem != null)
+                    return lordItem;
+            }
+
+            // Use combined pools (all items including lord items)
+            return SelectFromPools(cultureId, isFemale, slot, isRulingClanMember, appearanceBonus, useLordPools: false);
+        }
+
+        /// MARK: SelectFromPools
+        /// <summary>
+        /// Selects a random item from the specified pool type (lord or combined) with appearance filtering.
+        /// </summary>
+        private ItemObject SelectFromPools(string cultureId, bool isFemale, EquipmentIndex slot, bool isRulingClanMember, int appearanceBonus, bool useLordPools)
+        {
             Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> pools =
-                isFemale ? _femaleCivilianPools : _maleCivilianPools;
+                useLordPools
+                    ? (isFemale ? _femaleLordCivilianPools : _maleLordCivilianPools)
+                    : (isFemale ? _femaleCivilianPools : _maleCivilianPools);
 
             // Try culture-specific pool first
             if (cultureId != null &&
@@ -531,8 +615,10 @@ namespace Bannerlord.GameMaster.Items
 
             // Fallback to generic pool
             Dictionary<EquipmentIndex, MBList<ItemObject>> fallbackPools =
-                isFemale ? _fallbackFemalePools : _fallbackMalePools;
-            
+                useLordPools
+                    ? (isFemale ? _fallbackFemaleLordPools : _fallbackMaleLordPools)
+                    : (isFemale ? _fallbackFemalePools : _fallbackMalePools);
+
             if (fallbackPools.TryGetValue(slot, out MBList<ItemObject> fallbackItems) &&
                 fallbackItems.Count > 0)
             {
@@ -576,16 +662,36 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: GetCrown
         /// <summary>
         /// Gets a crown for ruling clan members.
+        /// For heroes level 15+, prefers lord-specific crown pools.
         /// </summary>
-        public ItemObject GetCrown(string cultureId, bool isFemale)
+        public ItemObject GetCrown(string cultureId, bool isFemale, int heroLevel = -1)
         {
             EnsureInitialized();
 
-            Dictionary<string, MBList<ItemObject>> crownPools = 
-                isFemale ? _femaleCrownPools : _maleCrownPools;
+            // Level 15+: try lord-specific crown pool first
+            if (heroLevel >= LordPoolMinLevel)
+            {
+                ItemObject lordCrown = SelectCrownFromPools(cultureId, isFemale, useLordPools: true);
+                if (lordCrown != null)
+                    return lordCrown;
+            }
+
+            return SelectCrownFromPools(cultureId, isFemale, useLordPools: false);
+        }
+
+        /// MARK: SelectCrownFromPools
+        /// <summary>
+        /// Selects a crown from the specified pool type (lord or combined).
+        /// </summary>
+        private ItemObject SelectCrownFromPools(string cultureId, bool isFemale, bool useLordPools)
+        {
+            Dictionary<string, MBList<ItemObject>> crownPools =
+                useLordPools
+                    ? (isFemale ? _femaleLordCrownPools : _maleLordCrownPools)
+                    : (isFemale ? _femaleCrownPools : _maleCrownPools);
 
             // Try culture-specific crown pool
-            if (cultureId != null && 
+            if (cultureId != null &&
                 crownPools.TryGetValue(cultureId, out MBList<ItemObject> crowns) &&
                 crowns.Count > 0)
             {
@@ -593,7 +699,11 @@ namespace Bannerlord.GameMaster.Items
             }
 
             // Fallback to any crown
-            MBList<ItemObject> fallbackCrowns = isFemale ? _fallbackFemaleCrowns : _fallbackMaleCrowns;
+            MBList<ItemObject> fallbackCrowns =
+                useLordPools
+                    ? (isFemale ? _fallbackFemaleLordCrowns : _fallbackMaleLordCrowns)
+                    : (isFemale ? _fallbackFemaleCrowns : _fallbackMaleCrowns);
+
             if (fallbackCrowns.Count > 0)
             {
                 return SelectRandomItem(fallbackCrowns);
@@ -605,23 +715,45 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: GetCivilianWeapon
         /// <summary>
         /// Gets a one-handed civilian weapon for male characters.
+        /// For heroes level 15+, prefers lord-specific weapon pools.
         /// </summary>
-        public ItemObject GetCivilianWeapon(string cultureId)
+        public ItemObject GetCivilianWeapon(string cultureId, int heroLevel = -1)
         {
             EnsureInitialized();
 
+            // Level 15+: try lord-specific weapon pool first
+            if (heroLevel >= LordPoolMinLevel)
+            {
+                ItemObject lordWeapon = SelectWeaponFromPools(cultureId, useLordPools: true);
+                if (lordWeapon != null)
+                    return lordWeapon;
+            }
+
+            return SelectWeaponFromPools(cultureId, useLordPools: false);
+        }
+
+        /// MARK: SelectWeaponFromPools
+        /// <summary>
+        /// Selects a civilian weapon from the specified pool type (lord or combined).
+        /// </summary>
+        private ItemObject SelectWeaponFromPools(string cultureId, bool useLordPools)
+        {
+            Dictionary<string, MBList<ItemObject>> weaponPools =
+                useLordPools ? _civilianLordWeaponPools : _civilianWeaponPools;
+
             // Try culture-specific weapon pool
-            if (cultureId != null && 
-                _civilianWeaponPools.TryGetValue(cultureId, out MBList<ItemObject> weapons) &&
+            if (cultureId != null &&
+                weaponPools.TryGetValue(cultureId, out MBList<ItemObject> weapons) &&
                 weapons.Count > 0)
             {
                 return SelectRandomItem(weapons);
             }
 
             // Fallback to any civilian weapon
-            if (_fallbackWeapons.Count > 0)
+            MBList<ItemObject> fallbackWeaponPool = useLordPools ? _fallbackLordWeapons : _fallbackWeapons;
+            if (fallbackWeaponPool.Count > 0)
             {
-                return SelectRandomItem(_fallbackWeapons);
+                return SelectRandomItem(fallbackWeaponPool);
             }
 
             return null;
@@ -635,14 +767,14 @@ namespace Bannerlord.GameMaster.Items
         {
             EnsureInitialized();
 
-            Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> pools = 
+            Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> pools =
                 isFemale ? _femaleCivilianPools : _maleCivilianPools;
 
             if (cultureId == null || !pools.TryGetValue(cultureId, out Dictionary<EquipmentIndex, MBList<ItemObject>> culturePools))
                 return false;
 
             // Check if we have at least body items
-            return culturePools.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> bodyItems) && 
+            return culturePools.TryGetValue(EquipmentIndex.Body, out MBList<ItemObject> bodyItems) &&
                    bodyItems.Count > 0;
         }
 
@@ -661,7 +793,7 @@ namespace Bannerlord.GameMaster.Items
 
         /// MARK: EnsureCulturePoolsExist
         private void EnsureCulturePoolsExist(
-            string cultureId, 
+            string cultureId,
             Dictionary<string, Dictionary<EquipmentIndex, MBList<ItemObject>>> pools)
         {
             if (!pools.ContainsKey(cultureId))
@@ -692,7 +824,7 @@ namespace Bannerlord.GameMaster.Items
 
         /// MARK: EnsureSlotPoolExists
         private void EnsureSlotPoolExists(
-            EquipmentIndex slot, 
+            EquipmentIndex slot,
             Dictionary<EquipmentIndex, MBList<ItemObject>> pools)
         {
             if (!pools.ContainsKey(slot))

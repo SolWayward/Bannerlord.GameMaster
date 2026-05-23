@@ -2170,9 +2170,12 @@ namespace Bannerlord.GameMaster.Items
         /// MARK: GetCivilianEquipmentSet
         /// <summary>
         /// Generates a complete civilian equipment set for a hero using roster-based item pools.
-        /// Items are extracted directly from game equipment rosters based on their EquipmentFlags,
+        /// Items are extracted directly from game equipment rosters based on their EquipmentCategories,
         /// providing more authentic and culture-appropriate civilian outfits.
         /// Each armor slot has a 20% chance to get +1 appearance bonus for higher quality items.
+        ///
+        /// For heroes level 15+, lord-specific pools are preferred for higher quality civilian gear.
+        /// Below level 15, items are drawn from the combined pool (all rosters including lord).
         ///
         /// Slot selection rules:
         /// - Body: 100% (always equip)
@@ -2184,7 +2187,7 @@ namespace Bannerlord.GameMaster.Items
         /// </summary>
         /// <param name="hero">The hero to generate equipment for (used for crown eligibility).</param>
         /// <param name="culture">The culture to use for item selection. If null, uses fallback items.</param>
-        /// <param name="heroLevel">The hero's level (unused in roster-based selection but kept for API compatibility).</param>
+        /// <param name="heroLevel">The hero's level. At 15+, lord-specific pools are preferred for higher quality gear.</param>
         /// <param name="isFemale">Whether the hero is female (affects equipment selection and slot chances).</param>
         /// <param name="includeNeutralItems">Unused in roster-based selection but kept for API compatibility.</param>
         /// <returns>A new Equipment object with civilian equipment.</returns>
@@ -2211,7 +2214,7 @@ namespace Bannerlord.GameMaster.Items
 
             // MARK: Body - 100% (with 20% chance for +1 appearance bonus)
             int bodyAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
-            ItemObject bodyItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Body, isRulingClanMember, bodyAppearanceBonus);
+            ItemObject bodyItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Body, isRulingClanMember, bodyAppearanceBonus, heroLevel);
             if (bodyItem != null)
             {
                 equipment[EquipmentIndex.Body] = new EquipmentElement(bodyItem);
@@ -2221,7 +2224,7 @@ namespace Bannerlord.GameMaster.Items
             // Crowns exempt from appearance check
             if (isRulingClanMember)
             {
-                ItemObject crown = _civilianPoolManager.GetCrown(cultureId, isFemale);
+                ItemObject crown = _civilianPoolManager.GetCrown(cultureId, isFemale, heroLevel);
                 if (crown != null)
                 {
                     equipment[EquipmentIndex.Head] = new EquipmentElement(crown);
@@ -2231,7 +2234,7 @@ namespace Bannerlord.GameMaster.Items
             {
                 // 20% chance for +1 appearance bonus on head items
                 int headAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
-                ItemObject headItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Head, isRulingClanMember, headAppearanceBonus);
+                ItemObject headItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Head, isRulingClanMember, headAppearanceBonus, heroLevel);
                 if (headItem != null)
                 {
                     equipment[EquipmentIndex.Head] = new EquipmentElement(headItem);
@@ -2242,7 +2245,7 @@ namespace Bannerlord.GameMaster.Items
             if (_random.NextRandomInt(100) < 50)
             {
                 int capeAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
-                ItemObject capeItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Cape, isRulingClanMember, capeAppearanceBonus);
+                ItemObject capeItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Cape, isRulingClanMember, capeAppearanceBonus, heroLevel);
                 if (capeItem != null)
                 {
                     equipment[EquipmentIndex.Cape] = new EquipmentElement(capeItem);
@@ -2254,7 +2257,7 @@ namespace Bannerlord.GameMaster.Items
             if (_random.NextRandomInt(100) < gloveChance)
             {
                 int glovesAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
-                ItemObject glovesItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Gloves, isRulingClanMember, glovesAppearanceBonus);
+                ItemObject glovesItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Gloves, isRulingClanMember, glovesAppearanceBonus, heroLevel);
                 if (glovesItem != null)
                 {
                     equipment[EquipmentIndex.Gloves] = new EquipmentElement(glovesItem);
@@ -2263,7 +2266,7 @@ namespace Bannerlord.GameMaster.Items
 
             // MARK: Legs - 100% (with 20% chance for +1 appearance bonus)
             int legAppearanceBonus = _random.NextRandomInt(100) < 20 ? 1 : 0;
-            ItemObject legItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Leg, isRulingClanMember, legAppearanceBonus);
+            ItemObject legItem = _civilianPoolManager.GetRandomItem(cultureId, isFemale, EquipmentIndex.Leg, isRulingClanMember, legAppearanceBonus, heroLevel);
             if (legItem != null)
             {
                 equipment[EquipmentIndex.Leg] = new EquipmentElement(legItem);
@@ -2272,7 +2275,7 @@ namespace Bannerlord.GameMaster.Items
             // MARK: Weapon - Males only (no appearance bonus for weapons)
             if (!isFemale)
             {
-                ItemObject weaponItem = _civilianPoolManager.GetCivilianWeapon(cultureId);
+                ItemObject weaponItem = _civilianPoolManager.GetCivilianWeapon(cultureId, heroLevel);
                 if (weaponItem != null)
                 {
                     equipment[EquipmentIndex.Weapon0] = new EquipmentElement(weaponItem);

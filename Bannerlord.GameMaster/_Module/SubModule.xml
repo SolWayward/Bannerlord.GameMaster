@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Module xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/BUTR/Bannerlord.XmlSchemas/master/SubModule.xsd" >
-  <Id value="$moduleid$" />
-  <Name value="$modulename$" />
+	<!-- <Id value="$moduleid$" /> -->
+	 <Id value="Bannerlord.GameMaster" /> 
+	<!-- <Name value="$modulename$" /> -->
+	<Name value="Bannerlord.GameMaster" />
   <Version value="v$version$" />
   <DefaultModule value="false" />
   <ModuleCategory value="Singleplayer"/>
