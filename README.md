@@ -10,17 +10,13 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.3.15.1
+## Latest Update v1.4.5.1
 
 ```
-Updated to support Commander kingdom management and party command system
+Updated to add compatibility for Bannerlord v1.4.x
+If also using Commander, make sure the Commander version matches BLGM
 
-Previous Update:
-Fixed crash when impregnating a female that has no clan such as notables
-
-Added Appearance save / load system
-Added Skills, Attributes, Perks, Focus Points, and traits save / load system
-Added character export / import
+If you need the version for Bannerlord v1.3.x, download a previous version from the releases section.
 ```
 
 ---
