@@ -10,6 +10,8 @@ namespace Bannerlord.GameMaster
 {
     public class SubModule : MBSubModuleBase
     {
+        private const string RequiredMinBannerlordVersion = "v1.5.5";
+
         // MARK: OnModuleLoad
         protected override void OnSubModuleLoad()
         {
@@ -17,6 +19,16 @@ namespace Bannerlord.GameMaster
 
             // Opens a system console if bannerlord is launched with /systemconsole
             SystemConsoleManager.ShowConsoleIfLaunchedWithCommandLineOption();
+
+            // Validates Bannerlord game version
+            if (!GameEnvironment.BannerlordIsVersionOrGreater(1, 5, 5))
+            {
+                string errorMessage = $"Bannerlord.GameMaster requires the Bannerlord {RequiredMinBannerlordVersion}+. " +
+                    $"Detected version: {GameEnvironment.BannerlordVersion}. " +
+                    $"Please update Mount & Blade II: Bannerlord to the latest version.";
+
+                InfoMessage.Error(errorMessage);
+            }
 
             //CreateMainMenuButton(); // For Testing purposes (May use for new game options or configs in the future)
         }

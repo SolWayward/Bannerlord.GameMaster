@@ -725,7 +725,7 @@ namespace Bannerlord.GameMaster.Heroes
 
 			// Let the native system initialize the hero developer
 			// This will calculate level from skills and set up attribute/focus points
-			hero.HeroDeveloper.InitializeHeroDeveloper();
+			hero.HeroDeveloper.InitializeHeroDeveloper(true);
 		}
 
 		/// MARK: BuildSkillCategories

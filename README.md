@@ -10,13 +10,13 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 
 ---
 
-## Latest Update v1.4.5.1
+## Latest Update v1.5.5
 
 ```
-Updated to add compatibility for Bannerlord v1.4.x
+Updated to add compatibility for Bannerlord v1.5.x
 If also using Commander, make sure the Commander version matches BLGM
 
-If you need the version for Bannerlord v1.3.x, download a previous version from the releases section.
+If you need the version for Bannerlord v1.4.x, download a previous version from the releases section.
 ```
 
 ---

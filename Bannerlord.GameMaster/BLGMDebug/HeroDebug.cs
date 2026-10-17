@@ -69,7 +69,7 @@ namespace Bannerlord.GameMaster.BLGMDebug
             string debugInfo = $"=============================={hero.Name}==============================";
             debugInfo += "\n---------GetCaptainRatingForTroopUsages---------";
             debugInfo += "\nOnfoot Perk Ratings:";
-            DefaultBattleCaptainModel model = new(); model.GetCaptainRatingForTroopUsages(hero, TroopUsageFlags.OnFoot, out List<PerkObject> perks2);
+            DefaultBattleCaptainModel model = new(); model.GetCaptainRatingForTroopUsages(hero, TroopUsageFlags.OnFoot, BattleEnvironment.Any, out List<PerkObject> perks2);
             foreach (PerkObject perk in perks2)
             {
                 debugInfo += $"\nOnFootCaptainPerk:{perk.Name}, skill:{perk.Skill}";
