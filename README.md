@@ -8,7 +8,7 @@ BLGM provides the ability to create and manage kingdoms, heroes, wanderers, clan
 [**Developer API Reference**](https://solwayward.github.io/Bannerlord.GameMaster/api/index)  
 *API Reference for mod developers using BLGM as a framework or helper for developing mods*
 
-[Commander](https://github.com/SolWayward/Bannerlord.Commander)
+[Commander](https://www.nexusmods.com/mountandblade2bannerlord/mods/10127?tab=files](https://www.nexusmods.com/mountandblade2bannerlord/mods/10127?tab=files)
 Interactive GUI management system built onto of BLGM
 
 ---
